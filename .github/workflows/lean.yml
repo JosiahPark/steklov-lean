@@ -23,9 +23,21 @@ jobs:
 
       # Installs the pinned Lean toolchain and downloads the prebuilt Mathlib cache.
       - uses: leanprover/lean-action@v1
+        id: setup
+        timeout-minutes: 12
+        continue-on-error: true
         with:
           build: false
           use-mathlib-cache: true
+
+      # The Mathlib cache download occasionally stalls near the end; retry it once.
+      - name: Retry Mathlib cache download
+        if: steps.setup.outcome != 'success'
+        timeout-minutes: 15
+        shell: bash
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          lake exe cache get
 
       # Build ourselves so the compiler output is saved for the status report.
       - name: Build
