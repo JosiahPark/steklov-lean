@@ -25,4 +25,19 @@ theorem inv_add_sq_le_one_add_sq (lam L : ℝ) (hlam : 1 ≤ lam) (hL : 0 ≤ L)
   have key : (1 + L) ^ 2 - (lam⁻¹ + L) ^ 2 = (1 - lam⁻¹) * (1 + lam⁻¹ + 2 * L) := by ring
   nlinarith [mul_nonneg hsub hsum]
 
+/-- A2. For `λ > 0`: `C (1 + λL)² · λ⁻² = C (λ⁻¹ + L)²`. -/
+theorem scaled_sq_mul_inv_sq (C lam L : ℝ) (hlam : 0 < lam) :
+    C * (1 + lam * L) ^ 2 * lam⁻¹ ^ 2 = C * (lam⁻¹ + L) ^ 2 := by
+  have h : lam ≠ 0 := ne_of_gt hlam
+  have e : lam⁻¹ + L = (1 + lam * L) * lam⁻¹ := by
+    rw [add_mul, one_mul, mul_comm lam L, mul_assoc, mul_inv_cancel₀ h, mul_one]
+  rw [e]
+  ring
+
+/-- A2, division form: `C (1 + λL)² / λ² = C (λ⁻¹ + L)²` for `λ > 0`. -/
+theorem scaled_sq_div_sq (C lam L : ℝ) (hlam : 0 < lam) :
+    C * (1 + lam * L) ^ 2 / lam ^ 2 = C * (lam⁻¹ + L) ^ 2 := by
+  rw [div_eq_mul_inv, ← inv_pow]
+  exact scaled_sq_mul_inv_sq C lam L hlam
+
 end SteklovAudit.UniformHS71
