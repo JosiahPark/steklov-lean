@@ -52,7 +52,8 @@ def main():
     OUT.mkdir(exist_ok=True)
     decls = collect()
     probe = ROOT / "AxiomAudit.lean"
-    probe.write_text("import SteklovAudit\n\n" + "\n".join(f"#print axioms {n}" for _, n in decls) + "\n")
+    extra = [f"import SteklovAudit.{p.stem}" for p in sorted((ROOT / "SteklovAudit").glob("*.lean"))]
+    probe.write_text("\n".join(["import SteklovAudit"] + extra) + "\n\n" + "\n".join(f"#print axioms {n}" for _, n in decls) + "\n")
     proc = subprocess.run(["lake", "env", "lean", str(probe)], cwd=ROOT, capture_output=True, text=True)
     out = proc.stdout + proc.stderr
 
