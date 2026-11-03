@@ -1,0 +1,3 @@
+-- New Lean modules for the Steklov project go in this folder (SteklovAudit/<Name>.lean).
+-- Each one should start with `import Mathlib` and use `namespace SteklovAudit`.
+-- They are built automatically; no import line in SteklovAudit.lean is needed.
