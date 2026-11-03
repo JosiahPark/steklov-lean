@@ -13,7 +13,7 @@ The written proof is in the Claude Doc "Uniform localized Hilbert–Schmidt boun
 Put these in `SteklovAudit/UniformHS71.lean` (one item per run, appended to that file).
 
 - [x] A1. (λ⁻¹ + L)² ≤ (1 + L)² for λ ≥ 1, L ≥ 0.
-- [ ] A2. C(1 + λL)² · λ⁻² = C(λ⁻¹ + L)² for λ > 0.
+- [x] A2. C(1 + λL)² · λ⁻² = C(λ⁻¹ + L)² for λ > 0.
 - [ ] A3. For λ > 0: t/λ ≤ L ↔ t ≤ λL, and the resulting equality of spectral indicator
       sums over a finite spectrum (1_[0,L](λ⁻¹T) = 1_[0,λL](T)).
 - [ ] A5. λ⁻¹ · C · (λ · G) = C · G for λ > 0 (gradient-scaling cancellation).
