@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-03 21:12 UTC",
+  "checked_at": "2026-11-03 22:14 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 147,
-  "verified": 147,
+  "theorems": 149,
+  "verified": 149,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1451,6 +1451,26 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.scaled_sq_div_sq",
       "axioms": [
         "propext",
         "Classical.choice",

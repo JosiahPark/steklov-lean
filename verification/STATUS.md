@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-03 21:12 UTC. 147 of 147 theorems compile with only Lean's standard axioms.
+Checked 2026-11-03 22:14 UTC. 149 of 149 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -155,3 +155,5 @@ two-scale bound as a hypothesis, and no Dirichlet-to-Neumann operator is defined
 | Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_hs_lower_budget` | verified (standard axioms only) |
 | Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_no_uniform_hs_budget` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq` | verified (standard axioms only) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq` | verified (standard axioms only) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_div_sq` | verified (standard axioms only) |
