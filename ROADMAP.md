@@ -12,7 +12,7 @@ what it does NOT prove, and uses no `sorry`, `axiom` or other escape hatch.
 The written proof is in the Claude Doc "Uniform localized Hilbert–Schmidt bound (7.2')".
 Put these in `SteklovAudit/UniformHS71.lean` (one item per run, appended to that file).
 
-- [ ] A1. (λ⁻¹ + L)² ≤ (1 + L)² for λ ≥ 1, L ≥ 0.
+- [x] A1. (λ⁻¹ + L)² ≤ (1 + L)² for λ ≥ 1, L ≥ 0.
 - [ ] A2. C(1 + λL)² · λ⁻² = C(λ⁻¹ + L)² for λ > 0.
 - [ ] A3. For λ > 0: t/λ ≤ L ↔ t ≤ λL, and the resulting equality of spectral indicator
       sums over a finite spectrum (1_[0,L](λ⁻¹T) = 1_[0,λL](T)).
