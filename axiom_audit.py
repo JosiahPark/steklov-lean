@@ -48,6 +48,26 @@ def collect():
     return decls
 
 
+def error_blocks(path, max_lines=600):
+    """Each Lean error line plus the message lines that follow it (goal states etc.)."""
+    if not path.exists():
+        return []
+    lines = path.read_text(errors="replace").splitlines()
+    out, keep = [], False
+    starts = ("error", "warning", "info:", "\u2714", "\u26a0", "\u2716", "Some required", "Build completed")
+    for line in lines:
+        s = line.strip()
+        if s.startswith("error"):
+            keep = True
+        elif s.startswith(starts):
+            keep = False
+        if keep:
+            out.append(line)
+        if len(out) >= max_lines:
+            break
+    return out
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     decls = collect()
@@ -108,9 +128,9 @@ def main():
     lines += [f"| {r['file']} | `{r['theorem']}` | {r['status']} |" for r in rows]
     build_log = ROOT / "build.log"
     if build_log.exists():
-        errs = [l for l in build_log.read_text(errors="replace").splitlines() if "error" in l.lower()]
+        errs = error_blocks(build_log)
         if errs:
-            lines += ["", "## Build errors", "", "```", "\n".join(errs[:80]), "```"]
+            lines += ["", "## Build errors", "", "```", "\n".join(errs), "```"]
     if proc.returncode != 0:
         lines += ["", "## Lean output", "", "```", out[-6000:], "```"]
     (OUT / "STATUS.md").write_text("\n".join(lines) + "\n")

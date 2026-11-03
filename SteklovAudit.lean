@@ -29,7 +29,7 @@ theorem tetra_face_count : Nat.choose 4 3 = 4 := by
 
 /-- Six pairwise distinct edges on four vertices. -/
 theorem tetra_edge_count : Nat.choose 4 2 = 6 := by
-  norm_num
+  rfl
 
 /-- The total area of four equilateral faces, given the standard one-face formula. -/
 theorem tetra_surface_area (a : ℝ) :
@@ -90,9 +90,10 @@ theorem dihedral_integrand_algebra (p a x : ℝ)
       (Real.cosh (p * x) * Real.sinh (a * x)) =
       (Real.sinh (p * x) / Real.cosh (p * x)) *
       (Real.cosh (a * x) / Real.sinh (a * x)) - 1 := by
-  rw [hyperbolic_subtraction]
-  field_simp [hc, hs]
-  <;> ring
+  rw [hyperbolic_subtraction, div_mul_div_comm, eq_sub_iff_add_eq,
+    div_add_one (mul_ne_zero hc hs)]
+  congr 1
+  ring
 
 /-- The right-angle integrand reduces algebraically to the hyperbolic secant. -/
 theorem right_angle_integrand (v : ℝ)
@@ -103,8 +104,7 @@ theorem right_angle_integrand (v : ℝ)
       1 / Real.cosh (Real.pi * v) := by
   have harg : (Real.pi - Real.pi / 2) * v = (Real.pi / 2) * v := by
     ring
-  rw [harg]
-  field_simp [hc, hs]
+  rw [harg, mul_comm (Real.cosh (Real.pi * v)), ← div_div, div_self hs]
 
 end SteklovAudit
 
@@ -1216,19 +1216,17 @@ theorem polynomial_duhamel_contraction_bound
     {R : Type*} [NormedRing R]
     (a b r : R) (ha : ‖a‖ ≤ 1) (hb : ‖b‖ ≤ 1) (n : ℕ) :
     ‖a ^ n * r - r * b ^ n‖ ≤ (n : ℝ) * ‖a * r - r * b‖ := by
-  let d : R := a * r - r * b
-  have hpow : ∀ m : ℕ, ‖a ^ m‖ ≤ 1 := by
+  set d : R := a * r - r * b with hd
+  have hpowd : ∀ m : ℕ, ‖a ^ m * d‖ ≤ ‖d‖ := by
     intro m
     induction m with
     | zero => simp
     | succ m ih =>
         calc
-          ‖a ^ (m + 1)‖ ≤ ‖a ^ m‖ * ‖a‖ := by
-            rw [pow_succ]
-            exact norm_mul_le _ _
-          _ ≤ 1 * ‖a‖ := mul_le_mul_of_nonneg_right ih (norm_nonneg _)
-          _ ≤ 1 * 1 := mul_le_mul_of_nonneg_left ha (by norm_num)
-          _ = 1 := by ring
+          ‖a ^ (m + 1) * d‖ = ‖a * (a ^ m * d)‖ := by rw [pow_succ', mul_assoc]
+          _ ≤ ‖a‖ * ‖a ^ m * d‖ := norm_mul_le _ _
+          _ ≤ 1 * ‖d‖ := mul_le_mul ha ih (norm_nonneg _) zero_le_one
+          _ = ‖d‖ := one_mul _
   have hrec : ∀ m : ℕ,
       ‖polynomialDuhamel a b r m‖ ≤ (m : ℝ) * ‖d‖ := by
     intro m
@@ -1241,23 +1239,14 @@ theorem polynomial_duhamel_contraction_bound
             _ ≤ ‖polynomialDuhamel a b r m‖ * ‖b‖ := norm_mul_le _ _
             _ ≤ ‖polynomialDuhamel a b r m‖ * 1 :=
               mul_le_mul_of_nonneg_left hb (norm_nonneg _)
-            _ = ‖polynomialDuhamel a b r m‖ := by ring
-        have hright : ‖a ^ m * d‖ ≤ ‖d‖ := by
-          calc
-            _ ≤ ‖a ^ m‖ * ‖d‖ := norm_mul_le _ _
-            _ ≤ 1 * ‖d‖ := mul_le_mul_of_nonneg_right (hpow m) (norm_nonneg _)
-            _ = ‖d‖ := by ring
-        change ‖polynomialDuhamel a b r m * b + a ^ m * d‖ ≤
-          ((m + 1 : ℕ) : ℝ) * ‖d‖
+            _ = ‖polynomialDuhamel a b r m‖ := mul_one _
+        have hstep : polynomialDuhamel a b r (m + 1) =
+            polynomialDuhamel a b r m * b + a ^ m * d := rfl
+        rw [hstep]
         calc
-          _ ≤ ‖polynomialDuhamel a b r m * b‖ + ‖a ^ m * d‖ :=
-            norm_add_le _ _
-          _ ≤ ‖polynomialDuhamel a b r m‖ + ‖d‖ :=
-            add_le_add hleft hright
-          _ ≤ (m : ℝ) * ‖d‖ + ‖d‖ := add_le_add_right ih _
-          _ = ((m + 1 : ℕ) : ℝ) * ‖d‖ := by
-            push_cast
-            ring
+          _ ≤ ‖polynomialDuhamel a b r m * b‖ + ‖a ^ m * d‖ := norm_add_le _ _
+          _ ≤ (m : ℝ) * ‖d‖ + ‖d‖ := by linarith [hpowd m]
+          _ = ((m + 1 : ℕ) : ℝ) * ‖d‖ := by push_cast; ring
   rw [← polynomial_duhamel_identity a b r n]
   exact hrec n
 
@@ -1299,7 +1288,7 @@ theorem truncated_exp_quasicommutator
           polynomialDuhamel a b r n := by
   classical
   unfold truncatedExp
-  rw [Finset.sum_mul, mul_sum, ← Finset.sum_sub_distrib]
+  rw [Finset.sum_mul, Finset.mul_sum, ← Finset.sum_sub_distrib]
   apply Finset.sum_congr rfl
   intro n hn
   rw [polynomial_duhamel_identity]
@@ -1371,7 +1360,7 @@ theorem finite_hs_tail_vanishes {I J : Type*}
     finiteHSSquare rows (cols.filter (fun j => L ≤ energy j)) k = 0 := by
   classical
   have hempty : cols.filter (fun j => L ≤ energy j) = ∅ := by
-    apply Finset.eq_empty_iff_forall_not_mem.mpr
+    apply Finset.eq_empty_iff_forall_notMem.mpr
     intro j hj
     have hjc : j ∈ cols := (Finset.mem_filter.mp hj).1
     have hje : L ≤ energy j := (Finset.mem_filter.mp hj).2
@@ -1489,7 +1478,7 @@ theorem finite_spectral_count_below_bottom
     (s.filter (fun i => energy i ≤ L)).card = 0 := by
   classical
   have hempty : s.filter (fun i => energy i ≤ L) = ∅ := by
-    apply Finset.eq_empty_iff_forall_not_mem.mpr
+    apply Finset.eq_empty_iff_forall_notMem.mpr
     intro i hi
     have his : i ∈ s := (Finset.mem_filter.mp hi).1
     have hile : energy i ≤ L := (Finset.mem_filter.mp hi).2
@@ -1751,7 +1740,7 @@ theorem finite_weighted_tail_bound
         rw [Finset.mul_sum]
       _ ≤ ∑ i ∈ s, energy i * mass i := hsum
       _ ≤ C := hbudget
-  exact (le_div_iff₀ hL).2 hfactor
+  exact (le_div_iff₀ hL).2 (by linarith)
 
 /-- Uniform moment control gives a common finite-energy cutoff bound.
     No compactness or operator-specific assumption is smuggled in. -/
@@ -1973,13 +1962,14 @@ theorem geometric_scale_budget (n : ℕ) (r : ℚ)
     (∑ i ∈ Finset.range n, r ^ i) ≤ 1 / (1-r) := by
   have hden : 0 < 1-r := sub_pos.mpr hr1
   have hpow : 0 ≤ r^n := pow_nonneg hr0 _
-  have hsum : (∑ i ∈ Finset.range n, r ^ i) * (1-r) = 1-r^n := by
-    induction n with
+  have hsum' : ∀ m : ℕ, (∑ i ∈ Finset.range m, r ^ i) * (1-r) = 1-r^m := by
+    intro m
+    induction m with
     | zero => simp
-    | succ n ih =>
-      rw [Finset.sum_range_succ]
-      rw [add_mul, ih]
+    | succ m ih =>
+      rw [Finset.sum_range_succ, add_mul, ih]
       ring
+  have hsum := hsum' n
   apply (le_div_iff₀ hden).2
   rw [hsum]
   linarith
@@ -2039,16 +2029,20 @@ theorem multiplicity_even (k : ℕ) : multiplicity (2*k) = 6*k+1 := by
   omega
 
 theorem multiplicity_odd (k : ℕ) : multiplicity (2*k+1) = 2*k+2 := by
-  have h : ¬ Even (2*k+1) := by omega
-  simp [multiplicity, h]
-  omega
+  have h : ¬ Even (2*k+1) := by
+    rw [Nat.not_even_iff_odd]
+    exact ⟨k, rfl⟩
+  unfold multiplicity
+  rw [if_neg h]
+  all_goals omega
 
 -- The following pairwise counting identity is the source-level target;
 -- it is NOT used as an axiom by any other module.
 theorem pair_multiplicity (k : ℕ) :
     multiplicity (2*k+1) + multiplicity (2*k+2) = 8*k+9 := by
-  rw [multiplicity_odd]
-  convert multiplicity_even (k+1) using 1 <;> omega
+  have h2 : 2*k+2 = 2*(k+1) := by ring
+  rw [multiplicity_odd, h2, multiplicity_even]
+  all_goals omega
 
 end SteklovAudit.Section11DiscreteHeatObstruction
 
@@ -2150,8 +2144,14 @@ theorem scale_error_partial_bound (n : ℕ) (r : ℝ)
     (hr0 : 0 ≤ r) (hr1 : r < 1) :
     (∑ k ∈ Finset.range n, r ^ k) ≤ 1 / (1-r) := by
   have h : 0 < 1-r := sub_pos.mpr hr1
-  have hsum : (∑ k ∈ Finset.range n, r ^ k) * (1-r) = 1-r^n := by
-    rw [geom_sum_mul]
+  have hsum' : ∀ m : ℕ, (∑ k ∈ Finset.range m, r ^ k) * (1-r) = 1-r^m := by
+    intro m
+    induction m with
+    | zero => simp
+    | succ m ih =>
+      rw [Finset.sum_range_succ, add_mul, ih]
+      ring
+  have hsum := hsum' n
   have hp : 0 ≤ r^n := pow_nonneg hr0 _
   apply (le_div_iff₀ h).mpr
   nlinarith
@@ -2173,7 +2173,7 @@ theorem duplicate_rank_overcount (n q : ℕ) (hq : 1 ≤ q) :
 /-- The excess in a q-fold exact duplicate is (q-1)n. -/
 theorem duplicate_rank_excess (n q : ℕ) (hq : 1 ≤ q) :
     q * n - n = (q - 1) * n := by
-  omega
+  rw [Nat.sub_mul, one_mul]
 
 /-- A weighted partition has exactly one unit of mass per mode. -/
 theorem weighted_partition_mass (n : ℕ) (weights : Finset ℕ)
@@ -2200,7 +2200,7 @@ theorem joint_frame_rank_budget
     (h : c * (d*d) * (sourceRank - totalTargetRank : ℕ) ≤ defectSq) :
     (sourceRank - totalTargetRank : ℕ) ≤ defectSq / (c * (d*d)) := by
   apply (le_div_iff₀ (mul_pos hc (mul_pos hd hd))).2
-  exact h
+  linarith
 
 /-- A strict one-direction defect threshold rules out rank loss for the joint map. -/
 theorem joint_frame_no_rank_loss
@@ -2247,7 +2247,7 @@ theorem rank_loss_budget
     (sourceRank - targetRank : ℕ) ≤ defectSq / (c * (d * d)) := by
   have hp : 0 < c * (d * d) := mul_pos hc (mul_pos hd hd)
   apply (le_div_iff₀ hp).2
-  exact hbudget
+  linarith
 
 /-- If the gap defect is strictly below the cost of one missing direction,
     the comparison window must have at least the source rank. -/
