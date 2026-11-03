@@ -84,6 +84,7 @@ def main():
     summary = {
         "checked_at": stamp,
         "lean_exit_code": proc.returncode,
+        "build_errors": [l for l in (ROOT / "build.log").read_text(errors="replace").splitlines() if "error" in l.lower()][:80] if (ROOT / "build.log").exists() else [],
         "theorems": len(decls),
         "verified": len(decls) - len(bad),
         "problems": bad,
@@ -105,6 +106,11 @@ def main():
         "|---|---|---|",
     ]
     lines += [f"| {r['file']} | `{r['theorem']}` | {r['status']} |" for r in rows]
+    build_log = ROOT / "build.log"
+    if build_log.exists():
+        errs = [l for l in build_log.read_text(errors="replace").splitlines() if "error" in l.lower()]
+        if errs:
+            lines += ["", "## Build errors", "", "```", "\n".join(errs[:80]), "```"]
     if proc.returncode != 0:
         lines += ["", "## Lean output", "", "```", out[-6000:], "```"]
     (OUT / "STATUS.md").write_text("\n".join(lines) + "\n")
