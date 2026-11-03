@@ -21,13 +21,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Installs the pinned Lean toolchain, downloads the prebuilt Mathlib cache and runs `lake build`.
+      # Installs the pinned Lean toolchain and downloads the prebuilt Mathlib cache.
       - uses: leanprover/lean-action@v1
         with:
-          build: true
+          build: false
           use-mathlib-cache: true
 
-      - name: Axiom audit (fails on sorry or non-standard axioms)
+      # Build ourselves so the compiler output is saved for the status report.
+      - name: Build
+        shell: bash
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee build.log
+
+      - name: Axiom audit (fails on build errors, sorry or non-standard axioms)
+        if: always()
         run: python3 axiom_audit.py
 
       - name: Publish status to the run summary
