@@ -40,4 +40,53 @@ theorem scaled_sq_div_sq (C lam L : ℝ) (hlam : 0 < lam) :
   rw [div_eq_mul_inv, ← inv_pow]
   exact scaled_sq_mul_inv_sq C lam L hlam
 
+/-- A3. For `λ > 0`: `t / λ ≤ L ↔ t ≤ λ L`. -/
+theorem div_le_iff_le_scaled (lam t L : ℝ) (hlam : 0 < lam) :
+    t / lam ≤ L ↔ t ≤ lam * L := by
+  have hne : lam ≠ 0 := ne_of_gt hlam
+  have hinv : lam * lam⁻¹ = 1 := mul_inv_cancel₀ hne
+  have e : lam * (t / lam) = t := by
+    rw [div_eq_mul_inv, mul_comm t, ← mul_assoc, hinv, one_mul]
+  constructor
+  · intro h
+    calc t = lam * (t / lam) := e.symm
+      _ ≤ lam * L := mul_le_mul_of_nonneg_left h hlam.le
+  · intro h
+    have h2 : lam * (t / lam) ≤ lam * L := by rw [e]; exact h
+    first
+      | exact le_of_mul_le_mul_left h2 hlam
+      | nlinarith
+
+/-- A3, spectral form. Over a finite spectrum `T` (indexed by `s`) and any weights `g`,
+the indicator sums agree: `1_[0,L](λ⁻¹T) = 1_[0,λL](T)`. Only the upper cut changes; the
+lower cut `0 ≤ ·` is invariant since `λ > 0`. -/
+theorem indicator_sum_scaled {ι : Type*} (s : Finset ι) (T g : ι → ℝ) (lam L : ℝ)
+    (hlam : 0 < lam) :
+    (∑ i ∈ s, if 0 ≤ T i / lam ∧ T i / lam ≤ L then g i else 0) =
+      ∑ i ∈ s, if 0 ≤ T i ∧ T i ≤ lam * L then g i else 0 := by
+  refine Finset.sum_congr rfl ?_
+  intro i _
+  have hu := div_le_iff_le_scaled lam (T i) L hlam
+  have hl : 0 ≤ T i / lam ↔ 0 ≤ T i := by
+    have := div_le_iff_le_scaled lam (T i) 0 hlam
+    constructor
+    · intro h0
+      by_contra hneg
+      push_neg at hneg
+      have h1 : T i ≤ lam * 0 := by rw [mul_zero]; exact hneg.le
+      have h2 : T i / lam ≤ 0 := this.mpr h1
+      have h3 : T i / lam = 0 := le_antisymm h2 h0
+      have h4 : T i = lam * (T i / lam) := by
+        rw [div_eq_mul_inv, mul_comm (T i), ← mul_assoc, mul_inv_cancel₀ (ne_of_gt hlam),
+          one_mul]
+      rw [h3, mul_zero] at h4
+      linarith
+    · intro h0
+      rw [div_eq_mul_inv]
+      exact mul_nonneg h0 (inv_nonneg.mpr hlam.le)
+  by_cases h : 0 ≤ T i ∧ T i ≤ lam * L
+  · rw [if_pos ⟨hl.mpr h.1, hu.mpr h.2⟩, if_pos h]
+  · have h' : ¬ (0 ≤ T i / lam ∧ T i / lam ≤ L) := fun h' => h ⟨hl.mp h'.1, hu.mp h'.2⟩
+    rw [if_neg h', if_neg h]
+
 end SteklovAudit.UniformHS71
