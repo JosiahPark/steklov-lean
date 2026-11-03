@@ -1,0 +1,53 @@
+name: Steklov Lean verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "40 */6 * * *"   # safety rebuild every 6 hours; pushes trigger a build immediately
+
+concurrency:
+  group: lean-verify
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      # Installs the pinned Lean toolchain, downloads the prebuilt Mathlib cache and runs `lake build`.
+      - uses: leanprover/lean-action@v1
+        with:
+          build: true
+          use-mathlib-cache: true
+
+      - name: Axiom audit (fails on sorry or non-standard axioms)
+        run: python3 axiom_audit.py
+
+      - name: Publish status to the run summary
+        if: always()
+        run: |
+          if [ -f verification/STATUS.md ]; then cat verification/STATUS.md >> "$GITHUB_STEP_SUMMARY"; \
+          else echo "# Lean verification status: FAIL (build did not finish)" >> "$GITHUB_STEP_SUMMARY"; fi
+
+      # Commit the latest status file only when the result changed, so the history shows each change.
+      - name: Commit status if changed
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          [ -f verification/STATUS.json ] || exit 0
+          python3 - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("verification/STATUS.json"); d = json.loads(p.read_text()); d.pop("checked_at", None)
+          pathlib.Path("verification/.status_key").write_text(json.dumps(d, sort_keys=True))
+          PY
+          git add verification/.status_key
+          if git diff --cached --quiet; then echo "Status unchanged"; exit 0; fi
+          git add verification/STATUS.md verification/STATUS.json
+          git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update Lean verification status"
+          git push
