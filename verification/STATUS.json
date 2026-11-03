@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-03 20:41 UTC",
+  "checked_at": "2026-11-03 21:12 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 146,
-  "verified": 146,
+  "theorems": 147,
+  "verified": 147,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1441,6 +1441,16 @@
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_no_uniform_hs_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq",
       "axioms": [
         "propext",
         "Classical.choice",
