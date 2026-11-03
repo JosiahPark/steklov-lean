@@ -1,6 +1,6 @@
 # Lean verification status: FAIL
 
-Checked 2026-11-03 19:28 UTC. 0 of 130 theorems compile with only Lean's standard axioms.
+Checked 2026-11-03 19:36 UTC. 0 of 134 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -138,6 +138,37 @@ two-scale bound as a hypothesis, and no Dirichlet-to-Neumann operator is defined
 | Section7WeightedPolynomialTrace.lean | `SteklovAudit.cubic_intertwining` | NOT CHECKED (name not found by Lean) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_mass_budget` | NOT CHECKED (name not found by Lean) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_count_from_gap` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_diagonal_count` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_shift_energies` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_hs_lower_budget` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_no_uniform_hs_budget` | NOT CHECKED (name not found by Lean) |
+
+## Build errors
+
+```
+error: SteklovAudit.lean:31:49: unsolved goals
+error: SteklovAudit.lean:92:53: unsolved goals
+error: SteklovAudit.lean:103:37: unsolved goals
+error: SteklovAudit.lean:1223:11: unsolved goals
+error: SteklovAudit.lean:1257:37: Type mismatch
+error: SteklovAudit.lean:1302:22: Unknown identifier `mul_sum`
+error: SteklovAudit.lean:1299:39: unsolved goals
+error: SteklovAudit.lean:1374:10: Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`
+error: SteklovAudit.lean:1375:10: No goals to be solved
+error: SteklovAudit.lean:1492:10: Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`
+error: SteklovAudit.lean:1493:10: No goals to be solved
+error: SteklovAudit.lean:1754:27: Application type mismatch: The argument
+error: SteklovAudit.lean:1979:16: unsolved goals
+error: SteklovAudit.lean:2042:32: omega could not prove the goal:
+error: SteklovAudit.lean:2044:2: No goals to be solved
+error: SteklovAudit.lean:2051:46: omega could not prove the goal:
+error: SteklovAudit.lean:2051:46: omega could not prove the goal:
+error: SteklovAudit.lean:2154:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+error: SteklovAudit.lean:2176:2: omega could not prove the goal:
+error: SteklovAudit.lean:2203:2: Type mismatch
+error: SteklovAudit.lean:2250:2: Type mismatch
+error: build failed
+```
 
 ## Lean output
 

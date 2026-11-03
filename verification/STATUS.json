@@ -1,8 +1,31 @@
 {
-  "checked_at": "2026-11-03 19:28 UTC",
+  "checked_at": "2026-11-03 19:36 UTC",
   "lean_exit_code": 1,
-  "build_errors": [],
-  "theorems": 130,
+  "build_errors": [
+    "error: SteklovAudit.lean:31:49: unsolved goals",
+    "error: SteklovAudit.lean:92:53: unsolved goals",
+    "error: SteklovAudit.lean:103:37: unsolved goals",
+    "error: SteklovAudit.lean:1223:11: unsolved goals",
+    "error: SteklovAudit.lean:1257:37: Type mismatch",
+    "error: SteklovAudit.lean:1302:22: Unknown identifier `mul_sum`",
+    "error: SteklovAudit.lean:1299:39: unsolved goals",
+    "error: SteklovAudit.lean:1374:10: Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`",
+    "error: SteklovAudit.lean:1375:10: No goals to be solved",
+    "error: SteklovAudit.lean:1492:10: Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`",
+    "error: SteklovAudit.lean:1493:10: No goals to be solved",
+    "error: SteklovAudit.lean:1754:27: Application type mismatch: The argument",
+    "error: SteklovAudit.lean:1979:16: unsolved goals",
+    "error: SteklovAudit.lean:2042:32: omega could not prove the goal:",
+    "error: SteklovAudit.lean:2044:2: No goals to be solved",
+    "error: SteklovAudit.lean:2051:46: omega could not prove the goal:",
+    "error: SteklovAudit.lean:2051:46: omega could not prove the goal:",
+    "error: SteklovAudit.lean:2154:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: SteklovAudit.lean:2176:2: omega could not prove the goal:",
+    "error: SteklovAudit.lean:2203:2: Type mismatch",
+    "error: SteklovAudit.lean:2250:2: Type mismatch",
+    "error: build failed"
+  ],
+  "theorems": 134,
   "verified": 0,
   "problems": [
     "SteklovAudit.tetra_face_count",
@@ -134,7 +157,11 @@
     "SteklovAudit.quadratic_intertwining",
     "SteklovAudit.cubic_intertwining",
     "SteklovAudit.finite_window_mass_budget",
-    "SteklovAudit.finite_window_count_from_gap"
+    "SteklovAudit.finite_window_count_from_gap",
+    "SteklovAudit.fixed_window_diagonal_count",
+    "SteklovAudit.fixed_window_shift_energies",
+    "SteklovAudit.fixed_window_hs_lower_budget",
+    "SteklovAudit.fixed_window_no_uniform_hs_budget"
   ],
   "all_verified": false,
   "results": [
@@ -915,6 +942,30 @@
     {
       "file": "Section7WindowCountBudget.lean",
       "theorem": "SteklovAudit.finite_window_count_from_gap",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Section7FixedWindowHSObstruction.lean",
+      "theorem": "SteklovAudit.fixed_window_diagonal_count",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Section7FixedWindowHSObstruction.lean",
+      "theorem": "SteklovAudit.fixed_window_shift_energies",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Section7FixedWindowHSObstruction.lean",
+      "theorem": "SteklovAudit.fixed_window_hs_lower_budget",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Section7FixedWindowHSObstruction.lean",
+      "theorem": "SteklovAudit.fixed_window_no_uniform_hs_budget",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     }
