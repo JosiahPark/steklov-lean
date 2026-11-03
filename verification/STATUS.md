@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-03 19:46 UTC. 134 of 134 theorems compile with only Lean's standard axioms.
+Checked 2026-11-03 20:41 UTC. 146 of 146 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -138,6 +138,18 @@ two-scale bound as a hypothesis, and no Dirichlet-to-Neumann operator is defined
 | Section7WeightedPolynomialTrace.lean | `SteklovAudit.cubic_intertwining` | verified (standard axioms only) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_mass_budget` | verified (standard axioms only) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_count_from_gap` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.hs2_nonneg` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_entry` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_hs` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_hs` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.window_offband_gap` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_window_bound` | verified (standard axioms only) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer_naive` | verified (standard axioms only) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_telescope` | verified (standard axioms only) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.transfer_gronwall_bound` | verified (standard axioms only) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.fixed_time_step_budget` | verified (standard axioms only) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_unbounded` | verified (standard axioms only) |
 | Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_diagonal_count` | verified (standard axioms only) |
 | Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_shift_energies` | verified (standard axioms only) |
 | Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_hs_lower_budget` | verified (standard axioms only) |

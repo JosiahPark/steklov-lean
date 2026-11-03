@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-03 19:46 UTC",
+  "checked_at": "2026-11-03 20:41 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 134,
-  "verified": 134,
+  "theorems": 146,
+  "verified": 146,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1281,6 +1281,126 @@
     {
       "file": "Section7WindowCountBudget.lean",
       "theorem": "SteklovAudit.finite_window_count_from_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.hs2_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.transfer_entry",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.transfer_hs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.trace_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.offband_hs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.window_offband_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.offband_window_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransfer.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.trace_transfer_naive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Section7CumulativeTransfer.lean",
+      "theorem": "SteklovAudit.cumulative_transfer_telescope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Section7CumulativeTransfer.lean",
+      "theorem": "SteklovAudit.transfer_gronwall_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Section7CumulativeTransfer.lean",
+      "theorem": "SteklovAudit.fixed_time_step_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Section7CumulativeTransfer.lean",
+      "theorem": "SteklovAudit.cumulative_transfer_unbounded",
       "axioms": [
         "propext",
         "Classical.choice",
