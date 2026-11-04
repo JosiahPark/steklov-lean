@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 15:45 UTC. 274 of 274 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 15:53 UTC. 278 of 278 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -222,6 +222,7 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.zero_piece` | verified (standard axioms only) |
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.one_piece` | verified (standard axioms only) |
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.nonvacuous_C6` | verified (standard axioms only) |
+| LedgerNonvacuousD5.lean | `SteklovAudit.LedgerNonvacuousD5.nonvacuous_D5` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | verified (standard axioms only) |
@@ -234,6 +235,9 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | verified (standard axioms only) |

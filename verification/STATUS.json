@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 15:45 UTC",
+  "checked_at": "2026-11-04 15:53 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 274,
-  "verified": 274,
+  "theorems": 278,
+  "verified": 278,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2029,6 +2029,16 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "LedgerNonvacuousD5.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousD5.nonvacuous_D5",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "MainConditional.lean",
       "theorem": "SteklovAudit.MainConditional.tetraAngle_mem",
       "axioms": [
@@ -2141,6 +2151,36 @@
     {
       "file": "PartitionTrace.lean",
       "theorem": "SteklovAudit.PartitionTrace.theorem_11_1_of_C5",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RealToIntegerLaw.lean",
+      "theorem": "SteklovAudit.RealToIntegerLaw.twoTerm_eq_real",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RealToIntegerLaw.lean",
+      "theorem": "SteklovAudit.RealToIntegerLaw.integer_law_of_real_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RealToIntegerLaw.lean",
+      "theorem": "SteklovAudit.RealToIntegerLaw.integer_law_of_inputs",
       "axioms": [
         "propext",
         "Classical.choice",
