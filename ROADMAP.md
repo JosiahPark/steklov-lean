@@ -84,7 +84,7 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
 - [x] C10. Monotonicity in `SteklovAudit/DihedralBounds.lean`: the integrand of (1.4) is
       antitone in α on (0, π) for each v > 0, hence `dihedralCoeff` is antitone on (0, π);
       with C3 this gives `dihedralCoeff α₀ ≥ 1/(2π)` since α₀ < π/2.
-- [ ] C11. Numeric bracket for the edge coefficient (new file `SteklovAudit/DihedralBracket.lean`):
+- [x] C11. Numeric bracket for the edge coefficient (new file `SteklovAudit/DihedralBracket.lean`):
       `π/3 < α₀` (arccos is strictly antitone and arccos(1/2) = π/3), hence with C9 (the bound
       4(π − α)/(π α²) is antitone in α) `dihedralCoeff α₀ ≤ 24/π²`; together with C10,
       `1/(2π) ≤ c_{α₀} ≤ 24/π²`.
@@ -97,19 +97,19 @@ any of `[H1]`–`[H6]` or the main theorem.
 
 - [x] D1. Sign of `c_α` and `c_π = 0`: covered by C7 (`DihedralSanity.lean`); no separate file.
 - [x] D2. `c_α` antitone and `c_{α₀} ≥ 1/(2π)`: covered by C10 (`DihedralBounds.lean`); no separate file.
-- [~] D3. Uniqueness of the coefficients (`SteklovAudit/SharpLawUnique.lean`): two sharp laws for
+- [x] D3. Uniqueness of the coefficients (`SteklovAudit/SharpLawUnique.lean`): two sharp laws for
       the same `N` have the same `(A, B)`; so the edge invariant `c` in (11.4) is determined by the
       counting function (`edge_invariant_determined`), and with `a, c ≠ 0` the two-term law excludes
       the one-term law (`not_one_term_law`).
-- [~] D4. Scaling consistency (`SteklovAudit/ScalingLaw.lean`): with `N_a(L) = N_1(aL)` (eigenvalues
+- [x] D4. Scaling consistency (`SteklovAudit/ScalingLaw.lean`): with `N_a(L) = N_1(aL)` (eigenvalues
       scale like 1/a; this relation is assumed, not proved), the law with the paper's constants at
       side 1 holds iff it holds at side `a > 0` (`law_scaling_iff`). Checks the `a²` and `a` factors.
-- [~] D5. `[H4 vertex]` in the paper's form (`SteklovAudit/VertexLog.lean`): `log L ≤ 2√L`, and the
+- [x] D5. `[H4 vertex]` in the paper's form (`SteklovAudit/VertexLog.lean`): `log L ≤ 2√L`, and the
       (7.49) bound `C_V ε L + K(log L + 1)` implies the `[H4]` form; ledger `Thm111InputsD5`
       (C6 ledger with H4 in the (7.49) form), `toC6`, `theorem_11_1_of_D5`. A restatement, not a
       weakening: the hypothesis count is unchanged.
-- [~] D6. Non-vacuity of the D5 ledger (`SteklovAudit/LedgerNonvacuousD5.lean`), reusing the C8 witness.
-- [~] D7. Real law ⇒ integer-level law (`SteklovAudit/RealToIntegerLaw.lean`):
+- [x] D6. Non-vacuity of the D5 ledger (`SteklovAudit/LedgerNonvacuousD5.lean`), reusing the C8 witness.
+- [x] D7. Real law ⇒ integer-level law (`SteklovAudit/RealToIntegerLaw.lean`):
       `HasSharpRealLaw N A B → HasSharpTwoTermLawOnIntegers (n ↦ N(n+1)) A B`, and the ledger gives the
       integer-level law with the paper's constants. The converse is not claimed.
 
@@ -119,35 +119,43 @@ The continuations proved several finite-dimensional facts on paper but only wrot
 fragments, never compiled. E1–E2 state the operator-level results in the spectral coordinates of
 `AbstractTransfer` and prove them; E3 brings the scalar fragments in under CI.
 
-E4–E7 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0) and are
-waiting for CI. An interactive session wrote independent versions on branch `claude/roadmap-e` at the
+E4–E8 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0, fix
+c44fad3) and compiled (run 84, 17:10 UTC: PASS 341/341, tautology check: none). An interactive session wrote independent versions on branch `claude/roadmap-e` at the
 same time; any part of those that adds something will be listed as a separate new item, not as a redo.
 
-- [~] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
+- [x] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
       (cont. 42), `counting_transfer` N_B(L) ≤ N_A(L+δ) + E + δ⁻²‖K P‖² (cont. 30/39),
       `counting_two_sided` (cont. 32), `threshold_instability` (cont. 33: J = I, ‖K‖²_HS = 1/n,
       counts differ by n, so δ > 0 is necessary), `trace_rank_amplification` (cont. 27).
       Cont. 43's Lipschitz HS transfer is already `AbstractTransfer.transfer_hs`.
-- [~] E2. `SteklovAudit/FixedScaleTauberian.lean`: monotone sandwich for finite kernels and
+- [x] E2. `SteklovAudit/FixedScaleTauberian.lean`: monotone sandwich for finite kernels and
       `sharp_law_of_shrinking_scales` (cont. 36–41): smoothed sharp law with the same A, B at each
       of a sequence of fixed widths σ_n → 0 gives the sharp law for N. No uniformity in n needed.
-- [~] E3. The 17 scalar modules `Section7*/Section9*/Section11*` from continuations 25–43, with
+- [x] E3. The 17 scalar modules `Section7*/Section9*/Section11*` from continuations 25–43, with
       compile fixes (import order, missing `import Mathlib`, a duplicate name renamed to
       `weighted_gap_square`, `positivity` steps that needed hypotheses). Two tautologies whose
       hypothesis equals the conclusion were removed (`shifted_model_squeeze`,
       `transfer_budget_power`).
-- [~] E4. `cone_ball_window` (Section5Scaling, in `SteklovAudit.lean`) has a hypothesis identical
+- [x] E4. `cone_ball_window` (Section5Scaling, in `SteklovAudit.lean`) has a hypothesis identical
       to its conclusion. Restate it so it proves something, or delete it; add a check to
       `axiom_audit.py` that flags any theorem whose proof is just a hypothesis name.
-- [~] E5. Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
+- [x] E5. (`FloorCounterexample.lean`: excess > n − 3/4, the exact value is n − 5/8; `not_sharp`, `deriv_F_pos`) Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
       N(k + 1/4) − 10(k + 1/4)² ≥ k (so N is not 10L² + o(L)), while F' > 0 on [1, ∞).
       One fixed smoothing width cannot give the sharp law; E2 needs widths → 0.
-- [~] E6. Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
+- [x] E6. (`SharpLawTransfer.lean`: abstract scale δ(L) → 0; the L^(−β) choice is E8) Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
       o(L) and ‖K P‖²_HS = O(L^α) with α < 1, then δ = L^(−β), 0 < β < (1−α)/2, gives the same
       law for the other count (cont. 33/34). State it for a family of finite cutoffs indexed by L.
-- [~] E7. Continuation 29 identification budget in coordinates:
+- [x] E7. (`IdentificationBudget.lean`: exact identity, |Tr|-form; trace norm is E10) Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
+- [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
+      α ≥ 0, β > 0, α + 2β < 1, then δ⁻²‖K P‖²_HS = o(L), and `sharp_law_transfer_rpow` gives the
+      sharp law for the other count.
+- [ ] E9. Smoothing half of continuation 35: the smoothed count of `FloorCounterexample.Nc` at one
+      fixed width has the sharp law 10L² + o(L); with `not_sharp` this shows one fixed width cannot
+      give the sharp law (E2 needs widths → 0).
+- [ ] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
+      |N_B − N_A| ≤ ‖P_B − J P_A Jᵀ‖₁ + Σ_{a_i ≤ L} |1 − ‖J e_i‖²|.
 
 ## Not attempted here
 
