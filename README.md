@@ -19,6 +19,13 @@ GitHub Actions rebuilds it and audits its axioms on every push, and every 6 hour
   definition of the Dirichlet-to-Neumann operator, so the open gaps (7.2), (7.29), (7.38)/(7.45)
   and (9.1) are outside what this project proves.
 
+## Paper proofs from the hourly runs
+
+[`docs/paper-proofs/`](docs/paper-proofs/) records every result the hourly runs proved on paper in their
+reports (57 results: statement, full proof, checks, Lean status, caveats), with an index and the findings
+that bear on the manuscript.
+Most of these results are not formalized in Lean; the index says which are.
+
 ## Layout
 
 - `SteklovAudit.lean`: all Lean modules in one file, one commented section per original module.
