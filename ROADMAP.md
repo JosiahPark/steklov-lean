@@ -154,6 +154,9 @@ same time; the parts that add something are E11–E13 below (and D8–D9).
 - [x] E7. Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
+- [~] E8. `SteklovAudit/PowerShiftTransfer.lean`: the shift δ(L) = L^(−β) in E6. With
+      ‖K P‖²_HS ≤ C L^α (named input `hH`), β > 0 and α + 2β < 1, the HS term δ⁻²‖K P‖² is
+      ≤ C L^(α+2β) = o(L), so `sharp_law_transfer_power` gives the sharp law for N_B.
 - [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
       α ≥ 0, β > 0, α + 2β < 1, then δ⁻²‖K P‖²_HS = o(L), and `sharp_law_transfer_rpow` gives the
       sharp law for the other count.
