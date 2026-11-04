@@ -91,6 +91,40 @@ def escape_hatches():
     return hits
 
 
+DECL_START = re.compile(r"^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(?:noncomputable\s+)?"
+                        r"(theorem|lemma|def|structure|instance|abbrev|example|namespace|end|section|open|variable)\b", re.M)
+
+
+def tautologies():
+    """Theorems whose whole proof is one of their own hypotheses (`:= h`, `by exact h`, `by assumption`).
+
+    Such a theorem restates an assumption and certifies nothing, so it is reported as a problem.
+    """
+    hits = []
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    for f in files:
+        if not f.exists():
+            continue
+        text = strip_comments(f.read_text())
+        starts = [m.start() for m in DECL_START.finditer(text)] + [len(text)]
+        for a, b in zip(starts, starts[1:]):
+            blk = text[a:b]
+            m = re.match(r"(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(theorem|lemma)\s+(\S+)", blk)
+            if not m:
+                continue
+            i = blk.find(":=")
+            if i < 0:
+                continue
+            head, body = blk[:i], blk[i + 2:].strip()
+            body = re.sub(r"^by\s+(exact\s+)?", "", body).strip()
+            binders = set()
+            for bm in re.finditer(r"[({\[]\s*([^:(){}\[\]]+?)\s*:", head):
+                binders.update(bm.group(1).split())
+            if body in binders or body == "assumption":
+                hits.append(f"{f.name}: `{m.group(2)}` (proof is its hypothesis `{body}`)")
+    return hits
+
+
 def hypothesis_ledger():
     """Named hypotheses of the conditional main theorem, tagged `/-- [H...]` in MainConditional.lean."""
     f = ROOT / "SteklovAudit" / "MainConditional.lean"
@@ -131,8 +165,9 @@ def main():
         rows.append({"file": fname, "theorem": name, "axioms": axioms, "status": status})
 
     hatches = escape_hatches()
+    tauts = tautologies()
     ledger = hypothesis_ledger()
-    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches
+    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches and not tauts
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     summary = {
         "checked_at": stamp,
@@ -143,6 +178,7 @@ def main():
         "problems": bad,
         "all_verified": ok,
         "escape_hatches": hatches,
+        "tautologies": tauts,
         "named_hypotheses": len(ledger),
         "hypothesis_ledger": [f"{t}: {d}" for t, d in ledger],
         "results": rows,
@@ -169,6 +205,12 @@ def main():
         + ("none" if not hatches else f"{len(hatches)} FOUND"),
     ]
     lines += [f"  - {h}" for h in hatches]
+    lines += [
+        "",
+        "Tautologies (proof is just one of the theorem's own hypotheses): "
+        + ("none" if not tauts else f"{len(tauts)} FOUND"),
+    ]
+    lines += [f"  - {t}" for t in tauts]
     lines += [
         "",
         "| File | Theorem | Result |",
