@@ -138,9 +138,9 @@ def main():
     out = proc.stdout + proc.stderr
 
     results = {}
-    for m in re.finditer(r"'([^']+)' depends on axioms: \[([^\]]*)\]", out):
+    for m in re.finditer(r"^'(.+)' depends on axioms: \[([^\]]*)\]\s*$", out, re.M):
         results[m.group(1)] = [a.strip() for a in m.group(2).split(",") if a.strip()]
-    for m in re.finditer(r"'([^']+)' does not depend on any axioms", out):
+    for m in re.finditer(r"^'(.+)' does not depend on any axioms\s*$", out, re.M):
         results[m.group(1)] = []
 
     rows, bad = [], []
