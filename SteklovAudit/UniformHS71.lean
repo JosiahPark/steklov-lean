@@ -338,4 +338,63 @@ theorem hs_le_of_pointwise (T : ι → κ → ℝ) (w : ι → ℝ)
 
 end A10
 
+/-! ### A11. Geometric collar sum bound -/
+
+section A11
+
+/-- A11, helper: for 0 ≤ r ≤ 1/2, the partial geometric sums satisfy
+sum_{n<N} r^n ≤ 2 - 2 r^N. -/
+theorem geom_partial_le_two_sub (r : ℝ) (h0 : 0 ≤ r) (h1 : r ≤ 1 / 2) (N : ℕ) :
+    ∑ n ∈ Finset.range N, r ^ n ≤ 2 - 2 * r ^ N := by
+  induction N with
+  | zero => norm_num
+  | succ n ih =>
+    rw [Finset.sum_range_succ, pow_succ]
+    have hp : 0 ≤ r ^ n := pow_nonneg h0 n
+    have hm : r ^ n * r ≤ r ^ n * (1 / 2) := mul_le_mul_of_nonneg_left h1 hp
+    linarith
+
+/-- A11, helper: for 0 ≤ r ≤ 1/2, every partial geometric sum is at most 2. -/
+theorem geom_partial_le_two (r : ℝ) (h0 : 0 ≤ r) (h1 : r ≤ 1 / 2) (N : ℕ) :
+    ∑ n ∈ Finset.range N, r ^ n ≤ 2 := by
+  have h := geom_partial_le_two_sub r h0 h1 N
+  have hp : 0 ≤ r ^ N := pow_nonneg h0 N
+  linarith
+
+/-- A11. For L ≥ 1, 0 ≤ w, 4w < L and C ≥ 0:
+(2/L) · (sum_{n<N} (2w/L)^n) · C(1+L+w) ≤ 12 C. -/
+theorem collar_geometric_bound (L w C : ℝ) (N : ℕ) (hL : 1 ≤ L) (hw : 0 ≤ w)
+    (hwL : 4 * w < L) (hC : 0 ≤ C) :
+    (2 / L) * (∑ n ∈ Finset.range N, (2 * w / L) ^ n) * (C * (1 + L + w)) ≤ 12 * C := by
+  have hLpos : 0 < L := by linarith
+  have hq : L * L⁻¹ = 1 := mul_inv_cancel₀ (ne_of_gt hLpos)
+  have hq0 : 0 < L⁻¹ := inv_pos.mpr hLpos
+  have hr0 : 0 ≤ 2 * w / L := div_nonneg (by linarith) hLpos.le
+  have hr1 : 2 * w / L ≤ 1 / 2 := by
+    rw [div_eq_mul_inv]
+    nlinarith [mul_nonneg hq0.le (by linarith : (0 : ℝ) ≤ L - 4 * w), hq]
+  have hS := geom_partial_le_two (2 * w / L) hr0 hr1 N
+  have hK : 0 ≤ C * (1 + L + w) := mul_nonneg hC (by linarith)
+  have h2L : 0 ≤ 2 / L := div_nonneg (by norm_num) hLpos.le
+  have hb : (1 + w) * L⁻¹ ≤ 2 := by
+    nlinarith [mul_nonneg hq0.le (by linarith : (0 : ℝ) ≤ 2 * L - 1 - w), hq]
+  have h4C : (0 : ℝ) ≤ 4 * C := by linarith
+  have hb' := mul_le_mul_of_nonneg_left hb h4C
+  calc (2 / L) * (∑ n ∈ Finset.range N, (2 * w / L) ^ n) * (C * (1 + L + w))
+      ≤ (2 / L) * 2 * (C * (1 + L + w)) :=
+        mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hS h2L) hK
+    _ = 4 * C + 4 * C * ((1 + w) * L⁻¹) := by
+        rw [div_eq_mul_inv]
+        linear_combination (4 * C) * hq
+    _ ≤ 12 * C := by linarith
+
+/-- A11, termwise form: (2/L) · sum_{n<N} (2w/L)^n · C(1+L+w) ≤ 12 C. -/
+theorem collar_geometric_bound_sum (L w C : ℝ) (N : ℕ) (hL : 1 ≤ L) (hw : 0 ≤ w)
+    (hwL : 4 * w < L) (hC : 0 ≤ C) :
+    (2 / L) * ∑ n ∈ Finset.range N, (2 * w / L) ^ n * (C * (1 + L + w)) ≤ 12 * C := by
+  rw [← Finset.sum_mul, ← mul_assoc]
+  exact collar_geometric_bound L w C N hL hw hwL hC
+
+end A11
+
 end SteklovAudit.UniformHS71
