@@ -1,1732 +1,1351 @@
 {
-  "checked_at": "2026-11-04 11:15 UTC",
-  "lean_exit_code": 0,
-  "build_errors": [],
-  "theorems": 174,
-  "verified": 174,
-  "problems": [],
-  "all_verified": true,
+  "checked_at": "2026-11-04 11:27 UTC",
+  "lean_exit_code": 1,
+  "build_errors": [
+    "error: SteklovAudit/AbstractTransferB.lean:77:63: Invalid projection: Type of",
+    "error: SteklovAudit/AbstractTransferB.lean:77:67: Invalid projection: Type of",
+    "error: SteklovAudit/AbstractTransferB.lean:77:84: Invalid projection: Type of",
+    "error: SteklovAudit/AbstractTransferB.lean:77:88: Invalid projection: Type of",
+    "error: build failed"
+  ],
+  "theorems": 190,
+  "verified": 0,
+  "problems": [
+    "SteklovAudit.tetra_face_count",
+    "SteklovAudit.tetra_edge_count",
+    "SteklovAudit.tetra_surface_area",
+    "SteklovAudit.tetra_half_angle_sin_sq",
+    "SteklovAudit.bounded_shift_changes_linear_term",
+    "SteklovAudit.six_edge_contribution",
+    "SteklovAudit.scale_rho_lt_half",
+    "SteklovAudit.scale_sigma_lt_rho",
+    "SteklovAudit.scale_dwell_exponent",
+    "SteklovAudit.scale_collar_over_dwell_exponent",
+    "SteklovAudit.scale_uncertainty_over_dwell_exponent",
+    "SteklovAudit.hyperbolic_subtraction",
+    "SteklovAudit.dihedral_integrand_algebra",
+    "SteklovAudit.right_angle_integrand",
+    "SteklovAudit.rotation_fixed_vector_zero",
+    "SteklovAudit.reflection_fixed_vector_axis",
+    "SteklovAudit.translation_return",
+    "SteklovAudit.translation_return_parallel",
+    "SteklovAudit.reflection_return_velocity",
+    "SteklovAudit.dyadic_sum",
+    "SteklovAudit.dyadic_sum_le_two",
+    "SteklovAudit.bounded_shift_can_change_linear",
+    "SteklovAudit.squared_partition_scalar",
+    "SteklovAudit.ordered_two_scale_limit",
+    "SteklovAudit.symmetric_weyl_window",
+    "SteklovAudit.interval_mass_polynomial",
+    "SteklovAudit.two_error_composition",
+    "SteklovAudit.linear_coefficient_under_shift",
+    "SteklovAudit.first_riesz_coefficients",
+    "SteklovAudit.choose_scales",
+    "SteklovAudit.finite_mass_weight_bound",
+    "SteklovAudit.spectral_window_polynomial_decomposition",
+    "SteklovAudit.sharp_integer_law_of_two_scale",
+    "SteklovAudit.sharp_real_law_of_two_scale",
+    "SteklovAudit.one_step_polynomial_change",
+    "SteklovAudit.scaled_strip_window",
+    "SteklovAudit.cone_ball_window",
+    "SteklovAudit.symmetric_band_width",
+    "SteklovAudit.positive_mass_signed_kernel_bound",
+    "SteklovAudit.unit_window_linear_decomposition",
+    "SteklovAudit.translation_velocity_collinear",
+    "SteklovAudit.nontrivial_rotation_immobile",
+    "SteklovAudit.finite_partition_error",
+    "SteklovAudit.real_weyl_partition_identity",
+    "SteklovAudit.small_two_parameter_budget",
+    "SteklovAudit.finite_schwartz_window_bound",
+    "SteklovAudit.sharp_count_of_smoothed_and_unsmoothing",
+    "SteklovAudit.explicit_barrier_numerator",
+    "SteklovAudit.improved_barrier_numerator",
+    "SteklovAudit.three_region_remainder",
+    "SteklovAudit.total_error_from_three_regions",
+    "SteklovAudit.real_sharp_law_if_partition_bounds",
+    "SteklovAudit.finite_eigenstate_squared_partition",
+    "SteklovAudit.finite_spectral_trace_squared_partition",
+    "SteklovAudit.finite_local_spectral_mass_nonneg",
+    "SteklovAudit.finite_local_count_identity",
+    "SteklovAudit.polynomial_duhamel_identity",
+    "SteklovAudit.intertwines_all_powers",
+    "SteklovAudit.polynomial_duhamel_contraction_bound",
+    "SteklovAudit.truncated_exp_quasicommutator",
+    "SteklovAudit.truncated_exp_exact_intertwiner",
+    "SteklovAudit.finite_hs_tail_le_total",
+    "SteklovAudit.finite_hs_tail_vanishes",
+    "SteklovAudit.section9_exponent_positivity",
+    "SteklovAudit.section9_example_exponents",
+    "SteklovAudit.finite_phase_cell_error_budget",
+    "SteklovAudit.finite_relative_inverse_trace",
+    "SteklovAudit.finite_spectral_count_below_bottom",
+    "SteklovAudit.offBandStep_difference",
+    "SteklovAudit.offBandIterate_increment",
+    "SteklovAudit.offBandIterate_error",
+    "SteklovAudit.quarter_geometric_identity",
+    "SteklovAudit.quarter_geometric_le",
+    "SteklovAudit.dyadic_relative_primitive_bound",
+    "SteklovAudit.realWeylPolynomial_window_increment",
+    "SteklovAudit.two_term_interval_error_bound",
+    "SteklovAudit.movingDefect_norm_one",
+    "SteklovAudit.movingDefect_tail_one",
+    "SteklovAudit.movingDefect_fixed_tail_zero",
+    "SteklovAudit.movingDefect_no_uniform_tail",
+    "SteklovAudit.finite_weighted_tail_bound",
+    "SteklovAudit.finite_weighted_tail_uniform",
+    "SteklovAudit.squared_gap_lower_bound",
+    "SteklovAudit.finite_offband_hs_gap",
+    "SteklovAudit.spectral_defect_entry",
+    "SteklovAudit.spectral_defect_square",
+    "SteklovAudit.finite_sylvester_hs_gap",
+    "SteklovAudit.window_frame_from_norm_defect",
+    "SteklovAudit.window_count_from_near_isometry_and_gap",
+    "SteklovAudit.window_mass_loss_bound",
+    "SteklovAudit.resolvent_intertwining_scalar",
+    "SteklovAudit.resolvent_weighted_partition",
+    "SteklovAudit.resolvent_equal_model",
+    "SteklovAudit.constant_scale_error",
+    "SteklovAudit.geometric_scale_budget",
+    "SteklovAudit.shifted_resolvent_trace_exact",
+    "SteklovAudit.shifted_resolvent_trace_square",
+    "SteklovAudit.shifted_resolvent_no_uniform_HS_constant",
+    "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_positive",
+    "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_even",
+    "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_odd",
+    "SteklovAudit.Section11DiscreteHeatObstruction.pair_multiplicity",
+    "SteklovAudit.Section11LaplaceObstruction.denominator_pos",
+    "SteklovAudit.Section11LaplaceObstruction.correction_nonneg",
+    "SteklovAudit.Section11LaplaceObstruction.correction_le_two_t",
+    "SteklovAudit.Section11TwoParameterSqueeze.sharp_error_budget",
+    "SteklovAudit.Section11TwoParameterSqueeze.fixed_width_budget",
+    "SteklovAudit.duhamel_discrete_budget_nonneg",
+    "SteklovAudit.duhamel_discrete_budget_le",
+    "SteklovAudit.scale_error_partial_bound",
+    "SteklovAudit.duplicate_rank_overcount",
+    "SteklovAudit.duplicate_rank_excess",
+    "SteklovAudit.weighted_partition_mass",
+    "SteklovAudit.joint_frame_rank_budget",
+    "SteklovAudit.joint_frame_no_rank_loss",
+    "SteklovAudit.chart_loss_le_total",
+    "SteklovAudit.rank_loss_budget",
+    "SteklovAudit.no_rank_loss_below_threshold",
+    "SteklovAudit.truncated_shift_hs_square",
+    "SteklovAudit.truncated_shift_unbounded",
+    "SteklovAudit.truncated_shift_exceeds",
+    "SteklovAudit.sandwich_mode_count",
+    "SteklovAudit.sandwich_unit_shift_budget",
+    "SteklovAudit.sandwich_no_uniform_budget",
+    "SteklovAudit.sandwich_two_dimensional_count",
+    "SteklovAudit.weighted_trace_partition",
+    "SteklovAudit.quadratic_intertwining",
+    "SteklovAudit.cubic_intertwining",
+    "SteklovAudit.finite_window_mass_budget",
+    "SteklovAudit.finite_window_count_from_gap",
+    "SteklovAudit.AbstractTransfer.hs2_nonneg",
+    "SteklovAudit.AbstractTransfer.transfer_entry",
+    "SteklovAudit.AbstractTransfer.transfer_hs",
+    "SteklovAudit.AbstractTransfer.trace_transfer",
+    "SteklovAudit.AbstractTransfer.offband_hs",
+    "SteklovAudit.AbstractTransfer.window_offband_gap",
+    "SteklovAudit.AbstractTransfer.offband_window_bound",
+    "SteklovAudit.AbstractTransfer.trace_transfer_naive",
+    "SteklovAudit.AbstractTransfer.cos_time_lipschitz",
+    "SteklovAudit.AbstractTransfer.sin_time_lipschitz",
+    "SteklovAudit.AbstractTransfer.duhamel_cos_hs",
+    "SteklovAudit.AbstractTransfer.duhamel_sin_hs",
+    "SteklovAudit.AbstractTransfer.cs_double",
+    "SteklovAudit.AbstractTransfer.abs_pair_le_sqrt",
+    "SteklovAudit.AbstractTransfer.term_le",
+    "SteklovAudit.AbstractTransfer.split_trace_bound",
+    "SteklovAudit.AbstractTransfer.cumulative_transfer_bound",
+    "SteklovAudit.AbstractTransfer.little_o_of_vanishing_tail",
+    "SteklovAudit.AbstractTransfer.transfer_sharp_law",
+    "SteklovAudit.AbstractTransfer.norm_cexp_sub_le",
+    "SteklovAudit.AbstractTransfer.duhamel_entry",
+    "SteklovAudit.AbstractTransfer.duhamel_entry_sq",
+    "SteklovAudit.AbstractTransfer.duhamel_hs",
+    "SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs",
+    "SteklovAudit.cumulative_transfer_telescope",
+    "SteklovAudit.transfer_gronwall_bound",
+    "SteklovAudit.fixed_time_step_budget",
+    "SteklovAudit.cumulative_transfer_unbounded",
+    "SteklovAudit.fixed_window_diagonal_count",
+    "SteklovAudit.fixed_window_shift_energies",
+    "SteklovAudit.fixed_window_hs_lower_budget",
+    "SteklovAudit.fixed_window_no_uniform_hs_budget",
+    "SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq",
+    "SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq",
+    "SteklovAudit.UniformHS71.scaled_sq_div_sq",
+    "SteklovAudit.UniformHS71.div_le_iff_le_scaled",
+    "SteklovAudit.UniformHS71.indicator_sum_scaled",
+    "SteklovAudit.UniformHS71.gradient_scaling_cancel",
+    "SteklovAudit.UniformHS71.gradient_scaling_div",
+    "SteklovAudit.UniformHS71.scaled_gradient_bound",
+    "SteklovAudit.UniformHS71.proj_diag_nonneg",
+    "SteklovAudit.UniformHS71.trace_diagonal_conj",
+    "SteklovAudit.UniformHS71.weighted_diag_sum_le",
+    "SteklovAudit.UniformHS71.trace_proj_cutoff_le",
+    "SteklovAudit.UniformHS71.hs2_mul_diag_le",
+    "SteklovAudit.UniformHS71.frobenius_sq_mul_diagonal_le",
+    "SteklovAudit.UniformHS71.frobenius_mul_diag_le",
+    "SteklovAudit.UniformHS71.integral_rpow_two_beta_sub_two",
+    "SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one",
+    "SteklovAudit.UniformHS71.quarter_sq_partial_sum_eq",
+    "SteklovAudit.UniformHS71.quarter_sq_partial_sum_le",
+    "SteklovAudit.UniformHS71.tsum_sixteenth_pow_succ",
+    "SteklovAudit.UniformHS71.tsum_two_pow_neg_four",
+    "SteklovAudit.UniformHS71.row_sq_le_of_self_test",
+    "SteklovAudit.UniformHS71.hs2_le_of_pointwise",
+    "SteklovAudit.UniformHS71.hs_le_of_pointwise",
+    "SteklovAudit.UniformHS71.geom_partial_le_two_sub",
+    "SteklovAudit.UniformHS71.geom_partial_le_two",
+    "SteklovAudit.UniformHS71.collar_geometric_bound",
+    "SteklovAudit.UniformHS71.collar_geometric_bound_sum"
+  ],
+  "all_verified": false,
+  "escape_hatches": [],
+  "named_hypotheses": 0,
+  "hypothesis_ledger": [],
   "results": [
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.tetra_face_count",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.tetra_edge_count",
-      "axioms": [],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.tetra_surface_area",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.tetra_half_angle_sin_sq",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.bounded_shift_changes_linear_term",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.six_edge_contribution",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.scale_rho_lt_half",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.scale_sigma_lt_rho",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.scale_dwell_exponent",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.scale_collar_over_dwell_exponent",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.scale_uncertainty_over_dwell_exponent",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.hyperbolic_subtraction",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.dihedral_integrand_algebra",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Algebra.lean",
       "theorem": "SteklovAudit.right_angle_integrand",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Geometry.lean",
       "theorem": "SteklovAudit.rotation_fixed_vector_zero",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Geometry.lean",
       "theorem": "SteklovAudit.reflection_fixed_vector_axis",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Geometry.lean",
       "theorem": "SteklovAudit.translation_return",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Geometry.lean",
       "theorem": "SteklovAudit.translation_return_parallel",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Geometry.lean",
       "theorem": "SteklovAudit.reflection_return_velocity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Tauberian.lean",
       "theorem": "SteklovAudit.dyadic_sum",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Tauberian.lean",
       "theorem": "SteklovAudit.dyadic_sum_le_two",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Tauberian.lean",
       "theorem": "SteklovAudit.bounded_shift_can_change_linear",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Tauberian.lean",
       "theorem": "SteklovAudit.squared_partition_scalar",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Tauberian.lean",
       "theorem": "SteklovAudit.ordered_two_scale_limit",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.symmetric_weyl_window",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.interval_mass_polynomial",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.two_error_composition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.linear_coefficient_under_shift",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.first_riesz_coefficients",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WindowArithmetic.lean",
       "theorem": "SteklovAudit.choose_scales",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteWindowMass.lean",
       "theorem": "SteklovAudit.finite_mass_weight_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteWindowMass.lean",
       "theorem": "SteklovAudit.spectral_window_polynomial_decomposition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "WholeTheorem.lean",
       "theorem": "SteklovAudit.sharp_integer_law_of_two_scale",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "RealAxisAssembly.lean",
       "theorem": "SteklovAudit.sharp_real_law_of_two_scale",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "RealAxisAssembly.lean",
       "theorem": "SteklovAudit.one_step_polynomial_change",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section5Scaling.lean",
       "theorem": "SteklovAudit.scaled_strip_window",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section5Scaling.lean",
       "theorem": "SteklovAudit.cone_ball_window",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section5Scaling.lean",
       "theorem": "SteklovAudit.symmetric_band_width",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSums.lean",
       "theorem": "SteklovAudit.positive_mass_signed_kernel_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSums.lean",
       "theorem": "SteklovAudit.unit_window_linear_decomposition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section10FiniteDirections.lean",
       "theorem": "SteklovAudit.translation_velocity_collinear",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section10FiniteDirections.lean",
       "theorem": "SteklovAudit.nontrivial_rotation_immobile",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11Partition.lean",
       "theorem": "SteklovAudit.finite_partition_error",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11Partition.lean",
       "theorem": "SteklovAudit.real_weyl_partition_identity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11Partition.lean",
       "theorem": "SteklovAudit.small_two_parameter_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SchwartzFinite.lean",
       "theorem": "SteklovAudit.finite_schwartz_window_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "SmoothedBridge.lean",
       "theorem": "SteklovAudit.sharp_count_of_smoothed_and_unsmoothing",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ExplicitBarrier.lean",
       "theorem": "SteklovAudit.explicit_barrier_numerator",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ExplicitBarrier.lean",
       "theorem": "SteklovAudit.improved_barrier_numerator",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11RegionAssembly.lean",
       "theorem": "SteklovAudit.three_region_remainder",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11RegionAssembly.lean",
       "theorem": "SteklovAudit.total_error_from_three_regions",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11RegionAssembly.lean",
       "theorem": "SteklovAudit.real_sharp_law_if_partition_bounds",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteSpectralTrace.lean",
       "theorem": "SteklovAudit.finite_eigenstate_squared_partition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteSpectralTrace.lean",
       "theorem": "SteklovAudit.finite_spectral_trace_squared_partition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteSpectralTrace.lean",
       "theorem": "SteklovAudit.finite_local_spectral_mass_nonneg",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "FiniteSpectralTrace.lean",
       "theorem": "SteklovAudit.finite_local_count_identity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PolynomialDuhamel.lean",
       "theorem": "SteklovAudit.polynomial_duhamel_identity",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PolynomialDuhamel.lean",
       "theorem": "SteklovAudit.intertwines_all_powers",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PolynomialDuhamel.lean",
       "theorem": "SteklovAudit.polynomial_duhamel_contraction_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7TaylorDuhamel.lean",
       "theorem": "SteklovAudit.truncated_exp_quasicommutator",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7TaylorDuhamel.lean",
       "theorem": "SteklovAudit.truncated_exp_exact_intertwiner",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7HSTails.lean",
       "theorem": "SteklovAudit.finite_hs_tail_le_total",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7HSTails.lean",
       "theorem": "SteklovAudit.finite_hs_tail_vanishes",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section9PropagationScales.lean",
       "theorem": "SteklovAudit.section9_exponent_positivity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section9PropagationScales.lean",
       "theorem": "SteklovAudit.section9_example_exponents",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section9CellBudget.lean",
       "theorem": "SteklovAudit.finite_phase_cell_error_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7RelativeFinite.lean",
       "theorem": "SteklovAudit.finite_relative_inverse_trace",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7RelativeFinite.lean",
       "theorem": "SteklovAudit.finite_spectral_count_below_bottom",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OffBandIteration.lean",
       "theorem": "SteklovAudit.offBandStep_difference",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OffBandIteration.lean",
       "theorem": "SteklovAudit.offBandIterate_increment",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OffBandIteration.lean",
       "theorem": "SteklovAudit.offBandIterate_error",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DyadicPrimitive.lean",
       "theorem": "SteklovAudit.quarter_geometric_identity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DyadicPrimitive.lean",
       "theorem": "SteklovAudit.quarter_geometric_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DyadicPrimitive.lean",
       "theorem": "SteklovAudit.dyadic_relative_primitive_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11CountingConventions.lean",
       "theorem": "SteklovAudit.realWeylPolynomial_window_increment",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11CountingConventions.lean",
       "theorem": "SteklovAudit.two_term_interval_error_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7UniformTailObstruction.lean",
       "theorem": "SteklovAudit.movingDefect_norm_one",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7UniformTailObstruction.lean",
       "theorem": "SteklovAudit.movingDefect_tail_one",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7UniformTailObstruction.lean",
       "theorem": "SteklovAudit.movingDefect_fixed_tail_zero",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7UniformTailObstruction.lean",
       "theorem": "SteklovAudit.movingDefect_no_uniform_tail",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WeightedTail.lean",
       "theorem": "SteklovAudit.finite_weighted_tail_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WeightedTail.lean",
       "theorem": "SteklovAudit.finite_weighted_tail_uniform",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OffBandGap.lean",
       "theorem": "SteklovAudit.squared_gap_lower_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OffBandGap.lean",
       "theorem": "SteklovAudit.finite_offband_hs_gap",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralDefectIdentity.lean",
       "theorem": "SteklovAudit.spectral_defect_entry",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralDefectIdentity.lean",
       "theorem": "SteklovAudit.spectral_defect_square",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralDefectIdentity.lean",
       "theorem": "SteklovAudit.finite_sylvester_hs_gap",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FrameDefectBudget.lean",
       "theorem": "SteklovAudit.window_frame_from_norm_defect",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FrameDefectBudget.lean",
       "theorem": "SteklovAudit.window_count_from_near_isometry_and_gap",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FrameDefectBudget.lean",
       "theorem": "SteklovAudit.window_mass_loss_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventLocalization.lean",
       "theorem": "SteklovAudit.resolvent_intertwining_scalar",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventLocalization.lean",
       "theorem": "SteklovAudit.resolvent_weighted_partition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventLocalization.lean",
       "theorem": "SteklovAudit.resolvent_equal_model",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section9ScaleBudget.lean",
       "theorem": "SteklovAudit.constant_scale_error",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section9ScaleBudget.lean",
       "theorem": "SteklovAudit.geometric_scale_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventTraceObstruction.lean",
       "theorem": "SteklovAudit.shifted_resolvent_trace_exact",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventTraceObstruction.lean",
       "theorem": "SteklovAudit.shifted_resolvent_trace_square",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7ResolventTraceObstruction.lean",
       "theorem": "SteklovAudit.shifted_resolvent_no_uniform_HS_constant",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11DiscreteHeatObstruction.lean",
       "theorem": "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_positive",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11DiscreteHeatObstruction.lean",
       "theorem": "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_even",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11DiscreteHeatObstruction.lean",
       "theorem": "SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_odd",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11DiscreteHeatObstruction.lean",
       "theorem": "SteklovAudit.Section11DiscreteHeatObstruction.pair_multiplicity",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11LaplaceObstruction.lean",
       "theorem": "SteklovAudit.Section11LaplaceObstruction.denominator_pos",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11LaplaceObstruction.lean",
       "theorem": "SteklovAudit.Section11LaplaceObstruction.correction_nonneg",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11LaplaceObstruction.lean",
       "theorem": "SteklovAudit.Section11LaplaceObstruction.correction_le_two_t",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11TwoParameterSqueeze.lean",
       "theorem": "SteklovAudit.Section11TwoParameterSqueeze.sharp_error_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section11TwoParameterSqueeze.lean",
       "theorem": "SteklovAudit.Section11TwoParameterSqueeze.fixed_width_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DuhamelDefectBudget.lean",
       "theorem": "SteklovAudit.duhamel_discrete_budget_nonneg",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DuhamelDefectBudget.lean",
       "theorem": "SteklovAudit.duhamel_discrete_budget_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7DuhamelDefectBudget.lean",
       "theorem": "SteklovAudit.scale_error_partial_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OverlapMultiplicity.lean",
       "theorem": "SteklovAudit.duplicate_rank_overcount",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OverlapMultiplicity.lean",
       "theorem": "SteklovAudit.duplicate_rank_excess",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7OverlapMultiplicity.lean",
       "theorem": "SteklovAudit.weighted_partition_mass",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PartitionFrameBudget.lean",
       "theorem": "SteklovAudit.joint_frame_rank_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PartitionFrameBudget.lean",
       "theorem": "SteklovAudit.joint_frame_no_rank_loss",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7PartitionFrameBudget.lean",
       "theorem": "SteklovAudit.chart_loss_le_total",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7RankLossThreshold.lean",
       "theorem": "SteklovAudit.rank_loss_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7RankLossThreshold.lean",
       "theorem": "SteklovAudit.no_rank_loss_below_threshold",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SmoothCutoffHSObstruction.lean",
       "theorem": "SteklovAudit.truncated_shift_hs_square",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SmoothCutoffHSObstruction.lean",
       "theorem": "SteklovAudit.truncated_shift_unbounded",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SmoothCutoffHSObstruction.lean",
       "theorem": "SteklovAudit.truncated_shift_exceeds",
-      "axioms": [
-        "propext",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSandwichBudget.lean",
       "theorem": "SteklovAudit.sandwich_mode_count",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSandwichBudget.lean",
       "theorem": "SteklovAudit.sandwich_unit_shift_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSandwichBudget.lean",
       "theorem": "SteklovAudit.sandwich_no_uniform_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7SpectralSandwichBudget.lean",
       "theorem": "SteklovAudit.sandwich_two_dimensional_count",
-      "axioms": [
-        "propext"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WeightedPolynomialTrace.lean",
       "theorem": "SteklovAudit.weighted_trace_partition",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WeightedPolynomialTrace.lean",
       "theorem": "SteklovAudit.quadratic_intertwining",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WeightedPolynomialTrace.lean",
       "theorem": "SteklovAudit.cubic_intertwining",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WindowCountBudget.lean",
       "theorem": "SteklovAudit.finite_window_mass_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7WindowCountBudget.lean",
       "theorem": "SteklovAudit.finite_window_count_from_gap",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.hs2_nonneg",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.transfer_entry",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.transfer_hs",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.trace_transfer",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.offband_hs",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.window_offband_gap",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.offband_window_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.trace_transfer_naive",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.cos_time_lipschitz",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.sin_time_lipschitz",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_cos_hs",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_sin_hs",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.cs_double",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.abs_pair_le_sqrt",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.term_le",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.split_trace_bound",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.cumulative_transfer_bound",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.little_o_of_vanishing_tail",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.transfer_sharp_law",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB2.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.norm_cexp_sub_le",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB2.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_entry",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB2.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_entry_sq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB2.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_hs",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AbstractTransferB2.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7CumulativeTransfer.lean",
       "theorem": "SteklovAudit.cumulative_transfer_telescope",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7CumulativeTransfer.lean",
       "theorem": "SteklovAudit.transfer_gronwall_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7CumulativeTransfer.lean",
       "theorem": "SteklovAudit.fixed_time_step_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7CumulativeTransfer.lean",
       "theorem": "SteklovAudit.cumulative_transfer_unbounded",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_diagonal_count",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_shift_energies",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_hs_lower_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_no_uniform_hs_budget",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.scaled_sq_div_sq",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.div_le_iff_le_scaled",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.indicator_sum_scaled",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.gradient_scaling_cancel",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.gradient_scaling_div",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.scaled_gradient_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.proj_diag_nonneg",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.trace_diagonal_conj",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.weighted_diag_sum_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.trace_proj_cutoff_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.hs2_mul_diag_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.frobenius_sq_mul_diagonal_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.frobenius_mul_diag_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.integral_rpow_two_beta_sub_two",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.quarter_sq_partial_sum_eq",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.quarter_sq_partial_sum_le",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.tsum_sixteenth_pow_succ",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.tsum_two_pow_neg_four",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.row_sq_le_of_self_test",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.hs2_le_of_pointwise",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.hs_le_of_pointwise",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.geom_partial_le_two_sub",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.geom_partial_le_two",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.collar_geometric_bound",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.collar_geometric_bound_sum",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "status": "verified (standard axioms only)"
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
     }
   ]
 }
