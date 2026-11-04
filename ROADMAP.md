@@ -119,6 +119,10 @@ The continuations proved several finite-dimensional facts on paper but only wrot
 fragments, never compiled. E1–E2 state the operator-level results in the spectral coordinates of
 `AbstractTransfer` and prove them; E3 brings the scalar fragments in under CI.
 
+E4–E7 (2026-11-04, interactive session): written on branch `claude/roadmap-e` and being compiled
+there; they will be copied to main once that branch passes. Do not redo them; if main's STATUS does
+not list them yet, leave them alone.
+
 - [~] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
       (cont. 42), `counting_transfer` N_B(L) ≤ N_A(L+δ) + E + δ⁻²‖K P‖² (cont. 30/39),
       `counting_two_sided` (cont. 32), `threshold_instability` (cont. 33: J = I, ‖K‖²_HS = 1/n,
@@ -132,16 +136,16 @@ fragments, never compiled. E1–E2 state the operator-level results in the spect
       `weighted_gap_square`, `positivity` steps that needed hypotheses). Two tautologies whose
       hypothesis equals the conclusion were removed (`shifted_model_squeeze`,
       `transfer_budget_power`).
-- [ ] E4. `cone_ball_window` (Section5Scaling, in `SteklovAudit.lean`) has a hypothesis identical
+- [~] E4. `cone_ball_window` (Section5Scaling, in `SteklovAudit.lean`) has a hypothesis identical
       to its conclusion. Restate it so it proves something, or delete it; add a check to
       `axiom_audit.py` that flags any theorem whose proof is just a hypothesis name.
-- [ ] E5. Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
+- [~] E5. Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
       N(k + 1/4) − 10(k + 1/4)² ≥ k (so N is not 10L² + o(L)), while F' > 0 on [1, ∞).
       One fixed smoothing width cannot give the sharp law; E2 needs widths → 0.
-- [ ] E6. Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
+- [~] E6. Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
       o(L) and ‖K P‖²_HS = O(L^α) with α < 1, then δ = L^(−β), 0 < β < (1−α)/2, gives the same
       law for the other count (cont. 33/34). State it for a family of finite cutoffs indexed by L.
-- [ ] E7. Continuation 29 identification budget in coordinates:
+- [~] E7. Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
 
