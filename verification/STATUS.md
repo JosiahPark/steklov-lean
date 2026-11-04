@@ -1,6 +1,6 @@
-# Lean verification status: PASS
+# Lean verification status: FAIL
 
-Checked 2026-11-04 19:18 UTC. 421 of 421 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 19:35 UTC. 452 of 453 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -262,6 +262,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_scaling` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_convolution` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integral` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integrable` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_integrable` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_trace_integrable` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.fiber_scaling` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.edge_heat_limit` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.integral_inv_one_add_exp` | verified (standard axioms only) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.cosh_integral_log_bound` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_proj` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_JPJt` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_identity` | verified (standard axioms only) |
@@ -290,6 +300,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_neg_le_one` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.inv_sq_rpow_neg` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.hs_term_bound` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.power_little_o` | verified (standard axioms only) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
@@ -411,6 +428,14 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | SpectralCounting.lean | `SteklovAudit.AbstractTransfer.counting_two_sided` | verified (standard axioms only) |
 | SpectralCounting.lean | `SteklovAudit.AbstractTransfer.threshold_instability` | verified (standard axioms only) |
 | SpectralCounting.lean | `SteklovAudit.AbstractTransfer.trace_rank_amplification` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_trace_le_sum_abs_diag` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.trace_diagonal_mul` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_signDiag_le` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.signDiag_mul` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.sum_abs_diag_le_of_dual` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.dual_at_diag` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_traceNorm` | verified (standard axioms only) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_diag` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_div_sq` | verified (standard axioms only) |
@@ -442,3 +467,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | VertexLog.lean | `SteklovAudit.VertexLog.log_le_two_sqrt` | verified (standard axioms only) |
 | VertexLog.lean | `SteklovAudit.VertexLog.vertex_of_log` | verified (standard axioms only) |
 | VertexLog.lean | `SteklovAudit.VertexLog.theorem_11_1_of_D5` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.int_bounds` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.Hc_increment` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.strip_trace_increment` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.lorentz_integral_le` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.band_resolvent_integral` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_gap` | verified (standard axioms only) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_absorb` | verified (standard axioms only) |

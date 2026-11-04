@@ -1,11 +1,13 @@
 {
-  "checked_at": "2026-11-04 19:18 UTC",
+  "checked_at": "2026-11-04 19:35 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 421,
-  "verified": 421,
-  "problems": [],
-  "all_verified": true,
+  "theorems": 453,
+  "verified": 452,
+  "problems": [
+    "SteklovAudit.PowerShiftTransfer.rpow_pos'"
+  ],
+  "all_verified": false,
   "escape_hatches": [],
   "tautologies": [],
   "named_hypotheses": 6,
@@ -2410,6 +2412,106 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.beta_scaling",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.heat_convolution",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.time_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.time_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.beta_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.heat_trace_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.fiber_scaling",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.edge_heat_limit",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.integral_inv_one_add_exp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HeatFiber.lean",
+      "theorem": "SteklovAudit.HeatFiber.cosh_integral_log_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "IdentificationBudget.lean",
       "theorem": "SteklovAudit.IdentificationBudget.trace_proj",
       "axioms": [
@@ -2682,6 +2784,72 @@
     {
       "file": "PartitionTrace.lean",
       "theorem": "SteklovAudit.PartitionTrace.theorem_11_1_of_C5",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.rpow_pos'",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.rpow_neg_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.inv_sq_rpow_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.hs_term_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.power_little_o",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PowerShiftTransfer.lean",
+      "theorem": "SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -3900,6 +4068,86 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.abs_trace_le_sum_abs_diag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.trace_diagonal_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.abs_signDiag_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.signDiag_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.sum_abs_diag_le_of_dual",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.dual_at_diag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.identification_budget_traceNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceNormBudget.lean",
+      "theorem": "SteklovAudit.TraceNormBudget.identification_budget_diag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq",
       "axioms": [
@@ -4202,6 +4450,76 @@
     {
       "file": "VertexLog.lean",
       "theorem": "SteklovAudit.VertexLog.theorem_11_1_of_D5",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.int_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.Hc_increment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.strip_trace_increment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.lorentz_integral_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.band_resolvent_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.off_band_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowBounds.lean",
+      "theorem": "SteklovAudit.WindowBounds.off_band_absorb",
       "axioms": [
         "propext",
         "Classical.choice",
