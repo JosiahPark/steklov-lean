@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-03 23:15 UTC",
+  "checked_at": "2026-11-04 03:12 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 151,
-  "verified": 151,
+  "theorems": 154,
+  "verified": 154,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1491,6 +1491,36 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.indicator_sum_scaled",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.gradient_scaling_cancel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.gradient_scaling_div",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.scaled_gradient_bound",
       "axioms": [
         "propext",
         "Classical.choice",
