@@ -50,7 +50,8 @@ theorem trace_scalarDiag (n : ℕ) (hn : 0 < n) : ∑ i : Fin n, scalarDiag n i 
 /-- The HS norms tend to `0` along `n → ∞` ... -/
 theorem hs2_tendsto_zero :
     Tendsto (fun n : ℕ => hs2 (scalarDiag (n + 1))) atTop (𝓝 0) := by
-  have h := tendsto_one_div_atTop_nhds_zero_nat.comp (tendsto_add_atTop_nat 1)
+  have h0 : Tendsto (fun n : ℕ => 1 / (n : ℝ)) atTop (𝓝 0) := tendsto_one_div_atTop_nhds_zero_nat
+  have h := h0.comp (tendsto_add_atTop_nat 1)
   refine Tendsto.congr (fun n => ?_) h
   exact (hs2_scalarDiag (n + 1) n.succ_pos).symm
 
