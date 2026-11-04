@@ -119,8 +119,8 @@ The continuations proved several finite-dimensional facts on paper but only wrot
 fragments, never compiled. E1–E2 state the operator-level results in the spectral coordinates of
 `AbstractTransfer` and prove them; E3 brings the scalar fragments in under CI.
 
-E4–E8 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0, fix
-c44fad3) and compiled (run 84, 17:10 UTC: PASS 341/341, tautology check: none). An interactive session wrote independent versions on branch `claude/roadmap-e` at the
+E4–E7 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0); with the
+E6 fix (c44fad3) all of E1–E7 compiled (STATUS PASS 341/341, 17:10 UTC). An interactive session wrote independent versions on branch `claude/roadmap-e` at the
 same time; any part of those that adds something will be listed as a separate new item, not as a redo.
 
 - [x] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
@@ -139,23 +139,15 @@ same time; any part of those that adds something will be listed as a separate ne
 - [x] E4. `cone_ball_window` (Section5Scaling, in `SteklovAudit.lean`) has a hypothesis identical
       to its conclusion. Restate it so it proves something, or delete it; add a check to
       `axiom_audit.py` that flags any theorem whose proof is just a hypothesis name.
-- [x] E5. (`FloorCounterexample.lean`: excess > n − 3/4, the exact value is n − 5/8; `not_sharp`, `deriv_F_pos`) Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
+- [x] E5. Continuation 35 counterexample, discrete part: for N(x) = ⌊10x² + x sin 2πx⌋ show
       N(k + 1/4) − 10(k + 1/4)² ≥ k (so N is not 10L² + o(L)), while F' > 0 on [1, ∞).
       One fixed smoothing width cannot give the sharp law; E2 needs widths → 0.
-- [x] E6. (`SharpLawTransfer.lean`: abstract scale δ(L) → 0; the L^(−β) choice is E8) Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
+- [x] E6. Asymptotic form of E1: if the model count is aL² + bL + o(L), the isometry defects are
       o(L) and ‖K P‖²_HS = O(L^α) with α < 1, then δ = L^(−β), 0 < β < (1−α)/2, gives the same
       law for the other count (cont. 33/34). State it for a family of finite cutoffs indexed by L.
-- [x] E7. (`IdentificationBudget.lean`: exact identity, |Tr|-form; trace norm is E10) Continuation 29 identification budget in coordinates:
+- [x] E7. Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
-- [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
-      α ≥ 0, β > 0, α + 2β < 1, then δ⁻²‖K P‖²_HS = o(L), and `sharp_law_transfer_rpow` gives the
-      sharp law for the other count.
-- [ ] E9. Smoothing half of continuation 35: the smoothed count of `FloorCounterexample.Nc` at one
-      fixed width has the sharp law 10L² + o(L); with `not_sharp` this shows one fixed width cannot
-      give the sharp law (E2 needs widths → 0).
-- [ ] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
-      |N_B − N_A| ≤ ‖P_B − J P_A Jᵀ‖₁ + Σ_{a_i ≤ L} |1 − ‖J e_i‖²|.
 
 ## Not attempted here
 
