@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 11:34 UTC",
+  "checked_at": "2026-11-04 11:41 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 197,
-  "verified": 197,
+  "theorems": 200,
+  "verified": 200,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1531,6 +1531,36 @@
     {
       "file": "AbstractTransferB2.lean",
       "theorem": "SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransferB6.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.offband_entry_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransferB6.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.offband_window_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AbstractTransferB6.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.window_count_band",
       "axioms": [
         "propext",
         "Classical.choice",

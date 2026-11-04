@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 11:34 UTC. 197 of 197 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 11:41 UTC. 200 of 200 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -173,6 +173,9 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_entry_sq` | verified (standard axioms only) |
 | AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs` | verified (standard axioms only) |
 | AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs` | verified (standard axioms only) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | verified (standard axioms only) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | verified (standard axioms only) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | verified (standard axioms only) |
