@@ -82,16 +82,22 @@ theorem law_of_shifted_bounds (NA NB δ R₁ R₂ : ℝ → ℝ) (a b : ℝ)
   have r1 := abs_le.mp (hL1 L hL1L)
   have r2 := abs_le.mp (hL2 L hL2L)
   unfold realWeylPolynomial at eU eL ⊢
-  have hdd : d * d ≤ d := by nlinarith [mul_le_mul_of_nonneg_left hd1 hd0]
-  have hη'L : η' ≤ η' * L := by nlinarith [mul_nonneg hη'pos.le (by linarith : (0 : ℝ) ≤ L - 1)]
+  have hdd : d * d ≤ d := by
+    have := mul_le_mul_of_nonneg_left hd1 hd0
+    linarith
+  have hη'L : η' ≤ η' * L := by
+    have := mul_le_mul_of_nonneg_left hL1' hη'pos.le
+    linarith
   have hLd : d ≤ η' * L := le_trans hdη hη'L
   have hLdη : L * d ≤ L * η' := mul_le_mul_of_nonneg_left hdη hL0
-  have ht0 : 0 ≤ 2 * L * d + d * d := by nlinarith [mul_nonneg hL0 hd0]
-  have hLd2 : 2 * L * d + d * d ≤ 3 * (η' * L) := by nlinarith
+  have hLd0 : 0 ≤ L * d := mul_nonneg hL0 hd0
+  have hdd0 : 0 ≤ d * d := mul_nonneg hd0 hd0
+  have ht0 : 0 ≤ 2 * L * d + d * d := by linarith
+  have hLd2 : 2 * L * d + d * d ≤ 3 * (η' * L) := by linarith
   have hA1 : a * (2 * L * d + d * d) ≤ |a| * (2 * L * d + d * d) :=
     mul_le_mul_of_nonneg_right (le_abs_self a) ht0
   have hs : |(-(2 * L * d) + d * d)| ≤ 2 * L * d + d * d :=
-    abs_le.mpr ⟨by nlinarith [mul_nonneg hL0 hd0], by nlinarith [mul_nonneg hL0 hd0]⟩
+    abs_le.mpr ⟨by linarith, by linarith⟩
   have hA2 : -(|a| * (2 * L * d + d * d)) ≤ a * (-(2 * L * d) + d * d) := by
     have h1 := neg_abs_le (a * (-(2 * L * d) + d * d))
     rw [abs_mul] at h1
@@ -198,7 +204,7 @@ theorem asymptotic_transfer (NA NB E₁ E₂ H₁ H₂ : ℝ → ℝ) (a b C α 
     have hq : H₁ L / δ L ^ 2 ≤ C * L ^ (α + 2 * β) := defect_over_shift (H₁ L) C α β L hLpos hH
     have hq2 : C * L ^ (α + 2 * β) ≤ (C + 1) * L ^ (α + 2 * β) := by
       have : 0 ≤ L ^ (α + 2 * β) := Real.rpow_nonneg hLpos.le _
-      nlinarith
+      linarith
     have hq3 : (C + 1) * L ^ (α + 2 * β) ≤ η / 2 * L := by
       have h1 := mul_le_mul_of_nonneg_left hp (by linarith : (0 : ℝ) ≤ C + 1)
       have hC1 : C + 1 ≠ 0 := (by linarith : (0 : ℝ) < C + 1).ne'
@@ -224,8 +230,8 @@ theorem asymptotic_transfer (NA NB E₁ E₂ H₁ H₂ : ℝ → ℝ) (a b C α 
       show L ^ (-β) ≤ 1
       exact Real.rpow_le_one_of_one_le_of_nonpos (by linarith) (by linarith)
     have hM1 : 1 ≤ L - δ L := by linarith
-    have e := hLE (L - δ L) (by linarith [le_trans (le_trans (le_max_left _ _)
-      (le_max_left _ _)) hL])
+    have hLEL : LE + 1 ≤ L := le_trans (le_trans (le_max_left _ _) (le_max_left _ _)) hL
+    have e := hLE (L - δ L) (by linarith)
     obtain ⟨_, hp⟩ := hLP L (le_trans (le_trans (le_max_right _ _) (le_max_left _ _)) hL)
     obtain ⟨hH0, hH⟩ := hH₂ (L - δ L) hM1
     have hmono : C * (L - δ L) ^ α ≤ C * L ^ α :=
@@ -235,7 +241,7 @@ theorem asymptotic_transfer (NA NB E₁ E₂ H₁ H₂ : ℝ → ℝ) (a b C α 
       defect_over_shift (H₂ (L - δ L)) C α β L hLpos (le_trans hH hmono)
     have hq2 : C * L ^ (α + 2 * β) ≤ (C + 1) * L ^ (α + 2 * β) := by
       have : 0 ≤ L ^ (α + 2 * β) := Real.rpow_nonneg hLpos.le _
-      nlinarith
+      linarith
     have hq3 : (C + 1) * L ^ (α + 2 * β) ≤ η / 2 * L := by
       have h1 := mul_le_mul_of_nonneg_left hp (by linarith : (0 : ℝ) ≤ C + 1)
       have hC1 : C + 1 ≠ 0 := (by linarith : (0 : ℝ) < C + 1).ne'
@@ -245,7 +251,9 @@ theorem asymptotic_transfer (NA NB E₁ E₂ H₁ H₂ : ℝ → ℝ) (a b C α 
           | (field_simp; ring)
           | (rw [← mul_assoc, mul_div_assoc', mul_div_cancel_left₀ _ hC1])
       linarith
-    have hEL : η / 2 * (L - δ L) ≤ η / 2 * L := by nlinarith
+    have hEL : η / 2 * (L - δ L) ≤ η / 2 * L := by
+      have := mul_le_mul_of_nonneg_left (by linarith : L - δ L ≤ L) (by linarith : (0 : ℝ) ≤ η / 2)
+      linarith
     rw [abs_le] at e ⊢
     constructor <;> linarith [e.1, e.2]
   have hδ : ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → 0 ≤ δ L ∧ δ L ≤ η :=
