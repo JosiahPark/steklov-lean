@@ -89,6 +89,30 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
       4(π − α)/(π α²) is antitone in α) `dihedralCoeff α₀ ≤ 24/π²`; together with C10,
       `1/(2π) ≤ c_{α₀} ≤ 24/π²`.
 
+## D. Consistency checks on the conclusion, and the paper's form of the inputs
+
+Written by an interactive session (2026-11-04). Each file compiled on branch `claude/roadmap-d`
+(STATUS there: PASS 278/278) before being copied to main unchanged. None of these items proves
+any of `[H1]`–`[H6]` or the main theorem.
+
+- [x] D1. Sign of `c_α` and `c_π = 0`: covered by C7 (`DihedralSanity.lean`); no separate file.
+- [x] D2. `c_α` antitone and `c_{α₀} ≥ 1/(2π)`: covered by C10 (`DihedralBounds.lean`); no separate file.
+- [~] D3. Uniqueness of the coefficients (`SteklovAudit/SharpLawUnique.lean`): two sharp laws for
+      the same `N` have the same `(A, B)`; so the edge invariant `c` in (11.4) is determined by the
+      counting function (`edge_invariant_determined`), and with `a, c ≠ 0` the two-term law excludes
+      the one-term law (`not_one_term_law`).
+- [~] D4. Scaling consistency (`SteklovAudit/ScalingLaw.lean`): with `N_a(L) = N_1(aL)` (eigenvalues
+      scale like 1/a; this relation is assumed, not proved), the law with the paper's constants at
+      side 1 holds iff it holds at side `a > 0` (`law_scaling_iff`). Checks the `a²` and `a` factors.
+- [~] D5. `[H4 vertex]` in the paper's form (`SteklovAudit/VertexLog.lean`): `log L ≤ 2√L`, and the
+      (7.49) bound `C_V ε L + K(log L + 1)` implies the `[H4]` form; ledger `Thm111InputsD5`
+      (C6 ledger with H4 in the (7.49) form), `toC6`, `theorem_11_1_of_D5`. A restatement, not a
+      weakening: the hypothesis count is unchanged.
+- [~] D6. Non-vacuity of the D5 ledger (`SteklovAudit/LedgerNonvacuousD5.lean`), reusing the C8 witness.
+- [~] D7. Real law ⇒ integer-level law (`SteklovAudit/RealToIntegerLaw.lean`):
+      `HasSharpRealLaw N A B → HasSharpTwoTermLawOnIntegers (n ↦ N(n+1)) A B`, and the ledger gives the
+      integer-level law with the paper's constants. The converse is not claimed.
+
 ## Not attempted here
 
 Constructing the Dirichlet-to-Neumann operator, Sobolev traces on Lipschitz domains, and the
