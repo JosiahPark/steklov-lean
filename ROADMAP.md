@@ -63,7 +63,7 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
 
 - [x] C1. `MainConditional.lean`: ledger H1–H6, `theorem_11_1_of_inputs`, `formula_11_4_of_inputs`,
       non-vacuity (`nonvacuous`) and nontriviality (`conclusion_nontrivial`).
-- [ ] C2. Definition check for `dihedralCoeff`: prove the integrand of (1.4) is integrable on
+- [x] C2. Definition check for `dihedralCoeff`: prove the integrand of (1.4) is integrable on
       (0, ∞) for 0 < α < π (bounded near 0, ≤ 4e^{−2αv} for large v), so the Bochner integral is
       not Mathlib's junk value 0. File `SteklovAudit/DihedralIntegrable.lean`.
 - [x] C3. Right-angle calibration: `dihedralCoeff (π/2) = 1/(2π)` (∫₀^∞ sech(πv) dv = 1/2).
