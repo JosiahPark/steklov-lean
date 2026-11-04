@@ -25,9 +25,9 @@ manuscript's *logic*: which reductions are valid, which need extra hypotheses, a
 
 | Status | Count | Meaning |
 |---|---|---|
-| Formalized | 17 | A compiled theorem in this repo states essentially this result (often in finite spectral coordinates; differences are noted in the entry) |
-| Partly formalized | 1 | Some parts compiled, others not |
-| Scalar fragments only | 34 | Only scalar or algebraic pieces are compiled; the result itself is not |
+| Formalized | 20 | A compiled theorem in this repo states essentially this result (often in finite spectral coordinates; differences are noted in the entry) |
+| Partly formalized | 2 | Some parts compiled, others not |
+| Scalar fragments only | 30 | Only scalar or algebraic pieces are compiled; the result itself is not |
 | Not formalized | 5 | Nothing in Lean |
 
 ## Findings that bear directly on the manuscript
@@ -97,14 +97,14 @@ manuscript's *logic*: which reductions are valid, which need extra hypotheses, a
 | [R26.2](runs-25-43.md#r262--near-resonance-obstruction-the-defect-cannot-control-the-identification-without-a-gap) | Near-resonance obstruction: the defect cannot control the identification without a gap | Section 9 (near-resonant face propagation). | Scalar fragments only |
 | [R27.1](runs-25-43.md#r271--tracerank-amplification-an-hs-bound-costs-rank-as-a-trace-bound) | Trace–rank amplification: an HS bound costs √rank as a trace bound | Section 7.4, the passage from HS bounds (7.23)–(7.24) to traces (7.25)–(7.26). The … | Formalized |
 | [R27.2](runs-25-43.md#r272--propagator-difference-trace-bound-conditional) | Propagator-difference trace bound (conditional) | Section 7.4: V(t) = e^{−itA}J − Je^{−itB}, (7.24) and (7.25)–(7.26). | Not formalized |
-| [R29.1](runs-25-43.md#r291--rank-difference-budget-for-an-approximate-identification) | Rank-difference budget for an approximate identification | Section 7, the identification J = ηR and cumulative counts (7.19)/(7.29). Section 5.3 … | Scalar fragments only |
+| [R29.1](runs-25-43.md#r291--rank-difference-budget-for-an-approximate-identification) | Rank-difference budget for an approximate identification | Section 7, the identification J = ηR and cumulative counts (7.19)/(7.29). Section 5.3 … | Formalized |
 | [R30.1](runs-25-43.md#r301--one-sided-counting-transfer-with-spectral-shift) | One-sided counting transfer with spectral shift | Section 7 (comparison of the counts N_A and N_B through J). Lemma 7.1 / (7.2) for the … | Formalized |
 | [R32.1](runs-25-43.md#r321--two-sided-shifted-counting-squeeze) | Two-sided shifted counting squeeze | Section 11 and Proposition 7.3 / (7.19). This is a replacement for the transfer between … | Formalized |
-| [R32.2](runs-25-43.md#r322--conditional-sharp-law-transfer-from-the-model-side-only) | Conditional sharp-law transfer from the model side only | Section 11, Theorem 11.1 / (11.4). The wedge-coefficient law (7.45). | Scalar fragments only |
+| [R32.2](runs-25-43.md#r322--conditional-sharp-law-transfer-from-the-model-side-only) | Conditional sharp-law transfer from the model side only | Section 11, Theorem 11.1 / (11.4). The wedge-coefficient law (7.45). | Formalized |
 | [R33.1](runs-25-43.md#r331--threshold-instability-zero-spectral-shift-is-impossible-even-with-exact-unitarity) | Threshold instability: zero spectral shift is impossible even with exact unitarity | Section 11 (sharp counting). It shows why the transfer of R30.1/R32.1 needs δ > 0. | Formalized |
-| [R33.2](runs-25-43.md#r332--admissible-spectral-shift-rates-for-the-squeeze) | Admissible spectral-shift rates for the squeeze | Section 11. | Scalar fragments only |
+| [R33.2](runs-25-43.md#r332--admissible-spectral-shift-rates-for-the-squeeze) | Admissible spectral-shift rates for the squeeze | Section 11. | Formalized |
 | [R34.1](runs-25-43.md#r341--optimal-spectral-shift-for-the-squeeze-error) | Optimal spectral shift for the squeeze error | Section 11 (error budget of the shifted squeeze R32.1). | Scalar fragments only |
-| [R35.1](runs-25-43.md#r351--counterexample-fixed-width-smoothing-does-not-imply-the-sharp-ol-law) | Counterexample: fixed-width smoothing does not imply the sharp o(L) law | Section 11.1, (11.2)–(11.3), and the smoothed counts N^S (7.18). This concerns the … | Scalar fragments only |
+| [R35.1](runs-25-43.md#r351--counterexample-fixed-width-smoothing-does-not-imply-the-sharp-ol-law) | Counterexample: fixed-width smoothing does not imply the sharp o(L) law | Section 11.1, (11.2)–(11.3), and the smoothed counts N^S (7.18). This concerns the … | Partly formalized |
 | [R36.1](runs-25-43.md#r361--monotone-sandwich-between-shifted-smoothings) | Monotone sandwich between shifted smoothings | Section 11 (unsmoothing). | Formalized |
 | [R36.2](runs-25-43.md#r362--unsmoothing-under-a-uniform-shrinking-scale-estimate-quantitative) | Unsmoothing under a uniform shrinking-scale estimate (quantitative) | Section 11, Theorem 11.1 (the o(L) remainder in (11.4)). | Scalar fragments only |
 | [R37.1](runs-25-43.md#r371--tauberian-unsmoothing-from-all-fixed-small-scales-no-uniformity-needed) | Tauberian unsmoothing from all fixed small scales (no uniformity needed) | Section 11, Theorem 11.1. Compare the paper's choice of one fixed time S0 per edge … | Formalized |
