@@ -609,16 +609,20 @@ theorem scaled_strip_window
     mul_le_mul_of_nonneg_left hHlip hL₁
   nlinarith [hA, hB]
 
-/-- The elementary cone-volume window estimate in two boundary dimensions,
-expressed for a nonnegative bounded unit-energy spectral density. -/
+/-- The elementary cone-volume window estimate in two boundary dimensions, at scale `r`.
+(E4: the previous version assumed its own conclusion. Now the hypothesis is the unit-scale
+cone bound `H y − H x ≤ C (y² − x²)` for `0 ≤ x ≤ y`, and the scale-`r` window bound is derived
+by rescaling `x = L₁ r`, `y = L₂ r`.) -/
 theorem cone_ball_window
     (H : ℝ → ℝ) (C r L₁ L₂ : ℝ)
-    (hr : 0 ≤ r) (hC : 0 ≤ C) (hL₁ : 0 ≤ L₁)
+    (hr : 0 ≤ r) (hL₁ : 0 ≤ L₁)
     (hLL : L₁ ≤ L₂)
-    (hLip : H (L₂ * r) - H (L₁ * r) ≤
-      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2)) :
+    (hcone : ∀ x y : ℝ, 0 ≤ x → x ≤ y → H y - H x ≤ C * (y ^ 2 - x ^ 2)) :
     H (L₂ * r) - H (L₁ * r) ≤
-      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := hLip
+      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := by
+  have h := hcone (L₁ * r) (L₂ * r) (mul_nonneg hL₁ hr) (mul_le_mul_of_nonneg_right hLL hr)
+  calc H (L₂ * r) - H (L₁ * r) ≤ C * ((L₂ * r) ^ 2 - (L₁ * r) ^ 2) := h
+    _ = C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := by ring
 
 /-- The exact calculation used to convert an energy window of width 2w
 into O(w L V) volume at high energies. -/
