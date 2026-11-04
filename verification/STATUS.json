@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 15:16 UTC",
+  "checked_at": "2026-11-04 15:45 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 230,
-  "verified": 230,
+  "theorems": 274,
+  "verified": 274,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1569,6 +1569,66 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.ioi_integral_exp_neg_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.dihedralCoeff_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.dihedralCoeff_tetra_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.integrand_antitone",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.dihedralCoeff_antitone",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBounds.lean",
+      "theorem": "SteklovAudit.DihedralBounds.dihedralCoeff_tetra_ge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "DihedralIntegrable.lean",
       "theorem": "SteklovAudit.DihedralIntegrable.sinh_le_mul_exp",
       "axioms": [
@@ -1631,6 +1691,196 @@
     {
       "file": "DihedralIntegrable.lean",
       "theorem": "SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralMonotone.lean",
+      "theorem": "SteklovAudit.DihedralMonotone.integrand_anti",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralMonotone.lean",
+      "theorem": "SteklovAudit.DihedralMonotone.dihedralCoeff_anti",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralMonotone.lean",
+      "theorem": "SteklovAudit.DihedralMonotone.tetraAngle_le_right",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralMonotone.lean",
+      "theorem": "SteklovAudit.DihedralMonotone.dihedralCoeff_tetra_ge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralMonotone.lean",
+      "theorem": "SteklovAudit.DihedralMonotone.edge_coeff_ge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.dihedralCoeff_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.integrableOn_f",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.integrand_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.integral_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.dihedralCoeff_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.dihedralCoeff_pi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.dihedralCoeff_tetra_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralPositive.lean",
+      "theorem": "SteklovAudit.DihedralPositive.edge_term_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.dihedralCoeff_pi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.integrand_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.dihedralCoeff_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.cos_tetraAngle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.tetraAngle_lt_pi_div_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralSanity.lean",
+      "theorem": "SteklovAudit.DihedralSanity.dihedralCoeff_tetra_pos",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -1711,6 +1961,66 @@
     {
       "file": "EdgeLength.lean",
       "theorem": "SteklovAudit.EdgeLength.theorem_11_1_of_C6",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.cutTriv_len",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.loc_unit",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.areaOf_unit",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.zero_piece",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.one_piece",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "LedgerNonvacuousC6.lean",
+      "theorem": "SteklovAudit.LedgerNonvacuousC6.nonvacuous_C6",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -1939,6 +2249,56 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "ScalingLaw.lean",
+      "theorem": "SteklovAudit.ScalingLaw.weyl_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ScalingLaw.lean",
+      "theorem": "SteklovAudit.ScalingLaw.law_rescale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ScalingLaw.lean",
+      "theorem": "SteklovAudit.ScalingLaw.law_scaling",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ScalingLaw.lean",
+      "theorem": "SteklovAudit.ScalingLaw.law_unscaling",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ScalingLaw.lean",
+      "theorem": "SteklovAudit.ScalingLaw.law_scaling_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "Section7CumulativeTransfer.lean",
       "theorem": "SteklovAudit.cumulative_transfer_telescope",
       "axioms": [
@@ -2011,6 +2371,56 @@
     {
       "file": "Section7FixedWindowHSObstruction.lean",
       "theorem": "SteklovAudit.fixed_window_no_uniform_hs_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SharpLawUnique.lean",
+      "theorem": "SteklovAudit.SharpLawUnique.zero_of_forall_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SharpLawUnique.lean",
+      "theorem": "SteklovAudit.SharpLawUnique.diff_small",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SharpLawUnique.lean",
+      "theorem": "SteklovAudit.SharpLawUnique.sharp_law_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SharpLawUnique.lean",
+      "theorem": "SteklovAudit.SharpLawUnique.edge_invariant_determined",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SharpLawUnique.lean",
+      "theorem": "SteklovAudit.SharpLawUnique.not_one_term_law",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -2291,6 +2701,36 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.collar_geometric_bound_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "VertexLog.lean",
+      "theorem": "SteklovAudit.VertexLog.log_le_two_sqrt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "VertexLog.lean",
+      "theorem": "SteklovAudit.VertexLog.vertex_of_log",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "VertexLog.lean",
+      "theorem": "SteklovAudit.VertexLog.theorem_11_1_of_D5",
       "axioms": [
         "propext",
         "Classical.choice",
