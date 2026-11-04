@@ -74,7 +74,8 @@ theorem cs_double (x y : ι → κ → ℝ) :
   rw [← Fintype.sum_prod_type' (fun a b => x a b * y a b),
     ← Fintype.sum_prod_type' (fun a b => x a b ^ 2),
     ← Fintype.sum_prod_type' (fun a b => y a b ^ 2)]
-  exact Finset.sum_mul_sq_le_sq_mul_sq Finset.univ (fun q => x q.1 q.2) (fun q => y q.1 q.2)
+  exact Finset.sum_mul_sq_le_sq_mul_sq Finset.univ (fun q : ι × κ => x q.1 q.2)
+    (fun q : ι × κ => y q.1 q.2)
 
 /-- `Σ |x| |y| ≤ √(‖x‖²_HS ‖y‖²_HS)`. -/
 theorem abs_pair_le_sqrt (x y : ι → κ → ℝ) :
