@@ -51,7 +51,7 @@ re-using the definitions (`Data`, `Data.K`, `hs2`, `PDEInputs`) by importing
       of M = M(L) makes it o(L). This is the heart of (7.29).
 - [x] B5. Connect B4 to `SteklovAudit.sharp_real_law_of_two_scale`: named inputs + tail
       hypothesis ⇒ `HasRealTwoScaleBound`, hence `HasSharpRealLaw`.
-- [ ] B6. Band part of Lemma 5.1 in spectral coordinates (window counting from band and
+- [x] B6. Band part of Lemma 5.1 in spectral coordinates (window counting from band and
       off-band pieces), using `offband_window_bound`.
 
 ## C. Statement-first audit: main theorem from named hypotheses, then shrink the list
@@ -66,7 +66,7 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
 - [ ] C2. Definition check for `dihedralCoeff`: prove the integrand of (1.4) is integrable on
       (0, ∞) for 0 < α < π (bounded near 0, ≤ 4e^{−2αv} for large v), so the Bochner integral is
       not Mathlib's junk value 0. File `SteklovAudit/DihedralIntegrable.lean`.
-- [ ] C3. Right-angle calibration: `dihedralCoeff (π/2) = 1/(2π)` (∫₀^∞ sech(πv) dv = 1/2).
+- [x] C3. Right-angle calibration: `dihedralCoeff (π/2) = 1/(2π)` (∫₀^∞ sech(πv) dv = 1/2).
 - [ ] C4. Shrink H5: state (7.38)/(7.45) (model edge law) and the cumulative comparison o(L)
       (from B4/B5) as two named inputs and prove `[H5 edge]` from them.
 - [ ] C5. Shrink H1/H2: finite-dimensional trace linearity of a squared partition,
