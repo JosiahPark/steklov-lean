@@ -112,6 +112,12 @@ any of `[H1]`–`[H6]` or the main theorem.
 - [x] D7. Real law ⇒ integer-level law (`SteklovAudit/RealToIntegerLaw.lean`):
       `HasSharpRealLaw N A B → HasSharpTwoTermLawOnIntegers (n ↦ N(n+1)) A B`, and the ledger gives the
       integer-level law with the paper's constants. The converse is not claimed.
+- [~] D8. The converse of D7 fails (`SteklovAudit/GridLaw.lean`): the monotone step function
+      `A⌊L⌋₊²` (`A > 0`) has the integer-level law `(A, 0)` exactly but `HasSharpRealLaw` for no `B`
+      (`step_integer_law`, `step_not_real_law`). Compiled on branch `claude/roadmap-e`.
+- [~] D9. The converse with monotonicity and fine grids (`SteklovAudit/GridLaw.lean`): a monotone `N`
+      with the law along every grid `k/m` has the real-parameter law (`real_law_of_fine_grids`).
+      Compiled on branch `claude/roadmap-e`.
 
 ## E. Results from continuations 25–43 (combined archive, 2026-11-04)
 
@@ -121,7 +127,7 @@ fragments, never compiled. E1–E2 state the operator-level results in the spect
 
 E4–E7 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0); with the
 E6 fix (c44fad3) all of E1–E7 compiled (STATUS PASS 341/341, 17:10 UTC). An interactive session wrote independent versions on branch `claude/roadmap-e` at the
-same time; any part of those that adds something will be listed as a separate new item, not as a redo.
+same time; the parts that add something are E11–E13 below (and D8–D9).
 
 - [x] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
       (cont. 42), `counting_transfer` N_B(L) ≤ N_A(L+δ) + E + δ⁻²‖K P‖² (cont. 30/39),
@@ -148,6 +154,24 @@ same time; any part of those that adds something will be listed as a separate ne
 - [x] E7. Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
+- [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
+      α ≥ 0, β > 0, α + 2β < 1, then δ⁻²‖K P‖²_HS = o(L), and `sharp_law_transfer_rpow` gives the
+      sharp law for the other count.
+- [ ] E9. Smoothing half of continuation 35: the smoothed count of `FloorCounterexample.Nc` at one
+      fixed width has the sharp law 10L² + o(L); with `not_sharp` this shows one fixed width cannot
+      give the sharp law (E2 needs widths → 0).
+- [ ] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
+      |N_B − N_A| ≤ ‖P_B − J P_A Jᵀ‖₁ + Σ_{a_i ≤ L} |1 − ‖J e_i‖²|.
+- [~] E11. `SteklovAudit/FixedWidthCounterexample.lean`: E5 for every `B` (`not_sharp_law`: `N` is not
+      10L² + BL + o(L) for any `B`, since `N − 10L²` is about `+L` at `k + 1/4` and `−L` at `k + 3/4`),
+      and `N` monotone on [1, ∞) (`F_strictMonoOn`, `N_monotoneOn`). Note: at `k + 1/4`,
+      `N − 10x² = k − 5/8`, so E5's "≥ k" holds only as "≥ k − 1". Compiled on `claude/roadmap-e`.
+- [~] E12. `SteklovAudit/AsymptoticTransfer.lean`: E6/E8 with the lower inequality in the raw form
+      `counting_two_sided` gives (threshold `L − δ`, error terms evaluated at `L − δ`), δ = L^(−β);
+      `law_of_shifted_bounds`, `asymptotic_transfer`. Compiled on `claude/roadmap-e`.
+- [~] E13. `SteklovAudit/IdentificationBudgetData.lean`: E7 for `AbstractTransfer.Data`
+      (`budget_identity`, `budget_bound`, `defect_terms_nonneg`) and an explicit cancellation example
+      (`signed_trace_cancels`: signed defect 0, absolute defect 2). Compiled on `claude/roadmap-e`.
 
 ## Not attempted here
 
