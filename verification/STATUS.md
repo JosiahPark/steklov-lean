@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 17:10 UTC. 341 of 341 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 17:39 UTC. 371 of 371 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -178,6 +178,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | verified (standard axioms only) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | verified (standard axioms only) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | verified (standard axioms only) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds` | verified (standard axioms only) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_little_o` | verified (standard axioms only) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_neg_small` | verified (standard axioms only) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.defect_over_shift` | verified (standard axioms only) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.asymptotic_transfer` | verified (standard axioms only) |
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.ioi_integral_exp_neg_mul` | verified (standard axioms only) |
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_le` | verified (standard axioms only) |
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_le` | verified (standard axioms only) |
@@ -212,16 +217,41 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.smooth_sandwich` | verified (standard axioms only) |
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_shrinking_scales` | verified (standard axioms only) |
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_finite_kernels` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_quarter` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_three_quarter` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_quarter_lower` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_three_quarter_upper` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.not_sharp_law` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.hasDerivAt_F` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.deriv_F_pos` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.F_strictMonoOn` | verified (standard axioms only) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_monotoneOn` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_eq` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.F_pair` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_close` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smoothed_sharp_law` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.Nc_eq` | verified (standard axioms only) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.fixed_width_insufficient` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.sin_quarter` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.floor_excess` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.not_sharp` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.hasDerivAt_F` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.deriv_F_pos` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_monotone` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_nat` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_half` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
+| GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_proj` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_JPJt` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_identity` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_coords` | verified (standard axioms only) |
 | IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_contraction` | verified (standard axioms only) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_identity` | verified (standard axioms only) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_bound` | verified (standard axioms only) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.defect_terms_nonneg` | verified (standard axioms only) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.signed_trace_cancels` | verified (standard axioms only) |
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.cutTriv_len` | verified (standard axioms only) |
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.loc_unit` | verified (standard axioms only) |
 | LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.areaOf_unit` | verified (standard axioms only) |

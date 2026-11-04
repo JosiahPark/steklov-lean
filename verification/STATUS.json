@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 17:10 UTC",
+  "checked_at": "2026-11-04 17:39 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 341,
-  "verified": 341,
+  "theorems": 371,
+  "verified": 371,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1570,6 +1570,56 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "AsymptoticTransfer.lean",
+      "theorem": "SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AsymptoticTransfer.lean",
+      "theorem": "SteklovAudit.AsymptoticTransfer.rpow_little_o",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AsymptoticTransfer.lean",
+      "theorem": "SteklovAudit.AsymptoticTransfer.rpow_neg_small",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AsymptoticTransfer.lean",
+      "theorem": "SteklovAudit.AsymptoticTransfer.defect_over_shift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AsymptoticTransfer.lean",
+      "theorem": "SteklovAudit.AsymptoticTransfer.asymptotic_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "DihedralBounds.lean",
       "theorem": "SteklovAudit.DihedralBounds.ioi_integral_exp_neg_mul",
       "axioms": [
@@ -1910,6 +1960,156 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.sin_quarter",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.sin_three_quarter",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.N_quarter_lower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.N_three_quarter_upper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.not_sharp_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.hasDerivAt_F",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.deriv_F_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.F_strictMonoOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthCounterexample.lean",
+      "theorem": "SteklovAudit.FixedWidthCounterexample.N_monotoneOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.smooth_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.F_pair",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.smooth_close",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.smoothed_sharp_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.Nc_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FixedWidthSmoothing.lean",
+      "theorem": "SteklovAudit.FixedWidthSmoothing.fixed_width_insufficient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "FloorCounterexample.lean",
       "theorem": "SteklovAudit.FloorCounterexample.sin_quarter",
       "axioms": [
@@ -1960,6 +2160,66 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.stepN_monotone",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.stepN_nat",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.stepN_half",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.step_integer_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.step_not_real_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GridLaw.lean",
+      "theorem": "SteklovAudit.GridLaw.real_law_of_fine_grids",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "IdentificationBudget.lean",
       "theorem": "SteklovAudit.IdentificationBudget.trace_proj",
       "axioms": [
@@ -2002,6 +2262,46 @@
     {
       "file": "IdentificationBudget.lean",
       "theorem": "SteklovAudit.IdentificationBudget.identification_budget_contraction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "IdentificationBudgetData.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.budget_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "IdentificationBudgetData.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.budget_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "IdentificationBudgetData.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.defect_terms_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "IdentificationBudgetData.lean",
+      "theorem": "SteklovAudit.AbstractTransfer.signed_trace_cancels",
       "axioms": [
         "propext",
         "Classical.choice",
