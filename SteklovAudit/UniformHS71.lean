@@ -8,7 +8,8 @@ Hilbert–Schmidt bound (7.2'). Items are appended one per run, following ROADMA
 
 This file does NOT prove Lemma 7.1' itself, any Hilbert–Schmidt estimate for the
 Dirichlet-to-Neumann operator, or the main theorem (Theorem 1.3 / 11.1). It contains only
-scalar inequalities and finite-dimensional matrix trace inequalities; no analytic
+scalar inequalities, finite-dimensional matrix trace inequalities and two elementary
+integrals of real powers; no analytic
 hypotheses are introduced.
 -/
 
@@ -212,5 +213,43 @@ theorem frobenius_mul_diag_le (X : ι → κ → ℝ) (y : κ → ℝ) (B : ℝ)
     _ = Real.sqrt (∑ i, ∑ j, X i j ^ 2) * B := by rw [Real.sqrt_sq hB0]
 
 end A7
+
+/-! ### A8. Two elementary interval integrals -/
+
+section A8
+
+/-- A8. For `β > 1/2`: `∫₀¹ s^(2β−2) ds = 1/(2β−1)` (real power). -/
+theorem integral_rpow_two_beta_sub_two (β : ℝ) (hβ : 1 / 2 < β) :
+    ∫ s in (0 : ℝ)..1, s ^ (2 * β - 2) = 1 / (2 * β - 1) := by
+  have hr : (-1 : ℝ) < 2 * β - 2 := by linarith
+  have h1 : 2 * β - 2 + 1 = 2 * β - 1 := by ring
+  have hne : 2 * β - 1 ≠ 0 := by
+    have : 0 < 2 * β - 1 := by linarith
+    exact ne_of_gt this
+  first
+    | rw [integral_rpow (Or.inl hr)]
+    | rw [intervalIntegral.integral_rpow (Or.inl hr)]
+  rw [h1]
+  first
+    | (rw [Real.one_rpow, Real.zero_rpow hne, sub_zero])
+    | simp [Real.zero_rpow hne]
+
+/-- A8. For `μ > 0`: `∫₀¹ s^(2μ−1) ds = 1/(2μ)` (real power). -/
+theorem integral_rpow_two_mu_sub_one (μ : ℝ) (hμ : 0 < μ) :
+    ∫ s in (0 : ℝ)..1, s ^ (2 * μ - 1) = 1 / (2 * μ) := by
+  have hr : (-1 : ℝ) < 2 * μ - 1 := by linarith
+  have h1 : 2 * μ - 1 + 1 = 2 * μ := by ring
+  have hne : 2 * μ ≠ 0 := by
+    have : 0 < 2 * μ := by linarith
+    exact ne_of_gt this
+  first
+    | rw [integral_rpow (Or.inl hr)]
+    | rw [intervalIntegral.integral_rpow (Or.inl hr)]
+  rw [h1]
+  first
+    | (rw [Real.one_rpow, Real.zero_rpow hne, sub_zero])
+    | simp [Real.zero_rpow hne]
+
+end A8
 
 end SteklovAudit.UniformHS71
