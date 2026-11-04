@@ -157,9 +157,10 @@ same time; the parts that add something are E11–E13 below (and D8–D9).
 - [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
       α ≥ 0, β > 0, α + 2β < 1, then δ⁻²‖K P‖²_HS = o(L), and `sharp_law_transfer_rpow` gives the
       sharp law for the other count.
-- [ ] E9. Smoothing half of continuation 35: the smoothed count of `FloorCounterexample.Nc` at one
+- [~] E9. Smoothing half of continuation 35: the smoothed count of `FloorCounterexample.Nc` at one
       fixed width has the sharp law 10L² + o(L); with `not_sharp` this shows one fixed width cannot
-      give the sharp law (E2 needs widths → 0).
+      give the sharp law (E2 needs widths → 0). Written in `SteklovAudit/FixedWidthSmoothing.lean`
+      (two-point kernel ±1/4 at width 1; `smoothed_sharp_law`, `fixed_width_insufficient`).
 - [ ] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
       |N_B − N_A| ≤ ‖P_B − J P_A Jᵀ‖₁ + Σ_{a_i ≤ L} |1 − ‖J e_i‖²|.
 - [~] E11. `SteklovAudit/FixedWidthCounterexample.lean`: E5 for every `B` (`not_sharp_law`: `N` is not
