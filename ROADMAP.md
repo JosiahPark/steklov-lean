@@ -119,9 +119,9 @@ The continuations proved several finite-dimensional facts on paper but only wrot
 fragments, never compiled. E1–E2 state the operator-level results in the spectral coordinates of
 `AbstractTransfer` and prove them; E3 brings the scalar fragments in under CI.
 
-E4–E7 (2026-11-04, interactive session): written on branch `claude/roadmap-e` and being compiled
-there; they will be copied to main once that branch passes. Do not redo them; if main's STATUS does
-not list them yet, leave them alone.
+E4–E7 were written on main by the formalize run of 16:58 UTC (commits c718c10, 196a6b0) and are
+waiting for CI. An interactive session wrote independent versions on branch `claude/roadmap-e` at the
+same time; any part of those that adds something will be listed as a separate new item, not as a redo.
 
 - [~] E1. `SteklovAudit/SpectralCounting.lean`: `window_gap_leakage` (cont. 25), `weighted_leakage`
       (cont. 42), `counting_transfer` N_B(L) ≤ N_A(L+δ) + E + δ⁻²‖K P‖² (cont. 30/39),
