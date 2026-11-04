@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 06:14 UTC",
+  "checked_at": "2026-11-04 07:12 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 163,
-  "verified": 163,
+  "theorems": 167,
+  "verified": 167,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1611,6 +1611,46 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.quarter_sq_partial_sum_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.quarter_sq_partial_sum_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.tsum_sixteenth_pow_succ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.tsum_two_pow_neg_four",
       "axioms": [
         "propext",
         "Classical.choice",
