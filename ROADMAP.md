@@ -174,6 +174,54 @@ same time; the parts that add something are E11–E13 below (and D8–D9).
       (`budget_identity`, `budget_bound`, `defect_terms_nonneg`) and an explicit cancellation example
       (`signed_trace_cancels`: signed defect 0, absolute defect 2). Compiled on `claude/roadmap-e`.
 
+## H. The hypothesis ledger (reference only: no items here)
+
+`SteklovAudit/MainConditional.lean` proves Theorem 11.1 / (11.4) from the six named hypotheses below
+(`Thm111Inputs`; STATUS.md counts them as `named_hypotheses`). This section has no checkboxes and the :07 task
+does not work on it directly. Work that weakens or restates an `[H…]` goes in section C or D; the "Lean so
+far" column records what those items did. None of H1–H6 is proved for the Steklov operator of the
+tetrahedron, so the main theorem stays conditional. Gaps (7.2), (7.29), (7.38)/(7.45) and (9.1) are open.
+
+| H | Paper | Says | Lean so far | Still open | Related paper proofs |
+|---|---|---|---|---|---|
+| H1 splitting | §11.2 | `N = V + E + F`: trace linearity of the squared partition | C5: Tr P = Σ_k Tr(χ_k P χ_k) when Σ χ_k² = 1, in finite dimensions; H1 derived from a partition structure | A squared partition for the actual spectral projector | R01.1, R02.1, R13.1, R14.1, R15.1 |
+| H2 area | §11.2 | The area coefficients add to √3 a²/(4π) | C5: additivity of the area coefficients | The area terms for the actual operator | R01.1 |
+| H3 length | §11.2 (vertex cutoffs) | Edge length kept by the vertex cutoffs is 6a + O(ε) | C6: from the cutoff support lengths (interval arithmetic) | The cutoffs themselves | — |
+| H4 vertex | (7.49) | Vertex part, error O(εL) + o(L) | D5: the (7.49) form C_V εL + K(log L + 1) implies H4 (a restatement; the count is unchanged) | (7.49) itself | — |
+| H5 edge | (11.3) | Edge part, error C_ε γ L + o(L) | C4: from the model edge law (7.38)/(7.45) and a cumulative comparison o(L) (B4/B5, with a named tail hypothesis); A: Lemma 7.1′ replaces (7.2); E1/E6/E8: counting transfer at shift δ = L^(−β) when ‖K P‖²_HS = O(L^α), α < 1 | (7.2) for the DtN operator (replaced by 7.1′, whose PDE inputs are not proved), (7.29), (7.38)/(7.45), (9.1) | R16.2, R20.2, R25.1, R27.1, R29.1, R30.1, R32.1, R32.2, R33.1, R33.2, R37.1, R39.1 |
+| H6 face | Lemma 7.4, §10.2 | Face part: zero linear coefficient, error o(L) | Nothing beyond the ledger | Lemma 7.4 and §10.2 | R26.1, R26.2 |
+
+## R. Paper proofs from the hourly runs that are not yet in Lean
+
+`docs/paper-proofs/` records 57 results (R01.1–R43.2) proved on paper in the hourly run reports: 20
+formalized, 2 partly, 30 scalar fragments only, 5 not formalized. The items below are the parts that are
+not formalized and can be stated in finite spectral coordinates. Each is a new file in `SteklovAudit/`
+importing Mathlib (and `SteklovAudit.AbstractTransfer` where it reuses `Data`, `hs2`). Like sections D and
+E, none of them proves any `[H…]` or the main theorem. R04.4 (Duhamel for unbounded generators) is not
+listed: its finite-dimensional analogue is `AbstractTransfer.duhamel_hs` (B2), and the unbounded version
+belongs under "Not attempted here". The smoothing half of R35.1 is E9. Lifting the 30 scalar-fragment
+results to the operator level is not queued; pick from the index in `docs/paper-proofs/README.md` when R1–R5
+are done.
+
+- [ ] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
+      `Tr T = 1`, so the HS norm tends to 0 while the trace does not; and `T` attains equality in
+      |Tr T| ≤ √rank · ‖T‖_HS (compare `trace_rank_amplification`).
+- [ ] R2. R42.1(ii)–(iii), `SteklovAudit/LeakageLayerCake.lean`: (ii) for s > 0,
+      Σ_{a_i ≤ L} Σ_{b_j ≥ L+s} J_ji² ≤ s⁻² Σ_{a_i ≤ L} Σ_j K_ji² (from `window_gap_leakage` plus the
+      sub-sum step); (iii) the layer cake ∫₀^∞ 2t · 1[x > t] dt = max(x, 0)² for real x, summed to
+      ∫₀^∞ 2t H(t) dt = Σ (b_j − L)₊² J_ji² with H(t) = Σ_{a_i ≤ L} Σ_{b_j > L+t} J_ji².
+- [ ] R3. R27.2 in coordinates, `SteklovAudit/PropagatorTrace.lean`: for a rank-r coordinate projection P,
+      |Tr(P U(t) P)| ≤ √r · |t| · ‖K‖_HS with U(t) entrywise (e^{itb_j} − e^{ita_i}) J_ji; combine
+      `trace_rank_amplification` with `duhamel_hs`.
+- [ ] R4. R21.2 in coordinates, `SteklovAudit/MultiChartTrace.lean`: charts J_i with Σ J_iᵀ J_i = I give
+      |Tr e^{itA} − Σ_i Tr(J_iᵀ e^{itB_i} J_i)| ≤ √dim · |t| · (Σ_i ‖K_i‖²_HS)^{1/2}; sharpness example
+      A = 0, B = I, J = I on ℂⁿ (discrepancy n|1 − e^{it}|).
+- [ ] R5. R20.1, discrete kernel first, `SteklovAudit/WindowMassSmoothing.lean`: if N is nondecreasing,
+      N = 0 on (−∞, 0) and N(k+1) − N(k) ≤ A(V(k+1) + 1) for integers k ≥ 0 (V ≥ 0), then for a finite kernel
+      ρ = Σ_m w_m δ_{s_m} with Σ w_m = 1 and L ≥ 1,
+      |N(L) − Σ_m w_m N(L − s_m)| ≤ A (V(L+1) + 1) · Σ_m |w_m| (|s_m| + 3)².
+      The Schwartz-kernel version is optional.
+
 ## Not attempted here
 
 Constructing the Dirichlet-to-Neumann operator, Sobolev traces on Lipschitz domains, and the
