@@ -168,4 +168,49 @@ theorem trace_proj_cutoff_le (P : Matrix n n ℝ) (hsym : P.transpose = P) (hide
 
 end A6
 
+/-! ### A7. Hilbert–Schmidt norm of `X · diag(y)` (finite-dimensional) -/
+
+section A7
+
+variable {ι κ : Type*} [Fintype ι] [Fintype κ]
+
+/-- A7, spectral coordinates: if `|y j| ≤ B` for all `j`, then
+`∑ᵢⱼ (X i j · y j)² ≤ (∑ᵢⱼ (X i j)²) · B²`. -/
+theorem hs2_mul_diag_le (X : ι → κ → ℝ) (y : κ → ℝ) (B : ℝ) (hy : ∀ j, |y j| ≤ B) :
+    ∑ i, ∑ j, (X i j * y j) ^ 2 ≤ (∑ i, ∑ j, X i j ^ 2) * B ^ 2 := by
+  rw [Finset.sum_mul]
+  refine Finset.sum_le_sum (fun i _ => ?_)
+  rw [Finset.sum_mul]
+  refine Finset.sum_le_sum (fun j _ => ?_)
+  have hB : y j ^ 2 ≤ B ^ 2 := by
+    have h1 := mul_nonneg (sub_nonneg.mpr (hy j)) (abs_nonneg (y j))
+    nlinarith [sq_abs (y j), sq_nonneg (B - |y j|)]
+  calc (X i j * y j) ^ 2 = X i j ^ 2 * y j ^ 2 := by ring
+    _ ≤ X i j ^ 2 * B ^ 2 := mul_le_mul_of_nonneg_left hB (sq_nonneg _)
+
+/-- A7, matrix form: `‖X · diagonal y‖²_F ≤ ‖X‖²_F · B²` when `|y j| ≤ B`
+(for diagonal `Y`, the operator norm is `sup |y j|`, bounded here by `B`). -/
+theorem frobenius_sq_mul_diagonal_le [DecidableEq κ] (X : Matrix ι κ ℝ) (y : κ → ℝ) (B : ℝ)
+    (hy : ∀ j, |y j| ≤ B) :
+    ∑ i, ∑ j, (X * Matrix.diagonal y) i j ^ 2 ≤ (∑ i, ∑ j, X i j ^ 2) * B ^ 2 := by
+  simp only [Matrix.mul_diagonal]
+  exact hs2_mul_diag_le X y B hy
+
+/-- A7, unsquared form: `‖X · diag(y)‖_F ≤ ‖X‖_F · B` for `B ≥ 0` and `|y j| ≤ B`. -/
+theorem frobenius_mul_diag_le (X : ι → κ → ℝ) (y : κ → ℝ) (B : ℝ) (hB0 : 0 ≤ B)
+    (hy : ∀ j, |y j| ≤ B) :
+    Real.sqrt (∑ i, ∑ j, (X i j * y j) ^ 2) ≤ Real.sqrt (∑ i, ∑ j, X i j ^ 2) * B := by
+  have h := hs2_mul_diag_le X y B hy
+  have hS : 0 ≤ ∑ i, ∑ j, X i j ^ 2 :=
+    Finset.sum_nonneg (fun i _ => Finset.sum_nonneg (fun j _ => sq_nonneg (X i j)))
+  have hmono : Real.sqrt (∑ i, ∑ j, (X i j * y j) ^ 2) ≤
+      Real.sqrt ((∑ i, ∑ j, X i j ^ 2) * B ^ 2) := by
+    first | exact Real.sqrt_le_sqrt h | gcongr
+  calc Real.sqrt (∑ i, ∑ j, (X i j * y j) ^ 2)
+      ≤ Real.sqrt ((∑ i, ∑ j, X i j ^ 2) * B ^ 2) := hmono
+    _ = Real.sqrt (∑ i, ∑ j, X i j ^ 2) * Real.sqrt (B ^ 2) := Real.sqrt_mul hS _
+    _ = Real.sqrt (∑ i, ∑ j, X i j ^ 2) * B := by rw [Real.sqrt_sq hB0]
+
+end A7
+
 end SteklovAudit.UniformHS71
