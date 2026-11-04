@@ -95,7 +95,7 @@ theorem coth_strictAnti {a b : ℝ} (ha : 0 < a) (hab : a < b) : coth b < coth a
   have hpos : 0 < Real.sinh (b - a) := Real.sinh_pos_iff.mpr (by linarith)
   nlinarith
 
-theorem tanh_strictMono' {a b : ℝ} (hab : a < b) : Real.tanh a < Real.tanh b := by
+theorem tanh_lt_tanh {a b : ℝ} (hab : a < b) : Real.tanh a < Real.tanh b := by
   rw [Real.tanh_eq_sinh_div_cosh, Real.tanh_eq_sinh_div_cosh,
     div_lt_div_iff₀ (Real.cosh_pos a) (Real.cosh_pos b)]
   have h := Real.sinh_sub b a
@@ -117,7 +117,7 @@ theorem even_pos (α v : ℝ) (h0 : 0 < α) (hπ : α < Real.pi) (hv : 0 < v) :
 theorem odd_neg (α v : ℝ) (hπ : α < Real.pi) (hv : 0 < v) :
     mMinus α v - mMinus Real.pi v < 0 := by
   unfold mMinus
-  have := tanh_strictMono' (a := α * v / 2) (b := Real.pi * v / 2) (by nlinarith)
+  have := tanh_lt_tanh (a := α * v / 2) (b := Real.pi * v / 2) (by nlinarith)
   linarith
 
 theorem parity_trace_sum (α v : ℝ) (h0 : 0 < α) (hv : 0 < v) :
