@@ -1,11 +1,13 @@
 {
-  "checked_at": "2026-11-04 17:39 UTC",
+  "checked_at": "2026-11-04 19:14 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 371,
-  "verified": 371,
-  "problems": [],
-  "all_verified": true,
+  "theorems": 421,
+  "verified": 420,
+  "problems": [
+    "SteklovAudit.SectorTrace.tanh_strictMono'"
+  ],
+  "all_verified": false,
   "escape_hatches": [],
   "tautologies": [],
   "named_hypotheses": 6,
@@ -1850,6 +1852,116 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.integrand_third",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.hasDerivAt_G",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.GThird_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.tendsto_G",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.integral_third",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_pi_div_three",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_tetra_le_third",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_tetra_bracket_third",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.upper_num",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.lower_num",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralThird.lean",
+      "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "EdgeFromModel.lean",
       "theorem": "SteklovAudit.EdgeFromModel.edge_of_model_compare",
       "axioms": [
@@ -1922,6 +2034,86 @@
     {
       "file": "EdgeLength.lean",
       "theorem": "SteklovAudit.EdgeLength.theorem_11_1_of_C6",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.zero_beyond",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.neg_moment_deriv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.deriv_test",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.inner_k",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.inner_k_abs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.kernel_integrable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.edge_momentum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeMomentum.lean",
+      "theorem": "SteklovAudit.EdgeMomentum.formula_3_13",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -2522,6 +2714,136 @@
     {
       "file": "RealToIntegerLaw.lean",
       "theorem": "SteklovAudit.RealToIntegerLaw.integer_law_of_inputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.int_rpow",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.kernel_moment0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.kernel_moment1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.kernel_moment2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.kernel_ii",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.kernel_mul_ii",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.riesz_of_sharp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.riesz_single",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.riesz_finite",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.riesz_of_sharpLaw",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.leading_coefficient",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.riesz_of_inputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszMeans.lean",
+      "theorem": "SteklovAudit.RieszMeans.first_riesz_coefficients_paper",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -3252,6 +3574,182 @@
     {
       "file": "Section9SpectralGapLeakage.lean",
       "theorem": "SteklovAudit.spectral_gap_finite_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.sinh_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.endpoint_eigen_plus",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.endpoint_eigen_minus",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.multiplier_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.multiplier_diff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.rank_one_weight",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.coth_strictAnti",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.tanh_strictMono'",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.even_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.odd_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.parity_trace_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.coth_form",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.abs_parity_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.tendsto_sinh_div",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.integrand_tendsto_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.gamma_reflection_imag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.norm_identity_constant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "SectorTrace.lean",
+      "theorem": "SteklovAudit.SectorTrace.dihedralCoeff_coth_form",
       "axioms": [
         "propext",
         "Classical.choice",

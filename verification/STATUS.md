@@ -1,6 +1,6 @@
-# Lean verification status: PASS
+# Lean verification status: FAIL
 
-Checked 2026-11-04 17:39 UTC. 371 of 371 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 19:14 UTC. 420 of 421 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -206,6 +206,17 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | DihedralSanity.lean | `SteklovAudit.DihedralSanity.cos_tetraAngle` | verified (standard axioms only) |
 | DihedralSanity.lean | `SteklovAudit.DihedralSanity.tetraAngle_lt_pi_div_two` | verified (standard axioms only) |
 | DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_tetra_pos` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.integrand_third` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.hasDerivAt_G` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.GThird_zero` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.tendsto_G` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.integral_third` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_pi_div_three` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_le_third` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_bracket_third` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.upper_num` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.lower_num` | verified (standard axioms only) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.edge_of_model_compare` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.theorem_11_1_of_C4` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.formula_11_4_of_C4` | verified (standard axioms only) |
@@ -214,6 +225,14 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | EdgeLength.lean | `SteklovAudit.EdgeLength.six_edge_length` | verified (standard axioms only) |
 | EdgeLength.lean | `SteklovAudit.EdgeLength.length_bound` | verified (standard axioms only) |
 | EdgeLength.lean | `SteklovAudit.EdgeLength.theorem_11_1_of_C6` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.zero_beyond` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.neg_moment_deriv` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.deriv_test` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k_abs` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.kernel_integrable` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.edge_momentum` | verified (standard axioms only) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.formula_3_13` | verified (standard axioms only) |
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.smooth_sandwich` | verified (standard axioms only) |
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_shrinking_scales` | verified (standard axioms only) |
 | FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_finite_kernels` | verified (standard axioms only) |
@@ -274,6 +293,19 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.int_rpow` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment0` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment1` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment2` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_ii` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_mul_ii` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharp` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_single` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_finite` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharpLaw` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.leading_coefficient` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_inputs` | verified (standard axioms only) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.first_riesz_coefficients_paper` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | verified (standard axioms only) |
@@ -347,6 +379,24 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_identity` | verified (standard axioms only) |
 | Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_budget` | verified (standard axioms only) |
 | Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_finite_budget` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.sinh_ne` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_plus` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_minus` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_sum` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_diff` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.rank_one_weight` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_strictAnti` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.tanh_strictMono'` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.even_pos` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.odd_neg` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.parity_trace_sum` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_form` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.abs_parity_sum` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.tendsto_sinh_div` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.integrand_tendsto_zero` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.gamma_reflection_imag` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.norm_identity_constant` | verified (standard axioms only) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.dihedralCoeff_coth_form` | verified (standard axioms only) |
 | SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.poly_shift` | verified (standard axioms only) |
 | SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.sharp_law_transfer` | verified (standard axioms only) |
 | SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.zero_of_forall_le` | verified (standard axioms only) |
