@@ -246,12 +246,17 @@ Elementary steps of the paper that are not part of `Thm111Inputs`. All four comp
 - [x] S4. `SteklovAudit/DihedralThird.lean`: `c_{π/3} = 2√3/(3π)` (closed form via an arctan
       antiderivative), hence with C10/C11 `1/(2π) ≤ c_{α₀} ≤ 2√3/(3π)` and `0.158 < c_{α₀} < 0.368`
       (improves C11's 24/π²). The decimals of (1.5) are still not certified.
-- [~] S5. `SteklovAudit/HeatFiber.lean` (§4): Lemma 4.1's convolution is exactly `C C' B(q,q) u^(2q−1) e^{−cu}`
+- [x] S5. `SteklovAudit/HeatFiber.lean` (§4): Lemma 4.1's convolution is exactly `C C' B(q,q) u^(2q−1) e^{−cu}`
       (Beta scaling; `B(q,q)` convergent for 0 < q ≤ 1); (4.5) ⇒ the trace norm is integrable in `u` with
       `∫ ≤ K c^{−2q} Γ(2q)`, so `M_α < ∞`; (4.7) scaling `(1/2π)∫ f(t|k|) dk = M_α/t`; (4.9) ⇒ edge term of
       (4.10) by dominated convergence; (4.11) integral `∫₀^∞ dv/(1 + k cosh v) ≤ 2 log(2/k)`.
-- [~] S6. `SteklovAudit/WindowBounds.lean` (§5): (5.2) strip-trace increment `≤ 2Cγ(L₂² − L₁²)`; (5.9)
+- [x] S6. `SteklovAudit/WindowBounds.lean` (§5): (5.2) strip-trace increment `≤ 2Cγ(L₂² − L₁²)`; (5.9)
       `∫_{L/2}^{2L} t/((t−L)² + w²) ≤ 2πL/w`; `‖S_o‖ ≤ 2/L`; (5.10) absorption `‖X‖ ≤ 4‖K‖/L` when `L > 4w`.
+- [~] S7. `SteklovAudit/RieszCounterexample.lean` (§8, end): `N(L) = ⌊A L² + B L + ε L sin L⌋` (0 < ε < 2A,
+      adjusted on a bounded interval) is monotone, obeys every positive Riesz law with coefficients `A, B`
+      (`Nc_riesz`, via `|∫₀^L (L−u)^(r−1) u sin u| ≤ 2L + L^r + L/r`), and has no sharp law `A L² + B'L + o(L)`
+      for any `B'` (`Nc_not_sharp`). With S3 (sharp ⇒ Riesz) this shows Riesz laws are strictly weaker.
+      The heat expansion (8.1) for the example is not formalized.
 
 ## Not attempted here
 
