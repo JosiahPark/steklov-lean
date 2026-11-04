@@ -68,6 +68,37 @@ def error_blocks(path, max_lines=600):
     return out
 
 
+BANNED = [r"\bsorry\b", r"\badmit\b", r"maxHeartbeats", r"^\s*axiom\s", r"native_decide",
+          r"implemented_by", r"@\[extern", r"\bunsafe\b", r"\bopaque\b"]
+
+
+def strip_comments(text):
+    text = re.sub(r"/-.*?-/", "", text, flags=re.S)
+    return re.sub(r"--.*", "", text)
+
+
+def escape_hatches():
+    """Banned tokens outside comments: sorry/admit, heartbeat hacks, new axioms, native code."""
+    hits = []
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    for f in files:
+        if not f.exists():
+            continue
+        for i, line in enumerate(strip_comments(f.read_text()).splitlines(), 1):
+            for pat in BANNED:
+                if re.search(pat, line):
+                    hits.append(f"{f.name}: `{line.strip()[:90]}`")
+    return hits
+
+
+def hypothesis_ledger():
+    """Named hypotheses of the conditional main theorem, tagged `/-- [H...]` in MainConditional.lean."""
+    f = ROOT / "SteklovAudit" / "MainConditional.lean"
+    if not f.exists():
+        return []
+    return re.findall(r"/-- \[(H\d+[^\]]*)\]\s*([^\n]*?)\s*(?:-/)?$", f.read_text(), re.M)
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     decls = collect()
@@ -99,7 +130,9 @@ def main():
             status = "verified (standard axioms only)"
         rows.append({"file": fname, "theorem": name, "axioms": axioms, "status": status})
 
-    ok = proc.returncode == 0 and not bad and bool(decls)
+    hatches = escape_hatches()
+    ledger = hypothesis_ledger()
+    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     summary = {
         "checked_at": stamp,
@@ -109,6 +142,9 @@ def main():
         "verified": len(decls) - len(bad),
         "problems": bad,
         "all_verified": ok,
+        "escape_hatches": hatches,
+        "named_hypotheses": len(ledger),
+        "hypothesis_ledger": [f"{t}: {d}" for t, d in ledger],
         "results": rows,
     }
     (OUT / "STATUS.json").write_text(json.dumps(summary, indent=2) + "\n")
@@ -121,6 +157,19 @@ def main():
         "Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)",
         "is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic",
         "two-scale bound as a hypothesis, and no Dirichlet-to-Neumann operator is defined in Lean.",
+        "",
+        f"Named hypotheses behind the conditional main theorem (`MainConditional.lean`): {len(ledger)}. "
+        "The goal is to shrink this list.",
+        "",
+    ]
+    lines += [f"- {t}: {d}" for t, d in ledger]
+    lines += [
+        "",
+        "Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): "
+        + ("none" if not hatches else f"{len(hatches)} FOUND"),
+    ]
+    lines += [f"  - {h}" for h in hatches]
+    lines += [
         "",
         "| File | Theorem | Result |",
         "|---|---|---|",

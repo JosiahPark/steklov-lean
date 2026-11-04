@@ -3,6 +3,9 @@
 The :07 task does the FIRST unchecked item below, one item per run. When the build for that
 item passes, the next run ticks it (`- [ ]` -> `- [x]`) in the same commit as its next item.
 If the build is failing, fixing it comes before any new item.
+`- [~]` means the interactive session already wrote the item and it is waiting for CI: if
+`verification/STATUS.md` shows it compiled, tick it (`[~]` -> `[x]`) and move on; if it failed,
+fixing it is the next item. Never redo a `[~]` item from scratch.
 
 Every new file goes in `SteklovAudit/`, starts with `import Mathlib`, states in its docstring
 what it does NOT prove, and uses no `sorry`, `axiom` or other escape hatch.
@@ -36,20 +39,40 @@ re-using the definitions (`Data`, `Data.K`, `hs2`, `PDEInputs`) by importing
 
 - [x] B1. Spectral data, defect, Lipschitz transfer, trace transfer, off-band bound,
       named PDE inputs, and the naive O(L²) trace comparison (`AbstractTransfer.lean`).
-- [ ] B2. Duhamel with the time factor, entrywise: ‖exp(i t x) − exp(i t y)‖ ≤ |t| · |x − y|
+- [~] B2. Duhamel with the time factor, entrywise: ‖exp(i t x) − exp(i t y)‖ ≤ |t| · |x − y|
       for real t, x, y (complex exponential), and the HS form
       ‖e^{itA} J − J e^{itB}‖²_HS ≤ t² ‖K‖²_HS in spectral coordinates.
-- [ ] B3. Energy splitting: split pairs (i, j) by max(a i, b j) ≤ M versus > M. Add a named
+- [~] B3. Energy splitting: split pairs (i, j) by max(a i, b j) ≤ M versus > M. Add a named
       tail hypothesis `tail : hs2 (K restricted to energies > M) ≤ τ(M)` and prove the trace
       comparison is ≤ Lip(f) · (low-energy part + high-energy part) with explicit terms.
-- [ ] B4. Time-factor cancellation: for a smoothed step F_S whose difference quotient is
+- [~] B4. Time-factor cancellation: for a smoothed step F_S whose difference quotient is
       bounded by S·c (a hypothesis), show the cumulative comparison is bounded by
       c·S·(C(1+M)·√(mass) + √τ(M)·√(mass)); then state exactly which growth of τ and choice
       of M = M(L) makes it o(L). This is the heart of (7.29).
-- [ ] B5. Connect B4 to `SteklovAudit.sharp_real_law_of_two_scale`: named inputs + tail
+- [~] B5. Connect B4 to `SteklovAudit.sharp_real_law_of_two_scale`: named inputs + tail
       hypothesis ⇒ `HasRealTwoScaleBound`, hence `HasSharpRealLaw`.
 - [ ] B6. Band part of Lemma 5.1 in spectral coordinates (window counting from band and
       off-band pieces), using `offband_window_bound`.
+
+## C. Statement-first audit: main theorem from named hypotheses, then shrink the list
+
+`SteklovAudit/MainConditional.lean` proves Theorem 11.1 / (11.4), with the paper's constants, from
+the ledger `Thm111Inputs` (hypotheses tagged `[H1]`..`[H6]`). `axiom_audit.py` counts them in
+STATUS.md. Every item below should either remove a hypothesis, replace one by strictly weaker
+named inputs, or check a definition. Never add a hypothesis without removing a stronger one.
+
+- [~] C1. `MainConditional.lean`: ledger H1–H6, `theorem_11_1_of_inputs`, `formula_11_4_of_inputs`,
+      non-vacuity (`nonvacuous`) and nontriviality (`conclusion_nontrivial`).
+- [ ] C2. Definition check for `dihedralCoeff`: prove the integrand of (1.4) is integrable on
+      (0, ∞) for 0 < α < π (bounded near 0, ≤ 4e^{−2αv} for large v), so the Bochner integral is
+      not Mathlib's junk value 0. File `SteklovAudit/DihedralIntegrable.lean`.
+- [ ] C3. Right-angle calibration: `dihedralCoeff (π/2) = 1/(2π)` (∫₀^∞ sech(πv) dv = 1/2).
+- [ ] C4. Shrink H5: state (7.38)/(7.45) (model edge law) and the cumulative comparison o(L)
+      (from B4/B5) as two named inputs and prove `[H5 edge]` from them.
+- [ ] C5. Shrink H1/H2: finite-dimensional trace linearity of a squared partition,
+      Tr(P) = Σ_k Tr(χ_k P χ_k) when Σ_k χ_k² = 1 (diagonal χ_k), and additivity of the area
+      coefficients; then derive `[H1]` and `[H2]` from a partition structure.
+- [ ] C6. Shrink H3: Σ_e ∫ q_e² = 6a − O(ε) from cutoff support lengths (interval arithmetic).
 
 ## Not attempted here
 
