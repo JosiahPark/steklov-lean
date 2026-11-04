@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 14:17 UTC",
+  "checked_at": "2026-11-04 15:16 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 226,
-  "verified": 226,
+  "theorems": 230,
+  "verified": 230,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1671,6 +1671,46 @@
     {
       "file": "EdgeFromModel.lean",
       "theorem": "SteklovAudit.EdgeFromModel.nonvacuous_C4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeLength.lean",
+      "theorem": "SteklovAudit.EdgeLength.edge_integral_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeLength.lean",
+      "theorem": "SteklovAudit.EdgeLength.six_edge_length",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeLength.lean",
+      "theorem": "SteklovAudit.EdgeLength.length_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeLength.lean",
+      "theorem": "SteklovAudit.EdgeLength.theorem_11_1_of_C6",
       "axioms": [
         "propext",
         "Classical.choice",
