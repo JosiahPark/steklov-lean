@@ -1,6 +1,6 @@
-# Lean verification status: FAIL
+# Lean verification status: PASS
 
-Checked 2026-11-04 19:35 UTC. 452 of 453 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 19:40 UTC. 453 of 453 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -300,7 +300,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_neg_le_one` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.inv_sq_rpow_neg` | verified (standard axioms only) |

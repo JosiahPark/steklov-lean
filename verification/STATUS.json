@@ -1,13 +1,11 @@
 {
-  "checked_at": "2026-11-04 19:35 UTC",
+  "checked_at": "2026-11-04 19:40 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
   "theorems": 453,
-  "verified": 452,
-  "problems": [
-    "SteklovAudit.PowerShiftTransfer.rpow_pos'"
-  ],
-  "all_verified": false,
+  "verified": 453,
+  "problems": [],
+  "all_verified": true,
   "escape_hatches": [],
   "tautologies": [],
   "named_hypotheses": 6,
@@ -2794,8 +2792,12 @@
     {
       "file": "PowerShiftTransfer.lean",
       "theorem": "SteklovAudit.PowerShiftTransfer.rpow_pos'",
-      "axioms": null,
-      "status": "NOT CHECKED (name not found by Lean)"
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
     },
     {
       "file": "PowerShiftTransfer.lean",
