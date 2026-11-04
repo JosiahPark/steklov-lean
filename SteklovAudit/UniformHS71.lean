@@ -89,4 +89,28 @@ theorem indicator_sum_scaled {ι : Type*} (s : Finset ι) (T g : ι → ℝ) (la
   · have h' : ¬ (0 ≤ T i / lam ∧ T i / lam ≤ L) := fun h' => h ⟨hl.mp h'.1, hu.mp h'.2⟩
     rw [if_neg h', if_neg h]
 
+/-- A5. Gradient-scaling cancellation: for `λ > 0`, `λ⁻¹ · C · (λ · G) = C · G`. -/
+theorem gradient_scaling_cancel (C G lam : ℝ) (hlam : 0 < lam) :
+    lam⁻¹ * C * (lam * G) = C * G := by
+  have h : lam ≠ 0 := ne_of_gt hlam
+  calc lam⁻¹ * C * (lam * G) = (lam⁻¹ * lam) * (C * G) := by ring
+    _ = C * G := by rw [inv_mul_cancel₀ h, one_mul]
+
+/-- A5, division form: `C · (λ · G) / λ = C · G` for `λ > 0`. -/
+theorem gradient_scaling_div (C G lam : ℝ) (hlam : 0 < lam) :
+    C * (lam * G) / lam = C * G := by
+  have h : lam ≠ 0 := ne_of_gt hlam
+  rw [div_eq_mul_inv]
+  calc C * (lam * G) * lam⁻¹ = (lam * lam⁻¹) * (C * G) := by ring
+    _ = C * G := by rw [mul_inv_cancel₀ h, one_mul]
+
+/-- A5, inequality form: if a gradient quantity `g` satisfies `g ≤ λ G` (the rescaled
+gradient bound, supplied as a hypothesis), then `λ⁻¹ · C · g ≤ C · G` for `C ≥ 0`, `λ > 0`. -/
+theorem scaled_gradient_bound (C G g lam : ℝ) (hlam : 0 < lam) (hC : 0 ≤ C)
+    (hg : g ≤ lam * G) :
+    lam⁻¹ * C * g ≤ C * G := by
+  have hk : 0 ≤ lam⁻¹ * C := mul_nonneg (inv_nonneg.mpr hlam.le) hC
+  calc lam⁻¹ * C * g ≤ lam⁻¹ * C * (lam * G) := mul_le_mul_of_nonneg_left hg hk
+    _ = C * G := gradient_scaling_cancel C G lam hlam
+
 end SteklovAudit.UniformHS71
