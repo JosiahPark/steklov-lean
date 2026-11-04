@@ -69,10 +69,10 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
 - [x] C3. Right-angle calibration: `dihedralCoeff (π/2) = 1/(2π)` (∫₀^∞ sech(πv) dv = 1/2).
 - [x] C4. Shrink H5: state (7.38)/(7.45) (model edge law) and the cumulative comparison o(L)
       (from B4/B5) as two named inputs and prove `[H5 edge]` from them.
-- [ ] C5. Shrink H1/H2: finite-dimensional trace linearity of a squared partition,
+- [x] C5. Shrink H1/H2: finite-dimensional trace linearity of a squared partition,
       Tr(P) = Σ_k Tr(χ_k P χ_k) when Σ_k χ_k² = 1 (diagonal χ_k), and additivity of the area
       coefficients; then derive `[H1]` and `[H2]` from a partition structure.
-- [ ] C6. Shrink H3: Σ_e ∫ q_e² = 6a − O(ε) from cutoff support lengths (interval arithmetic).
+- [~] C6. Shrink H3 (`SteklovAudit/EdgeLength.lean`): Σ_e ∫ q_e² = 6a − O(ε) from cutoff support lengths (interval arithmetic).
 
 ## Not attempted here
 
