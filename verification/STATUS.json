@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 07:12 UTC",
+  "checked_at": "2026-11-04 08:15 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 167,
-  "verified": 167,
+  "theorems": 170,
+  "verified": 170,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1651,6 +1651,36 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.tsum_two_pow_neg_four",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.row_sq_le_of_self_test",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.hs2_le_of_pointwise",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.hs_le_of_pointwise",
       "axioms": [
         "propext",
         "Classical.choice",
