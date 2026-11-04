@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 16:08 UTC",
+  "checked_at": "2026-11-04 16:14 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 320,
-  "verified": 320,
+  "theorems": 324,
+  "verified": 324,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1621,6 +1621,46 @@
     {
       "file": "DihedralBounds.lean",
       "theorem": "SteklovAudit.DihedralBounds.dihedralCoeff_tetra_ge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBracket.lean",
+      "theorem": "SteklovAudit.DihedralBracket.pi_div_three_lt_tetraAngle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBracket.lean",
+      "theorem": "SteklovAudit.DihedralBracket.bound_le_of_ge",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBracket.lean",
+      "theorem": "SteklovAudit.DihedralBracket.dihedralCoeff_tetra_le_bracket",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralBracket.lean",
+      "theorem": "SteklovAudit.DihedralBracket.dihedralCoeff_tetra_bracket",
       "axioms": [
         "propext",
         "Classical.choice",

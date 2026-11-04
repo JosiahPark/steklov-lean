@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 16:08 UTC. 320 of 320 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 16:14 UTC. 324 of 324 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -182,6 +182,10 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.integrand_antitone` | verified (standard axioms only) |
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_antitone` | verified (standard axioms only) |
 | DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_ge` | verified (standard axioms only) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.pi_div_three_lt_tetraAngle` | verified (standard axioms only) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.bound_le_of_ge` | verified (standard axioms only) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_le_bracket` | verified (standard axioms only) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_bracket` | verified (standard axioms only) |
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.sinh_le_mul_exp` | verified (standard axioms only) |
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.half_le_sinh` | verified (standard axioms only) |
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.exp_half_le_cosh` | verified (standard axioms only) |
