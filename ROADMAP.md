@@ -222,6 +222,25 @@ are done.
       |N(L) − Σ_m w_m N(L − s_m)| ≤ A (V(L+1) + 1) · Σ_m |w_m| (|s_m| + 3)².
       The Schwartz-kernel version is optional.
 
+## S. Paper statements outside the ledger (interactive session, 2026-11-04)
+
+Elementary steps of the paper that are not part of `Thm111Inputs`. Each file was compiled locally against
+the Mathlib modules it uses; `[~]` until CI passes with `import Mathlib`. None proves any `[H…]`.
+
+- [~] S1. `SteklovAudit/SectorTrace.lean` (§3.1–3.2): endpoint matrix (3.2) → multipliers (3.6)
+      (`endpoint_eigen_plus/minus`); gamma step of (3.4), `π Γ(1/2−iv)Γ(1/2+iv)/4 = π²/(4 cosh πv)`;
+      rank-one weight in (3.8); parity signs; the (3.8) and (3.9) integrands; `dihedralCoeff` in the
+      coth form of (3.9); the integrand tends to (π−α)/α at 0. Not proved: (3.4) for `K_{iv}`, trace class.
+- [~] S2. `SteklovAudit/EdgeMomentum.lean` (§3.3): (3.13) from the spectral-shift formula (3.10) taken as a
+      hypothesis for each momentum: `∫₀^∞ dk ∫₀^∞ ∂_b φ(k/b) ξ(b) db = (∫ξ)(∫φ)` (Fubini with the
+      integrability of (3.12), substitution, integration by parts), `formula_3_13`.
+- [~] S3. `SteklovAudit/RieszMeans.lean` (§8, (1.9)): (8.4) for a finite nonnegative spectrum; for monotone
+      `N` with the sharp law, every Riesz mean of order r > 0 obeys (1.9); `riesz_of_inputs` gives (1.9) with
+      the paper's constants from the ledger; at r = 1 the coefficients are √3a²/(12π) and 3ac.
+- [~] S4. `SteklovAudit/DihedralThird.lean`: `c_{π/3} = 2√3/(3π)` (closed form via an arctan
+      antiderivative), hence with C10/C11 `1/(2π) ≤ c_{α₀} ≤ 2√3/(3π)` and `0.158 < c_{α₀} < 0.368`
+      (improves C11's 24/π²). The decimals of (1.5) are still not certified.
+
 ## Not attempted here
 
 Constructing the Dirichlet-to-Neumann operator, Sobolev traces on Lipschitz domains, and the
