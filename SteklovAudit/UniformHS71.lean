@@ -297,4 +297,45 @@ theorem tsum_two_pow_neg_four :
 
 end A9
 
+/-! ### A10. Pointwise criterion for the Hilbert–Schmidt norm (finite-dimensional) -/
+
+section A10
+
+variable {ι κ : Type*} [Fintype ι] [Fintype κ]
+
+/-- A10, one row: if `|∑ₖ r k · r k| ≤ c · ‖r‖` (testing the row against itself), then
+`∑ₖ (r k)² ≤ c²`. -/
+theorem row_sq_le_of_self_test (r : κ → ℝ) (c : ℝ)
+    (h : |∑ k, r k * r k| ≤ c * Real.sqrt (∑ k, r k ^ 2)) :
+    ∑ k, r k ^ 2 ≤ c ^ 2 := by
+  have hS0 : 0 ≤ ∑ k, r k ^ 2 := Finset.sum_nonneg (fun k _ => sq_nonneg (r k))
+  have hrr : ∑ k, r k * r k = ∑ k, r k ^ 2 := Finset.sum_congr rfl (fun k _ => by ring)
+  rw [hrr, abs_of_nonneg hS0] at h
+  have hsq : Real.sqrt (∑ k, r k ^ 2) ^ 2 = ∑ k, r k ^ 2 := Real.sq_sqrt hS0
+  have hq0 : 0 ≤ Real.sqrt (∑ k, r k ^ 2) := Real.sqrt_nonneg _
+  rcases eq_or_lt_of_le hq0 with hq | hq
+  · rw [← hq] at hsq
+    nlinarith [sq_nonneg c]
+  · have hqc : Real.sqrt (∑ k, r k ^ 2) ≤ c := by
+      by_contra hlt
+      push_neg at hlt
+      nlinarith [mul_pos hq (sub_pos.mpr hlt)]
+    nlinarith [mul_self_le_mul_self hq0 hqc]
+
+/-- A10. Finite-dimensional pointwise criterion: if `|∑ₖ T i k · f k| ≤ w i · ‖f‖` for every
+`f` and every row `i` (with `‖f‖ = √(∑ₖ (f k)²)`), then `∑ᵢₖ (T i k)² ≤ ∑ᵢ (w i)²`. -/
+theorem hs2_le_of_pointwise (T : ι → κ → ℝ) (w : ι → ℝ)
+    (h : ∀ i (f : κ → ℝ), |∑ k, T i k * f k| ≤ w i * Real.sqrt (∑ k, f k ^ 2)) :
+    ∑ i, ∑ k, T i k ^ 2 ≤ ∑ i, w i ^ 2 :=
+  Finset.sum_le_sum (fun i _ => row_sq_le_of_self_test (T i) (w i) (h i (T i)))
+
+/-- A10, unsquared form: `‖T‖_HS ≤ √(∑ᵢ (w i)²)` under the same pointwise hypothesis. -/
+theorem hs_le_of_pointwise (T : ι → κ → ℝ) (w : ι → ℝ)
+    (h : ∀ i (f : κ → ℝ), |∑ k, T i k * f k| ≤ w i * Real.sqrt (∑ k, f k ^ 2)) :
+    Real.sqrt (∑ i, ∑ k, T i k ^ 2) ≤ Real.sqrt (∑ i, w i ^ 2) := by
+  have h2 := hs2_le_of_pointwise T w h
+  first | exact Real.sqrt_le_sqrt h2 | gcongr
+
+end A10
+
 end SteklovAudit.UniformHS71
