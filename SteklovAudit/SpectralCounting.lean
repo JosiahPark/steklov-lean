@@ -171,7 +171,7 @@ theorem threshold_instability (n : ℕ) (hn : 0 < n) :
   have hpos : (0 : ℝ) < 1 / n := by positivity
   refine ⟨⟨fun _ => 1 / n, fun _ => 0, fun i j => if i = j then 1 else 0⟩, ?_, ?_, ?_, ?_, ?_⟩
   · have hrow : ∀ i : Fin n, ∑ j : Fin n, ((1 / (n : ℝ) - 0) * (if i = j then (1 : ℝ) else 0)) ^ 2
-        = (1 / n) ^ 2 := by
+        = (1 / (n : ℝ)) ^ 2 := by
       intro i
       rw [Finset.sum_eq_single i]
       · simp
@@ -179,7 +179,7 @@ theorem threshold_instability (n : ℕ) (hn : 0 < n) :
         simp [Ne.symm hji]
       · intro hi
         exact absurd (Finset.mem_univ i) hi
-    show ∑ i : Fin n, ∑ j : Fin n, ((1 / (n : ℝ) - 0) * (if i = j then (1 : ℝ) else 0)) ^ 2 = 1 / n
+    show ∑ i : Fin n, ∑ j : Fin n, ((1 / (n : ℝ) - 0) * (if i = j then (1 : ℝ) else 0)) ^ 2 = 1 / (n : ℝ)
     rw [Finset.sum_congr rfl (fun i _ => hrow i), Finset.sum_const, Finset.card_univ,
       Fintype.card_fin, nsmul_eq_mul, div_pow, one_pow, mul_one_div, sq, ← div_div, div_self hn']
   · intro i
