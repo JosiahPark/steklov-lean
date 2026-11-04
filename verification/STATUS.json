@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 11:43 UTC",
+  "checked_at": "2026-11-04 12:47 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 210,
-  "verified": 210,
+  "theorems": 217,
+  "verified": 217,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1561,6 +1561,76 @@
     {
       "file": "AbstractTransferB6.lean",
       "theorem": "SteklovAudit.AbstractTransfer.window_count_band",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.sinh_le_mul_exp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.half_le_sinh",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.exp_half_le_cosh",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.integrand_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.integrableOn_integrand",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.integrableOn_dihedral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DihedralIntegrable.lean",
+      "theorem": "SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra",
       "axioms": [
         "propext",
         "Classical.choice",

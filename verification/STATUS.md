@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 11:43 UTC. 210 of 210 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 12:47 UTC. 217 of 217 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -176,6 +176,13 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | verified (standard axioms only) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | verified (standard axioms only) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.sinh_le_mul_exp` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.half_le_sinh` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.exp_half_le_cosh` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrand_bound` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_integrand` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral` | verified (standard axioms only) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | verified (standard axioms only) |
