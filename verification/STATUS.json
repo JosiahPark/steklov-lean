@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 13:18 UTC",
+  "checked_at": "2026-11-04 14:17 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 221,
-  "verified": 221,
+  "theorems": 226,
+  "verified": 226,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1741,6 +1741,56 @@
     {
       "file": "MainConditional.lean",
       "theorem": "SteklovAudit.MainConditional.conclusion_nontrivial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTrace.lean",
+      "theorem": "SteklovAudit.PartitionTrace.diag_conj_entry",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTrace.lean",
+      "theorem": "SteklovAudit.PartitionTrace.trace_squared_partition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTrace.lean",
+      "theorem": "SteklovAudit.PartitionTrace.trace_split3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTrace.lean",
+      "theorem": "SteklovAudit.PartitionTrace.area_additive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTrace.lean",
+      "theorem": "SteklovAudit.PartitionTrace.theorem_11_1_of_C5",
       "axioms": [
         "propext",
         "Classical.choice",

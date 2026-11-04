@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 13:18 UTC. 221 of 221 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 14:17 UTC. 226 of 226 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -194,6 +194,11 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | MainConditional.lean | `SteklovAudit.MainConditional.formula_11_4_of_inputs` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.nonvacuous` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.conclusion_nontrivial` | verified (standard axioms only) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.diag_conj_entry` | verified (standard axioms only) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_squared_partition` | verified (standard axioms only) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | verified (standard axioms only) |
 | RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | verified (standard axioms only) |
