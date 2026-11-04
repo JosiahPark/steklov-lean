@@ -58,13 +58,14 @@ theorem layer_cake_sq (x : ℝ) :
   first
     | rw [Set.Iio_inter_Ioi]
     | rw [Set.inter_comm, Set.Ioi_inter_Iio]
-  rcases le_or_lt x 0 with hx | hx
+  by_cases hx : x ≤ 0
   · rw [max_eq_right hx]
     first
       | (rw [Set.Ioo_eq_empty_of_le hx]; simp)
       | simp [Set.Ioo_eq_empty_of_le hx]
       | simp [hx]
-  · rw [max_eq_left hx.le, ← integral_Ioc_eq_integral_Ioo,
+  · push_neg at hx
+    rw [max_eq_left hx.le, ← integral_Ioc_eq_integral_Ioo,
       ← intervalIntegral.integral_of_le hx.le]
     first
       | (rw [intervalIntegral.integral_const_mul, integral_id]; ring)
