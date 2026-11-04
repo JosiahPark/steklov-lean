@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 19:40 UTC. 453 of 453 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 20:34 UTC. 464 of 464 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -310,6 +310,17 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_phiS` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.abs_phiS_le` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.osc_riesz_bound` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_Fc` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.deriv_Fc_pos` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Fc_monotoneOn` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_monotone` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_eq` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_not_sharp` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_riesz` | verified (standard axioms only) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.riesz_does_not_imply_sharp` | verified (standard axioms only) |
 | RieszMeans.lean | `SteklovAudit.RieszMeans.int_rpow` | verified (standard axioms only) |
 | RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment0` | verified (standard axioms only) |
 | RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment1` | verified (standard axioms only) |

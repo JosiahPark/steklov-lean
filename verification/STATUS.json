@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 19:40 UTC",
+  "checked_at": "2026-11-04 20:34 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 453,
-  "verified": 453,
+  "theorems": 464,
+  "verified": 464,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2882,6 +2882,116 @@
     {
       "file": "RealToIntegerLaw.lean",
       "theorem": "SteklovAudit.RealToIntegerLaw.integer_law_of_inputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.hasDerivAt_phiS",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.abs_phiS_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.osc_riesz_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.hasDerivAt_Fc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.deriv_Fc_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.Fc_monotoneOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.Nc_monotone",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.Nc_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.Nc_not_sharp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.Nc_riesz",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RieszCounterexample.lean",
+      "theorem": "SteklovAudit.RieszCounterexample.riesz_does_not_imply_sharp",
       "axioms": [
         "propext",
         "Classical.choice",
