@@ -1,6 +1,6 @@
-# Lean verification status: FAIL
+# Lean verification status: PASS
 
-Checked 2026-11-04 19:14 UTC. 420 of 421 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 19:18 UTC. 421 of 421 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -386,7 +386,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_diff` | verified (standard axioms only) |
 | SectorTrace.lean | `SteklovAudit.SectorTrace.rank_one_weight` | verified (standard axioms only) |
 | SectorTrace.lean | `SteklovAudit.SectorTrace.coth_strictAnti` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.tanh_strictMono'` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.tanh_lt_tanh` | verified (standard axioms only) |
 | SectorTrace.lean | `SteklovAudit.SectorTrace.even_pos` | verified (standard axioms only) |
 | SectorTrace.lean | `SteklovAudit.SectorTrace.odd_neg` | verified (standard axioms only) |
 | SectorTrace.lean | `SteklovAudit.SectorTrace.parity_trace_sum` | verified (standard axioms only) |

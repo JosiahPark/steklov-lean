@@ -1,13 +1,11 @@
 {
-  "checked_at": "2026-11-04 19:14 UTC",
+  "checked_at": "2026-11-04 19:18 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
   "theorems": 421,
-  "verified": 420,
-  "problems": [
-    "SteklovAudit.SectorTrace.tanh_strictMono'"
-  ],
-  "all_verified": false,
+  "verified": 421,
+  "problems": [],
+  "all_verified": true,
   "escape_hatches": [],
   "tautologies": [],
   "named_hypotheses": 6,
@@ -3653,9 +3651,13 @@
     },
     {
       "file": "SectorTrace.lean",
-      "theorem": "SteklovAudit.SectorTrace.tanh_strictMono'",
-      "axioms": null,
-      "status": "NOT CHECKED (name not found by Lean)"
+      "theorem": "SteklovAudit.SectorTrace.tanh_lt_tanh",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
     },
     {
       "file": "SectorTrace.lean",
