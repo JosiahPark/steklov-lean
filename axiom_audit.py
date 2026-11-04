@@ -99,6 +99,35 @@ def hypothesis_ledger():
     return re.findall(r"/-- \[(H\d+[^\]]*)\]\s*([^\n]*?)\s*(?:-/)?$", f.read_text(), re.M)
 
 
+def tautologies():
+    """Theorems whose proof is just one of their own hypotheses (`:= h`, `by exact h`, `by assumption`)."""
+    hits = []
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    for f in files:
+        if not f.exists():
+            continue
+        lines = strip_comments(f.read_text()).splitlines()
+        for i, line in enumerate(lines):
+            d = decl_re.match(line)
+            if not d:
+                continue
+            chunk = [line]
+            j = i + 1
+            while j < len(lines) and not re.match(r"^\S", lines[j]):
+                chunk.append(lines[j])
+                j += 1
+            text = "\n".join(chunk)
+            k = text.find(":=")
+            if k < 0:
+                continue
+            sig, proof = text[:k], text[k + 2:].strip()
+            binders = [b for grp in re.findall(r"[({\[]([^(){}\[\]:]+):", sig) for b in grp.split()]
+            m = re.match(r"^(?:by\s+(?:exact\s+)?)?([^\s()]+)$", proof)
+            if re.match(r"^by\s+assumption$", proof) or (m and m.group(1) in binders):
+                hits.append(f"{f.name}: `{d.group(2)} := {proof[:60]}`")
+    return hits
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     decls = collect()
@@ -131,8 +160,9 @@ def main():
         rows.append({"file": fname, "theorem": name, "axioms": axioms, "status": status})
 
     hatches = escape_hatches()
+    taut = tautologies()
     ledger = hypothesis_ledger()
-    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches
+    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches and not taut
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     summary = {
         "checked_at": stamp,
@@ -143,6 +173,7 @@ def main():
         "problems": bad,
         "all_verified": ok,
         "escape_hatches": hatches,
+        "tautologies": taut,
         "named_hypotheses": len(ledger),
         "hypothesis_ledger": [f"{t}: {d}" for t, d in ledger],
         "results": rows,
@@ -169,6 +200,12 @@ def main():
         + ("none" if not hatches else f"{len(hatches)} FOUND"),
     ]
     lines += [f"  - {h}" for h in hatches]
+    lines += [
+        "",
+        "Tautologies (proof is one of the theorem's own hypotheses): "
+        + ("none" if not taut else f"{len(taut)} FOUND"),
+    ]
+    lines += [f"  - {t}" for t in taut]
     lines += [
         "",
         "| File | Theorem | Result |",

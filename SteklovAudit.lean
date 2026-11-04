@@ -609,16 +609,21 @@ theorem scaled_strip_window
     mul_le_mul_of_nonneg_left hHlip hL₁
   nlinarith [hA, hB]
 
-/-- The elementary cone-volume window estimate in two boundary dimensions,
-expressed for a nonnegative bounded unit-energy spectral density. -/
+/-- The elementary cone-volume window estimate in two boundary dimensions. If the unit-energy
+spectral density `H` grows at most like a cone volume, `H y - H x ≤ C (y² - x²)` for
+`0 ≤ x ≤ y`, then the energy window between `L₁ r` and `L₂ r` carries at most
+`C r² (L₂² - L₁²)`. (Roadmap E4: the earlier statement assumed its own conclusion; the unused
+hypothesis `0 ≤ C` was dropped.) -/
 theorem cone_ball_window
     (H : ℝ → ℝ) (C r L₁ L₂ : ℝ)
-    (hr : 0 ≤ r) (hC : 0 ≤ C) (hL₁ : 0 ≤ L₁)
+    (hr : 0 ≤ r) (hL₁ : 0 ≤ L₁)
     (hLL : L₁ ≤ L₂)
-    (hLip : H (L₂ * r) - H (L₁ * r) ≤
-      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2)) :
+    (hgrowth : ∀ x y : ℝ, 0 ≤ x → x ≤ y → H y - H x ≤ C * (y ^ 2 - x ^ 2)) :
     H (L₂ * r) - H (L₁ * r) ≤
-      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := hLip
+      C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := by
+  have h := hgrowth (L₁ * r) (L₂ * r) (mul_nonneg hL₁ hr) (mul_le_mul_of_nonneg_right hLL hr)
+  calc H (L₂ * r) - H (L₁ * r) ≤ C * ((L₂ * r) ^ 2 - (L₁ * r) ^ 2) := h
+    _ = C * r ^ 2 * (L₂ ^ 2 - L₁ ^ 2) := by ring
 
 /-- The exact calculation used to convert an energy window of width 2w
 into O(w L V) volume at high energies. -/
