@@ -172,16 +172,21 @@ theorem real_law_of_fine_grids (N : ℝ → ℝ) (A B : ℝ) (hN : Monotone N)
   have m2 := mul_le_mul hLx q4 q3 hinv0.le
   have m3 := mul_nonneg p1 p3
   have m4 := mul_nonneg q1 q3
+  have hLh : 0 ≤ L * h := mul_nonneg hL0 hinv0.le
   have incA1 : |A * ((x + h) ^ 2 - L ^ 2)| ≤ |A| * (3 * L * h) := by
     rw [abs_mul]
     apply mul_le_mul_of_nonneg_left _ (abs_nonneg A)
     rw [abs_le]
-    constructor <;> nlinarith
+    constructor
+    · linarith [m3, hLh]
+    · linarith [m1]
   have incA2 : |A * (L ^ 2 - x ^ 2)| ≤ |A| * (3 * L * h) := by
     rw [abs_mul]
     apply mul_le_mul_of_nonneg_left _ (abs_nonneg A)
     rw [abs_le]
-    constructor <;> nlinarith
+    constructor
+    · linarith [m4, hLh]
+    · linarith [m2]
   have incB1 : |B * (x + h - L)| ≤ |B| * (L * h) := by
     rw [abs_mul]
     apply mul_le_mul_of_nonneg_left _ (abs_nonneg B)
