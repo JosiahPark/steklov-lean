@@ -25,7 +25,7 @@ Put these in `SteklovAudit/UniformHS71.lean` (one item per run, appended to that
 - [x] A9. Σ_{j≥1} 2^(−4j) = 1/15 (tsum), or the finite partial sums ≤ 1/15.
 - [x] A10. Finite-dimensional pointwise criterion: if |Σ_k T i k f k| ≤ w i · ‖f‖ for all f,
       then Σ_{i,k} (T i k)² ≤ Σ_i (w i)².
-- [ ] A11. For L ≥ 1, 0 ≤ w, 4w < L, C ≥ 0: (2/L) · Σ_{n<N} (2w/L)ⁿ · C(1+L+w) ≤ 12C.
+- [x] A11. For L ≥ 1, 0 ≤ w, 4w < L, C ≥ 0: (2/L) · Σ_{n<N} (2w/L)ⁿ · C(1+L+w) ≤ 12C.
 
 ## B. Abstract operator layer (spectral coordinates at a finite cutoff)
 
