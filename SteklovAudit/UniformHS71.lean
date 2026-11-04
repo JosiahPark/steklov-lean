@@ -252,4 +252,49 @@ theorem integral_rpow_two_mu_sub_one (μ : ℝ) (hμ : 0 < μ) :
 
 end A8
 
+/-! ### A9. The dyadic sum `∑_{j≥1} 2^(−4j) = 1/15` -/
+
+section A9
+
+/-- A9, closed form of the finite partial sums:
+`∑_{j<n} (1/16)^(j+1) = (1 − (1/16)^n)/15`. -/
+theorem quarter_sq_partial_sum_eq (n : ℕ) :
+    ∑ j ∈ Finset.range n, ((1 : ℝ) / 16) ^ (j + 1) = (1 - ((1 : ℝ) / 16) ^ n) / 15 := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    rw [Finset.sum_range_succ, ih]
+    ring
+
+/-- A9, finite form: every partial sum of `∑_{j≥1} 2^(−4j)` is at most `1/15`. -/
+theorem quarter_sq_partial_sum_le (n : ℕ) :
+    ∑ j ∈ Finset.range n, ((1 : ℝ) / 16) ^ (j + 1) ≤ 1 / 15 := by
+  rw [quarter_sq_partial_sum_eq]
+  have h : 0 ≤ ((1 : ℝ) / 16) ^ n := by positivity
+  linarith
+
+/-- A9, infinite form: `∑'_{j≥0} (1/16)^(j+1) = 1/15`. -/
+theorem tsum_sixteenth_pow_succ :
+    ∑' j : ℕ, ((1 : ℝ) / 16) ^ (j + 1) = 1 / 15 := by
+  have hg : ∑' j : ℕ, ((1 : ℝ) / 16) ^ j = (1 - (1 : ℝ) / 16)⁻¹ := by
+    first
+      | exact tsum_geometric_of_lt_one (by norm_num) (by norm_num)
+      | exact (hasSum_geometric_of_lt_one (by norm_num) (by norm_num)).tsum_eq
+  rw [show (∑' j : ℕ, ((1 : ℝ) / 16) ^ (j + 1)) = ∑' j : ℕ, ((1 : ℝ) / 16) ^ j * (1 / 16) from
+    tsum_congr (fun j => by ring)]
+  rw [tsum_mul_right, hg]
+  norm_num
+
+/-- A9, as written in the paper: `∑_{j≥1} 2^(−4j) = 1/15`, indexing `j + 1` for `j ≥ 0`. -/
+theorem tsum_two_pow_neg_four :
+    ∑' j : ℕ, ((2 : ℝ)⁻¹) ^ (4 * (j + 1)) = 1 / 15 := by
+  rw [show (∑' j : ℕ, ((2 : ℝ)⁻¹) ^ (4 * (j + 1))) = ∑' j : ℕ, ((1 : ℝ) / 16) ^ (j + 1) from
+    tsum_congr (fun j => by
+      rw [pow_mul]
+      congr 1
+      norm_num)]
+  exact tsum_sixteenth_pow_succ
+
+end A9
+
 end SteklovAudit.UniformHS71
