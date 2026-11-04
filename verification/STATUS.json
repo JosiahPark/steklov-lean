@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 05:13 UTC",
+  "checked_at": "2026-11-04 06:14 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 161,
-  "verified": 161,
+  "theorems": 163,
+  "verified": 163,
   "problems": [],
   "all_verified": true,
   "results": [
@@ -1591,6 +1591,26 @@
     {
       "file": "UniformHS71.lean",
       "theorem": "SteklovAudit.UniformHS71.frobenius_mul_diag_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.integral_rpow_two_beta_sub_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "UniformHS71.lean",
+      "theorem": "SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one",
       "axioms": [
         "propext",
         "Classical.choice",
