@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 12:47 UTC. 217 of 217 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 13:18 UTC. 221 of 221 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -183,6 +183,10 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_integrand` | verified (standard axioms only) |
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral` | verified (standard axioms only) |
 | DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra` | verified (standard axioms only) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.edge_of_model_compare` | verified (standard axioms only) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.theorem_11_1_of_C4` | verified (standard axioms only) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.formula_11_4_of_C4` | verified (standard axioms only) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.nonvacuous_C4` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | verified (standard axioms only) |

@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 12:47 UTC",
+  "checked_at": "2026-11-04 13:18 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 217,
-  "verified": 217,
+  "theorems": 221,
+  "verified": 221,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1631,6 +1631,46 @@
     {
       "file": "DihedralIntegrable.lean",
       "theorem": "SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeFromModel.lean",
+      "theorem": "SteklovAudit.EdgeFromModel.edge_of_model_compare",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeFromModel.lean",
+      "theorem": "SteklovAudit.EdgeFromModel.theorem_11_1_of_C4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeFromModel.lean",
+      "theorem": "SteklovAudit.EdgeFromModel.formula_11_4_of_C4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "EdgeFromModel.lean",
+      "theorem": "SteklovAudit.EdgeFromModel.nonvacuous_C4",
       "axioms": [
         "propext",
         "Classical.choice",
