@@ -154,7 +154,7 @@ same time; the parts that add something are E11–E13 below (and D8–D9).
 - [x] E7. Continuation 29 identification budget in coordinates:
       |N_B − N_A| ≤ ‖P_B − J P_A J*‖₁ + |Tr P_A(I − J*J)|, with the note that the signed trace
       can cancel; use the diagonal form Σ_{a_i ≤ L} (1 − ‖J e_i‖²) instead.
-- [~] E8. `SteklovAudit/PowerShiftTransfer.lean`: the shift δ(L) = L^(−β) in E6. With
+- [x] E8. `SteklovAudit/PowerShiftTransfer.lean`: the shift δ(L) = L^(−β) in E6. With
       ‖K P‖²_HS ≤ C L^α (named input `hH`), β > 0 and α + 2β < 1, the HS term δ⁻²‖K P‖² is
       ≤ C L^(α+2β) = o(L), so `sharp_law_transfer_power` gives the sharp law for N_B.
 - [x] E8. `SteklovAudit/RpowScale.lean`: E6 at the concrete scale δ = L^(−β): if 0 ≤ ‖K P‖²_HS ≤ C L^α,
@@ -164,7 +164,7 @@ same time; the parts that add something are E11–E13 below (and D8–D9).
       fixed width has the sharp law 10L² + o(L); with `not_sharp` this shows one fixed width cannot
       give the sharp law (E2 needs widths → 0). Written in `SteklovAudit/FixedWidthSmoothing.lean`
       (two-point kernel ±1/4 at width 1; `smoothed_sharp_law`, `fixed_width_insufficient`).
-- [~] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
+- [x] E10. Trace-norm form of E7: |Tr X| ≤ Σ_i |X i i| ≤ ‖X‖₁ in coordinates, giving
       |N_B − N_A| ≤ ‖P_B − J P_A Jᵀ‖₁ + Σ_{a_i ≤ L} |1 − ‖J e_i‖²|. Written in
       `SteklovAudit/TraceNormBudget.lean` (`identification_budget_traceNorm`, `identification_budget_diag`);
       ‖X‖₁ enters through the named dual hypothesis `hdual` (|Tr(D X)| ≤ t for diagonal contractions D),
@@ -209,7 +209,7 @@ belongs under "Not attempted here". The smoothing half of R35.1 is E9. Lifting t
 results to the operator level is not queued; pick from the index in `docs/paper-proofs/README.md` when R1–R5
 are done.
 
-- [ ] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
+- [~] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
       `Tr T = 1`, so the HS norm tends to 0 while the trace does not; and `T` attains equality in
       |Tr T| ≤ √rank · ‖T‖_HS (compare `trace_rank_amplification`).
 - [ ] R2. R42.1(ii)–(iii), `SteklovAudit/LeakageLayerCake.lean`: (ii) for s > 0,
@@ -252,7 +252,7 @@ Elementary steps of the paper that are not part of `Thm111Inputs`. All four comp
       (4.10) by dominated convergence; (4.11) integral `∫₀^∞ dv/(1 + k cosh v) ≤ 2 log(2/k)`.
 - [x] S6. `SteklovAudit/WindowBounds.lean` (§5): (5.2) strip-trace increment `≤ 2Cγ(L₂² − L₁²)`; (5.9)
       `∫_{L/2}^{2L} t/((t−L)² + w²) ≤ 2πL/w`; `‖S_o‖ ≤ 2/L`; (5.10) absorption `‖X‖ ≤ 4‖K‖/L` when `L > 4w`.
-- [~] S7. `SteklovAudit/RieszCounterexample.lean` (§8, end): `N(L) = ⌊A L² + B L + ε L sin L⌋` (0 < ε < 2A,
+- [x] S7. `SteklovAudit/RieszCounterexample.lean` (§8, end): `N(L) = ⌊A L² + B L + ε L sin L⌋` (0 < ε < 2A,
       adjusted on a bounded interval) is monotone, obeys every positive Riesz law with coefficients `A, B`
       (`Nc_riesz`, via `|∫₀^L (L−u)^(r−1) u sin u| ≤ 2L + L^r + L/r`), and has no sharp law `A L² + B'L + o(L)`
       for any `B'` (`Nc_not_sharp`). With S3 (sharp ⇒ Riesz) this shows Riesz laws are strictly weaker.
