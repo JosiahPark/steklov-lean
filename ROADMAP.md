@@ -209,7 +209,7 @@ belongs under "Not attempted here". The smoothing half of R35.1 is E9. Lifting t
 results to the operator level is not queued; pick from the index in `docs/paper-proofs/README.md` when R1–R5
 are done.
 
-- [~] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
+- [x] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
       `Tr T = 1`, so the HS norm tends to 0 while the trace does not; and `T` attains equality in
       |Tr T| ≤ √rank · ‖T‖_HS (compare `trace_rank_amplification`).
 - [ ] R2. R42.1(ii)–(iii), `SteklovAudit/LeakageLayerCake.lean`: (ii) for s > 0,
