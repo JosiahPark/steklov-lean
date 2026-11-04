@@ -73,17 +73,21 @@ named inputs, or check a definition. Never add a hypothesis without removing a s
       Tr(P) = Σ_k Tr(χ_k P χ_k) when Σ_k χ_k² = 1 (diagonal χ_k), and additivity of the area
       coefficients; then derive `[H1]` and `[H2]` from a partition structure.
 - [x] C6. Shrink H3 (`SteklovAudit/EdgeLength.lean`): Σ_e ∫ q_e² = 6a − O(ε) from cutoff support lengths (interval arithmetic).
-- [~] C7. Definition sanity for (1.4) in `SteklovAudit/DihedralSanity.lean`: `dihedralCoeff π = 0`,
+- [x] C7. Definition sanity for (1.4) in `SteklovAudit/DihedralSanity.lean`: `dihedralCoeff π = 0`,
       strict positivity of the integrand and `0 < dihedralCoeff α` for 0 < α < π (so the linear
       coefficient `6 a c_{α₀}` is nonzero), `cos α₀ = 1/3`, `α₀ < π/2`.
-- [~] C8. Non-vacuity of the C6 ledger in `SteklovAudit/LedgerNonvacuousC6.lean`: an explicit
+- [x] C8. Non-vacuity of the C6 ledger in `SteklovAudit/LedgerNonvacuousC6.lean`: an explicit
       `Thm111InputsC6` instance (one coordinate, trivial edge cutoffs) and `nonvacuous_C6`.
-- [ ] C9. Quantitative edge coefficient in `SteklovAudit/DihedralBounds.lean`:
+- [x] C9. Quantitative edge coefficient in `SteklovAudit/DihedralBounds.lean`:
       `dihedralCoeff α ≤ 4(π − α) / (π α²)` for 0 < α < π, from `DihedralIntegrable.integrand_bound`
       and ∫₀^∞ e^{−αv} dv = 1/α; specialize at α₀.
-- [ ] C10. Monotonicity in `SteklovAudit/DihedralBounds.lean`: the integrand of (1.4) is
+- [x] C10. Monotonicity in `SteklovAudit/DihedralBounds.lean`: the integrand of (1.4) is
       antitone in α on (0, π) for each v > 0, hence `dihedralCoeff` is antitone on (0, π);
       with C3 this gives `dihedralCoeff α₀ ≥ 1/(2π)` since α₀ < π/2.
+- [ ] C11. Numeric bracket for the edge coefficient (new file `SteklovAudit/DihedralBracket.lean`):
+      `π/3 < α₀` (arccos is strictly antitone and arccos(1/2) = π/3), hence with C9 (the bound
+      4(π − α)/(π α²) is antitone in α) `dihedralCoeff α₀ ≤ 24/π²`; together with C10,
+      `1/(2π) ≤ c_{α₀} ≤ 24/π²`.
 
 ## Not attempted here
 
