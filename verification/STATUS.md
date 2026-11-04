@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 11:41 UTC. 200 of 200 theorems compile with only Lean's standard axioms.
+Checked 2026-11-04 11:43 UTC. 210 of 210 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -183,6 +183,16 @@ Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaqu
 | MainConditional.lean | `SteklovAudit.MainConditional.formula_11_4_of_inputs` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.nonvacuous` | verified (standard axioms only) |
 | MainConditional.lean | `SteklovAudit.MainConditional.conclusion_nontrivial` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.gd_zero` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_sech_pi` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integral_sech_pi` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sinh_ne_zero_of_pos` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrand_right_angle` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_dihedral_right_angle` | verified (standard axioms only) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.dihedralCoeff_right_angle` | verified (standard axioms only) |
 | Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_telescope` | verified (standard axioms only) |
 | Section7CumulativeTransfer.lean | `SteklovAudit.transfer_gronwall_bound` | verified (standard axioms only) |
 | Section7CumulativeTransfer.lean | `SteklovAudit.fixed_time_step_budget` | verified (standard axioms only) |

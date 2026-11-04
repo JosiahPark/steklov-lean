@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 11:41 UTC",
+  "checked_at": "2026-11-04 11:43 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 200,
-  "verified": 200,
+  "theorems": 210,
+  "verified": 210,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1631,6 +1631,106 @@
     {
       "file": "MainConditional.lean",
       "theorem": "SteklovAudit.MainConditional.conclusion_nontrivial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.hasDerivAt_gd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.sech_pi_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.tendsto_gd",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.gd_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.integrableOn_sech_pi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.integral_sech_pi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.sinh_ne_zero_of_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.integrand_right_angle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.integrableOn_dihedral_right_angle",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "RightAngleCalibration.lean",
+      "theorem": "SteklovAudit.RightAngleCalibration.dihedralCoeff_right_angle",
       "axioms": [
         "propext",
         "Classical.choice",
