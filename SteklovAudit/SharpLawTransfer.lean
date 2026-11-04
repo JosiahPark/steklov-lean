@@ -41,7 +41,7 @@ theorem poly_shift (A B L s : ℝ) (hL : 1 ≤ L) (hs : |s| ≤ 1) :
     calc |A * (2 * L + s) + B| ≤ |A * (2 * L + s)| + |B| := abs_add_le _ _
       _ = |A| * |2 * L + s| + |B| := by rw [abs_mul]
       _ ≤ |A| * (2 * L + |s|) + |B| :=
-          add_le_add_right (mul_le_mul_of_nonneg_left h0 (abs_nonneg A)) _
+          add_le_add (mul_le_mul_of_nonneg_left h0 (abs_nonneg A)) le_rfl
   have h2 : |A| * (2 * L + |s|) + |B| ≤ (3 * |A| + |B|) * L := by
     have ha := mul_le_mul_of_nonneg_left (show |s| ≤ L by linarith) (abs_nonneg A)
     have hb := mul_le_mul_of_nonneg_left hL (abs_nonneg B)
