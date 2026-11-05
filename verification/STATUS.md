@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 21:58 UTC at commit `2a5797d2ed1d`. Last passing commit: `2a5797d2ed1d`.
+Checked 2026-11-05 22:18 UTC at commit `f56828320496`. Last passing commit: `f56828320496`.
 
-Library declarations checked: 531 of 531 theorems compile with only Lean's standard axioms.
+Library declarations checked: 536 of 536 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -300,6 +300,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_of_profile` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipHi_field_profile` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_field_profile` | verified (standard axioms only) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.profLam_nonneg` | verified (standard axioms only) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_profLam` | verified (standard axioms only) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.profLam_vanish` | verified (standard axioms only) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.eventually_le_of_tendsto` | verified (standard axioms only) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipGroup_of_profile` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |

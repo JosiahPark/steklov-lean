@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 21:58 UTC",
+  "checked_at": "2026-11-05 22:18 UTC",
   "lean_exit_code": 0,
-  "commit": "2a5797d2ed1d69246464293f3d98cc39576c762a",
-  "last_passing_commit": "2a5797d2ed1d69246464293f3d98cc39576c762a",
-  "library_declarations_checked": 531,
-  "library_declarations": 531,
+  "commit": "f56828320496a0afee7d03329ffc589c4a37839d",
+  "last_passing_commit": "f56828320496a0afee7d03329ffc589c4a37839d",
+  "library_declarations_checked": 536,
+  "library_declarations": 536,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 531,
-  "verified": 531,
+  "theorems": 536,
+  "verified": 536,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2748,6 +2748,56 @@
     {
       "file": "H5WindowProfile.lean",
       "theorem": "SteklovAudit.H5WindowProfile.lipLo_field_profile",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WindowProfile.lean",
+      "theorem": "SteklovAudit.H5WindowProfile.profLam_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WindowProfile.lean",
+      "theorem": "SteklovAudit.H5WindowProfile.lipLo_profLam",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WindowProfile.lean",
+      "theorem": "SteklovAudit.H5WindowProfile.profLam_vanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WindowProfile.lean",
+      "theorem": "SteklovAudit.H5WindowProfile.eventually_le_of_tendsto",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WindowProfile.lean",
+      "theorem": "SteklovAudit.H5WindowProfile.lipGroup_of_profile",
       "axioms": [
         "propext",
         "Classical.choice",
