@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 17:21 UTC",
+  "checked_at": "2026-11-05 18:22 UTC",
   "lean_exit_code": 0,
-  "commit": "9fa2d8163b5af0de55fd2f3515260d0e81c39c70",
-  "last_passing_commit": "9fa2d8163b5af0de55fd2f3515260d0e81c39c70",
-  "library_declarations_checked": 502,
-  "library_declarations": 502,
+  "commit": "282d63bf52361d1d0d65a58677d38171226ccaea",
+  "last_passing_commit": "282d63bf52361d1d0d65a58677d38171226ccaea",
+  "library_declarations_checked": 509,
+  "library_declarations": 509,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 502,
-  "verified": 502,
+  "theorems": 509,
+  "verified": 509,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2528,6 +2528,76 @@
     {
       "file": "H5Split.lean",
       "theorem": "SteklovAudit.H5Split.h5b_via_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.hs2_mask_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.defect_le_tail_add_low",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.hs2_fin_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.counterData_pde",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.counterData_hi_mask",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.defect_not_imp_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailAudit.lean",
+      "theorem": "SteklovAudit.H5TailAudit.tail_row_fails",
       "axioms": [
         "propext",
         "Classical.choice",

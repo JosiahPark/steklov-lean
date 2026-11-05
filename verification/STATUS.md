@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 17:21 UTC at commit `9fa2d8163b5a`. Last passing commit: `9fa2d8163b5a`.
+Checked 2026-11-05 18:22 UTC at commit `282d63bf5236`. Last passing commit: `282d63bf5236`.
 
-Library declarations checked: 502 of 502 theorems compile with only Lean's standard axioms.
+Library declarations checked: 509 of 509 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -278,6 +278,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_mask_split` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_le_tail_add_low` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_fin_one` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_pde` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_hi_mask` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_not_imp_tail` | verified (standard axioms only) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.tail_row_fails` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |
