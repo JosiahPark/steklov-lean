@@ -364,7 +364,7 @@ claims a row is proved for the actual operator.
 G6–G9 written by the formalize task on 2026-11-05 (after G5 was ticked). Each serves the F table; none
 claims a row is proved for the actual operator.
 
-- [ ] G6. `SteklovAudit/H5WindowProfile.lean`: the Lipschitz rows for a test that is a fixed profile
+- [x] G6. `SteklovAudit/H5WindowProfile.lean`: the Lipschitz rows for a test that is a fixed profile
       translated to the energy window, `F ε γ L x = φ (x - L)`. Hypotheses on `φ` only: differentiable,
       `|deriv φ t| ≤ Λ0` for all t, and a left-tail bound `∀ R t, t ≤ -R → |deriv φ t| ≤ ψ R` with
       `ψ R → 0` as `R → ∞`. Prove `lipHi_of_profile` (via G5's `lipHi_of_deriv_bound`) and
@@ -375,12 +375,16 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-05 (uncompiled at push, commit 3f352a5): `hasDerivAt_shift`,
       `deriv_shift`, `differentiable_shift`, `lipHi_of_profile`, `lipLo_of_profile`, `lipHi_field_profile`,
       `lipLo_field_profile`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 531/531 at 2a5797d, all seven theorems verified.
 - [ ] G7. Same file: `lamVanish_of_profile`: with `lam ε γ M L := ψ (L - M)` (clamped to be ≥ 0, e.g.
       `max (ψ (L - M)) 0` for L > M and `Λ0` otherwise), the fields `hlam`, `lipLo` and `lamVanish` of
       `H5bInputs` hold for the translated profile. Bundle as `structure ProfileLipRows` and
       `lipGroup_of_profile` returning the five fields `hΛ0`, `lipHi`, `hlam`, `lipLo`, `lamVanish`.
       This replaces the row "Lipschitz-type bounds Λ, λ" by "the window profile has bounded derivative
       with vanishing left tail" when the smoothed count has this translated form (to be checked on paper).
+      Written by the formalize task 2026-11-05 (uncompiled at push): `profLam` (`max (ψ (L - M)) 0` if
+      `M ≤ L`, else `Λ0`), `profLam_nonneg`, `lipLo_profLam`, `profLam_vanish`, `eventually_le_of_tendsto`,
+      `ProfileLipRows`, `lipGroup_of_profile`. Next run: tick if STATUS shows it compiled.
 - [ ] G8. Same file (or `SteklovAudit/H5WindowWitness.lean`): non-vacuity of G6/G7. `φ := Real.arctan`
       satisfies the profile hypotheses with `Λ0 = 1`, `ψ R = 1 / (1 + R ^ 2)` for R ≥ 0 (`Real.deriv_arctan`
       or `Real.hasDerivAt_arctan`), and `arctan_profile_nonjunk`: the resulting test is non-constant
