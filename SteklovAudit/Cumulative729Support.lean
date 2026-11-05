@@ -76,9 +76,9 @@ theorem log_plus_vanishing_is_o_L (C : ℝ) (hC : 0 ≤ C) (ε : ℝ → ℝ)
       | exact (le_div_iff₀ h2C1).mp hεL
       | exact (le_div_iff h2C1).mp hεL
   have hCe : C * ε (1 / L) ≤ η / 2 := by
-    rcases le_or_lt 0 (ε (1 / L)) with he | he
+    rcases le_total 0 (ε (1 / L)) with he | he
     · nlinarith [mul_nonneg hC he]
-    · nlinarith [mul_nonneg hC (neg_nonneg.mpr he.le)]
+    · nlinarith [mul_nonneg hC (neg_nonneg.mpr he)]
   have hεpart : C * L * ε (1 / L) ≤ η / 2 * L := by
     have h1 := mul_le_mul_of_nonneg_right hCe hLpos.le
     have h2 : C * L * ε (1 / L) = C * ε (1 / L) * L := by ring
