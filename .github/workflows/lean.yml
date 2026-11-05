@@ -71,3 +71,22 @@ jobs:
           git add verification/STATUS.md verification/STATUS.json
           git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update Lean verification status"
           git push
+
+      # Regenerate the dependency map (docs/map/index.html) from the sources and STATUS.json.
+      - name: Rebuild the dependency map
+        if: always()
+        continue-on-error: true
+        run: python3 tools/build_map.py
+
+      # Commit the map only when its content changed (.map_key leaves out the build time).
+      - name: Commit dependency map if changed
+        if: always() && github.event_name != 'pull_request'
+        continue-on-error: true
+        run: |
+          [ -f docs/map/index.html ] || exit 0
+          git add docs/map/.map_key
+          if git diff --cached --quiet; then echo "Map unchanged"; exit 0; fi
+          git add docs/map/index.html
+          git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update dependency map"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}" || true
+          git push
