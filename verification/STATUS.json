@@ -1,6 +1,12 @@
 {
-  "checked_at": "2026-11-05 06:23 UTC",
+  "checked_at": "2026-11-05 08:16 UTC",
   "lean_exit_code": 0,
+  "commit": "3def2cb53cfe1c6aeaa829bed04ff750cbf50a6f",
+  "last_passing_commit": "3def2cb53cfe1c6aeaa829bed04ff750cbf50a6f",
+  "library_declarations_checked": 494,
+  "library_declarations": 494,
+  "ledger_inputs_proved_for_operator": 0,
+  "ledger_inputs": 6,
   "build_errors": [],
   "theorems": 494,
   "verified": 494,

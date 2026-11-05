@@ -1,6 +1,10 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 06:23 UTC. 494 of 494 theorems compile with only Lean's standard axioms.
+Checked 2026-11-05 08:16 UTC at commit `3def2cb53cfe`. Last passing commit: `3def2cb53cfe`.
+
+Library declarations checked: 494 of 494 theorems compile with only Lean's standard axioms.
+
+Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
