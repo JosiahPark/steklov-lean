@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} *,*::before,*::after{box-sizing:border-box} body{margin:0;font:14px system-ui,sans-serif} [hidden]{display:none!important}</style>
+<title>Steklov Lean Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+/* Layout: header strip, then a pannable SVG map (paper sections as horizontal bands, Theorem 11.1 spine at right), detail drawer at right / bottom on phones */
+:root{
+  --bg:#f3f4f1; --panel:#fbfbf9; --ink:#1d2430; --muted:#5d6675; --rule:#d6d9d2; --band:#e9ebe5;
+  --paper:#2e8a57; --paperbg:#d7eedf; --cond:#c48413; --condbg:#f7e6c2; --supp:#8b93a1; --suppbg:#e3e6ea;
+  --open:#c0392f; --openbg:#f6dcd8; --accent:#2b4a7a; --edge:#7b8698;
+  --display:"Newsreader", Georgia, serif; --body:"IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14181f; --panel:#1b2029; --ink:#e4e7ec; --muted:#9aa3b2; --rule:#2e3542; --band:#1a1f27;
+  --paper:#5cc08a; --paperbg:#1e3a2b; --cond:#e6a93c; --condbg:#3d3018; --supp:#8e97a6; --suppbg:#262c36;
+  --open:#ef6b5f; --openbg:#3e2220; --accent:#8fb0e6; --edge:#7f8aa0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14181f; --panel:#1b2029; --ink:#e4e7ec; --muted:#9aa3b2; --rule:#2e3542; --band:#1a1f27;
+  --paper:#5cc08a; --paperbg:#1e3a2b; --cond:#e6a93c; --condbg:#3d3018; --supp:#8e97a6; --suppbg:#262c36;
+  --open:#ef6b5f; --openbg:#3e2220; --accent:#8fb0e6; --edge:#7f8aa0; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;display:flex;flex-direction:column}
+header{padding-block:14px 10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:10px 28px;align-items:flex-end}
+h1{font-family:var(--display);font-weight:600;font-size:26px;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:13px;margin-top:2px;max-width:62ch}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.stat b{display:block;font-family:var(--mono);font-size:18px;font-weight:500}
+.stat span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--rule)}
+.chip{font:inherit;font-size:12.5px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip[aria-pressed="true"]{border-color:var(--ink)}
+.chip[aria-pressed="false"]{opacity:.5}
+.chip:focus-visible,.btn:focus-visible,input:focus-visible,.tl:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+input[type=search]{font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--ink);min-width:0;width:200px}
+.btn{font:inherit;font-size:12.5px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:6px;padding:4px 9px;cursor:pointer}
+.spacer{flex:1}
+main{flex:1;display:flex;min-height:0;position:relative}
+#wrap{flex:1;overflow:auto;min-width:0;cursor:grab}
+#wrap.drag{cursor:grabbing}
+svg{display:block}
+.bandlbl{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.07em;text-transform:uppercase;fill:var(--muted)}
+.node rect.box{fill:var(--panel);stroke:var(--rule);stroke-width:1}
+.node.main rect.box{stroke:var(--accent);stroke-width:2}
+.node text.nm{font-family:var(--mono);font-size:10.5px;fill:var(--ink)}
+.node text.ct{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.node{cursor:pointer}
+.node:hover rect.box,.node.sel rect.box{stroke:var(--ink);stroke-width:2}
+.node.dim{opacity:.18}
+.edge{fill:none;stroke:var(--edge);stroke-width:1;opacity:.45}
+.edge.hot{stroke:var(--accent);opacity:1;stroke-width:2}
+.edge.dim{opacity:.06}
+.hedge{fill:none;stroke:var(--open);stroke-dasharray:4 3;stroke-width:1.2;opacity:.6}
+.hnode rect{fill:var(--openbg);stroke:var(--open);stroke-dasharray:4 3}
+.hnode text{font-family:var(--body);font-size:11.5px;fill:var(--ink)}
+.thm rect{fill:var(--paperbg);stroke:var(--paper);stroke-width:2}
+.thm text{font-family:var(--display);font-size:14px;font-weight:600;fill:var(--ink)}
+.small{font-family:var(--body);font-size:11px;fill:var(--muted)}
+aside{width:360px;max-width:100%;border-left:1px solid var(--rule);background:var(--panel);overflow:auto;padding-block:14px 24px;padding-left:16px;padding-right:max(16px,env(safe-area-inset-right,0px))}
+aside h2{font-family:var(--display);font-size:20px;margin:0 0 2px;font-weight:600;word-break:break-word}
+aside .area{color:var(--muted);font-size:12px;margin-bottom:10px}
+.bar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--band);margin:6px 0 12px}
+.tl{display:block;width:100%;text-align:left;font:inherit;background:none;border:0;border-top:1px solid var(--rule);padding:7px 0;color:var(--ink);cursor:pointer}
+.tl .n{font-family:var(--mono);font-size:11.5px;word-break:break-all}
+.tl .note{color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.35}
+.pill{display:inline-block;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;border-radius:3px;padding:1px 5px;margin-right:6px;vertical-align:1px}
+.p-paper{background:var(--paperbg);color:var(--paper)} .p-cond{background:var(--condbg);color:var(--cond)} .p-support{background:var(--suppbg);color:var(--supp)} .p-pending{background:var(--openbg);color:var(--open)}
+.deps{font-size:12px;margin:6px 0 2px;color:var(--muted)}
+.deps code{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--band);padding:0 3px;border-radius:2px;word-break:break-all}
+.hint{color:var(--muted);font-size:13px;line-height:1.45}
+@media (max-width:760px){main{flex-direction:column} aside{width:auto;border-left:0;border-top:1px solid var(--rule);max-height:45vh;padding-left:max(16px,env(safe-area-inset-left,0px))} input[type=search]{width:140px}}
+@media (prefers-reduced-motion:no-preference){.node rect.box,.edge{transition:opacity .15s,stroke .15s}}
+</style>
+
+</head>
+<body>
+<header>
+  <div>
+    <h1>Steklov Lean Map</h1>
+    <div class="sub">Every module of github.com/JosiahPark/steklov-lean placed in the section of the tetrahedron preprint it formalizes. Lines are uses between theorems in different modules. The right-hand spine shows how Theorem 11.1 is assembled and which inputs are still unproved. Regenerated by CI after every build; this copy reflects the build of <span id="built"></span>.</div>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+<div class="controls">
+  <button class="chip" data-f="paper" aria-pressed="true"><span class="dot" style="background:var(--paper)"></span>Paper step, proved outright</button>
+  <button class="chip" data-f="cond" aria-pressed="true"><span class="dot" style="background:var(--cond)"></span>Paper step, from named hypotheses</button>
+  <button class="chip" data-f="support" aria-pressed="true"><span class="dot" style="background:var(--supp)"></span>Supporting lemma</button>
+  <span class="chip" style="cursor:default"><span class="dot" style="background:var(--openbg);border:1px dashed var(--open)"></span>Unproved input</span>
+  <span class="spacer"></span>
+  <input type="search" id="q" placeholder="Find theorem or module" aria-label="Find theorem or module">
+  <button class="btn" id="zin" aria-label="Zoom in">+</button><button class="btn" id="zout" aria-label="Zoom out">−</button><button class="btn" id="zfit">Fit</button>
+</div>
+<main>
+  <div id="wrap"><svg id="map" role="img" aria-label="Dependency map of verified Lean modules"></svg></div>
+  <aside id="side"></aside>
+</main>
+<script>
+const DATA = __DATA__;
+const L = DATA.layout, NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("map");
+const mods = Object.fromEntries(DATA.mods.map(m => [m.id, m]));
+const thmsByMod = {};
+for (const [full, [m, s, n, p]] of Object.entries(DATA.thms)) (thmsByMod[m] ||= []).push({full, s, n, p});
+const uses = {}, usedBy = {};
+for (const [a, b] of DATA.tedges) { (uses[a] ||= []).push(b); (usedBy[b] ||= []).push(a); }
+const filt = {paper: true, cond: true, support: true};
+let scale = 1, sel = null;
+
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const short = id => id.replace(/^Section(\d+)/, "§$1·");
+const counts = m => { const c = m.c; return {paper: c.paper || 0, cond: c.cond || 0, support: (c.support || 0) + (c.pending || 0)}; };
+
+// stats
+const tot = {paper: 0, cond: 0, support: 0};
+for (const v of Object.values(DATA.thms)) tot[v[1] === "pending" ? "support" : v[1]]++;
+document.getElementById("stats").innerHTML =
+  `<div class="stat"><b>${DATA.ver}/${DATA.total}</b><span>theorems pass CI</span></div>` +
+  `<div class="stat"><b style="color:var(--paper)">${tot.paper}</b><span>paper, outright</span></div>` +
+  `<div class="stat"><b style="color:var(--cond)">${tot.cond}</b><span>paper, conditional</span></div>` +
+  `<div class="stat"><b style="color:var(--supp)">${tot.support}</b><span>supporting</span></div>` +
+  `<div class="stat"><b style="color:var(--open)">6</b><span>unproved inputs</span></div>`;
+
+function draw() {
+  svg.innerHTML = "";
+  svg.setAttribute("viewBox", `0 0 ${L.W} ${L.H}`);
+  svg.setAttribute("width", L.W * scale); svg.setAttribute("height", L.H * scale);
+  const gB = el("g", {}, svg);
+  L.bands.forEach((b, i) => {
+    el("rect", {x: 8, y: b.y, width: L.spineX - 24, height: b.h, rx: 6, fill: i % 2 ? "var(--bg)" : "var(--band)"}, gB);
+    const t = el("text", {x: 24, y: b.y + 19, class: "bandlbl"}, gB); t.textContent = b.name;
+  });
+  // spine
+  const sx = L.spineX, b6 = L.bands[6], b3 = L.bands[3];
+  const thm = {x: sx, y: b6.y + 28, w: 214, h: 58};
+  const H = DATA.hyp.map((h, i) => ({id: h[0], txt: h[1], sec: h[2], sup: h[3], x: sx, y: b3.y + 6 + i * 62, w: 210, h: 50}));
+  const gE = el("g", {}, svg), gN = el("g", {}, svg);
+  const lbl = el("text", {x: sx, y: L.bands[0].y + 19, class: "bandlbl"}, gB); lbl.textContent = "Theorem 11.1 spine";
+  const ex = el("text", {x: sx, y: L.bands[0].y + 40, class: "small"}, gB); ex.textContent = "Proved in Lean from six named";
+  const ex2 = el("text", {x: sx, y: L.bands[0].y + 55, class: "small"}, gB); ex2.textContent = "hypotheses. None of H1–H6 is";
+  const ex3 = el("text", {x: sx, y: L.bands[0].y + 70, class: "small"}, gB); ex3.textContent = "proved for the actual operator.";
+  const curve = (x1, y1, x2, y2) => { const mx = (x1 + x2) / 2; return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; };
+  // module edges
+  const edgeEls = [];
+  for (const [a, b, n] of DATA.medges) {
+    const A = mods[a], B = mods[b]; if (!A || !B) continue;
+    const p = el("path", {d: curve(B.x + L.NW / 2, B.y + L.NH / 2, A.x + L.NW / 2, A.y + L.NH / 2), class: "edge", "stroke-width": Math.min(1 + Math.log2(n), 3)}, gE);
+    p.dataset.a = a; p.dataset.b = b; edgeEls.push(p);
+  }
+  // hypothesis edges
+  for (const h of H) {
+    for (const s of h.sup) { const m = mods[s]; if (m) el("path", {d: curve(m.x + L.NW, m.y + L.NH / 2, h.x, h.y + h.h / 2), class: "hedge"}, gE); }
+    el("path", {d: curve(h.x + h.w / 2, h.y + h.h, thm.x + thm.w / 2, thm.y), class: "hedge", opacity: .25}, gE);
+  }
+  const mc = mods["MainConditional"];
+  el("path", {d: curve(mc.x + L.NW, mc.y + L.NH / 2, thm.x, thm.y + thm.h / 2), class: "edge hot"}, gE);
+  // H nodes
+  for (const h of H) {
+    const g = el("g", {class: "hnode"}, gN);
+    el("rect", {x: h.x, y: h.y, width: h.w, height: h.h, rx: 6}, g);
+    const t1 = el("text", {x: h.x + 10, y: h.y + 18}, g); t1.innerHTML = `<tspan font-weight="600">${h.id}</tspan> · ${h.sec}`;
+    const words = h.txt; const t2 = el("text", {x: h.x + 10, y: h.y + 36, class: "small"}, g); t2.textContent = words.length > 34 ? words.slice(0, 33) + "…" : words;
+    const tt = el("title", {}, g); tt.textContent = `${h.id}: ${h.txt} (${h.sec}). Not proved. ${h.sup.length ? "Partly reduced by: " + h.sup.join(", ") : "No Lean work yet."}`;
+  }
+  const gt = el("g", {class: "thm"}, gN);
+  el("rect", {x: thm.x, y: thm.y, width: thm.w, height: thm.h, rx: 8}, gt);
+  const tt1 = el("text", {x: thm.x + 12, y: thm.y + 24}, gt); tt1.textContent = "Theorem 11.1 / (1.3)";
+  const tt2 = el("text", {x: thm.x + 12, y: thm.y + 43, class: "small"}, gt); tt2.textContent = "sharp two-term law, conditional";
+  // module nodes
+  for (const m of DATA.mods) {
+    const c = counts(m), vis = (filt.paper ? c.paper : 0) + (filt.cond ? c.cond : 0) + (filt.support ? c.support : 0);
+    const g = el("g", {class: "node" + (m.main ? " main" : "") + (vis ? "" : " dim"), tabindex: 0, role: "button", "aria-label": m.id}, gN);
+    g.dataset.id = m.id;
+    el("rect", {x: m.x, y: m.y, width: L.NW, height: L.NH, rx: 5, class: "box"}, g);
+    const t = el("text", {x: m.x + 8, y: m.y + 16, class: "nm"}, g);
+    const nm = short(m.id); t.textContent = nm.length > 22 ? nm.slice(0, 21) + "…" : nm;
+    const tot = c.paper + c.cond + c.support;
+    const ct = el("text", {x: m.x + L.NW - 8, y: m.y + 16, class: "ct", "text-anchor": "end"}, g); ct.textContent = tot;
+    let bx = m.x + 8; const bw = L.NW - 16;
+    for (const [k, col] of [["paper", "var(--paper)"], ["cond", "var(--cond)"], ["support", "var(--supp)"]]) {
+      const w = bw * c[k] / tot; if (w > 0) { el("rect", {x: bx, y: m.y + 26, width: w, height: 6, fill: col, opacity: filt[k] ? 1 : .2}, g); bx += w; }
+    }
+    const ti = el("title", {}, g); ti.textContent = `${m.id}: ${c.paper} outright, ${c.cond} conditional, ${c.support} supporting`;
+    g.addEventListener("click", () => select(m.id));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(m.id); } });
+    g.addEventListener("mouseenter", () => hot(m.id)); g.addEventListener("mouseleave", () => hot(sel));
+  }
+  svg._edges = edgeEls;
+  hot(sel);
+}
+function hot(id) {
+  for (const p of svg._edges || []) { const on = id && (p.dataset.a === id || p.dataset.b === id); p.classList.toggle("hot", !!on); p.classList.toggle("dim", !!id && !on); }
+  svg.querySelectorAll(".node").forEach(n => n.classList.toggle("sel", n.dataset.id === sel));
+}
+const side = document.getElementById("side");
+const areaName = a => DATA.areas[a];
+function pill(s) { const t = {paper: "outright", cond: "conditional", support: "supporting", pending: "awaiting CI"}[s]; return `<span class="pill p-${s}">${t}</span>`; }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function select(id) {
+  sel = id; hot(id);
+  const m = mods[id], c = counts(m), list = (thmsByMod[id] || []).slice();
+  const ord = {paper: 0, cond: 1, support: 2, pending: 3};
+  list.sort((a, b) => ord[a.s] - ord[b.s] || a.full.localeCompare(b.full));
+  const tot = c.paper + c.cond + c.support;
+  const ins = DATA.medges.filter(e => e[0] === id).map(e => e[1]), outs = DATA.medges.filter(e => e[1] === id).map(e => e[0]);
+  side.innerHTML = `<h2>${esc(id)}</h2><div class="area">${esc(areaName(m.a))}${m.main ? " · on the Theorem 11.1 chain" : ""}</div>
+   <div class="bar"><span style="width:${100 * c.paper / tot}%;background:var(--paper)"></span><span style="width:${100 * c.cond / tot}%;background:var(--cond)"></span><span style="width:${100 * c.support / tot}%;background:var(--supp)"></span></div>
+   <div class="deps">${tot} theorems · ${c.paper} outright · ${c.cond} conditional · ${c.support} supporting</div>
+   ${ins.length ? `<div class="deps">Uses: ${ins.map(x => `<code>${esc(x)}</code>`).join(" ")}</div>` : ""}
+   ${outs.length ? `<div class="deps">Used by: ${outs.map(x => `<code>${esc(x)}</code>`).join(" ")}</div>` : ""}
+   <div style="margin-top:10px">${list.map(t => thmRow(t)).join("")}</div>`;
+  side.querySelectorAll(".tl").forEach(b => b.addEventListener("click", () => {
+    const d = b.querySelector(".more"); d.hidden = !d.hidden; b.setAttribute("aria-expanded", String(!d.hidden));
+  }));
+}
+function thmRow(t) {
+  const nm = t.full.split(".").slice(-1)[0];
+  const u = (uses[t.full] || []).map(x => x.split(".").slice(-1)[0]), ub = (usedBy[t.full] || []).map(x => x.split(".").slice(-1)[0]);
+  return `<button class="tl" aria-expanded="false"><div>${pill(t.s)}<span class="n">${esc(nm)}</span>${t.p ? ` <span class="small" style="color:var(--muted)">p. ${t.p}</span>` : ""}</div>
+   ${t.n ? `<div class="note">${esc(t.n)}</div>` : ""}
+   <div class="more" hidden><div class="deps">${esc(t.full)}</div>
+   <div class="deps">Uses: ${u.length ? u.map(x => `<code>${esc(x)}</code>`).join(" ") : "only Mathlib"}</div>
+   <div class="deps">Used by: ${ub.length ? ub.map(x => `<code>${esc(x)}</code>`).join(" ") : "nothing yet"}</div></div></button>`;
+}
+side.innerHTML = `<h2>How to read the map</h2><div class="hint">
+<p>Each box is a Lean module. Its bar splits the module's theorems into paper steps proved outright (green), paper steps proved from the paper's analytic inputs taken as hypotheses (amber), and supporting lemmas from the run reports, sanity checks and abstract transfer layer (grey).</p>
+<p>Lines join modules whose theorems use each other. Most modules stand alone: they check one step of the paper and need only Mathlib. The main dependency chain runs into <b>MainConditional</b>, which proves Theorem 11.1 from H1–H6.</p>
+<p>The dashed red boxes are those six inputs. Dashed lines point to the modules that weaken or restate them. None is proved for the tetrahedron's Dirichlet-to-Neumann operator, so the main theorem stays conditional.</p>
+<p>Select a box to list its theorems; select a theorem to see what it uses and what uses it.</p></div>`;
+document.querySelectorAll(".chip[data-f]").forEach(b => b.addEventListener("click", () => { const f = b.dataset.f; filt[f] = !filt[f]; b.setAttribute("aria-pressed", String(filt[f])); draw(); }));
+const wrap = document.getElementById("wrap");
+function setScale(s) { scale = Math.max(.35, Math.min(2.2, s)); svg.setAttribute("width", L.W * scale); svg.setAttribute("height", L.H * scale); }
+document.getElementById("zin").onclick = () => setScale(scale * 1.2);
+document.getElementById("zout").onclick = () => setScale(scale / 1.2);
+document.getElementById("zfit").onclick = () => setScale(wrap.clientWidth / L.W);
+let dr = null;
+wrap.addEventListener("pointerdown", e => { if (e.target.closest(".node")) return; dr = {x: e.clientX, y: e.clientY, l: wrap.scrollLeft, t: wrap.scrollTop}; wrap.classList.add("drag"); });
+addEventListener("pointermove", e => { if (!dr) return; wrap.scrollLeft = dr.l - (e.clientX - dr.x); wrap.scrollTop = dr.t - (e.clientY - dr.y); });
+addEventListener("pointerup", () => { dr = null; wrap.classList.remove("drag"); });
+document.getElementById("q").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  svg.querySelectorAll(".node").forEach(n => {
+    const id = n.dataset.id, hit = !q || id.toLowerCase().includes(q) || (thmsByMod[id] || []).some(t => t.full.toLowerCase().includes(q));
+    n.style.opacity = hit ? "" : ".15";
+  });
+});
+document.getElementById("built").textContent = DATA.build;
+draw();
+setScale(Math.min(1, (wrap.clientWidth || L.W) / L.W));
+</script>
+
+</body>
+</html>

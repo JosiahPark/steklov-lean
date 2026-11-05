@@ -1,0 +1,1720 @@
+{
+ "_readme": "Data for tools/build_map.py. 'theorems': short theorem name -> kind (outright = paper step proved outright, conditional = paper step proved from named hypotheses), preprint page, and what it checks. Unlisted theorems show as supporting lemmas. 'module_areas': module -> band index in 'areas'; modules not listed use the SectionN prefix of their name, else the last band. 'hypotheses': the ledger inputs of Theorem 11.1 and the modules that partly reduce each.",
+ "areas": [
+  "§1–3 Dihedral invariant & sector trace",
+  "§4 Heat fibers",
+  "§5 Spectral windows",
+  "§7 Static locality & cumulative traces",
+  "§8 Riesz means & Tauberian limits",
+  "§9–10 Propagation & geometry",
+  "§11 Assembly & sharp law"
+ ],
+ "module_areas": {
+  "SectorTrace": 0,
+  "EdgeMomentum": 0,
+  "RightAngleCalibration": 0,
+  "Algebra": 0,
+  "DihedralBounds": 0,
+  "DihedralBracket": 0,
+  "DihedralIntegrable": 0,
+  "DihedralSanity": 0,
+  "DihedralThird": 0,
+  "HeatFiber": 1,
+  "WindowBounds": 2,
+  "Section5Scaling": 2,
+  "WindowArithmetic": 2,
+  "FiniteWindowMass": 2,
+  "AbstractTransfer": 2,
+  "AbstractTransferB": 2,
+  "AbstractTransferB2": 2,
+  "AbstractTransferB6": 2,
+  "UniformHS71": 3,
+  "SpectralCounting": 3,
+  "IdentificationBudget": 3,
+  "IdentificationBudgetData": 3,
+  "TraceNormBudget": 3,
+  "HSNoTrace": 3,
+  "PropagatorTrace": 3,
+  "LeakageLayerCake": 3,
+  "FiniteSpectralTrace": 3,
+  "PartitionTrace": 3,
+  "MultiChartTrace": 3,
+  "H5Compare": 3,
+  "RieszMeans": 4,
+  "RieszCounterexample": 4,
+  "Tauberian": 4,
+  "Section11DiscreteHeatObstruction": 4,
+  "Section11LaplaceObstruction": 4,
+  "WindowMassSmoothing": 4,
+  "Geometry": 5
+ },
+ "prefix_areas": {
+  "Section5": 2,
+  "Section7": 3,
+  "Section9": 5,
+  "Section10": 5,
+  "Section11": 6
+ },
+ "hypotheses": [
+  [
+   "H1",
+   "Splitting: trace linearity of the squared partition",
+   "§11.2",
+   [
+    "PartitionTrace",
+    "FiniteSpectralTrace"
+   ]
+  ],
+  [
+   "H2",
+   "Area terms add to √3a²/(4π)",
+   "§11.2",
+   [
+    "PartitionTrace"
+   ]
+  ],
+  [
+   "H3",
+   "Edge length kept by vertex cutoffs is 6a − O(ε)",
+   "§11.2",
+   [
+    "EdgeLength"
+   ]
+  ],
+  [
+   "H4",
+   "Vertex part, (7.49)",
+   "§7.8",
+   [
+    "VertexLog"
+   ]
+  ],
+  [
+   "H5",
+   "Edge part, (11.3) ← (7.29), (7.38)/(7.45), (9.1)",
+   "§7, §9, §11",
+   [
+    "EdgeFromModel",
+    "AbstractTransferB",
+    "UniformHS71",
+    "SpectralCounting",
+    "SharpLawTransfer",
+    "RpowScale",
+    "H5Compare"
+   ]
+  ],
+  [
+   "H6",
+   "Face part, Lemma 7.4 with §10.2",
+   "§7.5, §10",
+   []
+  ]
+ ],
+ "theorems": {
+  "Fc_monotoneOn": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "GThird_zero": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "Hc_increment": {
+   "kind": "outright",
+   "page": 7,
+   "note": "(5.2): 0 ≤ a_{L₂}(γ) − a_{L₁}(γ) ≤ 2Cγ(L₂² − L₁²) from 0 ≤ F ≤ C."
+  },
+  "Nc_eq": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "Nc_monotone": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "Nc_not_sharp": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "Nc_riesz": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "abs_add_four_le": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Helper: four-term triangle inequality combining vertex, edge, face and length errors in (11.5)."
+  },
+  "abs_pair_le_sqrt": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Helper: Σ|x||y| ≤ √(‖x‖²‖y‖²), Hilbert–Schmidt pairing bound for the trace difference."
+  },
+  "abs_parity_sum": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.8): rank-one weight (2/π²)sinh(πv)·π²/(4cosh πv) = tanh(πv)/2; summed absolute integrand = tanh(πv)(csch αv − csch πv)."
+  },
+  "abs_phiS_le": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "area_additive": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Area coefficients of the three squared-partition pieces add to √3a²/(4π)."
+  },
+  "band_resolvent_integral": {
+   "kind": "outright",
+   "page": 8,
+   "note": "(5.9): ∫_{L/2}^{2L} t/((t−L)²+w²) dt ≤ 2πL/w (narrow w = 1 and wide windows)."
+  },
+  "beta_integrable": {
+   "kind": "outright",
+   "page": 6,
+   "note": "Lemma 4.1: the two factors convolve to exactly C C' B(q,q) u^(2q−1) e^(−cu); B(q,q) converges."
+  },
+  "beta_scaling": {
+   "kind": "outright",
+   "page": 6,
+   "note": "Lemma 4.1: the two factors convolve to exactly C C' B(q,q) u^(2q−1) e^(−cu); B(q,q) converges."
+  },
+  "bound_le_of_ge": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "bounded_shift_can_change_linear": {
+   "kind": "outright",
+   "page": 8,
+   "note": "A L^2 shifted by d changes by 2AdL - Ad^2, as in Remark 5.2."
+  },
+  "bounded_shift_changes_linear_term": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Exact polynomial expansion showing a shift B+c changes the linear Weyl term (Remark 5.2)."
+  },
+  "chart_loss_le_total": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Trivial: nonnegative total loss bounds each chart's loss; helper for partition summation."
+  },
+  "choose_scales": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Scalar error C eps + D gamma can be made below any delta (helper)."
+  },
+  "collar_geometric_bound": {
+   "kind": "outright",
+   "page": 19,
+   "note": "(2/L)·Σ(2w/L)^n·C(1+L+w) ≤ 12C: the (7.46) series is O(1) in HS norm."
+  },
+  "collar_geometric_bound_sum": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Termwise form of the (7.46) series bound ≤ 12C."
+  },
+  "cone_ball_window": {
+   "kind": "conditional",
+   "page": 7,
+   "note": "Trihedral ball increment bound; the hypothesis already is the conclusion (tautological)."
+  },
+  "constant_scale_error": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Unsuppressed per-step error accumulates linearly; paper keeps step count finite and errors O(h^inf)."
+  },
+  "correction_le_two_t": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Correction is O(t), so it is o(1/t) in heat expansion; integral identity itself not formalized."
+  },
+  "correction_nonneg": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Oscillatory Laplace correction 2t/(1+t^2)^2 is nonnegative; only algebra, not the integral identity."
+  },
+  "cos_tetraAngle": {
+   "kind": "outright",
+   "page": 1,
+   "note": "cos α₀ = 1/3 and α₀ < π/2."
+  },
+  "cos_time_lipschitz": {
+   "kind": "outright",
+   "page": 15,
+   "note": "Scalar: cos(tx) is |t|-Lipschitz, the time factor retained in Duhamel."
+  },
+  "cosh_integral_log_bound": {
+   "kind": "outright",
+   "page": 7,
+   "note": "(4.11): ∫₀^∞ dv/(1 + k cosh v) ≤ log(1+2/k) ≤ 2 log(2/k) for 0 < k ≤ 1/2."
+  },
+  "coth_form": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "coth_strictAnti": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Signs: m_{α,+} − m_{π,+} > 0 and m_{α,−} − m_{π,−} < 0 for 0 < α < π."
+  },
+  "cs_double": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Helper: Cauchy–Schwarz for double sums, used to bound trace terms like (7.25)."
+  },
+  "cubic_intertwining": {
+   "kind": "outright",
+   "page": 12,
+   "note": "Cubic telescoping intertwining identity; polynomial case of functional-calculus linearity in K."
+  },
+  "cumulative_transfer_bound": {
+   "kind": "conditional",
+   "page": 26,
+   "note": "Cumulative comparison bound from split energies; Lipschitz constants, tail and mass bounds are named hypotheses."
+  },
+  "cumulative_transfer_telescope": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Generic scalar helper: additive step errors telescope; paper has no stepwise transfer, serves (7.29) bookkeeping."
+  },
+  "denominator_pos": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Positivity of (1+t^2)^2 in Laplace transform of oscillating density 2x+1+x sin x, like the counterexample."
+  },
+  "deriv_Fc_pos": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "deriv_test": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "diag_conj_entry": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Helper: diagonal entries of diagonal conjugation are q_i²P_ii; serves squared-partition trace additivity."
+  },
+  "diff_small": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "dihedralCoeff_antitone": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_coth_form": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "dihedralCoeff_le": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_pi": {
+   "kind": "outright",
+   "page": 2,
+   "note": "c_π = 0 and c_α > 0 for 0 < α < π (the linear coefficient 6a c_{α₀} is nonzero)."
+  },
+  "dihedralCoeff_pi_div_three": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_pos": {
+   "kind": "outright",
+   "page": 2,
+   "note": "c_π = 0 and c_α > 0 for 0 < α < π (the linear coefficient 6a c_{α₀} is nonzero)."
+  },
+  "dihedralCoeff_right_angle": {
+   "kind": "outright",
+   "page": 2,
+   "note": "c_{π/2} = 1/(2π): recovers the cuboid (GLPS) calibration from (1.4)."
+  },
+  "dihedralCoeff_tetra_bracket": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_bracket_third": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_decimal": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_ge": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_le": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_le_bracket": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_le_third": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "dihedralCoeff_tetra_pos": {
+   "kind": "outright",
+   "page": 2,
+   "note": "c_π = 0 and c_α > 0 for 0 < α < π (the linear coefficient 6a c_{α₀} is nonzero)."
+  },
+  "dihedral_integrand_algebra": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Algebraic equality of the two integrand forms in (3.9), away from zero denominators."
+  },
+  "div_le_iff_le_scaled": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Scalar: t/λ ≤ L iff t ≤ λL, spectral cut under dilation."
+  },
+  "duhamel_cos_hs": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Cosine part of (7.24) in spectral coordinates: ‖cos(tA)J−Jcos(tB)‖_HS² ≤ t²‖K‖_HS²."
+  },
+  "duhamel_discrete_budget_le": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "Uniform slice bound (7.23) gives cumulative n*C budget, discrete analogue of |t|eps(h) in (7.24)."
+  },
+  "duhamel_discrete_budget_nonneg": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Discretized helper: nonnegative Duhamel slice bounds sum nonnegatively, serving (7.24)."
+  },
+  "duhamel_entry": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Entrywise (7.24) in spectral coordinates: coefficient of e^{itA}J−Je^{itB} bounded by |t||K_ij|."
+  },
+  "duhamel_entry_sq": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Squared entrywise form of (7.24): coefficient² ≤ t²K_ij²."
+  },
+  "duhamel_hs": {
+   "kind": "outright",
+   "page": 14,
+   "note": "HS form of Duhamel with time factor: ‖e^{itA}J−Je^{itB}‖_HS² ≤ t²‖K‖_HS² in spectral coordinates."
+  },
+  "duhamel_hs_of_inputs": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "Duhamel HS bound t²Ck²(1+L)², taking the Lemma 7.1′ / (7.2) defect bound as hypothesis."
+  },
+  "duhamel_sin_hs": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Sine part of (7.24) in spectral coordinates: ‖sin(tA)J−Jsin(tB)‖_HS² ≤ t²‖K‖_HS²."
+  },
+  "duplicate_rank_excess": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Excess of q-fold duplication is (q-1)n; motivates exact squared partition."
+  },
+  "duplicate_rank_overcount": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Duplicated modes overcount by factor q; squared partition avoids duplication in summation."
+  },
+  "dyadic_relative_primitive_bound": {
+   "kind": "conditional",
+   "page": 18,
+   "note": "Assuming dyadic majorants (7.42), sum of scalars G_j bounded by 4C/3."
+  },
+  "dyadic_sum": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Exact finite geometric series 1/2^j behind dyadic vertex summation (helper)."
+  },
+  "dyadic_sum_le_two": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Finite dyadic sum bounded by 2, so annular sums are uniformly bounded (helper)."
+  },
+  "edge_heat_limit": {
+   "kind": "conditional",
+   "page": 6,
+   "note": "Edge term of (4.10) from (4.9) by dominated convergence (q_α ∈ L¹ taken as given)."
+  },
+  "edge_integral_bounds": {
+   "kind": "outright",
+   "page": 25,
+   "note": "One edge: a−2r ≤ ∫ q² ≤ a when vertex cutoffs act within r of endpoints."
+  },
+  "edge_invariant_determined": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "edge_momentum": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "edge_of_model_compare": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Model edge law plus o(L) comparison gives edge law (11.3); both inputs are hypotheses."
+  },
+  "endpoint_eigen_minus": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.2)→(3.6): the endpoint matrix [[coth x, csch x],[csch x, coth x]] has eigenvalues coth x ± csch x = coth(x/2), tanh(x/2)."
+  },
+  "endpoint_eigen_plus": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.2)→(3.6): the endpoint matrix [[coth x, csch x],[csch x, coth x]] has eigenvalues coth x ± csch x = coth(x/2), tanh(x/2)."
+  },
+  "even_pos": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Signs: m_{α,+} − m_{π,+} > 0 and m_{α,−} − m_{π,−} < 0 for 0 < α < π."
+  },
+  "exp_half_le_cosh": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Helper inequality e^x/2 ≤ cosh x, used to bound the (1.4)/(3.9) integrand."
+  },
+  "explicit_barrier_numerator": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Polynomial certificate: Laplacian numerator of an explicit cusp barrier is negative; PDE part not formalized."
+  },
+  "fiber_scaling": {
+   "kind": "outright",
+   "page": 6,
+   "note": "(4.7) scaling: (1/2π)∫f(t|k|)dk = M_α/t, M_α = π⁻¹∫₀^∞ f."
+  },
+  "finite_eigenstate_squared_partition": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Finite-dimensional: squared partition gives localized mass one for a normalized state."
+  },
+  "finite_hs_tail_le_total": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Finite matrices: restricting columns cannot increase squared HS norm."
+  },
+  "finite_hs_tail_vanishes": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Finite-rank array has zero HS tail above its maximal column energy."
+  },
+  "finite_local_count_identity": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Finite-dimensional: counting function equals sum of localized counts at any real L."
+  },
+  "finite_local_spectral_mass_nonneg": {
+   "kind": "outright",
+   "page": 1,
+   "note": "Finite-dimensional: localized trace of a nonnegative multiplier is nonnegative."
+  },
+  "finite_mass_weight_bound": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Finite sum: per-window mass bound M times nonnegative kernel; window bound is a hypothesis."
+  },
+  "finite_offband_hs_gap": {
+   "kind": "conditional",
+   "page": 8,
+   "note": "Finite-spectrum off-band mass bounded by defect budget over squared gap, assuming coefficientwise defect dominance; scalar analogue of (5.10)."
+  },
+  "finite_partition_error": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Finite sum of localized errors bounded by sum of bounds; local bounds assumed."
+  },
+  "finite_phase_cell_error_budget": {
+   "kind": "conditional",
+   "page": 23,
+   "note": "Polynomially many cells with h^(N+M) errors sum to h^N; counts and errors assumed."
+  },
+  "finite_relative_inverse_trace": {
+   "kind": "outright",
+   "page": 17,
+   "note": "Finite spectrum: inverse trace difference equals sum of termwise differences."
+  },
+  "finite_schwartz_window_bound": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Finite version of (11.2): window bounds assumed, summed against absolute kernel weights."
+  },
+  "finite_spectral_count_below_bottom": {
+   "kind": "outright",
+   "page": 16,
+   "note": "Finite spectrum: count vanishes below bottom, fixing the negative-energy normalization."
+  },
+  "finite_spectral_trace_squared_partition": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Finite-dimensional: localized spectral traces sum to the full trace under squared partition."
+  },
+  "finite_sylvester_hs_gap": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Finite diagonal model: gap d gives d^2 times HS mass of J at most HS norm of defect, as in (7.46)."
+  },
+  "finite_window_count_from_gap": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Window count bounded via spectral gap and low-band budget; frame bound and gap estimate are explicit hypotheses."
+  },
+  "finite_window_mass_budget": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Scalar step: frame lower bound plus small low-band mass forces half the window count into high-band mass (window counting, Sec. 7.8)."
+  },
+  "first_riesz_coefficients": {
+   "kind": "outright",
+   "page": 3,
+   "note": "Algebraic integration of the leading polynomial, giving A/3 and B/2 coefficients only."
+  },
+  "first_riesz_coefficients_paper": {
+   "kind": "outright",
+   "page": 3,
+   "note": "At r = 1 the coefficients of (1.9) are √3a²/(12π) and 3ac."
+  },
+  "fixed_time_step_budget": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Fixed time T=Nh with per-step error εh gives cumulative εT; scalar helper for fixed-time transfer."
+  },
+  "fixed_width_budget": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Width term C*width+eps stays nonnegative at fixed width; only the gamma-to-zero limit removes it."
+  },
+  "formula_11_4_of_C4": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Formula (11.4) with paper's constants from the C4 ledger; analytic inputs assumed."
+  },
+  "formula_11_4_of_inputs": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Formula (11.4) with c = dihedral coefficient at arccos(1/3), from the ledger."
+  },
+  "formula_3_13": {
+   "kind": "conditional",
+   "page": 5,
+   "note": "(3.13) from the spectral-shift formula (3.10), taken as a named hypothesis for each momentum k."
+  },
+  "frobenius_mul_diag_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Unsquared form ‖X diag y‖_F ≤ ‖X‖_F B."
+  },
+  "frobenius_sq_mul_diagonal_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Matrix form: ‖X diag y‖_F² ≤ ‖X‖_F²B²; HS ideal property used in (7.2) step."
+  },
+  "gamma_reflection_imag": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Gamma step of (3.4): Γ(1/2+iv)Γ(1/2−iv) = π/cosh(πv), so πΓΓ/4 = π²/(4 cosh πv). The double integral (3.5) is not formalized."
+  },
+  "gd_zero": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Helper: antiderivative value at 0 is 1/2; serves ∫ = 1/2."
+  },
+  "geom_partial_le_two": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Helper: geometric partial sums with ratio ≤ 1/2 are ≤ 2; contraction constant 2w/L < 1/2."
+  },
+  "geom_partial_le_two_sub": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Helper: geometric partial sums with ratio ≤ 1/2 are ≤ 2−2r^N; serves the (7.46) series."
+  },
+  "gradient_scaling_cancel": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Scalar: λ⁻¹·C·(λG) = CG, the factor r cancels the cutoff's r⁻¹ Lipschitz norm."
+  },
+  "gradient_scaling_div": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Division form of the gradient-scaling cancellation."
+  },
+  "half_le_sinh": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Helper inequality y/2 ≤ sinh y, used to bound the (1.4)/(3.9) integrand."
+  },
+  "hasDerivAt_Fc": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "hasDerivAt_G": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "hasDerivAt_gd": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Helper: derivative of antiderivative of sech(πv); serves ∫ sech(πv) = 1/2."
+  },
+  "hasDerivAt_phiS": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "heat_convolution": {
+   "kind": "outright",
+   "page": 6,
+   "note": "Lemma 4.1: the two factors convolve to exactly C C' B(q,q) u^(2q−1) e^(−cu); B(q,q) converges."
+  },
+  "heat_trace_integrable": {
+   "kind": "conditional",
+   "page": 6,
+   "note": "From (4.5) (taken as hypothesis) the trace norm is integrable over u, with ∫ ≤ K c^(−2q) Γ(2q)."
+  },
+  "hs2_le_of_pointwise": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Finite-dimensional: |Tf(i)| ≤ w_i‖f‖ for all f gives ‖T‖_HS² ≤ Σw_i²."
+  },
+  "hs2_mul_diag_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "HS of X·diag(y) ≤ HS(X)·sup|y| in spectral coordinates; HS times bounded factor."
+  },
+  "hs2_nonneg": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Helper: squared Hilbert–Schmidt norm in spectral coordinates is nonnegative; serves Lemma 5.1 formalization."
+  },
+  "hs_le_of_pointwise": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Unsquared pointwise HS criterion ‖T‖_HS ≤ ‖w‖₂."
+  },
+  "hyperbolic_subtraction": {
+   "kind": "outright",
+   "page": 4,
+   "note": "sinh subtraction formula used to rewrite the integrand in the second equality of (3.9)."
+  },
+  "improved_barrier_numerator": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Numerator bound for beta=3/2, gamma=2 barrier on 4r<=d; PDE part not formalized."
+  },
+  "indicator_sum_scaled": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Finite spectrum: 1_[0,L](T/λ) = 1_[0,λL](T), spectral projector under scaling."
+  },
+  "inner_k": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "inner_k_abs": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "int_bounds": {
+   "kind": "outright",
+   "page": 7,
+   "note": "(5.2): 0 ≤ a_{L₂}(γ) − a_{L₁}(γ) ≤ 2Cγ(L₂² − L₁²) from 0 ≤ F ≤ C."
+  },
+  "int_rpow": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "integer_law_of_inputs": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "integer_law_of_real_law": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "integrableOn_dihedral": {
+   "kind": "outright",
+   "page": 1,
+   "note": "For 0<α<π the integrand of (1.4) is integrable on (0,∞): absolute convergence."
+  },
+  "integrableOn_dihedral_right_angle": {
+   "kind": "outright",
+   "page": 2,
+   "note": "At α=π/2 the (1.4) integrand is integrable on (0,∞)."
+  },
+  "integrableOn_dihedral_tetra": {
+   "kind": "outright",
+   "page": 1,
+   "note": "Integrability of (1.4) integrand at the tetrahedral angle arccos(1/3)."
+  },
+  "integrableOn_integrand": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Generic integrand sinh(bv)/(cosh((a+b)v)sinh(av)) integrable on (0,∞)."
+  },
+  "integrableOn_sech_pi": {
+   "kind": "outright",
+   "page": 2,
+   "note": "sech(πv) is integrable on (0,∞)."
+  },
+  "integral_inv_one_add_exp": {
+   "kind": "outright",
+   "page": 7,
+   "note": "(4.11): ∫₀^∞ dv/(1 + k cosh v) ≤ log(1+2/k) ≤ 2 log(2/k) for 0 < k ≤ 1/2."
+  },
+  "integral_rpow_two_beta_sub_two": {
+   "kind": "outright",
+   "page": 11,
+   "note": "∫₀¹ s^(2β−2) ds = 1/(2β−1): square of r^(β−1) bound (7.4) is integrable."
+  },
+  "integral_rpow_two_mu_sub_one": {
+   "kind": "outright",
+   "page": 11,
+   "note": "∫₀¹ s^(2μ−1) ds = 1/(2μ), companion integrability computation for Lemma 7.1′."
+  },
+  "integral_sech_pi": {
+   "kind": "outright",
+   "page": 2,
+   "note": "∫₀^∞ sech(πv) dv = 1/2 exactly."
+  },
+  "integral_third": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "integrand_antitone": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "integrand_bound": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Integrand of (3.9) is nonnegative and ≤ (4b/a)e^{−av}: exponential decay at infinity."
+  },
+  "integrand_pos": {
+   "kind": "outright",
+   "page": 2,
+   "note": "c_π = 0 and c_α > 0 for 0 < α < π (the linear coefficient 6a c_{α₀} is nonzero)."
+  },
+  "integrand_right_angle": {
+   "kind": "outright",
+   "page": 2,
+   "note": "At α=π/2 the (1.4) integrand equals sech(πv) on (0,∞)."
+  },
+  "integrand_tendsto_zero": {
+   "kind": "outright",
+   "page": 4,
+   "note": "The integrand of (3.9) tends to (π−α)/α as v → 0⁺."
+  },
+  "integrand_third": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "intertwines_all_powers": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Zero-defect case: exact intertwiner intertwines all powers."
+  },
+  "interval_mass_polynomial": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Polynomial identity V((L+s)^2-L^2)=V(2Ls+s^2) behind the interval mass bound."
+  },
+  "inv_add_sq_le_one_add_sq": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Scalar step of corrected Lemma 7.1′: (λ⁻¹+L)² ≤ (1+L)² for rescaled annuli, λ ≥ 1."
+  },
+  "ioi_integral_exp_neg_mul": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "kernel_ii": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "kernel_integrable": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "kernel_moment0": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "kernel_moment1": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "kernel_moment2": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "kernel_mul_ii": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "law_rescale": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "law_scaling": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "law_scaling_iff": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "law_unscaling": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "leading_coefficient": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "(1.9) for every r > 0 from the sharp law (1.3) (proved for any monotone N); with the Theorem 11.1 ledger this gives (1.9) with the paper's constants, so it is conditional on H1–H6."
+  },
+  "length_bound": {
+   "kind": "outright",
+   "page": 25,
+   "note": "|len ε − 6a| ≤ 12Kε: replacing Σ∫q_e² by 6a costs O(ε)."
+  },
+  "linear_coefficient_under_shift": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Expands shifted Weyl polynomial: linear coefficient changes by 2Ad (Remark 5.2)."
+  },
+  "little_o_of_vanishing_tail": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "Ordered limit: bound Aσ(M)(1+L)+E(M,L), vanishing tail σ, E=o(L) for fixed M gives o(L); inputs hypothesized."
+  },
+  "log_le_two_sqrt": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "(7.49) in the paper's form implies the vertex input H4; Theorem 11.1 from that ledger."
+  },
+  "lorentz_integral_le": {
+   "kind": "outright",
+   "page": 8,
+   "note": "(5.9): ∫_{L/2}^{2L} t/((t−L)²+w²) dt ≤ 2πL/w (narrow w = 1 and wide windows)."
+  },
+  "lower_num": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "movingDefect_fixed_tail_zero": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Each fixed defect has vanishing tail, mirroring per-operator tail decay; family non-uniformity backs the caveat."
+  },
+  "movingDefect_no_uniform_tail": {
+   "kind": "outright",
+   "page": 14,
+   "note": "No uniform tail decay over the family; consistent with paper not asserting uniform little-o on annuli."
+  },
+  "movingDefect_norm_one": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Moving unit defect has HS norm one; ingredient of example showing why uniform little-o is not asserted."
+  },
+  "movingDefect_tail_one": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Tail mass stays one above cutoff; supports paper's caveat that tails need not vanish uniformly over a family."
+  },
+  "multiplicity_even": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Even-index multiplicity formula of the discrete heat obstruction model."
+  },
+  "multiplicity_odd": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Odd-index multiplicity formula of the discrete heat obstruction model."
+  },
+  "multiplicity_positive": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Positive multiplicities of a discrete obstruction spectrum: heat data cannot fix the sharp second coefficient."
+  },
+  "multiplier_diff": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.8): rank-one weight (2/π²)sinh(πv)·π²/(4cosh πv) = tanh(πv)/2; summed absolute integrand = tanh(πv)(csch αv − csch πv)."
+  },
+  "multiplier_sum": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "neg_moment_deriv": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "nontrivial_rotation_immobile": {
+   "kind": "outright",
+   "page": 24,
+   "note": "Rotation with det(R-I) nonzero has only zero fixed vector."
+  },
+  "norm_cexp_sub_le": {
+   "kind": "outright",
+   "page": 15,
+   "note": "Scalar: |exp(itx)−exp(ity)| ≤ |t||x−y|, the Duhamel time factor."
+  },
+  "norm_identity_constant": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Gamma step of (3.4): Γ(1/2+iv)Γ(1/2−iv) = π/cosh(πv), so πΓΓ/4 = π²/(4 cosh πv). The double integral (3.5) is not formalized."
+  },
+  "not_one_term_law": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "odd_neg": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Signs: m_{α,+} − m_{π,+} > 0 and m_{α,−} − m_{π,−} < 0 for 0 < α < π."
+  },
+  "offBandIterate_error": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Fixed point minus n-th iterate equals T^n X S^n; convergence needs contraction estimate."
+  },
+  "offBandIterate_increment": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Successive iterate increments are sandwiched by T and S; algebra behind series (7.46)."
+  },
+  "offBandStep_difference": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Difference of off-band steps is T(X-Y)S, the algebra behind uniqueness for (5.10)."
+  },
+  "off_band_absorb": {
+   "kind": "outright",
+   "page": 8,
+   "note": "‖S_o‖ ≤ 2/L off the band, and (5.10): ‖X‖ ≤ 4‖K‖/L when L > 4w."
+  },
+  "off_band_gap": {
+   "kind": "outright",
+   "page": 8,
+   "note": "‖S_o‖ ≤ 2/L off the band, and (5.10): ‖X‖ ≤ 4‖K‖/L when L > 4w."
+  },
+  "offband_entry_mul": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Entrywise off-band gap: J²L² ≤ 16((a−b)J)² for window and off-band eigenvalues."
+  },
+  "offband_hs": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Off-band coefficients: spectral gap g gives ‖J‖_HS² ≤ ‖K‖_HS²/g², the (5.10) mechanism."
+  },
+  "offband_window_bound": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Off-band block O(1) in HS norm, squared bound 16Ck²(1+L+w)²/L², given Lemma 7.1′ defect bound as hypothesis."
+  },
+  "offband_window_mass": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Off-band mass on window rows ≤ 16Ck²(1+L+w)²/L², given the off-band defect bound (Lemma 7.1′) as hypothesis."
+  },
+  "ordered_two_scale_limit": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Ordered epsilon-then-gamma limit deduction, assuming the bound C eps + D(eps) gamma as hypothesis."
+  },
+  "osc_riesz_bound": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "pair_multiplicity": {
+   "kind": "outright",
+   "page": 20,
+   "note": "Paired multiplicities sum to 8k+9, averaging out oscillation; heat expansion analysis itself not in Lean."
+  },
+  "parity_trace_sum": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "pi_div_three_lt_tetraAngle": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "polynomial_duhamel_contraction_bound": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Discrete analogue of the |t| factor in (7.24) for contractions, ambient norm."
+  },
+  "polynomial_duhamel_identity": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Discrete noncommutative Duhamel identity for a^n r - r b^n."
+  },
+  "positive_mass_signed_kernel_bound": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Finite sum: positive mass with signed kernel bounded via absolute values; window allowances assumed."
+  },
+  "proj_diag_nonneg": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Helper: symmetric idempotent matrix has nonnegative diagonal; serves applying (2.2) to η1."
+  },
+  "quadratic_intertwining": {
+   "kind": "outright",
+   "page": 12,
+   "note": "Telescoping B^2J-JA^2 via defect; polynomial case of writing f(A)J-Jf(B) linearly in K."
+  },
+  "quarter_geometric_identity": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Exact geometric sum with ratio 1/4 behind summability of R_j^-2."
+  },
+  "quarter_geometric_le": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Finite sums of 4^-j bounded by 4/3."
+  },
+  "quarter_sq_partial_sum_eq": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Closed form of partial sums of (1/16)^(j+1); dyadic summation in corrected Lemma 7.1′."
+  },
+  "quarter_sq_partial_sum_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Partial sums of Σ2^(−4j) are at most 1/15; dyadic summation bound."
+  },
+  "rank_one_weight": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.8): rank-one weight (2/π²)sinh(πv)·π²/(4cosh πv) = tanh(πv)/2; summed absolute integrand = tanh(πv)(csch αv − csch πv)."
+  },
+  "realWeylPolynomial_window_increment": {
+   "kind": "outright",
+   "page": 26,
+   "note": "Exact increment of A L^2 + B L over [L-d,L]."
+  },
+  "real_sharp_law_if_partition_bounds": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Sharp real law from an assumed two-scale error bound, not a proved spectral fact."
+  },
+  "real_weyl_partition_identity": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Localized area/edge predictions sum to the global A L^2 + B L."
+  },
+  "reflection_fixed_vector_axis": {
+   "kind": "outright",
+   "page": 24,
+   "note": "Vector fixed by reflection across horizontal axis is horizontal."
+  },
+  "reflection_return_velocity": {
+   "kind": "outright",
+   "page": 24,
+   "note": "Fixed velocity under horizontal-axis reflection is horizontal; necessary condition only."
+  },
+  "resolvent_equal_model": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Defect vanishes exactly where actual and model operators coincide, as in identity on common patch."
+  },
+  "resolvent_intertwining_scalar": {
+   "kind": "outright",
+   "page": 12,
+   "note": "Scalar resolvent intertwining identity, the algebra behind expressing f(A)J-Jf(B) through the defect K (also (5.8))."
+  },
+  "resolvent_weighted_partition": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Partition of unity weights sum to one so a resolvent trace is not duplicated; serves the squared-partition summation."
+  },
+  "riesz_does_not_imply_sharp": {
+   "kind": "outright",
+   "page": 20,
+   "note": "The Section 8 example: N = ⌊AL²+BL+εL sin L⌋ is monotone, satisfies every positive Riesz law with coefficients A, B, and has no sharp law A L² + B'L + o(L). (Its heat expansion (8.1) is not formalized.)"
+  },
+  "riesz_finite": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "riesz_of_inputs": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "(1.9) for every r > 0 from the sharp law (1.3) (proved for any monotone N); with the Theorem 11.1 ledger this gives (1.9) with the paper's constants, so it is conditional on H1–H6."
+  },
+  "riesz_of_sharp": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "(1.9) for every r > 0 from the sharp law (1.3) (proved for any monotone N); with the Theorem 11.1 ledger this gives (1.9) with the paper's constants, so it is conditional on H1–H6."
+  },
+  "riesz_of_sharpLaw": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "(1.9) for every r > 0 from the sharp law (1.3) (proved for any monotone N); with the Theorem 11.1 ledger this gives (1.9) with the paper's constants, so it is conditional on H1–H6."
+  },
+  "riesz_single": {
+   "kind": "outright",
+   "page": 20,
+   "note": "(8.4): Σ(L−σ_j)₊^r = r∫₀^L (L−u)^(r−1)N(u)du for a finite nonnegative spectrum; exact kernel moments."
+  },
+  "right_angle_integrand": {
+   "kind": "outright",
+   "page": 2,
+   "note": "At alpha=pi/2 the integrand equals sech(pi v); the integral value 1/2 is not checked."
+  },
+  "rotation_fixed_vector_zero": {
+   "kind": "outright",
+   "page": 24,
+   "note": "Planar rotation with det(R-I)>0 fixes only the zero vector."
+  },
+  "row_sq_le_of_self_test": {
+   "kind": "outright",
+   "page": 11,
+   "note": "One row: testing against itself gives Σ r_k² ≤ c²; step of pointwise HS criterion."
+  },
+  "sandwich_mode_count": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Window [-N,N] has 2N+1 modes; linear count matching C(1+L) growth in (7.2)."
+  },
+  "sandwich_no_uniform_budget": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Truncated defect cannot be bounded uniformly in N, consistent with (7.2) growing as C(1+L)."
+  },
+  "sandwich_two_dimensional_count": {
+   "kind": "outright",
+   "page": 3,
+   "note": "Quadratic mode count in 2D box, matching quadratic local spectral mass (2.2)."
+  },
+  "sandwich_unit_shift_budget": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Spectrally truncated unit-shift defect has HS^2 equal to 2N+1, linear like (7.2)."
+  },
+  "scale_collar_over_dwell_exponent": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks exponent of gamma/t_h equals sigma = 1/12."
+  },
+  "scale_dwell_exponent": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks rho - sigma = 1/4, the dwell-time exponent."
+  },
+  "scale_error_partial_bound": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Generic geometric-sum helper for dyadic scale summation; decay ratio is a hypothesis, not derived from paper."
+  },
+  "scale_rho_lt_half": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks rho=1/3 < 1/2 for the example exponents in (9.12)."
+  },
+  "scale_sigma_lt_rho": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks sigma=1/12 < rho=1/3 for the example exponents."
+  },
+  "scale_uncertainty_over_dwell_exponent": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks 1-2rho+sigma = 5/12 for h/(eta t_h)."
+  },
+  "scaled_gradient_bound": {
+   "kind": "conditional",
+   "page": 13,
+   "note": "If g ≤ λG (rescaled gradient bound, hypothesis) then λ⁻¹Cg ≤ CG."
+  },
+  "scaled_sq_div_sq": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Division form of rescaling identity for the uniform (7.2) bound."
+  },
+  "scaled_sq_mul_inv_sq": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Scalar identity C(1+λL)²λ⁻² = C(λ⁻¹+L)² for rescaling the (7.2) bound."
+  },
+  "scaled_strip_window": {
+   "kind": "conditional",
+   "page": 7,
+   "note": "Deduces strip window bound (5.2) from assumed nonnegative, linear, Lipschitz profile H."
+  },
+  "sech_pi_nonneg": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Helper: sech(πv) ≥ 0; serves the right-angle integral."
+  },
+  "section9_example_exponents": {
+   "kind": "outright",
+   "page": 23,
+   "note": "Checks rho-sigma=1/4 and 1-2rho+sigma=5/12 for the example."
+  },
+  "section9_exponent_positivity": {
+   "kind": "outright",
+   "page": 23,
+   "note": "0<sigma<rho<1/2 gives positive rho-sigma, sigma, 1-2rho+sigma."
+  },
+  "sharp_count_of_smoothed_and_unsmoothing": {
+   "kind": "conditional",
+   "page": 18,
+   "note": "Adding an o(L) unsmoothing error to a sharp smoothed law keeps coefficients; both assumed."
+  },
+  "sharp_error_budget": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Triangle inequality combining smoothed-model and sharp-smoothed budgets into (11.3), with (7.45),(11.2) as hypotheses."
+  },
+  "sharp_integer_law_of_two_scale": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Final deduction of the two-term law at integer L, assuming a uniform two-scale bound."
+  },
+  "sharp_law_unique": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "sharp_real_law_of_two_scale": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Final deduction of (11.4) at all real L, assuming the real two-scale bound."
+  },
+  "shifted_resolvent_no_uniform_HS_constant": {
+   "kind": "outright",
+   "page": 8,
+   "note": "No dimension-free constant bounds trace difference by HS defect; supports remark that (5.6) cannot give coefficients."
+  },
+  "shifted_resolvent_trace_exact": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Shift B=A+1 example: exact trace resolvent difference n/2 versus HS defect n, illustrating Remark 5.2."
+  },
+  "shifted_resolvent_trace_square": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Squares trace difference to n^2/4 in the constant-shift example of Remark 5.2."
+  },
+  "sin_time_lipschitz": {
+   "kind": "outright",
+   "page": 15,
+   "note": "Scalar: sin(tx) is |t|-Lipschitz, the time factor retained in Duhamel."
+  },
+  "sinh_le_mul_exp": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Helper inequality sinh y ≤ y e^y, used to bound the (1.4)/(3.9) integrand."
+  },
+  "sinh_ne": {
+   "kind": "outright",
+   "page": 4,
+   "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "sinh_ne_zero_of_pos": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Helper: sinh x ≠ 0 for x>0, to simplify the right-angle integrand."
+  },
+  "six_edge_contribution": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Trivial bookkeeping: six edges of length a give linear coefficient 6a c."
+  },
+  "six_edge_length": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Six edges: |Σ∫q_e² − 6a| ≤ 12r, omitted edge length is O(ε)."
+  },
+  "small_two_parameter_budget": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Existence of eps, gamma with C eps + D gamma < delta (helper)."
+  },
+  "spectral_defect_entry": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Entrywise Sylvester identity (AJ-JB)_ij=(a_i-b_j)J_ij underlying the off-band rearrangement (5.10)."
+  },
+  "spectral_defect_square": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Squared Sylvester identity used for the HS spectral-gap bound in the off-band step."
+  },
+  "spectral_window_polynomial_decomposition": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Splits C(V(L+d)+1) into C(VL+1)+CVd, the window decomposition."
+  },
+  "split_trace_bound": {
+   "kind": "outright",
+   "page": 26,
+   "note": "Energy splitting of the trace comparison into two parts with separate Lipschitz-type constants."
+  },
+  "squared_gap_lower_bound": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Generic helper: squaring a spectral gap, serving the off-band estimate (5.10)."
+  },
+  "squared_partition_scalar": {
+   "kind": "outright",
+   "page": 19,
+   "note": "If sum of squared weights is one, weighted scalar sum is exact."
+  },
+  "strip_trace_increment": {
+   "kind": "outright",
+   "page": 7,
+   "note": "(5.2): 0 ≤ a_{L₂}(γ) − a_{L₁}(γ) ≤ 2Cγ(L₂² − L₁²) from 0 ≤ F ≤ C."
+  },
+  "symmetric_band_width": {
+   "kind": "outright",
+   "page": 2,
+   "note": "(L+w)^2-(L-w)^2 = 4Lw, converting window width into wLV scaling."
+  },
+  "symmetric_weyl_window": {
+   "kind": "outright",
+   "page": 26,
+   "note": "Two-term Weyl polynomial increment over [L-d,L+d] equals 4ALd+2Bd."
+  },
+  "tanh_lt_tanh": {
+   "kind": "outright",
+   "page": 4,
+   "note": "Signs: m_{α,+} − m_{π,+} > 0 and m_{α,−} − m_{π,−} < 0 for 0 < α < π."
+  },
+  "tendsto_G": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "tendsto_gd": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Helper: antiderivative of sech(πv) tends to 1; serves ∫ = 1/2."
+  },
+  "tendsto_sinh_div": {
+   "kind": "outright",
+   "page": 4,
+   "note": "The integrand of (3.9) tends to (π−α)/α as v → 0⁺."
+  },
+  "term_le": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Helper: one trace-comparison term bounded by c·|K||J| given a difference-quotient bound."
+  },
+  "tetraAngle_lt_pi_div_two": {
+   "kind": "outright",
+   "page": 1,
+   "note": "cos α₀ = 1/3 and α₀ < π/2."
+  },
+  "tetraAngle_mem": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Checks 0 < arccos(1/3) < π, so (1.4) is evaluated in range."
+  },
+  "tetra_edge_count": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Combinatorial count C(4,2)=6 edges of the tetrahedron."
+  },
+  "tetra_face_count": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Combinatorial count C(4,3)=4 faces behind the total boundary area used in (11.4)."
+  },
+  "tetra_half_angle_sin_sq": {
+   "kind": "outright",
+   "page": 1,
+   "note": "cos(α0)=1/3 implies sin^2(α0/2)=1/3, the half-angle value in (1.2)."
+  },
+  "tetra_surface_area": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Four equilateral faces sum to sqrt(3) a^2, given the one-face area formula."
+  },
+  "theorem_11_1_of_C4": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Theorem 11.1 deduced from the C4 hypothesis ledger; analytic inputs assumed."
+  },
+  "theorem_11_1_of_C5": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Theorem 11.1 from the C5 ledger (splitting and area proved, rest hypotheses)."
+  },
+  "theorem_11_1_of_C6": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Theorem 11.1 from the C6 ledger (H1–H3 proved, H4–H6 hypotheses)."
+  },
+  "theorem_11_1_of_D5": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "(7.49) in the paper's form implies the vertex input H4; Theorem 11.1 from that ledger."
+  },
+  "theorem_11_1_of_inputs": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Theorem 11.1 sharp law N(L)=√3a²L²/(4π)+6acL+o(L) from hypothesis ledger Thm111Inputs."
+  },
+  "three_region_remainder": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Vertex/edge/face error bounds (assumed) add to a total three-region remainder bound."
+  },
+  "time_integrable": {
+   "kind": "conditional",
+   "page": 6,
+   "note": "From (4.5) (taken as hypothesis) the trace norm is integrable over u, with ∫ ≤ K c^(−2q) Γ(2q)."
+  },
+  "time_integral": {
+   "kind": "conditional",
+   "page": 6,
+   "note": "From (4.5) (taken as hypothesis) the trace norm is integrable over u, with ∫ ≤ K c^(−2q) Γ(2q)."
+  },
+  "total_error_from_three_regions": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Additivity of counts and areas plus assumed regional bounds gives total error."
+  },
+  "trace_diagonal_conj": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Helper: Tr(ηPη) = Σ η_i²P_ii; serves the localized spectral-mass step."
+  },
+  "trace_proj_cutoff_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Finite-dimensional: Tr(ηPη) ≤ Tr(1_F P 1_F) for projection P, cutoff 0≤η≤1_F (local mass bound)."
+  },
+  "trace_split3": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Three-piece vertex/edge/face trace splitting for a squared partition (finite matrices)."
+  },
+  "trace_squared_partition": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Trace additivity Tr P = Σ_k Tr(χ_k P χ_k) for a squared partition Σχ_k²=1."
+  },
+  "trace_transfer": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Localized trace comparison as double sum, bounded by Lip(f)·Σ|K||J| in finite spectral coordinates."
+  },
+  "trace_transfer_naive": {
+   "kind": "conditional",
+   "page": 8,
+   "note": "Under named PDE inputs, Lipschitz transfer alone gives only O(L²) trace comparison, illustrating this limitation."
+  },
+  "transfer_entry": {
+   "kind": "outright",
+   "page": 12,
+   "note": "Entrywise: Lipschitz functional calculus bounds (f(A)J−Jf(B)) coefficient by Lip(f)|K| in spectral coordinates."
+  },
+  "transfer_gronwall_bound": {
+   "kind": "outright",
+   "page": 13,
+   "note": "Generic discrete Grönwall bound; scalar bookkeeping for the fixed-time cumulative comparison."
+  },
+  "transfer_hs": {
+   "kind": "outright",
+   "page": 12,
+   "note": "HS form: ‖f(A)J−Jf(B)‖_HS² ≤ Lip(f)²‖K‖_HS², finite spectral coordinates."
+  },
+  "transfer_sharp_law": {
+   "kind": "conditional",
+   "page": 18,
+   "note": "Model sharp law plus o(L) cumulative comparison gives same sharp law for actual count; both are hypotheses."
+  },
+  "translation_return": {
+   "kind": "outright",
+   "page": 24,
+   "note": "Algebraic part of (10.1): return under pure translation gives t v = c."
+  },
+  "translation_return_parallel": {
+   "kind": "outright",
+   "page": 24,
+   "note": "t v = c implies v and c have vanishing determinant (parallel)."
+  },
+  "translation_velocity_collinear": {
+   "kind": "outright",
+   "page": 24,
+   "note": "t v = c implies v collinear with c, no division by t."
+  },
+  "truncated_exp_exact_intertwiner": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Exact intertwining passes to truncated exponentials at every order."
+  },
+  "truncated_exp_quasicommutator": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Taylor-truncated exponential quasicommutator identity behind (7.24); no limit or domains."
+  },
+  "truncated_shift_exceeds": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Unboundedness persists beyond any threshold; diagnostic for bounded-not-HS commutator."
+  },
+  "truncated_shift_hs_square": {
+   "kind": "outright",
+   "page": 8,
+   "note": "Fourier-shift commutator with |D| has HS^2 equal to mode count: commutator is bounded, not HS, consistent with paper."
+  },
+  "truncated_shift_unbounded": {
+   "kind": "outright",
+   "page": 8,
+   "note": "HS norm of commutator unbounded in cutoff; why paper claims only boundedness of [A,eta]."
+  },
+  "tsum_sixteenth_pow_succ": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Infinite sum Σ(1/16)^(j+1) = 1/15."
+  },
+  "tsum_two_pow_neg_four": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Σ_{j≥1} 2^(−4j) = 1/15, dyadic sum in corrected Lemma 7.1′."
+  },
+  "twoTerm_eq_real": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "two_error_composition": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Generic triangle inequality combining localized errors in the assembly leading to (11.5)."
+  },
+  "two_scale_of_inputs": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "Ledger hypotheses yield the uniform two-scale bound (11.5)."
+  },
+  "two_term_interval_error_bound": {
+   "kind": "conditional",
+   "page": 26,
+   "note": "Counting increment bounded by model increment plus endpoint errors; two-term errors assumed."
+  },
+  "unit_window_linear_decomposition": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Splits C(V(L+d)+1) into C(VL+1)+CVd for Schwartz-weighted summation."
+  },
+  "upper_num": {
+   "kind": "outright",
+   "page": 2,
+   "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "vertex_of_log": {
+   "kind": "conditional",
+   "page": 25,
+   "note": "(7.49) in the paper's form implies the vertex input H4; Theorem 11.1 from that ledger."
+  },
+  "weighted_diag_sum_le": {
+   "kind": "outright",
+   "page": 11,
+   "note": "Helper: 0 ≤ η ≤ 1_F gives Ση_i²p_i ≤ Σ1_F p_i; serves cutoff monotonicity."
+  },
+  "weighted_partition_mass": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Weighted partition assigns exactly one unit mass per mode, so traces add exactly."
+  },
+  "weighted_trace_partition": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Weighted trace mass does not duplicate a mode; scalar version of exact squared-partition additivity."
+  },
+  "weyl_scale": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  },
+  "window_count_band": {
+   "kind": "conditional",
+   "page": 19,
+   "note": "Window count ≤ band mass + O(1) off-band term, assuming unit row mass and Lemma 7.1′ defect bound."
+  },
+  "window_offband_gap": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Scalar gap: window eigenvalue near L and off-band model eigenvalue are separated by L/4 when 4w ≤ L."
+  },
+  "zero_beyond": {
+   "kind": "outright",
+   "page": 5,
+   "note": "(3.12)–(3.13) computation: product integrability, substitution k = bu, integration by parts; ∫dk∫∂_bφ(k/b)ξ(b)db = (∫ξ)(∫φ)."
+  },
+  "zero_of_forall_le": {
+   "kind": "conditional",
+   "page": 2,
+   "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
+  }
+ }
+}
