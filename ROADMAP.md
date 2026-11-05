@@ -279,7 +279,7 @@ input. A new abstract consequence is not a milestone.
 - [x] F2. Same file: `H5bInputs` is satisfiable (explicit witness), and no field is the target in
       disguise (no field states a bound on `E − Emod` at scale L). Then `Thm111InputsF` =
       `Thm111InputsC4` with `compare` replaced by `H5bInputs`, and `theorem_11_1_of_F`.
-- [~] F3. `axiom_audit.py` / STATUS.md: report "library declarations checked" and "ledger inputs proved
+- [x] F3. `axiom_audit.py` / STATUS.md: report "library declarations checked" and "ledger inputs proved
       for the actual operator" (0 of 6 today) as separate numbers, and record the last passing commit
       SHA next to the current build result. Test on a branch before main.
       Written 2026-11-05 07:20 UTC on branch `claude/f3-audit` (commit 9731a41; only `axiom_audit.py`
@@ -287,6 +287,8 @@ input. A new abstract consequence is not a milestone.
       last passing commit, "Library declarations checked" and "Ledger inputs proved for the actual
       operator: 0 of 6" lines, copy `axiom_audit.py` from the branch to main unchanged and tick F3.
       Note: STATUS.json now contains the commit SHA, so CI commits a status update on every push.
+      Ticked 2026-11-05 08:1x UTC: branch STATUS PASS 494/494 at 9731a41 with all four lines;
+      `axiom_audit.py` copied to main unchanged (main's copy equalled the branch parent's).
 
 When F1–F3 are ticked, the formalize task makes no new Lean change unless the build fails or a row of the
 table changes; it reports "idle: waiting on paper inputs for F" in its final reply.
