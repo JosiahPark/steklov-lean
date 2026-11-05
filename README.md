@@ -6,8 +6,8 @@ GitHub Actions rebuilds it and audits its axioms on every push, and every 6 hour
 
 ## What is and is not verified
 
-- **Submitted to Lean** (see `verification/STATUS.md` for which ones actually pass): 130 theorems
-  from the hourly runs through run 23. They cover tetrahedron counts and area, the half-angle
+- **Library coverage** (`verification/STATUS.md` is the authority): 488 theorem declarations
+  compiled with only Lean's standard axioms at the 2026-11-05 02:12 UTC check. They cover tetrahedron counts and area, the half-angle
   identity, scale exponents, window arithmetic, finite spectral-trace localization, discrete and
   truncated Duhamel identities, finite Hilbert-Schmidt tail and spectral-gap bounds, off-band
   iteration, the Section 7 barrier inequalities, the spectral-sandwich budget, Section 9 scale and
@@ -18,6 +18,9 @@ GitHub Actions rebuilds it and audits its axioms on every push, and every 6 hour
   `sharp_real_law_of_two_scale` assume the uniform two-scale bound as a hypothesis. Lean has no
   definition of the Dirichlet-to-Neumann operator, so the open gaps (7.2), (7.29), (7.38)/(7.45)
   and (9.1) are outside what this project proves.
+- **Main-theorem inputs proved for the actual operator: 0 of 6.** The ledger `[H1]`–`[H6]` in
+  `SteklovAudit/MainConditional.lean` holds only by assumption. The current priority is one of
+  them, the edge comparison (7.29) (`ROADMAP.md`, section F).
 
 ## Paper proofs from the hourly runs
 

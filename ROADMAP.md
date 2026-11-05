@@ -6,6 +6,7 @@ If the build is failing, fixing it comes before any new item.
 `- [~]` means the interactive session already wrote the item and it is waiting for CI: if
 `verification/STATUS.md` shows it compiled, tick it (`[~]` -> `[x]`) and move on; if it failed,
 fixing it is the next item. Never redo a `[~]` item from scratch.
+`- [-]` means deferred: skip it; it is not the next item.
 
 Every new file goes in `SteklovAudit/`, starts with `import Mathlib`, states in its docstring
 what it does NOT prove, and uses no `sorry`, `axiom` or other escape hatch.
@@ -219,10 +220,10 @@ are done.
 - [x] R3. R27.2 in coordinates, `SteklovAudit/PropagatorTrace.lean`: for a rank-r coordinate projection P,
       |Tr(P U(t) P)| ≤ √r · |t| · ‖K‖_HS with U(t) entrywise (e^{itb_j} − e^{ita_i}) J_ji; combine
       `trace_rank_amplification` with `duhamel_hs`.
-- [~] R4. R21.2 in coordinates, `SteklovAudit/MultiChartTrace.lean`: charts J_i with Σ J_iᵀ J_i = I give
+- [x] R4. R21.2 in coordinates, `SteklovAudit/MultiChartTrace.lean`: charts J_i with Σ J_iᵀ J_i = I give
       |Tr e^{itA} − Σ_i Tr(J_iᵀ e^{itB_i} J_i)| ≤ √dim · |t| · (Σ_i ‖K_i‖²_HS)^{1/2}; sharpness example
       A = 0, B = I, J = I on ℂⁿ (discrepancy n|1 − e^{it}|).
-- [ ] R5. R20.1, discrete kernel first, `SteklovAudit/WindowMassSmoothing.lean`: if N is nondecreasing,
+- [-] R5. (Deferred 2026-11-05 in favour of section F.) R20.1, discrete kernel first, `SteklovAudit/WindowMassSmoothing.lean`: if N is nondecreasing,
       N = 0 on (−∞, 0) and N(k+1) − N(k) ≤ A(V(k+1) + 1) for integers k ≥ 0 (V ≥ 0), then for a finite kernel
       ρ = Σ_m w_m δ_{s_m} with Σ w_m = 1 and L ≥ 1,
       |N(L) − Σ_m w_m N(L − s_m)| ≤ A (V(L+1) + 1) · Σ_m |w_m| (|s_m| + 3)².
@@ -257,6 +258,43 @@ Elementary steps of the paper that are not part of `Thm111Inputs`. All four comp
       (`Nc_riesz`, via `|∫₀^L (L−u)^(r−1) u sin u| ≤ 2L + L^r + L/r`), and has no sharp law `A L² + B'L + o(L)`
       for any `B'` (`Nc_not_sharp`). With S3 (sharp ⇒ Riesz) this shows Riesz laws are strictly weaker.
       The heat expansion (8.1) for the example is not formalized.
+
+## F. One analytic bottleneck: (7.29), the H5b comparison (from 2026-11-05)
+
+Change of priority after the 2026-11-05 repository assessment. Sections A–E, R and S built a supporting
+library (488 declarations compiled at 02:12 UTC), while the number of ledger inputs proved for the actual
+Steklov operator stayed at 0 of 6. New auxiliary items are no longer queued. The target is one input:
+H5b `compare` in `Thm111InputsC4` (`EdgeFromModel.lean`), the cumulative comparison (7.29): the true
+edge-localized count differs from the model count by o(L). B4/B5 reduce it to named inputs; F turns that
+reduction into one checked statement and keeps a status for each input in the table below.
+
+A milestone is a table row moving to "proved on paper, reviewed", or a row replaced by a strictly weaker
+input. A new abstract consequence is not a milestone.
+
+- [ ] F1. `SteklovAudit/H5Compare.lean`: `def H5bTarget` (exactly the type of `Thm111InputsC4.compare`
+      for given `E Emod`), a structure `H5bInputs` with one named field per table row, and
+      `h5b_of_inputs` proved by chaining `cumulative_transfer_bound` and `little_o_of_vanishing_tail`
+      (`AbstractTransferB.lean`). If the chain needs anything not listed, add it as a separate named
+      field and a new table row; never fold it into another field.
+- [ ] F2. Same file: `H5bInputs` is satisfiable (explicit witness), and no field is the target in
+      disguise (no field states a bound on `E − Emod` at scale L). Then `Thm111InputsF` =
+      `Thm111InputsC4` with `compare` replaced by `H5bInputs`, and `theorem_11_1_of_F`.
+- [ ] F3. `axiom_audit.py` / STATUS.md: report "library declarations checked" and "ledger inputs proved
+      for the actual operator" (0 of 6 today) as separate numbers, and record the last passing commit
+      SHA next to the current build result. Test on a branch before main.
+
+When F1–F3 are ticked, the formalize task makes no new Lean change unless the build fails or a row of the
+table changes; it reports "idle: waiting on paper inputs for F" in its final reply.
+
+| Input (field of `H5bInputs`) | Paper | Lean shape taken from | Status |
+|---|---|---|---|
+| Localized spectral mass at each cutoff | (2.2) | `PDEInputs.mass` | not recorded (Josiah to fill) |
+| Uniform localized HS defect bound | Lemma 7.1′ (replaces (7.2)) | `PDEInputs.defect` | written proof in the Claude Doc; concrete inequalities checked (section A); PDE inputs unproved; not reviewed |
+| High-energy defect tail τ(M), σ(M) → 0 | (7.29) proof | B4/B5 tail hypothesis | open |
+| Low-energy defect bound κ | (7.29) proof | B4 low-energy hypothesis | open |
+| Lipschitz-type bounds Λ, λ for the smoothed counting function | §7 | B3/B4 | not recorded (Josiah to fill) |
+| Finite cutoff → continuous model spectrum | §7 | not formalized (B1 docstring) | open; to be stated as its own field in F1 |
+| Propagation (9.1) | §9 | — | open; whether it enters H5b or only the model law H5a is to be confirmed |
 
 ## Not attempted here
 
