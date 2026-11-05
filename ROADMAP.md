@@ -308,7 +308,7 @@ anywhere, it writes new items in section G aimed at the table below.
 Added by an interactive session on 2026-11-05. When no unchecked item is left, the formalize task appends new G
 items (G2, G3, ...) aimed at the F table; it does not queue library results that move no row.
 
-- [~] G1. `SteklovAudit/TwoParameterSmoothing.lean` (continuation 54; lifts R38.1 from scalar fragments):
+- [x] G1. `SteklovAudit/TwoParameterSmoothing.lean` (continuation 54; lifts R38.1 from scalar fragments):
       `error_budget` and `sharp_law_of_two_parameter_smoothing`: if (A) `|N L − S_δ L| ≤ CδL + C` for L ≥ 1
       with one C for all δ ≤ δ₀, (B) for each δ eventually `|S_δ L − (AL² + BL)| ≤ (ω(δ) + η)L` for every
       η > 0 with the same A, B, and (C) ω(δ) → 0 as δ ↓ 0, then `HasSharpRealLaw N A B`. Written and pushed
@@ -317,6 +317,35 @@ items (G2, G3, ...) aimed at the F table; it does not queue library results that
       route to the H5b row "Lipschitz-type bounds Λ, λ for the smoothed counting function" must take: the
       sharp-to-smoothed error must be Cδ·L with C uniform in δ, and the smoothed coefficients must not
       depend on δ. It does not prove (A), (B) or (C) for the tetrahedron.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 496/496 at 46331e9, both theorems verified.
+
+G2–G5 written by the formalize task on 2026-11-05 (after G1 was ticked). Each serves the F table; none
+claims a row is proved for the actual operator.
+
+- [ ] G2. `SteklovAudit/H5Split.lean`: split H5b into a statement free of `E, Emod` plus the cutoff row.
+      `def TraceLittleO` (for the data `D`, test `F` of an `H5bInputs`: the trace sum
+      `∑ i, ∑ j, (F a i − F b j) J i j ^ 2` is eventually `≤ η L` for every η > 0). Prove
+      `trace_little_o_of_rows` from the fields `pde`, `tail`, `tailVanish`, `lowDefect`, `lipHi`, `lipLo`,
+      `lamVanish` only (reuse the B4/B5 chain of `h5b_of_inputs`), and `h5b_of_cutoff_and_trace`
+      (cutoff + discVanish + TraceLittleO ⇒ `H5bTarget`). Records that rows 2–5 yield a statement that
+      never mentions `E − Emod`, so all of F2's "target in disguise" content sits in the cutoff row.
+- [ ] G3. `SteklovAudit/H5CutoffSmoothed.lean`: replace `cutoff` + `discVanish` by a strictly weaker
+      two-parameter input, using G1. `structure CutoffRowδ`: for each δ ∈ (0, δ₀] a cutoff with test `F δ`
+      and `|(E − Emod) − trace(F δ)| ≤ C δ L + C` (one `C` for all δ, L ≥ 1), and for each δ the trace is
+      `≤ (ω δ + η) L` eventually, with ω δ → 0. Prove `target_of_cutoffRowδ` (via
+      `sharp_law_of_two_parameter_smoothing`-style argument, or directly) and `cutoffRowδ_of_cutoff`
+      (the F1 row implies the new one), so the new row is no stronger than the old one.
+- [ ] G4. `SteklovAudit/H5TailAudit.lean`: the tail and low-energy rows are genuine inputs.
+      `hs2_mask_split` (`hs2 K = hs2 (mask p K) + hs2 (mask (¬p) K)`, so `tail` and `lowDefect` together
+      bound exactly the full defect), and `defect_not_imp_tail`: an explicit family of `Data` satisfying
+      `PDEInputs` for every L but whose high-energy masked defect does not tend to 0 uniformly in L
+      (so `tailVanish` does not follow from `PDEInputs.defect`; the row stays a separate input).
+- [ ] G5. `SteklovAudit/H5LipRows.lean`: reduce the Lipschitz rows to derivative bounds.
+      `lipHi_of_deriv_bound`: if `F` is differentiable with `‖deriv F x‖ ≤ Λ0` for all x, the `lipHi`
+      inequality holds; `lipLo_of_deriv_bound_le`: if `‖deriv F x‖ ≤ lam` on `Set.Iic M`, the `lipLo`
+      inequality holds for low-energy pairs (both energies ≤ M). Use
+      `Convex.norm_image_sub_le_of_norm_deriv_le` (`convex_univ`, `convex_Iic`). This states the row
+      "Lipschitz-type bounds Λ, λ" as a derivative bound on the smoothed counting function.
 
 ## Not attempted here
 
