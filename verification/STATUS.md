@@ -1,8 +1,8 @@
-# Lean verification status: PASS
+# Lean verification status: FAIL
 
-Checked 2026-11-05 21:20 UTC at commit `0f00d47f26dc`. Last passing commit: `0f00d47f26dc`.
+Checked 2026-11-05 21:52 UTC at commit `228104e21748`. Last passing commit: `0f00d47f26dc`.
 
-Library declarations checked: 524 of 524 theorems compile with only Lean's standard axioms.
+Library declarations checked: 0 of 531 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -25,527 +25,553 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 
 | File | Theorem | Result |
 |---|---|---|
-| Algebra.lean | `SteklovAudit.tetra_face_count` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.tetra_edge_count` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.tetra_surface_area` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.tetra_half_angle_sin_sq` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.bounded_shift_changes_linear_term` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.six_edge_contribution` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.scale_rho_lt_half` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.scale_sigma_lt_rho` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.scale_dwell_exponent` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.scale_collar_over_dwell_exponent` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.scale_uncertainty_over_dwell_exponent` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.hyperbolic_subtraction` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.dihedral_integrand_algebra` | verified (standard axioms only) |
-| Algebra.lean | `SteklovAudit.right_angle_integrand` | verified (standard axioms only) |
-| Geometry.lean | `SteklovAudit.rotation_fixed_vector_zero` | verified (standard axioms only) |
-| Geometry.lean | `SteklovAudit.reflection_fixed_vector_axis` | verified (standard axioms only) |
-| Geometry.lean | `SteklovAudit.translation_return` | verified (standard axioms only) |
-| Geometry.lean | `SteklovAudit.translation_return_parallel` | verified (standard axioms only) |
-| Geometry.lean | `SteklovAudit.reflection_return_velocity` | verified (standard axioms only) |
-| Tauberian.lean | `SteklovAudit.dyadic_sum` | verified (standard axioms only) |
-| Tauberian.lean | `SteklovAudit.dyadic_sum_le_two` | verified (standard axioms only) |
-| Tauberian.lean | `SteklovAudit.bounded_shift_can_change_linear` | verified (standard axioms only) |
-| Tauberian.lean | `SteklovAudit.squared_partition_scalar` | verified (standard axioms only) |
-| Tauberian.lean | `SteklovAudit.ordered_two_scale_limit` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.symmetric_weyl_window` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.interval_mass_polynomial` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.two_error_composition` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.linear_coefficient_under_shift` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.first_riesz_coefficients` | verified (standard axioms only) |
-| WindowArithmetic.lean | `SteklovAudit.choose_scales` | verified (standard axioms only) |
-| FiniteWindowMass.lean | `SteklovAudit.finite_mass_weight_bound` | verified (standard axioms only) |
-| FiniteWindowMass.lean | `SteklovAudit.spectral_window_polynomial_decomposition` | verified (standard axioms only) |
-| WholeTheorem.lean | `SteklovAudit.sharp_integer_law_of_two_scale` | verified (standard axioms only) |
-| RealAxisAssembly.lean | `SteklovAudit.sharp_real_law_of_two_scale` | verified (standard axioms only) |
-| RealAxisAssembly.lean | `SteklovAudit.one_step_polynomial_change` | verified (standard axioms only) |
-| Section5Scaling.lean | `SteklovAudit.scaled_strip_window` | verified (standard axioms only) |
-| Section5Scaling.lean | `SteklovAudit.cone_ball_window` | verified (standard axioms only) |
-| Section5Scaling.lean | `SteklovAudit.symmetric_band_width` | verified (standard axioms only) |
-| Section7SpectralSums.lean | `SteklovAudit.positive_mass_signed_kernel_bound` | verified (standard axioms only) |
-| Section7SpectralSums.lean | `SteklovAudit.unit_window_linear_decomposition` | verified (standard axioms only) |
-| Section10FiniteDirections.lean | `SteklovAudit.translation_velocity_collinear` | verified (standard axioms only) |
-| Section10FiniteDirections.lean | `SteklovAudit.nontrivial_rotation_immobile` | verified (standard axioms only) |
-| Section11Partition.lean | `SteklovAudit.finite_partition_error` | verified (standard axioms only) |
-| Section11Partition.lean | `SteklovAudit.real_weyl_partition_identity` | verified (standard axioms only) |
-| Section11Partition.lean | `SteklovAudit.small_two_parameter_budget` | verified (standard axioms only) |
-| Section7SchwartzFinite.lean | `SteklovAudit.finite_schwartz_window_bound` | verified (standard axioms only) |
-| SmoothedBridge.lean | `SteklovAudit.sharp_count_of_smoothed_and_unsmoothing` | verified (standard axioms only) |
-| Section7ExplicitBarrier.lean | `SteklovAudit.explicit_barrier_numerator` | verified (standard axioms only) |
-| Section7ExplicitBarrier.lean | `SteklovAudit.improved_barrier_numerator` | verified (standard axioms only) |
-| Section11RegionAssembly.lean | `SteklovAudit.three_region_remainder` | verified (standard axioms only) |
-| Section11RegionAssembly.lean | `SteklovAudit.total_error_from_three_regions` | verified (standard axioms only) |
-| Section11RegionAssembly.lean | `SteklovAudit.real_sharp_law_if_partition_bounds` | verified (standard axioms only) |
-| FiniteSpectralTrace.lean | `SteklovAudit.finite_eigenstate_squared_partition` | verified (standard axioms only) |
-| FiniteSpectralTrace.lean | `SteklovAudit.finite_spectral_trace_squared_partition` | verified (standard axioms only) |
-| FiniteSpectralTrace.lean | `SteklovAudit.finite_local_spectral_mass_nonneg` | verified (standard axioms only) |
-| FiniteSpectralTrace.lean | `SteklovAudit.finite_local_count_identity` | verified (standard axioms only) |
-| Section7PolynomialDuhamel.lean | `SteklovAudit.polynomial_duhamel_identity` | verified (standard axioms only) |
-| Section7PolynomialDuhamel.lean | `SteklovAudit.intertwines_all_powers` | verified (standard axioms only) |
-| Section7PolynomialDuhamel.lean | `SteklovAudit.polynomial_duhamel_contraction_bound` | verified (standard axioms only) |
-| Section7TaylorDuhamel.lean | `SteklovAudit.truncated_exp_quasicommutator` | verified (standard axioms only) |
-| Section7TaylorDuhamel.lean | `SteklovAudit.truncated_exp_exact_intertwiner` | verified (standard axioms only) |
-| Section7HSTails.lean | `SteklovAudit.finite_hs_tail_le_total` | verified (standard axioms only) |
-| Section7HSTails.lean | `SteklovAudit.finite_hs_tail_vanishes` | verified (standard axioms only) |
-| Section9PropagationScales.lean | `SteklovAudit.section9_exponent_positivity` | verified (standard axioms only) |
-| Section9PropagationScales.lean | `SteklovAudit.section9_example_exponents` | verified (standard axioms only) |
-| Section9CellBudget.lean | `SteklovAudit.finite_phase_cell_error_budget` | verified (standard axioms only) |
-| Section7RelativeFinite.lean | `SteklovAudit.finite_relative_inverse_trace` | verified (standard axioms only) |
-| Section7RelativeFinite.lean | `SteklovAudit.finite_spectral_count_below_bottom` | verified (standard axioms only) |
-| Section7OffBandIteration.lean | `SteklovAudit.offBandStep_difference` | verified (standard axioms only) |
-| Section7OffBandIteration.lean | `SteklovAudit.offBandIterate_increment` | verified (standard axioms only) |
-| Section7OffBandIteration.lean | `SteklovAudit.offBandIterate_error` | verified (standard axioms only) |
-| Section7DyadicPrimitive.lean | `SteklovAudit.quarter_geometric_identity` | verified (standard axioms only) |
-| Section7DyadicPrimitive.lean | `SteklovAudit.quarter_geometric_le` | verified (standard axioms only) |
-| Section7DyadicPrimitive.lean | `SteklovAudit.dyadic_relative_primitive_bound` | verified (standard axioms only) |
-| Section11CountingConventions.lean | `SteklovAudit.realWeylPolynomial_window_increment` | verified (standard axioms only) |
-| Section11CountingConventions.lean | `SteklovAudit.two_term_interval_error_bound` | verified (standard axioms only) |
-| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_norm_one` | verified (standard axioms only) |
-| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_tail_one` | verified (standard axioms only) |
-| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_fixed_tail_zero` | verified (standard axioms only) |
-| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_no_uniform_tail` | verified (standard axioms only) |
-| Section7WeightedTail.lean | `SteklovAudit.finite_weighted_tail_bound` | verified (standard axioms only) |
-| Section7WeightedTail.lean | `SteklovAudit.finite_weighted_tail_uniform` | verified (standard axioms only) |
-| Section7OffBandGap.lean | `SteklovAudit.squared_gap_lower_bound` | verified (standard axioms only) |
-| Section7OffBandGap.lean | `SteklovAudit.finite_offband_hs_gap` | verified (standard axioms only) |
-| Section7SpectralDefectIdentity.lean | `SteklovAudit.spectral_defect_entry` | verified (standard axioms only) |
-| Section7SpectralDefectIdentity.lean | `SteklovAudit.spectral_defect_square` | verified (standard axioms only) |
-| Section7SpectralDefectIdentity.lean | `SteklovAudit.finite_sylvester_hs_gap` | verified (standard axioms only) |
-| Section7FrameDefectBudget.lean | `SteklovAudit.window_frame_from_norm_defect` | verified (standard axioms only) |
-| Section7FrameDefectBudget.lean | `SteklovAudit.window_count_from_near_isometry_and_gap` | verified (standard axioms only) |
-| Section7FrameDefectBudget.lean | `SteklovAudit.window_mass_loss_bound` | verified (standard axioms only) |
-| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_intertwining_scalar` | verified (standard axioms only) |
-| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_weighted_partition` | verified (standard axioms only) |
-| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_equal_model` | verified (standard axioms only) |
-| Section9ScaleBudget.lean | `SteklovAudit.constant_scale_error` | verified (standard axioms only) |
-| Section9ScaleBudget.lean | `SteklovAudit.geometric_scale_budget` | verified (standard axioms only) |
-| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_trace_exact` | verified (standard axioms only) |
-| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_trace_square` | verified (standard axioms only) |
-| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_no_uniform_HS_constant` | verified (standard axioms only) |
-| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_positive` | verified (standard axioms only) |
-| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_even` | verified (standard axioms only) |
-| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_odd` | verified (standard axioms only) |
-| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.pair_multiplicity` | verified (standard axioms only) |
-| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.denominator_pos` | verified (standard axioms only) |
-| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.correction_nonneg` | verified (standard axioms only) |
-| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.correction_le_two_t` | verified (standard axioms only) |
-| Section11TwoParameterSqueeze.lean | `SteklovAudit.Section11TwoParameterSqueeze.sharp_error_budget` | verified (standard axioms only) |
-| Section11TwoParameterSqueeze.lean | `SteklovAudit.Section11TwoParameterSqueeze.fixed_width_budget` | verified (standard axioms only) |
-| Section7DuhamelDefectBudget.lean | `SteklovAudit.duhamel_discrete_budget_nonneg` | verified (standard axioms only) |
-| Section7DuhamelDefectBudget.lean | `SteklovAudit.duhamel_discrete_budget_le` | verified (standard axioms only) |
-| Section7DuhamelDefectBudget.lean | `SteklovAudit.scale_error_partial_bound` | verified (standard axioms only) |
-| Section7OverlapMultiplicity.lean | `SteklovAudit.duplicate_rank_overcount` | verified (standard axioms only) |
-| Section7OverlapMultiplicity.lean | `SteklovAudit.duplicate_rank_excess` | verified (standard axioms only) |
-| Section7OverlapMultiplicity.lean | `SteklovAudit.weighted_partition_mass` | verified (standard axioms only) |
-| Section7PartitionFrameBudget.lean | `SteklovAudit.joint_frame_rank_budget` | verified (standard axioms only) |
-| Section7PartitionFrameBudget.lean | `SteklovAudit.joint_frame_no_rank_loss` | verified (standard axioms only) |
-| Section7PartitionFrameBudget.lean | `SteklovAudit.chart_loss_le_total` | verified (standard axioms only) |
-| Section7RankLossThreshold.lean | `SteklovAudit.rank_loss_budget` | verified (standard axioms only) |
-| Section7RankLossThreshold.lean | `SteklovAudit.no_rank_loss_below_threshold` | verified (standard axioms only) |
-| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_hs_square` | verified (standard axioms only) |
-| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_unbounded` | verified (standard axioms only) |
-| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_exceeds` | verified (standard axioms only) |
-| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_mode_count` | verified (standard axioms only) |
-| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_unit_shift_budget` | verified (standard axioms only) |
-| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_no_uniform_budget` | verified (standard axioms only) |
-| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_two_dimensional_count` | verified (standard axioms only) |
-| Section7WeightedPolynomialTrace.lean | `SteklovAudit.weighted_trace_partition` | verified (standard axioms only) |
-| Section7WeightedPolynomialTrace.lean | `SteklovAudit.quadratic_intertwining` | verified (standard axioms only) |
-| Section7WeightedPolynomialTrace.lean | `SteklovAudit.cubic_intertwining` | verified (standard axioms only) |
-| Section7WindowCountBudget.lean | `SteklovAudit.finite_window_mass_budget` | verified (standard axioms only) |
-| Section7WindowCountBudget.lean | `SteklovAudit.finite_window_count_from_gap` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.hs2_nonneg` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_entry` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_hs` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_hs` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.window_offband_gap` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_window_bound` | verified (standard axioms only) |
-| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer_naive` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cos_time_lipschitz` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.sin_time_lipschitz` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.duhamel_cos_hs` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.duhamel_sin_hs` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cs_double` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.abs_pair_le_sqrt` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.term_le` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.split_trace_bound` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cumulative_transfer_bound` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.little_o_of_vanishing_tail` | verified (standard axioms only) |
-| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.transfer_sharp_law` | verified (standard axioms only) |
-| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.norm_cexp_sub_le` | verified (standard axioms only) |
-| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_entry` | verified (standard axioms only) |
-| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_entry_sq` | verified (standard axioms only) |
-| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs` | verified (standard axioms only) |
-| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs` | verified (standard axioms only) |
-| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | verified (standard axioms only) |
-| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | verified (standard axioms only) |
-| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | verified (standard axioms only) |
-| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds` | verified (standard axioms only) |
-| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_little_o` | verified (standard axioms only) |
-| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_neg_small` | verified (standard axioms only) |
-| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.defect_over_shift` | verified (standard axioms only) |
-| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.asymptotic_transfer` | verified (standard axioms only) |
-| Cumulative729Support.lean | `SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.ioi_integral_exp_neg_mul` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_le` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_le` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.integrand_antitone` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_antitone` | verified (standard axioms only) |
-| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_ge` | verified (standard axioms only) |
-| DihedralBracket.lean | `SteklovAudit.DihedralBracket.pi_div_three_lt_tetraAngle` | verified (standard axioms only) |
-| DihedralBracket.lean | `SteklovAudit.DihedralBracket.bound_le_of_ge` | verified (standard axioms only) |
-| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_le_bracket` | verified (standard axioms only) |
-| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_bracket` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.sinh_le_mul_exp` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.half_le_sinh` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.exp_half_le_cosh` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrand_bound` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_integrand` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral` | verified (standard axioms only) |
-| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_pi` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.integrand_pos` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_pos` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.cos_tetraAngle` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.tetraAngle_lt_pi_div_two` | verified (standard axioms only) |
-| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_tetra_pos` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.integrand_third` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.hasDerivAt_G` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.GThird_zero` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.tendsto_G` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.integral_third` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_pi_div_three` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_le_third` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_bracket_third` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.upper_num` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.lower_num` | verified (standard axioms only) |
-| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal` | verified (standard axioms only) |
-| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.edge_of_model_compare` | verified (standard axioms only) |
-| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.theorem_11_1_of_C4` | verified (standard axioms only) |
-| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.formula_11_4_of_C4` | verified (standard axioms only) |
-| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.nonvacuous_C4` | verified (standard axioms only) |
-| EdgeLength.lean | `SteklovAudit.EdgeLength.edge_integral_bounds` | verified (standard axioms only) |
-| EdgeLength.lean | `SteklovAudit.EdgeLength.six_edge_length` | verified (standard axioms only) |
-| EdgeLength.lean | `SteklovAudit.EdgeLength.length_bound` | verified (standard axioms only) |
-| EdgeLength.lean | `SteklovAudit.EdgeLength.theorem_11_1_of_C6` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.zero_beyond` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.neg_moment_deriv` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.deriv_test` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k_abs` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.kernel_integrable` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.edge_momentum` | verified (standard axioms only) |
-| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.formula_3_13` | verified (standard axioms only) |
-| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.smooth_sandwich` | verified (standard axioms only) |
-| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_shrinking_scales` | verified (standard axioms only) |
-| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_finite_kernels` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_quarter` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_three_quarter` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_quarter_lower` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_three_quarter_upper` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.not_sharp_law` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.hasDerivAt_F` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.deriv_F_pos` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.F_strictMonoOn` | verified (standard axioms only) |
-| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_monotoneOn` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_eq` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.F_pair` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_close` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smoothed_sharp_law` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.Nc_eq` | verified (standard axioms only) |
-| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.fixed_width_insufficient` | verified (standard axioms only) |
-| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.sin_quarter` | verified (standard axioms only) |
-| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.floor_excess` | verified (standard axioms only) |
-| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.not_sharp` | verified (standard axioms only) |
-| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.hasDerivAt_F` | verified (standard axioms only) |
-| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.deriv_F_pos` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.stepN_monotone` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.stepN_nat` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.stepN_half` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
-| GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.inputs_iff_target` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.inputs_nonempty` | verified (standard axioms only) |
-| H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | verified (standard axioms only) |
-| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
-| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound_Iic` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_of_deriv_bound` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.le_of_not_hiE` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_of_deriv_bound_le` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.hΛ0_of_deriv_bound` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_field` | verified (standard axioms only) |
-| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_field` | verified (standard axioms only) |
-| H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
-| H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
-| H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_mask_split` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_le_tail_add_low` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_fin_one` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_pde` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_hi_mask` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_not_imp_tail` | verified (standard axioms only) |
-| H5TailAudit.lean | `SteklovAudit.H5TailAudit.tail_row_fails` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.hasDerivAt_shift` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.deriv_shift` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.differentiable_shift` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipHi_of_profile` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_of_profile` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipHi_field_profile` | verified (standard axioms only) |
-| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_field_profile` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.trace_scalarDiag` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_tendsto_zero` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.trace_const` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.no_dimension_free_trace_bound` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.rank_amplification_equality` | verified (standard axioms only) |
-| HSNoTrace.lean | `SteklovAudit.HSNoTrace.sqrt_rank_equality` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_scaling` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_convolution` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integral` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integrable` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_integrable` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_trace_integrable` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.fiber_scaling` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.edge_heat_limit` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.integral_inv_one_add_exp` | verified (standard axioms only) |
-| HeatFiber.lean | `SteklovAudit.HeatFiber.cosh_integral_log_bound` | verified (standard axioms only) |
-| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_proj` | verified (standard axioms only) |
-| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_JPJt` | verified (standard axioms only) |
-| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_identity` | verified (standard axioms only) |
-| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_coords` | verified (standard axioms only) |
-| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_contraction` | verified (standard axioms only) |
-| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_identity` | verified (standard axioms only) |
-| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_bound` | verified (standard axioms only) |
-| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.defect_terms_nonneg` | verified (standard axioms only) |
-| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.signed_trace_cancels` | verified (standard axioms only) |
-| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.leakage_gap` | verified (standard axioms only) |
-| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.layer_cake_sq` | verified (standard axioms only) |
-| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.indicator_integrable` | verified (standard axioms only) |
-| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.layer_cake_sum` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.cutTriv_len` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.loc_unit` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.areaOf_unit` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.zero_piece` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.one_piece` | verified (standard axioms only) |
-| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.nonvacuous_C6` | verified (standard axioms only) |
-| LedgerNonvacuousD5.lean | `SteklovAudit.LedgerNonvacuousD5.nonvacuous_D5` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.theorem_11_1_of_inputs` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.formula_11_4_of_inputs` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.nonvacuous` | verified (standard axioms only) |
-| MainConditional.lean | `SteklovAudit.MainConditional.conclusion_nontrivial` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.trA_eq` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.multichart_trace` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.ex_row` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.ex_partition` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_hs2` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_trace` | verified (standard axioms only) |
-| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_norm` | verified (standard axioms only) |
-| PartitionTrace.lean | `SteklovAudit.PartitionTrace.diag_conj_entry` | verified (standard axioms only) |
-| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_squared_partition` | verified (standard axioms only) |
-| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
-| PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
-| PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_neg_le_one` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.inv_sq_rpow_neg` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.hs_term_bound` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.power_little_o` | verified (standard axioms only) |
-| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power` | verified (standard axioms only) |
-| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.diag_K_le_hs2` | verified (standard axioms only) |
-| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_sq` | verified (standard axioms only) |
-| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace` | verified (standard axioms only) |
-| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_of_inputs` | verified (standard axioms only) |
-| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
-| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
-| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_phiS` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.abs_phiS_le` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.osc_riesz_bound` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_Fc` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.deriv_Fc_pos` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Fc_monotoneOn` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_monotone` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_eq` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_not_sharp` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_riesz` | verified (standard axioms only) |
-| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.riesz_does_not_imply_sharp` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.int_rpow` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment0` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment1` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment2` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_ii` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_mul_ii` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharp` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_single` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_finite` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharpLaw` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.leading_coefficient` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_inputs` | verified (standard axioms only) |
-| RieszMeans.lean | `SteklovAudit.RieszMeans.first_riesz_coefficients_paper` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.gd_zero` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_sech_pi` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integral_sech_pi` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sinh_ne_zero_of_pos` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrand_right_angle` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_dihedral_right_angle` | verified (standard axioms only) |
-| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.dihedralCoeff_right_angle` | verified (standard axioms only) |
-| RpowScale.lean | `SteklovAudit.RpowScale.rpow_neg_pos` | verified (standard axioms only) |
-| RpowScale.lean | `SteklovAudit.RpowScale.rpow_neg_le_one` | verified (standard axioms only) |
-| RpowScale.lean | `SteklovAudit.RpowScale.eventually_rpow_neg_le` | verified (standard axioms only) |
-| RpowScale.lean | `SteklovAudit.RpowScale.hs_term_littleO` | verified (standard axioms only) |
-| RpowScale.lean | `SteklovAudit.RpowScale.sharp_law_transfer_rpow` | verified (standard axioms only) |
-| ScalingLaw.lean | `SteklovAudit.ScalingLaw.weyl_scale` | verified (standard axioms only) |
-| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_rescale` | verified (standard axioms only) |
-| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_scaling` | verified (standard axioms only) |
-| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_unscaling` | verified (standard axioms only) |
-| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_scaling_iff` | verified (standard axioms only) |
-| Section11AllFixedScales.lean | `SteklovAudit.quadratic_fixed_shift_plus` | verified (standard axioms only) |
-| Section11AllFixedScales.lean | `SteklovAudit.quadratic_fixed_shift_minus` | verified (standard axioms only) |
-| Section11AllFixedScales.lean | `SteklovAudit.monotone_fixed_window` | verified (standard axioms only) |
-| Section11ApproximateFixedScales.lean | `SteklovAudit.shift_linear_normalized` | verified (standard axioms only) |
-| Section11ApproximateFixedScales.lean | `SteklovAudit.shift_linear_normalized_minus` | verified (standard axioms only) |
-| Section11ApproximateFixedScales.lean | `SteklovAudit.monotone_window_order` | verified (standard axioms only) |
-| Section11FiniteScaleBracket.lean | `SteklovAudit.quadratic_shift_plus` | verified (standard axioms only) |
-| Section11FiniteScaleBracket.lean | `SteklovAudit.quadratic_shift_minus` | verified (standard axioms only) |
-| Section11FiniteScaleBracket.lean | `SteklovAudit.alternating_pair_identity` | verified (standard axioms only) |
-| Section11ShiftBudgetOptimization.lean | `SteklovAudit.cubic_factor` | verified (standard axioms only) |
-| Section11ShiftBudgetOptimization.lean | `SteklovAudit.cubic_nonnegative` | verified (standard axioms only) |
-| Section11ShiftBudgetOptimization.lean | `SteklovAudit.shift_tradeoff` | verified (standard axioms only) |
-| Section11ShiftedModelSqueeze.lean | `SteklovAudit.asymptotic_squeeze_scalar` | verified (standard axioms only) |
-| Section11ShiftedModelSqueeze.lean | `SteklovAudit.shifted_quadratic_difference` | verified (standard axioms only) |
-| Section11ShrinkingSmoothing.lean | `SteklovAudit.monotone_shift_squeeze` | verified (standard axioms only) |
-| Section11ShrinkingSmoothing.lean | `SteklovAudit.quadratic_shift_right` | verified (standard axioms only) |
-| Section11ShrinkingSmoothing.lean | `SteklovAudit.quadratic_shift_left` | verified (standard axioms only) |
-| Section11SmoothingCounterexample.lean | `SteklovAudit.centered_square_identity` | verified (standard axioms only) |
-| Section11SmoothingCounterexample.lean | `SteklovAudit.shifted_linear_amplitude` | verified (standard axioms only) |
-| Section11ThresholdInstability.lean | `SteklovAudit.threshold_gap_positive` | verified (standard axioms only) |
-| Section11ThresholdInstability.lean | `SteklovAudit.threshold_hs_square` | verified (standard axioms only) |
-| Section11WindowFromSmoothing.lean | `SteklovAudit.quadratic_window_difference` | verified (standard axioms only) |
-| Section11WindowFromSmoothing.lean | `SteklovAudit.window_bound_from_four_sided_squeeze` | verified (standard axioms only) |
-| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_telescope` | verified (standard axioms only) |
-| Section7CumulativeTransfer.lean | `SteklovAudit.transfer_gronwall_bound` | verified (standard axioms only) |
-| Section7CumulativeTransfer.lean | `SteklovAudit.fixed_time_step_budget` | verified (standard axioms only) |
-| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_unbounded` | verified (standard axioms only) |
-| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_diagonal_count` | verified (standard axioms only) |
-| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_shift_energies` | verified (standard axioms only) |
-| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_hs_lower_budget` | verified (standard axioms only) |
-| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_no_uniform_hs_budget` | verified (standard axioms only) |
-| Section7IdentificationTraceBudget.lean | `SteklovAudit.identification_budget` | verified (standard axioms only) |
-| Section7IdentificationTraceBudget.lean | `SteklovAudit.identification_budget_mono` | verified (standard axioms only) |
-| Section7LipschitzHSTransfer.lean | `SteklovAudit.square_gap_nonneg` | verified (standard axioms only) |
-| Section7LipschitzHSTransfer.lean | `SteklovAudit.positive_gap_square` | verified (standard axioms only) |
-| Section7OneSidedCountingTransfer.lean | `SteklovAudit.spectral_leakage_budget` | verified (standard axioms only) |
-| Section7OneSidedCountingTransfer.lean | `SteklovAudit.counting_transfer_scalar` | verified (standard axioms only) |
-| Section7OneSidedCountingTransfer.lean | `SteklovAudit.two_sided_counting_scalar` | verified (standard axioms only) |
-| Section7RankLeakage.lean | `SteklovAudit.spectral_gap_square` | verified (standard axioms only) |
-| Section7RankLeakage.lean | `SteklovAudit.leakage_budget` | verified (standard axioms only) |
-| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_scalar` | verified (standard axioms only) |
-| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_saturation` | verified (standard axioms only) |
-| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_quadratic` | verified (standard axioms only) |
-| Section7WeightedLeakage.lean | `SteklovAudit.weighted_gap_square` | verified (standard axioms only) |
-| Section7WeightedLeakage.lean | `SteklovAudit.weighted_tail_bound` | verified (standard axioms only) |
-| Section9NearResonanceObstruction.lean | `SteklovAudit.resonant_defect_identity` | verified (standard axioms only) |
-| Section9NearResonanceObstruction.lean | `SteklovAudit.exact_resonance_zero_defect` | verified (standard axioms only) |
-| Section9NearResonanceObstruction.lean | `SteklovAudit.small_gap_unit_identification` | verified (standard axioms only) |
-| Section9NearResonanceObstruction.lean | `SteklovAudit.resonant_entry_decomposition` | verified (standard axioms only) |
-| Section9NearResonanceObstruction.lean | `SteklovAudit.near_resonance_upper_defect` | verified (standard axioms only) |
-| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_identity` | verified (standard axioms only) |
-| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_budget` | verified (standard axioms only) |
-| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_finite_budget` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.sinh_ne` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_plus` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_minus` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_sum` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_diff` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.rank_one_weight` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_strictAnti` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.tanh_lt_tanh` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.even_pos` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.odd_neg` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.parity_trace_sum` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_form` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.abs_parity_sum` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.tendsto_sinh_div` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.integrand_tendsto_zero` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.gamma_reflection_imag` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.norm_identity_constant` | verified (standard axioms only) |
-| SectorTrace.lean | `SteklovAudit.SectorTrace.dihedralCoeff_coth_form` | verified (standard axioms only) |
-| SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.poly_shift` | verified (standard axioms only) |
-| SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.sharp_law_transfer` | verified (standard axioms only) |
-| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.zero_of_forall_le` | verified (standard axioms only) |
-| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.diff_small` | verified (standard axioms only) |
-| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.sharp_law_unique` | verified (standard axioms only) |
-| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.edge_invariant_determined` | verified (standard axioms only) |
-| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.not_one_term_law` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.window_gap_leakage` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.weighted_leakage` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.counting_transfer` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.swap_K_sq` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.counting_two_sided` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.threshold_instability` | verified (standard axioms only) |
-| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.trace_rank_amplification` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_trace_le_sum_abs_diag` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.trace_diagonal_mul` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_signDiag_le` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.signDiag_mul` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.sum_abs_diag_le_of_dual` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.dual_at_diag` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_traceNorm` | verified (standard axioms only) |
-| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_diag` | verified (standard axioms only) |
-| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.error_budget` | verified (standard axioms only) |
-| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.sharp_law_of_two_parameter_smoothing` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_div_sq` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.div_le_iff_le_scaled` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.indicator_sum_scaled` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.gradient_scaling_cancel` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.gradient_scaling_div` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_gradient_bound` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.proj_diag_nonneg` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.trace_diagonal_conj` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.weighted_diag_sum_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.trace_proj_cutoff_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.hs2_mul_diag_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.frobenius_sq_mul_diagonal_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.frobenius_mul_diag_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.integral_rpow_two_beta_sub_two` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.quarter_sq_partial_sum_eq` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.quarter_sq_partial_sum_le` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.tsum_sixteenth_pow_succ` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.tsum_two_pow_neg_four` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.row_sq_le_of_self_test` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.hs2_le_of_pointwise` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.hs_le_of_pointwise` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.geom_partial_le_two_sub` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.geom_partial_le_two` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.collar_geometric_bound` | verified (standard axioms only) |
-| UniformHS71.lean | `SteklovAudit.UniformHS71.collar_geometric_bound_sum` | verified (standard axioms only) |
-| VertexLog.lean | `SteklovAudit.VertexLog.log_le_two_sqrt` | verified (standard axioms only) |
-| VertexLog.lean | `SteklovAudit.VertexLog.vertex_of_log` | verified (standard axioms only) |
-| VertexLog.lean | `SteklovAudit.VertexLog.theorem_11_1_of_D5` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.int_bounds` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.Hc_increment` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.strip_trace_increment` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.lorentz_integral_le` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.band_resolvent_integral` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_gap` | verified (standard axioms only) |
-| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_absorb` | verified (standard axioms only) |
+| Algebra.lean | `SteklovAudit.tetra_face_count` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.tetra_edge_count` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.tetra_surface_area` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.tetra_half_angle_sin_sq` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.bounded_shift_changes_linear_term` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.six_edge_contribution` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.scale_rho_lt_half` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.scale_sigma_lt_rho` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.scale_dwell_exponent` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.scale_collar_over_dwell_exponent` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.scale_uncertainty_over_dwell_exponent` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.hyperbolic_subtraction` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.dihedral_integrand_algebra` | NOT CHECKED (name not found by Lean) |
+| Algebra.lean | `SteklovAudit.right_angle_integrand` | NOT CHECKED (name not found by Lean) |
+| Geometry.lean | `SteklovAudit.rotation_fixed_vector_zero` | NOT CHECKED (name not found by Lean) |
+| Geometry.lean | `SteklovAudit.reflection_fixed_vector_axis` | NOT CHECKED (name not found by Lean) |
+| Geometry.lean | `SteklovAudit.translation_return` | NOT CHECKED (name not found by Lean) |
+| Geometry.lean | `SteklovAudit.translation_return_parallel` | NOT CHECKED (name not found by Lean) |
+| Geometry.lean | `SteklovAudit.reflection_return_velocity` | NOT CHECKED (name not found by Lean) |
+| Tauberian.lean | `SteklovAudit.dyadic_sum` | NOT CHECKED (name not found by Lean) |
+| Tauberian.lean | `SteklovAudit.dyadic_sum_le_two` | NOT CHECKED (name not found by Lean) |
+| Tauberian.lean | `SteklovAudit.bounded_shift_can_change_linear` | NOT CHECKED (name not found by Lean) |
+| Tauberian.lean | `SteklovAudit.squared_partition_scalar` | NOT CHECKED (name not found by Lean) |
+| Tauberian.lean | `SteklovAudit.ordered_two_scale_limit` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.symmetric_weyl_window` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.interval_mass_polynomial` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.two_error_composition` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.linear_coefficient_under_shift` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.first_riesz_coefficients` | NOT CHECKED (name not found by Lean) |
+| WindowArithmetic.lean | `SteklovAudit.choose_scales` | NOT CHECKED (name not found by Lean) |
+| FiniteWindowMass.lean | `SteklovAudit.finite_mass_weight_bound` | NOT CHECKED (name not found by Lean) |
+| FiniteWindowMass.lean | `SteklovAudit.spectral_window_polynomial_decomposition` | NOT CHECKED (name not found by Lean) |
+| WholeTheorem.lean | `SteklovAudit.sharp_integer_law_of_two_scale` | NOT CHECKED (name not found by Lean) |
+| RealAxisAssembly.lean | `SteklovAudit.sharp_real_law_of_two_scale` | NOT CHECKED (name not found by Lean) |
+| RealAxisAssembly.lean | `SteklovAudit.one_step_polynomial_change` | NOT CHECKED (name not found by Lean) |
+| Section5Scaling.lean | `SteklovAudit.scaled_strip_window` | NOT CHECKED (name not found by Lean) |
+| Section5Scaling.lean | `SteklovAudit.cone_ball_window` | NOT CHECKED (name not found by Lean) |
+| Section5Scaling.lean | `SteklovAudit.symmetric_band_width` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSums.lean | `SteklovAudit.positive_mass_signed_kernel_bound` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSums.lean | `SteklovAudit.unit_window_linear_decomposition` | NOT CHECKED (name not found by Lean) |
+| Section10FiniteDirections.lean | `SteklovAudit.translation_velocity_collinear` | NOT CHECKED (name not found by Lean) |
+| Section10FiniteDirections.lean | `SteklovAudit.nontrivial_rotation_immobile` | NOT CHECKED (name not found by Lean) |
+| Section11Partition.lean | `SteklovAudit.finite_partition_error` | NOT CHECKED (name not found by Lean) |
+| Section11Partition.lean | `SteklovAudit.real_weyl_partition_identity` | NOT CHECKED (name not found by Lean) |
+| Section11Partition.lean | `SteklovAudit.small_two_parameter_budget` | NOT CHECKED (name not found by Lean) |
+| Section7SchwartzFinite.lean | `SteklovAudit.finite_schwartz_window_bound` | NOT CHECKED (name not found by Lean) |
+| SmoothedBridge.lean | `SteklovAudit.sharp_count_of_smoothed_and_unsmoothing` | NOT CHECKED (name not found by Lean) |
+| Section7ExplicitBarrier.lean | `SteklovAudit.explicit_barrier_numerator` | NOT CHECKED (name not found by Lean) |
+| Section7ExplicitBarrier.lean | `SteklovAudit.improved_barrier_numerator` | NOT CHECKED (name not found by Lean) |
+| Section11RegionAssembly.lean | `SteklovAudit.three_region_remainder` | NOT CHECKED (name not found by Lean) |
+| Section11RegionAssembly.lean | `SteklovAudit.total_error_from_three_regions` | NOT CHECKED (name not found by Lean) |
+| Section11RegionAssembly.lean | `SteklovAudit.real_sharp_law_if_partition_bounds` | NOT CHECKED (name not found by Lean) |
+| FiniteSpectralTrace.lean | `SteklovAudit.finite_eigenstate_squared_partition` | NOT CHECKED (name not found by Lean) |
+| FiniteSpectralTrace.lean | `SteklovAudit.finite_spectral_trace_squared_partition` | NOT CHECKED (name not found by Lean) |
+| FiniteSpectralTrace.lean | `SteklovAudit.finite_local_spectral_mass_nonneg` | NOT CHECKED (name not found by Lean) |
+| FiniteSpectralTrace.lean | `SteklovAudit.finite_local_count_identity` | NOT CHECKED (name not found by Lean) |
+| Section7PolynomialDuhamel.lean | `SteklovAudit.polynomial_duhamel_identity` | NOT CHECKED (name not found by Lean) |
+| Section7PolynomialDuhamel.lean | `SteklovAudit.intertwines_all_powers` | NOT CHECKED (name not found by Lean) |
+| Section7PolynomialDuhamel.lean | `SteklovAudit.polynomial_duhamel_contraction_bound` | NOT CHECKED (name not found by Lean) |
+| Section7TaylorDuhamel.lean | `SteklovAudit.truncated_exp_quasicommutator` | NOT CHECKED (name not found by Lean) |
+| Section7TaylorDuhamel.lean | `SteklovAudit.truncated_exp_exact_intertwiner` | NOT CHECKED (name not found by Lean) |
+| Section7HSTails.lean | `SteklovAudit.finite_hs_tail_le_total` | NOT CHECKED (name not found by Lean) |
+| Section7HSTails.lean | `SteklovAudit.finite_hs_tail_vanishes` | NOT CHECKED (name not found by Lean) |
+| Section9PropagationScales.lean | `SteklovAudit.section9_exponent_positivity` | NOT CHECKED (name not found by Lean) |
+| Section9PropagationScales.lean | `SteklovAudit.section9_example_exponents` | NOT CHECKED (name not found by Lean) |
+| Section9CellBudget.lean | `SteklovAudit.finite_phase_cell_error_budget` | NOT CHECKED (name not found by Lean) |
+| Section7RelativeFinite.lean | `SteklovAudit.finite_relative_inverse_trace` | NOT CHECKED (name not found by Lean) |
+| Section7RelativeFinite.lean | `SteklovAudit.finite_spectral_count_below_bottom` | NOT CHECKED (name not found by Lean) |
+| Section7OffBandIteration.lean | `SteklovAudit.offBandStep_difference` | NOT CHECKED (name not found by Lean) |
+| Section7OffBandIteration.lean | `SteklovAudit.offBandIterate_increment` | NOT CHECKED (name not found by Lean) |
+| Section7OffBandIteration.lean | `SteklovAudit.offBandIterate_error` | NOT CHECKED (name not found by Lean) |
+| Section7DyadicPrimitive.lean | `SteklovAudit.quarter_geometric_identity` | NOT CHECKED (name not found by Lean) |
+| Section7DyadicPrimitive.lean | `SteklovAudit.quarter_geometric_le` | NOT CHECKED (name not found by Lean) |
+| Section7DyadicPrimitive.lean | `SteklovAudit.dyadic_relative_primitive_bound` | NOT CHECKED (name not found by Lean) |
+| Section11CountingConventions.lean | `SteklovAudit.realWeylPolynomial_window_increment` | NOT CHECKED (name not found by Lean) |
+| Section11CountingConventions.lean | `SteklovAudit.two_term_interval_error_bound` | NOT CHECKED (name not found by Lean) |
+| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_norm_one` | NOT CHECKED (name not found by Lean) |
+| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_tail_one` | NOT CHECKED (name not found by Lean) |
+| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_fixed_tail_zero` | NOT CHECKED (name not found by Lean) |
+| Section7UniformTailObstruction.lean | `SteklovAudit.movingDefect_no_uniform_tail` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedTail.lean | `SteklovAudit.finite_weighted_tail_bound` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedTail.lean | `SteklovAudit.finite_weighted_tail_uniform` | NOT CHECKED (name not found by Lean) |
+| Section7OffBandGap.lean | `SteklovAudit.squared_gap_lower_bound` | NOT CHECKED (name not found by Lean) |
+| Section7OffBandGap.lean | `SteklovAudit.finite_offband_hs_gap` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralDefectIdentity.lean | `SteklovAudit.spectral_defect_entry` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralDefectIdentity.lean | `SteklovAudit.spectral_defect_square` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralDefectIdentity.lean | `SteklovAudit.finite_sylvester_hs_gap` | NOT CHECKED (name not found by Lean) |
+| Section7FrameDefectBudget.lean | `SteklovAudit.window_frame_from_norm_defect` | NOT CHECKED (name not found by Lean) |
+| Section7FrameDefectBudget.lean | `SteklovAudit.window_count_from_near_isometry_and_gap` | NOT CHECKED (name not found by Lean) |
+| Section7FrameDefectBudget.lean | `SteklovAudit.window_mass_loss_bound` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_intertwining_scalar` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_weighted_partition` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventLocalization.lean | `SteklovAudit.resolvent_equal_model` | NOT CHECKED (name not found by Lean) |
+| Section9ScaleBudget.lean | `SteklovAudit.constant_scale_error` | NOT CHECKED (name not found by Lean) |
+| Section9ScaleBudget.lean | `SteklovAudit.geometric_scale_budget` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_trace_exact` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_trace_square` | NOT CHECKED (name not found by Lean) |
+| Section7ResolventTraceObstruction.lean | `SteklovAudit.shifted_resolvent_no_uniform_HS_constant` | NOT CHECKED (name not found by Lean) |
+| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_positive` | NOT CHECKED (name not found by Lean) |
+| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_even` | NOT CHECKED (name not found by Lean) |
+| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.multiplicity_odd` | NOT CHECKED (name not found by Lean) |
+| Section11DiscreteHeatObstruction.lean | `SteklovAudit.Section11DiscreteHeatObstruction.pair_multiplicity` | NOT CHECKED (name not found by Lean) |
+| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.denominator_pos` | NOT CHECKED (name not found by Lean) |
+| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.correction_nonneg` | NOT CHECKED (name not found by Lean) |
+| Section11LaplaceObstruction.lean | `SteklovAudit.Section11LaplaceObstruction.correction_le_two_t` | NOT CHECKED (name not found by Lean) |
+| Section11TwoParameterSqueeze.lean | `SteklovAudit.Section11TwoParameterSqueeze.sharp_error_budget` | NOT CHECKED (name not found by Lean) |
+| Section11TwoParameterSqueeze.lean | `SteklovAudit.Section11TwoParameterSqueeze.fixed_width_budget` | NOT CHECKED (name not found by Lean) |
+| Section7DuhamelDefectBudget.lean | `SteklovAudit.duhamel_discrete_budget_nonneg` | NOT CHECKED (name not found by Lean) |
+| Section7DuhamelDefectBudget.lean | `SteklovAudit.duhamel_discrete_budget_le` | NOT CHECKED (name not found by Lean) |
+| Section7DuhamelDefectBudget.lean | `SteklovAudit.scale_error_partial_bound` | NOT CHECKED (name not found by Lean) |
+| Section7OverlapMultiplicity.lean | `SteklovAudit.duplicate_rank_overcount` | NOT CHECKED (name not found by Lean) |
+| Section7OverlapMultiplicity.lean | `SteklovAudit.duplicate_rank_excess` | NOT CHECKED (name not found by Lean) |
+| Section7OverlapMultiplicity.lean | `SteklovAudit.weighted_partition_mass` | NOT CHECKED (name not found by Lean) |
+| Section7PartitionFrameBudget.lean | `SteklovAudit.joint_frame_rank_budget` | NOT CHECKED (name not found by Lean) |
+| Section7PartitionFrameBudget.lean | `SteklovAudit.joint_frame_no_rank_loss` | NOT CHECKED (name not found by Lean) |
+| Section7PartitionFrameBudget.lean | `SteklovAudit.chart_loss_le_total` | NOT CHECKED (name not found by Lean) |
+| Section7RankLossThreshold.lean | `SteklovAudit.rank_loss_budget` | NOT CHECKED (name not found by Lean) |
+| Section7RankLossThreshold.lean | `SteklovAudit.no_rank_loss_below_threshold` | NOT CHECKED (name not found by Lean) |
+| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_hs_square` | NOT CHECKED (name not found by Lean) |
+| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_unbounded` | NOT CHECKED (name not found by Lean) |
+| Section7SmoothCutoffHSObstruction.lean | `SteklovAudit.truncated_shift_exceeds` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_mode_count` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_unit_shift_budget` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_no_uniform_budget` | NOT CHECKED (name not found by Lean) |
+| Section7SpectralSandwichBudget.lean | `SteklovAudit.sandwich_two_dimensional_count` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedPolynomialTrace.lean | `SteklovAudit.weighted_trace_partition` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedPolynomialTrace.lean | `SteklovAudit.quadratic_intertwining` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedPolynomialTrace.lean | `SteklovAudit.cubic_intertwining` | NOT CHECKED (name not found by Lean) |
+| Section7WindowCountBudget.lean | `SteklovAudit.finite_window_mass_budget` | NOT CHECKED (name not found by Lean) |
+| Section7WindowCountBudget.lean | `SteklovAudit.finite_window_count_from_gap` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.hs2_nonneg` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_entry` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_hs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_hs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.window_offband_gap` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.offband_window_bound` | NOT CHECKED (name not found by Lean) |
+| AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.trace_transfer_naive` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cos_time_lipschitz` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.sin_time_lipschitz` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.duhamel_cos_hs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.duhamel_sin_hs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cs_double` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.abs_pair_le_sqrt` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.term_le` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.split_trace_bound` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.cumulative_transfer_bound` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.little_o_of_vanishing_tail` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB.lean | `SteklovAudit.AbstractTransfer.transfer_sharp_law` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.norm_cexp_sub_le` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_entry` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_entry_sq` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB2.lean | `SteklovAudit.AbstractTransfer.duhamel_hs_of_inputs` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | NOT CHECKED (name not found by Lean) |
+| AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | NOT CHECKED (name not found by Lean) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds` | NOT CHECKED (name not found by Lean) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_little_o` | NOT CHECKED (name not found by Lean) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_neg_small` | NOT CHECKED (name not found by Lean) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.defect_over_shift` | NOT CHECKED (name not found by Lean) |
+| AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.asymptotic_transfer` | NOT CHECKED (name not found by Lean) |
+| Cumulative729Support.lean | `SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.ioi_integral_exp_neg_mul` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_le` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_le` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.integrand_antitone` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_antitone` | NOT CHECKED (name not found by Lean) |
+| DihedralBounds.lean | `SteklovAudit.DihedralBounds.dihedralCoeff_tetra_ge` | NOT CHECKED (name not found by Lean) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.pi_div_three_lt_tetraAngle` | NOT CHECKED (name not found by Lean) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.bound_le_of_ge` | NOT CHECKED (name not found by Lean) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_le_bracket` | NOT CHECKED (name not found by Lean) |
+| DihedralBracket.lean | `SteklovAudit.DihedralBracket.dihedralCoeff_tetra_bracket` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.sinh_le_mul_exp` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.half_le_sinh` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.exp_half_le_cosh` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrand_bound` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_integrand` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral` | NOT CHECKED (name not found by Lean) |
+| DihedralIntegrable.lean | `SteklovAudit.DihedralIntegrable.integrableOn_dihedral_tetra` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_pi` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.integrand_pos` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_pos` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.cos_tetraAngle` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.tetraAngle_lt_pi_div_two` | NOT CHECKED (name not found by Lean) |
+| DihedralSanity.lean | `SteklovAudit.DihedralSanity.dihedralCoeff_tetra_pos` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.integrand_third` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.hasDerivAt_G` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.GThird_zero` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.tendsto_G` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.integral_third` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_pi_div_three` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_le_third` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_bracket_third` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.upper_num` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.lower_num` | NOT CHECKED (name not found by Lean) |
+| DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal` | NOT CHECKED (name not found by Lean) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.edge_of_model_compare` | NOT CHECKED (name not found by Lean) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.theorem_11_1_of_C4` | NOT CHECKED (name not found by Lean) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.formula_11_4_of_C4` | NOT CHECKED (name not found by Lean) |
+| EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.nonvacuous_C4` | NOT CHECKED (name not found by Lean) |
+| EdgeLength.lean | `SteklovAudit.EdgeLength.edge_integral_bounds` | NOT CHECKED (name not found by Lean) |
+| EdgeLength.lean | `SteklovAudit.EdgeLength.six_edge_length` | NOT CHECKED (name not found by Lean) |
+| EdgeLength.lean | `SteklovAudit.EdgeLength.length_bound` | NOT CHECKED (name not found by Lean) |
+| EdgeLength.lean | `SteklovAudit.EdgeLength.theorem_11_1_of_C6` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.zero_beyond` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.neg_moment_deriv` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.deriv_test` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.inner_k_abs` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.kernel_integrable` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.edge_momentum` | NOT CHECKED (name not found by Lean) |
+| EdgeMomentum.lean | `SteklovAudit.EdgeMomentum.formula_3_13` | NOT CHECKED (name not found by Lean) |
+| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.smooth_sandwich` | NOT CHECKED (name not found by Lean) |
+| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_shrinking_scales` | NOT CHECKED (name not found by Lean) |
+| FixedScaleTauberian.lean | `SteklovAudit.FixedScaleTauberian.sharp_law_of_finite_kernels` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_quarter` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.sin_three_quarter` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_quarter_lower` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_three_quarter_upper` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.not_sharp_law` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.hasDerivAt_F` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.deriv_F_pos` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.F_strictMonoOn` | NOT CHECKED (name not found by Lean) |
+| FixedWidthCounterexample.lean | `SteklovAudit.FixedWidthCounterexample.N_monotoneOn` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_eq` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.F_pair` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smooth_close` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.smoothed_sharp_law` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.Nc_eq` | NOT CHECKED (name not found by Lean) |
+| FixedWidthSmoothing.lean | `SteklovAudit.FixedWidthSmoothing.fixed_width_insufficient` | NOT CHECKED (name not found by Lean) |
+| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.sin_quarter` | NOT CHECKED (name not found by Lean) |
+| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.floor_excess` | NOT CHECKED (name not found by Lean) |
+| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.not_sharp` | NOT CHECKED (name not found by Lean) |
+| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.hasDerivAt_F` | NOT CHECKED (name not found by Lean) |
+| FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.deriv_F_pos` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_monotone` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_nat` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.stepN_half` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | NOT CHECKED (name not found by Lean) |
+| GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.inputs_iff_target` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.inputs_nonempty` | NOT CHECKED (name not found by Lean) |
+| H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | NOT CHECKED (name not found by Lean) |
+| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | NOT CHECKED (name not found by Lean) |
+| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound_Iic` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_of_deriv_bound` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.le_of_not_hiE` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_of_deriv_bound_le` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.hΛ0_of_deriv_bound` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_field` | NOT CHECKED (name not found by Lean) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_field` | NOT CHECKED (name not found by Lean) |
+| H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | NOT CHECKED (name not found by Lean) |
+| H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | NOT CHECKED (name not found by Lean) |
+| H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_mask_split` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_le_tail_add_low` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.hs2_fin_one` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_pde` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_hi_mask` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_not_imp_tail` | NOT CHECKED (name not found by Lean) |
+| H5TailAudit.lean | `SteklovAudit.H5TailAudit.tail_row_fails` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.hasDerivAt_shift` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.deriv_shift` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.differentiable_shift` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipHi_of_profile` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_of_profile` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipHi_field_profile` | NOT CHECKED (name not found by Lean) |
+| H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipLo_field_profile` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.trace_scalarDiag` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_tendsto_zero` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.trace_const` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.no_dimension_free_trace_bound` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.rank_amplification_equality` | NOT CHECKED (name not found by Lean) |
+| HSNoTrace.lean | `SteklovAudit.HSNoTrace.sqrt_rank_equality` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_scaling` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_convolution` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integral` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.time_integrable` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.beta_integrable` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.heat_trace_integrable` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.fiber_scaling` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.edge_heat_limit` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.integral_inv_one_add_exp` | NOT CHECKED (name not found by Lean) |
+| HeatFiber.lean | `SteklovAudit.HeatFiber.cosh_integral_log_bound` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_proj` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.trace_JPJt` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_identity` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_coords` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudget.lean | `SteklovAudit.IdentificationBudget.identification_budget_contraction` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_identity` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.budget_bound` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.defect_terms_nonneg` | NOT CHECKED (name not found by Lean) |
+| IdentificationBudgetData.lean | `SteklovAudit.AbstractTransfer.signed_trace_cancels` | NOT CHECKED (name not found by Lean) |
+| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.leakage_gap` | NOT CHECKED (name not found by Lean) |
+| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.layer_cake_sq` | NOT CHECKED (name not found by Lean) |
+| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.indicator_integrable` | NOT CHECKED (name not found by Lean) |
+| LeakageLayerCake.lean | `SteklovAudit.LeakageLayerCake.layer_cake_sum` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.cutTriv_len` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.loc_unit` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.areaOf_unit` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.zero_piece` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.one_piece` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousC6.lean | `SteklovAudit.LedgerNonvacuousC6.nonvacuous_C6` | NOT CHECKED (name not found by Lean) |
+| LedgerNonvacuousD5.lean | `SteklovAudit.LedgerNonvacuousD5.nonvacuous_D5` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.tetraAngle_mem` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.abs_add_four_le` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.two_scale_of_inputs` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.theorem_11_1_of_inputs` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.formula_11_4_of_inputs` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.nonvacuous` | NOT CHECKED (name not found by Lean) |
+| MainConditional.lean | `SteklovAudit.MainConditional.conclusion_nontrivial` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.trA_eq` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.multichart_trace` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.ex_row` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.ex_partition` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_hs2` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_trace` | NOT CHECKED (name not found by Lean) |
+| MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_norm` | NOT CHECKED (name not found by Lean) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.diag_conj_entry` | NOT CHECKED (name not found by Lean) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_squared_partition` | NOT CHECKED (name not found by Lean) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | NOT CHECKED (name not found by Lean) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | NOT CHECKED (name not found by Lean) |
+| PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_neg_le_one` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.inv_sq_rpow_neg` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.hs_term_bound` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.power_little_o` | NOT CHECKED (name not found by Lean) |
+| PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power` | NOT CHECKED (name not found by Lean) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.diag_K_le_hs2` | NOT CHECKED (name not found by Lean) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_sq` | NOT CHECKED (name not found by Lean) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace` | NOT CHECKED (name not found by Lean) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_of_inputs` | NOT CHECKED (name not found by Lean) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | NOT CHECKED (name not found by Lean) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | NOT CHECKED (name not found by Lean) |
+| RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_phiS` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.abs_phiS_le` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.osc_riesz_bound` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_Fc` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.deriv_Fc_pos` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Fc_monotoneOn` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_monotone` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_eq` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_not_sharp` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.Nc_riesz` | NOT CHECKED (name not found by Lean) |
+| RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.riesz_does_not_imply_sharp` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.int_rpow` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment0` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment1` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_moment2` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_ii` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.kernel_mul_ii` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharp` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_single` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_finite` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_sharpLaw` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.leading_coefficient` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.riesz_of_inputs` | NOT CHECKED (name not found by Lean) |
+| RieszMeans.lean | `SteklovAudit.RieszMeans.first_riesz_coefficients_paper` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.hasDerivAt_gd` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sech_pi_nonneg` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.tendsto_gd` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.gd_zero` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_sech_pi` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integral_sech_pi` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.sinh_ne_zero_of_pos` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrand_right_angle` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.integrableOn_dihedral_right_angle` | NOT CHECKED (name not found by Lean) |
+| RightAngleCalibration.lean | `SteklovAudit.RightAngleCalibration.dihedralCoeff_right_angle` | NOT CHECKED (name not found by Lean) |
+| RpowScale.lean | `SteklovAudit.RpowScale.rpow_neg_pos` | NOT CHECKED (name not found by Lean) |
+| RpowScale.lean | `SteklovAudit.RpowScale.rpow_neg_le_one` | NOT CHECKED (name not found by Lean) |
+| RpowScale.lean | `SteklovAudit.RpowScale.eventually_rpow_neg_le` | NOT CHECKED (name not found by Lean) |
+| RpowScale.lean | `SteklovAudit.RpowScale.hs_term_littleO` | NOT CHECKED (name not found by Lean) |
+| RpowScale.lean | `SteklovAudit.RpowScale.sharp_law_transfer_rpow` | NOT CHECKED (name not found by Lean) |
+| ScalingLaw.lean | `SteklovAudit.ScalingLaw.weyl_scale` | NOT CHECKED (name not found by Lean) |
+| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_rescale` | NOT CHECKED (name not found by Lean) |
+| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_scaling` | NOT CHECKED (name not found by Lean) |
+| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_unscaling` | NOT CHECKED (name not found by Lean) |
+| ScalingLaw.lean | `SteklovAudit.ScalingLaw.law_scaling_iff` | NOT CHECKED (name not found by Lean) |
+| Section11AllFixedScales.lean | `SteklovAudit.quadratic_fixed_shift_plus` | NOT CHECKED (name not found by Lean) |
+| Section11AllFixedScales.lean | `SteklovAudit.quadratic_fixed_shift_minus` | NOT CHECKED (name not found by Lean) |
+| Section11AllFixedScales.lean | `SteklovAudit.monotone_fixed_window` | NOT CHECKED (name not found by Lean) |
+| Section11ApproximateFixedScales.lean | `SteklovAudit.shift_linear_normalized` | NOT CHECKED (name not found by Lean) |
+| Section11ApproximateFixedScales.lean | `SteklovAudit.shift_linear_normalized_minus` | NOT CHECKED (name not found by Lean) |
+| Section11ApproximateFixedScales.lean | `SteklovAudit.monotone_window_order` | NOT CHECKED (name not found by Lean) |
+| Section11FiniteScaleBracket.lean | `SteklovAudit.quadratic_shift_plus` | NOT CHECKED (name not found by Lean) |
+| Section11FiniteScaleBracket.lean | `SteklovAudit.quadratic_shift_minus` | NOT CHECKED (name not found by Lean) |
+| Section11FiniteScaleBracket.lean | `SteklovAudit.alternating_pair_identity` | NOT CHECKED (name not found by Lean) |
+| Section11ShiftBudgetOptimization.lean | `SteklovAudit.cubic_factor` | NOT CHECKED (name not found by Lean) |
+| Section11ShiftBudgetOptimization.lean | `SteklovAudit.cubic_nonnegative` | NOT CHECKED (name not found by Lean) |
+| Section11ShiftBudgetOptimization.lean | `SteklovAudit.shift_tradeoff` | NOT CHECKED (name not found by Lean) |
+| Section11ShiftedModelSqueeze.lean | `SteklovAudit.asymptotic_squeeze_scalar` | NOT CHECKED (name not found by Lean) |
+| Section11ShiftedModelSqueeze.lean | `SteklovAudit.shifted_quadratic_difference` | NOT CHECKED (name not found by Lean) |
+| Section11ShrinkingSmoothing.lean | `SteklovAudit.monotone_shift_squeeze` | NOT CHECKED (name not found by Lean) |
+| Section11ShrinkingSmoothing.lean | `SteklovAudit.quadratic_shift_right` | NOT CHECKED (name not found by Lean) |
+| Section11ShrinkingSmoothing.lean | `SteklovAudit.quadratic_shift_left` | NOT CHECKED (name not found by Lean) |
+| Section11SmoothingCounterexample.lean | `SteklovAudit.centered_square_identity` | NOT CHECKED (name not found by Lean) |
+| Section11SmoothingCounterexample.lean | `SteklovAudit.shifted_linear_amplitude` | NOT CHECKED (name not found by Lean) |
+| Section11ThresholdInstability.lean | `SteklovAudit.threshold_gap_positive` | NOT CHECKED (name not found by Lean) |
+| Section11ThresholdInstability.lean | `SteklovAudit.threshold_hs_square` | NOT CHECKED (name not found by Lean) |
+| Section11WindowFromSmoothing.lean | `SteklovAudit.quadratic_window_difference` | NOT CHECKED (name not found by Lean) |
+| Section11WindowFromSmoothing.lean | `SteklovAudit.window_bound_from_four_sided_squeeze` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.stretch_energy_bounds` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.stretch_inverse_bounds` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.weighted_diag_integrable` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.weighted_diag_integrableOn` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.dyadic_shell_sum` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.inv_le_mul_div_sq` | NOT CHECKED (name not found by Lean) |
+| Section4Scalar.lean | `SteklovAudit.Section4Scalar.resolvent_dyadic_bookkeeping` | NOT CHECKED (name not found by Lean) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_telescope` | NOT CHECKED (name not found by Lean) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.transfer_gronwall_bound` | NOT CHECKED (name not found by Lean) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.fixed_time_step_budget` | NOT CHECKED (name not found by Lean) |
+| Section7CumulativeTransfer.lean | `SteklovAudit.cumulative_transfer_unbounded` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_diagonal_count` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_shift_energies` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_hs_lower_budget` | NOT CHECKED (name not found by Lean) |
+| Section7FixedWindowHSObstruction.lean | `SteklovAudit.fixed_window_no_uniform_hs_budget` | NOT CHECKED (name not found by Lean) |
+| Section7IdentificationTraceBudget.lean | `SteklovAudit.identification_budget` | NOT CHECKED (name not found by Lean) |
+| Section7IdentificationTraceBudget.lean | `SteklovAudit.identification_budget_mono` | NOT CHECKED (name not found by Lean) |
+| Section7LipschitzHSTransfer.lean | `SteklovAudit.square_gap_nonneg` | NOT CHECKED (name not found by Lean) |
+| Section7LipschitzHSTransfer.lean | `SteklovAudit.positive_gap_square` | NOT CHECKED (name not found by Lean) |
+| Section7OneSidedCountingTransfer.lean | `SteklovAudit.spectral_leakage_budget` | NOT CHECKED (name not found by Lean) |
+| Section7OneSidedCountingTransfer.lean | `SteklovAudit.counting_transfer_scalar` | NOT CHECKED (name not found by Lean) |
+| Section7OneSidedCountingTransfer.lean | `SteklovAudit.two_sided_counting_scalar` | NOT CHECKED (name not found by Lean) |
+| Section7RankLeakage.lean | `SteklovAudit.spectral_gap_square` | NOT CHECKED (name not found by Lean) |
+| Section7RankLeakage.lean | `SteklovAudit.leakage_budget` | NOT CHECKED (name not found by Lean) |
+| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_scalar` | NOT CHECKED (name not found by Lean) |
+| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_saturation` | NOT CHECKED (name not found by Lean) |
+| Section7TraceRankAmplification.lean | `SteklovAudit.trace_budget_quadratic` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedLeakage.lean | `SteklovAudit.weighted_gap_square` | NOT CHECKED (name not found by Lean) |
+| Section7WeightedLeakage.lean | `SteklovAudit.weighted_tail_bound` | NOT CHECKED (name not found by Lean) |
+| Section9NearResonanceObstruction.lean | `SteklovAudit.resonant_defect_identity` | NOT CHECKED (name not found by Lean) |
+| Section9NearResonanceObstruction.lean | `SteklovAudit.exact_resonance_zero_defect` | NOT CHECKED (name not found by Lean) |
+| Section9NearResonanceObstruction.lean | `SteklovAudit.small_gap_unit_identification` | NOT CHECKED (name not found by Lean) |
+| Section9NearResonanceObstruction.lean | `SteklovAudit.resonant_entry_decomposition` | NOT CHECKED (name not found by Lean) |
+| Section9NearResonanceObstruction.lean | `SteklovAudit.near_resonance_upper_defect` | NOT CHECKED (name not found by Lean) |
+| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_identity` | NOT CHECKED (name not found by Lean) |
+| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_entry_budget` | NOT CHECKED (name not found by Lean) |
+| Section9SpectralGapLeakage.lean | `SteklovAudit.spectral_gap_finite_budget` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.sinh_ne` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_plus` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.endpoint_eigen_minus` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_sum` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.multiplier_diff` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.rank_one_weight` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_strictAnti` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.tanh_lt_tanh` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.even_pos` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.odd_neg` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.parity_trace_sum` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.coth_form` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.abs_parity_sum` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.tendsto_sinh_div` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.integrand_tendsto_zero` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.gamma_reflection_imag` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.norm_identity_constant` | NOT CHECKED (name not found by Lean) |
+| SectorTrace.lean | `SteklovAudit.SectorTrace.dihedralCoeff_coth_form` | NOT CHECKED (name not found by Lean) |
+| SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.poly_shift` | NOT CHECKED (name not found by Lean) |
+| SharpLawTransfer.lean | `SteklovAudit.SharpLawTransfer.sharp_law_transfer` | NOT CHECKED (name not found by Lean) |
+| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.zero_of_forall_le` | NOT CHECKED (name not found by Lean) |
+| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.diff_small` | NOT CHECKED (name not found by Lean) |
+| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.sharp_law_unique` | NOT CHECKED (name not found by Lean) |
+| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.edge_invariant_determined` | NOT CHECKED (name not found by Lean) |
+| SharpLawUnique.lean | `SteklovAudit.SharpLawUnique.not_one_term_law` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.window_gap_leakage` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.weighted_leakage` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.counting_transfer` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.swap_K_sq` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.counting_two_sided` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.threshold_instability` | NOT CHECKED (name not found by Lean) |
+| SpectralCounting.lean | `SteklovAudit.AbstractTransfer.trace_rank_amplification` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_trace_le_sum_abs_diag` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.trace_diagonal_mul` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_signDiag_le` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.signDiag_mul` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.sum_abs_diag_le_of_dual` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.dual_at_diag` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_traceNorm` | NOT CHECKED (name not found by Lean) |
+| TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_diag` | NOT CHECKED (name not found by Lean) |
+| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.error_budget` | NOT CHECKED (name not found by Lean) |
+| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.sharp_law_of_two_parameter_smoothing` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_div_sq` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.div_le_iff_le_scaled` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.indicator_sum_scaled` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.gradient_scaling_cancel` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.gradient_scaling_div` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_gradient_bound` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.proj_diag_nonneg` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.trace_diagonal_conj` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.weighted_diag_sum_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.trace_proj_cutoff_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.hs2_mul_diag_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.frobenius_sq_mul_diagonal_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.frobenius_mul_diag_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.integral_rpow_two_beta_sub_two` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.integral_rpow_two_mu_sub_one` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.quarter_sq_partial_sum_eq` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.quarter_sq_partial_sum_le` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.tsum_sixteenth_pow_succ` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.tsum_two_pow_neg_four` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.row_sq_le_of_self_test` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.hs2_le_of_pointwise` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.hs_le_of_pointwise` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.geom_partial_le_two_sub` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.geom_partial_le_two` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.collar_geometric_bound` | NOT CHECKED (name not found by Lean) |
+| UniformHS71.lean | `SteklovAudit.UniformHS71.collar_geometric_bound_sum` | NOT CHECKED (name not found by Lean) |
+| VertexLog.lean | `SteklovAudit.VertexLog.log_le_two_sqrt` | NOT CHECKED (name not found by Lean) |
+| VertexLog.lean | `SteklovAudit.VertexLog.vertex_of_log` | NOT CHECKED (name not found by Lean) |
+| VertexLog.lean | `SteklovAudit.VertexLog.theorem_11_1_of_D5` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.int_bounds` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.Hc_increment` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.strip_trace_increment` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.lorentz_integral_le` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.band_resolvent_integral` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_gap` | NOT CHECKED (name not found by Lean) |
+| WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_absorb` | NOT CHECKED (name not found by Lean) |
+
+## Build errors
+
+```
+error: SteklovAudit/Section4Scalar.lean:86:17: typeclass instance problem is stuck
+  Measure.IsAddHaarMeasure ?m.100
+
+Note: Lean will not try to resolve this typeclass instance problem because the fifth type argument to `Measure.IsAddHaarMeasure` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+error: build failed
+```
+
+## Lean output
+
+```
+/home/runner/work/steklov-lean/steklov-lean/AxiomAudit.lean:1:0: error: object file '/home/runner/work/steklov-lean/steklov-lean/.lake/build/lib/lean/SteklovAudit/Section4Scalar.olean' of module SteklovAudit.Section4Scalar does not exist
+
+```
