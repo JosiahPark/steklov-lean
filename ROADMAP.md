@@ -350,7 +350,7 @@ claims a row is proved for the actual operator.
       `defect_le_tail_add_low`, `counterData` (a = L+1, b = L, J = 1+L on Fin 1), `counterData_pde`,
       `counterData_hi_mask`, `defect_not_imp_tail`, `tail_row_fails`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-05: STATUS PASS 509/509 at 282d63b, all seven theorems verified.
-- [ ] G5. `SteklovAudit/H5LipRows.lean`: reduce the Lipschitz rows to derivative bounds.
+- [x] G5. `SteklovAudit/H5LipRows.lean`: reduce the Lipschitz rows to derivative bounds.
       `lipHi_of_deriv_bound`: if `F` is differentiable with `‖deriv F x‖ ≤ Λ0` for all x, the `lipHi`
       inequality holds; `lipLo_of_deriv_bound_le`: if `‖deriv F x‖ ≤ lam` on `Set.Iic M`, the `lipLo`
       inequality holds for low-energy pairs (both energies ≤ M). Use
@@ -359,6 +359,34 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-05 (uncompiled at push): `abs_sub_le_of_deriv_bound`,
       `abs_sub_le_of_deriv_bound_Iic`, `lipHi_of_deriv_bound`, `le_of_not_hiE`, `lipLo_of_deriv_bound_le`,
       `hΛ0_of_deriv_bound`, `lipHi_field`, `lipLo_field`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 517/517 at 632bf9d, all eight theorems verified.
+
+G6–G9 written by the formalize task on 2026-11-05 (after G5 was ticked). Each serves the F table; none
+claims a row is proved for the actual operator.
+
+- [ ] G6. `SteklovAudit/H5WindowProfile.lean`: the Lipschitz rows for a test that is a fixed profile
+      translated to the energy window, `F ε γ L x = φ (x - L)`. Hypotheses on `φ` only: differentiable,
+      `|deriv φ t| ≤ Λ0` for all t, and a left-tail bound `∀ R t, t ≤ -R → |deriv φ t| ≤ ψ R` with
+      `ψ R → 0` as `R → ∞`. Prove `lipHi_of_profile` (via G5's `lipHi_of_deriv_bound`) and
+      `lipLo_of_profile`: for L ≥ M + R, low-energy pairs satisfy the `lipLo` inequality with constant
+      `ψ R` (derivative of `x ↦ φ (x - L)` on `Set.Iic M` is bounded by `ψ R`; use
+      `deriv_comp_sub_const` or `HasDerivAt.comp_sub_const`). Records the row "Λ, λ" as a property of
+      one fixed profile, independent of the operator.
+- [ ] G7. Same file: `lamVanish_of_profile`: with `lam ε γ M L := ψ (L - M)` (clamped to be ≥ 0, e.g.
+      `max (ψ (L - M)) 0` for L > M and `Λ0` otherwise), the fields `hlam`, `lipLo` and `lamVanish` of
+      `H5bInputs` hold for the translated profile. Bundle as `structure ProfileLipRows` and
+      `lipGroup_of_profile` returning the five fields `hΛ0`, `lipHi`, `hlam`, `lipLo`, `lamVanish`.
+      This replaces the row "Lipschitz-type bounds Λ, λ" by "the window profile has bounded derivative
+      with vanishing left tail" when the smoothed count has this translated form (to be checked on paper).
+- [ ] G8. Same file (or `SteklovAudit/H5WindowWitness.lean`): non-vacuity of G6/G7. `φ := Real.arctan`
+      satisfies the profile hypotheses with `Λ0 = 1`, `ψ R = 1 / (1 + R ^ 2)` for R ≥ 0 (`Real.deriv_arctan`
+      or `Real.hasDerivAt_arctan`), and `arctan_profile_nonjunk`: the resulting test is non-constant
+      (`φ 1 - φ 0 ≠ 0`), so the row is not satisfied by a trivial test.
+- [ ] G9. `SteklovAudit/H5TailRate.lean`: reduce `tailVanish` to a decay rate. `tailVanish_of_power`: if
+      `τ ε γ M ≤ C ε γ / M` for all M ≥ 1 (C ≥ 0), then the
+      `tailVanish` field holds; and `tail_rate_not_target`: this hypothesis mentions neither `E` nor
+      `Emod` (state it as a `Prop` on `τ` alone, so the F2 disguise audit applies by construction).
+      Records the shape a paper bound for the high-energy tail row must take.
 
 ## Not attempted here
 
