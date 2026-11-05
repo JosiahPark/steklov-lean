@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 15:28 UTC",
+  "checked_at": "2026-11-05 17:21 UTC",
   "lean_exit_code": 0,
-  "commit": "da456f088fe8af88ec085ea4eab3cbc4faaca807",
-  "last_passing_commit": "da456f088fe8af88ec085ea4eab3cbc4faaca807",
-  "library_declarations_checked": 500,
-  "library_declarations": 500,
+  "commit": "9fa2d8163b5af0de55fd2f3515260d0e81c39c70",
+  "last_passing_commit": "9fa2d8163b5af0de55fd2f3515260d0e81c39c70",
+  "library_declarations_checked": 502,
+  "library_declarations": 502,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 500,
-  "verified": 500,
+  "theorems": 502,
+  "verified": 502,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2478,6 +2478,26 @@
     {
       "file": "H5Compare.lean",
       "theorem": "SteklovAudit.H5Compare.theorem_11_1_of_F",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSmoothed.lean",
+      "theorem": "SteklovAudit.H5CutoffSmoothed.target_of_cutoffRow\u03b4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSmoothed.lean",
+      "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
       "axioms": [
         "propext",
         "Classical.choice",

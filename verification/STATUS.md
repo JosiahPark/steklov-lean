@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 15:28 UTC at commit `da456f088fe8`. Last passing commit: `da456f088fe8`.
+Checked 2026-11-05 17:21 UTC at commit `9fa2d8163b5a`. Last passing commit: `9fa2d8163b5a`.
 
-Library declarations checked: 500 of 500 theorems compile with only Lean's standard axioms.
+Library declarations checked: 502 of 502 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -273,6 +273,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_iff_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_nonempty` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | verified (standard axioms only) |
+| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
+| H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
