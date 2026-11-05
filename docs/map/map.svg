@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1558 1492" width="1558" height="1492" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
 <style>.bg{fill:#f6f7f4}.band{fill:#e9ebe5}.lbl{font-size:12px;font-weight:600;letter-spacing:.07em;fill:#5d6675}.box{fill:#fff;stroke:#d0d4cc}.main{stroke:#2b4a7a;stroke-width:2}.nm{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;fill:#1d2430}.ct{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;fill:#5d6675}.edge{fill:none;stroke:#7b8698;opacity:.45}.hot{fill:none;stroke:#2b4a7a;stroke-width:2}.hedge{fill:none;stroke:#c0392f;stroke-dasharray:4 3;opacity:.6}.hbox{fill:#f6dcd8;stroke:#c0392f;stroke-dasharray:4 3}.htx{font-size:11.5px;fill:#1d2430}.sm{font-size:11px;fill:#5d6675}.thm{fill:#d7eedf;stroke:#2e8a57;stroke-width:2}.tt{font-size:14px;font-weight:600;fill:#1d2430}.g{fill:#2e8a57}.a{fill:#c48413}.s{fill:#8b93a1}@media (prefers-color-scheme: dark){.bg{fill:#14181f}.band{fill:#1a1f27}.lbl,.ct,.sm{fill:#9aa3b2}.box{fill:#1b2029;stroke:#2e3542}.nm,.htx,.tt{fill:#e4e7ec}.main{stroke:#8fb0e6}.hot{stroke:#8fb0e6}.hbox{fill:#3e2220;stroke:#ef6b5f}.hedge{stroke:#ef6b5f}.thm{fill:#1e3a2b;stroke:#5cc08a}.g{fill:#5cc08a}.a{fill:#e6a93c}.s{fill:#8e97a6}}</style>
 <rect class="bg" x="0" y="0" width="1558" height="1492"/>
-<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-05 21:58 UTC · 531/531 theorems pass</text>
-<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 209 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
+<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-05 22:18 UTC · 536/536 theorems pass</text>
+<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 214 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
 <rect class="band" x="8" y="56" width="1314" height="146" rx="6"/>
 <text class="lbl" x="24" y="75">§1–3 DIHEDRAL INVARIANT &amp; SECTOR TRACE</text>
 <text class="lbl" x="24" y="231">§4 HEAT FIBERS</text>
@@ -63,7 +63,7 @@
 <path class="edge" stroke-width="3.0" d="M108,518 C199,518 199,1364 290,1364"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C108,362 108,1364 108,1364"/>
 <path class="edge" stroke-width="3.0" d="M108,518 C108,518 108,1364 108,1364"/>
-<path class="edge" stroke-width="2.0" d="M1200,1310 C654,1310 654,1364 108,1364"/>
+<path class="edge" stroke-width="2.6" d="M1200,1310 C654,1310 654,1364 108,1364"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C199,362 199,572 290,572"/>
 <path class="edge" stroke-width="3.0" d="M472,518 C563,518 563,518 654,518"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C472,362 472,518 836,518"/>
@@ -251,7 +251,7 @@
 <g><title>H5TailAudit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="206" y="1344" width="168" height="40" rx="5"/><text class="nm" x="214" y="1360">H5TailAudit</text><text class="ct" x="366" y="1360" text-anchor="end">7</text>
 <rect class="s" x="214.0" y="1370" width="152.0" height="6"/>
 </g>
-<g><title>H5WindowProfile: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="24" y="1344" width="168" height="40" rx="5"/><text class="nm" x="32" y="1360">H5WindowProfile</text><text class="ct" x="184" y="1360" text-anchor="end">7</text>
+<g><title>H5WindowProfile: 0 outright, 0 conditional, 12 supporting</title><rect class="box" x="24" y="1344" width="168" height="40" rx="5"/><text class="nm" x="32" y="1360">H5WindowProfile</text><text class="ct" x="184" y="1360" text-anchor="end">12</text>
 <rect class="s" x="32.0" y="1370" width="152.0" height="6"/>
 </g>
 <g><title>HSNoTrace: 0 outright, 0 conditional, 9 supporting</title><rect class="box" x="206" y="552" width="168" height="40" rx="5"/><text class="nm" x="214" y="568">HSNoTrace</text><text class="ct" x="366" y="568" text-anchor="end">9</text>
