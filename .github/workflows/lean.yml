@@ -85,7 +85,7 @@ jobs:
         run: |
           [ -f docs/map/index.html ] || exit 0
           git add docs/map/.map_key
-          if git diff --cached --quiet; then echo "Map unchanged"; exit 0; fi
+          if git diff --cached --quiet && git ls-files --error-unmatch docs/map/map.svg >/dev/null 2>&1; then echo "Map unchanged"; exit 0; fi
           git add docs/map/index.html docs/map/map.svg docs/map/README.md
           git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update dependency map"
           git pull --rebase -q origin "${GITHUB_REF_NAME}" || true
