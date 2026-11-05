@@ -29,6 +29,12 @@ reports (57 results: statement, full proof, checks, Lean status, caveats), with 
 that bear on the manuscript.
 Most of these results are not formalized in Lean; the index says which are.
 
+## Dependency map
+
+![Dependency map of the verified Lean modules](docs/map/map.svg)
+
+CI redraws this picture after every verification run. [docs/map/README.md](docs/map/README.md) lists every module with its counts and the inputs H1–H6 of Theorem 11.1 that are still unproved. [docs/map/index.html](docs/map/index.html) is the interactive version: download it and open it in a browser, or view it on GitHub Pages if Pages is enabled.
+
 ## Layout
 
 - `SteklovAudit.lean`: all Lean modules in one file, one commented section per original module.
