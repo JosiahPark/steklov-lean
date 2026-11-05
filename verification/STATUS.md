@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 02:12 UTC. 488 of 488 theorems compile with only Lean's standard axioms.
+Checked 2026-11-05 05:17 UTC. 491 of 491 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -262,6 +262,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
+| H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
+| H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | verified (standard axioms only) |
+| H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |

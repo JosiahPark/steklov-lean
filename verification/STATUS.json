@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-05 02:12 UTC",
+  "checked_at": "2026-11-05 05:17 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 488,
-  "verified": 488,
+  "theorems": 491,
+  "verified": 491,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2402,6 +2402,36 @@
     {
       "file": "GridLaw.lean",
       "theorem": "SteklovAudit.GridLaw.real_law_of_fine_grids",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.compare_is_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.hs2_mask_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.h5b_of_inputs",
       "axioms": [
         "propext",
         "Classical.choice",
