@@ -290,8 +290,8 @@ input. A new abstract consequence is not a milestone.
       Ticked 2026-11-05 08:1x UTC: branch STATUS PASS 494/494 at 9731a41 with all four lines;
       `axiom_audit.py` copied to main unchanged (main's copy equalled the branch parent's).
 
-When F1–F3 are ticked, the formalize task makes no new Lean change unless the build fails or a row of the
-table changes; it reports "idle: waiting on paper inputs for F" in its final reply.
+When F1–F3 are ticked, the formalize task does not go idle (changed 2026-11-05): once no unchecked item is left
+anywhere, it writes new items in section G aimed at the table below.
 
 | Input (field of `H5bInputs`) | Paper | Lean shape taken from | Status |
 |---|---|---|---|
@@ -302,6 +302,21 @@ table changes; it reports "idle: waiting on paper inputs for F" in its final rep
 | Lipschitz-type bounds Λ, λ for the smoothed counting function | §7 | B3/B4 | not recorded (Josiah to fill) |
 | Finite cutoff → continuous model spectrum | §7 | not formalized (B1 docstring) | open; to be stated as its own field in F1 |
 | Propagation (9.1) | §9 | — | open; whether it enters H5b or only the model law H5a is to be confirmed |
+
+## G. Next items toward the F table (from 2026-11-05)
+
+Added by an interactive session on 2026-11-05. When no unchecked item is left, the formalize task appends new G
+items (G2, G3, ...) aimed at the F table; it does not queue library results that move no row.
+
+- [~] G1. `SteklovAudit/TwoParameterSmoothing.lean` (continuation 54; lifts R38.1 from scalar fragments):
+      `error_budget` and `sharp_law_of_two_parameter_smoothing`: if (A) `|N L − S_δ L| ≤ CδL + C` for L ≥ 1
+      with one C for all δ ≤ δ₀, (B) for each δ eventually `|S_δ L − (AL² + BL)| ≤ (ω(δ) + η)L` for every
+      η > 0 with the same A, B, and (C) ω(δ) → 0 as δ ↓ 0, then `HasSharpRealLaw N A B`. Written and pushed
+      to main uncompiled by the interactive session (the continuation had no compiler). Next run: if STATUS
+      shows it compiled, tick it; if not, fixing it is the next item. It records the shape a smoothed-count
+      route to the H5b row "Lipschitz-type bounds Λ, λ for the smoothed counting function" must take: the
+      sharp-to-smoothed error must be Cδ·L with C uniform in δ, and the smoothed coefficients must not
+      depend on δ. It does not prove (A), (B) or (C) for the tetrahedron.
 
 ## Not attempted here
 
