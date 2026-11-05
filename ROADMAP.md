@@ -372,6 +372,9 @@ claims a row is proved for the actual operator.
       `ψ R` (derivative of `x ↦ φ (x - L)` on `Set.Iic M` is bounded by `ψ R`; use
       `deriv_comp_sub_const` or `HasDerivAt.comp_sub_const`). Records the row "Λ, λ" as a property of
       one fixed profile, independent of the operator.
+      Written by the formalize task 2026-11-05 (uncompiled at push, commit 3f352a5): `hasDerivAt_shift`,
+      `deriv_shift`, `differentiable_shift`, `lipHi_of_profile`, `lipLo_of_profile`, `lipHi_field_profile`,
+      `lipLo_field_profile`. Next run: tick if STATUS shows it compiled.
 - [ ] G7. Same file: `lamVanish_of_profile`: with `lam ε γ M L := ψ (L - M)` (clamped to be ≥ 0, e.g.
       `max (ψ (L - M)) 0` for L > M and `Λ0` otherwise), the fields `hlam`, `lipLo` and `lamVanish` of
       `H5bInputs` hold for the translated profile. Bundle as `structure ProfileLipRows` and
