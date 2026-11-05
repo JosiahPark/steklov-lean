@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 22:18 UTC at commit `f56828320496`. Last passing commit: `f56828320496`.
+Checked 2026-11-05 23:36 UTC at commit `ca909678e6bd`. Last passing commit: `ca909678e6bd`.
 
-Library declarations checked: 536 of 536 theorems compile with only Lean's standard axioms.
+Library declarations checked: 545 of 545 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -305,6 +305,15 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.profLam_vanish` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.eventually_le_of_tendsto` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.lipGroup_of_profile` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_hasDerivAt'` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_deriv_eq` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_differentiable'` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_deriv_le_one` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_tail` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctanTail_small` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_lipGroup` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_profile_nonjunk` | verified (standard axioms only) |
+| H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_shift_nonconst` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |
