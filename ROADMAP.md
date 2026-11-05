@@ -330,7 +330,7 @@ claims a row is proved for the actual operator.
       (cutoff + discVanish + TraceLittleO ⇒ `H5bTarget`). Records that rows 2–5 yield a statement that
       never mentions `E − Emod`, so all of F2's "target in disguise" content sits in the cutoff row.
       Ticked by the formalize task 2026-11-05: STATUS PASS 500/500 at da456f0, all three theorems verified.
-- [ ] G3. `SteklovAudit/H5CutoffSmoothed.lean`: replace `cutoff` + `discVanish` by a strictly weaker
+- [x] G3. `SteklovAudit/H5CutoffSmoothed.lean`: replace `cutoff` + `discVanish` by a strictly weaker
       two-parameter input, using G1. `structure CutoffRowδ`: for each δ ∈ (0, δ₀] a cutoff with test `F δ`
       and `|(E − Emod) − trace(F δ)| ≤ C δ L + C` (one `C` for all δ, L ≥ 1), and for each δ the trace is
       `≤ (ω δ + η) L` eventually, with ω δ → 0. Prove `target_of_cutoffRowδ` (via
@@ -339,11 +339,16 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-05 (uncompiled at push): `CutoffRowδ`, `target_of_cutoffRowδ`,
       `cutoffRowδ_of_inputs` (a `def`), plus the F2-style audit `cutoffRowδ_iff_target`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 502/502 at 9fa2d81, `target_of_cutoffRowδ` and
+      `cutoffRowδ_iff_target` verified.
 - [ ] G4. `SteklovAudit/H5TailAudit.lean`: the tail and low-energy rows are genuine inputs.
       `hs2_mask_split` (`hs2 K = hs2 (mask p K) + hs2 (mask (¬p) K)`, so `tail` and `lowDefect` together
       bound exactly the full defect), and `defect_not_imp_tail`: an explicit family of `Data` satisfying
       `PDEInputs` for every L but whose high-energy masked defect does not tend to 0 uniformly in L
       (so `tailVanish` does not follow from `PDEInputs.defect`; the row stays a separate input).
+      Written by the formalize task 2026-11-05 (uncompiled at push, commit 5155c4e): `hs2_mask_split`,
+      `defect_le_tail_add_low`, `counterData` (a = L+1, b = L, J = 1+L on Fin 1), `counterData_pde`,
+      `counterData_hi_mask`, `defect_not_imp_tail`, `tail_row_fails`. Next run: tick if STATUS shows it compiled.
 - [ ] G5. `SteklovAudit/H5LipRows.lean`: reduce the Lipschitz rows to derivative bounds.
       `lipHi_of_deriv_bound`: if `F` is differentiable with `‖deriv F x‖ ≤ Λ0` for all x, the `lipHi`
       inequality holds; `lipLo_of_deriv_bound_le`: if `‖deriv F x‖ ≤ lam` on `Set.Iic M`, the `lipLo`
