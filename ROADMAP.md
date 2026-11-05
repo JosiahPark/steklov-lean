@@ -341,7 +341,7 @@ claims a row is proved for the actual operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-05: STATUS PASS 502/502 at 9fa2d81, `target_of_cutoffRowδ` and
       `cutoffRowδ_iff_target` verified.
-- [ ] G4. `SteklovAudit/H5TailAudit.lean`: the tail and low-energy rows are genuine inputs.
+- [x] G4. `SteklovAudit/H5TailAudit.lean`: the tail and low-energy rows are genuine inputs.
       `hs2_mask_split` (`hs2 K = hs2 (mask p K) + hs2 (mask (¬p) K)`, so `tail` and `lowDefect` together
       bound exactly the full defect), and `defect_not_imp_tail`: an explicit family of `Data` satisfying
       `PDEInputs` for every L but whose high-energy masked defect does not tend to 0 uniformly in L
@@ -349,12 +349,16 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-05 (uncompiled at push, commit 5155c4e): `hs2_mask_split`,
       `defect_le_tail_add_low`, `counterData` (a = L+1, b = L, J = 1+L on Fin 1), `counterData_pde`,
       `counterData_hi_mask`, `defect_not_imp_tail`, `tail_row_fails`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 509/509 at 282d63b, all seven theorems verified.
 - [ ] G5. `SteklovAudit/H5LipRows.lean`: reduce the Lipschitz rows to derivative bounds.
       `lipHi_of_deriv_bound`: if `F` is differentiable with `‖deriv F x‖ ≤ Λ0` for all x, the `lipHi`
       inequality holds; `lipLo_of_deriv_bound_le`: if `‖deriv F x‖ ≤ lam` on `Set.Iic M`, the `lipLo`
       inequality holds for low-energy pairs (both energies ≤ M). Use
       `Convex.norm_image_sub_le_of_norm_deriv_le` (`convex_univ`, `convex_Iic`). This states the row
       "Lipschitz-type bounds Λ, λ" as a derivative bound on the smoothed counting function.
+      Written by the formalize task 2026-11-05 (uncompiled at push): `abs_sub_le_of_deriv_bound`,
+      `abs_sub_le_of_deriv_bound_Iic`, `lipHi_of_deriv_bound`, `le_of_not_hiE`, `lipLo_of_deriv_bound_le`,
+      `hΛ0_of_deriv_bound`, `lipHi_field`, `lipLo_field`. Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
