@@ -9,6 +9,7 @@ three standard ones. It writes verification/STATUS.md and STATUS.json.
 The point is to catch proofs that compile only because something was assumed.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -18,6 +19,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "verification"
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
+# Ledger inputs of MainConditional.lean proved for the actual Steklov operator of the tetrahedron
+# (not taken as named hypotheses). Add a tag such as "H3" only after its paper proof is reviewed
+# and Lean derives it without that hypothesis. Today: none.
+PROVED_FOR_OPERATOR = set()
 
 decl_re = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(theorem|lemma)\s+([^\s(:{\[]+)", re.M)
 ns_re = re.compile(r"^\s*namespace\s+(\S+)", re.M)
@@ -128,8 +133,30 @@ def tautologies():
     return hits
 
 
+def commit_sha():
+    """The commit being checked: GITHUB_SHA in CI, else `git rev-parse HEAD`."""
+    sha = os.environ.get("GITHUB_SHA", "")
+    if not sha:
+        try:
+            sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        except OSError:
+            sha = ""
+    return sha or "unknown"
+
+
+def previous_last_pass():
+    """Last passing commit recorded by the previous STATUS.json, if any."""
+    try:
+        d = json.loads((OUT / "STATUS.json").read_text())
+    except (OSError, ValueError):
+        return None
+    return d.get("last_passing_commit") or (d.get("commit") if d.get("all_verified") else None)
+
+
 def main():
     OUT.mkdir(exist_ok=True)
+    sha = commit_sha()
+    prev_pass = previous_last_pass()
     decls = collect()
     probe = ROOT / "AxiomAudit.lean"
     extra = [f"import SteklovAudit.{p.stem}" for p in sorted((ROOT / "SteklovAudit").glob("*.lean"))]
@@ -164,9 +191,18 @@ def main():
     ledger = hypothesis_ledger()
     ok = proc.returncode == 0 and not bad and bool(decls) and not hatches and not taut
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    last_pass = sha if ok else prev_pass
+    n_checked = len(decls) - len(bad)
+    n_proved = sum(1 for t, _ in ledger if t.split()[0] in PROVED_FOR_OPERATOR)
     summary = {
         "checked_at": stamp,
         "lean_exit_code": proc.returncode,
+        "commit": sha,
+        "last_passing_commit": last_pass,
+        "library_declarations_checked": n_checked,
+        "library_declarations": len(decls),
+        "ledger_inputs_proved_for_operator": n_proved,
+        "ledger_inputs": len(ledger),
         "build_errors": [l for l in (ROOT / "build.log").read_text(errors="replace").splitlines() if "error" in l.lower()][:80] if (ROOT / "build.log").exists() else [],
         "theorems": len(decls),
         "verified": len(decls) - len(bad),
@@ -183,7 +219,12 @@ def main():
     lines = [
         f"# Lean verification status: {'PASS' if ok else 'FAIL'}",
         "",
-        f"Checked {stamp}. {len(decls) - len(bad)} of {len(decls)} theorems compile with only Lean's standard axioms.",
+        f"Checked {stamp} at commit `{sha[:12]}`. Last passing commit: `{(last_pass or 'none')[:12]}`.",
+        "",
+        f"Library declarations checked: {n_checked} of {len(decls)} theorems compile with only Lean's standard axioms.",
+        "",
+        f"Ledger inputs proved for the actual operator: {n_proved} of {len(ledger)}. "
+        "The other inputs are named hypotheses; the two counts are separate.",
         "",
         "Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)",
         "is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic",
