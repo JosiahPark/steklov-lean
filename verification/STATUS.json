@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-04 23:13 UTC",
+  "checked_at": "2026-11-05 00:19 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 477,
-  "verified": 477,
+  "theorems": 481,
+  "verified": 481,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2982,6 +2982,46 @@
     {
       "file": "PowerShiftTransfer.lean",
       "theorem": "SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PropagatorTrace.lean",
+      "theorem": "SteklovAudit.PropagatorTrace.diag_K_le_hs2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PropagatorTrace.lean",
+      "theorem": "SteklovAudit.PropagatorTrace.propagator_trace_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PropagatorTrace.lean",
+      "theorem": "SteklovAudit.PropagatorTrace.propagator_trace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PropagatorTrace.lean",
+      "theorem": "SteklovAudit.PropagatorTrace.propagator_trace_of_inputs",
       "axioms": [
         "propext",
         "Classical.choice",

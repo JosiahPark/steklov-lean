@@ -1,6 +1,6 @@
 # Lean verification status: PASS
 
-Checked 2026-11-04 23:13 UTC. 477 of 477 theorems compile with only Lean's standard axioms.
+Checked 2026-11-05 00:19 UTC. 481 of 481 theorems compile with only Lean's standard axioms.
 
 Scope: these are the algebraic, geometric and limit-assembly lemmas. The main theorem (Theorem 1.3 / 11.1)
 is NOT certified: `sharp_integer_law_of_two_scale` and `sharp_real_law_of_two_scale` take the analytic
@@ -320,6 +320,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.hs_term_bound` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.power_little_o` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.sharp_law_transfer_power` | verified (standard axioms only) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.diag_K_le_hs2` | verified (standard axioms only) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_sq` | verified (standard axioms only) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace` | verified (standard axioms only) |
+| PropagatorTrace.lean | `SteklovAudit.PropagatorTrace.propagator_trace_of_inputs` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | verified (standard axioms only) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | verified (standard axioms only) |
