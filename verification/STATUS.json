@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-05 05:17 UTC",
+  "checked_at": "2026-11-05 06:23 UTC",
   "lean_exit_code": 0,
   "build_errors": [],
-  "theorems": 491,
-  "verified": 491,
+  "theorems": 494,
+  "verified": 494,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2432,6 +2432,36 @@
     {
       "file": "H5Compare.lean",
       "theorem": "SteklovAudit.H5Compare.h5b_of_inputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.inputs_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.inputs_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Compare.lean",
+      "theorem": "SteklovAudit.H5Compare.theorem_11_1_of_F",
       "axioms": [
         "propext",
         "Classical.choice",
