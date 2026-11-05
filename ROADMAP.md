@@ -322,19 +322,23 @@ items (G2, G3, ...) aimed at the F table; it does not queue library results that
 G2–G5 written by the formalize task on 2026-11-05 (after G1 was ticked). Each serves the F table; none
 claims a row is proved for the actual operator.
 
-- [ ] G2. `SteklovAudit/H5Split.lean`: split H5b into a statement free of `E, Emod` plus the cutoff row.
+- [x] G2. `SteklovAudit/H5Split.lean`: split H5b into a statement free of `E, Emod` plus the cutoff row.
       `def TraceLittleO` (for the data `D`, test `F` of an `H5bInputs`: the trace sum
       `∑ i, ∑ j, (F a i − F b j) J i j ^ 2` is eventually `≤ η L` for every η > 0). Prove
       `trace_little_o_of_rows` from the fields `pde`, `tail`, `tailVanish`, `lowDefect`, `lipHi`, `lipLo`,
       `lamVanish` only (reuse the B4/B5 chain of `h5b_of_inputs`), and `h5b_of_cutoff_and_trace`
       (cutoff + discVanish + TraceLittleO ⇒ `H5bTarget`). Records that rows 2–5 yield a statement that
       never mentions `E − Emod`, so all of F2's "target in disguise" content sits in the cutoff row.
+      Ticked by the formalize task 2026-11-05: STATUS PASS 500/500 at da456f0, all three theorems verified.
 - [ ] G3. `SteklovAudit/H5CutoffSmoothed.lean`: replace `cutoff` + `discVanish` by a strictly weaker
       two-parameter input, using G1. `structure CutoffRowδ`: for each δ ∈ (0, δ₀] a cutoff with test `F δ`
       and `|(E − Emod) − trace(F δ)| ≤ C δ L + C` (one `C` for all δ, L ≥ 1), and for each δ the trace is
       `≤ (ω δ + η) L` eventually, with ω δ → 0. Prove `target_of_cutoffRowδ` (via
       `sharp_law_of_two_parameter_smoothing`-style argument, or directly) and `cutoffRowδ_of_cutoff`
       (the F1 row implies the new one), so the new row is no stronger than the old one.
+      Written by the formalize task 2026-11-05 (uncompiled at push): `CutoffRowδ`, `target_of_cutoffRowδ`,
+      `cutoffRowδ_of_inputs` (a `def`), plus the F2-style audit `cutoffRowδ_iff_target`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G4. `SteklovAudit/H5TailAudit.lean`: the tail and low-energy rows are genuine inputs.
       `hs2_mask_split` (`hs2 K = hs2 (mask p K) + hs2 (mask (¬p) K)`, so `tail` and `lowDefect` together
       bound exactly the full defect), and `defect_not_imp_tail`: an explicit family of `Data` satisfying
