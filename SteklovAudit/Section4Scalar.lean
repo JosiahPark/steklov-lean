@@ -83,7 +83,18 @@ theorem weighted_diag_integrable {q : ℝ} (hq : q < 1 / 2) :
     | (have hr : ((Module.finrank ℝ ℝ : ℕ) : ℝ) < 2 * (1 - q) := by
          simp only [Module.finrank_self, Nat.cast_one]
          linarith
-       have h := integrable_rpow_neg_one_add_norm_sq (E := ℝ) hr
+       have h : Integrable (fun x : ℝ => (1 + ‖x‖ ^ 2) ^ (-(2 * (1 - q)) / 2)) volume :=
+         integrable_rpow_neg_one_add_norm_sq (E := ℝ) (μ := volume) hr
+       refine h.congr (ae_of_all _ fun p => ?_)
+       show (1 + ‖p‖ ^ 2) ^ (-(2 * (1 - q)) / 2) = (1 + p ^ 2) ^ (q - 1)
+       rw [Real.norm_eq_abs, sq_abs]
+       congr 1
+       ring)
+    | (have hr : ((Module.finrank ℝ ℝ : ℕ) : ℝ) < 2 * (1 - q) := by
+         simp only [Module.finrank_self, Nat.cast_one]
+         linarith
+       have h : Integrable (fun x : ℝ => (1 + ‖x‖ ^ 2) ^ (-(2 * (1 - q)) / 2)) volume :=
+         integrable_rpow_neg_one_add_norm_sq hr
        refine h.congr (ae_of_all _ fun p => ?_)
        show (1 + ‖p‖ ^ 2) ^ (-(2 * (1 - q)) / 2) = (1 + p ^ 2) ^ (q - 1)
        rw [Real.norm_eq_abs, sq_abs]
