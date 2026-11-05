@@ -271,7 +271,7 @@ reduction into one checked statement and keeps a status for each input in the ta
 A milestone is a table row moving to "proved on paper, reviewed", or a row replaced by a strictly weaker
 input. A new abstract consequence is not a milestone.
 
-- [ ] F1. `SteklovAudit/H5Compare.lean`: `def H5bTarget` (exactly the type of `Thm111InputsC4.compare`
+- [x] F1. `SteklovAudit/H5Compare.lean`: `def H5bTarget` (exactly the type of `Thm111InputsC4.compare`
       for given `E Emod`), a structure `H5bInputs` with one named field per table row, and
       `h5b_of_inputs` proved by chaining `cumulative_transfer_bound` and `little_o_of_vanishing_tail`
       (`AbstractTransferB.lean`). If the chain needs anything not listed, add it as a separate named
