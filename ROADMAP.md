@@ -212,7 +212,7 @@ are done.
 - [x] R1. R43.2(ii), `SteklovAudit/HSNoTrace.lean`: on `Fin n` (n ≥ 1), `T = n⁻¹ I` has `hs2 T = 1/n` and
       `Tr T = 1`, so the HS norm tends to 0 while the trace does not; and `T` attains equality in
       |Tr T| ≤ √rank · ‖T‖_HS (compare `trace_rank_amplification`).
-- [ ] R2. R42.1(ii)–(iii), `SteklovAudit/LeakageLayerCake.lean`: (ii) for s > 0,
+- [x] R2. R42.1(ii)–(iii), `SteklovAudit/LeakageLayerCake.lean`: (ii) for s > 0,
       Σ_{a_i ≤ L} Σ_{b_j ≥ L+s} J_ji² ≤ s⁻² Σ_{a_i ≤ L} Σ_j K_ji² (from `window_gap_leakage` plus the
       sub-sum step); (iii) the layer cake ∫₀^∞ 2t · 1[x > t] dt = max(x, 0)² for real x, summed to
       ∫₀^∞ 2t H(t) dt = Σ (b_j − L)₊² J_ji² with H(t) = Σ_{a_i ≤ L} Σ_{b_j > L+t} J_ji².
