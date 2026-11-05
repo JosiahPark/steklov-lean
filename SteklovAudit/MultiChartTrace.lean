@@ -133,7 +133,7 @@ theorem ex_partition (n : ℕ) : ∀ i, ∑ c, ∑ j, (exD n c).J i j ^ 2 = 1 :=
 
 /-- Here `Σ_c ‖K_c‖²_HS = n`, so the bound of `multichart_trace` is `n · |t|`. -/
 theorem sharp_example_hs2 (n : ℕ) : hs2 (exD n ()).K = n := by
-  show ∑ i : Fin n, ∑ j : Fin n, ((0 - 1) * (if i = j then (1 : ℝ) else 0)) ^ 2 = n
+  show ∑ i : Fin n, ∑ j : Fin n, (((0 : ℝ) - 1) * (if i = j then (1 : ℝ) else 0)) ^ 2 = (n : ℝ)
   have h : ∀ i j : Fin n, ((0 - 1) * (if i = j then (1 : ℝ) else 0)) ^ 2 =
       (if i = j then (1 : ℝ) else 0) ^ 2 := by intro i j; ring
   simp only [h, ex_row]
