@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 08:16 UTC at commit `3def2cb53cfe`. Last passing commit: `3def2cb53cfe`.
+Checked 2026-11-05 14:15 UTC at commit `46331e980cea`. Last passing commit: `46331e980cea`.
 
-Library declarations checked: 494 of 494 theorems compile with only Lean's standard axioms.
+Library declarations checked: 496 of 496 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -481,6 +481,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.dual_at_diag` | verified (standard axioms only) |
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_traceNorm` | verified (standard axioms only) |
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.identification_budget_diag` | verified (standard axioms only) |
+| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.error_budget` | verified (standard axioms only) |
+| TwoParameterSmoothing.lean | `SteklovAudit.TwoParameterSmoothing.sharp_law_of_two_parameter_smoothing` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.inv_add_sq_le_one_add_sq` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_mul_inv_sq` | verified (standard axioms only) |
 | UniformHS71.lean | `SteklovAudit.UniformHS71.scaled_sq_div_sq` | verified (standard axioms only) |

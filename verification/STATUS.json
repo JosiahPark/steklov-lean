@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 08:16 UTC",
+  "checked_at": "2026-11-05 14:15 UTC",
   "lean_exit_code": 0,
-  "commit": "3def2cb53cfe1c6aeaa829bed04ff750cbf50a6f",
-  "last_passing_commit": "3def2cb53cfe1c6aeaa829bed04ff750cbf50a6f",
-  "library_declarations_checked": 494,
-  "library_declarations": 494,
+  "commit": "46331e980cea2c8e09d040f3544f13ece8d00e39",
+  "last_passing_commit": "46331e980cea2c8e09d040f3544f13ece8d00e39",
+  "library_declarations_checked": 496,
+  "library_declarations": 496,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 494,
-  "verified": 494,
+  "theorems": 496,
+  "verified": 496,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4558,6 +4558,26 @@
     {
       "file": "TraceNormBudget.lean",
       "theorem": "SteklovAudit.TraceNormBudget.identification_budget_diag",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TwoParameterSmoothing.lean",
+      "theorem": "SteklovAudit.TwoParameterSmoothing.error_budget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TwoParameterSmoothing.lean",
+      "theorem": "SteklovAudit.TwoParameterSmoothing.sharp_law_of_two_parameter_smoothing",
       "axioms": [
         "propext",
         "Classical.choice",
