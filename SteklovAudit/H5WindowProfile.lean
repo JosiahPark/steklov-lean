@@ -95,4 +95,91 @@ theorem lipLo_field_profile {nA nB : ℝ → ℝ → ℝ → ℕ}
         ≤ ψ (L - M) * |(D ε γ L).a i - (D ε γ L).b j| :=
   fun ε γ M L => lipLo_of_profile (D ε γ L) (R := L - M) hd htail (by linarith)
 
+/-! ## G7: `hlam`, `lipLo`, `lamVanish` for the translated profile
+
+`profLam Λ0 ψ M L` is `max (ψ (L - M)) 0` when `M ≤ L` and `Λ0` otherwise. With the left-tail
+bound `htail` and its decay `hψ` (fields of `ProfileLipRows`), `lipGroup_of_profile` gives the five
+fields `hΛ0`, `lipHi`, `hlam`, `lipLo`, `lamVanish` of `H5bInputs` for the test
+`F ε γ L x = φ (x - L)`, with `Λ0 ε γ = Λ0` and `lam ε γ M L = profLam Λ0 ψ M L`.
+
+What this section does NOT prove: that the paper's smoothed count has this translated form (to be
+checked on paper), any other field of `H5bInputs`, or anything about the Steklov operator. -/
+
+/-- The low-energy Lipschitz constant for the translated profile. -/
+noncomputable def profLam (Λ0 : ℝ) (ψ : ℝ → ℝ) (M L : ℝ) : ℝ :=
+  if M ≤ L then max (ψ (L - M)) 0 else Λ0
+
+theorem profLam_nonneg {Λ0 : ℝ} (hΛ0 : 0 ≤ Λ0) (ψ : ℝ → ℝ) (M L : ℝ) :
+    0 ≤ profLam Λ0 ψ M L := by
+  unfold profLam
+  split_ifs
+  · exact le_max_right _ _
+  · exact hΛ0
+
+/-- The `lipLo` inequality with constant `profLam Λ0 ψ M L`, for every `L`. -/
+theorem lipLo_profLam {ι κ : Type*} (D : Data ι κ) {M L : ℝ} {φ ψ : ℝ → ℝ} {Λ0 : ℝ}
+    (hd : Differentiable ℝ φ) (hb : ∀ t, |deriv φ t| ≤ Λ0)
+    (htail : ∀ R t, t ≤ -R → |deriv φ t| ≤ ψ R) :
+    ∀ (i : ι) (j : κ), ¬ hiE D M i j →
+      |φ (D.a i - L) - φ (D.b j - L)| ≤ profLam Λ0 ψ M L * |D.a i - D.b j| := by
+  intro i j h
+  unfold profLam
+  split_ifs with hML
+  · have h1 := lipLo_of_profile D (M := M) (L := L) (R := L - M) hd htail (by linarith) i j h
+    exact le_trans h1 (mul_le_mul_of_nonneg_right (le_max_left _ _) (abs_nonneg _))
+  · exact abs_sub_le_of_deriv_bound (differentiable_shift hd L)
+      (fun x => by rw [deriv_shift hd L x, Real.norm_eq_abs]; exact hb (x - L)) (D.a i) (D.b j)
+
+/-- `profLam` vanishes as `L → ∞` for fixed `M`, given the decay of `ψ`. -/
+theorem profLam_vanish {Λ0 : ℝ} {ψ : ℝ → ℝ}
+    (hψ : ∀ η : ℝ, 0 < η → ∃ R₀ : ℝ, ∀ R, R₀ ≤ R → ψ R ≤ η)
+    (M η : ℝ) (hη : 0 < η) : ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → profLam Λ0 ψ M L ≤ η := by
+  obtain ⟨R₀, hR₀⟩ := hψ η hη
+  refine ⟨M + max R₀ 0, fun L hL => ?_⟩
+  have h1 : R₀ ≤ L - M := by have := le_max_left R₀ 0; linarith
+  have h2 : M ≤ L := by have := le_max_right R₀ 0; linarith
+  unfold profLam
+  rw [if_pos h2]
+  exact max_le (hR₀ _ h1) hη.le
+
+/-- `ψ → 0` at `+∞` gives the decay hypothesis `hψ`. -/
+theorem eventually_le_of_tendsto {ψ : ℝ → ℝ} (h : Filter.Tendsto ψ Filter.atTop (nhds 0)) :
+    ∀ η : ℝ, 0 < η → ∃ R₀ : ℝ, ∀ R, R₀ ≤ R → ψ R ≤ η := by
+  intro η hη
+  obtain ⟨N, hN⟩ := Metric.tendsto_atTop.1 h η hη
+  refine ⟨N, fun R hR => ?_⟩
+  have h1 := hN R hR
+  rw [Real.dist_eq, sub_zero] at h1
+  exact le_trans (le_abs_self _) h1.le
+
+/-- A window profile: bounded derivative, with a left-tail derivative bound `ψ` that decays. -/
+structure ProfileLipRows where
+  φ : ℝ → ℝ
+  ψ : ℝ → ℝ
+  Λ0 : ℝ
+  hd : Differentiable ℝ φ
+  hb : ∀ t, |deriv φ t| ≤ Λ0
+  htail : ∀ R t, t ≤ -R → |deriv φ t| ≤ ψ R
+  hψ : ∀ η : ℝ, 0 < η → ∃ R₀ : ℝ, ∀ R, R₀ ≤ R → ψ R ≤ η
+
+/-- **G7.** The five fields `hΛ0`, `lipHi`, `hlam`, `lipLo`, `lamVanish` of `H5bInputs`, in their
+exact shapes, for `F ε γ L x = P.φ (x - L)`, `Λ0 ε γ = P.Λ0`, `lam ε γ M L = profLam P.Λ0 P.ψ M L`. -/
+theorem lipGroup_of_profile (P : ProfileLipRows) {nA nB : ℝ → ℝ → ℝ → ℕ}
+    (D : ∀ ε γ L : ℝ, Data (Fin (nA ε γ L)) (Fin (nB ε γ L))) :
+    (∀ _ε _γ : ℝ, 0 ≤ P.Λ0) ∧
+    (∀ (ε γ M L : ℝ) (i : Fin (nA ε γ L)) (j : Fin (nB ε γ L)), hiE (D ε γ L) M i j →
+      |P.φ ((D ε γ L).a i - L) - P.φ ((D ε γ L).b j - L)|
+        ≤ P.Λ0 * |(D ε γ L).a i - (D ε γ L).b j|) ∧
+    (∀ _ε _γ M L : ℝ, 0 ≤ profLam P.Λ0 P.ψ M L) ∧
+    (∀ (ε γ M L : ℝ) (i : Fin (nA ε γ L)) (j : Fin (nB ε γ L)), ¬ hiE (D ε γ L) M i j →
+      |P.φ ((D ε γ L).a i - L) - P.φ ((D ε γ L).b j - L)|
+        ≤ profLam P.Λ0 P.ψ M L * |(D ε γ L).a i - (D ε γ L).b j|) ∧
+    (∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ M η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+      profLam P.Λ0 P.ψ M L ≤ η) := by
+  have hΛ0 : 0 ≤ P.Λ0 := le_trans (abs_nonneg _) (P.hb 0)
+  refine ⟨fun _ _ => hΛ0, lipHi_field_profile D P.hd P.hb,
+    fun _ _ M L => profLam_nonneg hΛ0 P.ψ M L,
+    fun ε γ M L => lipLo_profLam (D ε γ L) (M := M) (L := L) P.hd P.hb P.htail,
+    fun _ _ _ _ M η hη => profLam_vanish P.hψ M η hη⟩
+
 end SteklovAudit.H5WindowProfile
