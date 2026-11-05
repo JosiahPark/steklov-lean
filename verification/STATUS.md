@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 18:22 UTC at commit `282d63bf5236`. Last passing commit: `282d63bf5236`.
+Checked 2026-11-05 19:20 UTC at commit `632bf9d78e94`. Last passing commit: `632bf9d78e94`.
 
-Library declarations checked: 509 of 509 theorems compile with only Lean's standard axioms.
+Library declarations checked: 517 of 517 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -275,6 +275,14 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound_Iic` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_of_deriv_bound` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.le_of_not_hiE` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_of_deriv_bound_le` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.hΛ0_of_deriv_bound` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_field` | verified (standard axioms only) |
+| H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_field` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |

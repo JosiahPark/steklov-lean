@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 18:22 UTC",
+  "checked_at": "2026-11-05 19:20 UTC",
   "lean_exit_code": 0,
-  "commit": "282d63bf52361d1d0d65a58677d38171226ccaea",
-  "last_passing_commit": "282d63bf52361d1d0d65a58677d38171226ccaea",
-  "library_declarations_checked": 509,
-  "library_declarations": 509,
+  "commit": "632bf9d78e94520b5b2e8f8173321c480d191ec0",
+  "last_passing_commit": "632bf9d78e94520b5b2e8f8173321c480d191ec0",
+  "library_declarations_checked": 517,
+  "library_declarations": 517,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 509,
-  "verified": 509,
+  "theorems": 517,
+  "verified": 517,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2498,6 +2498,86 @@
     {
       "file": "H5CutoffSmoothed.lean",
       "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound_Iic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.lipHi_of_deriv_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.le_of_not_hiE",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.lipLo_of_deriv_bound_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.h\u039b0_of_deriv_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.lipHi_field",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LipRows.lean",
+      "theorem": "SteklovAudit.H5LipRows.lipLo_field",
       "axioms": [
         "propext",
         "Classical.choice",
