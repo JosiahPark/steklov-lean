@@ -160,4 +160,126 @@ theorem h5b_of_inputs {E Emod : ℝ → ℝ → ℝ → ℝ} (H : H5bInputs E Em
     (fun M L => H.lam ε γ M L * (Real.sqrt (H.κ2 ε γ M * H.Cm ε γ) * (1 + L)) + H.disc ε γ L)
     (fun M => Real.sqrt_nonneg _) key htail hlow η hη
 
+/-! ### F2: satisfiability, the disguise audit, and the F ledger
+
+Audit result (proved below, `inputs_iff_target`): `Nonempty (H5bInputs E Emod) ↔ H5bTarget E Emod`.
+So in Lean the inputs are satisfiable but are *not* strictly weaker than the target: since the
+cutoff data `D` is unconstrained, the empty cutoff turns `cutoff` + `discVanish` into the target
+itself. The fields `cutoff`/`discVanish` state a bound on `E − Emod` at scale `L` (through `disc`);
+no other field mentions `E` or `Emod`. The ledger `Thm111InputsF` is therefore equivalent to
+`Thm111InputsC4` (`toC4`, `ofC4`); its content over C4 is only in the paper review of the
+`cutoff` row with `D` the actual spectral data. Nothing here proves H5b for the Steklov operator. -/
+
+/-- The cutoff with no eigenvalues. -/
+def emptyData : Data (Fin 0) (Fin 0) := ⟨fun i => i.elim0, fun j => j.elim0, fun i _ => i.elim0⟩
+
+/-- From the target alone: empty cutoff, `disc = |E − Emod|`, all other inputs zero. -/
+noncomputable def inputsOfTarget {E Emod : ℝ → ℝ → ℝ → ℝ} (h : H5bTarget E Emod) :
+    H5bInputs E Emod where
+  nA := fun _ _ _ => 0
+  nB := fun _ _ _ => 0
+  D := fun _ _ _ => emptyData
+  F := fun _ _ _ _ => 0
+  disc := fun ε γ L => |E ε γ L - Emod ε γ L|
+  cutoff := by intro ε γ L; simp
+  discVanish := fun ε γ hε hγ η hη => h ε γ hε hγ η hη
+  Cm := fun _ _ => 0
+  Ck := fun _ _ => 0
+  hCm := fun _ _ => le_refl 0
+  pde := fun _ _ _ => ⟨by simp [hs2], by simp [hs2]⟩
+  τ := fun _ _ _ => 0
+  tail := by intro ε γ M L; simp [hs2]
+  tailVanish := fun _ _ _ _ _ hδ => ⟨0, hδ.le⟩
+  κ2 := fun _ _ _ => 0
+  lowDefect := by intro ε γ M L; simp [hs2]
+  Λ0 := fun _ _ => 0
+  hΛ0 := fun _ _ => le_refl 0
+  lam := fun _ _ _ _ => 0
+  hlam := fun _ _ _ _ => le_refl 0
+  lipHi := fun _ _ _ _ i => Fin.elim0 i
+  lipLo := fun _ _ _ _ i => Fin.elim0 i
+  lamVanish := fun _ _ _ _ _ _ hη => ⟨0, fun _ _ => hη.le⟩
+
+/-- **F2 audit.** The inputs hold exactly when the target holds. -/
+theorem inputs_iff_target (E Emod : ℝ → ℝ → ℝ → ℝ) :
+    Nonempty (H5bInputs E Emod) ↔ H5bTarget E Emod :=
+  ⟨fun ⟨H⟩ => h5b_of_inputs H, fun h => ⟨inputsOfTarget h⟩⟩
+
+/-- **F2 satisfiability.** An explicit witness: `E = Emod`. -/
+theorem inputs_nonempty (E : ℝ → ℝ → ℝ → ℝ) : Nonempty (H5bInputs E E) := by
+  refine ⟨inputsOfTarget ?_⟩
+  unfold H5bTarget
+  intro ε γ _ _ η hη
+  refine ⟨0, fun L hL => ?_⟩
+  rw [sub_self, abs_zero]
+  exact mul_nonneg hη.le hL
+
+/-- The C4 ledger with `compare` replaced by `H5bInputs`. -/
+structure Thm111InputsF (N : ℝ → ℝ) (a c : ℝ) where
+  vert : ℝ → MainConditional.VertexPart
+  part : ℝ → ℝ → MainConditional.EdgeFacePart
+  CL : ℝ
+  CV : ℝ
+  DE : ℝ → ℝ
+  hCL : 0 ≤ CL
+  hCV : 0 ≤ CV
+  hDE : ∀ ε, 0 ≤ DE ε
+  splitting : ∀ ε γ L, N L = (vert ε).V L + (part ε γ).E L + (part ε γ).F L
+  area : ∀ ε γ, (vert ε).AV + (part ε γ).AE + (part ε γ).AF = MainConditional.areaCoeff a
+  length : ∀ ε, 0 < ε → |(vert ε).len - 6 * a| ≤ CL * ε
+  vertex : ∀ ε, 0 < ε → ∀ η, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+    |(vert ε).V L - (vert ε).AV * L ^ 2| ≤ (CV * ε + η) * L
+  face : ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+    |(part ε γ).F L - (part ε γ).AF * L ^ 2| ≤ η * L
+  Emod : ℝ → ℝ → ℝ → ℝ
+  model : ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+    |Emod ε γ L - (part ε γ).AE * L ^ 2 - c * (vert ε).len * L| ≤ (DE ε * γ + η) * L
+  /-- H5b, as the named inputs of F1. -/
+  h5b : H5bInputs (fun ε γ L => (part ε γ).E L) Emod
+
+/-- The F ledger gives the C4 ledger. -/
+noncomputable def toC4 {N : ℝ → ℝ} {a c : ℝ} (H : Thm111InputsF N a c) :
+    EdgeFromModel.Thm111InputsC4 N a c where
+  vert := H.vert
+  part := H.part
+  CL := H.CL
+  CV := H.CV
+  DE := H.DE
+  hCL := H.hCL
+  hCV := H.hCV
+  hDE := H.hDE
+  splitting := H.splitting
+  area := H.area
+  length := H.length
+  vertex := H.vertex
+  face := H.face
+  Emod := H.Emod
+  model := H.model
+  compare := h5b_of_inputs H.h5b
+
+/-- Converse (from `inputs_iff_target`): the F ledger is no stronger than the C4 ledger. -/
+noncomputable def ofC4 {N : ℝ → ℝ} {a c : ℝ} (H : EdgeFromModel.Thm111InputsC4 N a c) :
+    Thm111InputsF N a c where
+  vert := H.vert
+  part := H.part
+  CL := H.CL
+  CV := H.CV
+  DE := H.DE
+  hCL := H.hCL
+  hCV := H.hCV
+  hDE := H.hDE
+  splitting := H.splitting
+  area := H.area
+  length := H.length
+  vertex := H.vertex
+  face := H.face
+  Emod := H.Emod
+  model := H.model
+  h5b := inputsOfTarget (compare_is_target H)
+
+/-- **Theorem 11.1 (conditional), F ledger.** Not a proof of Theorem 1.3 / 11.1. -/
+theorem theorem_11_1_of_F (N : ℝ → ℝ) (a c : ℝ) (H : Thm111InputsF N a c) :
+    HasSharpRealLaw N (MainConditional.areaCoeff a) (6 * a * c) :=
+  EdgeFromModel.theorem_11_1_of_C4 N a c (toC4 H)
+
 end SteklovAudit.H5Compare
