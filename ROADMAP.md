@@ -216,10 +216,10 @@ are done.
       Σ_{a_i ≤ L} Σ_{b_j ≥ L+s} J_ji² ≤ s⁻² Σ_{a_i ≤ L} Σ_j K_ji² (from `window_gap_leakage` plus the
       sub-sum step); (iii) the layer cake ∫₀^∞ 2t · 1[x > t] dt = max(x, 0)² for real x, summed to
       ∫₀^∞ 2t H(t) dt = Σ (b_j − L)₊² J_ji² with H(t) = Σ_{a_i ≤ L} Σ_{b_j > L+t} J_ji².
-- [ ] R3. R27.2 in coordinates, `SteklovAudit/PropagatorTrace.lean`: for a rank-r coordinate projection P,
+- [x] R3. R27.2 in coordinates, `SteklovAudit/PropagatorTrace.lean`: for a rank-r coordinate projection P,
       |Tr(P U(t) P)| ≤ √r · |t| · ‖K‖_HS with U(t) entrywise (e^{itb_j} − e^{ita_i}) J_ji; combine
       `trace_rank_amplification` with `duhamel_hs`.
-- [ ] R4. R21.2 in coordinates, `SteklovAudit/MultiChartTrace.lean`: charts J_i with Σ J_iᵀ J_i = I give
+- [~] R4. R21.2 in coordinates, `SteklovAudit/MultiChartTrace.lean`: charts J_i with Σ J_iᵀ J_i = I give
       |Tr e^{itA} − Σ_i Tr(J_iᵀ e^{itB_i} J_i)| ≤ √dim · |t| · (Σ_i ‖K_i‖²_HS)^{1/2}; sharpness example
       A = 0, B = I, J = I on ℂⁿ (discrepancy n|1 − e^{it}|).
 - [ ] R5. R20.1, discrete kernel first, `SteklovAudit/WindowMassSmoothing.lean`: if N is nondecreasing,
