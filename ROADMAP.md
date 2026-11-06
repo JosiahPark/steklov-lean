@@ -386,7 +386,7 @@ claims a row is proved for the actual operator.
       `M ≤ L`, else `Λ0`), `profLam_nonneg`, `lipLo_profLam`, `profLam_vanish`, `eventually_le_of_tendsto`,
       `ProfileLipRows`, `lipGroup_of_profile`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-05: STATUS PASS 536/536 at f568283, all five G7 declarations verified.
-- [ ] G8. Same file (or `SteklovAudit/H5WindowWitness.lean`): non-vacuity of G6/G7. `φ := Real.arctan`
+- [x] G8. Same file (or `SteklovAudit/H5WindowWitness.lean`): non-vacuity of G6/G7. `φ := Real.arctan`
       satisfies the profile hypotheses with `Λ0 = 1`, `ψ R = 1 / (1 + R ^ 2)` for R ≥ 0 (`Real.deriv_arctan`
       or `Real.hasDerivAt_arctan`), and `arctan_profile_nonjunk`: the resulting test is non-constant
       (`φ 1 - φ 0 ≠ 0`), so the row is not satisfied by a trivial test.
@@ -395,11 +395,16 @@ claims a row is proved for the actual operator.
       (`1 / (1 + (max R 0) ^ 2)`, so `htail` holds for every R), `arctan_tail`, `arctanTail_small`,
       `arctanProfile : ProfileLipRows`, `arctan_lipGroup`, `arctan_profile_nonjunk`, `arctan_shift_nonconst`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-06: STATUS PASS 545/545 at ca90967, all G8 declarations verified.
 - [ ] G9. `SteklovAudit/H5TailRate.lean`: reduce `tailVanish` to a decay rate. `tailVanish_of_power`: if
       `τ ε γ M ≤ C ε γ / M` for all M ≥ 1 (C ≥ 0), then the
       `tailVanish` field holds; and `tail_rate_not_target`: this hypothesis mentions neither `E` nor
       `Emod` (state it as a `Prop` on `τ` alone, so the F2 disguise audit applies by construction).
       Records the shape a paper bound for the high-energy tail row must take.
+      Written by the formalize task 2026-11-06 (uncompiled at push): `TailRate` (a `Prop` on `τ`, `C` only),
+      `div_le_of_rate`, `tailVanish_of_power`, `tailVanish_field`, `invRate`, `invRate_vanish`,
+      `not_target_double`, `tail_rate_not_target` (rate satisfiable while `H5bTarget` fails for E = 2L,
+      Emod = 0). Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
