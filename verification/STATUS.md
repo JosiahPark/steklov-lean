@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-05 23:36 UTC at commit `ca909678e6bd`. Last passing commit: `ca909678e6bd`.
+Checked 2026-11-06 00:19 UTC at commit `053e020585f7`. Last passing commit: `053e020585f7`.
 
-Library declarations checked: 545 of 545 theorems compile with only Lean's standard axioms.
+Library declarations checked: 552 of 552 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -293,6 +293,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_hi_mask` | verified (standard axioms only) |
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_not_imp_tail` | verified (standard axioms only) |
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.tail_row_fails` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.div_le_of_rate` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.tailVanish_of_power` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.tailVanish_field` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.invRate` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.invRate_vanish` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.not_target_double` | verified (standard axioms only) |
+| H5TailRate.lean | `SteklovAudit.H5TailRate.tail_rate_not_target` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.hasDerivAt_shift` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.deriv_shift` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.differentiable_shift` | verified (standard axioms only) |

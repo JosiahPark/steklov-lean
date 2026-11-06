@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-05 23:36 UTC",
+  "checked_at": "2026-11-06 00:19 UTC",
   "lean_exit_code": 0,
-  "commit": "ca909678e6bd46cf145003c8f59f63dd4cefbb51",
-  "last_passing_commit": "ca909678e6bd46cf145003c8f59f63dd4cefbb51",
-  "library_declarations_checked": 545,
-  "library_declarations": 545,
+  "commit": "053e020585f71be08275a3087db929c3f4de4469",
+  "last_passing_commit": "053e020585f71be08275a3087db929c3f4de4469",
+  "library_declarations_checked": 552,
+  "library_declarations": 552,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 545,
-  "verified": 545,
+  "theorems": 552,
+  "verified": 552,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2678,6 +2678,76 @@
     {
       "file": "H5TailAudit.lean",
       "theorem": "SteklovAudit.H5TailAudit.tail_row_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.div_le_of_rate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.tailVanish_of_power",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.tailVanish_field",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.invRate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.invRate_vanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.not_target_double",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailRate.lean",
+      "theorem": "SteklovAudit.H5TailRate.tail_rate_not_target",
       "axioms": [
         "propext",
         "Classical.choice",
