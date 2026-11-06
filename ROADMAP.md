@@ -396,7 +396,7 @@ claims a row is proved for the actual operator.
       `arctanProfile : ProfileLipRows`, `arctan_lipGroup`, `arctan_profile_nonjunk`, `arctan_shift_nonconst`.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-06: STATUS PASS 545/545 at ca90967, all G8 declarations verified.
-- [ ] G9. `SteklovAudit/H5TailRate.lean`: reduce `tailVanish` to a decay rate. `tailVanish_of_power`: if
+- [x] G9. `SteklovAudit/H5TailRate.lean`: reduce `tailVanish` to a decay rate. `tailVanish_of_power`: if
       `τ ε γ M ≤ C ε γ / M` for all M ≥ 1 (C ≥ 0), then the
       `tailVanish` field holds; and `tail_rate_not_target`: this hypothesis mentions neither `E` nor
       `Emod` (state it as a `Prop` on `τ` alone, so the F2 disguise audit applies by construction).
@@ -405,6 +405,36 @@ claims a row is proved for the actual operator.
       `div_le_of_rate`, `tailVanish_of_power`, `tailVanish_field`, `invRate`, `invRate_vanish`,
       `not_target_double`, `tail_rate_not_target` (rate satisfiable while `H5bTarget` fails for E = 2L,
       Emod = 0). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-06: STATUS PASS 552/552 at 053e020, all seven G9 theorems verified.
+
+G10–G13 written by the formalize task on 2026-11-06 (after G9 was ticked). Each serves the F table; none
+claims a row is proved for the actual operator.
+
+- [ ] G10. `SteklovAudit/H5LowMass.lean`: reduce the low-energy defect row κ to a low-energy mass bound on
+      `J`. Low pairs have `max (a i) (b j) ≤ M`; with nonnegative energies (`0 ≤ a i`, `0 ≤ b j`, true for
+      Steklov eigenvalues) this gives `|a i - b j| ≤ M`, hence `|K i j| ≤ M * |J i j|`. Prove
+      `abs_sub_le_of_low` (`0 ≤ x`, `0 ≤ y`, `max x y ≤ M` ⇒ `|x - y| ≤ M`), `low_K_sq_le`, and
+      `lowDefect_of_lowMass`: if `hs2 (mask (¬ hiE D M) J) ≤ m M` then
+      `hs2 (mask (¬ hiE D M) D.K) ≤ M ^ 2 * m M`; plus `lowDefect_field` in the exact shape of
+      `H5bInputs.lowDefect` with `κ2 ε γ M := M ^ 2 * m ε γ M`. Replaces the row "low-energy defect bound κ"
+      by "the identification `J` has L-uniform mass on energies ≤ M" (a statement on `J`, not on `K`).
+- [ ] G11. Same file: the low-mass input is a genuine input and is not the target in disguise.
+      `lowMass_not_of_pde`: an explicit family (`Fin 1`, a = b = 0, J = 1 + L) satisfies `PDEInputs` for
+      every L (Cm = 1, Ck = 0) but `hs2 (mask (¬ hiE D 1) J)` is unbounded in L, so the low-mass row does not
+      follow from `PDEInputs.mass`; and `lowMass_satisfiable` (J = 0 witness, m = 0). The hypothesis is a
+      `Prop` on `D` and `m` only and mentions neither `E` nor `Emod`.
+- [ ] G12. `SteklovAudit/H5MassRow.lean`: reduce the mass row (2.2) to a Bessel bound plus a Weyl count.
+      `mass_of_bessel_count`: if `∀ i, ∑ j, J i j ^ 2 ≤ 1` and `(Fintype.card ι : ℝ) ≤ Cw * (1 + L) ^ 2`, then
+      `hs2 J ≤ Cw * (1 + L) ^ 2` (`Finset.sum_le_sum`, `Finset.sum_const`, `Finset.card_univ`);
+      `pde_of_bessel_count`: the same with a defect bound gives `PDEInputs D L Cw Ck`; and
+      `bessel_count_nonjunk`: a witness on `Fin 2` with `J` the identity matrix. Records the row
+      "localized spectral mass" as (rows of `J` have norm ≤ 1) + (eigenvalue count below the cutoff is
+      O(L²)); neither is proved for the tetrahedron.
+- [ ] G13. `SteklovAudit/H5WeakRows.lean`: assemble G9 + G10. `structure H5bWeakInputs` = `H5bInputs` with
+      `tailVanish` replaced by `TailRate τ Cτ` (G9) and `κ2`, `lowDefect` replaced by a low-mass bound
+      `m` on `J` plus nonnegative energies (G10). Prove `H5bWeakInputs.toInputs : H5bInputs E Emod` (a `def`)
+      and `h5b_of_weak : H5bTarget E Emod` via `h5b_of_inputs`. Records the F table with two rows replaced
+      by the weaker named inputs; the `cutoff` row and `pde` are unchanged.
 
 ## Not attempted here
 
