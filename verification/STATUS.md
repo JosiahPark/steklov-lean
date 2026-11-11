@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-11 17:28 UTC at commit `0d7659970404`. Last passing commit: `0d7659970404`.
+Checked 2026-11-11 18:20 UTC at commit `43d1b00079c6`. Last passing commit: `43d1b00079c6`.
 
-Library declarations checked: 574 of 574 theorems compile with only Lean's standard axioms.
+Library declarations checked: 577 of 577 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -322,6 +322,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5TailRate.lean | `SteklovAudit.H5TailRate.invRate_vanish` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.not_target_double` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.tail_rate_not_target` | verified (standard axioms only) |
+| H5WeakRows.lean | `SteklovAudit.H5WeakRows.toInputs_κ2` | verified (standard axioms only) |
+| H5WeakRows.lean | `SteklovAudit.H5WeakRows.toInputs_disc` | verified (standard axioms only) |
+| H5WeakRows.lean | `SteklovAudit.H5WeakRows.h5b_of_weak` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.hasDerivAt_shift` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.deriv_shift` | verified (standard axioms only) |
 | H5WindowProfile.lean | `SteklovAudit.H5WindowProfile.differentiable_shift` | verified (standard axioms only) |

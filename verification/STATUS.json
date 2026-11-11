@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-11 17:28 UTC",
+  "checked_at": "2026-11-11 18:20 UTC",
   "lean_exit_code": 0,
-  "commit": "0d7659970404dd858d5b9209ec13e9919beb1650",
-  "last_passing_commit": "0d7659970404dd858d5b9209ec13e9919beb1650",
-  "library_declarations_checked": 574,
-  "library_declarations": 574,
+  "commit": "43d1b00079c666390da07f8ee5a89cf2bb1d7392",
+  "last_passing_commit": "43d1b00079c666390da07f8ee5a89cf2bb1d7392",
+  "library_declarations_checked": 577,
+  "library_declarations": 577,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 574,
-  "verified": 574,
+  "theorems": 577,
+  "verified": 577,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2968,6 +2968,36 @@
     {
       "file": "H5TailRate.lean",
       "theorem": "SteklovAudit.H5TailRate.tail_rate_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WeakRows.lean",
+      "theorem": "SteklovAudit.H5WeakRows.toInputs_\u03ba2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WeakRows.lean",
+      "theorem": "SteklovAudit.H5WeakRows.toInputs_disc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5WeakRows.lean",
+      "theorem": "SteklovAudit.H5WeakRows.h5b_of_weak",
       "axioms": [
         "propext",
         "Classical.choice",
