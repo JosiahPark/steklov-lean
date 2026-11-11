@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-11 07:04 UTC",
+  "checked_at": "2026-11-11 17:22 UTC",
   "lean_exit_code": 0,
-  "commit": "3eabe2118f08dafde1d36d3b9a4426cff45ba13c",
-  "last_passing_commit": "3eabe2118f08dafde1d36d3b9a4426cff45ba13c",
-  "library_declarations_checked": 558,
-  "library_declarations": 558,
+  "commit": "6af733c4e2f4e695fcbe6c78cd1e330397478e6d",
+  "last_passing_commit": "6af733c4e2f4e695fcbe6c78cd1e330397478e6d",
+  "library_declarations_checked": 568,
+  "library_declarations": 568,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 558,
-  "verified": 558,
+  "theorems": 568,
+  "verified": 568,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2638,6 +2638,106 @@
     {
       "file": "H5LowMass.lean",
       "theorem": "SteklovAudit.H5LowMass.lowDefect_field",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowDefect_of_LowMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.hs2_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowCounter_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowCounter_pde",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowCounter_low_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowMass_not_of_pde",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowMass_row_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowMass_of_J_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowMass_satisfiable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowMass_not_target",
       "axioms": [
         "propext",
         "Classical.choice",

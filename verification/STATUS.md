@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-11 07:04 UTC at commit `3eabe2118f08`. Last passing commit: `3eabe2118f08`.
+Checked 2026-11-11 17:22 UTC at commit `6af733c4e2f4`. Last passing commit: `6af733c4e2f4`.
 
-Library declarations checked: 558 of 558 theorems compile with only Lean's standard axioms.
+Library declarations checked: 568 of 568 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -289,6 +289,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LowMass.lean | `SteklovAudit.H5LowMass.hs2_low_K_le` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowDefect_of_lowMass` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowDefect_field` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowDefect_of_LowMass` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.hs2_one` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowCounter_nonneg` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowCounter_pde` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowCounter_low_mass` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_not_of_pde` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_row_fails` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_of_J_zero` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_satisfiable` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_not_target` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
