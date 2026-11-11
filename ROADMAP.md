@@ -410,7 +410,7 @@ claims a row is proved for the actual operator.
 G10–G13 written by the formalize task on 2026-11-06 (after G9 was ticked). Each serves the F table; none
 claims a row is proved for the actual operator.
 
-- [ ] G10. `SteklovAudit/H5LowMass.lean`: reduce the low-energy defect row κ to a low-energy mass bound on
+- [x] G10. `SteklovAudit/H5LowMass.lean`: reduce the low-energy defect row κ to a low-energy mass bound on
       `J`. Low pairs have `max (a i) (b j) ≤ M`; with nonnegative energies (`0 ≤ a i`, `0 ≤ b j`, true for
       Steklov eigenvalues) this gives `|a i - b j| ≤ M`, hence `|K i j| ≤ M * |J i j|`. Prove
       `abs_sub_le_of_low` (`0 ≤ x`, `0 ≤ y`, `max x y ≤ M` ⇒ `|x - y| ≤ M`), `low_K_sq_le`, and
@@ -421,11 +421,17 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-11 (uncompiled at push, commit c63ec0f): `abs_sub_le_of_low`,
       `low_K_sq_le`, `low_mask_K_sq_le`, `hs2_low_K_le`, `lowDefect_of_lowMass`, `lowDefect_field`. Next run:
       tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-11: STATUS PASS 558/558 at 3eabe21, all six G10 theorems verified.
 - [ ] G11. Same file: the low-mass input is a genuine input and is not the target in disguise.
       `lowMass_not_of_pde`: an explicit family (`Fin 1`, a = b = 0, J = 1 + L) satisfies `PDEInputs` for
       every L (Cm = 1, Ck = 0) but `hs2 (mask (¬ hiE D 1) J)` is unbounded in L, so the low-mass row does not
       follow from `PDEInputs.mass`; and `lowMass_satisfiable` (J = 0 witness, m = 0). The hypothesis is a
       `Prop` on `D` and `m` only and mentions neither `E` nor `Emod`.
+      Written by the formalize task 2026-11-11 (uncompiled at push, commit d0660b5): `LowMass`,
+      `lowDefect_of_LowMass`, `hs2_one`, `lowCounter`, `lowCounter_nonneg`, `lowCounter_pde`,
+      `lowCounter_low_mass`, `lowMass_not_of_pde`, `lowMass_row_fails`, `lowMass_of_J_zero`, `zeroData`,
+      `lowMass_satisfiable`, `lowMass_not_target` (reuses G9's `not_target_double`; the file now imports
+      `SteklovAudit.H5TailRate`). Next run: tick if STATUS shows it compiled.
 - [ ] G12. `SteklovAudit/H5MassRow.lean`: reduce the mass row (2.2) to a Bessel bound plus a Weyl count.
       `mass_of_bessel_count`: if `∀ i, ∑ j, J i j ^ 2 ≤ 1` and `(Fintype.card ι : ℝ) ≤ Cw * (1 + L) ^ 2`, then
       `hs2 J ≤ Cw * (1 + L) ^ 2` (`Finset.sum_le_sum`, `Finset.sum_const`, `Finset.card_univ`);
