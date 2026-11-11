@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-11 19:54 UTC at commit `f48dbd612026`. Last passing commit: `f48dbd612026`.
+Checked 2026-11-11 23:43 UTC at commit `cf32b08a1959`. Last passing commit: `cf32b08a1959`.
 
-Library declarations checked: 577 of 577 theorems compile with only Lean's standard axioms.
+Library declarations checked: 586 of 586 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -322,6 +322,15 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5TailRate.lean | `SteklovAudit.H5TailRate.invRate_vanish` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.not_target_double` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.tail_rate_not_target` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.weak_hs2_zero` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.zeroData_J` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.zeroData_K` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.zeroData_pde` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.zeroData_tail` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.zeroRate` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.weakWitness_nonempty` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.weak_rows_not_target` | verified (standard axioms only) |
+| H5WeakAudit.lean | `SteklovAudit.H5WeakAudit.weak_iff_target` | verified (standard axioms only) |
 | H5WeakRows.lean | `SteklovAudit.H5WeakRows.toInputs_κ2` | verified (standard axioms only) |
 | H5WeakRows.lean | `SteklovAudit.H5WeakRows.toInputs_disc` | verified (standard axioms only) |
 | H5WeakRows.lean | `SteklovAudit.H5WeakRows.h5b_of_weak` | verified (standard axioms only) |
