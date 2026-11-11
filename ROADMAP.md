@@ -422,7 +422,7 @@ claims a row is proved for the actual operator.
       `low_K_sq_le`, `low_mask_K_sq_le`, `hs2_low_K_le`, `lowDefect_of_lowMass`, `lowDefect_field`. Next run:
       tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-11: STATUS PASS 558/558 at 3eabe21, all six G10 theorems verified.
-- [ ] G11. Same file: the low-mass input is a genuine input and is not the target in disguise.
+- [x] G11. Same file: the low-mass input is a genuine input and is not the target in disguise.
       `lowMass_not_of_pde`: an explicit family (`Fin 1`, a = b = 0, J = 1 + L) satisfies `PDEInputs` for
       every L (Cm = 1, Ck = 0) but `hs2 (mask (¬ hiE D 1) J)` is unbounded in L, so the low-mass row does not
       follow from `PDEInputs.mass`; and `lowMass_satisfiable` (J = 0 witness, m = 0). The hypothesis is a
@@ -432,18 +432,25 @@ claims a row is proved for the actual operator.
       `lowCounter_low_mass`, `lowMass_not_of_pde`, `lowMass_row_fails`, `lowMass_of_J_zero`, `zeroData`,
       `lowMass_satisfiable`, `lowMass_not_target` (reuses G9's `not_target_double`; the file now imports
       `SteklovAudit.H5TailRate`). Next run: tick if STATUS shows it compiled.
-- [ ] G12. `SteklovAudit/H5MassRow.lean`: reduce the mass row (2.2) to a Bessel bound plus a Weyl count.
+      Ticked by the formalize task 2026-11-11: STATUS PASS 574/574 at 0d76599, all G11 theorems verified.
+- [x] G12. `SteklovAudit/H5MassRow.lean`: reduce the mass row (2.2) to a Bessel bound plus a Weyl count.
       `mass_of_bessel_count`: if `∀ i, ∑ j, J i j ^ 2 ≤ 1` and `(Fintype.card ι : ℝ) ≤ Cw * (1 + L) ^ 2`, then
       `hs2 J ≤ Cw * (1 + L) ^ 2` (`Finset.sum_le_sum`, `Finset.sum_const`, `Finset.card_univ`);
       `pde_of_bessel_count`: the same with a defect bound gives `PDEInputs D L Cw Ck`; and
       `bessel_count_nonjunk`: a witness on `Fin 2` with `J` the identity matrix. Records the row
       "localized spectral mass" as (rows of `J` have norm ≤ 1) + (eigenvalue count below the cutoff is
       O(L²)); neither is proved for the tetrahedron.
+      Ticked by the formalize task 2026-11-11: STATUS PASS 574/574 at 0d76599, `sum_one_eq_card`,
+      `mass_of_bessel_count`, `pde_of_bessel_count`, `idJ_row`, `idJ_hs2`, `bessel_count_nonjunk` verified.
 - [ ] G13. `SteklovAudit/H5WeakRows.lean`: assemble G9 + G10. `structure H5bWeakInputs` = `H5bInputs` with
       `tailVanish` replaced by `TailRate τ Cτ` (G9) and `κ2`, `lowDefect` replaced by a low-mass bound
       `m` on `J` plus nonnegative energies (G10). Prove `H5bWeakInputs.toInputs : H5bInputs E Emod` (a `def`)
       and `h5b_of_weak : H5bTarget E Emod` via `h5b_of_inputs`. Records the F table with two rows replaced
       by the weaker named inputs; the `cutoff` row and `pde` are unchanged.
+      Written by the formalize task 2026-11-11 (uncompiled at push, commit 65b3c7f): `H5bWeakInputs`
+      (fields `Cτ`, `tailRate`, `ha`, `hb`, `m`, `lowMass` replace `tailVanish`, `κ2`, `lowDefect`),
+      `H5bWeakInputs.toInputs`, `toInputs_κ2`, `toInputs_disc`, `h5b_of_weak`. Next run: tick if STATUS
+      shows it compiled.
 
 ## Not attempted here
 
