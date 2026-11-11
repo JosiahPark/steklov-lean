@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-11 17:22 UTC",
+  "checked_at": "2026-11-11 17:28 UTC",
   "lean_exit_code": 0,
-  "commit": "6af733c4e2f4e695fcbe6c78cd1e330397478e6d",
-  "last_passing_commit": "6af733c4e2f4e695fcbe6c78cd1e330397478e6d",
-  "library_declarations_checked": 568,
-  "library_declarations": 568,
+  "commit": "0d7659970404dd858d5b9209ec13e9919beb1650",
+  "last_passing_commit": "0d7659970404dd858d5b9209ec13e9919beb1650",
+  "library_declarations_checked": 574,
+  "library_declarations": 574,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 568,
-  "verified": 568,
+  "theorems": 574,
+  "verified": 574,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2738,6 +2738,66 @@
     {
       "file": "H5LowMass.lean",
       "theorem": "SteklovAudit.H5LowMass.lowMass_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.sum_one_eq_card",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.mass_of_bessel_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.pde_of_bessel_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.idJ_row",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.idJ_hs2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassRow.lean",
+      "theorem": "SteklovAudit.H5MassRow.bessel_count_nonjunk",
       "axioms": [
         "propext",
         "Classical.choice",

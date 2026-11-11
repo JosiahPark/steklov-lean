@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-11 17:22 UTC at commit `6af733c4e2f4`. Last passing commit: `6af733c4e2f4`.
+Checked 2026-11-11 17:28 UTC at commit `0d7659970404`. Last passing commit: `0d7659970404`.
 
-Library declarations checked: 568 of 568 theorems compile with only Lean's standard axioms.
+Library declarations checked: 574 of 574 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -299,6 +299,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_of_J_zero` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_satisfiable` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_not_target` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.sum_one_eq_card` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.mass_of_bessel_count` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.pde_of_bessel_count` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_row` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_hs2` | verified (standard axioms only) |
+| H5MassRow.lean | `SteklovAudit.H5MassRow.bessel_count_nonjunk` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
