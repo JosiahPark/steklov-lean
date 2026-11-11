@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-10 20:02 UTC",
+  "checked_at": "2026-11-11 05:25 UTC",
   "lean_exit_code": 0,
-  "commit": "72a628951b769e91b4270b2628b75b48972626f6",
-  "last_passing_commit": "72a628951b769e91b4270b2628b75b48972626f6",
-  "library_declarations_checked": 552,
-  "library_declarations": 552,
+  "commit": "b0b8abeeeda1aff29c4f447b39fb83bcc0c8a3a7",
+  "last_passing_commit": "b0b8abeeeda1aff29c4f447b39fb83bcc0c8a3a7",
+  "library_declarations_checked": 558,
+  "library_declarations": 558,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 552,
-  "verified": 552,
+  "theorems": 558,
+  "verified": 558,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2578,6 +2578,66 @@
     {
       "file": "H5LipRows.lean",
       "theorem": "SteklovAudit.H5LipRows.lipLo_field",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.abs_sub_le_of_low",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.low_K_sq_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.low_mask_K_sq_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.hs2_low_K_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowDefect_of_lowMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowMass.lean",
+      "theorem": "SteklovAudit.H5LowMass.lowDefect_field",
       "axioms": [
         "propext",
         "Classical.choice",

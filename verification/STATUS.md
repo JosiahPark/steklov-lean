@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-10 20:02 UTC at commit `72a628951b76`. Last passing commit: `72a628951b76`.
+Checked 2026-11-11 05:25 UTC at commit `b0b8abeeeda1`. Last passing commit: `b0b8abeeeda1`.
 
-Library declarations checked: 552 of 552 theorems compile with only Lean's standard axioms.
+Library declarations checked: 558 of 558 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -283,6 +283,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LipRows.lean | `SteklovAudit.H5LipRows.hΛ0_of_deriv_bound` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_field` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_field` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.abs_sub_le_of_low` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.low_K_sq_le` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.low_mask_K_sq_le` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.hs2_low_K_le` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowDefect_of_lowMass` | verified (standard axioms only) |
+| H5LowMass.lean | `SteklovAudit.H5LowMass.lowDefect_field` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
