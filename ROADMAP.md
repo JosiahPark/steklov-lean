@@ -464,6 +464,11 @@ claims a row is proved for the actual operator.
       `lowMass` are satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails (G9's `not_target_double`),
       so neither replacement row is the target in disguise. Theorem names: `weakWitness`,
       `weakWitness_nonempty`, `weak_rows_not_target`.
+      Written by the formalize task 2026-11-11 (uncompiled at push, commit e58b396): `weak_hs2_zero`,
+      `zeroData_J`, `zeroData_K`, `zeroData_pde`, `zeroData_tail`, `zeroRate`, `weakWitness` (any `E = Emod`),
+      `weakWitness_nonempty`, `weak_rows_not_target`, plus `weakOfTarget` and `weak_iff_target`
+      (`Nonempty (H5bWeakInputs E Emod) ↔ H5bTarget E Emod`: as in F2, the disguise sits in the cutoff row).
+      Next run: tick if STATUS shows it compiled.
 - [ ] G15. `SteklovAudit/H5LowCount.lean`: reduce the low-mass row (G10/G11) to a Bessel bound plus an
       L-uniform low-energy count. Low pairs satisfy `a i ≤ M` (from `¬ hiE`, as in G5's `le_of_not_hiE`), so
       `hs2 (mask (¬ hiE D M) J) ≤ ∑ i with a i ≤ M, ∑ j, J i j ^ 2`. Prove `low_mask_le_rows`, and
