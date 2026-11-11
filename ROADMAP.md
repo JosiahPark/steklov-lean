@@ -418,6 +418,9 @@ claims a row is proved for the actual operator.
       `hs2 (mask (¬ hiE D M) D.K) ≤ M ^ 2 * m M`; plus `lowDefect_field` in the exact shape of
       `H5bInputs.lowDefect` with `κ2 ε γ M := M ^ 2 * m ε γ M`. Replaces the row "low-energy defect bound κ"
       by "the identification `J` has L-uniform mass on energies ≤ M" (a statement on `J`, not on `K`).
+      Written by the formalize task 2026-11-11 (uncompiled at push, commit c63ec0f): `abs_sub_le_of_low`,
+      `low_K_sq_le`, `low_mask_K_sq_le`, `hs2_low_K_le`, `lowDefect_of_lowMass`, `lowDefect_field`. Next run:
+      tick if STATUS shows it compiled.
 - [ ] G11. Same file: the low-mass input is a genuine input and is not the target in disguise.
       `lowMass_not_of_pde`: an explicit family (`Fin 1`, a = b = 0, J = 1 + L) satisfies `PDEInputs` for
       every L (Cm = 1, Ck = 0) but `hs2 (mask (¬ hiE D 1) J)` is unbounded in L, so the low-mass row does not
