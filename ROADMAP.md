@@ -442,7 +442,7 @@ claims a row is proved for the actual operator.
       O(L²)); neither is proved for the tetrahedron.
       Ticked by the formalize task 2026-11-11: STATUS PASS 574/574 at 0d76599, `sum_one_eq_card`,
       `mass_of_bessel_count`, `pde_of_bessel_count`, `idJ_row`, `idJ_hs2`, `bessel_count_nonjunk` verified.
-- [ ] G13. `SteklovAudit/H5WeakRows.lean`: assemble G9 + G10. `structure H5bWeakInputs` = `H5bInputs` with
+- [x] G13. `SteklovAudit/H5WeakRows.lean`: assemble G9 + G10. `structure H5bWeakInputs` = `H5bInputs` with
       `tailVanish` replaced by `TailRate τ Cτ` (G9) and `κ2`, `lowDefect` replaced by a low-mass bound
       `m` on `J` plus nonnegative energies (G10). Prove `H5bWeakInputs.toInputs : H5bInputs E Emod` (a `def`)
       and `h5b_of_weak : H5bTarget E Emod` via `h5b_of_inputs`. Records the F table with two rows replaced
@@ -451,6 +451,38 @@ claims a row is proved for the actual operator.
       (fields `Cτ`, `tailRate`, `ha`, `hb`, `m`, `lowMass` replace `tailVanish`, `κ2`, `lowDefect`),
       `H5bWeakInputs.toInputs`, `toInputs_κ2`, `toInputs_disc`, `h5b_of_weak`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-11: STATUS PASS 577/577 at 43d1b00, `toInputs_κ2`,
+      `toInputs_disc`, `h5b_of_weak` verified.
+
+G14–G17 written by the formalize task on 2026-11-11 (after G13 was ticked). Each serves the F table; none
+claims a row is proved for the actual operator.
+
+- [ ] G14. `SteklovAudit/H5WeakAudit.lean`: F2-style audit of `H5bWeakInputs` (G13). `weakWitness`: an explicit
+      `H5bWeakInputs E Emod` for E = Emod = 0 on `Fin 1` data with a = b = 0 and J = K = 0 (reuse G11's
+      `zeroData` / `lowMass_satisfiable`, G9's `invRate`, G8's `arctanProfile` or constant F = 0 with
+      Λ0 = 0, lam = 0), so the structure is not vacuous; `weak_rows_not_target`: the new rows `tailRate` and
+      `lowMass` are satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails (G9's `not_target_double`),
+      so neither replacement row is the target in disguise. Theorem names: `weakWitness`,
+      `weakWitness_nonempty`, `weak_rows_not_target`.
+- [ ] G15. `SteklovAudit/H5LowCount.lean`: reduce the low-mass row (G10/G11) to a Bessel bound plus an
+      L-uniform low-energy count. Low pairs satisfy `a i ≤ M` (from `¬ hiE`, as in G5's `le_of_not_hiE`), so
+      `hs2 (mask (¬ hiE D M) J) ≤ ∑ i with a i ≤ M, ∑ j, J i j ^ 2`. Prove `low_mask_le_rows`, and
+      `lowMass_of_bessel_lowCount`: if `∀ i, ∑ j, J i j ^ 2 ≤ 1` and
+      `((Finset.univ.filter fun i => a i ≤ M).card : ℝ) ≤ c ε γ M` for every L, then `LowMass D c`.
+      Replaces the row "low-energy defect bound κ" by "eigenvalues ≤ M are L-uniformly finitely many"
+      (true for a discrete spectrum, not proved here) plus the same Bessel bound as G12.
+- [ ] G16. `SteklovAudit/H5PaperRows.lean`: assemble G12 + G13 + G15 + G7. `structure H5bPaperInputs` =
+      `H5bWeakInputs` with `pde` replaced by `bessel`, Weyl `count` (G12) and the `defect` field of
+      `PDEInputs` copied verbatim; `lowMass` replaced by the low count of G15 (same `bessel`); and the
+      Lipschitz group replaced by `F ε γ L x = φ (x - L)` with `ProfileLipRows` (G7). Prove
+      `H5bPaperInputs.toWeak : H5bWeakInputs E Emod` (a `def`) and `h5b_of_paper : H5bTarget E Emod` via
+      `h5b_of_weak`. Records the F table rows as: cutoff, Lemma 7.1′ defect, Bessel, Weyl count, tail rate,
+      low count, window profile.
+- [ ] G17. Same file (or `SteklovAudit/H5PaperAudit.lean`): audit of G16. `paperWitness` (non-vacuity, Fin 1
+      data with J = 0, φ = arctan from G8), and `paper_rows_not_target`: every field of `H5bPaperInputs` other
+      than `cutoff`/`discVanish` is satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails, so all of the
+      "target in disguise" content stays in the cutoff row (G2, G3). Theorem names: `paperWitness`,
+      `paper_rows_not_target`.
 
 ## Not attempted here
 
