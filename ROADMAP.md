@@ -482,7 +482,7 @@ claims a row is proved for the actual operator.
       `lowDefect_of_bessel_lowCount`, `idData`, `card_filter_le_two`, `lowCount_nonjunk` (identity coupling
       on `Fin 2`, total mass 2). Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-12: STATUS PASS 594/594 (run on 0ddfe89), all eight G15 theorems verified.
-- [ ] G16. `SteklovAudit/H5PaperRows.lean`: assemble G12 + G13 + G15 + G7. `structure H5bPaperInputs` =
+- [x] G16. `SteklovAudit/H5PaperRows.lean`: assemble G12 + G13 + G15 + G7. `structure H5bPaperInputs` =
       `H5bWeakInputs` with `pde` replaced by `bessel`, Weyl `count` (G12) and the `defect` field of
       `PDEInputs` copied verbatim; `lowMass` replaced by the low count of G15 (same `bessel`); and the
       Lipschitz group replaced by `F ε γ L x = φ (x - L)` with `ProfileLipRows` (G7). Prove
@@ -493,11 +493,20 @@ claims a row is proved for the actual operator.
       `count`, `defect`, `c`, `lowCount` replace `F`, `pde`, `m`, `lowMass` and the Lipschitz group),
       `H5bPaperInputs.toWeak`, `toWeak_F`, `toWeak_m`, `toWeak_disc`, `h5b_of_paper`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-12: STATUS PASS 598/598 at 8eade62, `toWeak_F`, `toWeak_m`,
+      `toWeak_disc`, `h5b_of_paper` verified.
 - [ ] G17. Same file (or `SteklovAudit/H5PaperAudit.lean`): audit of G16. `paperWitness` (non-vacuity, Fin 1
       data with J = 0, φ = arctan from G8), and `paper_rows_not_target`: every field of `H5bPaperInputs` other
       than `cutoff`/`discVanish` is satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails, so all of the
       "target in disguise" content stays in the cutoff row (G2, G3). Theorem names: `paperWitness`,
       `paper_rows_not_target`.
+      Written by the formalize task 2026-11-12 in `SteklovAudit/H5PaperAudit.lean` (uncompiled at push, commit
+      59fd59e): `wN`, `wN_le_one`, `wData`, `wData_K`, `wData_sum`, `wData_bessel`, `wData_count`, `wData_defect`,
+      `wData_tail`, `wData_lowCount`, `w_cutoff`, `paperOfCutoff` (all non-cutoff rows from one family
+      independent of `E`, `Emod`), `paperWitness`, `paperWitness_nonempty`, `paperWitness_nonjunk`,
+      `paper_rows_not_target` (no `disc` meets cutoff + `discVanish` for E = 2L, Emod = 0), `paper_iff_target`.
+      Note: the `count` row holds for all real L, so at L = -1 it forces nA = 0; the witness uses nA = 0 for
+      L < 0. Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
