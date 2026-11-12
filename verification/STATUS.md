@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-12 20:27 UTC at commit `e72f5d46763f`. Last passing commit: `e72f5d46763f`.
+Checked 2026-11-12 23:22 UTC at commit `ea72791413a0`. Last passing commit: `ea72791413a0`.
 
-Library declarations checked: 611 of 611 theorems compile with only Lean's standard axioms.
+Library declarations checked: 614 of 614 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -273,6 +273,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_iff_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_nonempty` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | verified (standard axioms only) |
+| H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.double_sum_split` | verified (standard axioms only) |
+| H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.cutoff_of_sides` | verified (standard axioms only) |
+| H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound` | verified (standard axioms only) |
