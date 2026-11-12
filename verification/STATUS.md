@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-12 07:43 UTC at commit `fd5b5e34f36d`. Last passing commit: `fd5b5e34f36d`.
+Checked 2026-11-12 18:05 UTC at commit `8eade624eee0`. Last passing commit: `8eade624eee0`.
 
-Library declarations checked: 594 of 594 theorems compile with only Lean's standard axioms.
+Library declarations checked: 598 of 598 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -313,6 +313,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_row` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_hs2` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.bessel_count_nonjunk` | verified (standard axioms only) |
+| H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_F` | verified (standard axioms only) |
+| H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_m` | verified (standard axioms only) |
+| H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_disc` | verified (standard axioms only) |
+| H5PaperRows.lean | `SteklovAudit.H5PaperRows.h5b_of_paper` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |
