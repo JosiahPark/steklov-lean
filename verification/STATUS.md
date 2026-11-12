@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-12 18:05 UTC at commit `8eade624eee0`. Last passing commit: `8eade624eee0`.
+Checked 2026-11-12 18:22 UTC at commit `ef4e80f529fc`. Last passing commit: `ef4e80f529fc`.
 
-Library declarations checked: 598 of 598 theorems compile with only Lean's standard axioms.
+Library declarations checked: 611 of 611 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -313,6 +313,19 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_row` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_hs2` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.bessel_count_nonjunk` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wN_le_one` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_K` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_sum` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_bessel` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_count` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_defect` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_tail` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_lowCount` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.w_cutoff` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.paperWitness_nonempty` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.paperWitness_nonjunk` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.paper_rows_not_target` | verified (standard axioms only) |
+| H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.paper_iff_target` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_F` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_m` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_disc` | verified (standard axioms only) |

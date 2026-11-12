@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-12 18:05 UTC",
+  "checked_at": "2026-11-12 18:22 UTC",
   "lean_exit_code": 0,
-  "commit": "8eade624eee0b69d1f579a7674029aaf936c542a",
-  "last_passing_commit": "8eade624eee0b69d1f579a7674029aaf936c542a",
-  "library_declarations_checked": 598,
-  "library_declarations": 598,
+  "commit": "ef4e80f529fc4fefc4e0cc0d0c22b2000346875b",
+  "last_passing_commit": "ef4e80f529fc4fefc4e0cc0d0c22b2000346875b",
+  "library_declarations_checked": 611,
+  "library_declarations": 611,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 598,
-  "verified": 598,
+  "theorems": 611,
+  "verified": 611,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2878,6 +2878,136 @@
     {
       "file": "H5MassRow.lean",
       "theorem": "SteklovAudit.H5MassRow.bessel_count_nonjunk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wN_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_bessel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.wData_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.w_cutoff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.paperWitness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.paperWitness_nonjunk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.paper_rows_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PaperAudit.lean",
+      "theorem": "SteklovAudit.H5PaperAudit.paper_iff_target",
       "axioms": [
         "propext",
         "Classical.choice",
