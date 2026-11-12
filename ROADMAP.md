@@ -470,7 +470,7 @@ claims a row is proved for the actual operator.
       (`Nonempty (H5bWeakInputs E Emod) ↔ H5bTarget E Emod`: as in F2, the disguise sits in the cutoff row).
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-12: STATUS PASS 586/586 at cf32b08, all nine G14 theorems verified.
-- [ ] G15. `SteklovAudit/H5LowCount.lean`: reduce the low-mass row (G10/G11) to a Bessel bound plus an
+- [x] G15. `SteklovAudit/H5LowCount.lean`: reduce the low-mass row (G10/G11) to a Bessel bound plus an
       L-uniform low-energy count. Low pairs satisfy `a i ≤ M` (from `¬ hiE`, as in G5's `le_of_not_hiE`), so
       `hs2 (mask (¬ hiE D M) J) ≤ ∑ i with a i ≤ M, ∑ j, J i j ^ 2`. Prove `low_mask_le_rows`, and
       `lowMass_of_bessel_lowCount`: if `∀ i, ∑ j, J i j ^ 2 ≤ 1` and
@@ -481,6 +481,7 @@ claims a row is proved for the actual operator.
       `mask_sq_le_row`, `low_mask_le_rows`, `rows_le_card`, `lowMass_of_bessel_lowCount`,
       `lowDefect_of_bessel_lowCount`, `idData`, `card_filter_le_two`, `lowCount_nonjunk` (identity coupling
       on `Fin 2`, total mass 2). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-12: STATUS PASS 594/594 (run on 0ddfe89), all eight G15 theorems verified.
 - [ ] G16. `SteklovAudit/H5PaperRows.lean`: assemble G12 + G13 + G15 + G7. `structure H5bPaperInputs` =
       `H5bWeakInputs` with `pde` replaced by `bessel`, Weyl `count` (G12) and the `defect` field of
       `PDEInputs` copied verbatim; `lowMass` replaced by the low count of G15 (same `bessel`); and the
@@ -488,6 +489,10 @@ claims a row is proved for the actual operator.
       `H5bPaperInputs.toWeak : H5bWeakInputs E Emod` (a `def`) and `h5b_of_paper : H5bTarget E Emod` via
       `h5b_of_weak`. Records the F table rows as: cutoff, Lemma 7.1′ defect, Bessel, Weyl count, tail rate,
       low count, window profile.
+      Written by the formalize task 2026-11-12 (uncompiled at push): `H5bPaperInputs` (fields `P`, `bessel`,
+      `count`, `defect`, `c`, `lowCount` replace `F`, `pde`, `m`, `lowMass` and the Lipschitz group),
+      `H5bPaperInputs.toWeak`, `toWeak_F`, `toWeak_m`, `toWeak_disc`, `h5b_of_paper`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G17. Same file (or `SteklovAudit/H5PaperAudit.lean`): audit of G16. `paperWitness` (non-vacuity, Fin 1
       data with J = 0, φ = arctan from G8), and `paper_rows_not_target`: every field of `H5bPaperInputs` other
       than `cutoff`/`discVanish` is satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails, so all of the
