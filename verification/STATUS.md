@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-11 23:43 UTC at commit `cf32b08a1959`. Last passing commit: `cf32b08a1959`.
+Checked 2026-11-12 02:18 UTC at commit `0ddfe89f3830`. Last passing commit: `0ddfe89f3830`.
 
-Library declarations checked: 586 of 586 theorems compile with only Lean's standard axioms.
+Library declarations checked: 594 of 594 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -283,6 +283,14 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LipRows.lean | `SteklovAudit.H5LipRows.hΛ0_of_deriv_bound` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_field` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.lipLo_field` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.not_hiE_le` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.mask_sq_le_row` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.low_mask_le_rows` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.rows_le_card` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.lowMass_of_bessel_lowCount` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.lowDefect_of_bessel_lowCount` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.card_filter_le_two` | verified (standard axioms only) |
+| H5LowCount.lean | `SteklovAudit.H5LowCount.lowCount_nonjunk` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.abs_sub_le_of_low` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.low_K_sq_le` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.low_mask_K_sq_le` | verified (standard axioms only) |

@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-11 23:43 UTC",
+  "checked_at": "2026-11-12 02:18 UTC",
   "lean_exit_code": 0,
-  "commit": "cf32b08a19594f1d0e050d311dc04e5a18498d65",
-  "last_passing_commit": "cf32b08a19594f1d0e050d311dc04e5a18498d65",
-  "library_declarations_checked": 586,
-  "library_declarations": 586,
+  "commit": "0ddfe89f383097e30654bbe5d136ed8954ab4d2f",
+  "last_passing_commit": "0ddfe89f383097e30654bbe5d136ed8954ab4d2f",
+  "library_declarations_checked": 594,
+  "library_declarations": 594,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 586,
-  "verified": 586,
+  "theorems": 594,
+  "verified": 594,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2578,6 +2578,86 @@
     {
       "file": "H5LipRows.lean",
       "theorem": "SteklovAudit.H5LipRows.lipLo_field",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.not_hiE_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.mask_sq_le_row",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.low_mask_le_rows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.rows_le_card",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.lowMass_of_bessel_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.lowDefect_of_bessel_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.card_filter_le_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowCount.lean",
+      "theorem": "SteklovAudit.H5LowCount.lowCount_nonjunk",
       "axioms": [
         "propext",
         "Classical.choice",
