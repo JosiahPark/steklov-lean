@@ -457,7 +457,7 @@ claims a row is proved for the actual operator.
 G14–G17 written by the formalize task on 2026-11-11 (after G13 was ticked). Each serves the F table; none
 claims a row is proved for the actual operator.
 
-- [ ] G14. `SteklovAudit/H5WeakAudit.lean`: F2-style audit of `H5bWeakInputs` (G13). `weakWitness`: an explicit
+- [x] G14. `SteklovAudit/H5WeakAudit.lean`: F2-style audit of `H5bWeakInputs` (G13). `weakWitness`: an explicit
       `H5bWeakInputs E Emod` for E = Emod = 0 on `Fin 1` data with a = b = 0 and J = K = 0 (reuse G11's
       `zeroData` / `lowMass_satisfiable`, G9's `invRate`, G8's `arctanProfile` or constant F = 0 with
       Λ0 = 0, lam = 0), so the structure is not vacuous; `weak_rows_not_target`: the new rows `tailRate` and
@@ -469,6 +469,7 @@ claims a row is proved for the actual operator.
       `weakWitness_nonempty`, `weak_rows_not_target`, plus `weakOfTarget` and `weak_iff_target`
       (`Nonempty (H5bWeakInputs E Emod) ↔ H5bTarget E Emod`: as in F2, the disguise sits in the cutoff row).
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-12: STATUS PASS 586/586 at cf32b08, all nine G14 theorems verified.
 - [ ] G15. `SteklovAudit/H5LowCount.lean`: reduce the low-mass row (G10/G11) to a Bessel bound plus an
       L-uniform low-energy count. Low pairs satisfy `a i ≤ M` (from `¬ hiE`, as in G5's `le_of_not_hiE`), so
       `hs2 (mask (¬ hiE D M) J) ≤ ∑ i with a i ≤ M, ∑ j, J i j ^ 2`. Prove `low_mask_le_rows`, and
@@ -476,6 +477,10 @@ claims a row is proved for the actual operator.
       `((Finset.univ.filter fun i => a i ≤ M).card : ℝ) ≤ c ε γ M` for every L, then `LowMass D c`.
       Replaces the row "low-energy defect bound κ" by "eigenvalues ≤ M are L-uniformly finitely many"
       (true for a discrete spectrum, not proved here) plus the same Bessel bound as G12.
+      Written by the formalize task 2026-11-12 (uncompiled at push, commit 30b11d1): `not_hiE_le`,
+      `mask_sq_le_row`, `low_mask_le_rows`, `rows_le_card`, `lowMass_of_bessel_lowCount`,
+      `lowDefect_of_bessel_lowCount`, `idData`, `card_filter_le_two`, `lowCount_nonjunk` (identity coupling
+      on `Fin 2`, total mass 2). Next run: tick if STATUS shows it compiled.
 - [ ] G16. `SteklovAudit/H5PaperRows.lean`: assemble G12 + G13 + G15 + G7. `structure H5bPaperInputs` =
       `H5bWeakInputs` with `pde` replaced by `bessel`, Weyl `count` (G12) and the `defect` field of
       `PDEInputs` copied verbatim; `lowMass` replaced by the low count of G15 (same `bessel`); and the
