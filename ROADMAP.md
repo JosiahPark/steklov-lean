@@ -495,7 +495,7 @@ claims a row is proved for the actual operator.
       shows it compiled.
       Ticked by the formalize task 2026-11-12: STATUS PASS 598/598 at 8eade62, `toWeak_F`, `toWeak_m`,
       `toWeak_disc`, `h5b_of_paper` verified.
-- [ ] G17. Same file (or `SteklovAudit/H5PaperAudit.lean`): audit of G16. `paperWitness` (non-vacuity, Fin 1
+- [x] G17. Same file (or `SteklovAudit/H5PaperAudit.lean`): audit of G16. `paperWitness` (non-vacuity, Fin 1
       data with J = 0, φ = arctan from G8), and `paper_rows_not_target`: every field of `H5bPaperInputs` other
       than `cutoff`/`discVanish` is satisfiable for E = 2L, Emod = 0 while `H5bTarget` fails, so all of the
       "target in disguise" content stays in the cutoff row (G2, G3). Theorem names: `paperWitness`,
@@ -507,6 +507,39 @@ claims a row is proved for the actual operator.
       `paper_rows_not_target` (no `disc` meets cutoff + `discVanish` for E = 2L, Emod = 0), `paper_iff_target`.
       Note: the `count` row holds for all real L, so at L = -1 it forces nA = 0; the witness uses nA = 0 for
       L < 0. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-12: STATUS PASS 611/611 at ef4e80f, all thirteen listed G17
+      theorems verified (incl. `paper_rows_not_target`, `paper_iff_target`).
+
+G18–G21 written by the formalize task on 2026-11-12 (after G17 was ticked). They split the cutoff row, the
+one row that carries the "target in disguise" content (G2, G3, G14, G17), into a true-operator side and a
+model side, each mentioning only one spectrum. None claims a row is proved for the actual operator.
+
+- [ ] G18. `SteklovAudit/H5CutoffSides.lean`: the reduction step. With row masses `r i = ∑ j, J i j ^ 2`
+      and column masses `c j = ∑ i, J i j ^ 2`, prove `double_sum_split`:
+      `∑ i, ∑ j, (f (a i) - g (b j)) * J i j ^ 2 = ∑ i, f (a i) * r i - ∑ j, g (b j) * c j`
+      (Finset.sum_sub_distrib, Finset.mul_sum, Finset.sum_comm), and `cutoff_of_sides`: if
+      `|E - ∑ i, φ (a i - L) * r i| ≤ d1` and `|Emod - ∑ j, φ (b j - L) * c j| ≤ d2` then the G16 cutoff
+      inequality holds with `disc = d1 + d2` (abs_sub_le / abs_add). Also `discVanish_of_sides`: if d1 and d2
+      are each eventually `≤ η L` for every η > 0, so is d1 + d2. Theorem names: `double_sum_split`,
+      `cutoff_of_sides`, `discVanish_of_sides`.
+- [ ] G19. Same file (or `SteklovAudit/H5SideRows.lean`): `structure H5bSideInputs` = `H5bPaperInputs` with
+      `disc`, `cutoff`, `discVanish` replaced by `d1`, `trueSide`, `d1Vanish` (true count vs. the
+      J-row-weighted localized trace of the true eigenvalues `a`) and `d2`, `modelSide`, `d2Vanish` (model
+      count vs. the column-weighted trace of the model eigenvalues `b`). Prove `H5bSideInputs.toPaper` (a
+      `def`, via G18), `toPaper_disc` (`= d1 + d2`, by rfl) and `h5b_of_sides : H5bTarget E Emod` via
+      `h5b_of_paper`. F table: the cutoff row becomes two rows, "true side" and "model side".
+- [ ] G20. `SteklovAudit/H5SideAudit.lean`: audit of G19. `sideWitness`: an explicit `H5bSideInputs 0 0`
+      (reuse G17's `paperOfCutoff` data: J = 0 so all traces vanish, d1 = d2 = 0), `sideWitness_nonempty`;
+      and `model_side_not_target`, `true_side_not_target`: each side row (with its vanishing field and all
+      non-cutoff rows) is satisfiable for a pair (E, Emod) for which `H5bTarget` fails (E = 2L with only the
+      model side imposed; Emod = 2L with only the true side imposed; reuse G9's `not_target_double` or prove
+      the mirrored version), so neither side alone is the target in disguise.
+- [ ] G21. Same file as G20: the refinement is genuine and honest about direction. `sides_imply_cutoff`
+      (restating G18 at the structure level: every `H5bSideInputs` yields `H5bPaperInputs` with the same
+      non-cutoff fields), and `cutoff_not_sides`: an explicit Fin 1 example (J i j = 1, a = b, E = Emod = 2L, φ = arctan from G8, so the weighted trace is bounded by π/2)
+      where the G16 cutoff row holds with disc = 0 but the true-side row fails for every vanishing d1, so
+      G19 is a strictly stronger, two-row form of the cutoff row, not a weaker one. Record that in the F table
+      text of G19 (the side rows are what the paper's §7 localization argues, one spectrum at a time).
 
 ## Not attempted here
 
