@@ -514,7 +514,7 @@ G18–G21 written by the formalize task on 2026-11-12 (after G17 was ticked). Th
 one row that carries the "target in disguise" content (G2, G3, G14, G17), into a true-operator side and a
 model side, each mentioning only one spectrum. None claims a row is proved for the actual operator.
 
-- [ ] G18. `SteklovAudit/H5CutoffSides.lean`: the reduction step. With row masses `r i = ∑ j, J i j ^ 2`
+- [x] G18. `SteklovAudit/H5CutoffSides.lean`: the reduction step. With row masses `r i = ∑ j, J i j ^ 2`
       and column masses `c j = ∑ i, J i j ^ 2`, prove `double_sum_split`:
       `∑ i, ∑ j, (f (a i) - g (b j)) * J i j ^ 2 = ∑ i, f (a i) * r i - ∑ j, g (b j) * c j`
       (Finset.sum_sub_distrib, Finset.mul_sum, Finset.sum_comm), and `cutoff_of_sides`: if
@@ -525,12 +525,16 @@ model side, each mentioning only one spectrum. None claims a row is proved for t
       Written by the formalize task 2026-11-12 in `SteklovAudit/H5CutoffSides.lean` (uncompiled at push, commit
       df5c73c): `double_sum_split`, `cutoff_of_sides`, `discVanish_of_sides`, stated over arbitrary finite index
       types (so they apply verbatim to `Data (Fin nA) (Fin nB)`). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 614/614 at ea72791, all three G18 theorems verified.
 - [ ] G19. Same file (or `SteklovAudit/H5SideRows.lean`): `structure H5bSideInputs` = `H5bPaperInputs` with
       `disc`, `cutoff`, `discVanish` replaced by `d1`, `trueSide`, `d1Vanish` (true count vs. the
       J-row-weighted localized trace of the true eigenvalues `a`) and `d2`, `modelSide`, `d2Vanish` (model
       count vs. the column-weighted trace of the model eigenvalues `b`). Prove `H5bSideInputs.toPaper` (a
       `def`, via G18), `toPaper_disc` (`= d1 + d2`, by rfl) and `h5b_of_sides : H5bTarget E Emod` via
       `h5b_of_paper`. F table: the cutoff row becomes two rows, "true side" and "model side".
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5SideRows.lean` (uncompiled at push, commit
+      ae865e1): `H5bSideInputs`, `H5bSideInputs.toPaper`, `toPaper_disc`, `toPaper_P`, `h5b_of_sides`. Next run:
+      tick if STATUS shows it compiled.
 - [ ] G20. `SteklovAudit/H5SideAudit.lean`: audit of G19. `sideWitness`: an explicit `H5bSideInputs 0 0`
       (reuse G17's `paperOfCutoff` data: J = 0 so all traces vanish, d1 = d2 = 0), `sideWitness_nonempty`;
       and `model_side_not_target`, `true_side_not_target`: each side row (with its vanishing field and all
