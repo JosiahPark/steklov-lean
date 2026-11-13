@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 16:38 UTC at commit `b3f2e53c69b6`. Last passing commit: `b3f2e53c69b6`.
+Checked 2026-11-13 17:23 UTC at commit `73469a7e9eaa`. Last passing commit: `73469a7e9eaa`.
 
-Library declarations checked: 642 of 642 theorems compile with only Lean's standard axioms.
+Library declarations checked: 656 of 656 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -279,6 +279,20 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Completeness.lean | `SteklovAudit.H5Completeness.defect_le_sup` | verified (standard axioms only) |
 | H5Completeness.lean | `SteklovAudit.H5Completeness.side_of_count_and_sup` | verified (standard axioms only) |
 | H5Completeness.lean | `SteklovAudit.H5Completeness.side_of_count_and_defect_nonvacuous` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_trueCount` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_modelCount` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_rowDefect` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_colDefect` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_colBessel` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_bessel` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_count` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_defect` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_tail` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.z_lowCount` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.countWitness_nonempty` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.true_count_not_target` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.model_count_not_target` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.defect_rows_not_target` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d1` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d2` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.h5b_of_counts` | verified (standard axioms only) |
