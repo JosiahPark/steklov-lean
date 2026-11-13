@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 05:28 UTC",
+  "checked_at": "2026-11-13 06:20 UTC",
   "lean_exit_code": 0,
-  "commit": "d3358a5483cafaae56c2fb067d1f7ece65e0ac39",
-  "last_passing_commit": "d3358a5483cafaae56c2fb067d1f7ece65e0ac39",
-  "library_declarations_checked": 627,
-  "library_declarations": 627,
+  "commit": "1fe8bce345e51ff8708d22dde52ccf38916220ee",
+  "last_passing_commit": "1fe8bce345e51ff8708d22dde52ccf38916220ee",
+  "library_declarations_checked": 633,
+  "library_declarations": 633,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 627,
-  "verified": 627,
+  "theorems": 633,
+  "verified": 633,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3178,6 +3178,66 @@
     {
       "file": "H5SideAudit.lean",
       "theorem": "SteklovAudit.H5SideAudit.true_side_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.sides_imply_cutoff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.arctan_abs_le_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.fin1_cutoff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.fin1_rowTrace",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.fin1_trueSide_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideAudit.lean",
+      "theorem": "SteklovAudit.H5SideAudit.cutoff_not_sides",
       "axioms": [
         "propext",
         "Classical.choice",

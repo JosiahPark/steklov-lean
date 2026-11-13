@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 05:28 UTC at commit `d3358a5483ca`. Last passing commit: `d3358a5483ca`.
+Checked 2026-11-13 06:20 UTC at commit `1fe8bce345e5`. Last passing commit: `1fe8bce345e5`.
 
-Library declarations checked: 627 of 627 theorems compile with only Lean's standard axioms.
+Library declarations checked: 633 of 633 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -343,6 +343,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.not_target_mirror` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.model_side_not_target` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.true_side_not_target` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.sides_imply_cutoff` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.arctan_abs_le_two` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.fin1_cutoff` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.fin1_rowTrace` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.fin1_trueSide_fails` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.cutoff_not_sides` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_disc` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_P` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.h5b_of_sides` | verified (standard axioms only) |
