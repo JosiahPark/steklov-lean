@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 22:49 UTC at commit `cc1e02a42e8e`. Last passing commit: `cc1e02a42e8e`.
+Checked 2026-11-13 23:20 UTC at commit `677d47c9c426`. Last passing commit: `677d47c9c426`.
 
-Library declarations checked: 678 of 678 theorems compile with only Lean's standard axioms.
+Library declarations checked: 684 of 684 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -308,6 +308,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.z_rowMissHigh` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.highMassWitness_nonempty` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.zero_rowMissHigh` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.zero_rowMass` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.zero_not_lowCount` | verified (standard axioms only) |
+| H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.zero_rowMissHigh_not_mass` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.abs_sub_le_of_deriv_bound_Iic` | verified (standard axioms only) |
 | H5LipRows.lean | `SteklovAudit.H5LipRows.lipHi_of_deriv_bound` | verified (standard axioms only) |
