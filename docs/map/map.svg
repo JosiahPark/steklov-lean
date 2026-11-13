@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1558 1654" width="1558" height="1654" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
 <style>.bg{fill:#f6f7f4}.band{fill:#e9ebe5}.lbl{font-size:12px;font-weight:600;letter-spacing:.07em;fill:#5d6675}.box{fill:#fff;stroke:#d0d4cc}.main{stroke:#2b4a7a;stroke-width:2}.nm{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;fill:#1d2430}.ct{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;fill:#5d6675}.edge{fill:none;stroke:#7b8698;opacity:.45}.hot{fill:none;stroke:#2b4a7a;stroke-width:2}.hedge{fill:none;stroke:#c0392f;stroke-dasharray:4 3;opacity:.6}.hbox{fill:#f6dcd8;stroke:#c0392f;stroke-dasharray:4 3}.htx{font-size:11.5px;fill:#1d2430}.sm{font-size:11px;fill:#5d6675}.thm{fill:#d7eedf;stroke:#2e8a57;stroke-width:2}.tt{font-size:14px;font-weight:600;fill:#1d2430}.g{fill:#2e8a57}.a{fill:#c48413}.s{fill:#8b93a1}@media (prefers-color-scheme: dark){.bg{fill:#14181f}.band{fill:#1a1f27}.lbl,.ct,.sm{fill:#9aa3b2}.box{fill:#1b2029;stroke:#2e3542}.nm,.htx,.tt{fill:#e4e7ec}.main{stroke:#8fb0e6}.hot{stroke:#8fb0e6}.hbox{fill:#3e2220;stroke:#ef6b5f}.hedge{stroke:#ef6b5f}.thm{fill:#1e3a2b;stroke:#5cc08a}.g{fill:#5cc08a}.a{fill:#e6a93c}.s{fill:#8e97a6}}</style>
 <rect class="bg" x="0" y="0" width="1558" height="1654"/>
-<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-13 17:23 UTC · 656/656 theorems pass</text>
-<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 334 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
+<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-13 18:22 UTC · 663/663 theorems pass</text>
+<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 341 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
 <rect class="band" x="8" y="56" width="1314" height="146" rx="6"/>
 <text class="lbl" x="24" y="75">§1–3 DIHEDRAL INVARIANT &amp; SECTOR TRACE</text>
 <text class="lbl" x="24" y="231">§4 HEAT FIBERS</text>
@@ -54,6 +54,7 @@
 <path class="edge" stroke-width="2.6" d="M108,362 C290,362 290,1418 472,1418"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C381,362 381,1418 472,1418"/>
 <path class="edge" stroke-width="3.0" d="M108,518 C290,518 290,1418 472,1418"/>
+<path class="edge" stroke-width="1.0" d="M1200,1418 C836,1418 836,1418 472,1418"/>
 <path class="edge" stroke-width="3.0" d="M654,1418 C563,1418 563,1418 472,1418"/>
 <path class="edge" stroke-width="3.0" d="M290,1364 C381,1364 381,1418 472,1418"/>
 <path class="edge" stroke-width="2.0" d="M654,1364 C563,1364 563,1418 472,1418"/>
@@ -312,7 +313,7 @@
 <g><title>H5Completeness: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="1116" y="1398" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1414">H5Completeness</text><text class="ct" x="1276" y="1414" text-anchor="end">6</text>
 <rect class="s" x="1124.0" y="1424" width="152.0" height="6"/>
 </g>
-<g><title>H5CountAudit: 0 outright, 0 conditional, 14 supporting</title><rect class="box" x="388" y="1398" width="168" height="40" rx="5"/><text class="nm" x="396" y="1414">H5CountAudit</text><text class="ct" x="548" y="1414" text-anchor="end">14</text>
+<g><title>H5CountAudit: 0 outright, 0 conditional, 21 supporting</title><rect class="box" x="388" y="1398" width="168" height="40" rx="5"/><text class="nm" x="396" y="1414">H5CountAudit</text><text class="ct" x="548" y="1414" text-anchor="end">21</text>
 <rect class="s" x="396.0" y="1424" width="152.0" height="6"/>
 </g>
 <g><title>H5CountRows: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="570" y="1398" width="168" height="40" rx="5"/><text class="nm" x="578" y="1414">H5CountRows</text><text class="ct" x="730" y="1414" text-anchor="end">3</text>
