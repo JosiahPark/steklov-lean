@@ -570,7 +570,7 @@ G22–G25 written by the formalize task on 2026-11-13 (after G21 was ticked). Th
 to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` that mentions neither `E` nor
 `Emod`. None claims a row is proved for the actual operator.
 
-- [ ] G22. `SteklovAudit/H5Completeness.lean`: the reduction step, over an arbitrary `Fintype ι` with values
+- [x] G22. `SteklovAudit/H5Completeness.lean`: the reduction step, over an arbitrary `Fintype ι` with values
       `f : ι → ℝ` and weights `w : ι → ℝ` (so it applies to rows `w i = ∑ j, J i j ^ 2` and to columns).
       `weighted_sum_split`: `∑ i, f i * w i = ∑ i, f i - ∑ i, f i * (1 - w i)` (Finset.sum_sub_distrib, ring);
       `side_of_count_and_defect`: if `|E - ∑ i, f i| ≤ e`, `∑ i, |f i| * (1 - w i) ≤ k` and `∀ i, w i ≤ 1`,
@@ -581,6 +581,7 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       799a5d8): `weighted_sum_split`, `defect_abs_le`, `side_of_count_and_defect`, `defect_le_sup`,
       `side_of_count_and_sup` (count + sup·missing-mass form), `side_of_count_and_defect_nonvacuous` (Fin 1,
       w = 1/2, bound attained). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 639/639 at 282272e, all six G22 theorems verified.
 - [ ] G23. `SteklovAudit/H5CountRows.lean`: `structure H5bCountInputs` = `H5bSideInputs` (G19) with
       `d1`, `trueSide`, `d1Vanish` replaced by a true count row `e1`, `trueCount`
       (`|E - ∑ i, P.φ (a i - L)| ≤ e1`, no `J`), `e1Vanish`, and a row-completeness row `k1`, `rowDefect`
@@ -590,6 +591,9 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       (a `def`, `d1 = e1 + k1`, `d2 = e2 + k2`, via G22 and G18's `discVanish_of_sides`), `toSides_d1`,
       `toSides_d2` (rfl) and `h5b_of_counts : H5bTarget E Emod` via `h5b_of_sides`. F table: each side row
       becomes "smoothed count of one spectrum (no J)" + "completeness of J weighted by the window profile".
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5CountRows.lean` (uncompiled at push, commit
+      bfde66f): `H5bCountInputs`, `H5bCountInputs.toSides`, `toSides_d1`, `toSides_d2`, `h5b_of_counts`. Next run:
+      tick if STATUS shows it compiled.
 - [ ] G24. `SteklovAudit/H5CountAudit.lean`: audit of G23. `countWitness : H5bCountInputs 0 0` (data with
       `nA = nB = 0`, so every sum is empty and all `e`, `k` are 0; G8's `arctanProfile`),
       `countWitness_nonempty`; `true_count_not_target` and `model_count_not_target`: each count row (with its
