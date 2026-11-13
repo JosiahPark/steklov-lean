@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 07:18 UTC at commit `5265ca2e2284`. Last passing commit: `5265ca2e2284`.
+Checked 2026-11-13 10:21 UTC at commit `282272eb819b`. Last passing commit: `282272eb819b`.
 
-Library declarations checked: 633 of 633 theorems compile with only Lean's standard axioms.
+Library declarations checked: 639 of 639 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -273,6 +273,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_iff_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.inputs_nonempty` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.theorem_11_1_of_F` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.weighted_sum_split` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.defect_abs_le` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.side_of_count_and_defect` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.defect_le_sup` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.side_of_count_and_sup` | verified (standard axioms only) |
+| H5Completeness.lean | `SteklovAudit.H5Completeness.side_of_count_and_defect_nonvacuous` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.double_sum_split` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.cutoff_of_sides` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |

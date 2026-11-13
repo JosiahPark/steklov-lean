@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 07:18 UTC",
+  "checked_at": "2026-11-13 10:21 UTC",
   "lean_exit_code": 0,
-  "commit": "5265ca2e2284c3ec5ca21c55934fcad5cd742df7",
-  "last_passing_commit": "5265ca2e2284c3ec5ca21c55934fcad5cd742df7",
-  "library_declarations_checked": 633,
-  "library_declarations": 633,
+  "commit": "282272eb819bb68084607c7500caa97fbfbe7eef",
+  "last_passing_commit": "282272eb819bb68084607c7500caa97fbfbe7eef",
+  "library_declarations_checked": 639,
+  "library_declarations": 639,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 633,
-  "verified": 633,
+  "theorems": 639,
+  "verified": 639,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2478,6 +2478,66 @@
     {
       "file": "H5Compare.lean",
       "theorem": "SteklovAudit.H5Compare.theorem_11_1_of_F",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.weighted_sum_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.defect_abs_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.side_of_count_and_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.defect_le_sup",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.side_of_count_and_sup",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Completeness.lean",
+      "theorem": "SteklovAudit.H5Completeness.side_of_count_and_defect_nonvacuous",
       "axioms": [
         "propext",
         "Classical.choice",
