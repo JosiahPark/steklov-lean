@@ -16,6 +16,10 @@ Roadmap item G24.
   mirror (`E = 2L`, `Emod = 0`). Neither count row alone is the target in disguise.
 * `defect_rows_not_target`: the two completeness rows and `colBessel` mention neither `E` nor `Emod`;
   they hold (with `k1 = k2 = 0`) for the witness data while `H5bTarget` fails for `E = 2L`, `Emod = 0`.
+* G25, `trueCount_not_trueSide`: `⌈L⌉₊` eigenvalues at `0`, `J = 0`, `φ = arctan`,
+  `E L = ⌈L⌉₊ * arctan (0 - L)`: the true count row holds with `e1 = 0`, yet the G19 true-side row fails
+  for every vanishing `d1`, so the row-completeness row is not redundant. `rowDefect_of_sup`,
+  `rowDefect_arctan`: crude form of that row, `Φ * (total missing row mass) ≤ k1` (needs `o(L)`).
 
 What this file does NOT prove: no count, completeness or Bessel row is proved for the Steklov
 operator of the tetrahedron (or any concrete operator); the empty family is a consistency check, not
@@ -168,5 +172,98 @@ theorem defect_rows_not_target :
     (∀ j, ∑ i, zData.J i j ^ 2 ≤ 1) ∧
     ¬ H5bTarget (fun _ _ L => 2 * L) (fun _ _ _ => 0) :=
   ⟨z_rowDefect, z_colDefect, z_colBessel, SteklovAudit.H5TailRate.not_target_double⟩
+
+/-! ### G25: the completeness row is not redundant -/
+
+/-- A constant sum over `Fin n`. -/
+theorem const_sum_fin (n : ℕ) (c : ℝ) : ∑ _i : Fin n, c = (n : ℝ) * c := by
+  first
+    | rw [Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+    | simp
+
+/-- G25 example, count row: `⌈L⌉₊` true eigenvalues at `0`, `E L = ⌈L⌉₊ * arctan (0 - L)`; the true
+count row holds with `e1 = 0`. -/
+theorem ceil_trueCount (L : ℝ) :
+    |(⌈L⌉₊ : ℝ) * arctanProfile.φ (0 - L) -
+      ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L)| ≤ 0 := by
+  show |(⌈L⌉₊ : ℝ) * arctanProfile.φ (0 - L) - ∑ _i : Fin ⌈L⌉₊, arctanProfile.φ (0 - L)| ≤ 0
+  rw [const_sum_fin, sub_self, abs_zero]
+
+/-- G25 example: with `J = 0` the row-weighted trace vanishes. -/
+theorem ceil_rowTrace (L : ℝ) :
+    ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L) *
+      (∑ j : Fin 1, (fun (_ : Fin ⌈L⌉₊) (_ : Fin 1) => (0 : ℝ)) i j ^ 2) = 0 := by
+  refine Finset.sum_eq_zero fun i _ => ?_
+  first
+    | (simp; done)
+    | simp only [ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow,
+        Finset.sum_const_zero, mul_zero]
+
+/-- G25 example: no vanishing `d1` meets the G19 true-side row. -/
+theorem ceil_trueSide_fails :
+    ¬ ∃ d1 : ℝ → ℝ → ℝ → ℝ,
+      (∀ ε γ L : ℝ, |(⌈L⌉₊ : ℝ) * arctanProfile.φ (0 - L) -
+        ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L) *
+          (∑ j : Fin 1, (fun (_ : Fin ⌈L⌉₊) (_ : Fin 1) => (0 : ℝ)) i j ^ 2)| ≤ d1 ε γ L) ∧
+      (∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+        d1 ε γ L ≤ η * L) := by
+  rintro ⟨d1, hs, hv⟩
+  obtain ⟨L₀, hL₀⟩ := hv 1 1 one_pos one_pos (1 / 2) (by norm_num)
+  have hL1 : (1 : ℝ) ≤ max L₀ 1 := le_max_right _ _
+  have h1 := hL₀ (max L₀ 1) (le_max_left _ _)
+  have h2 := hs 1 1 (max L₀ 1)
+  rw [ceil_rowTrace, sub_zero] at h2
+  have hφ : arctanProfile.φ (0 - max L₀ 1) = -Real.arctan (max L₀ 1) := by
+    show Real.arctan (0 - max L₀ 1) = _
+    rw [zero_sub, Real.arctan_neg]
+  have ha : Real.pi / 4 ≤ Real.arctan (max L₀ 1) := by
+    rw [← Real.arctan_one]
+    first
+      | exact Real.arctan_strictMono.monotone hL1
+      | exact Real.arctan_strictMono.le_iff_le.mpr hL1
+      | exact Real.arctan_mono hL1
+  have hc : max L₀ 1 ≤ (⌈max L₀ 1⌉₊ : ℝ) := Nat.le_ceil _
+  have hpi := Real.pi_gt_three
+  have hpi4 : (0 : ℝ) ≤ Real.pi / 4 := by linarith
+  have hat : 0 ≤ Real.arctan (max L₀ 1) := le_trans hpi4 ha
+  have hcpos : (0 : ℝ) ≤ (⌈max L₀ 1⌉₊ : ℝ) := Nat.cast_nonneg _
+  rw [hφ, mul_neg, abs_neg, abs_of_nonneg (mul_nonneg hcpos hat)] at h2
+  have h3 : max L₀ 1 * (Real.pi / 4) ≤ (⌈max L₀ 1⌉₊ : ℝ) * Real.arctan (max L₀ 1) :=
+    mul_le_mul hc ha hpi4 hcpos
+  have h4 : max L₀ 1 * 3 ≤ max L₀ 1 * Real.pi :=
+    mul_le_mul_of_nonneg_left hpi.le (by linarith)
+  first | linarith | nlinarith
+
+/-- **G25.** The completeness row is not redundant: in the example (`nA L = ⌈L⌉₊` eigenvalues at `0`,
+`J = 0`, `φ = arctan`, `E L = ⌈L⌉₊ * arctan (0 - L)`) the true count row holds with `e1 = 0`, the
+row-weighted trace is `0`, and the G19 true-side row fails for every vanishing `d1`. So the count row
+alone does not give the side row: the row-completeness row carries real content. -/
+theorem trueCount_not_trueSide :
+    (∀ L : ℝ, |(⌈L⌉₊ : ℝ) * arctanProfile.φ (0 - L) -
+      ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L)| ≤ 0) ∧
+    (∀ L : ℝ, ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L) *
+      (∑ j : Fin 1, (fun (_ : Fin ⌈L⌉₊) (_ : Fin 1) => (0 : ℝ)) i j ^ 2) = 0) ∧
+    ¬ ∃ d1 : ℝ → ℝ → ℝ → ℝ,
+      (∀ ε γ L : ℝ, |(⌈L⌉₊ : ℝ) * arctanProfile.φ (0 - L) -
+        ∑ i : Fin ⌈L⌉₊, arctanProfile.φ ((fun _ : Fin ⌈L⌉₊ => (0 : ℝ)) i - L) *
+          (∑ j : Fin 1, (fun (_ : Fin ⌈L⌉₊) (_ : Fin 1) => (0 : ℝ)) i j ^ 2)| ≤ d1 ε γ L) ∧
+      (∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+        d1 ε γ L ≤ η * L) :=
+  ⟨ceil_trueCount, ceil_rowTrace, ceil_trueSide_fails⟩
+
+/-- **G25.** Crude form of the row-completeness row: with a bounded profile `|φ| ≤ Φ` and the row
+Bessel bound, the row follows from `Φ * (total missing row mass) ≤ k1`. -/
+theorem rowDefect_of_sup {ι κ : Type*} [Fintype ι] [Fintype κ] (φ : ℝ → ℝ) (a : ι → ℝ)
+    (J : ι → κ → ℝ) (L Φ k1 : ℝ) (hΦ : ∀ x, |φ x| ≤ Φ) (hb : ∀ i, ∑ j, J i j ^ 2 ≤ 1)
+    (hk : Φ * ∑ i, (1 - ∑ j, J i j ^ 2) ≤ k1) :
+    ∑ i, |φ (a i - L)| * (1 - ∑ j, J i j ^ 2) ≤ k1 :=
+  le_trans (SteklovAudit.H5Completeness.defect_le_sup (fun i => φ (a i - L))
+    (fun i => ∑ j, J i j ^ 2) Φ (fun i => hΦ (a i - L)) hb) hk
+
+/-- **G25.** The `arctan` instance (`Φ = 2`, G21's `arctan_abs_le_two`). -/
+theorem rowDefect_arctan {ι κ : Type*} [Fintype ι] [Fintype κ] (a : ι → ℝ) (J : ι → κ → ℝ)
+    (L k1 : ℝ) (hb : ∀ i, ∑ j, J i j ^ 2 ≤ 1) (hk : 2 * ∑ i, (1 - ∑ j, J i j ^ 2) ≤ k1) :
+    ∑ i, |arctanProfile.φ (a i - L)| * (1 - ∑ j, J i j ^ 2) ≤ k1 :=
+  rowDefect_of_sup arctanProfile.φ a J L 2 k1 arctan_abs_le_two hb hk
 
 end SteklovAudit.H5CountAudit
