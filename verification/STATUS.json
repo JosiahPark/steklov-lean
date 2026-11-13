@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 20:15 UTC",
+  "checked_at": "2026-11-13 20:28 UTC",
   "lean_exit_code": 0,
-  "commit": "7246446a1ad3ec31120bff9f2f385a492c263994",
-  "last_passing_commit": "7246446a1ad3ec31120bff9f2f385a492c263994",
-  "library_declarations_checked": 667,
-  "library_declarations": 667,
+  "commit": "904ea3cc8f105e1cd3f6299e5dc3fcc64fbdd047",
+  "last_passing_commit": "904ea3cc8f105e1cd3f6299e5dc3fcc64fbdd047",
+  "library_declarations_checked": 674,
+  "library_declarations": 674,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 667,
-  "verified": 667,
+  "theorems": 674,
+  "verified": 674,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3148,6 +3148,76 @@
     {
       "file": "H5LowMass.lean",
       "theorem": "SteklovAudit.H5LowMass.lowMass_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.z_rowMiss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.z_colMiss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.massWitness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.atL_rowDefect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.atL_rowMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.atL_rowMiss_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassAudit.lean",
+      "theorem": "SteklovAudit.H5MassAudit.mass_stronger_than_defect",
       "axioms": [
         "propext",
         "Classical.choice",
