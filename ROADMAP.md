@@ -610,7 +610,7 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 656/656 at 73469a7, all G24 theorems in
       `H5CountAudit.lean` verified.
-- [ ] G25. Same file as G24: the completeness row is not redundant. `trueCount_not_trueSide`: an explicit
+- [x] G25. Same file as G24: the completeness row is not redundant. `trueCount_not_trueSide`: an explicit
       example with `nA L = Nat.ceil L` eigenvalues all equal to 0, `J = 0`, φ = arctan and
       `E L = Nat.ceil L * arctan (-L)`, so the true count row holds with e1 = 0 while the row-weighted trace is 0
       and the G19 true-side row fails for every vanishing `d1` (|arctan (-L)| ≥ arctan 1 = π/4 for L ≥ 1; use
@@ -625,6 +625,39 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       Fintypes), `rowDefect_arctan` (Φ = 2). F table: the row-completeness row is not redundant; its crude
       form is `Φ * (total missing row mass) ≤ k1`, so it needs the missing row mass below the cutoff to be
       o(L). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 663/663 at e2829a3, all seven G25 theorems verified.
+
+G26–G29 written by the formalize task on 2026-11-13 (after G25 was ticked). They replace the two
+profile-weighted completeness rows of G23 by profile-free missing-mass rows, record honestly that this is a
+stronger form, and then split the row side into the existing L-uniform low count plus a high-energy
+missing-mass row. None claims a row is proved for the actual operator.
+
+- [ ] G26. `SteklovAudit/H5MissingMass.lean`: `structure H5bMassInputs` = `H5bCountInputs` (G23) with
+      `k1`, `rowDefect`, `k1Vanish` replaced by a profile bound `Φ : ℝ`, `hΦ : 0 ≤ Φ`,
+      `profBound : ∀ x, |P.φ x| ≤ Φ` and a row missing-mass row `m1`, `rowMiss`
+      (`∑ i, (1 - ∑ j, J i j ^ 2) ≤ m1`), `m1Vanish`; mirror `m2`, `colMiss`, `m2Vanish` for columns.
+      Prove `vanish_const_mul` (if `m` is o(L) in the `e1Vanish` sense and `0 ≤ Φ` then so is `Φ * m`; treat
+      `Φ = 0` and `0 < Φ` separately, use `η / Φ`), `H5bMassInputs.toCounts : H5bCountInputs E Emod` (a `def`,
+      `k1 = Φ * m1`, `k2 = Φ * m2`, rows via G25's `rowDefect_of_sup` and its column mirror), `toCounts_k1`
+      (rfl) and `h5b_of_mass : H5bTarget E Emod` via `h5b_of_counts`.
+- [ ] G27. `SteklovAudit/H5MassAudit.lean`: audit of G26. `massWitness : H5bMassInputs 0 0` (G24's `zData`,
+      `Φ = 2`, `m1 = m2 = 0`), `massWitness_nonempty`; `mass_stronger_than_defect`: a `Fin ⌈L⌉₊` example with
+      all true eigenvalues at `L`, `J = 0`, φ = arctan, where the G23 row-completeness row holds with `k1 = 0`
+      (`arctan 0 = 0`) while the missing row mass is `⌈L⌉₊`, so no vanishing `m1` meets `rowMiss`. F table
+      text: the missing-mass row is a stronger, profile-free sufficient form of the completeness row, not a
+      weaker one; it is the form the paper's Bessel/completeness argument would naturally give.
+- [ ] G28. `SteklovAudit/H5MassSplit.lean`: the low/high split of the row missing mass, over a `Fintype ι`.
+      `missing_nonneg` and `missing_le_one` (from `∀ i, 0 ≤ ∑ j, J i j ^ 2` via `sq_nonneg` and the Bessel row);
+      `missing_split`: `∑ i, (1 - r i) ≤ (filter (a i ≤ M)).card + ∑ i ∈ filter (M < a i), (1 - r i)`
+      (`Finset.sum_filter_add_sum_filter_not`, `Finset.card_eq_sum_ones`, `Finset.sum_le_sum`). Theorem names:
+      `missing_nonneg`, `missing_le_one`, `missing_split`.
+- [ ] G29. Same file as G28: `structure H5bHighMassInputs` = `H5bMassInputs` with `m1`, `rowMiss`,
+      `m1Vanish` replaced by a high-energy row `hm1 : ℝ → ℝ → ℝ → ℝ → ℝ`, `rowMissHigh`
+      (`∑ i ∈ filter (M < a i), (1 - ∑ j, J i j ^ 2) ≤ hm1 ε γ M L`) and `hm1Vanish` (for every η > 0 there are
+      `M`, `L₀` with `hm1 ε γ M L ≤ η * L` for `L ≥ L₀`); the existing `lowCount` row supplies the rest. Prove
+      `H5bHighMassInputs.toMass` (a `def` with `m1 ε γ L := ∑ i, (1 - ∑ j, (D ε γ L).J i j ^ 2)`, so `rowMiss`
+      is `le_refl`; `m1Vanish` from G28's `missing_split`, `lowCount` and `hm1Vanish`) and `h5b_of_high_mass`. F table: the row missing-mass row is reduced to its high-energy part, given the
+      L-uniform low count already in the table (strictly weaker than G26's row when `lowCount` is present).
 
 ## Not attempted here
 
