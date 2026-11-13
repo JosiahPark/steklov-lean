@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-12 23:22 UTC",
+  "checked_at": "2026-11-13 00:20 UTC",
   "lean_exit_code": 0,
-  "commit": "ea72791413a0bf15ce73535c41633a53b7043a20",
-  "last_passing_commit": "ea72791413a0bf15ce73535c41633a53b7043a20",
-  "library_declarations_checked": 614,
-  "library_declarations": 614,
+  "commit": "d4d55cb056893cd63d623f631dbeb68c246122c8",
+  "last_passing_commit": "d4d55cb056893cd63d623f631dbeb68c246122c8",
+  "library_declarations_checked": 617,
+  "library_declarations": 617,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 614,
-  "verified": 614,
+  "theorems": 617,
+  "verified": 617,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3078,6 +3078,36 @@
     {
       "file": "H5PaperRows.lean",
       "theorem": "SteklovAudit.H5PaperRows.h5b_of_paper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideRows.lean",
+      "theorem": "SteklovAudit.H5SideRows.toPaper_disc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideRows.lean",
+      "theorem": "SteklovAudit.H5SideRows.toPaper_P",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SideRows.lean",
+      "theorem": "SteklovAudit.H5SideRows.h5b_of_sides",
       "axioms": [
         "propext",
         "Classical.choice",
