@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 00:20 UTC at commit `d4d55cb05689`. Last passing commit: `d4d55cb05689`.
+Checked 2026-11-13 05:28 UTC at commit `d3358a5483ca`. Last passing commit: `d3358a5483ca`.
 
-Library declarations checked: 617 of 617 theorems compile with only Lean's standard axioms.
+Library declarations checked: 627 of 627 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -333,6 +333,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_m` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_disc` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.h5b_of_paper` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_rowTrace` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_colTrace` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_trueSide` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_modelSide` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.zeroDisc_vanish` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.zero_bound` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.sideWitness_nonempty` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.not_target_mirror` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.model_side_not_target` | verified (standard axioms only) |
+| H5SideAudit.lean | `SteklovAudit.H5SideAudit.true_side_not_target` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_disc` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_P` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.h5b_of_sides` | verified (standard axioms only) |
