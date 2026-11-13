@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 19:59 UTC at commit `d12dec9ac308`. Last passing commit: `d12dec9ac308`.
+Checked 2026-11-13 20:15 UTC at commit `7246446a1ad3`. Last passing commit: `7246446a1ad3`.
 
-Library declarations checked: 663 of 663 theorems compile with only Lean's standard axioms.
+Library declarations checked: 667 of 667 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -346,6 +346,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_row` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.idJ_hs2` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.bessel_count_nonjunk` | verified (standard axioms only) |
+| H5MissingMass.lean | `SteklovAudit.H5MissingMass.vanish_const_mul` | verified (standard axioms only) |
+| H5MissingMass.lean | `SteklovAudit.H5MissingMass.toCounts_k1` | verified (standard axioms only) |
+| H5MissingMass.lean | `SteklovAudit.H5MissingMass.toCounts_k2` | verified (standard axioms only) |
+| H5MissingMass.lean | `SteklovAudit.H5MissingMass.h5b_of_mass` | verified (standard axioms only) |
 | H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wN_le_one` | verified (standard axioms only) |
 | H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_K` | verified (standard axioms only) |
 | H5PaperAudit.lean | `SteklovAudit.H5PaperAudit.wData_sum` | verified (standard axioms only) |

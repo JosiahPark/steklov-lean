@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 19:59 UTC",
+  "checked_at": "2026-11-13 20:15 UTC",
   "lean_exit_code": 0,
-  "commit": "d12dec9ac30800a9c553787a696641a2bce5a674",
-  "last_passing_commit": "d12dec9ac30800a9c553787a696641a2bce5a674",
-  "library_declarations_checked": 663,
-  "library_declarations": 663,
+  "commit": "7246446a1ad3ec31120bff9f2f385a492c263994",
+  "last_passing_commit": "7246446a1ad3ec31120bff9f2f385a492c263994",
+  "library_declarations_checked": 667,
+  "library_declarations": 667,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 663,
-  "verified": 663,
+  "theorems": 667,
+  "verified": 667,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3208,6 +3208,46 @@
     {
       "file": "H5MassRow.lean",
       "theorem": "SteklovAudit.H5MassRow.bessel_count_nonjunk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MissingMass.lean",
+      "theorem": "SteklovAudit.H5MissingMass.vanish_const_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MissingMass.lean",
+      "theorem": "SteklovAudit.H5MissingMass.toCounts_k1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MissingMass.lean",
+      "theorem": "SteklovAudit.H5MissingMass.toCounts_k2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MissingMass.lean",
+      "theorem": "SteklovAudit.H5MissingMass.h5b_of_mass",
       "axioms": [
         "propext",
         "Classical.choice",
