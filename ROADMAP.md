@@ -596,7 +596,7 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 642/642 at b3f2e53, `toSides_d1`, `toSides_d2`,
       `h5b_of_counts` verified.
-- [ ] G24. `SteklovAudit/H5CountAudit.lean`: audit of G23. `countWitness : H5bCountInputs 0 0` (data with
+- [x] G24. `SteklovAudit/H5CountAudit.lean`: audit of G23. `countWitness : H5bCountInputs 0 0` (data with
       `nA = nB = 0`, so every sum is empty and all `e`, `k` are 0; G8's `arctanProfile`),
       `countWitness_nonempty`; `true_count_not_target` and `model_count_not_target`: each count row (with its
       vanishing field) is satisfiable for a pair where `H5bTarget` fails (reuse G9's `not_target_double` and
@@ -608,6 +608,8 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       `true_count_not_target` (E = 0, Emod = 2L, via `not_target_mirror`), `model_count_not_target`
       (E = 2L, Emod = 0), `defect_rows_not_target`, plus helper lemmas `z_*`. Next run: tick if STATUS shows
       it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 656/656 at 73469a7, all G24 theorems in
+      `H5CountAudit.lean` verified.
 - [ ] G25. Same file as G24: the completeness row is not redundant. `trueCount_not_trueSide`: an explicit
       example with `nA L = Nat.ceil L` eigenvalues all equal to 0, `J = 0`, φ = arctan and
       `E L = Nat.ceil L * arctan (-L)`, so the true count row holds with e1 = 0 while the row-weighted trace is 0
@@ -616,6 +618,13 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       `∀ x, |P.φ x| ≤ Φ` (G21's `arctan_abs_le_two` for arctan) the row-completeness row follows from
       `Φ * ∑ i, (1 - ∑ j, J i j ^ 2) ≤ k1` (G22's `defect_le_sup` with G12's Bessel row), recording the crude
       form of the row: the total missing row mass below the cutoff is o(L).
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5CountAudit.lean` (uncompiled at push, commit
+      30898f1): `const_sum_fin`, `ceil_trueCount`, `ceil_rowTrace`, `ceil_trueSide_fails`,
+      `trueCount_not_trueSide` (eigenvalues at 0 written as a constant function; E L = ⌈L⌉₊ * arctan (0 - L);
+      vanishing rate tested with η = 1/2 and π > 3), `rowDefect_of_sup` (any bounded φ, over arbitrary
+      Fintypes), `rowDefect_arctan` (Φ = 2). F table: the row-completeness row is not redundant; its crude
+      form is `Φ * (total missing row mass) ≤ k1`, so it needs the missing row mass below the cutoff to be
+      o(L). Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
