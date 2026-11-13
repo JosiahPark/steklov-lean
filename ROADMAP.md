@@ -551,7 +551,7 @@ model side, each mentioning only one spectrum. None claims a row is proved for t
       if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 627/627 at d3358a5, all ten listed G20 theorems
       verified.
-- [ ] G21. Same file as G20: the refinement is genuine and honest about direction. `sides_imply_cutoff`
+- [x] G21. Same file as G20: the refinement is genuine and honest about direction. `sides_imply_cutoff`
       (restating G18 at the structure level: every `H5bSideInputs` yields `H5bPaperInputs` with the same
       non-cutoff fields), and `cutoff_not_sides`: an explicit Fin 1 example (J i j = 1, a = b, E = Emod = 2L, φ = arctan from G8, so the weighted trace is bounded by π/2)
       where the G16 cutoff row holds with disc = 0 but the true-side row fails for every vanishing d1, so
@@ -564,6 +564,43 @@ model side, each mentioning only one spectrum. None claims a row is proved for t
       stronger than the cutoff row (they imply it, and `cutoff_not_sides` shows the converse fails); they
       are what the paper's §7 localization argues, one spectrum at a time. Next run: tick if STATUS shows
       it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 633/633 at 1fe8bce, all six G21 theorems verified.
+
+G22–G25 written by the formalize task on 2026-11-13 (after G21 was ticked). They reduce each side row of G19
+to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` that mentions neither `E` nor
+`Emod`. None claims a row is proved for the actual operator.
+
+- [ ] G22. `SteklovAudit/H5Completeness.lean`: the reduction step, over an arbitrary `Fintype ι` with values
+      `f : ι → ℝ` and weights `w : ι → ℝ` (so it applies to rows `w i = ∑ j, J i j ^ 2` and to columns).
+      `weighted_sum_split`: `∑ i, f i * w i = ∑ i, f i - ∑ i, f i * (1 - w i)` (Finset.sum_sub_distrib, ring);
+      `side_of_count_and_defect`: if `|E - ∑ i, f i| ≤ e`, `∑ i, |f i| * (1 - w i) ≤ k` and `∀ i, w i ≤ 1`,
+      then `|E - ∑ i, f i * w i| ≤ e + k` (Finset.abs_sum_le_sum_abs, abs_mul); `defect_le_sup`: if
+      `∀ i, |f i| ≤ Φ` and `∀ i, w i ≤ 1` then `∑ i, |f i| * (1 - w i) ≤ Φ * ∑ i, (1 - w i)`. Theorem names:
+      `weighted_sum_split`, `side_of_count_and_defect`, `defect_le_sup`.
+- [ ] G23. `SteklovAudit/H5CountRows.lean`: `structure H5bCountInputs` = `H5bSideInputs` (G19) with
+      `d1`, `trueSide`, `d1Vanish` replaced by a true count row `e1`, `trueCount`
+      (`|E - ∑ i, P.φ (a i - L)| ≤ e1`, no `J`), `e1Vanish`, and a row-completeness row `k1`, `rowDefect`
+      (`∑ i, |P.φ (a i - L)| * (1 - ∑ j, J i j ^ 2) ≤ k1`), `k1Vanish`; mirror for the model side (`e2`,
+      `modelCount`, `e2Vanish`, `k2`, `colDefect`, `k2Vanish`) with a new column Bessel row
+      `colBessel : ∀ ε γ L j, ∑ i, J i j ^ 2 ≤ 1`. Prove `H5bCountInputs.toSides : H5bSideInputs E Emod`
+      (a `def`, `d1 = e1 + k1`, `d2 = e2 + k2`, via G22 and G18's `discVanish_of_sides`), `toSides_d1`,
+      `toSides_d2` (rfl) and `h5b_of_counts : H5bTarget E Emod` via `h5b_of_sides`. F table: each side row
+      becomes "smoothed count of one spectrum (no J)" + "completeness of J weighted by the window profile".
+- [ ] G24. `SteklovAudit/H5CountAudit.lean`: audit of G23. `countWitness : H5bCountInputs 0 0` (data with
+      `nA = nB = 0`, so every sum is empty and all `e`, `k` are 0; G8's `arctanProfile`),
+      `countWitness_nonempty`; `true_count_not_target` and `model_count_not_target`: each count row (with its
+      vanishing field) is satisfiable for a pair where `H5bTarget` fails (reuse G9's `not_target_double` and
+      G20's `not_target_mirror`); `defect_rows_not_target`: the two completeness rows and `colBessel` are a
+      `Prop` on `D`, `P`, `k1`, `k2` only (no `E`, `Emod`) and hold for the witness data while
+      `H5bTarget` fails for E = 2L, Emod = 0.
+- [ ] G25. Same file as G24: the completeness row is not redundant. `trueCount_not_trueSide`: an explicit
+      example with `nA L = Nat.ceil L` eigenvalues all equal to 0, `J = 0`, φ = arctan and
+      `E L = Nat.ceil L * arctan (-L)`, so the true count row holds with e1 = 0 while the row-weighted trace is 0
+      and the G19 true-side row fails for every vanishing `d1` (|arctan (-L)| ≥ arctan 1 = π/4 for L ≥ 1; use
+      `Real.arctan_one`, `Real.arctan_strictMono` or `Real.arctan_lt_arctan`); and `rowDefect_of_sup`: with
+      `∀ x, |P.φ x| ≤ Φ` (G21's `arctan_abs_le_two` for arctan) the row-completeness row follows from
+      `Φ * ∑ i, (1 - ∑ j, J i j ^ 2) ≤ k1` (G22's `defect_le_sup` with G12's Bessel row), recording the crude
+      form of the row: the total missing row mass below the cutoff is o(L).
 
 ## Not attempted here
 
