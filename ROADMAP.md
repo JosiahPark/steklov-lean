@@ -691,6 +691,11 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       same family violates every L-uniform `lowCount`. F table text: the high-energy row alone is strictly weaker
       than the full missing-mass row; the gap is exactly the low count. Theorem names: `highMassWitness_nonempty`,
       `zero_rowMissHigh`, `zero_rowMass`, `zero_rowMissHigh_not_mass`, `zero_not_lowCount`.
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5HighMassAudit.lean` (uncompiled at push, commit
+      aa9f255): `z_rowMissHigh`, `highMassWitness` (low-count rate `c = 1` via G24's `z_lowCount`, not `c = 0`),
+      `highMassWitness_nonempty`, `zero_rowMissHigh`, `zero_rowMass` (= G27's `atL_rowMass`, same `J`),
+      `zero_not_lowCount` (M = 0, L = c 0 + 1), `zero_rowMissHigh_not_mass` (third part is G27's
+      `atL_rowMiss_fails`). Next run: tick if STATUS shows it compiled.
 - [ ] G31. `SteklovAudit/H5ColMassSplit.lean`: column mirror of G28–G29. `col_missing_split`:
       `∑ j, (1 - ∑ i, J i j ^ 2) ≤ (filter (b j ≤ M)).card + ∑ j ∈ filter (M < b j), (1 - ∑ i, J i j ^ 2)` from
       `colBessel` (apply G28's `missing_split` to the transpose `fun j i => J i j`). `structure H5bHighMass2Inputs`
