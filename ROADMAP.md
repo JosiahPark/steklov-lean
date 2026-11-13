@@ -640,6 +640,10 @@ missing-mass row. None claims a row is proved for the actual operator.
       `Φ = 0` and `0 < Φ` separately, use `η / Φ`), `H5bMassInputs.toCounts : H5bCountInputs E Emod` (a `def`,
       `k1 = Φ * m1`, `k2 = Φ * m2`, rows via G25's `rowDefect_of_sup` and its column mirror), `toCounts_k1`
       (rfl) and `h5b_of_mass : H5bTarget E Emod` via `h5b_of_counts`.
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5MissingMass.lean` (uncompiled at push, commit
+      29c5da9): `vanish_const_mul`, `H5bMassInputs`, `H5bMassInputs.toCounts` (rows via G22's `defect_le_sup`
+      directly, with `bessel`/`colBessel`), `toCounts_k1`, `toCounts_k2`, `h5b_of_mass`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G27. `SteklovAudit/H5MassAudit.lean`: audit of G26. `massWitness : H5bMassInputs 0 0` (G24's `zData`,
       `Φ = 2`, `m1 = m2 = 0`), `massWitness_nonempty`; `mass_stronger_than_defect`: a `Fin ⌈L⌉₊` example with
       all true eigenvalues at `L`, `J = 0`, φ = arctan, where the G23 row-completeness row holds with `k1 = 0`
