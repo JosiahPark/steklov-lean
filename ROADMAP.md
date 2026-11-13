@@ -537,7 +537,7 @@ model side, each mentioning only one spectrum. None claims a row is proved for t
       tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 617/617 at d4d55cb, `toPaper_disc`, `toPaper_P`,
       `h5b_of_sides` verified.
-- [ ] G20. `SteklovAudit/H5SideAudit.lean`: audit of G19. `sideWitness`: an explicit `H5bSideInputs 0 0`
+- [x] G20. `SteklovAudit/H5SideAudit.lean`: audit of G19. `sideWitness`: an explicit `H5bSideInputs 0 0`
       (reuse G17's `paperOfCutoff` data: J = 0 so all traces vanish, d1 = d2 = 0), `sideWitness_nonempty`;
       and `model_side_not_target`, `true_side_not_target`: each side row (with its vanishing field and all
       non-cutoff rows) is satisfiable for a pair (E, Emod) for which `H5bTarget` fails (E = 2L with only the
@@ -549,12 +549,21 @@ model side, each mentioning only one spectrum. None claims a row is proved for t
       `sideWitness`, `sideWitness_nonempty`, `not_target_mirror`, `model_side_not_target`,
       `true_side_not_target` (each also shows no vanishing discrepancy fits the other side). Next run: tick
       if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 627/627 at d3358a5, all ten listed G20 theorems
+      verified.
 - [ ] G21. Same file as G20: the refinement is genuine and honest about direction. `sides_imply_cutoff`
       (restating G18 at the structure level: every `H5bSideInputs` yields `H5bPaperInputs` with the same
       non-cutoff fields), and `cutoff_not_sides`: an explicit Fin 1 example (J i j = 1, a = b, E = Emod = 2L, φ = arctan from G8, so the weighted trace is bounded by π/2)
       where the G16 cutoff row holds with disc = 0 but the true-side row fails for every vanishing d1, so
       G19 is a strictly stronger, two-row form of the cutoff row, not a weaker one. Record that in the F table
       text of G19 (the side rows are what the paper's §7 localization argues, one spectrum at a time).
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5SideAudit.lean` (uncompiled at push, commit
+      1e87cc2): `sides_imply_cutoff`, `arctan_abs_le_two`, `fin1_cutoff`, `fin1_rowTrace`,
+      `fin1_trueSide_fails`, `cutoff_not_sides` (eigenvalues a = b = 0 rather than a = b free; the bound
+      used is |arctan| ≤ 2 via `Real.pi_le_four`). F table note for G19: the two side rows are strictly
+      stronger than the cutoff row (they imply it, and `cutoff_not_sides` shows the converse fails); they
+      are what the paper's §7 localization argues, one spectrum at a time. Next run: tick if STATUS shows
+      it compiled.
 
 ## Not attempted here
 
