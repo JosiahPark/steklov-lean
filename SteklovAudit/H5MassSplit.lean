@@ -69,7 +69,7 @@ theorem missing_split (a : ι → ℝ) (J : ι → κ → ℝ) (M : ℝ)
     Finset.sum_congr (Finset.filter_congr fun i _ => not_le) fun _ _ => rfl
   calc
     ∑ i, (1 - r i) = ∑ i ∈ Finset.univ.filter fun i => a i ≤ M, (1 - r i) +
-                      ∑ i ∈ Finset.univ.filter fun i => ¬ (a i ≤ M), (1 - r i) := hsplit
+                      ∑ i ∈ Finset.univ.filter fun i => ¬ (a i ≤ M), (1 - r i) := hsplit.symm
     _ ≤ ((Finset.univ.filter fun i => a i ≤ M).card : ℝ) +
         ∑ i ∈ Finset.univ.filter fun i => M < a i, (1 - r i) := by
       rw [hhigh]
