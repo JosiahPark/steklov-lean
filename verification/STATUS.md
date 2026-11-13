@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 17:23 UTC at commit `73469a7e9eaa`. Last passing commit: `73469a7e9eaa`.
+Checked 2026-11-13 18:22 UTC at commit `e2829a39dde8`. Last passing commit: `e2829a39dde8`.
 
-Library declarations checked: 656 of 656 theorems compile with only Lean's standard axioms.
+Library declarations checked: 663 of 663 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -293,6 +293,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CountAudit.lean | `SteklovAudit.H5CountAudit.true_count_not_target` | verified (standard axioms only) |
 | H5CountAudit.lean | `SteklovAudit.H5CountAudit.model_count_not_target` | verified (standard axioms only) |
 | H5CountAudit.lean | `SteklovAudit.H5CountAudit.defect_rows_not_target` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.const_sum_fin` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.ceil_trueCount` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.ceil_rowTrace` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.ceil_trueSide_fails` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.trueCount_not_trueSide` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.rowDefect_of_sup` | verified (standard axioms only) |
+| H5CountAudit.lean | `SteklovAudit.H5CountAudit.rowDefect_arctan` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d1` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d2` | verified (standard axioms only) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.h5b_of_counts` | verified (standard axioms only) |
