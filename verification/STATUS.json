@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 10:21 UTC",
+  "checked_at": "2026-11-13 16:38 UTC",
   "lean_exit_code": 0,
-  "commit": "282272eb819bb68084607c7500caa97fbfbe7eef",
-  "last_passing_commit": "282272eb819bb68084607c7500caa97fbfbe7eef",
-  "library_declarations_checked": 639,
-  "library_declarations": 639,
+  "commit": "b3f2e53c69b6c0e56be554d4932686b6dc4887de",
+  "last_passing_commit": "b3f2e53c69b6c0e56be554d4932686b6dc4887de",
+  "library_declarations_checked": 642,
+  "library_declarations": 642,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 639,
-  "verified": 639,
+  "theorems": 642,
+  "verified": 642,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2538,6 +2538,36 @@
     {
       "file": "H5Completeness.lean",
       "theorem": "SteklovAudit.H5Completeness.side_of_count_and_defect_nonvacuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CountRows.lean",
+      "theorem": "SteklovAudit.H5CountRows.toSides_d1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CountRows.lean",
+      "theorem": "SteklovAudit.H5CountRows.toSides_d2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CountRows.lean",
+      "theorem": "SteklovAudit.H5CountRows.h5b_of_counts",
       "axioms": [
         "propext",
         "Classical.choice",
