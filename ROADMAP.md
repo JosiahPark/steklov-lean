@@ -632,7 +632,7 @@ profile-weighted completeness rows of G23 by profile-free missing-mass rows, rec
 stronger form, and then split the row side into the existing L-uniform low count plus a high-energy
 missing-mass row. None claims a row is proved for the actual operator.
 
-- [ ] G26. `SteklovAudit/H5MissingMass.lean`: `structure H5bMassInputs` = `H5bCountInputs` (G23) with
+- [x] G26. `SteklovAudit/H5MissingMass.lean`: `structure H5bMassInputs` = `H5bCountInputs` (G23) with
       `k1`, `rowDefect`, `k1Vanish` replaced by a profile bound `Φ : ℝ`, `hΦ : 0 ≤ Φ`,
       `profBound : ∀ x, |P.φ x| ≤ Φ` and a row missing-mass row `m1`, `rowMiss`
       (`∑ i, (1 - ∑ j, J i j ^ 2) ≤ m1`), `m1Vanish`; mirror `m2`, `colMiss`, `m2Vanish` for columns.
@@ -644,12 +644,19 @@ missing-mass row. None claims a row is proved for the actual operator.
       29c5da9): `vanish_const_mul`, `H5bMassInputs`, `H5bMassInputs.toCounts` (rows via G22's `defect_le_sup`
       directly, with `bessel`/`colBessel`), `toCounts_k1`, `toCounts_k2`, `h5b_of_mass`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 667/667 at 7246446 (build of 29c5da9 also passed;
+      only its status push lost a race), all G26 theorems in `H5MissingMass.lean` verified.
 - [ ] G27. `SteklovAudit/H5MassAudit.lean`: audit of G26. `massWitness : H5bMassInputs 0 0` (G24's `zData`,
       `Φ = 2`, `m1 = m2 = 0`), `massWitness_nonempty`; `mass_stronger_than_defect`: a `Fin ⌈L⌉₊` example with
       all true eigenvalues at `L`, `J = 0`, φ = arctan, where the G23 row-completeness row holds with `k1 = 0`
       (`arctan 0 = 0`) while the missing row mass is `⌈L⌉₊`, so no vanishing `m1` meets `rowMiss`. F table
       text: the missing-mass row is a stronger, profile-free sufficient form of the completeness row, not a
       weaker one; it is the form the paper's Bessel/completeness argument would naturally give.
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5MassAudit.lean` (uncompiled at push, commit
+      ae140c9): `z_rowMiss`, `z_colMiss`, `massWitness`, `massWitness_nonempty`, `atL_rowDefect`,
+      `atL_rowMass`, `atL_rowMiss_fails`, `mass_stronger_than_defect` (eigenvalues at `L` written as a
+      constant function, `J : Fin ⌈L⌉₊ → Fin 1 → ℝ` zero; vanishing tested with η = 1/2). Next run: tick if
+      STATUS shows it compiled.
 - [ ] G28. `SteklovAudit/H5MassSplit.lean`: the low/high split of the row missing mass, over a `Fintype ι`.
       `missing_nonneg` and `missing_le_one` (from `∀ i, 0 ≤ ∑ j, J i j ^ 2` via `sq_nonneg` and the Bessel row);
       `missing_split`: `∑ i, (1 - r i) ≤ (filter (a i ≤ M)).card + ∑ i ∈ filter (M < a i), (1 - r i)`
