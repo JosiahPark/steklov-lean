@@ -646,7 +646,7 @@ missing-mass row. None claims a row is proved for the actual operator.
       shows it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 667/667 at 7246446 (build of 29c5da9 also passed;
       only its status push lost a race), all G26 theorems in `H5MissingMass.lean` verified.
-- [ ] G27. `SteklovAudit/H5MassAudit.lean`: audit of G26. `massWitness : H5bMassInputs 0 0` (G24's `zData`,
+- [x] G27. `SteklovAudit/H5MassAudit.lean`: audit of G26. `massWitness : H5bMassInputs 0 0` (G24's `zData`,
       `Φ = 2`, `m1 = m2 = 0`), `massWitness_nonempty`; `mass_stronger_than_defect`: a `Fin ⌈L⌉₊` example with
       all true eigenvalues at `L`, `J = 0`, φ = arctan, where the G23 row-completeness row holds with `k1 = 0`
       (`arctan 0 = 0`) while the missing row mass is `⌈L⌉₊`, so no vanishing `m1` meets `rowMiss`. F table
@@ -657,18 +657,64 @@ missing-mass row. None claims a row is proved for the actual operator.
       `atL_rowMass`, `atL_rowMiss_fails`, `mass_stronger_than_defect` (eigenvalues at `L` written as a
       constant function, `J : Fin ⌈L⌉₊ → Fin 1 → ℝ` zero; vanishing tested with η = 1/2). Next run: tick if
       STATUS shows it compiled.
-- [ ] G28. `SteklovAudit/H5MassSplit.lean`: the low/high split of the row missing mass, over a `Fintype ι`.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 678/678 at af8fabd, all seven G27 theorems in
+      `H5MassAudit.lean` verified.
+- [x] G28. `SteklovAudit/H5MassSplit.lean`: the low/high split of the row missing mass, over a `Fintype ι`.
       `missing_nonneg` and `missing_le_one` (from `∀ i, 0 ≤ ∑ j, J i j ^ 2` via `sq_nonneg` and the Bessel row);
       `missing_split`: `∑ i, (1 - r i) ≤ (filter (a i ≤ M)).card + ∑ i ∈ filter (M < a i), (1 - r i)`
       (`Finset.sum_filter_add_sum_filter_not`, `Finset.card_eq_sum_ones`, `Finset.sum_le_sum`). Theorem names:
       `missing_nonneg`, `missing_le_one`, `missing_split`.
-- [ ] G29. Same file as G28: `structure H5bHighMassInputs` = `H5bMassInputs` with `m1`, `rowMiss`,
+      Written by the formalize task 2026-11-13 together with G29 in `SteklovAudit/H5MassSplit.lean` (commit
+      a6377f4); `missing_split` repaired in af8fabd (`hsplit.symm`, CI error at 72:82). Ticked by the formalize
+      task 2026-11-13: STATUS PASS 678/678 at af8fabd, all three G28 theorems verified.
+- [x] G29. Same file as G28: `structure H5bHighMassInputs` = `H5bMassInputs` with `m1`, `rowMiss`,
       `m1Vanish` replaced by a high-energy row `hm1 : ℝ → ℝ → ℝ → ℝ → ℝ`, `rowMissHigh`
       (`∑ i ∈ filter (M < a i), (1 - ∑ j, J i j ^ 2) ≤ hm1 ε γ M L`) and `hm1Vanish` (for every η > 0 there are
       `M`, `L₀` with `hm1 ε γ M L ≤ η * L` for `L ≥ L₀`); the existing `lowCount` row supplies the rest. Prove
       `H5bHighMassInputs.toMass` (a `def` with `m1 ε γ L := ∑ i, (1 - ∑ j, (D ε γ L).J i j ^ 2)`, so `rowMiss`
       is `le_refl`; `m1Vanish` from G28's `missing_split`, `lowCount` and `hm1Vanish`) and `h5b_of_high_mass`. F table: the row missing-mass row is reduced to its high-energy part, given the
       L-uniform low count already in the table (strictly weaker than G26's row when `lowCount` is present).
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5MassSplit.lean` (commit a6377f4, with G28):
+      `H5bHighMassInputs`, `H5bHighMassInputs.toMass` (vanishing with η/2 for the high part and threshold
+      `max Lhm (max 1 (2 (c + 1) / η))` for the low count), `h5b_of_high_mass`. Ticked by the formalize task
+      2026-11-13: STATUS PASS 678/678 at af8fabd, `h5b_of_high_mass` verified.
+
+G30–G33 written by the formalize task on 2026-11-13 (after G27–G29 were ticked). They audit G29, mirror the
+high/low split on the model (column) side with a new named model low-count row, and reduce both L-uniform low
+counts to a linear growth condition on the eigenvalues. None claims a row is proved for the actual operator.
+
+- [ ] G30. `SteklovAudit/H5HighMassAudit.lean`: audit of G29. `highMassWitness : H5bHighMassInputs 0 0`
+      (G24's `zData`, `Φ = 2`, `hm1 = 0`, `m2 = 0`, `c = 0`), `highMassWitness_nonempty`; `zero_rowMissHigh_not_mass`:
+      a `Fin ⌈L⌉₊` family with all true eigenvalues at 0 and `J = 0` (`Fin 1` columns) where `rowMissHigh` holds
+      with `hm1 = 0` for every `M ≥ 0` (the filter `M < 0` is empty) but the full missing row mass is `⌈L⌉₊`, so no
+      vanishing `m1` meets G26's `rowMiss` (vanishing tested with η = 1/2, as in G27's `atL_rowMiss_fails`), and the
+      same family violates every L-uniform `lowCount`. F table text: the high-energy row alone is strictly weaker
+      than the full missing-mass row; the gap is exactly the low count. Theorem names: `highMassWitness_nonempty`,
+      `zero_rowMissHigh`, `zero_rowMass`, `zero_rowMissHigh_not_mass`, `zero_not_lowCount`.
+- [ ] G31. `SteklovAudit/H5ColMassSplit.lean`: column mirror of G28–G29. `col_missing_split`:
+      `∑ j, (1 - ∑ i, J i j ^ 2) ≤ (filter (b j ≤ M)).card + ∑ j ∈ filter (M < b j), (1 - ∑ i, J i j ^ 2)` from
+      `colBessel` (apply G28's `missing_split` to the transpose `fun j i => J i j`). `structure H5bHighMass2Inputs`
+      = `H5bHighMassInputs` with `m2`, `colMiss`, `m2Vanish` replaced by a high-energy column row `hm2`,
+      `colMissHigh`, `hm2Vanish` (same shape as `hm1Vanish`) plus a NEW named model low-count row `cB`,
+      `modelLowCount : ((filter fun j => b j ≤ M).card : ℝ) ≤ cB ε γ M` (new F table row: L-uniform model low
+      count). Prove `H5bHighMass2Inputs.toHigh : H5bHighMassInputs E Emod` (a `def`, `m2 ε γ L := ∑ j, (1 - ...)`,
+      `colMiss` by `le_refl`, `m2Vanish` copied from G29's `m1Vanish` proof) and `h5b_of_high_mass2`.
+- [ ] G32. `SteklovAudit/H5LowCountGrowth.lean`: reduce an L-uniform low count to linear eigenvalue growth,
+      over `Fin n` with values `a : Fin n → ℝ`. `lowCount_of_linear_growth`: if `0 < s` and
+      `∀ k : Fin n, (k : ℝ) * s ≤ a k`, then `((filter fun k => a k ≤ M).card : ℝ) ≤ M / s + 1` (map `k ↦ k.val`
+      into `Finset.range (⌊M / s⌋₊ + 1)`, `Finset.card_le_card_of_injOn`, `Nat.floor_le`/`Nat.lt_floor_add_one`;
+      if the step is hard, prove the weaker bound via `Finset.card_le_card` on `filter (fun k => (k : ℝ) ≤ M / s)`).
+      `count_not_lowCount`: the Weyl `count` row (`card ≤ Cm (1 + L) ^ 2`, Cm = 1) holds for `Fin ⌈L⌉₊` with all
+      eigenvalues 0 while no function `c M` bounds the low count for all L, so `lowCount` is a genuine row and
+      not implied by `count`. Theorem names: `lowCount_of_linear_growth`, `count_not_lowCount`. F table text:
+      each low-count row (true `lowCount`, model `modelLowCount`) follows from linear growth of the indexed
+      eigenvalues with an L-independent slope; no growth bound is proved for the actual operator or the model.
+- [ ] G33. `SteklovAudit/H5HighMass2Audit.lean`: audit of G31. `highMass2Witness : H5bHighMass2Inputs 0 0`
+      (G24's `zData`, `hm1 = hm2 = 0`, `c = cB = 0`), `highMass2Witness_nonempty`; `highMass2_rows_not_target`:
+      the rows `rowMissHigh`, `hm1Vanish`, `colMissHigh`, `hm2Vanish`, `lowCount`, `modelLowCount` are a `Prop` on
+      `D` and the rates only (no `E`, `Emod`) and hold for the witness data while `H5bTarget` fails for E = 2L,
+      Emod = 0 (reuse G24's `model_count_not_target` pattern). Records that, after G31, all "target in disguise"
+      content of H5b sits in the two one-spectrum count rows `trueCount` and `modelCount`.
 
 ## Not attempted here
 
