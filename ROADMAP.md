@@ -582,7 +582,7 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       `side_of_count_and_sup` (count + sup·missing-mass form), `side_of_count_and_defect_nonvacuous` (Fin 1,
       w = 1/2, bound attained). Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-13: STATUS PASS 639/639 at 282272e, all six G22 theorems verified.
-- [ ] G23. `SteklovAudit/H5CountRows.lean`: `structure H5bCountInputs` = `H5bSideInputs` (G19) with
+- [x] G23. `SteklovAudit/H5CountRows.lean`: `structure H5bCountInputs` = `H5bSideInputs` (G19) with
       `d1`, `trueSide`, `d1Vanish` replaced by a true count row `e1`, `trueCount`
       (`|E - ∑ i, P.φ (a i - L)| ≤ e1`, no `J`), `e1Vanish`, and a row-completeness row `k1`, `rowDefect`
       (`∑ i, |P.φ (a i - L)| * (1 - ∑ j, J i j ^ 2) ≤ k1`), `k1Vanish`; mirror for the model side (`e2`,
@@ -594,6 +594,8 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       Written by the formalize task 2026-11-13 in `SteklovAudit/H5CountRows.lean` (uncompiled at push, commit
       bfde66f): `H5bCountInputs`, `H5bCountInputs.toSides`, `toSides_d1`, `toSides_d2`, `h5b_of_counts`. Next run:
       tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-13: STATUS PASS 642/642 at b3f2e53, `toSides_d1`, `toSides_d2`,
+      `h5b_of_counts` verified.
 - [ ] G24. `SteklovAudit/H5CountAudit.lean`: audit of G23. `countWitness : H5bCountInputs 0 0` (data with
       `nA = nB = 0`, so every sum is empty and all `e`, `k` are 0; G8's `arctanProfile`),
       `countWitness_nonempty`; `true_count_not_target` and `model_count_not_target`: each count row (with its
@@ -601,6 +603,11 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       G20's `not_target_mirror`); `defect_rows_not_target`: the two completeness rows and `colBessel` are a
       `Prop` on `D`, `P`, `k1`, `k2` only (no `E`, `Emod`) and hold for the witness data while
       `H5bTarget` fails for E = 2L, Emod = 0.
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5CountAudit.lean` (uncompiled at push, commit
+      1b664d0): `zData` (empty family, nA = nB = 0), `countOfBounds`, `countWitness`, `countWitness_nonempty`,
+      `true_count_not_target` (E = 0, Emod = 2L, via `not_target_mirror`), `model_count_not_target`
+      (E = 2L, Emod = 0), `defect_rows_not_target`, plus helper lemmas `z_*`. Next run: tick if STATUS shows
+      it compiled.
 - [ ] G25. Same file as G24: the completeness row is not redundant. `trueCount_not_trueSide`: an explicit
       example with `nA L = Nat.ceil L` eigenvalues all equal to 0, `J = 0`, φ = arctan and
       `E L = Nat.ceil L * arctan (-L)`, so the true count row holds with e1 = 0 while the row-weighted trace is 0
