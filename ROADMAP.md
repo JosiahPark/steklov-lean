@@ -577,6 +577,10 @@ to a one-spectrum smoothed count with no `J`, plus a completeness row on `J` tha
       then `|E - ∑ i, f i * w i| ≤ e + k` (Finset.abs_sum_le_sum_abs, abs_mul); `defect_le_sup`: if
       `∀ i, |f i| ≤ Φ` and `∀ i, w i ≤ 1` then `∑ i, |f i| * (1 - w i) ≤ Φ * ∑ i, (1 - w i)`. Theorem names:
       `weighted_sum_split`, `side_of_count_and_defect`, `defect_le_sup`.
+      Written by the formalize task 2026-11-13 in `SteklovAudit/H5Completeness.lean` (uncompiled at push, commit
+      799a5d8): `weighted_sum_split`, `defect_abs_le`, `side_of_count_and_defect`, `defect_le_sup`,
+      `side_of_count_and_sup` (count + sup·missing-mass form), `side_of_count_and_defect_nonvacuous` (Fin 1,
+      w = 1/2, bound attained). Next run: tick if STATUS shows it compiled.
 - [ ] G23. `SteklovAudit/H5CountRows.lean`: `structure H5bCountInputs` = `H5bSideInputs` (G19) with
       `d1`, `trueSide`, `d1Vanish` replaced by a true count row `e1`, `trueCount`
       (`|E - ∑ i, P.φ (a i - L)| ≤ e1`, no `J`), `e1Vanish`, and a row-completeness row `k1`, `rowDefect`
