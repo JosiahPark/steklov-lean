@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 10:15 UTC",
+  "checked_at": "2026-11-14 12:25 UTC",
   "lean_exit_code": 0,
-  "commit": "84cbdc1064747809992e823c8ab396ae5e795ac6",
-  "last_passing_commit": "84cbdc1064747809992e823c8ab396ae5e795ac6",
-  "library_declarations_checked": 715,
-  "library_declarations": 715,
+  "commit": "13197979838dee9d7ded1275ebb721b1945a2f4a",
+  "last_passing_commit": "13197979838dee9d7ded1275ebb721b1945a2f4a",
+  "library_declarations_checked": 717,
+  "library_declarations": 717,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 715,
-  "verified": 715,
+  "theorems": 717,
+  "verified": 717,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3008,6 +3008,26 @@
     {
       "file": "H5DiffCount.lean",
       "theorem": "SteklovAudit.H5DiffCount.toPaper_disc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffHighMass.lean",
+      "theorem": "SteklovAudit.H5DiffHighMass.vanish_of_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffHighMass.lean",
+      "theorem": "SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2",
       "axioms": [
         "propext",
         "Classical.choice",
