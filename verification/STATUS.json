@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 07:05 UTC",
+  "checked_at": "2026-11-14 07:19 UTC",
   "lean_exit_code": 0,
-  "commit": "67c1b1c5753444cd51bd8d6fb0a67b2e6e2638af",
-  "last_passing_commit": "67c1b1c5753444cd51bd8d6fb0a67b2e6e2638af",
-  "library_declarations_checked": 699,
-  "library_declarations": 699,
+  "commit": "ffc7a731a24312e96a20c4d67e2d5c926b779b89",
+  "last_passing_commit": "ffc7a731a24312e96a20c4d67e2d5c926b779b89",
+  "library_declarations_checked": 703,
+  "library_declarations": 703,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 699,
-  "verified": 699,
+  "theorems": 703,
+  "verified": 703,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2848,6 +2848,46 @@
     {
       "file": "H5CutoffSmoothed.lean",
       "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffCount.lean",
+      "theorem": "SteklovAudit.H5DiffCount.diff_of_counts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffCount.lean",
+      "theorem": "SteklovAudit.H5DiffCount.defect_abs_le_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffCount.lean",
+      "theorem": "SteklovAudit.H5DiffCount.cutoff_of_diff_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffCount.lean",
+      "theorem": "SteklovAudit.H5DiffCount.cutoff_of_diff_count_nonvacuous",
       "axioms": [
         "propext",
         "Classical.choice",
