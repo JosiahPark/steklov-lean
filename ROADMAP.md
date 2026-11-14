@@ -816,7 +816,7 @@ content of H5b is the one row `diffCount`. G38–G39 put that row together with 
 moves to the E-free rows (missing mass, i.e. completeness of the coupling), which stay named inputs. None
 claims a row is proved for the actual operator.
 
-- [ ] G38. `SteklovAudit/H5DiffHighMass.lean`: `structure H5bDiffHigh2Inputs` = `H5bDiffInputs` (G35) with
+- [x] G38. `SteklovAudit/H5DiffHighMass.lean`: `structure H5bDiffHigh2Inputs` = `H5bDiffInputs` (G35) with
       `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows of
       `H5bHighMass2Inputs` (G31): `hm1`, `rowMissHigh`, `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, and add
       `cB`, `modelLowCount` (copy the field shapes from `H5ColMassSplit.lean`). Prove `H5bDiffHigh2Inputs.toDiff :
@@ -829,7 +829,8 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffHighMass.lean` (uncompiled at push):
       helper `vanish_of_split` (low/high split with vanishing high part vanishes), `H5bDiffHigh2Inputs`,
       `H5bDiffHigh2Inputs.toDiff`, `h5b_of_diffHigh2`. The weakening direction `toDiffHigh2` is moved to G39
-      (line budget). Next run: tick if STATUS shows it compiled.
+      (line budget). Ticked by the formalize task 2026-11-14: STATUS PASS 717/717 at 1319797,
+      `vanish_of_split` and `h5b_of_diffHigh2` in the table.
 - [ ] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. First (moved from G38) the weakening direction
       `H5bHighMass2Inputs.toDiffHigh2 : H5bDiffHigh2Inputs E Emod` (declare via `_root_` in the `H5ColMassSplit`
       namespace; `e12 = e1 + e2` by `diff_of_counts`, `e12Vanish` by `discVanish_of_sides`, other fields copied). `diffHigh2OfBounds E Emod e12 h v` (as G36's
@@ -838,6 +839,9 @@ claims a row is proved for the actual operator.
       `H5bDiffHigh2Inputs` exists with `e12 = 0`, while no `H5bHighMass2Inputs (2L) (2L)` built on the empty family
       exists (its `trueCount` fails by G36's `double_trueCount_fails`). F table text: the current strongest form
       of H5b is `H5bDiffHigh2Inputs`. Theorem names: `diffHigh2Witness_nonempty`, `diffHigh2_not_highMass2`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffHighAudit.lean` (uncompiled at push):
+      `toDiffHigh2`, `diffHigh2OfBounds` (with `c = cB = 0`), `diffHigh2Witness_nonempty`,
+      `highMass2_double_empty_fails`, `diffHigh2_not_highMass2`. Next run: tick if STATUS shows it compiled.
 - [ ] G40. `SteklovAudit/H5SmoothedIdent.lean`: `structure H5bSmoothedInputs` = the fields of `H5bDiffInputs`
       with `e12`, `diffCount`, `e12Vanish` removed (no `E`, `Emod` parameters). Defs `W.Esm ε γ L := ∑ i, W.P.φ
       ((W.D ε γ L).a i - L)` and `W.Emodsm` (same with `b`). Prove `smoothed_diffCount` (the difference row for
