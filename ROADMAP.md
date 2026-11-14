@@ -881,7 +881,7 @@ the weaker high-mass rows (G38 shape); G44 reduces the missing-mass rows to row/
 (completeness in spectral coordinates); G45 shows the column row carries content of its own. None claims a row
 is proved for the actual operator.
 
-- [ ] G42. `SteklovAudit/H5SmoothedWitness.lean`: `H5bDiffInputs.toSmoothed : H5bSmoothedInputs` for any `E`,
+- [x] G42. `SteklovAudit/H5SmoothedWitness.lean`: `H5bDiffInputs.toSmoothed : H5bSmoothedInputs` for any `E`,
       `Emod` (a `def` declared via `_root_` in the `H5DiffCount` namespace or as a plain `def`; forget `e12`,
       `diffCount`, `e12Vanish`, copy the rest), `smoothedWitness_nonempty : Nonempty H5bSmoothedInputs` (via
       G36/G37's `diffOfBounds` or the G36 witness `diffWitness_nonempty` composed with `toSmoothed`), and
@@ -892,6 +892,8 @@ is proved for the actual operator.
       `H5bDiffInputs.toSmoothed` (declared via `_root_` in the `H5DiffCount` namespace), `toSmoothed_Esm`,
       `toSmoothed_Emodsm`, `toSmoothed_P` (rfl), `smoothedWitness_nonempty`, `smoothed_witness_target`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 734/734 at e652886, `toSmoothed_Esm`,
+      `toSmoothed_Emodsm`, `toSmoothed_P`, `smoothedWitness_nonempty`, `smoothed_witness_target` verified.
 - [ ] G43. `SteklovAudit/H5SmoothedHigh.lean`: `structure H5bSmoothedHigh2Inputs` = `H5bSmoothedInputs` with
       `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows `hm1`, `rowMissHigh`,
       `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, plus `cB`, `modelLowCount` (copy the field shapes from
@@ -900,6 +902,9 @@ is proved for the actual operator.
       `Esm`/`Emodsm` defined for this structure in the same way, or via a `toSmoothedData` projection) and
       `h5b_of_smoothedHigh2` via `h5b_of_diffHigh2`. F table text: on the smoothed route the current strongest
       form is `H5bSmoothedHigh2Inputs`. Theorem names: `h5b_of_smoothedHigh2` (def `toDiffHigh2`).
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedHigh.lean` (uncompiled at push,
+      commit ec8ddcc): `H5bSmoothedHigh2Inputs`, defs `Esm`, `Emodsm`, `toDiffHigh2` (`e12 = 0`, `L₀ = 0`),
+      theorems `smoothedHigh_diffCount`, `h5b_of_smoothedHigh2`. Next run: tick if STATUS shows it compiled.
 - [ ] G44. `SteklovAudit/H5Parseval.lean`: reduction of the missing-mass rows to normalization of `J`.
       `rowMiss_of_rowNorm`: if `∀ i, ∑ j, J i j ^ 2 = 1` (named hypothesis `rowNorm`, the completeness of the
       model basis for each true eigenvector) then `∑ i, (1 - ∑ j, J i j ^ 2) ≤ 0`, and the constant-zero `m1`
