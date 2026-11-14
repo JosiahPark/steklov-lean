@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 18:09 UTC at commit `54ef707cd721`. Last passing commit: `54ef707cd721`.
+Checked 2026-11-14 18:20 UTC at commit `e652886a9c9e`. Last passing commit: `e652886a9c9e`.
 
-Library declarations checked: 729 of 729 theorems compile with only Lean's standard axioms.
+Library declarations checked: 734 of 734 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -448,6 +448,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.smoothed_diffCount` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.h5b_of_smoothed` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.diffCount_iff_ident` | verified (standard axioms only) |
+| H5SmoothedWitness.lean | `SteklovAudit.H5SmoothedWitness.toSmoothed_Esm` | verified (standard axioms only) |
+| H5SmoothedWitness.lean | `SteklovAudit.H5SmoothedWitness.toSmoothed_Emodsm` | verified (standard axioms only) |
+| H5SmoothedWitness.lean | `SteklovAudit.H5SmoothedWitness.toSmoothed_P` | verified (standard axioms only) |
+| H5SmoothedWitness.lean | `SteklovAudit.H5SmoothedWitness.smoothedWitness_nonempty` | verified (standard axioms only) |
+| H5SmoothedWitness.lean | `SteklovAudit.H5SmoothedWitness.smoothed_witness_target` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.trace_little_o_of_rows` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_of_cutoff_and_trace` | verified (standard axioms only) |
 | H5Split.lean | `SteklovAudit.H5Split.h5b_via_split` | verified (standard axioms only) |

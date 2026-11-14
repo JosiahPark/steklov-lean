@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 18:09 UTC",
+  "checked_at": "2026-11-14 18:20 UTC",
   "lean_exit_code": 0,
-  "commit": "54ef707cd721f5412d0953ecfbbc645ff1fea511",
-  "last_passing_commit": "54ef707cd721f5412d0953ecfbbc645ff1fea511",
-  "library_declarations_checked": 729,
-  "library_declarations": 729,
+  "commit": "e652886a9c9e02333271532f8a35a3f411284863",
+  "last_passing_commit": "e652886a9c9e02333271532f8a35a3f411284863",
+  "library_declarations_checked": 734,
+  "library_declarations": 734,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 729,
-  "verified": 729,
+  "theorems": 734,
+  "verified": 734,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4228,6 +4228,56 @@
     {
       "file": "H5SmoothedIdent.lean",
       "theorem": "SteklovAudit.H5SmoothedIdent.diffCount_iff_ident",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedWitness.lean",
+      "theorem": "SteklovAudit.H5SmoothedWitness.toSmoothed_Esm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedWitness.lean",
+      "theorem": "SteklovAudit.H5SmoothedWitness.toSmoothed_Emodsm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedWitness.lean",
+      "theorem": "SteklovAudit.H5SmoothedWitness.toSmoothed_P",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedWitness.lean",
+      "theorem": "SteklovAudit.H5SmoothedWitness.smoothedWitness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedWitness.lean",
+      "theorem": "SteklovAudit.H5SmoothedWitness.smoothed_witness_target",
       "axioms": [
         "propext",
         "Classical.choice",
