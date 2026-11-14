@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 07:19 UTC at commit `ffc7a731a243`. Last passing commit: `ffc7a731a243`.
+Checked 2026-11-14 07:41 UTC at commit `072cda19d410`. Last passing commit: `072cda19d410`.
 
-Library declarations checked: 703 of 703 theorems compile with only Lean's standard axioms.
+Library declarations checked: 705 of 705 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -314,6 +314,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.defect_abs_le_mass` | verified (standard axioms only) |
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.cutoff_of_diff_count` | verified (standard axioms only) |
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.cutoff_of_diff_count_nonvacuous` | verified (standard axioms only) |
+| H5DiffCount.lean | `SteklovAudit.H5DiffCount.h5b_of_diff` | verified (standard axioms only) |
+| H5DiffCount.lean | `SteklovAudit.H5DiffCount.toPaper_disc` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_colMissHigh` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_lowCount` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_modelLowCount` | verified (standard axioms only) |
