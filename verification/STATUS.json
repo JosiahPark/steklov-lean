@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 14:07 UTC",
+  "checked_at": "2026-11-14 14:20 UTC",
   "lean_exit_code": 0,
-  "commit": "1112ed57f73105687c20280aa88c4bd68255da66",
-  "last_passing_commit": "1112ed57f73105687c20280aa88c4bd68255da66",
-  "library_declarations_checked": 720,
-  "library_declarations": 720,
+  "commit": "a51bcce04279fb41ae29c035e9e5008fe75d618d",
+  "last_passing_commit": "a51bcce04279fb41ae29c035e9e5008fe75d618d",
+  "library_declarations_checked": 723,
+  "library_declarations": 723,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 720,
-  "verified": 720,
+  "theorems": 723,
+  "verified": 723,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4138,6 +4138,36 @@
     {
       "file": "H5SideRows.lean",
       "theorem": "SteklovAudit.H5SideRows.h5b_of_sides",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedIdent.lean",
+      "theorem": "SteklovAudit.H5SmoothedIdent.smoothed_diffCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedIdent.lean",
+      "theorem": "SteklovAudit.H5SmoothedIdent.h5b_of_smoothed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedIdent.lean",
+      "theorem": "SteklovAudit.H5SmoothedIdent.diffCount_iff_ident",
       "axioms": [
         "propext",
         "Classical.choice",
