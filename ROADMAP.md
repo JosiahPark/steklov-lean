@@ -751,7 +751,7 @@ pair by ONE strictly weaker row on the difference of the two smoothed counts (th
 difference), audit it, and record that this row is (7.29) for the smoothed test with `J` removed. None claims
 a row is proved for the actual operator.
 
-- [ ] G34. `SteklovAudit/H5DiffCount.lean`: the reduction step, over arbitrary `Fintype ι`, `Fintype κ` with
+- [x] G34. `SteklovAudit/H5DiffCount.lean`: the reduction step, over arbitrary `Fintype ι`, `Fintype κ` with
       `f : ι → ℝ`, `g : κ → ℝ`, `J : ι → κ → ℝ`. `diff_of_counts`: `|X1 - S1| ≤ e1` and `|X2 - S2| ≤ e2` give
       `|(X1 - X2) - (S1 - S2)| ≤ e1 + e2` (abs_sub_le / abs_add, or `abs_le` + linarith).
       `cutoff_of_diff_count`: if `|X - (∑ i, f i - ∑ j, g j)| ≤ e`, `∀ i, |f i| ≤ Φ`, `∀ j, |g j| ≤ Φ`, the row and
@@ -762,6 +762,8 @@ a row is proved for the actual operator.
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffCount.lean` (uncompiled at push):
       `diff_of_counts`, helper `defect_abs_le_mass`, `cutoff_of_diff_count`, `cutoff_of_diff_count_nonvacuous`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 703/703 at ffc7a73, all four G34 theorems in
+      `H5DiffCount.lean` verified.
 - [ ] G35. Same file: `structure H5bDiffInputs` = `H5bMassInputs` (G26) with `e1`, `trueCount`, `e1Vanish`,
       `e2`, `modelCount`, `e2Vanish` replaced by one row `e12`, `diffCount`
       (`|(E ε γ L - Emod ε γ L) - (∑ i, P.φ (a i - L) - ∑ j, P.φ (b j - L))| ≤ e12 ε γ L`), `e12Vanish` (same shape
@@ -771,6 +773,10 @@ a row is proved for the actual operator.
       `H5bMassInputs.toDiff : H5bDiffInputs E Emod` (`e12 = e1 + e2` via `diff_of_counts`,
       `e12Vanish` via `discVanish_of_sides`). F table: the two count rows become one row, "smoothed count
       difference"; every `H5bMassInputs` gives an `H5bDiffInputs`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffCount.lean` (uncompiled at push):
+      `H5bDiffInputs`, `H5bDiffInputs.toPaper`, `h5b_of_diff`, `toPaper_disc`, and
+      `SteklovAudit.H5MissingMass.H5bMassInputs.toDiff` (declared in the `H5MissingMass` namespace so
+      `W.toDiff` works). Next run: tick if STATUS shows it compiled.
 - [ ] G36. `SteklovAudit/H5DiffAudit.lean`: audit of G35. `diffWitness : H5bDiffInputs 0 0` (G27's
       `massWitness` data: G24's `zData`, `Φ = 2`, `m1 = m2 = 0`, `e12 = 0`), `diffWitness_nonempty`; strictness:
       `diff_not_counts`: with `nA = nB = 0` (G24's `zData`) and `E L = Emod L = 2 L`, `diffCount` holds with
