@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-13 23:20 UTC",
+  "checked_at": "2026-11-14 00:41 UTC",
   "lean_exit_code": 0,
-  "commit": "677d47c9c426df033ceed19a1bc3e217e60c0f09",
-  "last_passing_commit": "677d47c9c426df033ceed19a1bc3e217e60c0f09",
-  "library_declarations_checked": 684,
-  "library_declarations": 684,
+  "commit": "21989c5cfed4039e4ad6ed98ac36174be76f831f",
+  "last_passing_commit": "21989c5cfed4039e4ad6ed98ac36174be76f831f",
+  "library_declarations_checked": 686,
+  "library_declarations": 686,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 684,
-  "verified": 684,
+  "theorems": 686,
+  "verified": 686,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2418,6 +2418,26 @@
     {
       "file": "GridLaw.lean",
       "theorem": "SteklovAudit.GridLaw.real_law_of_fine_grids",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColMassSplit.lean",
+      "theorem": "SteklovAudit.H5ColMassSplit.col_missing_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColMassSplit.lean",
+      "theorem": "SteklovAudit.H5ColMassSplit.h5b_of_high_mass2",
       "axioms": [
         "propext",
         "Classical.choice",

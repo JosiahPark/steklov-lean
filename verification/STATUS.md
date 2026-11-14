@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-13 23:20 UTC at commit `677d47c9c426`. Last passing commit: `677d47c9c426`.
+Checked 2026-11-14 00:41 UTC at commit `21989c5cfed4`. Last passing commit: `21989c5cfed4`.
 
-Library declarations checked: 684 of 684 theorems compile with only Lean's standard axioms.
+Library declarations checked: 686 of 686 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -267,6 +267,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
+| H5ColMassSplit.lean | `SteklovAudit.H5ColMassSplit.col_missing_split` | verified (standard axioms only) |
+| H5ColMassSplit.lean | `SteklovAudit.H5ColMassSplit.h5b_of_high_mass2` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | verified (standard axioms only) |
