@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 18:35 UTC at commit `f02746a31693`. Last passing commit: `f02746a31693`.
+Checked 2026-11-14 19:22 UTC at commit `d0b22e6e576d`. Last passing commit: `d0b22e6e576d`.
 
-Library declarations checked: 736 of 736 theorems compile with only Lean's standard axioms.
+Library declarations checked: 742 of 742 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -420,6 +420,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_m` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.toWeak_disc` | verified (standard axioms only) |
 | H5PaperRows.lean | `SteklovAudit.H5PaperRows.h5b_of_paper` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.rowMiss_of_rowNorm` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.colMiss_of_colNorm` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.card_eq_of_norms` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
+| H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_rowTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_colTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_trueSide` | verified (standard axioms only) |

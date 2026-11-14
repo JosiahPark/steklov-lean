@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 18:35 UTC",
+  "checked_at": "2026-11-14 19:22 UTC",
   "lean_exit_code": 0,
-  "commit": "f02746a316931fb0e2bf584b2074d5c175599131",
-  "last_passing_commit": "f02746a316931fb0e2bf584b2074d5c175599131",
-  "library_declarations_checked": 736,
-  "library_declarations": 736,
+  "commit": "d0b22e6e576d593ba36142306655a54603c9cc68",
+  "last_passing_commit": "d0b22e6e576d593ba36142306655a54603c9cc68",
+  "library_declarations_checked": 742,
+  "library_declarations": 742,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 736,
-  "verified": 736,
+  "theorems": 742,
+  "verified": 742,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3948,6 +3948,66 @@
     {
       "file": "H5PaperRows.lean",
       "theorem": "SteklovAudit.H5PaperRows.h5b_of_paper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.rowMiss_of_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.colMiss_of_colNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.card_eq_of_norms",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.zero_vanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.h5b_of_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Parseval.lean",
+      "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
       "axioms": [
         "propext",
         "Classical.choice",
