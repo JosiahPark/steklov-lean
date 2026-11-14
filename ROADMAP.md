@@ -683,7 +683,7 @@ G30–G33 written by the formalize task on 2026-11-13 (after G27–G29 were tick
 high/low split on the model (column) side with a new named model low-count row, and reduce both L-uniform low
 counts to a linear growth condition on the eigenvalues. None claims a row is proved for the actual operator.
 
-- [ ] G30. `SteklovAudit/H5HighMassAudit.lean`: audit of G29. `highMassWitness : H5bHighMassInputs 0 0`
+- [x] G30. `SteklovAudit/H5HighMassAudit.lean`: audit of G29. `highMassWitness : H5bHighMassInputs 0 0`
       (G24's `zData`, `Φ = 2`, `hm1 = 0`, `m2 = 0`, `c = 0`), `highMassWitness_nonempty`; `zero_rowMissHigh_not_mass`:
       a `Fin ⌈L⌉₊` family with all true eigenvalues at 0 and `J = 0` (`Fin 1` columns) where `rowMissHigh` holds
       with `hm1 = 0` for every `M ≥ 0` (the filter `M < 0` is empty) but the full missing row mass is `⌈L⌉₊`, so no
@@ -696,6 +696,8 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       `highMassWitness_nonempty`, `zero_rowMissHigh`, `zero_rowMass` (= G27's `atL_rowMass`, same `J`),
       `zero_not_lowCount` (M = 0, L = c 0 + 1), `zero_rowMissHigh_not_mass` (third part is G27's
       `atL_rowMiss_fails`). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 684/684 at 677d47c, all six G30 theorems in
+      `H5HighMassAudit.lean` verified.
 - [ ] G31. `SteklovAudit/H5ColMassSplit.lean`: column mirror of G28–G29. `col_missing_split`:
       `∑ j, (1 - ∑ i, J i j ^ 2) ≤ (filter (b j ≤ M)).card + ∑ j ∈ filter (M < b j), (1 - ∑ i, J i j ^ 2)` from
       `colBessel` (apply G28's `missing_split` to the transpose `fun j i => J i j`). `structure H5bHighMass2Inputs`
@@ -704,6 +706,10 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       `modelLowCount : ((filter fun j => b j ≤ M).card : ℝ) ≤ cB ε γ M` (new F table row: L-uniform model low
       count). Prove `H5bHighMass2Inputs.toHigh : H5bHighMassInputs E Emod` (a `def`, `m2 ε γ L := ∑ j, (1 - ...)`,
       `colMiss` by `le_refl`, `m2Vanish` copied from G29's `m1Vanish` proof) and `h5b_of_high_mass2`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5ColMassSplit.lean` (uncompiled at push, commit
+      f3c71ac): `col_missing_split` (G28's `missing_split` on the transpose), `H5bHighMass2Inputs` (new named
+      row `cB`, `modelLowCount`), `H5bHighMass2Inputs.toHigh`, `h5b_of_high_mass2`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G32. `SteklovAudit/H5LowCountGrowth.lean`: reduce an L-uniform low count to linear eigenvalue growth,
       over `Fin n` with values `a : Fin n → ℝ`. `lowCount_of_linear_growth`: if `0 < s` and
       `∀ k : Fin n, (k : ℝ) * s ≤ a k`, then `((filter fun k => a k ≤ M).card : ℝ) ≤ M / s + 1` (map `k ↦ k.val`
