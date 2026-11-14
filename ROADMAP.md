@@ -954,6 +954,9 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       from `colMass_eq_of_rowNorm` + `cardGap`) and `h5b_of_rowNorm` via `h5b_of_smoothed`. Docstring: the
       gap row is a statement about truncation sizes only; it is not proved. Theorem names:
       `colMass_eq_of_rowNorm`, `rowMass_eq_of_colNorm`, `h5b_of_rowNorm` (def `smoothedOfRowNorm`).
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5ColCount.lean` (uncompiled at push):
+      `colMass_eq_of_rowNorm`, `rowMass_eq_of_colNorm`, structure `H5bRowNormInputs`, `rowNorm_colMiss`,
+      def `smoothedOfRowNorm`, `h5b_of_rowNorm`. Next run: tick if STATUS shows it compiled.
 - [ ] G47. `SteklovAudit/H5ColCountAudit.lean`: the gap row is the column row, no more and no less.
       `colMiss_iff_cardGap`: under `rowNorm`, for every `m`, column missing mass `≤ m` iff
       `card κ - card ι ≤ m` (rewrite by `colMass_eq_of_rowNorm`). `smCol_cardGap`: the G45 family `smColD L`
