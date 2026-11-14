@@ -831,7 +831,7 @@ claims a row is proved for the actual operator.
       `H5bDiffHigh2Inputs.toDiff`, `h5b_of_diffHigh2`. The weakening direction `toDiffHigh2` is moved to G39
       (line budget). Ticked by the formalize task 2026-11-14: STATUS PASS 717/717 at 1319797,
       `vanish_of_split` and `h5b_of_diffHigh2` in the table.
-- [ ] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. First (moved from G38) the weakening direction
+- [x] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. First (moved from G38) the weakening direction
       `H5bHighMass2Inputs.toDiffHigh2 : H5bDiffHigh2Inputs E Emod` (declare via `_root_` in the `H5ColMassSplit`
       namespace; `e12 = e1 + e2` by `diff_of_counts`, `e12Vanish` by `discVanish_of_sides`, other fields copied). `diffHigh2OfBounds E Emod e12 h v` (as G36's
       `diffOfBounds`, empty family `zData`, `hm1 = hm2 = 0`, `cB = 1`), `diffHigh2Witness_nonempty :
@@ -842,6 +842,8 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffHighAudit.lean` (uncompiled at push):
       `toDiffHigh2`, `diffHigh2OfBounds` (with `c = cB = 0`), `diffHigh2Witness_nonempty`,
       `highMass2_double_empty_fails`, `diffHigh2_not_highMass2`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 720/720 at 1112ed5, `diffHigh2Witness_nonempty`,
+      `highMass2_double_empty_fails`, `diffHigh2_not_highMass2` verified.
 - [ ] G40. `SteklovAudit/H5SmoothedIdent.lean`: `structure H5bSmoothedInputs` = the fields of `H5bDiffInputs`
       with `e12`, `diffCount`, `e12Vanish` removed (no `E`, `Emod` parameters). Defs `W.Esm ε γ L := ∑ i, W.P.φ
       ((W.D ε γ L).a i - L)` and `W.Emodsm` (same with `b`). Prove `smoothed_diffCount` (the difference row for
@@ -852,6 +854,9 @@ claims a row is proved for the actual operator.
       `congr 1; ring`). Docstring: if the paper's `E`, `Emod` are the smoothed counts of the same coupled spectra,
       (7.29) needs only the E-free rows; this does not prove those rows. Theorem names: `smoothed_diffCount`,
       `h5b_of_smoothed`, `diffCount_iff_ident`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedIdent.lean` (uncompiled at push):
+      `H5bSmoothedInputs`, defs `Esm`, `Emodsm`, `toDiff` (`e12 = 0`, `L₀ = 0`), theorems `smoothed_diffCount`,
+      `h5b_of_smoothed`, `diffCount_iff_ident`. Next run: tick if STATUS shows it compiled.
 - [ ] G41. Same file as G40 (or `SteklovAudit/H5SmoothedAudit.lean`): the E-free rows carry real content.
       `smoothed_rowMiss_forces`: for the G25 family (`nA L = ⌈L⌉₊` true eigenvalues at `0`, `nB = 0`, so every row
       mass `∑ j : Fin 0, J i j ^ 2` is `0`), any `m1` meeting `rowMiss` has `m1 ε γ L ≥ ⌈L⌉₊`, hence `m1Vanish`
