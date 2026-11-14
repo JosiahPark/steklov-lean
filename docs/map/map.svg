@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1558 1708" width="1558" height="1708" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
 <style>.bg{fill:#f6f7f4}.band{fill:#e9ebe5}.lbl{font-size:12px;font-weight:600;letter-spacing:.07em;fill:#5d6675}.box{fill:#fff;stroke:#d0d4cc}.main{stroke:#2b4a7a;stroke-width:2}.nm{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;fill:#1d2430}.ct{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;fill:#5d6675}.edge{fill:none;stroke:#7b8698;opacity:.45}.hot{fill:none;stroke:#2b4a7a;stroke-width:2}.hedge{fill:none;stroke:#c0392f;stroke-dasharray:4 3;opacity:.6}.hbox{fill:#f6dcd8;stroke:#c0392f;stroke-dasharray:4 3}.htx{font-size:11.5px;fill:#1d2430}.sm{font-size:11px;fill:#5d6675}.thm{fill:#d7eedf;stroke:#2e8a57;stroke-width:2}.tt{font-size:14px;font-weight:600;fill:#1d2430}.g{fill:#2e8a57}.a{fill:#c48413}.s{fill:#8b93a1}@media (prefers-color-scheme: dark){.bg{fill:#14181f}.band{fill:#1a1f27}.lbl,.ct,.sm{fill:#9aa3b2}.box{fill:#1b2029;stroke:#2e3542}.nm,.htx,.tt{fill:#e4e7ec}.main{stroke:#8fb0e6}.hot{stroke:#8fb0e6}.hbox{fill:#3e2220;stroke:#ef6b5f}.hedge{stroke:#ef6b5f}.thm{fill:#1e3a2b;stroke:#5cc08a}.g{fill:#5cc08a}.a{fill:#e6a93c}.s{fill:#8e97a6}}</style>
 <rect class="bg" x="0" y="0" width="1558" height="1708"/>
-<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-14 07:41 UTC · 705/705 theorems pass</text>
-<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 383 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
+<text x="24" y="26" class="tt">Steklov Lean map · build 2026-11-14 08:21 UTC · 711/711 theorems pass</text>
+<text x="24" y="44" class="sm">260 paper steps proved outright (green) · 62 proved from named hypotheses (amber) · 389 supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>
 <rect class="band" x="8" y="56" width="1314" height="146" rx="6"/>
 <text class="lbl" x="24" y="75">§1–3 DIHEDRAL INVARIANT &amp; SECTOR TRACE</text>
 <text class="lbl" x="24" y="231">§4 HEAT FIBERS</text>
@@ -65,23 +65,29 @@
 <path class="edge" stroke-width="3.0" d="M290,1418 C745,1418 745,1310 1200,1310"/>
 <path class="edge" stroke-width="2.0" d="M836,1310 C1018,1310 1018,1310 1200,1310"/>
 <path class="edge" stroke-width="1.0" d="M654,1418 C927,1418 927,1310 1200,1310"/>
-<path class="edge" stroke-width="1.0" d="M472,1472 C836,1472 836,1310 1200,1310"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C927,1472 927,1310 1200,1310"/>
 <path class="edge" stroke-width="2.6" d="M108,362 C108,362 108,1364 108,1364"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C199,362 199,1364 108,1364"/>
 <path class="edge" stroke-width="2.0" d="M108,518 C108,518 108,1364 108,1364"/>
 <path class="edge" stroke-width="1.0" d="M1200,1418 C654,1418 654,1364 108,1364"/>
-<path class="edge" stroke-width="1.0" d="M654,1472 C381,1472 381,1364 108,1364"/>
+<path class="edge" stroke-width="1.0" d="M836,1472 C472,1472 472,1364 108,1364"/>
 <path class="edge" stroke-width="2.0" d="M472,1418 C290,1418 290,1364 108,1364"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C472,1310 472,1364 108,1364"/>
 <path class="edge" stroke-width="1.0" d="M1018,1418 C563,1418 563,1364 108,1364"/>
-<path class="edge" stroke-width="1.0" d="M108,362 C199,362 199,1526 290,1526"/>
-<path class="edge" stroke-width="3.0" d="M108,518 C199,518 199,1526 290,1526"/>
-<path class="edge" stroke-width="3.0" d="M472,1526 C381,1526 381,1526 290,1526"/>
+<path class="edge" stroke-width="1.0" d="M108,362 C290,362 290,1526 472,1526"/>
+<path class="edge" stroke-width="3.0" d="M108,518 C290,518 290,1526 472,1526"/>
+<path class="edge" stroke-width="3.0" d="M654,1526 C563,1526 563,1526 472,1526"/>
+<path class="edge" stroke-width="3.0" d="M1200,1310 C654,1310 654,1472 108,1472"/>
+<path class="edge" stroke-width="3.0" d="M290,1364 C199,1364 199,1472 108,1472"/>
+<path class="edge" stroke-width="2.0" d="M472,1472 C290,1472 290,1472 108,1472"/>
+<path class="edge" stroke-width="3.0" d="M290,1418 C199,1418 199,1472 108,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1418 C381,1418 381,1472 108,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C381,1472 381,1472 108,1472"/>
 <path class="edge" stroke-width="2.6" d="M108,362 C199,362 199,1364 290,1364"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C290,362 290,1364 290,1364"/>
 <path class="edge" stroke-width="2.0" d="M108,518 C199,518 199,1364 290,1364"/>
 <path class="edge" stroke-width="2.6" d="M1200,1418 C745,1418 745,1364 290,1364"/>
-<path class="edge" stroke-width="2.6" d="M654,1472 C472,1472 472,1364 290,1364"/>
+<path class="edge" stroke-width="2.6" d="M836,1472 C563,1472 563,1364 290,1364"/>
 <path class="edge" stroke-width="2.0" d="M1018,1364 C654,1364 654,1364 290,1364"/>
 <path class="edge" stroke-width="2.0" d="M108,1418 C199,1418 199,1364 290,1364"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C563,1310 563,1364 290,1364"/>
@@ -89,35 +95,35 @@
 <path class="edge" stroke-width="3.0" d="M1018,1310 C745,1310 745,1364 472,1364"/>
 <path class="edge" stroke-width="1.0" d="M108,518 C290,518 290,1364 472,1364"/>
 <path class="edge" stroke-width="3.0" d="M1200,1310 C836,1310 836,1364 472,1364"/>
-<path class="edge" stroke-width="2.0" d="M108,1472 C290,1472 290,1364 472,1364"/>
+<path class="edge" stroke-width="2.0" d="M290,1472 C381,1472 381,1364 472,1364"/>
 <path class="edge" stroke-width="3.0" d="M290,1418 C381,1418 381,1364 472,1364"/>
 <path class="edge" stroke-width="2.0" d="M836,1310 C654,1310 654,1364 472,1364"/>
 <path class="edge" stroke-width="1.0" d="M654,1418 C563,1418 563,1364 472,1364"/>
-<path class="edge" stroke-width="1.0" d="M472,1472 C472,1472 472,1364 472,1364"/>
-<path class="edge" stroke-width="3.0" d="M1200,1310 C654,1310 654,1472 108,1472"/>
-<path class="edge" stroke-width="2.6" d="M290,1472 C199,1472 199,1472 108,1472"/>
-<path class="edge" stroke-width="2.0" d="M836,1364 C472,1364 472,1472 108,1472"/>
-<path class="edge" stroke-width="2.6" d="M290,1418 C199,1418 199,1472 108,1472"/>
-<path class="edge" stroke-width="1.0" d="M654,1418 C381,1418 381,1472 108,1472"/>
-<path class="edge" stroke-width="1.0" d="M472,1472 C290,1472 290,1472 108,1472"/>
-<path class="edge" stroke-width="3.0" d="M108,362 C654,362 654,1472 1200,1472"/>
-<path class="edge" stroke-width="3.0" d="M108,518 C654,518 654,1472 1200,1472"/>
-<path class="edge" stroke-width="3.0" d="M108,362 C472,362 472,1472 836,1472"/>
-<path class="edge" stroke-width="2.6" d="M290,362 C563,362 563,1472 836,1472"/>
-<path class="edge" stroke-width="3.0" d="M108,518 C472,518 472,1472 836,1472"/>
-<path class="edge" stroke-width="2.6" d="M654,1364 C745,1364 745,1472 836,1472"/>
-<path class="edge" stroke-width="2.6" d="M1018,1472 C927,1472 927,1472 836,1472"/>
-<path class="edge" stroke-width="1.0" d="M108,1472 C108,1472 108,1526 108,1526"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C563,1472 563,1364 472,1364"/>
+<path class="edge" stroke-width="3.0" d="M1200,1310 C745,1310 745,1472 290,1472"/>
+<path class="edge" stroke-width="2.6" d="M472,1472 C381,1472 381,1472 290,1472"/>
+<path class="edge" stroke-width="2.0" d="M836,1364 C563,1364 563,1472 290,1472"/>
+<path class="edge" stroke-width="2.6" d="M290,1418 C290,1418 290,1472 290,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1418 C472,1418 472,1472 290,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C472,1472 472,1472 290,1472"/>
+<path class="edge" stroke-width="3.0" d="M108,362 C108,362 108,1526 108,1526"/>
+<path class="edge" stroke-width="3.0" d="M108,518 C108,518 108,1526 108,1526"/>
+<path class="edge" stroke-width="3.0" d="M108,362 C563,362 563,1472 1018,1472"/>
+<path class="edge" stroke-width="2.6" d="M290,362 C654,362 654,1472 1018,1472"/>
+<path class="edge" stroke-width="3.0" d="M108,518 C563,518 563,1472 1018,1472"/>
+<path class="edge" stroke-width="2.6" d="M654,1364 C836,1364 836,1472 1018,1472"/>
+<path class="edge" stroke-width="2.6" d="M1200,1472 C1109,1472 1109,1472 1018,1472"/>
+<path class="edge" stroke-width="1.0" d="M290,1472 C290,1472 290,1526 290,1526"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C381,362 381,1364 654,1364"/>
 <path class="edge" stroke-width="3.0" d="M290,362 C472,362 472,1364 654,1364"/>
 <path class="edge" stroke-width="3.0" d="M108,518 C381,518 381,1364 654,1364"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C745,1310 745,1364 654,1364"/>
-<path class="edge" stroke-width="3.0" d="M1200,1310 C745,1310 745,1472 290,1472"/>
-<path class="edge" stroke-width="2.0" d="M1018,1364 C654,1364 654,1472 290,1472"/>
-<path class="edge" stroke-width="2.6" d="M290,1418 C290,1418 290,1472 290,1472"/>
-<path class="edge" stroke-width="1.0" d="M654,1418 C472,1418 472,1472 290,1472"/>
-<path class="edge" stroke-width="1.0" d="M472,1472 C381,1472 381,1472 290,1472"/>
-<path class="edge" stroke-width="3.0" d="M108,362 C563,362 563,1472 1018,1472"/>
+<path class="edge" stroke-width="3.0" d="M1200,1310 C836,1310 836,1472 472,1472"/>
+<path class="edge" stroke-width="2.0" d="M1018,1364 C745,1364 745,1472 472,1472"/>
+<path class="edge" stroke-width="2.6" d="M290,1418 C381,1418 381,1472 472,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1418 C563,1418 563,1472 472,1472"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C563,1472 563,1472 472,1472"/>
+<path class="edge" stroke-width="3.0" d="M108,362 C654,362 654,1472 1200,1472"/>
 <path class="edge" stroke-width="2.6" d="M108,362 C472,362 472,1364 836,1364"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C563,362 563,1364 836,1364"/>
 <path class="edge" stroke-width="2.0" d="M108,518 C472,518 472,1364 836,1364"/>
@@ -137,12 +143,12 @@
 <path class="edge" stroke-width="3.0" d="M108,1418 C654,1418 654,1364 1200,1364"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C1018,1310 1018,1364 1200,1364"/>
 <path class="edge" stroke-width="2.6" d="M654,1418 C927,1418 927,1364 1200,1364"/>
-<path class="edge" stroke-width="2.0" d="M472,1472 C836,1472 836,1364 1200,1364"/>
+<path class="edge" stroke-width="2.0" d="M654,1472 C927,1472 927,1364 1200,1364"/>
 <path class="edge" stroke-width="2.6" d="M108,362 C108,362 108,1418 108,1418"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C199,362 199,1418 108,1418"/>
 <path class="edge" stroke-width="2.0" d="M108,518 C108,518 108,1418 108,1418"/>
-<path class="edge" stroke-width="1.0" d="M836,1472 C472,1472 472,1418 108,1418"/>
 <path class="edge" stroke-width="1.0" d="M1018,1472 C563,1472 563,1418 108,1418"/>
+<path class="edge" stroke-width="1.0" d="M1200,1472 C654,1472 654,1418 108,1418"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C472,1310 472,1418 108,1418"/>
 <path class="edge" stroke-width="2.0" d="M836,1418 C472,1418 472,1418 108,1418"/>
 <path class="edge" stroke-width="2.6" d="M1018,1418 C563,1418 563,1418 108,1418"/>
@@ -152,19 +158,19 @@
 <path class="edge" stroke-width="3.0" d="M472,1418 C381,1418 381,1418 290,1418"/>
 <path class="edge" stroke-width="2.0" d="M836,1310 C563,1310 563,1418 290,1418"/>
 <path class="edge" stroke-width="1.0" d="M654,1418 C472,1418 472,1418 290,1418"/>
-<path class="edge" stroke-width="1.0" d="M472,1472 C381,1472 381,1418 290,1418"/>
+<path class="edge" stroke-width="1.0" d="M654,1472 C472,1472 472,1418 290,1418"/>
 <path class="edge" stroke-width="2.6" d="M108,362 C290,362 290,1418 472,1418"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C381,362 381,1418 472,1418"/>
 <path class="edge" stroke-width="2.0" d="M108,518 C290,518 290,1418 472,1418"/>
-<path class="edge" stroke-width="2.0" d="M654,1472 C563,1472 563,1418 472,1418"/>
+<path class="edge" stroke-width="2.0" d="M836,1472 C654,1472 654,1418 472,1418"/>
 <path class="edge" stroke-width="2.0" d="M108,1418 C290,1418 290,1418 472,1418"/>
 <path class="edge" stroke-width="1.0" d="M836,1310 C654,1310 654,1418 472,1418"/>
 <path class="edge" stroke-width="1.0" d="M1018,1418 C745,1418 745,1418 472,1418"/>
-<path class="edge" stroke-width="2.6" d="M108,362 C290,362 290,1526 472,1526"/>
-<path class="edge" stroke-width="3.0" d="M108,518 C290,518 290,1526 472,1526"/>
-<path class="edge" stroke-width="3.0" d="M108,362 C381,362 381,1526 654,1526"/>
-<path class="edge" stroke-width="3.0" d="M290,362 C472,362 472,1526 654,1526"/>
+<path class="edge" stroke-width="2.6" d="M108,362 C381,362 381,1526 654,1526"/>
 <path class="edge" stroke-width="3.0" d="M108,518 C381,518 381,1526 654,1526"/>
+<path class="edge" stroke-width="3.0" d="M108,362 C472,362 472,1526 836,1526"/>
+<path class="edge" stroke-width="3.0" d="M290,362 C563,362 563,1526 836,1526"/>
+<path class="edge" stroke-width="3.0" d="M108,518 C472,518 472,1526 836,1526"/>
 <path class="edge" stroke-width="2.6" d="M108,518 C472,518 472,1310 836,1310"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C381,362 381,1418 654,1418"/>
 <path class="edge" stroke-width="1.0" d="M290,362 C472,362 472,1418 654,1418"/>
@@ -179,10 +185,10 @@
 <path class="edge" stroke-width="2.0" d="M836,1310 C836,1310 836,1418 836,1418"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C563,362 563,1418 1018,1418"/>
 <path class="edge" stroke-width="3.0" d="M108,518 C563,518 563,1418 1018,1418"/>
-<path class="edge" stroke-width="2.6" d="M1200,1472 C1109,1472 1109,1418 1018,1418"/>
-<path class="edge" stroke-width="1.0" d="M108,362 C290,362 290,1472 472,1472"/>
-<path class="edge" stroke-width="1.0" d="M108,518 C290,518 290,1472 472,1472"/>
-<path class="edge" stroke-width="2.6" d="M1018,1418 C745,1418 745,1472 472,1472"/>
+<path class="edge" stroke-width="2.6" d="M108,1526 C563,1526 563,1418 1018,1418"/>
+<path class="edge" stroke-width="1.0" d="M108,362 C381,362 381,1472 654,1472"/>
+<path class="edge" stroke-width="1.0" d="M108,518 C381,518 381,1472 654,1472"/>
+<path class="edge" stroke-width="2.6" d="M1018,1418 C836,1418 836,1472 654,1472"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C199,362 199,572 290,572"/>
 <path class="edge" stroke-width="3.0" d="M472,518 C563,518 563,518 654,518"/>
 <path class="edge" stroke-width="3.0" d="M108,362 C472,362 472,518 836,518"/>
@@ -370,11 +376,14 @@
 <g><title>H5CountRows: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="24" y="1344" width="168" height="40" rx="5"/><text class="nm" x="32" y="1360">H5CountRows</text><text class="ct" x="184" y="1360" text-anchor="end">3</text>
 <rect class="s" x="32.0" y="1370" width="152.0" height="6"/>
 </g>
-<g><title>H5CutoffSides: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="570" y="1452" width="168" height="40" rx="5"/><text class="nm" x="578" y="1468">H5CutoffSides</text><text class="ct" x="730" y="1468" text-anchor="end">3</text>
-<rect class="s" x="578.0" y="1478" width="152.0" height="6"/>
+<g><title>H5CutoffSides: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="752" y="1452" width="168" height="40" rx="5"/><text class="nm" x="760" y="1468">H5CutoffSides</text><text class="ct" x="912" y="1468" text-anchor="end">3</text>
+<rect class="s" x="760.0" y="1478" width="152.0" height="6"/>
 </g>
-<g><title>H5CutoffSmoothed: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="206" y="1506" width="168" height="40" rx="5"/><text class="nm" x="214" y="1522">H5CutoffSmoothed</text><text class="ct" x="366" y="1522" text-anchor="end">2</text>
-<rect class="s" x="214.0" y="1532" width="152.0" height="6"/>
+<g><title>H5CutoffSmoothed: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="388" y="1506" width="168" height="40" rx="5"/><text class="nm" x="396" y="1522">H5CutoffSmoothed</text><text class="ct" x="548" y="1522" text-anchor="end">2</text>
+<rect class="s" x="396.0" y="1532" width="152.0" height="6"/>
+</g>
+<g><title>H5DiffAudit: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="24" y="1452" width="168" height="40" rx="5"/><text class="nm" x="32" y="1468">H5DiffAudit</text><text class="ct" x="184" y="1468" text-anchor="end">6</text>
+<rect class="s" x="32.0" y="1478" width="152.0" height="6"/>
 </g>
 <g><title>H5DiffCount: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="206" y="1344" width="168" height="40" rx="5"/><text class="nm" x="214" y="1360">H5DiffCount</text><text class="ct" x="366" y="1360" text-anchor="end">6</text>
 <rect class="s" x="214.0" y="1370" width="152.0" height="6"/>
@@ -382,26 +391,26 @@
 <g><title>H5HighMass2Audit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="388" y="1344" width="168" height="40" rx="5"/><text class="nm" x="396" y="1360">H5HighMass2Audit</text><text class="ct" x="548" y="1360" text-anchor="end">7</text>
 <rect class="s" x="396.0" y="1370" width="152.0" height="6"/>
 </g>
-<g><title>H5HighMassAudit: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="24" y="1452" width="168" height="40" rx="5"/><text class="nm" x="32" y="1468">H5HighMassAudit</text><text class="ct" x="184" y="1468" text-anchor="end">6</text>
-<rect class="s" x="32.0" y="1478" width="152.0" height="6"/>
+<g><title>H5HighMassAudit: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="206" y="1452" width="168" height="40" rx="5"/><text class="nm" x="214" y="1468">H5HighMassAudit</text><text class="ct" x="366" y="1468" text-anchor="end">6</text>
+<rect class="s" x="214.0" y="1478" width="152.0" height="6"/>
 </g>
-<g><title>H5LipRows: 0 outright, 0 conditional, 8 supporting</title><rect class="box" x="1116" y="1452" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1468">H5LipRows</text><text class="ct" x="1276" y="1468" text-anchor="end">8</text>
-<rect class="s" x="1124.0" y="1478" width="152.0" height="6"/>
-</g>
-<g><title>H5LowCount: 0 outright, 0 conditional, 8 supporting</title><rect class="box" x="752" y="1452" width="168" height="40" rx="5"/><text class="nm" x="760" y="1468">H5LowCount</text><text class="ct" x="912" y="1468" text-anchor="end">8</text>
-<rect class="s" x="760.0" y="1478" width="152.0" height="6"/>
-</g>
-<g><title>H5LowCountGrowth: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="24" y="1506" width="168" height="40" rx="5"/><text class="nm" x="32" y="1522">H5LowCountGrowth</text><text class="ct" x="184" y="1522" text-anchor="end">6</text>
+<g><title>H5LipRows: 0 outright, 0 conditional, 8 supporting</title><rect class="box" x="24" y="1506" width="168" height="40" rx="5"/><text class="nm" x="32" y="1522">H5LipRows</text><text class="ct" x="184" y="1522" text-anchor="end">8</text>
 <rect class="s" x="32.0" y="1532" width="152.0" height="6"/>
+</g>
+<g><title>H5LowCount: 0 outright, 0 conditional, 8 supporting</title><rect class="box" x="934" y="1452" width="168" height="40" rx="5"/><text class="nm" x="942" y="1468">H5LowCount</text><text class="ct" x="1094" y="1468" text-anchor="end">8</text>
+<rect class="s" x="942.0" y="1478" width="152.0" height="6"/>
+</g>
+<g><title>H5LowCountGrowth: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="206" y="1506" width="168" height="40" rx="5"/><text class="nm" x="214" y="1522">H5LowCountGrowth</text><text class="ct" x="366" y="1522" text-anchor="end">6</text>
+<rect class="s" x="214.0" y="1532" width="152.0" height="6"/>
 </g>
 <g><title>H5LowMass: 0 outright, 0 conditional, 16 supporting</title><rect class="box" x="570" y="1344" width="168" height="40" rx="5"/><text class="nm" x="578" y="1360">H5LowMass</text><text class="ct" x="730" y="1360" text-anchor="end">16</text>
 <rect class="s" x="578.0" y="1370" width="152.0" height="6"/>
 </g>
-<g><title>H5MassAudit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="206" y="1452" width="168" height="40" rx="5"/><text class="nm" x="214" y="1468">H5MassAudit</text><text class="ct" x="366" y="1468" text-anchor="end">7</text>
-<rect class="s" x="214.0" y="1478" width="152.0" height="6"/>
+<g><title>H5MassAudit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="388" y="1452" width="168" height="40" rx="5"/><text class="nm" x="396" y="1468">H5MassAudit</text><text class="ct" x="548" y="1468" text-anchor="end">7</text>
+<rect class="s" x="396.0" y="1478" width="152.0" height="6"/>
 </g>
-<g><title>H5MassRow: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="934" y="1452" width="168" height="40" rx="5"/><text class="nm" x="942" y="1468">H5MassRow</text><text class="ct" x="1094" y="1468" text-anchor="end">6</text>
-<rect class="s" x="942.0" y="1478" width="152.0" height="6"/>
+<g><title>H5MassRow: 0 outright, 0 conditional, 6 supporting</title><rect class="box" x="1116" y="1452" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1468">H5MassRow</text><text class="ct" x="1276" y="1468" text-anchor="end">6</text>
+<rect class="s" x="1124.0" y="1478" width="152.0" height="6"/>
 </g>
 <g><title>H5MassSplit: 0 outright, 0 conditional, 4 supporting</title><rect class="box" x="752" y="1344" width="168" height="40" rx="5"/><text class="nm" x="760" y="1360">H5MassSplit</text><text class="ct" x="912" y="1360" text-anchor="end">4</text>
 <rect class="s" x="760.0" y="1370" width="152.0" height="6"/>
@@ -421,11 +430,11 @@
 <g><title>H5SideRows: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="388" y="1398" width="168" height="40" rx="5"/><text class="nm" x="396" y="1414">H5SideRows</text><text class="ct" x="548" y="1414" text-anchor="end">3</text>
 <rect class="s" x="396.0" y="1424" width="152.0" height="6"/>
 </g>
-<g><title>H5Split: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="388" y="1506" width="168" height="40" rx="5"/><text class="nm" x="396" y="1522">H5Split</text><text class="ct" x="548" y="1522" text-anchor="end">3</text>
-<rect class="s" x="396.0" y="1532" width="152.0" height="6"/>
-</g>
-<g><title>H5TailAudit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="570" y="1506" width="168" height="40" rx="5"/><text class="nm" x="578" y="1522">H5TailAudit</text><text class="ct" x="730" y="1522" text-anchor="end">7</text>
+<g><title>H5Split: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="570" y="1506" width="168" height="40" rx="5"/><text class="nm" x="578" y="1522">H5Split</text><text class="ct" x="730" y="1522" text-anchor="end">3</text>
 <rect class="s" x="578.0" y="1532" width="152.0" height="6"/>
+</g>
+<g><title>H5TailAudit: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="752" y="1506" width="168" height="40" rx="5"/><text class="nm" x="760" y="1522">H5TailAudit</text><text class="ct" x="912" y="1522" text-anchor="end">7</text>
+<rect class="s" x="760.0" y="1532" width="152.0" height="6"/>
 </g>
 <g><title>H5TailRate: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="752" y="1290" width="168" height="40" rx="5"/><text class="nm" x="760" y="1306">H5TailRate</text><text class="ct" x="912" y="1306" text-anchor="end">7</text>
 <rect class="s" x="760.0" y="1316" width="152.0" height="6"/>
@@ -439,8 +448,8 @@
 <g><title>H5WindowProfile: 0 outright, 0 conditional, 12 supporting</title><rect class="box" x="934" y="1398" width="168" height="40" rx="5"/><text class="nm" x="942" y="1414">H5WindowProfile</text><text class="ct" x="1094" y="1414" text-anchor="end">12</text>
 <rect class="s" x="942.0" y="1424" width="152.0" height="6"/>
 </g>
-<g><title>H5WindowWitness: 0 outright, 0 conditional, 9 supporting</title><rect class="box" x="388" y="1452" width="168" height="40" rx="5"/><text class="nm" x="396" y="1468">H5WindowWitness</text><text class="ct" x="548" y="1468" text-anchor="end">9</text>
-<rect class="s" x="396.0" y="1478" width="152.0" height="6"/>
+<g><title>H5WindowWitness: 0 outright, 0 conditional, 9 supporting</title><rect class="box" x="570" y="1452" width="168" height="40" rx="5"/><text class="nm" x="578" y="1468">H5WindowWitness</text><text class="ct" x="730" y="1468" text-anchor="end">9</text>
+<rect class="s" x="578.0" y="1478" width="152.0" height="6"/>
 </g>
 <g><title>HSNoTrace: 0 outright, 0 conditional, 9 supporting</title><rect class="box" x="206" y="552" width="168" height="40" rx="5"/><text class="nm" x="214" y="568">HSNoTrace</text><text class="ct" x="366" y="568" text-anchor="end">9</text>
 <rect class="s" x="214.0" y="578" width="152.0" height="6"/>
@@ -508,11 +517,11 @@
 <g><title>Section10FiniteDirections: 2 outright, 0 conditional, 0 supporting</title><rect class="box" x="206" y="1026" width="168" height="40" rx="5"/><text class="nm" x="214" y="1042">§10·FiniteDirections</text><text class="ct" x="366" y="1042" text-anchor="end">2</text>
 <rect class="g" x="214.0" y="1052" width="152.0" height="6"/>
 </g>
-<g><title>Section11AllFixedScales: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="752" y="1506" width="168" height="40" rx="5"/><text class="nm" x="760" y="1522">§11·AllFixedScales</text><text class="ct" x="912" y="1522" text-anchor="end">3</text>
-<rect class="s" x="760.0" y="1532" width="152.0" height="6"/>
-</g>
-<g><title>Section11ApproximateFixedScales: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="934" y="1506" width="168" height="40" rx="5"/><text class="nm" x="942" y="1522">§11·ApproximateFixedS…</text><text class="ct" x="1094" y="1522" text-anchor="end">3</text>
+<g><title>Section11AllFixedScales: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="934" y="1506" width="168" height="40" rx="5"/><text class="nm" x="942" y="1522">§11·AllFixedScales</text><text class="ct" x="1094" y="1522" text-anchor="end">3</text>
 <rect class="s" x="942.0" y="1532" width="152.0" height="6"/>
+</g>
+<g><title>Section11ApproximateFixedScales: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="1116" y="1506" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1522">§11·ApproximateFixedS…</text><text class="ct" x="1276" y="1522" text-anchor="end">3</text>
+<rect class="s" x="1124.0" y="1532" width="152.0" height="6"/>
 </g>
 <g><title>Section11CountingConventions: 1 outright, 1 conditional, 0 supporting</title><rect class="box" x="388" y="1236" width="168" height="40" rx="5"/><text class="nm" x="396" y="1252">§11·CountingConventio…</text><text class="ct" x="548" y="1252" text-anchor="end">2</text>
 <rect class="g" x="396.0" y="1262" width="76.0" height="6"/>
@@ -521,43 +530,43 @@
 <g><title>Section11DiscreteHeatObstruction: 4 outright, 0 conditional, 0 supporting</title><rect class="box" x="388" y="924" width="168" height="40" rx="5"/><text class="nm" x="396" y="940">§11·DiscreteHeatObstr…</text><text class="ct" x="548" y="940" text-anchor="end">4</text>
 <rect class="g" x="396.0" y="950" width="152.0" height="6"/>
 </g>
-<g><title>Section11FiniteScaleBracket: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="1116" y="1506" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1522">§11·FiniteScaleBracket</text><text class="ct" x="1276" y="1522" text-anchor="end">3</text>
-<rect class="s" x="1124.0" y="1532" width="152.0" height="6"/>
+<g><title>Section11FiniteScaleBracket: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="24" y="1560" width="168" height="40" rx="5"/><text class="nm" x="32" y="1576">§11·FiniteScaleBracket</text><text class="ct" x="184" y="1576" text-anchor="end">3</text>
+<rect class="s" x="32.0" y="1586" width="152.0" height="6"/>
 </g>
 <g><title>Section11LaplaceObstruction: 3 outright, 0 conditional, 0 supporting</title><rect class="box" x="570" y="924" width="168" height="40" rx="5"/><text class="nm" x="578" y="940">§11·LaplaceObstruction</text><text class="ct" x="730" y="940" text-anchor="end">3</text>
 <rect class="g" x="578.0" y="950" width="152.0" height="6"/>
 </g>
-<g><title>Section11Partition: 2 outright, 1 conditional, 0 supporting</title><rect class="box" x="24" y="1560" width="168" height="40" rx="5"/><text class="nm" x="32" y="1576">§11·Partition</text><text class="ct" x="184" y="1576" text-anchor="end">3</text>
-<rect class="g" x="32.0" y="1586" width="101.3" height="6"/>
-<rect class="a" x="133.3" y="1586" width="50.7" height="6"/>
+<g><title>Section11Partition: 2 outright, 1 conditional, 0 supporting</title><rect class="box" x="206" y="1560" width="168" height="40" rx="5"/><text class="nm" x="214" y="1576">§11·Partition</text><text class="ct" x="366" y="1576" text-anchor="end">3</text>
+<rect class="g" x="214.0" y="1586" width="101.3" height="6"/>
+<rect class="a" x="315.3" y="1586" width="50.7" height="6"/>
 </g>
 <g><title>Section11RegionAssembly: 0 outright, 3 conditional, 0 supporting</title><rect class="box" x="570" y="1236" width="168" height="40" rx="5"/><text class="nm" x="578" y="1252">§11·RegionAssembly</text><text class="ct" x="730" y="1252" text-anchor="end">3</text>
 <rect class="a" x="578.0" y="1262" width="152.0" height="6"/>
 </g>
-<g><title>Section11ShiftBudgetOptimization: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="206" y="1560" width="168" height="40" rx="5"/><text class="nm" x="214" y="1576">§11·ShiftBudgetOptimi…</text><text class="ct" x="366" y="1576" text-anchor="end">3</text>
-<rect class="s" x="214.0" y="1586" width="152.0" height="6"/>
-</g>
-<g><title>Section11ShiftedModelSqueeze: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="388" y="1560" width="168" height="40" rx="5"/><text class="nm" x="396" y="1576">§11·ShiftedModelSquee…</text><text class="ct" x="548" y="1576" text-anchor="end">2</text>
+<g><title>Section11ShiftBudgetOptimization: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="388" y="1560" width="168" height="40" rx="5"/><text class="nm" x="396" y="1576">§11·ShiftBudgetOptimi…</text><text class="ct" x="548" y="1576" text-anchor="end">3</text>
 <rect class="s" x="396.0" y="1586" width="152.0" height="6"/>
 </g>
-<g><title>Section11ShrinkingSmoothing: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="570" y="1560" width="168" height="40" rx="5"/><text class="nm" x="578" y="1576">§11·ShrinkingSmoothing</text><text class="ct" x="730" y="1576" text-anchor="end">3</text>
+<g><title>Section11ShiftedModelSqueeze: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="570" y="1560" width="168" height="40" rx="5"/><text class="nm" x="578" y="1576">§11·ShiftedModelSquee…</text><text class="ct" x="730" y="1576" text-anchor="end">2</text>
 <rect class="s" x="578.0" y="1586" width="152.0" height="6"/>
 </g>
-<g><title>Section11SmoothingCounterexample: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="752" y="1560" width="168" height="40" rx="5"/><text class="nm" x="760" y="1576">§11·SmoothingCountere…</text><text class="ct" x="912" y="1576" text-anchor="end">2</text>
+<g><title>Section11ShrinkingSmoothing: 0 outright, 0 conditional, 3 supporting</title><rect class="box" x="752" y="1560" width="168" height="40" rx="5"/><text class="nm" x="760" y="1576">§11·ShrinkingSmoothing</text><text class="ct" x="912" y="1576" text-anchor="end">3</text>
 <rect class="s" x="760.0" y="1586" width="152.0" height="6"/>
 </g>
-<g><title>Section11ThresholdInstability: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="934" y="1560" width="168" height="40" rx="5"/><text class="nm" x="942" y="1576">§11·ThresholdInstabil…</text><text class="ct" x="1094" y="1576" text-anchor="end">2</text>
+<g><title>Section11SmoothingCounterexample: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="934" y="1560" width="168" height="40" rx="5"/><text class="nm" x="942" y="1576">§11·SmoothingCountere…</text><text class="ct" x="1094" y="1576" text-anchor="end">2</text>
 <rect class="s" x="942.0" y="1586" width="152.0" height="6"/>
 </g>
-<g><title>Section11TwoParameterSqueeze: 1 outright, 1 conditional, 0 supporting</title><rect class="box" x="1116" y="1560" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1576">§11·TwoParameterSquee…</text><text class="ct" x="1276" y="1576" text-anchor="end">2</text>
-<rect class="g" x="1124.0" y="1586" width="76.0" height="6"/>
-<rect class="a" x="1200.0" y="1586" width="76.0" height="6"/>
+<g><title>Section11ThresholdInstability: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="1116" y="1560" width="168" height="40" rx="5"/><text class="nm" x="1124" y="1576">§11·ThresholdInstabil…</text><text class="ct" x="1276" y="1576" text-anchor="end">2</text>
+<rect class="s" x="1124.0" y="1586" width="152.0" height="6"/>
 </g>
-<g><title>Section11WindowFromSmoothing: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="24" y="1614" width="168" height="40" rx="5"/><text class="nm" x="32" y="1630">§11·WindowFromSmoothi…</text><text class="ct" x="184" y="1630" text-anchor="end">2</text>
-<rect class="s" x="32.0" y="1640" width="152.0" height="6"/>
+<g><title>Section11TwoParameterSqueeze: 1 outright, 1 conditional, 0 supporting</title><rect class="box" x="24" y="1614" width="168" height="40" rx="5"/><text class="nm" x="32" y="1630">§11·TwoParameterSquee…</text><text class="ct" x="184" y="1630" text-anchor="end">2</text>
+<rect class="g" x="32.0" y="1640" width="76.0" height="6"/>
+<rect class="a" x="108.0" y="1640" width="76.0" height="6"/>
 </g>
-<g><title>Section4Scalar: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="206" y="1614" width="168" height="40" rx="5"/><text class="nm" x="214" y="1630">§4·Scalar</text><text class="ct" x="366" y="1630" text-anchor="end">7</text>
+<g><title>Section11WindowFromSmoothing: 0 outright, 0 conditional, 2 supporting</title><rect class="box" x="206" y="1614" width="168" height="40" rx="5"/><text class="nm" x="214" y="1630">§11·WindowFromSmoothi…</text><text class="ct" x="366" y="1630" text-anchor="end">2</text>
 <rect class="s" x="214.0" y="1640" width="152.0" height="6"/>
+</g>
+<g><title>Section4Scalar: 0 outright, 0 conditional, 7 supporting</title><rect class="box" x="388" y="1614" width="168" height="40" rx="5"/><text class="nm" x="396" y="1630">§4·Scalar</text><text class="ct" x="548" y="1630" text-anchor="end">7</text>
+<rect class="s" x="396.0" y="1640" width="152.0" height="6"/>
 </g>
 <g><title>Section5Scaling: 1 outright, 2 conditional, 0 supporting</title><rect class="box" x="934" y="342" width="168" height="40" rx="5"/><text class="nm" x="942" y="358">§5·Scaling</text><text class="ct" x="1094" y="358" text-anchor="end">3</text>
 <rect class="g" x="942.0" y="368" width="50.7" height="6"/>
