@@ -844,7 +844,7 @@ claims a row is proved for the actual operator.
       `highMass2_double_empty_fails`, `diffHigh2_not_highMass2`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 720/720 at 1112ed5, `diffHigh2Witness_nonempty`,
       `highMass2_double_empty_fails`, `diffHigh2_not_highMass2` verified.
-- [ ] G40. `SteklovAudit/H5SmoothedIdent.lean`: `structure H5bSmoothedInputs` = the fields of `H5bDiffInputs`
+- [x] G40. `SteklovAudit/H5SmoothedIdent.lean`: `structure H5bSmoothedInputs` = the fields of `H5bDiffInputs`
       with `e12`, `diffCount`, `e12Vanish` removed (no `E`, `Emod` parameters). Defs `W.Esm ε γ L := ∑ i, W.P.φ
       ((W.D ε γ L).a i - L)` and `W.Emodsm` (same with `b`). Prove `smoothed_diffCount` (the difference row for
       `W.Esm`, `W.Emodsm` with `e12 = 0`: `sub_self`, `abs_zero`), `H5bSmoothedInputs.toDiff : H5bDiffInputs W.Esm
@@ -857,6 +857,8 @@ claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedIdent.lean` (uncompiled at push):
       `H5bSmoothedInputs`, defs `Esm`, `Emodsm`, `toDiff` (`e12 = 0`, `L₀ = 0`), theorems `smoothed_diffCount`,
       `h5b_of_smoothed`, `diffCount_iff_ident`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 723/723 at a51bcce, `smoothed_diffCount`,
+      `h5b_of_smoothed`, `diffCount_iff_ident` verified.
 - [ ] G41. Same file as G40 (or `SteklovAudit/H5SmoothedAudit.lean`): the E-free rows carry real content.
       `smoothed_rowMiss_forces`: for the G25 family (`nA L = ⌈L⌉₊` true eigenvalues at `0`, `nB = 0`, so every row
       mass `∑ j : Fin 0, J i j ^ 2` is `0`), any `m1` meeting `rowMiss` has `m1 ε γ L ≥ ⌈L⌉₊`, hence `m1Vanish`
@@ -864,6 +866,11 @@ claims a row is proved for the actual operator.
       violate `H5bTarget` (G37's `ceil_not_target`) and no `H5bSmoothedInputs` with those data exists. F table text:
       on the smoothed-identification route the open content of (7.29) is the missing-mass (completeness) rows.
       Theorem names: `smoothed_rowMiss_forces`, `smoothed_needs_mass`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedAudit.lean` (uncompiled at push):
+      `smCeilD` (the G25 family as `Data (Fin ⌈L⌉₊) (Fin 0)`), `smCeil_rowMass` (missing row mass `= ⌈L⌉₊`),
+      `smoothed_rowMiss_forces`, `smCeil_E`, `smCeil_Emod`, `smCeil_not_target` (via G37's `ceil_not_target`),
+      `smoothed_needs_mass` (target fails, and no `H5bSmoothedInputs` has that missing row mass). Next run:
+      tick if STATUS shows it compiled.
 
 ## Not attempted here
 
