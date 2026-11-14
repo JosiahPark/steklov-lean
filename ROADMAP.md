@@ -698,7 +698,7 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       `atL_rowMiss_fails`). Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 684/684 at 677d47c, all six G30 theorems in
       `H5HighMassAudit.lean` verified.
-- [ ] G31. `SteklovAudit/H5ColMassSplit.lean`: column mirror of G28–G29. `col_missing_split`:
+- [x] G31. `SteklovAudit/H5ColMassSplit.lean`: column mirror of G28–G29. `col_missing_split`:
       `∑ j, (1 - ∑ i, J i j ^ 2) ≤ (filter (b j ≤ M)).card + ∑ j ∈ filter (M < b j), (1 - ∑ i, J i j ^ 2)` from
       `colBessel` (apply G28's `missing_split` to the transpose `fun j i => J i j`). `structure H5bHighMass2Inputs`
       = `H5bHighMassInputs` with `m2`, `colMiss`, `m2Vanish` replaced by a high-energy column row `hm2`,
@@ -710,6 +710,8 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       f3c71ac): `col_missing_split` (G28's `missing_split` on the transpose), `H5bHighMass2Inputs` (new named
       row `cB`, `modelLowCount`), `H5bHighMass2Inputs.toHigh`, `h5b_of_high_mass2`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 686/686 at 21989c5, `col_missing_split` and
+      `h5b_of_high_mass2` in `H5ColMassSplit.lean` verified.
 - [ ] G32. `SteklovAudit/H5LowCountGrowth.lean`: reduce an L-uniform low count to linear eigenvalue growth,
       over `Fin n` with values `a : Fin n → ℝ`. `lowCount_of_linear_growth`: if `0 < s` and
       `∀ k : Fin n, (k : ℝ) * s ≤ a k`, then `((filter fun k => a k ≤ M).card : ℝ) ≤ M / s + 1` (map `k ↦ k.val`
@@ -720,6 +722,12 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       not implied by `count`. Theorem names: `lowCount_of_linear_growth`, `count_not_lowCount`. F table text:
       each low-count row (true `lowCount`, model `modelLowCount`) follows from linear growth of the indexed
       eigenvalues with an L-independent slope; no growth bound is proved for the actual operator or the model.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5LowCountGrowth.lean` (uncompiled at push, commit
+      030d4cc): `card_low_le_floor` (count ≤ ⌊M / s⌋₊ + 1, all M), `lowCount_of_linear_growth` (with `0 ≤ M`
+      added: the stated bound M / s + 1 is false for M < -s, where the count is 0), `lowCount_of_linear_growth_abs`
+      (|M| / s + 1, all M), `exists_lowCount_of_linear_growth` (lowCount row shape for a family with one slope),
+      `ceil_count`, `count_not_lowCount` (second part is G30's `zero_not_lowCount`). Next run: tick if STATUS
+      shows it compiled.
 - [ ] G33. `SteklovAudit/H5HighMass2Audit.lean`: audit of G31. `highMass2Witness : H5bHighMass2Inputs 0 0`
       (G24's `zData`, `hm1 = hm2 = 0`, `c = cB = 0`), `highMass2Witness_nonempty`; `highMass2_rows_not_target`:
       the rows `rowMissHigh`, `hm1Vanish`, `colMissHigh`, `hm2Vanish`, `lowCount`, `modelLowCount` are a `Prop` on
