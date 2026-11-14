@@ -84,10 +84,14 @@ theorem exists_lowCount_of_linear_growth {n : ℝ → ℕ} (a : ∀ L : ℝ, Fin
 /-- G32 example: `⌈L⌉₊` eigenvalues meet the Weyl `count` row with `Cm = 1`. -/
 theorem ceil_count (L : ℝ) : (Fintype.card (Fin ⌈L⌉₊) : ℝ) ≤ 1 * (1 + L) ^ 2 := by
   rw [Fintype.card_fin]
-  rcases le_or_lt 0 L with hL | hL
+  by_cases hL : 0 ≤ L
   · have h1 : (⌈L⌉₊ : ℝ) < L + 1 := Nat.ceil_lt_add_one hL
     nlinarith [mul_nonneg hL hL]
-  · have h0 : ⌈L⌉₊ = 0 := Nat.ceil_eq_zero.mpr hL.le
+  · push_neg at hL
+    have h0 : ⌈L⌉₊ = 0 := by
+      first
+        | exact Nat.ceil_eq_zero.mpr hL.le
+        | simp [Nat.ceil_eq_zero, hL.le]
     rw [h0, Nat.cast_zero]
     positivity
 
