@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 18:20 UTC",
+  "checked_at": "2026-11-14 18:35 UTC",
   "lean_exit_code": 0,
-  "commit": "e652886a9c9e02333271532f8a35a3f411284863",
-  "last_passing_commit": "e652886a9c9e02333271532f8a35a3f411284863",
-  "library_declarations_checked": 734,
-  "library_declarations": 734,
+  "commit": "f02746a316931fb0e2bf584b2074d5c175599131",
+  "last_passing_commit": "f02746a316931fb0e2bf584b2074d5c175599131",
+  "library_declarations_checked": 736,
+  "library_declarations": 736,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 734,
-  "verified": 734,
+  "theorems": 736,
+  "verified": 736,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4198,6 +4198,26 @@
     {
       "file": "H5SmoothedAudit.lean",
       "theorem": "SteklovAudit.H5SmoothedAudit.smoothed_needs_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedHigh.lean",
+      "theorem": "SteklovAudit.H5SmoothedHigh.smoothedHigh_diffCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedHigh.lean",
+      "theorem": "SteklovAudit.H5SmoothedHigh.h5b_of_smoothedHigh2",
       "axioms": [
         "propext",
         "Classical.choice",
