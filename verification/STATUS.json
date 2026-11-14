@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 22:47 UTC",
+  "checked_at": "2026-11-14 23:19 UTC",
   "lean_exit_code": 0,
-  "commit": "ca072a76a751c0cc7d45dc08782cfd374e34341d",
-  "last_passing_commit": "ca072a76a751c0cc7d45dc08782cfd374e34341d",
-  "library_declarations_checked": 754,
-  "library_declarations": 754,
+  "commit": "8d152cbdef9c820c4f848ede08157ee92475a0c4",
+  "last_passing_commit": "8d152cbdef9c820c4f848ede08157ee92475a0c4",
+  "library_declarations_checked": 758,
+  "library_declarations": 758,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 754,
-  "verified": 754,
+  "theorems": 758,
+  "verified": 758,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2458,6 +2458,46 @@
     {
       "file": "H5ColCount.lean",
       "theorem": "SteklovAudit.H5ColCount.h5b_of_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCountAudit.lean",
+      "theorem": "SteklovAudit.H5ColCountAudit.colMiss_iff_cardGap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCountAudit.lean",
+      "theorem": "SteklovAudit.H5ColCountAudit.smCol_cardGap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCountAudit.lean",
+      "theorem": "SteklovAudit.H5ColCountAudit.rowNormOfNorm_m2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCountAudit.lean",
+      "theorem": "SteklovAudit.H5ColCountAudit.rowNormOfNorm_target",
       "axioms": [
         "propext",
         "Classical.choice",
