@@ -894,7 +894,7 @@ is proved for the actual operator.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 734/734 at e652886, `toSmoothed_Esm`,
       `toSmoothed_Emodsm`, `toSmoothed_P`, `smoothedWitness_nonempty`, `smoothed_witness_target` verified.
-- [ ] G43. `SteklovAudit/H5SmoothedHigh.lean`: `structure H5bSmoothedHigh2Inputs` = `H5bSmoothedInputs` with
+- [x] G43. `SteklovAudit/H5SmoothedHigh.lean`: `structure H5bSmoothedHigh2Inputs` = `H5bSmoothedInputs` with
       `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows `hm1`, `rowMissHigh`,
       `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, plus `cB`, `modelLowCount` (copy the field shapes from
       `H5bDiffHigh2Inputs` in `H5DiffHighMass.lean`, dropping `e12`, `diffCount`, `e12Vanish`). Prove
@@ -905,6 +905,8 @@ is proved for the actual operator.
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedHigh.lean` (uncompiled at push,
       commit ec8ddcc): `H5bSmoothedHigh2Inputs`, defs `Esm`, `Emodsm`, `toDiffHigh2` (`e12 = 0`, `L₀ = 0`),
       theorems `smoothedHigh_diffCount`, `h5b_of_smoothedHigh2`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 736/736 at f02746a, `smoothedHigh_diffCount`,
+      `h5b_of_smoothedHigh2` verified.
 - [ ] G44. `SteklovAudit/H5Parseval.lean`: reduction of the missing-mass rows to normalization of `J`.
       `rowMiss_of_rowNorm`: if `∀ i, ∑ j, J i j ^ 2 = 1` (named hypothesis `rowNorm`, the completeness of the
       model basis for each true eigenvector) then `∑ i, (1 - ∑ j, J i j ^ 2) ≤ 0`, and the constant-zero `m1`
@@ -913,6 +915,11 @@ is proved for the actual operator.
       the norms by `le_of_eq`, so drop them too). F table text: the missing-mass row may be replaced by exact
       row/column normalization of the coupling plus the other E-free rows; this is a reduction, not a proof of
       normalization. Theorem names: `rowMiss_of_rowNorm`, `colMiss_of_colNorm` (def `smoothedOfNorm`).
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5Parseval.lean` (uncompiled at push):
+      `rowMiss_of_rowNorm`, `colMiss_of_colNorm`, `zero_vanish`, `card_eq_of_norms` (row + column
+      normalization force `card ι = card κ`, so the reduction needs square truncations), structure
+      `H5bNormInputs`, def `smoothedOfNorm`, `h5b_of_norm`, `norm_card_eq`. Next run: tick if STATUS shows
+      it compiled.
 - [ ] G45. `SteklovAudit/H5SmoothedColAudit.lean`: the column row carries content of its own. `smColD L :
       Data (Fin 0) (Fin ⌈L⌉₊)` (no true eigenvalues, `⌈L⌉₊` model eigenvalues at `0`, `J = 0`): its row missing
       mass is `0` (so `rowMiss`/`m1Vanish` hold with `m1 = 0`), its column missing mass is `⌈L⌉₊`;
