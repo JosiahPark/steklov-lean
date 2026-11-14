@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 08:21 UTC",
+  "checked_at": "2026-11-14 10:05 UTC",
   "lean_exit_code": 0,
-  "commit": "138418a19b97c57d3dc74485b8f6cc7596f7d2df",
-  "last_passing_commit": "138418a19b97c57d3dc74485b8f6cc7596f7d2df",
-  "library_declarations_checked": 711,
-  "library_declarations": 711,
+  "commit": "e878059357f48440b7e4a33902f06b2e644405ab",
+  "last_passing_commit": "e878059357f48440b7e4a33902f06b2e644405ab",
+  "library_declarations_checked": 715,
+  "library_declarations": 715,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 711,
-  "verified": 711,
+  "theorems": 715,
+  "verified": 715,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2908,6 +2908,46 @@
     {
       "file": "H5DiffAudit.lean",
       "theorem": "SteklovAudit.H5DiffAudit.diff_not_counts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffAudit.lean",
+      "theorem": "SteklovAudit.H5DiffAudit.ceil_diffCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffAudit.lean",
+      "theorem": "SteklovAudit.H5DiffAudit.ceil_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffAudit.lean",
+      "theorem": "SteklovAudit.H5DiffAudit.diff_row_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DiffAudit.lean",
+      "theorem": "SteklovAudit.H5DiffAudit.diff_rows_E_free",
       "axioms": [
         "propext",
         "Classical.choice",
