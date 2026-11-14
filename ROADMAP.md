@@ -888,6 +888,10 @@ is proved for the actual operator.
       `smoothed_witness_target : ∃ W : H5bSmoothedInputs, H5bTarget W.Esm W.Emodsm` (from `h5b_of_smoothed`).
       Check: the G40 structure is satisfiable and is no stronger than the G35 form. Theorem names:
       `smoothedWitness_nonempty`, `smoothed_witness_target` (def `toSmoothed`).
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedWitness.lean` (uncompiled at push):
+      `H5bDiffInputs.toSmoothed` (declared via `_root_` in the `H5DiffCount` namespace), `toSmoothed_Esm`,
+      `toSmoothed_Emodsm`, `toSmoothed_P` (rfl), `smoothedWitness_nonempty`, `smoothed_witness_target`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G43. `SteklovAudit/H5SmoothedHigh.lean`: `structure H5bSmoothedHigh2Inputs` = `H5bSmoothedInputs` with
       `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows `hm1`, `rowMissHigh`,
       `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, plus `cB`, `modelLowCount` (copy the field shapes from
