@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 05:11 UTC",
+  "checked_at": "2026-11-14 06:35 UTC",
   "lean_exit_code": 0,
-  "commit": "2d0b136fa08855c987ec7d6e01120e3672548550",
-  "last_passing_commit": "2d0b136fa08855c987ec7d6e01120e3672548550",
-  "library_declarations_checked": 692,
-  "library_declarations": 692,
+  "commit": "fdeaec15dfd5a2a4bc3d21a1d2521b3e9b556e4b",
+  "last_passing_commit": "fdeaec15dfd5a2a4bc3d21a1d2521b3e9b556e4b",
+  "library_declarations_checked": 699,
+  "library_declarations": 699,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 692,
-  "verified": 692,
+  "theorems": 699,
+  "verified": 699,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2848,6 +2848,76 @@
     {
       "file": "H5CutoffSmoothed.lean",
       "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.zz_colMissHigh",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.zz_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.zz_modelLowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.zz_hmVanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.highMass2Witness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.highMass2_rows_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HighMass2Audit.lean",
+      "theorem": "SteklovAudit.H5HighMass2Audit.highMass2_count_not_target",
       "axioms": [
         "propext",
         "Classical.choice",

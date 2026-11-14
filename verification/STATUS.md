@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 05:11 UTC at commit `2d0b136fa088`. Last passing commit: `2d0b136fa088`.
+Checked 2026-11-14 06:35 UTC at commit `fdeaec15dfd5`. Last passing commit: `fdeaec15dfd5`.
 
-Library declarations checked: 692 of 692 theorems compile with only Lean's standard axioms.
+Library declarations checked: 699 of 699 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -310,6 +310,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_colMissHigh` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_lowCount` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_modelLowCount` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_hmVanish` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.highMass2Witness_nonempty` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.highMass2_rows_not_target` | verified (standard axioms only) |
+| H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.highMass2_count_not_target` | verified (standard axioms only) |
 | H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.z_rowMissHigh` | verified (standard axioms only) |
 | H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.highMassWitness_nonempty` | verified (standard axioms only) |
 | H5HighMassAudit.lean | `SteklovAudit.H5HighMassAudit.zero_rowMissHigh` | verified (standard axioms only) |
