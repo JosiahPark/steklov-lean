@@ -712,7 +712,7 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 686/686 at 21989c5, `col_missing_split` and
       `h5b_of_high_mass2` in `H5ColMassSplit.lean` verified.
-- [ ] G32. `SteklovAudit/H5LowCountGrowth.lean`: reduce an L-uniform low count to linear eigenvalue growth,
+- [x] G32. `SteklovAudit/H5LowCountGrowth.lean`: reduce an L-uniform low count to linear eigenvalue growth,
       over `Fin n` with values `a : Fin n → ℝ`. `lowCount_of_linear_growth`: if `0 < s` and
       `∀ k : Fin n, (k : ℝ) * s ≤ a k`, then `((filter fun k => a k ≤ M).card : ℝ) ≤ M / s + 1` (map `k ↦ k.val`
       into `Finset.range (⌊M / s⌋₊ + 1)`, `Finset.card_le_card_of_injOn`, `Nat.floor_le`/`Nat.lt_floor_add_one`;
@@ -728,12 +728,19 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       (|M| / s + 1, all M), `exists_lowCount_of_linear_growth` (lowCount row shape for a family with one slope),
       `ceil_count`, `count_not_lowCount` (second part is G30's `zero_not_lowCount`). Next run: tick if STATUS
       shows it compiled.
+      Fixed in commit 2d0b136 (`ceil_count`: `le_or_lt` replaced by `by_cases`). Ticked by the formalize task
+      2026-11-14: STATUS PASS 692/692 at 2d0b136.
 - [ ] G33. `SteklovAudit/H5HighMass2Audit.lean`: audit of G31. `highMass2Witness : H5bHighMass2Inputs 0 0`
       (G24's `zData`, `hm1 = hm2 = 0`, `c = cB = 0`), `highMass2Witness_nonempty`; `highMass2_rows_not_target`:
       the rows `rowMissHigh`, `hm1Vanish`, `colMissHigh`, `hm2Vanish`, `lowCount`, `modelLowCount` are a `Prop` on
       `D` and the rates only (no `E`, `Emod`) and hold for the witness data while `H5bTarget` fails for E = 2L,
       Emod = 0 (reuse G24's `model_count_not_target` pattern). Records that, after G31, all "target in disguise"
       content of H5b sits in the two one-spectrum count rows `trueCount` and `modelCount`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5HighMass2Audit.lean` (uncompiled at push):
+      `highMass2OfBounds` (all non-count rows from G24's `zData`, `hm1 = hm2 = 0`, `c = cB = 0`),
+      `highMass2Witness`, `highMass2Witness_nonempty`, `highMass2_rows_not_target`, `highMass2_count_not_target`
+      (no vanishing `e1` for `E = 2L`, `Emod = 0` with the other rows from the witness). Next run: tick if STATUS
+      shows it compiled.
 
 ## Not attempted here
 
