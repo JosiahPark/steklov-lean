@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 14:20 UTC at commit `a51bcce04279`. Last passing commit: `a51bcce04279`.
+Checked 2026-11-14 15:22 UTC at commit `0c45ac51528b`. Last passing commit: `0c45ac51528b`.
 
-Library declarations checked: 723 of 723 theorems compile with only Lean's standard axioms.
+Library declarations checked: 729 of 729 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -439,6 +439,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_disc` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.toPaper_P` | verified (standard axioms only) |
 | H5SideRows.lean | `SteklovAudit.H5SideRows.h5b_of_sides` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_rowMass` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smoothed_rowMiss_forces` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_E` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_Emod` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_not_target` | verified (standard axioms only) |
+| H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smoothed_needs_mass` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.smoothed_diffCount` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.h5b_of_smoothed` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.diffCount_iff_ident` | verified (standard axioms only) |
