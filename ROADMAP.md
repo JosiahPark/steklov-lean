@@ -730,7 +730,7 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       shows it compiled.
       Fixed in commit 2d0b136 (`ceil_count`: `le_or_lt` replaced by `by_cases`). Ticked by the formalize task
       2026-11-14: STATUS PASS 692/692 at 2d0b136.
-- [ ] G33. `SteklovAudit/H5HighMass2Audit.lean`: audit of G31. `highMass2Witness : H5bHighMass2Inputs 0 0`
+- [x] G33. `SteklovAudit/H5HighMass2Audit.lean`: audit of G31. `highMass2Witness : H5bHighMass2Inputs 0 0`
       (G24's `zData`, `hm1 = hm2 = 0`, `c = cB = 0`), `highMass2Witness_nonempty`; `highMass2_rows_not_target`:
       the rows `rowMissHigh`, `hm1Vanish`, `colMissHigh`, `hm2Vanish`, `lowCount`, `modelLowCount` are a `Prop` on
       `D` and the rates only (no `E`, `Emod`) and hold for the witness data while `H5bTarget` fails for E = 2L,
@@ -741,6 +741,48 @@ counts to a linear growth condition on the eigenvalues. None claims a row is pro
       `highMass2Witness`, `highMass2Witness_nonempty`, `highMass2_rows_not_target`, `highMass2_count_not_target`
       (no vanishing `e1` for `E = 2L`, `Emod = 0` with the other rows from the witness). Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 699/699 at fdeaec1, all G33 theorems in
+      `H5HighMass2Audit.lean` verified (`highMass2Witness_nonempty`, `highMass2_rows_not_target`,
+      `highMass2_count_not_target` and the `zz_*` helpers).
+
+G34–G37 written by the formalize task on 2026-11-14 (after G33 was ticked). G33 showed that all E-dependent
+content of H5b sits in the two one-spectrum count rows `trueCount` and `modelCount`. These items replace that
+pair by ONE strictly weaker row on the difference of the two smoothed counts (the chain only ever uses the
+difference), audit it, and record that this row is (7.29) for the smoothed test with `J` removed. None claims
+a row is proved for the actual operator.
+
+- [ ] G34. `SteklovAudit/H5DiffCount.lean`: the reduction step, over arbitrary `Fintype ι`, `Fintype κ` with
+      `f : ι → ℝ`, `g : κ → ℝ`, `J : ι → κ → ℝ`. `diff_of_counts`: `|X1 - S1| ≤ e1` and `|X2 - S2| ≤ e2` give
+      `|(X1 - X2) - (S1 - S2)| ≤ e1 + e2` (abs_sub_le / abs_add, or `abs_le` + linarith).
+      `cutoff_of_diff_count`: if `|X - (∑ i, f i - ∑ j, g j)| ≤ e`, `∀ i, |f i| ≤ Φ`, `∀ j, |g j| ≤ Φ`, the row and
+      column Bessel bounds hold, `∑ i, (1 - ∑ j, J i j ^ 2) ≤ m1`, `∑ j, (1 - ∑ i, J i j ^ 2) ≤ m2` and `0 ≤ Φ`, then
+      `|X - ∑ i, ∑ j, (f i - g j) * J i j ^ 2| ≤ e + Φ * m1 + Φ * m2` (G18's `double_sum_split`, G22's
+      `weighted_sum_split` and `defect_le_sup` on rows and on the transpose, then `abs_le` + linarith).
+      Theorem names: `diff_of_counts`, `cutoff_of_diff_count`.
+- [ ] G35. Same file: `structure H5bDiffInputs` = `H5bMassInputs` (G26) with `e1`, `trueCount`, `e1Vanish`,
+      `e2`, `modelCount`, `e2Vanish` replaced by one row `e12`, `diffCount`
+      (`|(E ε γ L - Emod ε γ L) - (∑ i, P.φ (a i - L) - ∑ j, P.φ (b j - L))| ≤ e12 ε γ L`), `e12Vanish` (same shape
+      as `e1Vanish`). Prove `H5bDiffInputs.toPaper : H5bPaperInputs E Emod` (a `def`, `disc = e12 + Φ * m1 +
+      Φ * m2`, `cutoff` by G34, `discVanish` by G26's `vanish_const_mul` and G18's `discVanish_of_sides`
+      twice), `h5b_of_diff : H5bTarget E Emod` via `h5b_of_paper`, and the weakening direction
+      `H5bMassInputs.toDiff : H5bDiffInputs E Emod` (`e12 = e1 + e2` via `diff_of_counts`,
+      `e12Vanish` via `discVanish_of_sides`). F table: the two count rows become one row, "smoothed count
+      difference"; every `H5bMassInputs` gives an `H5bDiffInputs`.
+- [ ] G36. `SteklovAudit/H5DiffAudit.lean`: audit of G35. `diffWitness : H5bDiffInputs 0 0` (G27's
+      `massWitness` data: G24's `zData`, `Φ = 2`, `m1 = m2 = 0`, `e12 = 0`), `diffWitness_nonempty`; strictness:
+      `diff_not_counts`: with `nA = nB = 0` (G24's `zData`) and `E L = Emod L = 2 L`, `diffCount` holds with
+      `e12 = 0` while `trueCount` fails for every vanishing `e1` (vanishing tested with η = 1, at L = max L₀ 1,
+      as in G9's `not_target_double`), so the single row is strictly weaker than the pair. Theorem names:
+      `diffWitness_nonempty`, `double_diffCount`, `double_trueCount_fails`, `diff_not_counts`.
+- [ ] G37. Same file as G36: the difference row is not the target in disguise and is where (7.29) now sits.
+      `diff_row_not_target`: the family of G25 (`nA L = ⌈L⌉₊` true eigenvalues at 0, `nB = 0`, φ = arctan,
+      `E L = ⌈L⌉₊ * arctan (0 - L)`, `Emod = 0`) satisfies `diffCount` with `e12 = 0` (reuse G25's
+      `ceil_trueCount` / `const_sum_fin`) while `H5bTarget E Emod` fails (|E| ≥ (π/4) L for L ≥ 1; η = 1/2 as in
+      G25's `ceil_trueSide_fails`). Also `diff_rows_E_free`: every field of `H5bDiffInputs` other than
+      `diffCount` is a `Prop` on `D`, `P` and the rates only (state it as G33 did: those rows hold for the
+      witness data while `H5bTarget` fails for E = 2L, Emod = 0). F table text: after G35, all E-dependent
+      content of H5b is the one row `diffCount`, i.e. (7.29) for the test `φ (· - L)` with `J` removed; that row
+      is open for the actual operator. Theorem names: `diff_row_not_target`, `diff_rows_E_free`.
 
 ## Not attempted here
 
