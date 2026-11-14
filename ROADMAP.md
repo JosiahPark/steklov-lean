@@ -859,7 +859,7 @@ claims a row is proved for the actual operator.
       `h5b_of_smoothed`, `diffCount_iff_ident`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 723/723 at a51bcce, `smoothed_diffCount`,
       `h5b_of_smoothed`, `diffCount_iff_ident` verified.
-- [ ] G41. Same file as G40 (or `SteklovAudit/H5SmoothedAudit.lean`): the E-free rows carry real content.
+- [x] G41. Same file as G40 (or `SteklovAudit/H5SmoothedAudit.lean`): the E-free rows carry real content.
       `smoothed_rowMiss_forces`: for the G25 family (`nA L = ⌈L⌉₊` true eigenvalues at `0`, `nB = 0`, so every row
       mass `∑ j : Fin 0, J i j ^ 2` is `0`), any `m1` meeting `rowMiss` has `m1 ε γ L ≥ ⌈L⌉₊`, hence `m1Vanish`
       fails (η = 1/2 at `L = max L₀ 1`, `Nat.le_ceil`); `smoothed_needs_mass`: for that family the smoothed counts
@@ -871,6 +871,46 @@ claims a row is proved for the actual operator.
       `smoothed_rowMiss_forces`, `smCeil_E`, `smCeil_Emod`, `smCeil_not_target` (via G37's `ceil_not_target`),
       `smoothed_needs_mass` (target fails, and no `H5bSmoothedInputs` has that missing row mass). Next run:
       tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 729/729 at 0c45ac5, `smCeil_rowMass`,
+      `smoothed_rowMiss_forces`, `smCeil_E`, `smCeil_Emod`, `smCeil_not_target`, `smoothed_needs_mass` verified.
+
+G42–G45 written by the formalize task on 2026-11-14 (after G41 was ticked). G40–G41 put the open content of
+(7.29), on the smoothed-identification route, in the E-free rows of `H5bSmoothedInputs`, chiefly missing mass.
+G42 checks that structure is non-vacuous and is implied by the G35 form; G43 replaces its missing-mass rows by
+the weaker high-mass rows (G38 shape); G44 reduces the missing-mass rows to row/column normalization of `J`
+(completeness in spectral coordinates); G45 shows the column row carries content of its own. None claims a row
+is proved for the actual operator.
+
+- [ ] G42. `SteklovAudit/H5SmoothedWitness.lean`: `H5bDiffInputs.toSmoothed : H5bSmoothedInputs` for any `E`,
+      `Emod` (a `def` declared via `_root_` in the `H5DiffCount` namespace or as a plain `def`; forget `e12`,
+      `diffCount`, `e12Vanish`, copy the rest), `smoothedWitness_nonempty : Nonempty H5bSmoothedInputs` (via
+      G36/G37's `diffOfBounds` or the G36 witness `diffWitness_nonempty` composed with `toSmoothed`), and
+      `smoothed_witness_target : ∃ W : H5bSmoothedInputs, H5bTarget W.Esm W.Emodsm` (from `h5b_of_smoothed`).
+      Check: the G40 structure is satisfiable and is no stronger than the G35 form. Theorem names:
+      `smoothedWitness_nonempty`, `smoothed_witness_target` (def `toSmoothed`).
+- [ ] G43. `SteklovAudit/H5SmoothedHigh.lean`: `structure H5bSmoothedHigh2Inputs` = `H5bSmoothedInputs` with
+      `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows `hm1`, `rowMissHigh`,
+      `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, plus `cB`, `modelLowCount` (copy the field shapes from
+      `H5bDiffHigh2Inputs` in `H5DiffHighMass.lean`, dropping `e12`, `diffCount`, `e12Vanish`). Prove
+      `H5bSmoothedHigh2Inputs.toDiffHigh2 : H5bDiffHigh2Inputs W.Esm W.Emodsm` (`e12 = 0` as in G40's `toDiff`;
+      `Esm`/`Emodsm` defined for this structure in the same way, or via a `toSmoothedData` projection) and
+      `h5b_of_smoothedHigh2` via `h5b_of_diffHigh2`. F table text: on the smoothed route the current strongest
+      form is `H5bSmoothedHigh2Inputs`. Theorem names: `h5b_of_smoothedHigh2` (def `toDiffHigh2`).
+- [ ] G44. `SteklovAudit/H5Parseval.lean`: reduction of the missing-mass rows to normalization of `J`.
+      `rowMiss_of_rowNorm`: if `∀ i, ∑ j, J i j ^ 2 = 1` (named hypothesis `rowNorm`, the completeness of the
+      model basis for each true eigenvector) then `∑ i, (1 - ∑ j, J i j ^ 2) ≤ 0`, and the constant-zero `m1`
+      meets `m1Vanish` (`mul_nonneg`); `colMiss_of_colNorm` likewise for columns; `smoothedOfNorm`: an
+      `H5bSmoothedInputs` built from `rowNorm`, `colNorm` and the remaining rows (bessel/colBessel follow from
+      the norms by `le_of_eq`, so drop them too). F table text: the missing-mass row may be replaced by exact
+      row/column normalization of the coupling plus the other E-free rows; this is a reduction, not a proof of
+      normalization. Theorem names: `rowMiss_of_rowNorm`, `colMiss_of_colNorm` (def `smoothedOfNorm`).
+- [ ] G45. `SteklovAudit/H5SmoothedColAudit.lean`: the column row carries content of its own. `smColD L :
+      Data (Fin 0) (Fin ⌈L⌉₊)` (no true eigenvalues, `⌈L⌉₊` model eigenvalues at `0`, `J = 0`): its row missing
+      mass is `0` (so `rowMiss`/`m1Vanish` hold with `m1 = 0`), its column missing mass is `⌈L⌉₊`;
+      `smoothed_colMiss_forces` (any `m2` meeting `colMiss` has `m2 ≥ ⌈L⌉₊`, so `m2Vanish` fails, as in G41) and
+      `smCol_not_target` (the smoothed counts `0` and `⌈L⌉₊ · arctanProfile.φ (0 - L)` violate `H5bTarget`; reuse
+      G41's argument with `abs_sub_comm`). Theorem names: `smCol_rowMass_zero`, `smoothed_colMiss_forces`,
+      `smCol_not_target`.
 
 ## Not attempted here
 
