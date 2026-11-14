@@ -922,7 +922,7 @@ is proved for the actual operator.
       it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 742/742 at d0b22e6, `rowMiss_of_rowNorm`,
       `colMiss_of_colNorm`, `card_eq_of_norms`, `zero_vanish`, `h5b_of_norm`, `norm_card_eq` verified.
-- [ ] G45. `SteklovAudit/H5SmoothedColAudit.lean`: the column row carries content of its own. `smColD L :
+- [x] G45. `SteklovAudit/H5SmoothedColAudit.lean`: the column row carries content of its own. `smColD L :
       Data (Fin 0) (Fin ⌈L⌉₊)` (no true eigenvalues, `⌈L⌉₊` model eigenvalues at `0`, `J = 0`): its row missing
       mass is `0` (so `rowMiss`/`m1Vanish` hold with `m1 = 0`), its column missing mass is `⌈L⌉₊`;
       `smoothed_colMiss_forces` (any `m2` meeting `colMiss` has `m2 ≥ ⌈L⌉₊`, so `m2Vanish` fails, as in G41) and
@@ -933,6 +933,46 @@ is proved for the actual operator.
       `smColD`, `smCol_rowMass_zero`, `smCol_rowMiss_zero` (row rows hold with `m1 = 0`), `smCol_colMass`,
       `smoothed_colMiss_forces`, `smCol_E`, `smCol_Emod`, `smCol_not_target`, `smoothed_needs_colMass`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 750/750 at bfb5820 (code commit e77830e),
+      `smCol_rowMass_zero`, `smCol_rowMiss_zero`, `smCol_colMass`, `smoothed_colMiss_forces`, `smCol_E`,
+      `smCol_Emod`, `smCol_not_target`, `smoothed_needs_colMass` verified.
+
+G46–G49 written by the formalize task on 2026-11-14 (after G45 was ticked). G44 replaced both missing-mass rows
+by exact row and column normalization, but `card_eq_of_norms` shows that forces square truncations
+(`nA = nB`), which the actual coupling need not have. G46–G49 keep normalization on one side only and show the
+other missing-mass row is then exactly a truncation-size gap row; G47 checks it is no stronger than G44 and
+matches the G45 family; G48 checks the new structures are satisfiable, including a non-square case. None claims
+a row (normalization, gap, count, defect, tail, low count) is proved for the actual operator.
+
+- [ ] G46. `SteklovAudit/H5ColCount.lean` (imports `SteklovAudit.H5Parseval`): one-sided normalization.
+      `colMass_eq_of_rowNorm`: for `D : Data ι κ` with `rowNorm : ∀ i, ∑ j, D.J i j ^ 2 = 1`,
+      `∑ j, (1 - ∑ i, D.J i j ^ 2) = (Fintype.card κ : ℝ) - Fintype.card ι` (`Finset.sum_sub_distrib`,
+      `Finset.sum_comm`, then the `card_eq_of_norms` argument); `rowMass_eq_of_colNorm` symmetric.
+      `structure H5bRowNormInputs` = `H5bNormInputs` with `colNorm` replaced by `colBessel`, `m2`,
+      `cardGap : ∀ ε γ L, (nB ε γ L : ℝ) - nA ε γ L ≤ m2 ε γ L` and `m2Vanish` (shape of G40's). Def
+      `smoothedOfRowNorm : H5bSmoothedInputs` (`m1 = 0` via `rowMiss_of_rowNorm`/`zero_vanish`; `colMiss`
+      from `colMass_eq_of_rowNorm` + `cardGap`) and `h5b_of_rowNorm` via `h5b_of_smoothed`. Docstring: the
+      gap row is a statement about truncation sizes only; it is not proved. Theorem names:
+      `colMass_eq_of_rowNorm`, `rowMass_eq_of_colNorm`, `h5b_of_rowNorm` (def `smoothedOfRowNorm`).
+- [ ] G47. `SteklovAudit/H5ColCountAudit.lean`: the gap row is the column row, no more and no less.
+      `colMiss_iff_cardGap`: under `rowNorm`, for every `m`, column missing mass `≤ m` iff
+      `card κ - card ι ≤ m` (rewrite by `colMass_eq_of_rowNorm`). `smCol_cardGap`: the G45 family `smColD L`
+      satisfies `rowNorm` (vacuously, `Fin 0`) and has gap `⌈L⌉₊`, matching `smCol_colMass`. Def
+      `rowNormOfNorm : H5bNormInputs → H5bRowNormInputs` (`m2 = 0`, gap `≤ 0` from `norm_card_eq`,
+      `colBessel` from `colNorm`), so G46 is no stronger than G44. Theorem names: `colMiss_iff_cardGap`,
+      `smCol_cardGap` (def `rowNormOfNorm`).
+- [ ] G48. `SteklovAudit/H5RowNormWitness.lean`: non-vacuity. `normWitness_nonempty : Nonempty H5bNormInputs`
+      and `rowNormWitness_nonsquare : ∃ W : H5bRowNormInputs, ∀ ε γ L, W.nA ε γ L < W.nB ε γ L`. Reuse the
+      profile witness used in G45 (`arctanProfile` or the G36/G37 witness). Prefer `nA = 1`, `nB = 2`,
+      `J 0 0 = 1`, other entries `0`, all eigenvalues `0`, if `Data`'s remaining fields allow it; otherwise
+      `nA = 0`, `nB = 1` (and say in the docstring that `rowNorm` is then vacuous). Gap rate `m2 = 1`,
+      `m2Vanish` with `L₀ = 1 / η`. Theorem names: `normWitness_nonempty`, `rowNormWitness_nonsquare`.
+- [ ] G49. `SteklovAudit/H5ColNorm.lean`: the mirror of G46. `structure H5bColNormInputs` = `H5bNormInputs`
+      with `rowNorm` replaced by `bessel`, `m1`, `rowGap : ∀ ε γ L, (nA ε γ L : ℝ) - nB ε γ L ≤ m1 ε γ L`
+      and `m1Vanish`; def `smoothedOfColNorm` (`rowMiss` from `rowMass_eq_of_colNorm`) and
+      `h5b_of_colNorm`. F table text: on the smoothed route, with completeness on one side, the other
+      missing-mass row may be replaced by an o(L) gap between truncation sizes. Theorem names:
+      `h5b_of_colNorm` (def `smoothedOfColNorm`).
 
 ## Not attempted here
 
