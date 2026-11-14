@@ -759,6 +759,9 @@ a row is proved for the actual operator.
       `|X - ∑ i, ∑ j, (f i - g j) * J i j ^ 2| ≤ e + Φ * m1 + Φ * m2` (G18's `double_sum_split`, G22's
       `weighted_sum_split` and `defect_le_sup` on rows and on the transpose, then `abs_le` + linarith).
       Theorem names: `diff_of_counts`, `cutoff_of_diff_count`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffCount.lean` (uncompiled at push):
+      `diff_of_counts`, helper `defect_abs_le_mass`, `cutoff_of_diff_count`, `cutoff_of_diff_count_nonvacuous`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G35. Same file: `structure H5bDiffInputs` = `H5bMassInputs` (G26) with `e1`, `trueCount`, `e1Vanish`,
       `e2`, `modelCount`, `e2Vanish` replaced by one row `e12`, `diffCount`
       (`|(E ε γ L - Emod ε γ L) - (∑ i, P.φ (a i - L) - ∑ j, P.φ (b j - L))| ≤ e12 ε γ L`), `e12Vanish` (same shape
