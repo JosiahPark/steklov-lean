@@ -764,7 +764,7 @@ a row is proved for the actual operator.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 703/703 at ffc7a73, all four G34 theorems in
       `H5DiffCount.lean` verified.
-- [ ] G35. Same file: `structure H5bDiffInputs` = `H5bMassInputs` (G26) with `e1`, `trueCount`, `e1Vanish`,
+- [x] G35. Same file: `structure H5bDiffInputs` = `H5bMassInputs` (G26) with `e1`, `trueCount`, `e1Vanish`,
       `e2`, `modelCount`, `e2Vanish` replaced by one row `e12`, `diffCount`
       (`|(E ε γ L - Emod ε γ L) - (∑ i, P.φ (a i - L) - ∑ j, P.φ (b j - L))| ≤ e12 ε γ L`), `e12Vanish` (same shape
       as `e1Vanish`). Prove `H5bDiffInputs.toPaper : H5bPaperInputs E Emod` (a `def`, `disc = e12 + Φ * m1 +
@@ -777,12 +777,18 @@ a row is proved for the actual operator.
       `H5bDiffInputs`, `H5bDiffInputs.toPaper`, `h5b_of_diff`, `toPaper_disc`, and
       `SteklovAudit.H5MissingMass.H5bMassInputs.toDiff` (declared in the `H5MissingMass` namespace so
       `W.toDiff` works). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 705/705 at 072cda1, `h5b_of_diff` and
+      `toPaper_disc` in `H5DiffCount.lean` verified (the defs `toPaper`, `toDiff` compile with them).
 - [ ] G36. `SteklovAudit/H5DiffAudit.lean`: audit of G35. `diffWitness : H5bDiffInputs 0 0` (G27's
       `massWitness` data: G24's `zData`, `Φ = 2`, `m1 = m2 = 0`, `e12 = 0`), `diffWitness_nonempty`; strictness:
       `diff_not_counts`: with `nA = nB = 0` (G24's `zData`) and `E L = Emod L = 2 L`, `diffCount` holds with
       `e12 = 0` while `trueCount` fails for every vanishing `e1` (vanishing tested with η = 1, at L = max L₀ 1,
       as in G9's `not_target_double`), so the single row is strictly weaker than the pair. Theorem names:
       `diffWitness_nonempty`, `double_diffCount`, `double_trueCount_fails`, `diff_not_counts`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffAudit.lean` (uncompiled at push,
+      commit aaa21ac): helper `z_diffCount`, `diffOfBounds` (all non-difference fields from `zData`),
+      `self_diff_bound`, `diffWitness`, `diffWitness_nonempty`, `diffDouble : H5bDiffInputs (2L) (2L)`,
+      `double_diffCount`, `double_trueCount_fails`, `diff_not_counts`. Next run: tick if STATUS shows it compiled.
 - [ ] G37. Same file as G36: the difference row is not the target in disguise and is where (7.29) now sits.
       `diff_row_not_target`: the family of G25 (`nA L = ⌈L⌉₊` true eigenvalues at 0, `nB = 0`, φ = arctan,
       `E L = ⌈L⌉₊ * arctan (0 - L)`, `Emod = 0`) satisfies `diffCount` with `e12 = 0` (reuse G25's
