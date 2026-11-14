@@ -826,7 +826,13 @@ claims a row is proved for the actual operator.
       `H5bHighMass2Inputs.toDiffHigh2` (declare in the `H5ColMassSplit` namespace via `_root_`; `e12 = e1 + e2` by
       `diff_of_counts`, `e12Vanish` by `discVanish_of_sides`). If the file would exceed ~120 lines, put the
       weakening direction in G39 instead. Theorem names: `h5b_of_diffHigh2` (defs `toDiff`, `toDiffHigh2`).
-- [ ] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. `diffHigh2OfBounds E Emod e12 h v` (as G36's
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5DiffHighMass.lean` (uncompiled at push):
+      helper `vanish_of_split` (low/high split with vanishing high part vanishes), `H5bDiffHigh2Inputs`,
+      `H5bDiffHigh2Inputs.toDiff`, `h5b_of_diffHigh2`. The weakening direction `toDiffHigh2` is moved to G39
+      (line budget). Next run: tick if STATUS shows it compiled.
+- [ ] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. First (moved from G38) the weakening direction
+      `H5bHighMass2Inputs.toDiffHigh2 : H5bDiffHigh2Inputs E Emod` (declare via `_root_` in the `H5ColMassSplit`
+      namespace; `e12 = e1 + e2` by `diff_of_counts`, `e12Vanish` by `discVanish_of_sides`, other fields copied). `diffHigh2OfBounds E Emod e12 h v` (as G36's
       `diffOfBounds`, empty family `zData`, `hm1 = hm2 = 0`, `cB = 1`), `diffHigh2Witness_nonempty :
       Nonempty (H5bDiffHigh2Inputs 0 0)`; strictness `diffHigh2_not_highMass2`: for `E = Emod = 2L` a full
       `H5bDiffHigh2Inputs` exists with `e12 = 0`, while no `H5bHighMass2Inputs (2L) (2L)` built on the empty family
