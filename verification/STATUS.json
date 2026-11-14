@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 19:22 UTC",
+  "checked_at": "2026-11-14 20:20 UTC",
   "lean_exit_code": 0,
-  "commit": "d0b22e6e576d593ba36142306655a54603c9cc68",
-  "last_passing_commit": "d0b22e6e576d593ba36142306655a54603c9cc68",
-  "library_declarations_checked": 742,
-  "library_declarations": 742,
+  "commit": "bfb5820cd5631544fbd4cb421c792765be298270",
+  "last_passing_commit": "bfb5820cd5631544fbd4cb421c792765be298270",
+  "library_declarations_checked": 750,
+  "library_declarations": 750,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 742,
-  "verified": 742,
+  "theorems": 750,
+  "verified": 750,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4258,6 +4258,86 @@
     {
       "file": "H5SmoothedAudit.lean",
       "theorem": "SteklovAudit.H5SmoothedAudit.smoothed_needs_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_rowMass_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_rowMiss_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_colMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smoothed_colMiss_forces",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_E",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_Emod",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smCol_not_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SmoothedColAudit.lean",
+      "theorem": "SteklovAudit.H5SmoothedColAudit.smoothed_needs_colMass",
       "axioms": [
         "propext",
         "Classical.choice",

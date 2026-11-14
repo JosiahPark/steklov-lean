@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 19:22 UTC at commit `d0b22e6e576d`. Last passing commit: `d0b22e6e576d`.
+Checked 2026-11-14 20:20 UTC at commit `bfb5820cd563`. Last passing commit: `bfb5820cd563`.
 
-Library declarations checked: 742 of 742 theorems compile with only Lean's standard axioms.
+Library declarations checked: 750 of 750 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -451,6 +451,14 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_Emod` | verified (standard axioms only) |
 | H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smCeil_not_target` | verified (standard axioms only) |
 | H5SmoothedAudit.lean | `SteklovAudit.H5SmoothedAudit.smoothed_needs_mass` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_rowMass_zero` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_rowMiss_zero` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_colMass` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smoothed_colMiss_forces` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_E` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_Emod` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smCol_not_target` | verified (standard axioms only) |
+| H5SmoothedColAudit.lean | `SteklovAudit.H5SmoothedColAudit.smoothed_needs_colMass` | verified (standard axioms only) |
 | H5SmoothedHigh.lean | `SteklovAudit.H5SmoothedHigh.smoothedHigh_diffCount` | verified (standard axioms only) |
 | H5SmoothedHigh.lean | `SteklovAudit.H5SmoothedHigh.h5b_of_smoothedHigh2` | verified (standard axioms only) |
 | H5SmoothedIdent.lean | `SteklovAudit.H5SmoothedIdent.smoothed_diffCount` | verified (standard axioms only) |
