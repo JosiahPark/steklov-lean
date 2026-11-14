@@ -907,7 +907,7 @@ is proved for the actual operator.
       theorems `smoothedHigh_diffCount`, `h5b_of_smoothedHigh2`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 736/736 at f02746a, `smoothedHigh_diffCount`,
       `h5b_of_smoothedHigh2` verified.
-- [ ] G44. `SteklovAudit/H5Parseval.lean`: reduction of the missing-mass rows to normalization of `J`.
+- [x] G44. `SteklovAudit/H5Parseval.lean`: reduction of the missing-mass rows to normalization of `J`.
       `rowMiss_of_rowNorm`: if `∀ i, ∑ j, J i j ^ 2 = 1` (named hypothesis `rowNorm`, the completeness of the
       model basis for each true eigenvector) then `∑ i, (1 - ∑ j, J i j ^ 2) ≤ 0`, and the constant-zero `m1`
       meets `m1Vanish` (`mul_nonneg`); `colMiss_of_colNorm` likewise for columns; `smoothedOfNorm`: an
@@ -920,6 +920,8 @@ is proved for the actual operator.
       normalization force `card ι = card κ`, so the reduction needs square truncations), structure
       `H5bNormInputs`, def `smoothedOfNorm`, `h5b_of_norm`, `norm_card_eq`. Next run: tick if STATUS shows
       it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 742/742 at d0b22e6, `rowMiss_of_rowNorm`,
+      `colMiss_of_colNorm`, `card_eq_of_norms`, `zero_vanish`, `h5b_of_norm`, `norm_card_eq` verified.
 - [ ] G45. `SteklovAudit/H5SmoothedColAudit.lean`: the column row carries content of its own. `smColD L :
       Data (Fin 0) (Fin ⌈L⌉₊)` (no true eigenvalues, `⌈L⌉₊` model eigenvalues at `0`, `J = 0`): its row missing
       mass is `0` (so `rowMiss`/`m1Vanish` hold with `m1 = 0`), its column missing mass is `⌈L⌉₊`;
@@ -927,6 +929,10 @@ is proved for the actual operator.
       `smCol_not_target` (the smoothed counts `0` and `⌈L⌉₊ · arctanProfile.φ (0 - L)` violate `H5bTarget`; reuse
       G41's argument with `abs_sub_comm`). Theorem names: `smCol_rowMass_zero`, `smoothed_colMiss_forces`,
       `smCol_not_target`.
+      Written by the formalize task 2026-11-14 in `SteklovAudit/H5SmoothedColAudit.lean` (uncompiled at push):
+      `smColD`, `smCol_rowMass_zero`, `smCol_rowMiss_zero` (row rows hold with `m1 = 0`), `smCol_colMass`,
+      `smoothed_colMiss_forces`, `smCol_E`, `smCol_Emod`, `smCol_not_target`, `smoothed_needs_colMass`.
+      Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
