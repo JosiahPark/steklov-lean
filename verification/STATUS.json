@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 21:15 UTC",
+  "checked_at": "2026-11-14 22:20 UTC",
   "lean_exit_code": 0,
-  "commit": "2adc02b436be4a9603f1d240119a0a5c1c706afb",
-  "last_passing_commit": "2adc02b436be4a9603f1d240119a0a5c1c706afb",
-  "library_declarations_checked": 750,
-  "library_declarations": 750,
+  "commit": "0e2ad09368c71cba4a953d52cf8f34e60bb78728",
+  "last_passing_commit": "0e2ad09368c71cba4a953d52cf8f34e60bb78728",
+  "library_declarations_checked": 754,
+  "library_declarations": 754,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 750,
-  "verified": 750,
+  "theorems": 754,
+  "verified": 754,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2418,6 +2418,46 @@
     {
       "file": "GridLaw.lean",
       "theorem": "SteklovAudit.GridLaw.real_law_of_fine_grids",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCount.lean",
+      "theorem": "SteklovAudit.H5ColCount.colMass_eq_of_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCount.lean",
+      "theorem": "SteklovAudit.H5ColCount.rowMass_eq_of_colNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCount.lean",
+      "theorem": "SteklovAudit.H5ColCount.rowNorm_colMiss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColCount.lean",
+      "theorem": "SteklovAudit.H5ColCount.h5b_of_rowNorm",
       "axioms": [
         "propext",
         "Classical.choice",

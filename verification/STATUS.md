@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 21:15 UTC at commit `2adc02b436be`. Last passing commit: `2adc02b436be`.
+Checked 2026-11-14 22:20 UTC at commit `0e2ad09368c7`. Last passing commit: `0e2ad09368c7`.
 
-Library declarations checked: 750 of 750 theorems compile with only Lean's standard axioms.
+Library declarations checked: 754 of 754 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -267,6 +267,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
+| H5ColCount.lean | `SteklovAudit.H5ColCount.colMass_eq_of_rowNorm` | verified (standard axioms only) |
+| H5ColCount.lean | `SteklovAudit.H5ColCount.rowMass_eq_of_colNorm` | verified (standard axioms only) |
+| H5ColCount.lean | `SteklovAudit.H5ColCount.rowNorm_colMiss` | verified (standard axioms only) |
+| H5ColCount.lean | `SteklovAudit.H5ColCount.h5b_of_rowNorm` | verified (standard axioms only) |
 | H5ColMassSplit.lean | `SteklovAudit.H5ColMassSplit.col_missing_split` | verified (standard axioms only) |
 | H5ColMassSplit.lean | `SteklovAudit.H5ColMassSplit.h5b_of_high_mass2` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
