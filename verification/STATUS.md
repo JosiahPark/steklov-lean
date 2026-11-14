@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 07:41 UTC at commit `072cda19d410`. Last passing commit: `072cda19d410`.
+Checked 2026-11-14 08:21 UTC at commit `138418a19b97`. Last passing commit: `138418a19b97`.
 
-Library declarations checked: 705 of 705 theorems compile with only Lean's standard axioms.
+Library declarations checked: 711 of 711 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -310,6 +310,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.z_diffCount` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.self_diff_bound` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.diffWitness_nonempty` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.double_diffCount` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.double_trueCount_fails` | verified (standard axioms only) |
+| H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.diff_not_counts` | verified (standard axioms only) |
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.diff_of_counts` | verified (standard axioms only) |
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.defect_abs_le_mass` | verified (standard axioms only) |
 | H5DiffCount.lean | `SteklovAudit.H5DiffCount.cutoff_of_diff_count` | verified (standard axioms only) |
