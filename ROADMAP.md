@@ -792,7 +792,7 @@ a row is proved for the actual operator.
       Ticked by the formalize task 2026-11-14: STATUS PASS 711/711 at 138418a, all G36 theorems in
       `H5DiffAudit.lean` verified (`z_diffCount`, `self_diff_bound`, `diffWitness_nonempty`,
       `double_diffCount`, `double_trueCount_fails`, `diff_not_counts`).
-- [ ] G37. Same file as G36: the difference row is not the target in disguise and is where (7.29) now sits.
+- [x] G37. Same file as G36: the difference row is not the target in disguise and is where (7.29) now sits.
       `diff_row_not_target`: the family of G25 (`nA L = ⌈L⌉₊` true eigenvalues at 0, `nB = 0`, φ = arctan,
       `E L = ⌈L⌉₊ * arctan (0 - L)`, `Emod = 0`) satisfies `diffCount` with `e12 = 0` (reuse G25's
       `ceil_trueCount` / `const_sum_fin`) while `H5bTarget E Emod` fails (|E| ≥ (π/4) L for L ≥ 1; η = 1/2 as in
@@ -806,6 +806,49 @@ a row is proved for the actual operator.
       `diff_row_not_target`; `diff_rows_E_free` (for any `E`, `Emod`, `diffOfBounds` gives a full structure
       from the difference row alone; for `E = 2L`, `Emod = 0` the target fails and no vanishing `e12` meets
       the row). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-14: STATUS PASS 715/715 at e878059, all G37 theorems in
+      `H5DiffAudit.lean` verified (`ceil_diffCount`, `ceil_not_target`, `diff_row_not_target`, `diff_rows_E_free`).
+
+G38–G41 written by the formalize task on 2026-11-14 (after G37 was ticked). G37 showed that all E-dependent
+content of H5b is the one row `diffCount`. G38–G39 put that row together with the weakest missing-mass rows
+(G29/G31 high-mass split), so the F table has one current strongest form. G40–G41 check what happens when
+`E`, `Emod` are exactly the smoothed counts of the coupled spectra: `diffCount` is then free, and the content
+moves to the E-free rows (missing mass, i.e. completeness of the coupling), which stay named inputs. None
+claims a row is proved for the actual operator.
+
+- [ ] G38. `SteklovAudit/H5DiffHighMass.lean`: `structure H5bDiffHigh2Inputs` = `H5bDiffInputs` (G35) with
+      `m1`, `rowMiss`, `m1Vanish`, `m2`, `colMiss`, `m2Vanish` replaced by the high-mass rows of
+      `H5bHighMass2Inputs` (G31): `hm1`, `rowMissHigh`, `hm1Vanish`, `hm2`, `colMissHigh`, `hm2Vanish`, and add
+      `cB`, `modelLowCount` (copy the field shapes from `H5ColMassSplit.lean`). Prove `H5bDiffHigh2Inputs.toDiff :
+      H5bDiffInputs E Emod` (a `def`; take `m1`, `m2` to be the exact missing-mass sums with `le_refl`, and their
+      vanishing as in `H5bHighMass2Inputs.toHigh` and the G29 analogue, reusing whatever lemma those use),
+      `h5b_of_diffHigh2 : H5bTarget E Emod` via `h5b_of_diff`, and the weakening direction
+      `H5bHighMass2Inputs.toDiffHigh2` (declare in the `H5ColMassSplit` namespace via `_root_`; `e12 = e1 + e2` by
+      `diff_of_counts`, `e12Vanish` by `discVanish_of_sides`). If the file would exceed ~120 lines, put the
+      weakening direction in G39 instead. Theorem names: `h5b_of_diffHigh2` (defs `toDiff`, `toDiffHigh2`).
+- [ ] G39. `SteklovAudit/H5DiffHighAudit.lean`: audit of G38. `diffHigh2OfBounds E Emod e12 h v` (as G36's
+      `diffOfBounds`, empty family `zData`, `hm1 = hm2 = 0`, `cB = 1`), `diffHigh2Witness_nonempty :
+      Nonempty (H5bDiffHigh2Inputs 0 0)`; strictness `diffHigh2_not_highMass2`: for `E = Emod = 2L` a full
+      `H5bDiffHigh2Inputs` exists with `e12 = 0`, while no `H5bHighMass2Inputs (2L) (2L)` built on the empty family
+      exists (its `trueCount` fails by G36's `double_trueCount_fails`). F table text: the current strongest form
+      of H5b is `H5bDiffHigh2Inputs`. Theorem names: `diffHigh2Witness_nonempty`, `diffHigh2_not_highMass2`.
+- [ ] G40. `SteklovAudit/H5SmoothedIdent.lean`: `structure H5bSmoothedInputs` = the fields of `H5bDiffInputs`
+      with `e12`, `diffCount`, `e12Vanish` removed (no `E`, `Emod` parameters). Defs `W.Esm ε γ L := ∑ i, W.P.φ
+      ((W.D ε γ L).a i - L)` and `W.Emodsm` (same with `b`). Prove `smoothed_diffCount` (the difference row for
+      `W.Esm`, `W.Emodsm` with `e12 = 0`: `sub_self`, `abs_zero`), `H5bSmoothedInputs.toDiff : H5bDiffInputs W.Esm
+      W.Emodsm` (`e12 = 0`, vanishing by G27/G36's `zeroDisc_vanish` or `mul_nonneg` + `le_of_lt`), and
+      `h5b_of_smoothed : H5bTarget W.Esm W.Emodsm`, plus `diffCount_iff_ident`: for any `E`, `Emod`, the
+      difference row with rate `e` is the same statement as `|(E - W.Esm) - (Emod - W.Emodsm)| ≤ e` (`ring_nf` or
+      `congr 1; ring`). Docstring: if the paper's `E`, `Emod` are the smoothed counts of the same coupled spectra,
+      (7.29) needs only the E-free rows; this does not prove those rows. Theorem names: `smoothed_diffCount`,
+      `h5b_of_smoothed`, `diffCount_iff_ident`.
+- [ ] G41. Same file as G40 (or `SteklovAudit/H5SmoothedAudit.lean`): the E-free rows carry real content.
+      `smoothed_rowMiss_forces`: for the G25 family (`nA L = ⌈L⌉₊` true eigenvalues at `0`, `nB = 0`, so every row
+      mass `∑ j : Fin 0, J i j ^ 2` is `0`), any `m1` meeting `rowMiss` has `m1 ε γ L ≥ ⌈L⌉₊`, hence `m1Vanish`
+      fails (η = 1/2 at `L = max L₀ 1`, `Nat.le_ceil`); `smoothed_needs_mass`: for that family the smoothed counts
+      violate `H5bTarget` (G37's `ceil_not_target`) and no `H5bSmoothedInputs` with those data exists. F table text:
+      on the smoothed-identification route the open content of (7.29) is the missing-mass (completeness) rows.
+      Theorem names: `smoothed_rowMiss_forces`, `smoothed_needs_mass`.
 
 ## Not attempted here
 
