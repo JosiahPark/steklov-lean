@@ -1158,7 +1158,7 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       `paperScale_count`, `paperScale_defect`, `toSmoothedEv_nA` (rfl), `h5b_of_paperScale`.
       Ticked by the formalize task 2026-11-15: STATUS PASS 863/863 at 96b118a (code commit 96b118a),
       `H5EvPaperScale` compiled.
-- [ ] G59. `SteklovAudit/H5EvPaperScaleAudit.lean`: the converse, so the F table can say the paper form is an
+- [x] G59. `SteklovAudit/H5EvPaperScaleAudit.lean`: the converse, so the F table can say the paper form is an
       exact restatement up to constants. `one_add_sq_le_four_sq (h : 1 ≤ L) : (1 + L) ^ 2 ≤ 4 * L ^ 2`
       (nlinarith); def `ofSmoothedEv : H5bSmoothedEvInputs → H5bPaperScaleInputs` with `Cm' = 4 * Cm` (nonneg
       by `positivity`/`mul_nonneg`) and `Ck' = 2 * Ck` (`(2 * Ck) ^ 2 * L ^ 2 = Ck ^ 2 * (4 * L ^ 2)` by `ring`);
@@ -1169,6 +1169,8 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       push, commit b750b5c): def `ofSmoothedEv`; theorems `one_add_sq_le_four_sq`, `smoothedEv_count_paper`,
       `smoothedEv_defect_paper`, `ofSmoothedEv_nA`, `ofSmoothedEv_Cm`, `ofSmoothedEv_Ck`,
       `ofSmoothedEv_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 870/870 at 54169c0 (code commit b750b5c), all 7
+      `H5EvPaperScaleAudit` theorems verified.
 - [ ] G60. `SteklovAudit/H5EvGrowWitness.lean`: the count row exercised on unbounded truncations.
       `growD (n : ℕ) : Data (Fin n) (Fin n)` with `a i = b i = (i : ℝ)`, `J i j = if i = j then 1 else 0`;
       `growD_rowNorm`, `growD_colNorm` (`Finset.sum_ite_eq` / `Finset.sum_ite_eq'`), `growD_K : (growD n).K i j = 0`
@@ -1179,6 +1181,12 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       move `lowCount` and the witness to G61 and keep only the `growD` lemmas here). Theorems
       `growWitness_unbounded : ∀ N : ℕ, ∃ L, 1 ≤ L ∧ N ≤ growWitness.nA 0 0 L` and `growWitness_target`
       (from `h5b_of_paperScale`). Theorem names as above (defs `growD`, `growWitness`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5EvGrowWitness.lean` (uncompiled at push,
+      commit 8bc8e58), full item (witness kept here, not moved to G61): defs `growD` (`a i = b i = i.val`,
+      identity `J`), `growWitness` (`Cm = 1`, `Ck = 0`, `τ = 0`, `m1 = m2 = 0`, `c M = |M| + 1`); theorems
+      `growD_rowNorm`, `growD_colNorm`, `growD_K`, `growD_hs2K`, `growD_rowMiss`, `growD_colMiss`,
+      `growD_count`, `growD_lowCount`, `growWitness_unbounded`, `growWitness_target`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G61. `SteklovAudit/H5EvLowCountIndep.lean`: `lowCount` is not implied by the other rows. `flatD (n : ℕ) :
       Data (Fin n) (Fin n)` with `a = b = 0` and `J` diagonal (as `growD`); with `n = ⌊L⌋₊` it satisfies
       normalization, the paper-scale `count` (`Cm = 1`), `defect` (`Ck = 0`), `tail` (`τ = 0`), `ha`, `hb`
