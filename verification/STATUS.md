@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 03:21 UTC at commit `7f3dfed8ff29`. Last passing commit: `7f3dfed8ff29`.
+Checked 2026-11-15 04:21 UTC at commit `9b4b106ae5ee`. Last passing commit: `9b4b106ae5ee`.
 
-Library declarations checked: 786 of 786 theorems compile with only Lean's standard axioms.
+Library declarations checked: 793 of 793 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -342,6 +342,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5DiffHighAudit.lean | `SteklovAudit.H5DiffHighAudit.diffHigh2_not_highMass2` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.vanish_of_split` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.evN_pos` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.evNB_pos` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.evN_neg` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.evNB_neg` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.evD_pos` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.tau_nonneg` | verified (standard axioms only) |
+| H5EventualRows.lean | `SteklovAudit.H5EventualRows.c_nonneg` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_colMissHigh` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_lowCount` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_modelLowCount` | verified (standard axioms only) |
