@@ -258,6 +258,14 @@ Elementary steps of the paper that are not part of `Thm111Inputs`. All four comp
       (`Nc_riesz`, via `|∫₀^L (L−u)^(r−1) u sin u| ≤ 2L + L^r + L/r`), and has no sharp law `A L² + B'L + o(L)`
       for any `B'` (`Nc_not_sharp`). With S3 (sharp ⇒ Riesz) this shows Riesz laws are strictly weaker.
       The heat expansion (8.1) for the example is not formalized.
+- [~] S8. `SteklovAudit/WedgeChannel.lean` (continuation 176, 2026-11-10; added by the interactive session
+      2026-11-15, uncompiled at push): scalar part of the two-channel wedge bounds. `channel_sum`,
+      `channel_difference`; `sinh_le_mul_cosh`, `mul_cosh_le`; 176.2 `tanh_le_id`, `div_one_add_le_tanh`,
+      `inv_le_coth`, `coth_le_one_add_inv`; multiplier form `m_mul_inv`, `sym_lower`, `sym_upper`, `anti_lower`,
+      `anti_upper`, `channel_lower`; 176.3 scalar step `antisym_physical`. The eigenvalue step of 176.1 is S1's
+      `endpoint_eigen_minus/plus`. Not proved: the variational Theorem 176.1, anything about `t`-integrals, the
+      `m = 0` extensions. Moves no `[H…]` input and no F row. Record: `docs/paper-proofs/continuation-176.md`.
+      If CI fails on this file, repair the proof scripts per the `[~]` rule; the statements are true as written.
 
 ## F. One analytic bottleneck: (7.29), the H5b comparison (from 2026-11-05)
 
