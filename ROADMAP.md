@@ -1125,7 +1125,7 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       `colNormEv_rowMiss`, `toSmoothedEv_nB`, `h5b_of_colNormEv`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 846/846 at 4e531be (code commit eaa10f9),
       `colNormEv_rowMiss`, `toSmoothedEv_nB`, `h5b_of_colNormEv` verified.
-- [ ] G57. `SteklovAudit/H5ColNormEvAudit.lean`: witness for G56 with `nA = 2`, `nB = 1`, `cnD : Data (Fin 2)
+- [x] G57. `SteklovAudit/H5ColNormEvAudit.lean`: witness for G56 with `nA = 2`, `nB = 1`, `cnD : Data (Fin 2)
       (Fin 1)`, `a = b = 0`, `J 0 0 = 1`, `J 1 0 = 0` (`cnD_colNorm`), `m1 = 1`, other rates as in G55;
       `colNormEvWitness_genuine` (`colNorm` holds with `nB = 1 > 0` and the row gap is `1`, non-square),
       `colNormEv_not_colNorm : ¬ ∃ V : H5bColNormInputs, V.nA = colNormEvWitness.nA` (the count row of
@@ -1137,6 +1137,50 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       `cnD_defect`, `cnD_tail`, `cnD_count`, `cnD_lowCount`, `colNormEvWitness_genuine`,
       `colNorm_count_neg_one`, `colNormEv_not_colNorm`, `colNormEvWitness_target`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 858/858 at e24821f (code commit 59126e2), all 12
+      `H5ColNormEvAudit` theorems verified.
+
+G58–G61 written by the formalize task on 2026-11-15 (after G57 was ticked). G51–G57 guarded every E-free row of the
+smoothed route by `1 ≤ L`. The `count` and `defect` rows are still stated with `(1 + L) ^ 2`, while the paper
+(Weyl count, Lemma 7.1′) states them as `C · L²`; and every witness so far has fixed truncation sizes, so the
+count row has only been exercised on bounded data. G58–G61 restate those two rows in the paper's form, record
+that the restatement is equivalent (not a weakening), exercise the rows on unbounded truncations, and check that
+`lowCount` is an independent input. None claims a row is proved for the actual operator.
+
+- [ ] G58. `SteklovAudit/H5EvPaperScale.lean` (imports `SteklovAudit.H5EventualTarget`): `structure
+      H5bPaperScaleInputs` = `H5bSmoothedEvInputs` (G51, copy field names from `H5EventualRows.lean`) with
+      `count : ∀ ε γ L, 1 ≤ L → (Fintype.card (Fin (nA ε γ L)) : ℝ) ≤ Cm ε γ * L ^ 2` and
+      `defect : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).K ≤ Ck ε γ ^ 2 * L ^ 2` (the paper's `C L²` form). Lemma
+      `sq_le_one_add_sq (h : 1 ≤ L) : L ^ 2 ≤ (1 + L) ^ 2` (nlinarith); `paperScale_count`, `paperScale_defect`:
+      the G51 rows (`mul_le_mul_of_nonneg_left` with `hCm` / `sq_nonneg`); def `toSmoothedEv`;
+      `h5b_of_paperScale`: `H5bTarget` for `∑ i, W.P.φ ((W.D ε γ L).a i - L)` and the model analogue, via
+      `h5b_of_smoothedEv`. Docstring: neither row is proved. Theorem names: `sq_le_one_add_sq`,
+      `paperScale_count`, `paperScale_defect`, `toSmoothedEv_nA` (rfl), `h5b_of_paperScale`.
+- [ ] G59. `SteklovAudit/H5EvPaperScaleAudit.lean`: the converse, so the F table can say the paper form is an
+      exact restatement up to constants. `one_add_sq_le_four_sq (h : 1 ≤ L) : (1 + L) ^ 2 ≤ 4 * L ^ 2`
+      (nlinarith); def `ofSmoothedEv : H5bSmoothedEvInputs → H5bPaperScaleInputs` with `Cm' = 4 * Cm` (nonneg
+      by `positivity`/`mul_nonneg`) and `Ck' = 2 * Ck` (`(2 * Ck) ^ 2 * L ^ 2 = Ck ^ 2 * (4 * L ^ 2)` by `ring`);
+      `ofSmoothedEv_nA` (rfl). F table text: the count and defect rows of the smoothed route may be stated
+      in the paper's `C L²` form for `L ≥ 1`; the two forms are equivalent (constants change by 4 and 2).
+      Theorem names: `one_add_sq_le_four_sq`, `ofSmoothedEv_nA` (def `ofSmoothedEv`).
+- [ ] G60. `SteklovAudit/H5EvGrowWitness.lean`: the count row exercised on unbounded truncations.
+      `growD (n : ℕ) : Data (Fin n) (Fin n)` with `a i = b i = (i : ℝ)`, `J i j = if i = j then 1 else 0`;
+      `growD_rowNorm`, `growD_colNorm` (`Finset.sum_ite_eq` / `Finset.sum_ite_eq'`), `growD_K : (growD n).K i j = 0`
+      (unfold `Data.K` as `rnD_K` did; diagonal `J` and `a = b`). `growWitness : H5bPaperScaleInputs` with
+      `nA = nB = ⌊L⌋₊`, `m1 = m2 = 0` (`zero_vanish`), `Cm = 1` (`Nat.floor_le`, then `L ≤ L ^ 2` for `1 ≤ L`),
+      `Ck = 0`, `τ = 0`, `Cτ = 0` (`zeroRate`), `P = arctanProfile`, `Φ = 2`, `c M = |M| + 1` (the filter
+      `{i | (i : ℝ) ≤ M}` injects into `Finset.range (⌊|M|⌋₊ + 1)`; if this pushes the file past ~120 lines,
+      move `lowCount` and the witness to G61 and keep only the `growD` lemmas here). Theorems
+      `growWitness_unbounded : ∀ N : ℕ, ∃ L, 1 ≤ L ∧ N ≤ growWitness.nA 0 0 L` and `growWitness_target`
+      (from `h5b_of_paperScale`). Theorem names as above (defs `growD`, `growWitness`).
+- [ ] G61. `SteklovAudit/H5EvLowCountIndep.lean`: `lowCount` is not implied by the other rows. `flatD (n : ℕ) :
+      Data (Fin n) (Fin n)` with `a = b = 0` and `J` diagonal (as `growD`); with `n = ⌊L⌋₊` it satisfies
+      normalization, the paper-scale `count` (`Cm = 1`), `defect` (`Ck = 0`), `tail` (`τ = 0`), `ha`, `hb`
+      (state these as `flatD_rowNorm`, `flatD_colNorm`, `flatD_count`, `flatD_K`), but
+      `flatD_not_lowCount : ¬ ∃ c : ℝ, ∀ L : ℝ, 1 ≤ L →
+        ((Finset.univ.filter fun i => (flatD ⌊L⌋₊).a i ≤ 0).card : ℝ) ≤ c` (the filter is all of `Fin ⌊L⌋₊`;
+      take `L = ⌈c⌉₊ + 2` and use `Nat.floor_natCast` / `Nat.le_ceil`). F table text: the low-energy count row
+      is an independent input, not a consequence of the Weyl-type count row. Theorem names as above.
 
 ## Not attempted here
 
