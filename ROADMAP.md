@@ -1071,7 +1071,7 @@ G48's `rowNorm_count_neg_one` is why their witness had to make `rowNorm` vacuous
 those rows too, reduce to `H5bSmoothedEvInputs` (G51), and check the new forms are strictly weaker with a
 witness where normalization is not vacuous. None claims a row is proved for the actual operator.
 
-- [ ] G54. `SteklovAudit/H5RowNormEv.lean` (imports `SteklovAudit.H5EventualTarget`, `SteklovAudit.H5ColCount`):
+- [x] G54. `SteklovAudit/H5RowNormEv.lean` (imports `SteklovAudit.H5EventualTarget`, `SteklovAudit.H5ColCount`):
       `structure H5bRowNormEvInputs` = `H5bRowNormInputs` (G46) with every row (`rowNorm`, `colBessel`,
       `cardGap`, `count`, `defect`, `tail`, `ha`, `hb`, `lowCount`) guarded by `1 ≤ L →` (rates and their
       vanishing unchanged; copy field names from `H5ColCount.lean`). Def `toSmoothedEv : H5bSmoothedEvInputs`
@@ -1085,6 +1085,8 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       Written by the formalize task 2026-11-15 in `SteklovAudit/H5RowNormEv.lean` (uncompiled at push,
       commit 8db8d3f): structure `H5bRowNormEvInputs`, defs `ofRowNorm`, `toSmoothedEv`; theorems
       `rowNormEv_colMiss`, `toSmoothedEv_nA`, `h5b_of_rowNormEv`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 818/818 at d4527a8 (code commit 8db8d3f),
+      `rowNormEv_colMiss`, `toSmoothedEv_nA`, `h5b_of_rowNormEv` verified.
 - [ ] G55. `SteklovAudit/H5RowNormEvAudit.lean`: non-vacuity and strictness of G54. `rnD`: `Data (Fin 1) (Fin 2)`
       with `a = b = 0`, `J 0 0 = 1`, `J 0 1 = 0` (`rnD_rowNorm : ∀ i, ∑ j, rnD.J i j ^ 2 = 1`, by
       `Fin.sum_univ_two`; `rnD_colMass` = 1 by `colMass_eq_of_rowNorm` or direct `Fin.sum_univ_two`).
@@ -1096,6 +1098,11 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       (via G48's `rowNorm_count_neg_one`), `rowNormEvWitness_target` (from `h5b_of_rowNormEv`). If the file
       would exceed ~120 lines, move `rowNormEvWitness_target` to G57. Theorem names as above (def `rnD`,
       `rowNormEvWitness`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5RowNormEvAudit.lean` (uncompiled at push,
+      commit e2fcabe): defs `rnD` (`J 0 j = if j.val = 0 then 1 else 0`), `rowNormEvWitness` (`Ck = 0`,
+      `τ = 0` since `K = 0`); theorems `rnD_rowNorm`, `rnD_colBessel`, `rnD_K`, `rnD_hs2K`, `rnD_defect`,
+      `rnD_tail`, `rnD_lowCount`, `rowNormEvWitness_genuine`, `rowNormEv_not_rowNorm`,
+      `rowNormEvWitness_target`. Next run: tick if STATUS shows it compiled.
 - [ ] G56. `SteklovAudit/H5ColNormEv.lean` (mirror of G54 for G49): `structure H5bColNormEvInputs` =
       `H5bColNormInputs` with every row guarded by `1 ≤ L →`; def `toSmoothedEv` (`m2 = 0` via
       `colMiss_of_colNorm`/`zero_vanish`, `colBessel` from `colNorm`, `rowMiss` from `rowMass_eq_of_colNorm`
