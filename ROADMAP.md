@@ -1114,7 +1114,7 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       `rowNormEvWitness_target`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 828/828 at 6d3d18b (code commit e2fcabe), all 10
       `H5RowNormEvAudit` theorems verified.
-- [ ] G56. `SteklovAudit/H5ColNormEv.lean` (mirror of G54 for G49): `structure H5bColNormEvInputs` =
+- [x] G56. `SteklovAudit/H5ColNormEv.lean` (mirror of G54 for G49): `structure H5bColNormEvInputs` =
       `H5bColNormInputs` with every row guarded by `1 ≤ L →`; def `toSmoothedEv` (`m2 = 0` via
       `colMiss_of_colNorm`/`zero_vanish`, `colBessel` from `colNorm`, `rowMiss` from `rowMass_eq_of_colNorm`
       + `rowGap`), def `ofColNorm`, and `h5b_of_colNormEv` via `h5b_of_smoothedEv`. F table text: on the
@@ -1123,12 +1123,20 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       Written by the formalize task 2026-11-15 in `SteklovAudit/H5ColNormEv.lean` (uncompiled at push,
       commit eaa10f9): structure `H5bColNormEvInputs`, defs `ofColNorm`, `toSmoothedEv`; theorems
       `colNormEv_rowMiss`, `toSmoothedEv_nB`, `h5b_of_colNormEv`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 846/846 at 4e531be (code commit eaa10f9),
+      `colNormEv_rowMiss`, `toSmoothedEv_nB`, `h5b_of_colNormEv` verified.
 - [ ] G57. `SteklovAudit/H5ColNormEvAudit.lean`: witness for G56 with `nA = 2`, `nB = 1`, `cnD : Data (Fin 2)
       (Fin 1)`, `a = b = 0`, `J 0 0 = 1`, `J 1 0 = 0` (`cnD_colNorm`), `m1 = 1`, other rates as in G55;
       `colNormEvWitness_genuine` (`colNorm` holds with `nB = 1 > 0` and the row gap is `1`, non-square),
       `colNormEv_not_colNorm : ¬ ∃ V : H5bColNormInputs, V.nA = colNormEvWitness.nA` (the count row of
       `H5bColNormInputs` at `L = -1` forces `nA = 0`, as `rowNorm_count_neg_one`), and
       `colNormEvWitness_target`. Theorem names as above (defs `cnD`, `colNormEvWitness`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5ColNormEvAudit.lean` (uncompiled at push,
+      commit 59126e2): defs `cnD` (`J i 0 = if i.val = 0 then 1 else 0`), `colNormEvWitness` (`Ck = 0`,
+      `τ = 0` since `K = 0`, `c = 2`); theorems `cnD_colNorm`, `cnD_bessel`, `cnD_K`, `cnD_hs2K`,
+      `cnD_defect`, `cnD_tail`, `cnD_count`, `cnD_lowCount`, `colNormEvWitness_genuine`,
+      `colNorm_count_neg_one`, `colNormEv_not_colNorm`, `colNormEvWitness_target`. Next run: tick if STATUS
+      shows it compiled.
 
 ## Not attempted here
 
