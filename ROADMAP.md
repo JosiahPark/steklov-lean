@@ -984,7 +984,7 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       is why the preferred `nA = 1`, `nB = 2` witness is impossible). Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 768/768 at deea382, `normWitness_nonempty`,
       `rowNormWitness_nonsquare`, `rowNormWitness_target`, `rowNorm_count_neg_one` verified.
-- [ ] G49. `SteklovAudit/H5ColNorm.lean`: the mirror of G46. `structure H5bColNormInputs` = `H5bNormInputs`
+- [x] G49. `SteklovAudit/H5ColNorm.lean`: the mirror of G46. `structure H5bColNormInputs` = `H5bNormInputs`
       with `rowNorm` replaced by `bessel`, `m1`, `rowGap : ∀ ε γ L, (nA ε γ L : ℝ) - nB ε γ L ≤ m1 ε γ L`
       and `m1Vanish`; def `smoothedOfColNorm` (`rowMiss` from `rowMass_eq_of_colNorm`) and
       `h5b_of_colNorm`. F table text: on the smoothed route, with completeness on one side, the other
@@ -993,6 +993,50 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       Written by the formalize task 2026-11-15 in `SteklovAudit/H5ColNorm.lean` (uncompiled at push,
       commit e316e35): structure `H5bColNormInputs`, `colNorm_rowMiss`, def `smoothedOfColNorm`,
       `h5b_of_colNorm`, `smoothedOfColNorm_m2`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 771/771 at 469be46 (code commit e316e35),
+      `colNorm_rowMiss`, `h5b_of_colNorm`, `smoothedOfColNorm_m2` verified.
+
+G50–G53 written by the formalize task on 2026-11-15 (after G49 was ticked). Definition check on every
+`H5b…Inputs` form: the E-free rows (count, defect, tail, low count, missing mass, Bessel) are quantified
+over all real `L`, but `H5bTarget` only concerns large `L`. G48's `rowNorm_count_neg_one` shows the count row
+at `L = -1` forces an empty true truncation there, a constraint with no paper content. G50–G53 replace
+`H5bSmoothedInputs` by a strictly weaker form whose E-free rows are required only for `1 ≤ L` (the paper's
+range), prove it still gives (7.29) for the smoothed counts, and prove it is strictly weaker. None claims a
+row is proved for the actual operator.
+
+- [ ] G50. `SteklovAudit/H5Reindex.lean` (reduction step G51 needs): `def Data.reindex (D : Data ι κ)
+      (e : ι ≃ ι') (f : κ ≃ κ') : Data ι' κ'` (`a := D.a ∘ e.symm`, `b := D.b ∘ f.symm`,
+      `J i j := D.J (e.symm i) (f.symm j)`) and invariance under it, each by `Equiv.sum_comp` (and
+      `Finset.card_equiv` / `Finset.card_bij` or `Finset.card_map` for the filter): `reindex_rowSq`
+      (`∑ j, J' i j ^ 2 = ∑ j, D.J (e.symm i) j ^ 2`), `reindex_colSq`, `reindex_rowMass`
+      (`∑ i, (1 - ∑ j, J'^2)` unchanged), `reindex_colMass`, `reindex_hs2K` (`hs2 D'.K = hs2 D.K`),
+      `reindex_tail` (`hs2 (mask (hiE D' M) D'.K) = hs2 (mask (hiE D M) D.K)`), `reindex_lowCount`
+      (card of `{i | a' i ≤ M}` unchanged), `reindex_smoothed` (`∑ i, φ (a' i - L) = ∑ i, φ (D.a i - L)`,
+      same for `b`). Docstring: bookkeeping for G51 only; moves no row by itself.
+- [ ] G51. `SteklovAudit/H5EventualRows.lean` (imports `SteklovAudit.H5Reindex`): `structure
+      H5bSmoothedEvInputs` = `H5bSmoothedInputs` (G40) with `rowMiss`, `colMiss`, `bessel`, `colBessel`,
+      `count`, `defect`, `tail`, `ha`, `hb`, `lowCount` each guarded by `1 ≤ L →` (rates `m1`, `m2`, `τ`, `c`,
+      `Cm`, `Ck`, `tailRate`, `m1Vanish`, `m2Vanish` unchanged). Glued data: `evN W ε γ L := if 1 ≤ L then
+      W.nA ε γ L else 0` (same for `nB`) and `evD` by `dite`: for `h : 1 ≤ L`, `(W.D ε γ L).reindex
+      (finCongr (if_pos h).symm) (finCongr (if_pos h).symm)`, otherwise G24's `zData` reindexed along
+      `finCongr (if_neg h).symm`. Prove `evD_pos` (the `dif_pos` unfolding), and the empty-side facts used
+      in G52: `tau_nonneg` (`0 ≤ τ ε γ M`, from `tail` at `L = 1` and `hs2 ≥ 0`), `c_nonneg` (from
+      `lowCount` at `L = 1`). Theorem names: `evD_pos`, `tau_nonneg`, `c_nonneg` (defs `evN`, `evNB`, `evD`).
+- [ ] G52. Same file as G51 (or `SteklovAudit/H5EventualTarget.lean`): `def H5bSmoothedEvInputs.toSmoothed
+      : H5bSmoothedInputs` on the glued family (`m1' L := if 1 ≤ L then m1 L else 0`, same for `m2`; for
+      `L < 1` every row holds for the empty data, using `hCm`, `tau_nonneg`, `c_nonneg`, `positivity`; for
+      `1 ≤ L` transport by the G50 lemmas); `ev_Esm_eq` / `ev_Emodsm_eq`: for `1 ≤ L` the glued smoothed
+      counts equal `∑ i, W.P.φ ((W.D ε γ L).a i - L)` and the model analogue; `h5b_of_smoothedEv`:
+      `H5bTarget` for those original smoothed counts (from `h5b_of_smoothed`, taking `L₀ := max L₀ 1`).
+      F table text: on the smoothed route the E-free rows need only hold for `L ≥ 1`. Theorem names:
+      `ev_Esm_eq`, `ev_Emodsm_eq`, `h5b_of_smoothedEv` (def `toSmoothed`).
+- [ ] G53. `SteklovAudit/H5EventualAudit.lean`: the new form is strictly weaker and non-vacuous.
+      `smoothed_count_neg_one : ∀ W : H5bSmoothedInputs, ∀ ε γ, W.nA ε γ (-1) = 0` (as G48's
+      `rowNorm_count_neg_one`); `evWitness : H5bSmoothedEvInputs` with `nA = nB = 1`, `a = b = 0`, `J = 1`,
+      `P = arctanProfile`, `Φ = 2`, `m1 = m2 = 0` (`zero_vanish`), `Cm = 1`, `Ck = 0`, `τ = 0`, `c = 1`;
+      `evWitness_not_smoothed : ¬ ∃ V : H5bSmoothedInputs, V.nA = evWitness.nA` (G53 strictness: the
+      true truncation is nonempty at `L = -1`); `evWitness_target` (from `h5b_of_smoothedEv`). Theorem
+      names: `smoothed_count_neg_one`, `evWitness_not_smoothed`, `evWitness_target` (def `evWitness`).
 
 ## Not attempted here
 
