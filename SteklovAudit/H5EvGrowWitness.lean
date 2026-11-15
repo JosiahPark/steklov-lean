@@ -85,10 +85,13 @@ theorem growD_lowCount (n : ℕ) (M : ℝ) :
           | exact (Finset.mem_filter.mp hi).2
           | exact (Finset.mem_filter.mp (Finset.mem_coe.mp hi)).2
           | simpa [growD] using hi
-      rw [Finset.mem_range]
-      exact Nat.lt_succ_of_le (Nat.le_floor (hi'.trans (le_abs_self M)))
+      have hlt : i.val < ⌊|M|⌋₊ + 1 := Nat.lt_succ_of_le (Nat.le_floor (hi'.trans (le_abs_self M)))
+      first
+        | exact Finset.mem_coe.mpr (Finset.mem_range.mpr hlt)
+        | (simp only [Finset.coe_range, Set.mem_Iio]; exact hlt)
+        | (simp only [Finset.mem_coe, Finset.mem_range]; exact hlt)
     · intro i _ j _ hij
-      exact Fin.ext hij
+      first | exact Fin.ext hij | exact Fin.ext (by simpa using hij)
   rw [Finset.card_range] at hinj
   have h2 : (⌊|M|⌋₊ : ℝ) ≤ |M| := Nat.floor_le (abs_nonneg M)
   have h3 : ((Finset.univ.filter fun i => (growD n).a i ≤ M).card : ℝ) ≤ (⌊|M|⌋₊ : ℝ) + 1 := by
