@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 17:02 UTC at commit `4e531be16caa`. Last passing commit: `4e531be16caa`.
+Checked 2026-11-15 17:22 UTC at commit `e24821f4a293`. Last passing commit: `e24821f4a293`.
 
-Library declarations checked: 846 of 846 theorems compile with only Lean's standard axioms.
+Library declarations checked: 858 of 858 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -283,6 +283,18 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.colNormEv_rowMiss` | verified (standard axioms only) |
 | H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.toSmoothedEv_nB` | verified (standard axioms only) |
 | H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.h5b_of_colNormEv` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_colNorm` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_bessel` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_K` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_hs2K` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_defect` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_tail` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_count` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.cnD_lowCount` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.colNormEvWitness_genuine` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.colNorm_count_neg_one` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.colNormEv_not_colNorm` | verified (standard axioms only) |
+| H5ColNormEvAudit.lean | `SteklovAudit.H5ColNormEvAudit.colNormEvWitness_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | verified (standard axioms only) |

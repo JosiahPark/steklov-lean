@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 17:02 UTC",
+  "checked_at": "2026-11-15 17:22 UTC",
   "lean_exit_code": 0,
-  "commit": "4e531be16caa10134fa6c09d0590b25517cfa5e4",
-  "last_passing_commit": "4e531be16caa10134fa6c09d0590b25517cfa5e4",
-  "library_declarations_checked": 846,
-  "library_declarations": 846,
+  "commit": "e24821f4a293335605f9223aa5fc437f516ad28c",
+  "last_passing_commit": "e24821f4a293335605f9223aa5fc437f516ad28c",
+  "library_declarations_checked": 858,
+  "library_declarations": 858,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 846,
-  "verified": 846,
+  "theorems": 858,
+  "verified": 858,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2578,6 +2578,126 @@
     {
       "file": "H5ColNormEv.lean",
       "theorem": "SteklovAudit.H5ColNormEv.h5b_of_colNormEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_colNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_bessel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.cnD_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.colNormEvWitness_genuine",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.colNorm_count_neg_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.colNormEv_not_colNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5ColNormEvAudit.colNormEvWitness_target",
       "axioms": [
         "propext",
         "Classical.choice",
