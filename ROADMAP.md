@@ -1087,7 +1087,7 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       `rowNormEv_colMiss`, `toSmoothedEv_nA`, `h5b_of_rowNormEv`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 818/818 at d4527a8 (code commit 8db8d3f),
       `rowNormEv_colMiss`, `toSmoothedEv_nA`, `h5b_of_rowNormEv` verified.
-- [ ] G55. `SteklovAudit/H5RowNormEvAudit.lean`: non-vacuity and strictness of G54. `rnD`: `Data (Fin 1) (Fin 2)`
+- [x] G55. `SteklovAudit/H5RowNormEvAudit.lean`: non-vacuity and strictness of G54. `rnD`: `Data (Fin 1) (Fin 2)`
       with `a = b = 0`, `J 0 0 = 1`, `J 0 1 = 0` (`rnD_rowNorm : ∀ i, ∑ j, rnD.J i j ^ 2 = 1`, by
       `Fin.sum_univ_two`; `rnD_colMass` = 1 by `colMass_eq_of_rowNorm` or direct `Fin.sum_univ_two`).
       `rowNormEvWitness : H5bRowNormEvInputs` with `nA = 1`, `nB = 2`, `D = rnD`, `P = arctanProfile`,
@@ -1103,12 +1103,17 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       `τ = 0` since `K = 0`); theorems `rnD_rowNorm`, `rnD_colBessel`, `rnD_K`, `rnD_hs2K`, `rnD_defect`,
       `rnD_tail`, `rnD_lowCount`, `rowNormEvWitness_genuine`, `rowNormEv_not_rowNorm`,
       `rowNormEvWitness_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 828/828 at 6d3d18b (code commit e2fcabe), all 10
+      `H5RowNormEvAudit` theorems verified.
 - [ ] G56. `SteklovAudit/H5ColNormEv.lean` (mirror of G54 for G49): `structure H5bColNormEvInputs` =
       `H5bColNormInputs` with every row guarded by `1 ≤ L →`; def `toSmoothedEv` (`m2 = 0` via
       `colMiss_of_colNorm`/`zero_vanish`, `colBessel` from `colNorm`, `rowMiss` from `rowMass_eq_of_colNorm`
       + `rowGap`), def `ofColNorm`, and `h5b_of_colNormEv` via `h5b_of_smoothedEv`. F table text: on the
       smoothed route with one-sided completeness, normalization and the gap row need only hold for `L ≥ 1`.
       Theorem names: `toSmoothedEv_nB` (rfl), `h5b_of_colNormEv` (defs `toSmoothedEv`, `ofColNorm`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5ColNormEv.lean` (uncompiled at push,
+      commit eaa10f9): structure `H5bColNormEvInputs`, defs `ofColNorm`, `toSmoothedEv`; theorems
+      `colNormEv_rowMiss`, `toSmoothedEv_nB`, `h5b_of_colNormEv`. Next run: tick if STATUS shows it compiled.
 - [ ] G57. `SteklovAudit/H5ColNormEvAudit.lean`: witness for G56 with `nA = 2`, `nB = 1`, `cnD : Data (Fin 2)
       (Fin 1)`, `a = b = 0`, `J 0 0 = 1`, `J 1 0 = 0` (`cnD_colNorm`), `m1 = 1`, other rates as in G55;
       `colNormEvWitness_genuine` (`colNorm` holds with `nB = 1 > 0` and the row gap is `1`, non-square),
