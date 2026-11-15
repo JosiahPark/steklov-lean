@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 15:23 UTC at commit `6d3d18bec592`. Last passing commit: `6d3d18bec592`.
+Checked 2026-11-15 16:20 UTC at commit `263f34a7e676`. Last passing commit: `263f34a7e676`.
 
-Library declarations checked: 828 of 828 theorems compile with only Lean's standard axioms.
+Library declarations checked: 831 of 831 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -280,6 +280,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5ColNorm.lean | `SteklovAudit.H5ColNorm.colNorm_rowMiss` | verified (standard axioms only) |
 | H5ColNorm.lean | `SteklovAudit.H5ColNorm.h5b_of_colNorm` | verified (standard axioms only) |
 | H5ColNorm.lean | `SteklovAudit.H5ColNorm.smoothedOfColNorm_m2` | verified (standard axioms only) |
+| H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.colNormEv_rowMiss` | verified (standard axioms only) |
+| H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.toSmoothedEv_nB` | verified (standard axioms only) |
+| H5ColNormEv.lean | `SteklovAudit.H5ColNormEv.h5b_of_colNormEv` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.compare_is_target` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.hs2_mask_le` | verified (standard axioms only) |
 | H5Compare.lean | `SteklovAudit.H5Compare.h5b_of_inputs` | verified (standard axioms only) |

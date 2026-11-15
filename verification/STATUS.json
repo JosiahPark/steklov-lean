@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 15:23 UTC",
+  "checked_at": "2026-11-15 16:20 UTC",
   "lean_exit_code": 0,
-  "commit": "6d3d18bec592f6a32f74e4b99bcb7909af413151",
-  "last_passing_commit": "6d3d18bec592f6a32f74e4b99bcb7909af413151",
-  "library_declarations_checked": 828,
-  "library_declarations": 828,
+  "commit": "263f34a7e67679db41c2fa1ff2c672a2260f529c",
+  "last_passing_commit": "263f34a7e67679db41c2fa1ff2c672a2260f529c",
+  "library_declarations_checked": 831,
+  "library_declarations": 831,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 828,
-  "verified": 828,
+  "theorems": 831,
+  "verified": 831,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -2548,6 +2548,36 @@
     {
       "file": "H5ColNorm.lean",
       "theorem": "SteklovAudit.H5ColNorm.smoothedOfColNorm_m2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEv.lean",
+      "theorem": "SteklovAudit.H5ColNormEv.colNormEv_rowMiss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEv.lean",
+      "theorem": "SteklovAudit.H5ColNormEv.toSmoothedEv_nB",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5ColNormEv.lean",
+      "theorem": "SteklovAudit.H5ColNormEv.h5b_of_colNormEv",
       "axioms": [
         "propext",
         "Classical.choice",
