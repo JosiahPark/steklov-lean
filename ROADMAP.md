@@ -1082,6 +1082,9 @@ witness where normalization is not vacuous. None claims a row is proved for the 
       the model analogue, via `h5b_of_smoothedEv` (state it in exactly the form `h5b_of_smoothedEv` uses for
       `toSmoothedEv`). Docstring: row normalization and the gap row are not proved. Theorem names:
       `toSmoothedEv_nA` (rfl), `h5b_of_rowNormEv` (defs `toSmoothedEv`, `ofRowNorm`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5RowNormEv.lean` (uncompiled at push,
+      commit 8db8d3f): structure `H5bRowNormEvInputs`, defs `ofRowNorm`, `toSmoothedEv`; theorems
+      `rowNormEv_colMiss`, `toSmoothedEv_nA`, `h5b_of_rowNormEv`. Next run: tick if STATUS shows it compiled.
 - [ ] G55. `SteklovAudit/H5RowNormEvAudit.lean`: non-vacuity and strictness of G54. `rnD`: `Data (Fin 1) (Fin 2)`
       with `a = b = 0`, `J 0 0 = 1`, `J 0 1 = 0` (`rnD_rowNorm : ∀ i, ∑ j, rnD.J i j ^ 2 = 1`, by
       `Fin.sum_univ_two`; `rnD_colMass` = 1 by `colMass_eq_of_rowNorm` or direct `Fin.sum_univ_two`).
