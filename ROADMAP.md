@@ -1020,7 +1020,7 @@ row is proved for the actual operator.
       `reindex_lowCount`, `reindex_smoothedA`, `reindex_smoothedB`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 786/786 at 7f3dfed (code commit fa52170), all 15
       `H5Reindex` theorems verified.
-- [ ] G51. `SteklovAudit/H5EventualRows.lean` (imports `SteklovAudit.H5Reindex`): `structure
+- [x] G51. `SteklovAudit/H5EventualRows.lean` (imports `SteklovAudit.H5Reindex`): `structure
       H5bSmoothedEvInputs` = `H5bSmoothedInputs` (G40) with `rowMiss`, `colMiss`, `bessel`, `colBessel`,
       `count`, `defect`, `tail`, `ha`, `hb`, `lowCount` each guarded by `1 ≤ L →` (rates `m1`, `m2`, `τ`, `c`,
       `Cm`, `Ck`, `tailRate`, `m1Vanish`, `m2Vanish` unchanged). Glued data: `evN W ε γ L := if 1 ≤ L then
@@ -1033,6 +1033,8 @@ row is proved for the actual operator.
       structure `H5bSmoothedEvInputs`, def `ofSmoothed` (old form ⇒ new), defs `evN`, `evNB`, `evD`;
       theorems `evN_pos`, `evNB_pos`, `evN_neg`, `evNB_neg`, `evD_pos`, `tau_nonneg`, `c_nonneg`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 793/793 at dd7ba3a (code commit 53eba9c),
+      `evN_pos`, `evNB_pos`, `evN_neg`, `evNB_neg`, `evD_pos`, `tau_nonneg`, `c_nonneg` verified.
 - [ ] G52. Same file as G51 (or `SteklovAudit/H5EventualTarget.lean`): `def H5bSmoothedEvInputs.toSmoothed
       : H5bSmoothedInputs` on the glued family (`m1' L := if 1 ≤ L then m1 L else 0`, same for `m2`; for
       `L < 1` every row holds for the empty data, using `hCm`, `tau_nonneg`, `c_nonneg`, `positivity`; for
@@ -1041,6 +1043,10 @@ row is proved for the actual operator.
       `H5bTarget` for those original smoothed counts (from `h5b_of_smoothed`, taking `L₀ := max L₀ 1`).
       F table text: on the smoothed route the E-free rows need only hold for `L ≥ 1`. Theorem names:
       `ev_Esm_eq`, `ev_Emodsm_eq`, `h5b_of_smoothedEv` (def `toSmoothed`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5EventualTarget.lean` (uncompiled at push,
+      commit 379ab84): defs `evM1`, `evM2`, `toSmoothed`; theorems `evM1_pos`, `evM1_neg`, `evM2_pos`,
+      `evM2_neg`, `evD_neg`, `hs2_fin0`, `card_filter_zData`, `ev_Esm_eq`, `ev_Emodsm_eq`,
+      `h5b_of_smoothedEv`. Next run: tick if STATUS shows it compiled.
 - [ ] G53. `SteklovAudit/H5EventualAudit.lean`: the new form is strictly weaker and non-vacuous.
       `smoothed_count_neg_one : ∀ W : H5bSmoothedInputs, ∀ ε γ, W.nA ε γ (-1) = 0` (as G48's
       `rowNorm_count_neg_one`); `evWitness : H5bSmoothedEvInputs` with `nA = nB = 1`, `a = b = 0`, `J = 1`,
