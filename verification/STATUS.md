@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 10:52 UTC at commit `82a4e4ff8226`. Last passing commit: `82a4e4ff8226`.
+Checked 2026-11-15 11:22 UTC at commit `452bcb9a1b7b`. Last passing commit: `452bcb9a1b7b`.
 
-Library declarations checked: 803 of 803 theorems compile with only Lean's standard axioms.
+Library declarations checked: 815 of 815 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -342,6 +342,18 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5DiffHighAudit.lean | `SteklovAudit.H5DiffHighAudit.diffHigh2_not_highMass2` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.vanish_of_split` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.smoothed_count_neg_one` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_rowSq` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_colSq` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_K` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_hs2K` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_count` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_defect` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_tail` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_lowCount` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evWitness_nonempty` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evWitness_not_smoothed` | verified (standard axioms only) |
+| H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evWitness_target` | verified (standard axioms only) |
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.evN_pos` | verified (standard axioms only) |
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.evNB_pos` | verified (standard axioms only) |
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.evN_neg` | verified (standard axioms only) |

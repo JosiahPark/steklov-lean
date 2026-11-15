@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 10:52 UTC",
+  "checked_at": "2026-11-15 11:22 UTC",
   "lean_exit_code": 0,
-  "commit": "82a4e4ff82262d33a68e1fa89292d0dd637893f5",
-  "last_passing_commit": "82a4e4ff82262d33a68e1fa89292d0dd637893f5",
-  "library_declarations_checked": 803,
-  "library_declarations": 803,
+  "commit": "452bcb9a1b7b82c5726adb3216aee3b01005e604",
+  "last_passing_commit": "452bcb9a1b7b82c5726adb3216aee3b01005e604",
+  "library_declarations_checked": 815,
+  "library_declarations": 815,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 803,
-  "verified": 803,
+  "theorems": 815,
+  "verified": 815,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3168,6 +3168,126 @@
     {
       "file": "H5DiffHighMass.lean",
       "theorem": "SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.smoothed_count_neg_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_rowSq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_colSq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evOneD_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evWitness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evWitness_not_smoothed",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualAudit.lean",
+      "theorem": "SteklovAudit.H5EventualAudit.evWitness_target",
       "axioms": [
         "propext",
         "Classical.choice",
