@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-14 23:19 UTC at commit `8d152cbdef9c`. Last passing commit: `8d152cbdef9c`.
+Checked 2026-11-15 01:09 UTC at commit `deea3821bb9d`. Last passing commit: `deea3821bb9d`.
 
-Library declarations checked: 758 of 758 theorems compile with only Lean's standard axioms.
+Library declarations checked: 768 of 768 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -434,6 +434,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.normWitness_nonempty` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.rowNorm_count_neg_one` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_colBessel` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_count` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_defect` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_tail` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_lowCount` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapRate_vanish` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.rowNormWitness_nonsquare` | verified (standard axioms only) |
+| H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.rowNormWitness_target` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_rowTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_colTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_trueSide` | verified (standard axioms only) |

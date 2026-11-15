@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-14 23:19 UTC",
+  "checked_at": "2026-11-15 01:09 UTC",
   "lean_exit_code": 0,
-  "commit": "8d152cbdef9c820c4f848ede08157ee92475a0c4",
-  "last_passing_commit": "8d152cbdef9c820c4f848ede08157ee92475a0c4",
-  "library_declarations_checked": 758,
-  "library_declarations": 758,
+  "commit": "deea3821bb9da974ef9eb00a03fde6f963914ad7",
+  "last_passing_commit": "deea3821bb9da974ef9eb00a03fde6f963914ad7",
+  "library_declarations_checked": 768,
+  "library_declarations": 768,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 758,
-  "verified": 758,
+  "theorems": 768,
+  "verified": 768,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4088,6 +4088,106 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.normWitness_nonempty",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.rowNorm_count_neg_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapD_colBessel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapD_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapD_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapD_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapD_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.gapRate_vanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.rowNormWitness_nonsquare",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormWitness.lean",
+      "theorem": "SteklovAudit.H5RowNormWitness.rowNormWitness_target",
       "axioms": [
         "propext",
         "Classical.choice",
