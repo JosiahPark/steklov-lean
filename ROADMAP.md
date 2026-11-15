@@ -1004,7 +1004,7 @@ at `L = -1` forces an empty true truncation there, a constraint with no paper co
 range), prove it still gives (7.29) for the smoothed counts, and prove it is strictly weaker. None claims a
 row is proved for the actual operator.
 
-- [ ] G50. `SteklovAudit/H5Reindex.lean` (reduction step G51 needs): `def Data.reindex (D : Data ι κ)
+- [x] G50. `SteklovAudit/H5Reindex.lean` (reduction step G51 needs): `def Data.reindex (D : Data ι κ)
       (e : ι ≃ ι') (f : κ ≃ κ') : Data ι' κ'` (`a := D.a ∘ e.symm`, `b := D.b ∘ f.symm`,
       `J i j := D.J (e.symm i) (f.symm j)`) and invariance under it, each by `Equiv.sum_comp` (and
       `Finset.card_equiv` / `Finset.card_bij` or `Finset.card_map` for the filter): `reindex_rowSq`
@@ -1018,6 +1018,8 @@ row is proved for the actual operator.
       `reindex_a`, `reindex_b`, `reindex_J`, `reindex_K`, `sum_sum_reindex`, `hs2_reindex`, `reindex_rowSq`,
       `reindex_colSq`, `reindex_rowMass`, `reindex_colMass`, `reindex_hs2K`, `reindex_tail`,
       `reindex_lowCount`, `reindex_smoothedA`, `reindex_smoothedB`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 786/786 at 7f3dfed (code commit fa52170), all 15
+      `H5Reindex` theorems verified.
 - [ ] G51. `SteklovAudit/H5EventualRows.lean` (imports `SteklovAudit.H5Reindex`): `structure
       H5bSmoothedEvInputs` = `H5bSmoothedInputs` (G40) with `rowMiss`, `colMiss`, `bessel`, `colBessel`,
       `count`, `defect`, `tail`, `ha`, `hb`, `lowCount` each guarded by `1 ≤ L →` (rates `m1`, `m2`, `τ`, `c`,
@@ -1027,6 +1029,10 @@ row is proved for the actual operator.
       `finCongr (if_neg h).symm`. Prove `evD_pos` (the `dif_pos` unfolding), and the empty-side facts used
       in G52: `tau_nonneg` (`0 ≤ τ ε γ M`, from `tail` at `L = 1` and `hs2 ≥ 0`), `c_nonneg` (from
       `lowCount` at `L = 1`). Theorem names: `evD_pos`, `tau_nonneg`, `c_nonneg` (defs `evN`, `evNB`, `evD`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5EventualRows.lean` (uncompiled at push):
+      structure `H5bSmoothedEvInputs`, def `ofSmoothed` (old form ⇒ new), defs `evN`, `evNB`, `evD`;
+      theorems `evN_pos`, `evNB_pos`, `evN_neg`, `evNB_neg`, `evD_pos`, `tau_nonneg`, `c_nonneg`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G52. Same file as G51 (or `SteklovAudit/H5EventualTarget.lean`): `def H5bSmoothedEvInputs.toSmoothed
       : H5bSmoothedInputs` on the glued family (`m1' L := if 1 ≤ L then m1 L else 0`, same for `m2`; for
       `L < 1` every row holds for the empty data, using `hCm`, `tau_nonneg`, `c_nonneg`, `positivity`; for
