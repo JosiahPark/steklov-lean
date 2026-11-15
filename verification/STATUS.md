@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 13:17 UTC at commit `317cced6166a`. Last passing commit: `317cced6166a`.
+Checked 2026-11-15 14:24 UTC at commit `d4527a807bfa`. Last passing commit: `d4527a807bfa`.
 
-Library declarations checked: 815 of 815 theorems compile with only Lean's standard axioms.
+Library declarations checked: 818 of 818 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -481,6 +481,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_lowCount` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_smoothedA` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_smoothedB` | verified (standard axioms only) |
+| H5RowNormEv.lean | `SteklovAudit.H5RowNormEv.rowNormEv_colMiss` | verified (standard axioms only) |
+| H5RowNormEv.lean | `SteklovAudit.H5RowNormEv.toSmoothedEv_nA` | verified (standard axioms only) |
+| H5RowNormEv.lean | `SteklovAudit.H5RowNormEv.h5b_of_rowNormEv` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.normWitness_nonempty` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.rowNorm_count_neg_one` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_colBessel` | verified (standard axioms only) |

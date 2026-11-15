@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 13:17 UTC",
+  "checked_at": "2026-11-15 14:24 UTC",
   "lean_exit_code": 0,
-  "commit": "317cced6166a4404922140093f258d7404d327ca",
-  "last_passing_commit": "317cced6166a4404922140093f258d7404d327ca",
-  "library_declarations_checked": 815,
-  "library_declarations": 815,
+  "commit": "d4527a807bfa50e1f9679921a8670daf41d5ce53",
+  "last_passing_commit": "d4527a807bfa50e1f9679921a8670daf41d5ce53",
+  "library_declarations_checked": 818,
+  "library_declarations": 818,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 815,
-  "verified": 815,
+  "theorems": 818,
+  "verified": 818,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4558,6 +4558,36 @@
     {
       "file": "H5Reindex.lean",
       "theorem": "SteklovAudit.H5Reindex.reindex_smoothedB",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEv.lean",
+      "theorem": "SteklovAudit.H5RowNormEv.rowNormEv_colMiss",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEv.lean",
+      "theorem": "SteklovAudit.H5RowNormEv.toSmoothedEv_nA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEv.lean",
+      "theorem": "SteklovAudit.H5RowNormEv.h5b_of_rowNormEv",
       "axioms": [
         "propext",
         "Classical.choice",
