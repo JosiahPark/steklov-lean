@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 14:24 UTC",
+  "checked_at": "2026-11-15 15:23 UTC",
   "lean_exit_code": 0,
-  "commit": "d4527a807bfa50e1f9679921a8670daf41d5ce53",
-  "last_passing_commit": "d4527a807bfa50e1f9679921a8670daf41d5ce53",
-  "library_declarations_checked": 818,
-  "library_declarations": 818,
+  "commit": "6d3d18bec592f6a32f74e4b99bcb7909af413151",
+  "last_passing_commit": "6d3d18bec592f6a32f74e4b99bcb7909af413151",
+  "library_declarations_checked": 828,
+  "library_declarations": 828,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 818,
-  "verified": 818,
+  "theorems": 828,
+  "verified": 828,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4588,6 +4588,106 @@
     {
       "file": "H5RowNormEv.lean",
       "theorem": "SteklovAudit.H5RowNormEv.h5b_of_rowNormEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_colBessel",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rnD_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rowNormEvWitness_genuine",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rowNormEv_not_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5RowNormEvAudit.lean",
+      "theorem": "SteklovAudit.H5RowNormEvAudit.rowNormEvWitness_target",
       "axioms": [
         "propext",
         "Classical.choice",
