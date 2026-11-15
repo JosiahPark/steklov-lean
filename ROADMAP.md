@@ -1147,7 +1147,7 @@ count row has only been exercised on bounded data. G58–G61 restate those two r
 that the restatement is equivalent (not a weakening), exercise the rows on unbounded truncations, and check that
 `lowCount` is an independent input. None claims a row is proved for the actual operator.
 
-- [ ] G58. `SteklovAudit/H5EvPaperScale.lean` (imports `SteklovAudit.H5EventualTarget`): `structure
+- [x] G58. `SteklovAudit/H5EvPaperScale.lean` (imports `SteklovAudit.H5EventualTarget`): `structure
       H5bPaperScaleInputs` = `H5bSmoothedEvInputs` (G51, copy field names from `H5EventualRows.lean`) with
       `count : ∀ ε γ L, 1 ≤ L → (Fintype.card (Fin (nA ε γ L)) : ℝ) ≤ Cm ε γ * L ^ 2` and
       `defect : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).K ≤ Ck ε γ ^ 2 * L ^ 2` (the paper's `C L²` form). Lemma
@@ -1156,6 +1156,8 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       `h5b_of_paperScale`: `H5bTarget` for `∑ i, W.P.φ ((W.D ε γ L).a i - L)` and the model analogue, via
       `h5b_of_smoothedEv`. Docstring: neither row is proved. Theorem names: `sq_le_one_add_sq`,
       `paperScale_count`, `paperScale_defect`, `toSmoothedEv_nA` (rfl), `h5b_of_paperScale`.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 863/863 at 96b118a (code commit 96b118a),
+      `H5EvPaperScale` compiled.
 - [ ] G59. `SteklovAudit/H5EvPaperScaleAudit.lean`: the converse, so the F table can say the paper form is an
       exact restatement up to constants. `one_add_sq_le_four_sq (h : 1 ≤ L) : (1 + L) ^ 2 ≤ 4 * L ^ 2`
       (nlinarith); def `ofSmoothedEv : H5bSmoothedEvInputs → H5bPaperScaleInputs` with `Cm' = 4 * Cm` (nonneg
@@ -1163,6 +1165,10 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       `ofSmoothedEv_nA` (rfl). F table text: the count and defect rows of the smoothed route may be stated
       in the paper's `C L²` form for `L ≥ 1`; the two forms are equivalent (constants change by 4 and 2).
       Theorem names: `one_add_sq_le_four_sq`, `ofSmoothedEv_nA` (def `ofSmoothedEv`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5EvPaperScaleAudit.lean` (uncompiled at
+      push, commit b750b5c): def `ofSmoothedEv`; theorems `one_add_sq_le_four_sq`, `smoothedEv_count_paper`,
+      `smoothedEv_defect_paper`, `ofSmoothedEv_nA`, `ofSmoothedEv_Cm`, `ofSmoothedEv_Ck`,
+      `ofSmoothedEv_target`. Next run: tick if STATUS shows it compiled.
 - [ ] G60. `SteklovAudit/H5EvGrowWitness.lean`: the count row exercised on unbounded truncations.
       `growD (n : ℕ) : Data (Fin n) (Fin n)` with `a i = b i = (i : ℝ)`, `J i j = if i = j then 1 else 0`;
       `growD_rowNorm`, `growD_colNorm` (`Finset.sum_ite_eq` / `Finset.sum_ite_eq'`), `growD_K : (growD n).K i j = 0`
