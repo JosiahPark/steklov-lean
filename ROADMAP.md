@@ -1013,6 +1013,11 @@ row is proved for the actual operator.
       `reindex_tail` (`hs2 (mask (hiE D' M) D'.K) = hs2 (mask (hiE D M) D.K)`), `reindex_lowCount`
       (card of `{i | a' i ≤ M}` unchanged), `reindex_smoothed` (`∑ i, φ (a' i - L) = ∑ i, φ (D.a i - L)`,
       same for `b`). Docstring: bookkeeping for G51 only; moves no row by itself.
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5Reindex.lean` (uncompiled at push,
+      commit fa52170): def `Data.reindex` (in namespace `SteklovAudit.AbstractTransfer`); theorems
+      `reindex_a`, `reindex_b`, `reindex_J`, `reindex_K`, `sum_sum_reindex`, `hs2_reindex`, `reindex_rowSq`,
+      `reindex_colSq`, `reindex_rowMass`, `reindex_colMass`, `reindex_hs2K`, `reindex_tail`,
+      `reindex_lowCount`, `reindex_smoothedA`, `reindex_smoothedB`. Next run: tick if STATUS shows it compiled.
 - [ ] G51. `SteklovAudit/H5EventualRows.lean` (imports `SteklovAudit.H5Reindex`): `structure
       H5bSmoothedEvInputs` = `H5bSmoothedInputs` (G40) with `rowMiss`, `colMiss`, `bessel`, `colBessel`,
       `count`, `defect`, `tail`, `ha`, `hb`, `lowCount` each guarded by `1 ≤ L →` (rates `m1`, `m2`, `τ`, `c`,
