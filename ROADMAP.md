@@ -1035,7 +1035,7 @@ row is proved for the actual operator.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 793/793 at dd7ba3a (code commit 53eba9c),
       `evN_pos`, `evNB_pos`, `evN_neg`, `evNB_neg`, `evD_pos`, `tau_nonneg`, `c_nonneg` verified.
-- [ ] G52. Same file as G51 (or `SteklovAudit/H5EventualTarget.lean`): `def H5bSmoothedEvInputs.toSmoothed
+- [x] G52. Same file as G51 (or `SteklovAudit/H5EventualTarget.lean`): `def H5bSmoothedEvInputs.toSmoothed
       : H5bSmoothedInputs` on the glued family (`m1' L := if 1 ≤ L then m1 L else 0`, same for `m2`; for
       `L < 1` every row holds for the empty data, using `hCm`, `tau_nonneg`, `c_nonneg`, `positivity`; for
       `1 ≤ L` transport by the G50 lemmas); `ev_Esm_eq` / `ev_Emodsm_eq`: for `1 ≤ L` the glued smoothed
@@ -1047,6 +1047,8 @@ row is proved for the actual operator.
       commit 379ab84): defs `evM1`, `evM2`, `toSmoothed`; theorems `evM1_pos`, `evM1_neg`, `evM2_pos`,
       `evM2_neg`, `evD_neg`, `hs2_fin0`, `card_filter_zData`, `ev_Esm_eq`, `ev_Emodsm_eq`,
       `h5b_of_smoothedEv`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 803/803 at 82a4e4f (code commit 379ab84), all 10
+      `H5EventualTarget` theorems verified.
 - [ ] G53. `SteklovAudit/H5EventualAudit.lean`: the new form is strictly weaker and non-vacuous.
       `smoothed_count_neg_one : ∀ W : H5bSmoothedInputs, ∀ ε γ, W.nA ε γ (-1) = 0` (as G48's
       `rowNorm_count_neg_one`); `evWitness : H5bSmoothedEvInputs` with `nA = nB = 1`, `a = b = 0`, `J = 1`,
@@ -1054,6 +1056,11 @@ row is proved for the actual operator.
       `evWitness_not_smoothed : ¬ ∃ V : H5bSmoothedInputs, V.nA = evWitness.nA` (G53 strictness: the
       true truncation is nonempty at `L = -1`); `evWitness_target` (from `h5b_of_smoothedEv`). Theorem
       names: `smoothed_count_neg_one`, `evWitness_not_smoothed`, `evWitness_target` (def `evWitness`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5EventualAudit.lean` (uncompiled at push,
+      commit ed7ac50): def `evOneD` (1×1, `a = b = 0`, `J = 1`), def `evWitness`; theorems
+      `smoothed_count_neg_one`, `evOneD_rowSq`, `evOneD_colSq`, `evOneD_K`, `evOneD_hs2K`, `evOneD_count`,
+      `evOneD_defect`, `evOneD_tail`, `evOneD_lowCount`, `evWitness_nonempty`, `evWitness_not_smoothed`,
+      `evWitness_target`. Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
