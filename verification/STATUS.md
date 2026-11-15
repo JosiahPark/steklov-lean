@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 02:16 UTC at commit `46a4a595594a`. Last passing commit: `46a4a595594a`.
+Checked 2026-11-15 03:21 UTC at commit `7f3dfed8ff29`. Last passing commit: `7f3dfed8ff29`.
 
-Library declarations checked: 771 of 771 theorems compile with only Lean's standard axioms.
+Library declarations checked: 786 of 786 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -437,6 +437,21 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_a` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_b` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_J` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_K` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.sum_sum_reindex` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.hs2_reindex` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_rowSq` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_colSq` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_rowMass` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_colMass` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_hs2K` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_tail` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_lowCount` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_smoothedA` | verified (standard axioms only) |
+| H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_smoothedB` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.normWitness_nonempty` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.rowNorm_count_neg_one` | verified (standard axioms only) |
 | H5RowNormWitness.lean | `SteklovAudit.H5RowNormWitness.gapD_colBessel` | verified (standard axioms only) |

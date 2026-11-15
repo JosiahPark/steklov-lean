@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 02:16 UTC",
+  "checked_at": "2026-11-15 03:21 UTC",
   "lean_exit_code": 0,
-  "commit": "46a4a595594a7d26c33bc51aa0df4fa70062581e",
-  "last_passing_commit": "46a4a595594a7d26c33bc51aa0df4fa70062581e",
-  "library_declarations_checked": 771,
-  "library_declarations": 771,
+  "commit": "7f3dfed8ff2934268b93867aaf2bb602f49c698a",
+  "last_passing_commit": "7f3dfed8ff2934268b93867aaf2bb602f49c698a",
+  "library_declarations_checked": 786,
+  "library_declarations": 786,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 771,
-  "verified": 771,
+  "theorems": 786,
+  "verified": 786,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4118,6 +4118,156 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_a",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.sum_sum_reindex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.hs2_reindex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_rowSq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_colSq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_rowMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_colMass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_smoothedA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5Reindex.lean",
+      "theorem": "SteklovAudit.H5Reindex.reindex_smoothedB",
       "axioms": [
         "propext",
         "Classical.choice",
