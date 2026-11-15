@@ -61,7 +61,7 @@ theorem sinh_le_mul_cosh {x : ℝ} (hx : 0 ≤ x) : Real.sinh x ≤ x * Real.cos
           | (rw [interior_Ici] at hy; exact hy)
       rw [(hd y).deriv]
       exact mul_nonneg hy'.le (Real.sinh_nonneg_iff.mpr hy'.le)
-  have key := hmono (Set.left_mem_Ici) (Set.mem_Ici.mpr hx) hx
+  have key := hmono (Set.mem_Ici.mpr le_rfl) (Set.mem_Ici.mpr hx) hx
   simp only [Real.sinh_zero, Real.cosh_zero, zero_mul, sub_zero] at key
   linarith
 
