@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 19:09 UTC",
+  "checked_at": "2026-11-15 19:17 UTC",
   "lean_exit_code": 0,
-  "commit": "a036b20c11c8ccc4668fcb21adde9a9e3600c2dc",
-  "last_passing_commit": "a036b20c11c8ccc4668fcb21adde9a9e3600c2dc",
-  "library_declarations_checked": 858,
-  "library_declarations": 858,
+  "commit": "96b118a9ddbecb2a93e8eedad56472f4b669a5b8",
+  "last_passing_commit": "96b118a9ddbecb2a93e8eedad56472f4b669a5b8",
+  "library_declarations_checked": 863,
+  "library_declarations": 863,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 858,
-  "verified": 858,
+  "theorems": 863,
+  "verified": 863,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3318,6 +3318,56 @@
     {
       "file": "H5DiffHighMass.lean",
       "theorem": "SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScale.lean",
+      "theorem": "SteklovAudit.H5EvPaperScale.sq_le_one_add_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScale.lean",
+      "theorem": "SteklovAudit.H5EvPaperScale.paperScale_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScale.lean",
+      "theorem": "SteklovAudit.H5EvPaperScale.paperScale_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScale.lean",
+      "theorem": "SteklovAudit.H5EvPaperScale.toSmoothedEv_nA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScale.lean",
+      "theorem": "SteklovAudit.H5EvPaperScale.h5b_of_paperScale",
       "axioms": [
         "propext",
         "Classical.choice",

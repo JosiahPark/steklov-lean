@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 19:09 UTC at commit `a036b20c11c8`. Last passing commit: `a036b20c11c8`.
+Checked 2026-11-15 19:17 UTC at commit `96b118a9ddbe`. Last passing commit: `96b118a9ddbe`.
 
-Library declarations checked: 858 of 858 theorems compile with only Lean's standard axioms.
+Library declarations checked: 863 of 863 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -357,6 +357,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5DiffHighAudit.lean | `SteklovAudit.H5DiffHighAudit.diffHigh2_not_highMass2` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.vanish_of_split` | verified (standard axioms only) |
 | H5DiffHighMass.lean | `SteklovAudit.H5DiffHighMass.h5b_of_diffHigh2` | verified (standard axioms only) |
+| H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.sq_le_one_add_sq` | verified (standard axioms only) |
+| H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.paperScale_count` | verified (standard axioms only) |
+| H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.paperScale_defect` | verified (standard axioms only) |
+| H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.toSmoothedEv_nA` | verified (standard axioms only) |
+| H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.h5b_of_paperScale` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.smoothed_count_neg_one` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_rowSq` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_colSq` | verified (standard axioms only) |
