@@ -6,6 +6,8 @@ complete record of them.
 
 - [`runs-01-24.md`](runs-01-24.md): 33 results from runs 01–24.
 - [`runs-25-43.md`](runs-25-43.md): 24 results from runs 25–43 (no reports exist for runs 28 and 31).
+- [`continuation-176.md`](continuation-176.md): continuation 176 (2026-11-10), two-channel wedge bounds; scalar
+  fragments in `SteklovAudit/WedgeChannel.lean` (S8). Not counted in the table below.
 - The original run reports are in the archive (`HOURLY_RUN_NN_REPORT.md` inside each run's zip; runs 04–06
   also cite four Section 7 companion notes, `SECTION7_*.md`, in the same archives). They are not copied here.
 
