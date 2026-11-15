@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 07:10 UTC at commit `dd7ba3a34b2c`. Last passing commit: `dd7ba3a34b2c`.
+Checked 2026-11-15 10:24 UTC at commit `bb8062a3357c`. Last passing commit: `bb8062a3357c`.
 
-Library declarations checked: 793 of 793 theorems compile with only Lean's standard axioms.
+Library declarations checked: 803 of 803 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -349,6 +349,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.evD_pos` | verified (standard axioms only) |
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.tau_nonneg` | verified (standard axioms only) |
 | H5EventualRows.lean | `SteklovAudit.H5EventualRows.c_nonneg` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.evM1_pos` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.evM1_neg` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.evM2_pos` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.evM2_neg` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.evD_neg` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.hs2_fin0` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.card_filter_zData` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.ev_Esm_eq` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.ev_Emodsm_eq` | verified (standard axioms only) |
+| H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.h5b_of_smoothedEv` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_colMissHigh` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_lowCount` | verified (standard axioms only) |
 | H5HighMass2Audit.lean | `SteklovAudit.H5HighMass2Audit.zz_modelLowCount` | verified (standard axioms only) |

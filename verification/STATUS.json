@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 07:10 UTC",
+  "checked_at": "2026-11-15 10:24 UTC",
   "lean_exit_code": 0,
-  "commit": "dd7ba3a34b2ce4646b4beece4513f534e74fdde7",
-  "last_passing_commit": "dd7ba3a34b2ce4646b4beece4513f534e74fdde7",
-  "library_declarations_checked": 793,
-  "library_declarations": 793,
+  "commit": "bb8062a3357c425407d558494ef5ceed2fcad92a",
+  "last_passing_commit": "bb8062a3357c425407d558494ef5ceed2fcad92a",
+  "library_declarations_checked": 803,
+  "library_declarations": 803,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 793,
-  "verified": 793,
+  "theorems": 803,
+  "verified": 803,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3238,6 +3238,106 @@
     {
       "file": "H5EventualRows.lean",
       "theorem": "SteklovAudit.H5EventualRows.c_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.evM1_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.evM1_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.evM2_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.evM2_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.evD_neg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.hs2_fin0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.card_filter_zData",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.ev_Esm_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.ev_Emodsm_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EventualTarget.lean",
+      "theorem": "SteklovAudit.H5EventualTarget.h5b_of_smoothedEv",
       "axioms": [
         "propext",
         "Classical.choice",
