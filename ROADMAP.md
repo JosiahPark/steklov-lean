@@ -959,7 +959,7 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       def `smoothedOfRowNorm`, `h5b_of_rowNorm`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-14: STATUS PASS 754/754 at ca072a7, `colMass_eq_of_rowNorm`,
       `rowMass_eq_of_colNorm`, `rowNorm_colMiss`, `h5b_of_rowNorm` verified.
-- [ ] G47. `SteklovAudit/H5ColCountAudit.lean`: the gap row is the column row, no more and no less.
+- [x] G47. `SteklovAudit/H5ColCountAudit.lean`: the gap row is the column row, no more and no less.
       `colMiss_iff_cardGap`: under `rowNorm`, for every `m`, column missing mass `≤ m` iff
       `card κ - card ι ≤ m` (rewrite by `colMass_eq_of_rowNorm`). `smCol_cardGap`: the G45 family `smColD L`
       satisfies `rowNorm` (vacuously, `Fin 0`) and has gap `⌈L⌉₊`, matching `smCol_colMass`. Def
@@ -969,12 +969,19 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       Written by the formalize task 2026-11-14 in `SteklovAudit/H5ColCountAudit.lean` (uncompiled at push):
       `colMiss_iff_cardGap`, `smCol_cardGap`, def `rowNormOfNorm`, `rowNormOfNorm_m2`, `rowNormOfNorm_target`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 758/758 at 8d152cb, `colMiss_iff_cardGap`,
+      `smCol_cardGap`, `rowNormOfNorm_m2`, `rowNormOfNorm_target` verified.
 - [ ] G48. `SteklovAudit/H5RowNormWitness.lean`: non-vacuity. `normWitness_nonempty : Nonempty H5bNormInputs`
       and `rowNormWitness_nonsquare : ∃ W : H5bRowNormInputs, ∀ ε γ L, W.nA ε γ L < W.nB ε γ L`. Reuse the
       profile witness used in G45 (`arctanProfile` or the G36/G37 witness). Prefer `nA = 1`, `nB = 2`,
       `J 0 0 = 1`, other entries `0`, all eigenvalues `0`, if `Data`'s remaining fields allow it; otherwise
       `nA = 0`, `nB = 1` (and say in the docstring that `rowNorm` is then vacuous). Gap rate `m2 = 1`,
       `m2Vanish` with `L₀ = 1 / η`. Theorem names: `normWitness_nonempty`, `rowNormWitness_nonsquare`.
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5RowNormWitness.lean` (uncompiled at push,
+      commit 4df671a): defs `normWitness` (G24's `zData`), `gapD`, `rowNormWitness` (`nA = 0`, `nB = 1`,
+      `m2 = 1`, so `rowNorm` is vacuous); theorems `normWitness_nonempty`, `rowNormWitness_nonsquare`,
+      `rowNormWitness_target`, and `rowNorm_count_neg_one` (the count row at `L = -1` forces `nA = 0`, which
+      is why the preferred `nA = 1`, `nB = 2` witness is impossible). Next run: tick if STATUS shows it compiled.
 - [ ] G49. `SteklovAudit/H5ColNorm.lean`: the mirror of G46. `structure H5bColNormInputs` = `H5bNormInputs`
       with `rowNorm` replaced by `bessel`, `m1`, `rowGap : ∀ ε γ L, (nA ε γ L : ℝ) - nB ε γ L ≤ m1 ε γ L`
       and `m1Vanish`; def `smoothedOfColNorm` (`rowMiss` from `rowMass_eq_of_colNorm`) and
