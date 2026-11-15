@@ -1049,7 +1049,7 @@ row is proved for the actual operator.
       `h5b_of_smoothedEv`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 803/803 at 82a4e4f (code commit 379ab84), all 10
       `H5EventualTarget` theorems verified.
-- [ ] G53. `SteklovAudit/H5EventualAudit.lean`: the new form is strictly weaker and non-vacuous.
+- [x] G53. `SteklovAudit/H5EventualAudit.lean`: the new form is strictly weaker and non-vacuous.
       `smoothed_count_neg_one : ∀ W : H5bSmoothedInputs, ∀ ε γ, W.nA ε γ (-1) = 0` (as G48's
       `rowNorm_count_neg_one`); `evWitness : H5bSmoothedEvInputs` with `nA = nB = 1`, `a = b = 0`, `J = 1`,
       `P = arctanProfile`, `Φ = 2`, `m1 = m2 = 0` (`zero_vanish`), `Cm = 1`, `Ck = 0`, `τ = 0`, `c = 1`;
@@ -1061,6 +1061,50 @@ row is proved for the actual operator.
       `smoothed_count_neg_one`, `evOneD_rowSq`, `evOneD_colSq`, `evOneD_K`, `evOneD_hs2K`, `evOneD_count`,
       `evOneD_defect`, `evOneD_tail`, `evOneD_lowCount`, `evWitness_nonempty`, `evWitness_not_smoothed`,
       `evWitness_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 815/815 at 452bcb9 (code commit ed7ac50), all 12
+      `H5EventualAudit` theorems verified.
+
+G54–G57 written by the formalize task on 2026-11-15 (after G53 was ticked). G50–G53 guarded the E-free rows of
+`H5bSmoothedInputs` by `1 ≤ L`. The one-sided normalization forms `H5bRowNormInputs` (G46) and
+`H5bColNormInputs` (G49) still quantify `rowNorm`/`colNorm`, the gap row and the other rows over all real `L`;
+G48's `rowNorm_count_neg_one` is why their witness had to make `rowNorm` vacuous (`nA = 0`). G54–G57 guard
+those rows too, reduce to `H5bSmoothedEvInputs` (G51), and check the new forms are strictly weaker with a
+witness where normalization is not vacuous. None claims a row is proved for the actual operator.
+
+- [ ] G54. `SteklovAudit/H5RowNormEv.lean` (imports `SteklovAudit.H5EventualTarget`, `SteklovAudit.H5ColCount`):
+      `structure H5bRowNormEvInputs` = `H5bRowNormInputs` (G46) with every row (`rowNorm`, `colBessel`,
+      `cardGap`, `count`, `defect`, `tail`, `ha`, `hb`, `lowCount`) guarded by `1 ≤ L →` (rates and their
+      vanishing unchanged; copy field names from `H5ColCount.lean`). Def `toSmoothedEv : H5bSmoothedEvInputs`
+      (`m1 = 0` with `rowMiss` from `rowMiss_of_rowNorm` and `m1Vanish` from `zero_vanish`; `bessel` by
+      `le_of_eq` from `rowNorm`; `colMiss` from `colMass_eq_of_rowNorm` + `cardGap`, using
+      `Fintype.card_fin`), def `ofRowNorm : H5bRowNormInputs → H5bRowNormEvInputs` (forget the guards), and
+      `h5b_of_rowNormEv`: `H5bTarget` for the original smoothed counts `∑ i, W.P.φ ((W.D ε γ L).a i - L)` and
+      the model analogue, via `h5b_of_smoothedEv` (state it in exactly the form `h5b_of_smoothedEv` uses for
+      `toSmoothedEv`). Docstring: row normalization and the gap row are not proved. Theorem names:
+      `toSmoothedEv_nA` (rfl), `h5b_of_rowNormEv` (defs `toSmoothedEv`, `ofRowNorm`).
+- [ ] G55. `SteklovAudit/H5RowNormEvAudit.lean`: non-vacuity and strictness of G54. `rnD`: `Data (Fin 1) (Fin 2)`
+      with `a = b = 0`, `J 0 0 = 1`, `J 0 1 = 0` (`rnD_rowNorm : ∀ i, ∑ j, rnD.J i j ^ 2 = 1`, by
+      `Fin.sum_univ_two`; `rnD_colMass` = 1 by `colMass_eq_of_rowNorm` or direct `Fin.sum_univ_two`).
+      `rowNormEvWitness : H5bRowNormEvInputs` with `nA = 1`, `nB = 2`, `D = rnD`, `P = arctanProfile`,
+      `Φ = 2`, `m2 = 1` (vanishing with `L₀ = 1 / η` as in G48), `Cm = 1`, `Ck` with `hs2 rnD.K ≤ Ck^2`
+      (compute `rnD.K` as G53's `evOneD_K` did, or take `Ck` large and bound), `τ = 0` if the tail of `rnD.K`
+      vanishes else a constant, `c = 1`. Theorems `rowNormEvWitness_genuine` (`rowNorm` holds with `nA = 1 > 0`,
+      so it is not vacuous), `rowNormEv_not_rowNorm : ¬ ∃ V : H5bRowNormInputs, V.nA = rowNormEvWitness.nA`
+      (via G48's `rowNorm_count_neg_one`), `rowNormEvWitness_target` (from `h5b_of_rowNormEv`). If the file
+      would exceed ~120 lines, move `rowNormEvWitness_target` to G57. Theorem names as above (def `rnD`,
+      `rowNormEvWitness`).
+- [ ] G56. `SteklovAudit/H5ColNormEv.lean` (mirror of G54 for G49): `structure H5bColNormEvInputs` =
+      `H5bColNormInputs` with every row guarded by `1 ≤ L →`; def `toSmoothedEv` (`m2 = 0` via
+      `colMiss_of_colNorm`/`zero_vanish`, `colBessel` from `colNorm`, `rowMiss` from `rowMass_eq_of_colNorm`
+      + `rowGap`), def `ofColNorm`, and `h5b_of_colNormEv` via `h5b_of_smoothedEv`. F table text: on the
+      smoothed route with one-sided completeness, normalization and the gap row need only hold for `L ≥ 1`.
+      Theorem names: `toSmoothedEv_nB` (rfl), `h5b_of_colNormEv` (defs `toSmoothedEv`, `ofColNorm`).
+- [ ] G57. `SteklovAudit/H5ColNormEvAudit.lean`: witness for G56 with `nA = 2`, `nB = 1`, `cnD : Data (Fin 2)
+      (Fin 1)`, `a = b = 0`, `J 0 0 = 1`, `J 1 0 = 0` (`cnD_colNorm`), `m1 = 1`, other rates as in G55;
+      `colNormEvWitness_genuine` (`colNorm` holds with `nB = 1 > 0` and the row gap is `1`, non-square),
+      `colNormEv_not_colNorm : ¬ ∃ V : H5bColNormInputs, V.nA = colNormEvWitness.nA` (the count row of
+      `H5bColNormInputs` at `L = -1` forces `nA = 0`, as `rowNorm_count_neg_one`), and
+      `colNormEvWitness_target`. Theorem names as above (defs `cnD`, `colNormEvWitness`).
 
 ## Not attempted here
 
