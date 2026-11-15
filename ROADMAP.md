@@ -971,7 +971,7 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 758/758 at 8d152cb, `colMiss_iff_cardGap`,
       `smCol_cardGap`, `rowNormOfNorm_m2`, `rowNormOfNorm_target` verified.
-- [ ] G48. `SteklovAudit/H5RowNormWitness.lean`: non-vacuity. `normWitness_nonempty : Nonempty H5bNormInputs`
+- [x] G48. `SteklovAudit/H5RowNormWitness.lean`: non-vacuity. `normWitness_nonempty : Nonempty H5bNormInputs`
       and `rowNormWitness_nonsquare : ∃ W : H5bRowNormInputs, ∀ ε γ L, W.nA ε γ L < W.nB ε γ L`. Reuse the
       profile witness used in G45 (`arctanProfile` or the G36/G37 witness). Prefer `nA = 1`, `nB = 2`,
       `J 0 0 = 1`, other entries `0`, all eigenvalues `0`, if `Data`'s remaining fields allow it; otherwise
@@ -982,12 +982,17 @@ a row (normalization, gap, count, defect, tail, low count) is proved for the act
       `m2 = 1`, so `rowNorm` is vacuous); theorems `normWitness_nonempty`, `rowNormWitness_nonsquare`,
       `rowNormWitness_target`, and `rowNorm_count_neg_one` (the count row at `L = -1` forces `nA = 0`, which
       is why the preferred `nA = 1`, `nB = 2` witness is impossible). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-15: STATUS PASS 768/768 at deea382, `normWitness_nonempty`,
+      `rowNormWitness_nonsquare`, `rowNormWitness_target`, `rowNorm_count_neg_one` verified.
 - [ ] G49. `SteklovAudit/H5ColNorm.lean`: the mirror of G46. `structure H5bColNormInputs` = `H5bNormInputs`
       with `rowNorm` replaced by `bessel`, `m1`, `rowGap : ∀ ε γ L, (nA ε γ L : ℝ) - nB ε γ L ≤ m1 ε γ L`
       and `m1Vanish`; def `smoothedOfColNorm` (`rowMiss` from `rowMass_eq_of_colNorm`) and
       `h5b_of_colNorm`. F table text: on the smoothed route, with completeness on one side, the other
       missing-mass row may be replaced by an o(L) gap between truncation sizes. Theorem names:
       `h5b_of_colNorm` (def `smoothedOfColNorm`).
+      Written by the formalize task 2026-11-15 in `SteklovAudit/H5ColNorm.lean` (uncompiled at push,
+      commit e316e35): structure `H5bColNormInputs`, `colNorm_rowMiss`, def `smoothedOfColNorm`,
+      `h5b_of_colNorm`, `smoothedOfColNorm_m2`. Next run: tick if STATUS shows it compiled.
 
 ## Not attempted here
 
