@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-15 19:17 UTC at commit `96b118a9ddbe`. Last passing commit: `96b118a9ddbe`.
+Checked 2026-11-15 20:22 UTC at commit `54169c014182`. Last passing commit: `54169c014182`.
 
-Library declarations checked: 863 of 863 theorems compile with only Lean's standard axioms.
+Library declarations checked: 870 of 870 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -362,6 +362,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.paperScale_defect` | verified (standard axioms only) |
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.toSmoothedEv_nA` | verified (standard axioms only) |
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.h5b_of_paperScale` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.one_add_sq_le_four_sq` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.smoothedEv_count_paper` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.smoothedEv_defect_paper` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_nA` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_Cm` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_Ck` | verified (standard axioms only) |
+| H5EvPaperScaleAudit.lean | `SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_target` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.smoothed_count_neg_one` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_rowSq` | verified (standard axioms only) |
 | H5EventualAudit.lean | `SteklovAudit.H5EventualAudit.evOneD_colSq` | verified (standard axioms only) |

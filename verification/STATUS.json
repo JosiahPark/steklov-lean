@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-15 19:17 UTC",
+  "checked_at": "2026-11-15 20:22 UTC",
   "lean_exit_code": 0,
-  "commit": "96b118a9ddbecb2a93e8eedad56472f4b669a5b8",
-  "last_passing_commit": "96b118a9ddbecb2a93e8eedad56472f4b669a5b8",
-  "library_declarations_checked": 863,
-  "library_declarations": 863,
+  "commit": "54169c0141828725401e49420e5343c62c620110",
+  "last_passing_commit": "54169c0141828725401e49420e5343c62c620110",
+  "library_declarations_checked": 870,
+  "library_declarations": 870,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 863,
-  "verified": 863,
+  "theorems": 870,
+  "verified": 870,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3368,6 +3368,76 @@
     {
       "file": "H5EvPaperScale.lean",
       "theorem": "SteklovAudit.H5EvPaperScale.h5b_of_paperScale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.one_add_sq_le_four_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.smoothedEv_count_paper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.smoothedEv_defect_paper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_nA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_Cm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_Ck",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvPaperScaleAudit.lean",
+      "theorem": "SteklovAudit.H5EvPaperScaleAudit.ofSmoothedEv_target",
       "axioms": [
         "propext",
         "Classical.choice",
