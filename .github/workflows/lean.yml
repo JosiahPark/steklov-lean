@@ -70,7 +70,13 @@ jobs:
           if git diff --cached --quiet; then echo "Status unchanged"; exit 0; fi
           git add verification/STATUS.md verification/STATUS.json
           git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update Lean verification status"
-          git push
+          # main may have moved on during the build (e.g. a follow-up ROADMAP commit); rebase before pushing.
+          for i in 1 2 3; do
+            if git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "Could not push the status commit after 3 attempts"; exit 1
 
       # Regenerate the dependency map (docs/map/index.html) from the sources and STATUS.json.
       - name: Rebuild the dependency map
