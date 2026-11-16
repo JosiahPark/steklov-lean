@@ -1221,6 +1221,9 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       copy the proof of `h5b_of_inputs`, passing `κ2 ε γ M L` and `mLo ε γ M L` (with `lowMass`) as the low
       arguments of `cumulative_transfer_bound` (drop `e2`); the `hlow` step uses `lowVanish` at `η / 2` and
       `discVanish` at `η / 2`. Docstring: no row is proved. Theorem names: `h5b_of_lowLInputs`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinear.lean` (uncompiled at push,
+      commit 6881d86): structure `H5bLowLInputs`; theorem `h5b_of_lowLInputs`. Next run: tick if STATUS shows
+      it compiled.
 - [ ] G63. `SteklovAudit/H5LowLinearAudit.lean`: G62 is no stronger than F1. `low_term_le (hlam : 0 ≤ lam)
       (hs : 0 ≤ s) (hL : 1 ≤ L) (h : lam * (4 * (s + 1)) ≤ η) : lam * (s * (1 + L)) ≤ η * L` (the `k2`–`k4`
       steps of `h5b_of_inputs`); def `ofInputs : H5bInputs E Emod → H5bLowLInputs E Emod` with `κ2 _ _ M _ :=
