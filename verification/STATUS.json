@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-16 17:09 UTC",
+  "checked_at": "2026-11-16 17:24 UTC",
   "lean_exit_code": 0,
-  "commit": "01977c00a4ea22ab46e47934a67751a3e68fc0eb",
-  "last_passing_commit": "01977c00a4ea22ab46e47934a67751a3e68fc0eb",
-  "library_declarations_checked": 905,
-  "library_declarations": 905,
+  "commit": "d7272278b93208c879a58afe6bac89478b6475fc",
+  "last_passing_commit": "d7272278b93208c879a58afe6bac89478b6475fc",
+  "library_declarations_checked": 906,
+  "library_declarations": 906,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 905,
-  "verified": 905,
+  "theorems": 906,
+  "verified": 906,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5938,6 +5938,16 @@
     {
       "file": "H5TailAudit.lean",
       "theorem": "SteklovAudit.H5TailAudit.tail_row_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5TailEv.lean",
+      "theorem": "SteklovAudit.H5TailEv.h5b_of_tailEv",
       "axioms": [
         "propext",
         "Classical.choice",

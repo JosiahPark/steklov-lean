@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-16 17:09 UTC at commit `01977c00a4ea`. Last passing commit: `01977c00a4ea`.
+Checked 2026-11-16 17:24 UTC at commit `d7272278b932`. Last passing commit: `d7272278b932`.
 
-Library declarations checked: 905 of 905 theorems compile with only Lean's standard axioms.
+Library declarations checked: 906 of 906 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -619,6 +619,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.counterData_hi_mask` | verified (standard axioms only) |
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.defect_not_imp_tail` | verified (standard axioms only) |
 | H5TailAudit.lean | `SteklovAudit.H5TailAudit.tail_row_fails` | verified (standard axioms only) |
+| H5TailEv.lean | `SteklovAudit.H5TailEv.h5b_of_tailEv` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.div_le_of_rate` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.tailVanish_of_power` | verified (standard axioms only) |
 | H5TailRate.lean | `SteklovAudit.H5TailRate.tailVanish_field` | verified (standard axioms only) |
