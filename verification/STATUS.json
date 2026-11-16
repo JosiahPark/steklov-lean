@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-16 03:38 UTC",
+  "checked_at": "2026-11-16 04:21 UTC",
   "lean_exit_code": 0,
-  "commit": "2ddc84514a89765f1acb119c0424767da9f48631",
-  "last_passing_commit": "2ddc84514a89765f1acb119c0424767da9f48631",
-  "library_declarations_checked": 880,
-  "library_declarations": 880,
+  "commit": "63510e6b19b4df2462628321f08f374b1f345c79",
+  "last_passing_commit": "63510e6b19b4df2462628321f08f374b1f345c79",
+  "library_declarations_checked": 889,
+  "library_declarations": 889,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 880,
-  "verified": 880,
+  "theorems": 889,
+  "verified": 889,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3418,6 +3418,96 @@
     {
       "file": "H5EvGrowWitness.lean",
       "theorem": "SteklovAudit.H5EvGrowWitness.growWitness_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_rowNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_colNorm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_ha",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_hb",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_filter_univ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5EvLowCountIndep.lean",
+      "theorem": "SteklovAudit.H5EvLowCountIndep.flatD_not_lowCount",
       "axioms": [
         "propext",
         "Classical.choice",

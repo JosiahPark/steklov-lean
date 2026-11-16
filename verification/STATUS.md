@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-16 03:38 UTC at commit `2ddc84514a89`. Last passing commit: `2ddc84514a89`.
+Checked 2026-11-16 04:21 UTC at commit `63510e6b19b4`. Last passing commit: `63510e6b19b4`.
 
-Library declarations checked: 880 of 880 theorems compile with only Lean's standard axioms.
+Library declarations checked: 889 of 889 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -367,6 +367,15 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5EvGrowWitness.lean | `SteklovAudit.H5EvGrowWitness.growD_lowCount` | verified (standard axioms only) |
 | H5EvGrowWitness.lean | `SteklovAudit.H5EvGrowWitness.growWitness_unbounded` | verified (standard axioms only) |
 | H5EvGrowWitness.lean | `SteklovAudit.H5EvGrowWitness.growWitness_target` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_rowNorm` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_colNorm` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_K` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_hs2K` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_count` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_ha` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_hb` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_filter_univ` | verified (standard axioms only) |
+| H5EvLowCountIndep.lean | `SteklovAudit.H5EvLowCountIndep.flatD_not_lowCount` | verified (standard axioms only) |
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.sq_le_one_add_sq` | verified (standard axioms only) |
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.paperScale_count` | verified (standard axioms only) |
 | H5EvPaperScale.lean | `SteklovAudit.H5EvPaperScale.paperScale_defect` | verified (standard axioms only) |
