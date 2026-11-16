@@ -1226,7 +1226,7 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 890/890 at 196b1f3 (code commit 6881d86),
       `H5LowLinear.h5b_of_lowLInputs` verified.
-- [ ] G63. `SteklovAudit/H5LowLinearAudit.lean`: G62 is no stronger than F1. `low_term_le (hlam : 0 ≤ lam)
+- [x] G63. `SteklovAudit/H5LowLinearAudit.lean`: G62 is no stronger than F1. `low_term_le (hlam : 0 ≤ lam)
       (hs : 0 ≤ s) (hL : 1 ≤ L) (h : lam * (4 * (s + 1)) ≤ η) : lam * (s * (1 + L)) ≤ η * L` (the `k2`–`k4`
       steps of `h5b_of_inputs`); def `ofInputs : H5bInputs E Emod → H5bLowLInputs E Emod` with `κ2 _ _ M _ :=
       H.κ2 ε γ M`, `mLo _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`lowMass` from `hs2_mask_le` and `(H.pde ε γ L).mass`),
@@ -1236,6 +1236,8 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearAudit.lean` (uncompiled at push,
       commit aa511bc): def `ofInputs`; theorems `low_term_le`, `ofInputs_nA`, `ofInputs_κ2`, `ofInputs_mLo`,
       `ofInputs_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 895/895 at 4100856 (code commit aa511bc), all 5
+      `H5LowLinearAudit` theorems verified.
 - [ ] G64. `SteklovAudit/H5LowLinearRows.lean` (imports `SteklovAudit.H5LowLinear`, `SteklovAudit.H5LowCount`,
       `SteklovAudit.H5LowMass`): the G62 low rows from a linearly growing low count. For `D : Data ι κ` with
       Bessel rows, `0 ≤ a`, `0 ≤ b`, and `card (filter (a i ≤ M)) ≤ c`: `lowMass_le_count` (`low_mask_le_rows`
@@ -1246,6 +1248,9 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       `1 + |L| ≤ 2 L`; use `hv` at `η / (2 * (|M| * C + 1))`). Theorem names: `lowMass_le_count`,
       `lowDefect_le_count`, `lowVanish_of_linear`. F table text: the low-energy row needs only a low count
       `≤ c(M) · (1 + |L|)` together with `lam → 0`, not an L-uniform count.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearRows.lean` (uncompiled at push,
+      commit ad580cf): theorems `lowMass_le_count`, `lowDefect_le_count`, `lowRows_of_linearCount`,
+      `sqrt_linear_rows`, `lowVanish_of_linear`. Next run: tick if STATUS shows it compiled.
 - [ ] G65. `SteklovAudit/H5LowLinearStrict.lean` (imports `SteklovAudit.H5EvLowCountIndep`): the linear low
       count is strictly weaker than the L-uniform `lowCount`. `flatD_linearCount : ∀ M L : ℝ, ((Finset.univ.filter
       fun i => (flatD ⌊L⌋₊).a i ≤ M).card : ℝ) ≤ 1 * (1 + |L|)` (card of a filter ≤ `Fintype.card (Fin ⌊L⌋₊) =
