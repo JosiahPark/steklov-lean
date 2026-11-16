@@ -1299,7 +1299,7 @@ the actual operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 909/909 at f9028e7, all 3 `H5TailEvAudit`
       theorems verified.
-- [ ] G68. `SteklovAudit/H5TailEvStrict.lean`: the eventual tail row is strictly weaker than the L-uniform one, as
+- [x] G68. `SteklovAudit/H5TailEvStrict.lean`: the eventual tail row is strictly weaker than the L-uniform one, as
       a statement about the row's shape (a function `t M L` standing for `hs2 (mask (hiE _ M) K)` at scale `L`).
       `bumpTail (M L : ℝ) : ℝ := if 1 ≤ L ∧ L < 2 ∧ M < 1 / (2 - L) then 1 else 0` (unit defect mass at energy
       `1 / (2 - L)` for `L ∈ [1, 2)`, none for `L ≥ 2`). `bumpTail_eventual : ∀ δ > 0, ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L →
@@ -1311,6 +1311,8 @@ the actual operator.
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEvStrict.lean` (uncompiled at push,
       commit b45cc57): def `bumpTail`; theorems `bumpTail_eventual`, `bumpTail_not_uniform`,
       `tailEv_strictly_weaker`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 912/912 at 4583e19, all 3 `H5TailEvStrict`
+      theorems verified.
 - [ ] G69. `SteklovAudit/H5HiLinear.lean` (imports `SteklovAudit.H5TailEv`): mirror of G62 for the high part.
       `structure H5bHiLInputs` = `H5bTailEvInputs` with `tailVanish` replaced by `mHi : ℝ → ℝ → ℝ → ℝ → ℝ`,
       `hiMass : ∀ ε γ M L, hs2 (mask (hiE (D ε γ L) M) (D ε γ L).J) ≤ mHi ε γ M L` and `hiVanish : ∀ ε γ : ℝ,
@@ -1318,6 +1320,9 @@ the actual operator.
       δ * L` (`lowVanish` stays, for every `M`). `h5b_of_hiLInputs : H5bTarget E Emod`: pass `mHi ε γ M L` with `hiMass` as the high mass argument
       of `cumulative_transfer_bound` (drop `e1`, `e3`), then pick `M, L₁` from `hiVanish` at `η / 3`, `L₂` from `lowVanish` at that `M`
       and `η / 3`, `L₃` from `discVanish` at `η / 3`, threshold `max (max 1 L₁) (max L₂ L₃)`. Docstring: no row is proved. Theorem names: `h5b_of_hiLInputs`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5HiLinear.lean` (uncompiled at push,
+      commit 2b9645a): structure `H5bHiLInputs`; theorem `h5b_of_hiLInputs`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G70. `SteklovAudit/H5HiLinearAudit.lean`: G69 is no stronger than G66. def `ofTailEv : H5bTailEvInputs E Emod
       → H5bHiLInputs E Emod` with `mHi _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`hiMass` from `hs2_mask_le` and
       `(H.pde ε γ L).mass`), `hiVanish` from `tailVanish` at `(δ / (4 * (C + 1))) ^ 2` with
