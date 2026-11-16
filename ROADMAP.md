@@ -1290,13 +1290,15 @@ the actual operator.
       it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 906/906 at abf03c8, `H5TailEv.h5b_of_tailEv`
       verified.
-- [ ] G67. `SteklovAudit/H5TailEvAudit.lean`: G66 is no stronger than G62. def `ofLowL : H5bLowLInputs E Emod →
+- [x] G67. `SteklovAudit/H5TailEvAudit.lean`: G66 is no stronger than G62. def `ofLowL : H5bLowLInputs E Emod →
       H5bTailEvInputs E Emod` with `τ ε γ M _ := H.τ ε γ M`, `tail ε γ M L _ := H.tail ε γ M L`, `tailVanish` from
       `H.tailVanish` with `L₀ = 0` (any `L₀`), all other fields copied. Theorem names: `ofLowL_nA` (rfl),
       `ofLowL_τ` (rfl), `ofLowL_target` (`h5b_of_tailEv (ofLowL H)`).
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEvAudit.lean` (uncompiled at push,
       commit 25f01d2): def `ofLowL`; theorems `ofLowL_nA`, `ofLowL_τ`, `ofLowL_target`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 909/909 at f9028e7, all 3 `H5TailEvAudit`
+      theorems verified.
 - [ ] G68. `SteklovAudit/H5TailEvStrict.lean`: the eventual tail row is strictly weaker than the L-uniform one, as
       a statement about the row's shape (a function `t M L` standing for `hs2 (mask (hiE _ M) K)` at scale `L`).
       `bumpTail (M L : ℝ) : ℝ := if 1 ≤ L ∧ L < 2 ∧ M < 1 / (2 - L) then 1 else 0` (unit defect mass at energy
@@ -1306,6 +1308,9 @@ the actual operator.
       `1 ≤ L < 2` and `1 / (2 - L) = |M| + 1 > M`; `bumpTail M L = 1 ≤ τ M ≤ 1/2`, contradiction). Theorem names:
       `bumpTail_eventual`, `bumpTail_not_uniform`, `tailEv_strictly_weaker` (the conjunction). F table text: the
       tail row needs only `τ(M, L) → 0` along `L → ∞` for some `M`, not a bound uniform in `L ≥ 1`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEvStrict.lean` (uncompiled at push,
+      commit b45cc57): def `bumpTail`; theorems `bumpTail_eventual`, `bumpTail_not_uniform`,
+      `tailEv_strictly_weaker`. Next run: tick if STATUS shows it compiled.
 - [ ] G69. `SteklovAudit/H5HiLinear.lean` (imports `SteklovAudit.H5TailEv`): mirror of G62 for the high part.
       `structure H5bHiLInputs` = `H5bTailEvInputs` with `tailVanish` replaced by `mHi : ℝ → ℝ → ℝ → ℝ → ℝ`,
       `hiMass : ∀ ε γ M L, hs2 (mask (hiE (D ε γ L) M) (D ε γ L).J) ≤ mHi ε γ M L` and `hiVanish : ∀ ε γ : ℝ,
