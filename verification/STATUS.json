@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-16 08:32 UTC",
+  "checked_at": "2026-11-16 12:27 UTC",
   "lean_exit_code": 0,
-  "commit": "41008568f67ef337aeca0e1ad5c8b7a0a3557165",
-  "last_passing_commit": "41008568f67ef337aeca0e1ad5c8b7a0a3557165",
-  "library_declarations_checked": 895,
-  "library_declarations": 895,
+  "commit": "d4c2258777ad14a2519c3269089e7fc992e3da3f",
+  "last_passing_commit": "d4c2258777ad14a2519c3269089e7fc992e3da3f",
+  "library_declarations_checked": 900,
+  "library_declarations": 900,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 895,
-  "verified": 895,
+  "theorems": 900,
+  "verified": 900,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4328,6 +4328,56 @@
     {
       "file": "H5LowLinearAudit.lean",
       "theorem": "SteklovAudit.H5LowLinearAudit.ofInputs_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinearRows.lean",
+      "theorem": "SteklovAudit.H5LowLinearRows.lowMass_le_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinearRows.lean",
+      "theorem": "SteklovAudit.H5LowLinearRows.lowDefect_le_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinearRows.lean",
+      "theorem": "SteklovAudit.H5LowLinearRows.lowRows_of_linearCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinearRows.lean",
+      "theorem": "SteklovAudit.H5LowLinearRows.sqrt_linear_rows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinearRows.lean",
+      "theorem": "SteklovAudit.H5LowLinearRows.lowVanish_of_linear",
       "axioms": [
         "propext",
         "Classical.choice",

@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-16 08:32 UTC at commit `41008568f67e`. Last passing commit: `41008568f67e`.
+Checked 2026-11-16 12:27 UTC at commit `d4c2258777ad`. Last passing commit: `d4c2258777ad`.
 
-Library declarations checked: 895 of 895 theorems compile with only Lean's standard axioms.
+Library declarations checked: 900 of 900 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -458,6 +458,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LowLinearAudit.lean | `SteklovAudit.H5LowLinearAudit.ofInputs_κ2` | verified (standard axioms only) |
 | H5LowLinearAudit.lean | `SteklovAudit.H5LowLinearAudit.ofInputs_mLo` | verified (standard axioms only) |
 | H5LowLinearAudit.lean | `SteklovAudit.H5LowLinearAudit.ofInputs_target` | verified (standard axioms only) |
+| H5LowLinearRows.lean | `SteklovAudit.H5LowLinearRows.lowMass_le_count` | verified (standard axioms only) |
+| H5LowLinearRows.lean | `SteklovAudit.H5LowLinearRows.lowDefect_le_count` | verified (standard axioms only) |
+| H5LowLinearRows.lean | `SteklovAudit.H5LowLinearRows.lowRows_of_linearCount` | verified (standard axioms only) |
+| H5LowLinearRows.lean | `SteklovAudit.H5LowLinearRows.sqrt_linear_rows` | verified (standard axioms only) |
+| H5LowLinearRows.lean | `SteklovAudit.H5LowLinearRows.lowVanish_of_linear` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.abs_sub_le_of_low` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.low_K_sq_le` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.low_mask_K_sq_le` | verified (standard axioms only) |
