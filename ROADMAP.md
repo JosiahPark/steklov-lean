@@ -1274,7 +1274,7 @@ matters for (7.29). G66–G70 let the tail depend on `L` with eventual vanishing
 strictly weaker, then keep the high-energy mass as its own bound (the mirror of G62). None claims a row is proved for
 the actual operator.
 
-- [ ] G66. `SteklovAudit/H5TailEv.lean` (imports `SteklovAudit.H5LowLinear`): `structure H5bTailEvInputs (E Emod :
+- [x] G66. `SteklovAudit/H5TailEv.lean` (imports `SteklovAudit.H5LowLinear`): `structure H5bTailEvInputs (E Emod :
       ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bLowLInputs` (copy names and types from `H5LowLinear.lean`) with `τ`,
       `tail`, `tailVanish` replaced by `τ : ℝ → ℝ → ℝ → ℝ → ℝ`, `tail : ∀ ε γ M L, 1 ≤ L → hs2 (mask (hiE (D ε γ L)
       M) (D ε γ L).K) ≤ τ ε γ M L`, and `tailVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L,
@@ -1288,10 +1288,15 @@ the actual operator.
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEv.lean` (uncompiled at push,
       commit 6e7681f): structure `H5bTailEvInputs`; theorem `h5b_of_tailEv`. Next run: tick if STATUS shows
       it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 906/906 at abf03c8, `H5TailEv.h5b_of_tailEv`
+      verified.
 - [ ] G67. `SteklovAudit/H5TailEvAudit.lean`: G66 is no stronger than G62. def `ofLowL : H5bLowLInputs E Emod →
       H5bTailEvInputs E Emod` with `τ ε γ M _ := H.τ ε γ M`, `tail ε γ M L _ := H.tail ε γ M L`, `tailVanish` from
       `H.tailVanish` with `L₀ = 0` (any `L₀`), all other fields copied. Theorem names: `ofLowL_nA` (rfl),
       `ofLowL_τ` (rfl), `ofLowL_target` (`h5b_of_tailEv (ofLowL H)`).
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEvAudit.lean` (uncompiled at push,
+      commit 25f01d2): def `ofLowL`; theorems `ofLowL_nA`, `ofLowL_τ`, `ofLowL_target`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G68. `SteklovAudit/H5TailEvStrict.lean`: the eventual tail row is strictly weaker than the L-uniform one, as
       a statement about the row's shape (a function `t M L` standing for `hs2 (mask (hiE _ M) K)` at scale `L`).
       `bumpTail (M L : ℝ) : ℝ := if 1 ≤ L ∧ L < 2 ∧ M < 1 / (2 - L) then 1 else 0` (unit defect mass at energy
