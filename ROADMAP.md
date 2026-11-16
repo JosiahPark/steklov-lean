@@ -1211,7 +1211,7 @@ as its own bound `mLo`, then `lam → 0` already makes the low term `o(L)` when 
 G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, reduce it to a low-energy count
 `≤ c(M) · (1 + |L|)`, and check strictness with G61's `flatD`. None claims a row is proved for the actual operator.
 
-- [ ] G62. `SteklovAudit/H5LowLinear.lean` (imports `SteklovAudit.H5Compare`): `structure H5bLowLInputs (E Emod :
+- [x] G62. `SteklovAudit/H5LowLinear.lean` (imports `SteklovAudit.H5Compare`): `structure H5bLowLInputs (E Emod :
       ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bInputs` (copy names and types from `H5Compare.lean`: `nA` … `tailVanish`,
       `Λ0`, `hΛ0`, `lam`, `hlam`, `lipHi`, `lipLo`) with `κ2`, `lowDefect`, `lamVanish` replaced by
       `κ2 : ℝ → ℝ → ℝ → ℝ → ℝ`, `lowDefect : ∀ ε γ M L, hs2 (mask (fun i j => ¬ hiE (D ε γ L) M i j) (D ε γ L).K)
@@ -1224,6 +1224,8 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinear.lean` (uncompiled at push,
       commit 6881d86): structure `H5bLowLInputs`; theorem `h5b_of_lowLInputs`. Next run: tick if STATUS shows
       it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 890/890 at 196b1f3 (code commit 6881d86),
+      `H5LowLinear.h5b_of_lowLInputs` verified.
 - [ ] G63. `SteklovAudit/H5LowLinearAudit.lean`: G62 is no stronger than F1. `low_term_le (hlam : 0 ≤ lam)
       (hs : 0 ≤ s) (hL : 1 ≤ L) (h : lam * (4 * (s + 1)) ≤ η) : lam * (s * (1 + L)) ≤ η * L` (the `k2`–`k4`
       steps of `h5b_of_inputs`); def `ofInputs : H5bInputs E Emod → H5bLowLInputs E Emod` with `κ2 _ _ M _ :=
@@ -1231,6 +1233,9 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       `lowVanish` from `lamVanish` at `η / (4 * (s + 1))` with `s = √(κ2 · Cm)` and the identity
       `√(κ2 · (Cm (1 + L)²)) = √(κ2 · Cm) · (1 + L)` (the `e2` step of `h5b_of_inputs`), threshold `max L₁ 1`.
       Theorem names: `low_term_le`, `ofInputs_nA` (rfl), `ofInputs_target` (`h5b_of_lowLInputs (ofInputs H)`).
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearAudit.lean` (uncompiled at push,
+      commit aa511bc): def `ofInputs`; theorems `low_term_le`, `ofInputs_nA`, `ofInputs_κ2`, `ofInputs_mLo`,
+      `ofInputs_target`. Next run: tick if STATUS shows it compiled.
 - [ ] G64. `SteklovAudit/H5LowLinearRows.lean` (imports `SteklovAudit.H5LowLinear`, `SteklovAudit.H5LowCount`,
       `SteklovAudit.H5LowMass`): the G62 low rows from a linearly growing low count. For `D : Data ι κ` with
       Bessel rows, `0 ≤ a`, `0 ≤ b`, and `card (filter (a i ≤ M)) ≤ c`: `lowMass_le_count` (`low_mask_le_rows`
