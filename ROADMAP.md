@@ -1238,7 +1238,7 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       `ofInputs_target`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 895/895 at 4100856 (code commit aa511bc), all 5
       `H5LowLinearAudit` theorems verified.
-- [ ] G64. `SteklovAudit/H5LowLinearRows.lean` (imports `SteklovAudit.H5LowLinear`, `SteklovAudit.H5LowCount`,
+- [x] G64. `SteklovAudit/H5LowLinearRows.lean` (imports `SteklovAudit.H5LowLinear`, `SteklovAudit.H5LowCount`,
       `SteklovAudit.H5LowMass`): the G62 low rows from a linearly growing low count. For `D : Data ι κ` with
       Bessel rows, `0 ≤ a`, `0 ≤ b`, and `card (filter (a i ≤ M)) ≤ c`: `lowMass_le_count` (`low_mask_le_rows`
       then `rows_le_card`) and `lowDefect_le_count : hs2 (mask low K) ≤ M ^ 2 * c` (`lowDefect_of_lowMass`).
@@ -1251,6 +1251,8 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearRows.lean` (uncompiled at push,
       commit ad580cf): theorems `lowMass_le_count`, `lowDefect_le_count`, `lowRows_of_linearCount`,
       `sqrt_linear_rows`, `lowVanish_of_linear`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 900/900 at d4c2258 (code commit ad580cf), all 5
+      `H5LowLinearRows` theorems verified.
 - [ ] G65. `SteklovAudit/H5LowLinearStrict.lean` (imports `SteklovAudit.H5EvLowCountIndep`): the linear low
       count is strictly weaker than the L-uniform `lowCount`. `flatD_linearCount : ∀ M L : ℝ, ((Finset.univ.filter
       fun i => (flatD ⌊L⌋₊).a i ≤ M).card : ℝ) ≤ 1 * (1 + |L|)` (card of a filter ≤ `Fintype.card (Fin ⌊L⌋₊) =
@@ -1258,6 +1260,9 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       and `linearCount_strictly_weaker`: the conjunction of `flatD_linearCount` with G61's `flatD_not_lowCount`.
       F table text: on `flatD` the G64 low row holds with `c = 1` while no L-uniform `c` exists. Theorem
       names: `flatD_linearCount`, `linearCount_strictly_weaker`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearStrict.lean` (uncompiled at push,
+      commit 1cee561): theorems `floor_le_one_add_abs`, `flatD_filter_card_le`, `flatD_linearCount`,
+      `flatD_linearCount_exists`, `linearCount_strictly_weaker`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
