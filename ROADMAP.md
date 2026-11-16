@@ -1313,7 +1313,7 @@ the actual operator.
       `tailEv_strictly_weaker`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 912/912 at 4583e19, all 3 `H5TailEvStrict`
       theorems verified.
-- [ ] G69. `SteklovAudit/H5HiLinear.lean` (imports `SteklovAudit.H5TailEv`): mirror of G62 for the high part.
+- [x] G69. `SteklovAudit/H5HiLinear.lean` (imports `SteklovAudit.H5TailEv`): mirror of G62 for the high part.
       `structure H5bHiLInputs` = `H5bTailEvInputs` with `tailVanish` replaced by `mHi : ℝ → ℝ → ℝ → ℝ → ℝ`,
       `hiMass : ∀ ε γ M L, hs2 (mask (hiE (D ε γ L) M) (D ε γ L).J) ≤ mHi ε γ M L` and `hiVanish : ∀ ε γ : ℝ,
       0 < ε → 0 < γ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ M L * mHi ε γ M L) ≤
@@ -1323,12 +1323,17 @@ the actual operator.
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5HiLinear.lean` (uncompiled at push,
       commit 2b9645a): structure `H5bHiLInputs`; theorem `h5b_of_hiLInputs`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 913/913 at da786df,
+      `H5HiLinear.h5b_of_hiLInputs` verified.
 - [ ] G70. `SteklovAudit/H5HiLinearAudit.lean`: G69 is no stronger than G66. def `ofTailEv : H5bTailEvInputs E Emod
       → H5bHiLInputs E Emod` with `mHi _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`hiMass` from `hs2_mask_le` and
       `(H.pde ε γ L).mass`), `hiVanish` from `tailVanish` at `(δ / (4 * (C + 1))) ^ 2` with
       `C = Λ0 · √Cm` and `√(τ · (Cm (1 + L)²)) = √τ · √Cm · (1 + L)` (the `e1` step), threshold `max L₀ 1`.
       Theorem names: `ofTailEv_nA` (rfl), `ofTailEv_mHi` (rfl), `ofTailEv_target`. F table text: the high-energy
       row may be stated as one product bound `Λ0 · √(τ · mHi) = o(L)` at a single `M`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5HiLinearAudit.lean` (uncompiled at push,
+      commit 5e6e0de): def `ofTailEv`; theorems `hi_term_le`, `ofTailEv_nA`, `ofTailEv_mHi`,
+      `ofTailEv_target`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
