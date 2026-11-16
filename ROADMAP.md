@@ -1285,6 +1285,9 @@ the actual operator.
       `η / 4`, `L₃` from `discVanish` at `η / 4`, threshold `max (max 1 L₁) (max L₂ L₃)`; finish with
       `1 + L ≤ 2 * L`, `C * δ ≤ η / 4` (`div_le_iff₀`/`le_div_iff₀` or `field_simp`, then `nlinarith`) and
       `linarith`. Docstring: no row is proved. Theorem names: `h5b_of_tailEv`.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5TailEv.lean` (uncompiled at push,
+      commit 6e7681f): structure `H5bTailEvInputs`; theorem `h5b_of_tailEv`. Next run: tick if STATUS shows
+      it compiled.
 - [ ] G67. `SteklovAudit/H5TailEvAudit.lean`: G66 is no stronger than G62. def `ofLowL : H5bLowLInputs E Emod →
       H5bTailEvInputs E Emod` with `τ ε γ M _ := H.τ ε γ M`, `tail ε γ M L _ := H.tail ε γ M L`, `tailVanish` from
       `H.tailVanish` with `L₀ = 0` (any `L₀`), all other fields copied. Theorem names: `ofLowL_nA` (rfl),
