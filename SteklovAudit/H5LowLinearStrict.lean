@@ -24,11 +24,14 @@ open SteklovAudit SteklovAudit.AbstractTransfer SteklovAudit.H5EvLowCountIndep
 
 /-- `⌊L⌋₊ ≤ 1 + |L|` for every real `L`. -/
 theorem floor_le_one_add_abs (L : ℝ) : (⌊L⌋₊ : ℝ) ≤ 1 + |L| := by
-  rcases le_or_lt 0 L with hL | hL
+  rcases le_total 0 L with hL | hL
   · have h1 : (⌊L⌋₊ : ℝ) ≤ L := Nat.floor_le hL
     have h2 : L ≤ |L| := le_abs_self L
     linarith
-  · have h0 : ⌊L⌋₊ = 0 := Nat.floor_of_nonpos hL.le
+  · have h0 : ⌊L⌋₊ = 0 := by
+      first
+        | exact Nat.floor_of_nonpos hL
+        | exact Nat.floor_eq_zero.mpr (by linarith)
     rw [h0, Nat.cast_zero]
     positivity
 
