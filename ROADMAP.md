@@ -1196,6 +1196,27 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       take `L = ⌈c⌉₊ + 2` and use `Nat.floor_natCast` / `Nat.le_ceil`). F table text: the low-energy count row
       is an independent input, not a consequence of the Weyl-type count row. Theorem names as above.
 
+## Foundations (long-term)
+
+Analytic machinery that Mathlib lacks and that the main theorem needs: (G1) Sobolev traces, (G2) Dirichlet-to-Neumann /
+Steklov operators, (G3) Kontorovich–Lebedev transform and K_{iν}, (G4) Krein spectral shift, (G5) Mourre estimates and
+propagation. Worked by a separate hourly foundations task, one item per run, independent of sections A–G (the item IDs
+F1.1–F5.3 are not the section F items F1–F3). Each item is a new file `SteklovAudit/Foundations/<Name>.lean` importing
+Mathlib, whose docstring states exactly what is proved and what is not. These are toy, one-dimensional or
+finite-dimensional models, not the paper's operator: none of them proves the main theorem or any of `[H1]`–`[H6]`.
+
+- [ ] F1.1 1D trace inequality: |f(0)|² ≤ 2∫₀¹(|f|²+|f'|²) for f ∈ C¹[0,1] — file SteklovAudit/Foundations/Trace1D.lean
+- [ ] F1.2 half-line trace with constant 1: |f(0)|² ≤ ∫₀^∞(|f|²+|f'|²) for suitable decaying f — file SteklovAudit/Foundations/TraceHalfLine.lean
+- [ ] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
+- [ ] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
+- [ ] F3.1 K_{iν}(r) = ∫₀^∞ e^{−r cosh t} cos(νt) dt: integrand integrable for r > 0, value real, |K_{iν}(r)| ≤ K_0(r) — file SteklovAudit/Foundations/KIntegral.lean
+- [ ] F3.2 K_{iν}(r) even in ν and continuous in r on (0, ∞) — file SteklovAudit/Foundations/KContinuity.lean
+- [ ] F3.3 K_{iν} satisfies the modified Bessel ODE r²K'' + rK' − (r² − ν²)K = 0 — file SteklovAudit/Foundations/KBesselODE.lean
+- [ ] F4.1 finite-dimensional spectral shift: for symmetric matrices, ξ(λ) = N_B(λ) − N_A(λ) and Tr(f(B) − f(A)) = ∫ f' ξ for C¹ f — file SteklovAudit/Foundations/SpectralShiftFin.lean
+- [ ] F5.1 virial theorem for matrices: ⟨v, [H, A] v⟩ = 0 for an eigenvector v of a symmetric H — file SteklovAudit/Foundations/VirialMatrix.lean
+- [ ] F5.2 finite-dimensional Mourre-type bound: if 1_I(H) i[H, A] 1_I(H) ≥ c·1_I(H), c > 0, then no eigenvalue of H lies in I — file SteklovAudit/Foundations/MourreFin.lean
+- [ ] F5.3 d'Alembert's formula for the 1D wave equation and finite speed of propagation — file SteklovAudit/Foundations/DAlembert.lean
+
 ## Not attempted here
 
 Constructing the Dirichlet-to-Neumann operator, Sobolev traces on Lipschitz domains, and the
