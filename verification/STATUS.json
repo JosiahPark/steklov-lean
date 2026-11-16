@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-16 21:23 UTC",
+  "checked_at": "2026-11-16 22:33 UTC",
   "lean_exit_code": 0,
-  "commit": "37295f174076510f51eaafa11bf11cf491a2cc8c",
-  "last_passing_commit": "37295f174076510f51eaafa11bf11cf491a2cc8c",
+  "commit": "da786df6a166cb2e7abf1bf9ea9494783d107424",
+  "last_passing_commit": "da786df6a166cb2e7abf1bf9ea9494783d107424",
   "library_declarations_checked": 913,
   "library_declarations": 913,
   "ledger_inputs_proved_for_operator": 0,
