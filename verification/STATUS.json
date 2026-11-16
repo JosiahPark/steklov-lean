@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-16 19:48 UTC",
+  "checked_at": "2026-11-16 21:23 UTC",
   "lean_exit_code": 0,
-  "commit": "4583e199265f2c275e0e531274ff65dfd5dca6df",
-  "last_passing_commit": "4583e199265f2c275e0e531274ff65dfd5dca6df",
-  "library_declarations_checked": 912,
-  "library_declarations": 912,
+  "commit": "37295f174076510f51eaafa11bf11cf491a2cc8c",
+  "last_passing_commit": "37295f174076510f51eaafa11bf11cf491a2cc8c",
+  "library_declarations_checked": 913,
+  "library_declarations": 913,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 912,
-  "verified": 912,
+  "theorems": 913,
+  "verified": 913,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3918,6 +3918,16 @@
     {
       "file": "H5EventualTarget.lean",
       "theorem": "SteklovAudit.H5EventualTarget.h5b_of_smoothedEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HiLinear.lean",
+      "theorem": "SteklovAudit.H5HiLinear.h5b_of_hiLInputs",
       "axioms": [
         "propext",
         "Classical.choice",
