@@ -1171,7 +1171,7 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       `ofSmoothedEv_target`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-15: STATUS PASS 870/870 at 54169c0 (code commit b750b5c), all 7
       `H5EvPaperScaleAudit` theorems verified.
-- [ ] G60. `SteklovAudit/H5EvGrowWitness.lean`: the count row exercised on unbounded truncations.
+- [x] G60. `SteklovAudit/H5EvGrowWitness.lean`: the count row exercised on unbounded truncations.
       `growD (n : ℕ) : Data (Fin n) (Fin n)` with `a i = b i = (i : ℝ)`, `J i j = if i = j then 1 else 0`;
       `growD_rowNorm`, `growD_colNorm` (`Finset.sum_ite_eq` / `Finset.sum_ite_eq'`), `growD_K : (growD n).K i j = 0`
       (unfold `Data.K` as `rnD_K` did; diagonal `J` and `a = b`). `growWitness : H5bPaperScaleInputs` with
@@ -1187,6 +1187,8 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       `growD_rowNorm`, `growD_colNorm`, `growD_K`, `growD_hs2K`, `growD_rowMiss`, `growD_colMiss`,
       `growD_count`, `growD_lowCount`, `growWitness_unbounded`, `growWitness_target`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 880/880 at 2ddc845 (fix commit 407140a), all 10
+      `H5EvGrowWitness` theorems verified.
 - [ ] G61. `SteklovAudit/H5EvLowCountIndep.lean`: `lowCount` is not implied by the other rows. `flatD (n : ℕ) :
       Data (Fin n) (Fin n)` with `a = b = 0` and `J` diagonal (as `growD`); with `n = ⌊L⌋₊` it satisfies
       normalization, the paper-scale `count` (`Cm = 1`), `defect` (`Ck = 0`), `tail` (`τ = 0`), `ha`, `hb`
@@ -1195,6 +1197,10 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
         ((Finset.univ.filter fun i => (flatD ⌊L⌋₊).a i ≤ 0).card : ℝ) ≤ c` (the filter is all of `Fin ⌊L⌋₊`;
       take `L = ⌈c⌉₊ + 2` and use `Nat.floor_natCast` / `Nat.le_ceil`). F table text: the low-energy count row
       is an independent input, not a consequence of the Weyl-type count row. Theorem names as above.
+      Written by the formalize task 2026-11-16 in `SteklovAudit/H5EvLowCountIndep.lean` (uncompiled at push,
+      commit 5184686): def `flatD`; theorems `flatD_rowNorm`, `flatD_colNorm`, `flatD_K`, `flatD_hs2K`,
+      `flatD_count`, `flatD_ha`, `flatD_hb`, `flatD_filter_univ`, `flatD_not_lowCount`. Next run: tick if
+      STATUS shows it compiled.
 
 ## Foundations (long-term)
 
