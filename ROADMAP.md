@@ -1253,7 +1253,7 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       `sqrt_linear_rows`, `lowVanish_of_linear`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 900/900 at d4c2258 (code commit ad580cf), all 5
       `H5LowLinearRows` theorems verified.
-- [ ] G65. `SteklovAudit/H5LowLinearStrict.lean` (imports `SteklovAudit.H5EvLowCountIndep`): the linear low
+- [x] G65. `SteklovAudit/H5LowLinearStrict.lean` (imports `SteklovAudit.H5EvLowCountIndep`): the linear low
       count is strictly weaker than the L-uniform `lowCount`. `flatD_linearCount : ∀ M L : ℝ, ((Finset.univ.filter
       fun i => (flatD ⌊L⌋₊).a i ≤ M).card : ℝ) ≤ 1 * (1 + |L|)` (card of a filter ≤ `Fintype.card (Fin ⌊L⌋₊) =
       ⌊L⌋₊`; `Nat.floor_le` for `0 ≤ L`, `Nat.floor_eq_zero`/`Nat.floor_of_nonpos` for `L < 0`; `le_abs_self`),
@@ -1263,6 +1263,54 @@ G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, re
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5LowLinearStrict.lean` (uncompiled at push,
       commit 1cee561): theorems `floor_le_one_add_abs`, `flatD_filter_card_le`, `flatD_linearCount`,
       `flatD_linearCount_exists`, `linearCount_strictly_weaker`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 905/905 checked at e815998 (status commit
+      544bb40; e815998 fixed 1cee561), all 5 `H5LowLinearStrict` theorems verified.
+
+G66–G70 written by the formalize task on 2026-11-16 (after G65 was ticked). Target row: "High-energy defect tail
+τ(M), σ(M) → 0". In `H5bLowLInputs` (G62) the tail bound `tail : hs2 (mask (hiE (D ε γ L) M) (D ε γ L).K) ≤ τ ε γ M`
+must hold for every `L` (including `L < 1` and every bounded range of `L`), and the high term of
+`cumulative_transfer_bound` is `Λ0 · √(τ · mHi)` with `mHi = Cm (1 + L)²` fixed by `pde.mass`. Only large `L`
+matters for (7.29). G66–G70 let the tail depend on `L` with eventual vanishing, check that this is no stronger and
+strictly weaker, then keep the high-energy mass as its own bound (the mirror of G62). None claims a row is proved for
+the actual operator.
+
+- [ ] G66. `SteklovAudit/H5TailEv.lean` (imports `SteklovAudit.H5LowLinear`): `structure H5bTailEvInputs (E Emod :
+      ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bLowLInputs` (copy names and types from `H5LowLinear.lean`) with `τ`,
+      `tail`, `tailVanish` replaced by `τ : ℝ → ℝ → ℝ → ℝ → ℝ`, `tail : ∀ ε γ M L, 1 ≤ L → hs2 (mask (hiE (D ε γ L)
+      M) (D ε γ L).K) ≤ τ ε γ M L`, and `tailVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L,
+      L₀ ≤ L → τ ε γ M L ≤ δ`. `h5b_of_tailEv : H5bTarget E Emod`, proved directly (not via
+      `little_o_of_vanishing_tail`, whose tail is L-free): `key` as in `h5b_of_lowLInputs` with `H.τ ε γ M L`
+      (for `1 ≤ L`); given `η`, set `C := H.Λ0 ε γ * √(H.Cm ε γ)` and `δ := η / (4 * (C + 1))`; take `M, L₁` from
+      `tailVanish` at `δ ^ 2` (then `√τ ≤ δ` by `Real.sqrt_le_sqrt` + `Real.sqrt_sq`), `L₂` from `lowVanish` at `M`,
+      `η / 4`, `L₃` from `discVanish` at `η / 4`, threshold `max (max 1 L₁) (max L₂ L₃)`; finish with
+      `1 + L ≤ 2 * L`, `C * δ ≤ η / 4` (`div_le_iff₀`/`le_div_iff₀` or `field_simp`, then `nlinarith`) and
+      `linarith`. Docstring: no row is proved. Theorem names: `h5b_of_tailEv`.
+- [ ] G67. `SteklovAudit/H5TailEvAudit.lean`: G66 is no stronger than G62. def `ofLowL : H5bLowLInputs E Emod →
+      H5bTailEvInputs E Emod` with `τ ε γ M _ := H.τ ε γ M`, `tail ε γ M L _ := H.tail ε γ M L`, `tailVanish` from
+      `H.tailVanish` with `L₀ = 0` (any `L₀`), all other fields copied. Theorem names: `ofLowL_nA` (rfl),
+      `ofLowL_τ` (rfl), `ofLowL_target` (`h5b_of_tailEv (ofLowL H)`).
+- [ ] G68. `SteklovAudit/H5TailEvStrict.lean`: the eventual tail row is strictly weaker than the L-uniform one, as
+      a statement about the row's shape (a function `t M L` standing for `hs2 (mask (hiE _ M) K)` at scale `L`).
+      `bumpTail (M L : ℝ) : ℝ := if 1 ≤ L ∧ L < 2 ∧ M < 1 / (2 - L) then 1 else 0` (unit defect mass at energy
+      `1 / (2 - L)` for `L ∈ [1, 2)`, none for `L ≥ 2`). `bumpTail_eventual : ∀ δ > 0, ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L →
+      bumpTail M L ≤ δ` (`M = 0`, `L₀ = 2`, `if_neg`); `bumpTail_not_uniform : ¬ ∃ τ : ℝ → ℝ, (∀ M L, 1 ≤ L →
+      bumpTail M L ≤ τ M) ∧ ∀ δ > 0, ∃ M, τ M ≤ δ` (at `δ = 1/2` with its `M`, take `L = 2 - 1 / (|M| + 1)`, so
+      `1 ≤ L < 2` and `1 / (2 - L) = |M| + 1 > M`; `bumpTail M L = 1 ≤ τ M ≤ 1/2`, contradiction). Theorem names:
+      `bumpTail_eventual`, `bumpTail_not_uniform`, `tailEv_strictly_weaker` (the conjunction). F table text: the
+      tail row needs only `τ(M, L) → 0` along `L → ∞` for some `M`, not a bound uniform in `L ≥ 1`.
+- [ ] G69. `SteklovAudit/H5HiLinear.lean` (imports `SteklovAudit.H5TailEv`): mirror of G62 for the high part.
+      `structure H5bHiLInputs` = `H5bTailEvInputs` with `tailVanish` replaced by `mHi : ℝ → ℝ → ℝ → ℝ → ℝ`,
+      `hiMass : ∀ ε γ M L, hs2 (mask (hiE (D ε γ L) M) (D ε γ L).J) ≤ mHi ε γ M L` and `hiVanish : ∀ ε γ : ℝ,
+      0 < ε → 0 < γ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ M L * mHi ε γ M L) ≤
+      δ * L` (`lowVanish` stays, for every `M`). `h5b_of_hiLInputs : H5bTarget E Emod`: pass `mHi ε γ M L` with `hiMass` as the high mass argument
+      of `cumulative_transfer_bound` (drop `e1`, `e3`), then pick `M, L₁` from `hiVanish` at `η / 3`, `L₂` from `lowVanish` at that `M`
+      and `η / 3`, `L₃` from `discVanish` at `η / 3`, threshold `max (max 1 L₁) (max L₂ L₃)`. Docstring: no row is proved. Theorem names: `h5b_of_hiLInputs`.
+- [ ] G70. `SteklovAudit/H5HiLinearAudit.lean`: G69 is no stronger than G66. def `ofTailEv : H5bTailEvInputs E Emod
+      → H5bHiLInputs E Emod` with `mHi _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`hiMass` from `hs2_mask_le` and
+      `(H.pde ε γ L).mass`), `hiVanish` from `tailVanish` at `(δ / (4 * (C + 1))) ^ 2` with
+      `C = Λ0 · √Cm` and `√(τ · (Cm (1 + L)²)) = √τ · √Cm · (1 + L)` (the `e1` step), threshold `max L₀ 1`.
+      Theorem names: `ofTailEv_nA` (rfl), `ofTailEv_mHi` (rfl), `ofTailEv_target`. F table text: the high-energy
+      row may be stated as one product bound `Λ0 · √(τ · mHi) = o(L)` at a single `M`.
 
 ## Foundations (long-term)
 
