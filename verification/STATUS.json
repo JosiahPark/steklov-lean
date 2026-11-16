@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-16 05:18 UTC",
+  "checked_at": "2026-11-16 06:29 UTC",
   "lean_exit_code": 0,
-  "commit": "1170663f2114cfe80eee563a610de5ec4f326865",
-  "last_passing_commit": "1170663f2114cfe80eee563a610de5ec4f326865",
-  "library_declarations_checked": 889,
-  "library_declarations": 889,
+  "commit": "d5834bc136875a57ae5167c128f296367b365443",
+  "last_passing_commit": "d5834bc136875a57ae5167c128f296367b365443",
+  "library_declarations_checked": 890,
+  "library_declarations": 890,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 889,
-  "verified": 889,
+  "theorems": 890,
+  "verified": 890,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4268,6 +4268,16 @@
     {
       "file": "H5LowCountGrowth.lean",
       "theorem": "SteklovAudit.H5LowCountGrowth.count_not_lowCount",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5LowLinear.lean",
+      "theorem": "SteklovAudit.H5LowLinear.h5b_of_lowLInputs",
       "axioms": [
         "propext",
         "Classical.choice",
