@@ -1189,7 +1189,7 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 880/880 at 2ddc845 (fix commit 407140a), all 10
       `H5EvGrowWitness` theorems verified.
-- [ ] G61. `SteklovAudit/H5EvLowCountIndep.lean`: `lowCount` is not implied by the other rows. `flatD (n : ℕ) :
+- [x] G61. `SteklovAudit/H5EvLowCountIndep.lean`: `lowCount` is not implied by the other rows. `flatD (n : ℕ) :
       Data (Fin n) (Fin n)` with `a = b = 0` and `J` diagonal (as `growD`); with `n = ⌊L⌋₊` it satisfies
       normalization, the paper-scale `count` (`Cm = 1`), `defect` (`Ck = 0`), `tail` (`τ = 0`), `ha`, `hb`
       (state these as `flatD_rowNorm`, `flatD_colNorm`, `flatD_count`, `flatD_K`), but
@@ -1201,6 +1201,50 @@ that the restatement is equivalent (not a weakening), exercise the rows on unbou
       commit 5184686): def `flatD`; theorems `flatD_rowNorm`, `flatD_colNorm`, `flatD_K`, `flatD_hs2K`,
       `flatD_count`, `flatD_ha`, `flatD_hb`, `flatD_filter_univ`, `flatD_not_lowCount`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-16: STATUS PASS 889/889 at 63510e6 (code commit 5184686), all 9
+      `H5EvLowCountIndep` theorems verified.
+
+G62–G65 written by the formalize task on 2026-11-16 (after G61 was ticked). Target row: "Low-energy defect bound
+κ". In `h5b_of_inputs` the low part of `cumulative_transfer_bound` is `lam · √(κ2 · mLo)` with `κ2` L-uniform and
+`mLo = Cm (1 + L)²`, which is why every route so far needs an L-uniform `lowCount`. If the low-energy mass is kept
+as its own bound `mLo`, then `lam → 0` already makes the low term `o(L)` when `κ2` and `mLo` grow linearly in `L`.
+G62–G65 replace the L-uniform low row by a strictly weaker L-dependent one, reduce it to a low-energy count
+`≤ c(M) · (1 + |L|)`, and check strictness with G61's `flatD`. None claims a row is proved for the actual operator.
+
+- [ ] G62. `SteklovAudit/H5LowLinear.lean` (imports `SteklovAudit.H5Compare`): `structure H5bLowLInputs (E Emod :
+      ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bInputs` (copy names and types from `H5Compare.lean`: `nA` … `tailVanish`,
+      `Λ0`, `hΛ0`, `lam`, `hlam`, `lipHi`, `lipLo`) with `κ2`, `lowDefect`, `lamVanish` replaced by
+      `κ2 : ℝ → ℝ → ℝ → ℝ → ℝ`, `lowDefect : ∀ ε γ M L, hs2 (mask (fun i j => ¬ hiE (D ε γ L) M i j) (D ε γ L).K)
+      ≤ κ2 ε γ M L`, `mLo : ℝ → ℝ → ℝ → ℝ → ℝ`, `lowMass : ∀ ε γ M L, hs2 (mask (fun i j => ¬ hiE (D ε γ L) M i j)
+      (D ε γ L).J) ≤ mLo ε γ M L`, and `lowVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ M η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L,
+      L₀ ≤ L → lam ε γ M L * Real.sqrt (κ2 ε γ M L * mLo ε γ M L) ≤ η * L`. `h5b_of_lowLInputs : H5bTarget E Emod`:
+      copy the proof of `h5b_of_inputs`, passing `κ2 ε γ M L` and `mLo ε γ M L` (with `lowMass`) as the low
+      arguments of `cumulative_transfer_bound` (drop `e2`); the `hlow` step uses `lowVanish` at `η / 2` and
+      `discVanish` at `η / 2`. Docstring: no row is proved. Theorem names: `h5b_of_lowLInputs`.
+- [ ] G63. `SteklovAudit/H5LowLinearAudit.lean`: G62 is no stronger than F1. `low_term_le (hlam : 0 ≤ lam)
+      (hs : 0 ≤ s) (hL : 1 ≤ L) (h : lam * (4 * (s + 1)) ≤ η) : lam * (s * (1 + L)) ≤ η * L` (the `k2`–`k4`
+      steps of `h5b_of_inputs`); def `ofInputs : H5bInputs E Emod → H5bLowLInputs E Emod` with `κ2 _ _ M _ :=
+      H.κ2 ε γ M`, `mLo _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`lowMass` from `hs2_mask_le` and `(H.pde ε γ L).mass`),
+      `lowVanish` from `lamVanish` at `η / (4 * (s + 1))` with `s = √(κ2 · Cm)` and the identity
+      `√(κ2 · (Cm (1 + L)²)) = √(κ2 · Cm) · (1 + L)` (the `e2` step of `h5b_of_inputs`), threshold `max L₁ 1`.
+      Theorem names: `low_term_le`, `ofInputs_nA` (rfl), `ofInputs_target` (`h5b_of_lowLInputs (ofInputs H)`).
+- [ ] G64. `SteklovAudit/H5LowLinearRows.lean` (imports `SteklovAudit.H5LowLinear`, `SteklovAudit.H5LowCount`,
+      `SteklovAudit.H5LowMass`): the G62 low rows from a linearly growing low count. For `D : Data ι κ` with
+      Bessel rows, `0 ≤ a`, `0 ≤ b`, and `card (filter (a i ≤ M)) ≤ c`: `lowMass_le_count` (`low_mask_le_rows`
+      then `rows_le_card`) and `lowDefect_le_count : hs2 (mask low K) ≤ M ^ 2 * c` (`lowDefect_of_lowMass`).
+      Scalar step `lowVanish_of_linear (hc : 0 ≤ C) (hlam : ∀ L, 0 ≤ lam L) (hv : ∀ η > 0, ∃ L₀, ∀ L ≥ L₀,
+      lam L ≤ η) : ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, lam L * Real.sqrt ((M ^ 2 * (C * (1 + |L|))) * (C * (1 + |L|))) ≤ η * L`
+      (the root is `|M| * C * (1 + |L|)` by `Real.sqrt_mul_self`/`Real.sqrt_sq` after `ring_nf`; for `L ≥ 1`,
+      `1 + |L| ≤ 2 L`; use `hv` at `η / (2 * (|M| * C + 1))`). Theorem names: `lowMass_le_count`,
+      `lowDefect_le_count`, `lowVanish_of_linear`. F table text: the low-energy row needs only a low count
+      `≤ c(M) · (1 + |L|)` together with `lam → 0`, not an L-uniform count.
+- [ ] G65. `SteklovAudit/H5LowLinearStrict.lean` (imports `SteklovAudit.H5EvLowCountIndep`): the linear low
+      count is strictly weaker than the L-uniform `lowCount`. `flatD_linearCount : ∀ M L : ℝ, ((Finset.univ.filter
+      fun i => (flatD ⌊L⌋₊).a i ≤ M).card : ℝ) ≤ 1 * (1 + |L|)` (card of a filter ≤ `Fintype.card (Fin ⌊L⌋₊) =
+      ⌊L⌋₊`; `Nat.floor_le` for `0 ≤ L`, `Nat.floor_eq_zero`/`Nat.floor_of_nonpos` for `L < 0`; `le_abs_self`),
+      and `linearCount_strictly_weaker`: the conjunction of `flatD_linearCount` with G61's `flatD_not_lowCount`.
+      F table text: on `flatD` the G64 low row holds with `c = 1` while no L-uniform `c` exists. Theorem
+      names: `flatD_linearCount`, `linearCount_strictly_weaker`.
 
 ## Foundations (long-term)
 
