@@ -1397,7 +1397,7 @@ other than `cutoff`/`disc` carry no information about `E − Emod`; G77–G78 we
 energy depend on `L`, and check that this is no stronger and strictly weaker. None claims a row is proved for the actual
 operator.
 
-- [ ] G75. `SteklovAudit/H5JointIff.lean` (imports `SteklovAudit.H5Joint`): the F2 audit for the joint form.
+- [x] G75. `SteklovAudit/H5JointIff.lean` (imports `SteklovAudit.H5Joint`): the F2 audit for the joint form.
       `noncomputable def jointOfTarget (h : H5bTarget E Emod) : H5bJointInputs E Emod` with `nA = nB = 0`,
       `D := fun _ _ _ => emptyData` (`H5Compare.emptyData`), `disc ε γ L := |E ε γ L - Emod ε γ L|` (`cutoff` by
       `simp`), every other function `0`, `pde` copied from how `H5Compare.inputsOfTarget` builds it; `discVanish` is
@@ -1405,6 +1405,8 @@ operator.
       using `0 ≤ L`). Theorem names: `jointOfTarget` (def), `jointInputs_iff_target : Nonempty (H5bJointInputs E Emod)
       ↔ H5bTarget E Emod` (← by `⟨jointOfTarget h⟩`, → by `h5b_of_jointInputs`). F table text: with `D` unconstrained the
       joint form, like F1, is equivalent to the target; the caveat sits in the `cutoff`/`disc` row.
+      Ticked by the formalize task 2026-11-17: STATUS PASS 929/929 at 6149898, `H5JointIff.jointInputs_iff_target`
+      and `H5JointIff.jointInputs_nonempty` verified.
 - [ ] G76. `SteklovAudit/H5JointCutoffNeeded.lean`: the `cutoff` row is the only link to `E`. `sq_target_fails : ¬
       H5bTarget (fun _ _ L => L ^ 2) (fun _ _ _ => 0)` (unfold `H5bTarget`; apply at `ε = γ = η = 1`, take
       `L = max L₀ 2`, then `L ^ 2 ≤ L` contradicts `2 ≤ L` via `nlinarith`; `abs_of_nonneg` / `sq_nonneg` for the
@@ -1412,6 +1414,9 @@ operator.
       Real.sqrt (0 * 0) ≤ η * L` (`M = 0`, `L₀ = 0`, `simp`, `positivity`). Theorem names: `sq_target_fails`,
       `zero_rows_hold`, `cutoff_row_needed` (the conjunction). F table text: all rows except `cutoff`/`disc` can hold
       with zero functions while `E − Emod` grows like `L²`, so they constrain `E` only through `cutoff`.
+      Written by the formalize task 2026-11-17 in `SteklovAudit/H5JointCutoffNeeded.lean` (uncompiled at push,
+      commit 49e8cb1): theorems `sq_target_fails`, `zero_rows_hold`, `cutoff_row_needed`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G77. `SteklovAudit/H5JointSel.lean` (imports `SteklovAudit.H5Joint`): the split energy may depend on `L`.
       `structure H5bJointSelInputs (E Emod)` = the fields of `H5bJointInputs` (copy names and types from
       `H5Joint.lean`) with `jointVanish` replaced by `selVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel
