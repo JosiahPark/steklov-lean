@@ -1325,7 +1325,7 @@ the actual operator.
       shows it compiled.
       Ticked by the formalize task 2026-11-16: STATUS PASS 913/913 at da786df,
       `H5HiLinear.h5b_of_hiLInputs` verified.
-- [ ] G70. `SteklovAudit/H5HiLinearAudit.lean`: G69 is no stronger than G66. def `ofTailEv : H5bTailEvInputs E Emod
+- [x] G70. `SteklovAudit/H5HiLinearAudit.lean`: G69 is no stronger than G66. def `ofTailEv : H5bTailEvInputs E Emod
       → H5bHiLInputs E Emod` with `mHi _ _ _ L := H.Cm ε γ * (1 + L) ^ 2` (`hiMass` from `hs2_mask_le` and
       `(H.pde ε γ L).mass`), `hiVanish` from `tailVanish` at `(δ / (4 * (C + 1))) ^ 2` with
       `C = Λ0 · √Cm` and `√(τ · (Cm (1 + L)²)) = √τ · √Cm · (1 + L)` (the `e1` step), threshold `max L₀ 1`.
@@ -1334,6 +1334,43 @@ the actual operator.
       Written by the formalize task 2026-11-16 in `SteklovAudit/H5HiLinearAudit.lean` (uncompiled at push,
       commit 5e6e0de): def `ofTailEv`; theorems `hi_term_le`, `ofTailEv_nA`, `ofTailEv_mHi`,
       `ofTailEv_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-17: STATUS PASS 917/917 at 7df4c11, all 4 `H5HiLinearAudit`
+      theorems verified.
+
+G71–G74 written by the formalize task on 2026-11-17 (after G70 was ticked). G71 shows the G69 high row is strictly
+weaker than G66's tail row; G72–G74 merge `hiVanish` and `lowVanish` into one joint row that needs the low-energy
+term to vanish only at the split energy `M` actually chosen, not at every `M`, and check that this is no stronger
+and strictly weaker. None claims a row is proved for the actual operator.
+
+- [ ] G71. `SteklovAudit/H5HiLinearStrict.lean`: the G69 high row is strictly weaker than the G66 tail row, as a
+      statement about row shapes (`t M L` for the tail bound τ, `m M L` for the high mass mHi). Take
+      `constTail (M L : ℝ) : ℝ := 1` (a defect tail that never decays) and `unitMass (M L : ℝ) : ℝ := 1` (high-energy
+      mass `O(1)`, not `O(L²)`). `constTail_hiVanish : ∀ Λ : ℝ, 0 ≤ Λ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L →
+      Λ * Real.sqrt (constTail M L * unitMass M L) ≤ δ * L` (`M = 0`, `L₀ = Λ / δ`; `Real.sqrt_one` via `simp`, then
+      `div_le_iff₀` / `le_div_iff₀` and `nlinarith`); `constTail_not_tailEv : ¬ ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → constTail M L
+      ≤ 1 / 2` (apply at `L = L₀`, `norm_num`). Theorem names: `constTail_hiVanish`, `constTail_not_tailEv`,
+      `hiL_strictly_weaker` (the conjunction at `Λ = 1`). F table text: the high-energy row can hold with no tail decay
+      at all if the high-energy mass is `o(L²)`.
+- [ ] G72. `SteklovAudit/H5Joint.lean` (imports `SteklovAudit.H5HiLinear`): `structure H5bJointInputs (E Emod : ℝ →
+      ℝ → ℝ → ℝ)` = the fields of `H5bHiLInputs` (copy names and types from `H5HiLinear.lean`) with `hiVanish` and
+      `lowVanish` replaced by one field `jointVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L,
+      L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ M L * mHi ε γ M L) + lam ε γ M L * Real.sqrt (κ2 ε γ M L * mLo ε γ M L) ≤
+      η * L`. `h5b_of_jointInputs : H5bTarget E Emod`: `key` exactly as in `h5b_of_hiLInputs`; take `M, L₁` from
+      `jointVanish` at `η / 2`, `L₂` from `discVanish` at `η / 2`, threshold `max (max 1 L₁) L₂`, finish with
+      `linarith`. Docstring: no row is proved; `disc` stays its own row. Theorem names: `h5b_of_jointInputs`.
+- [ ] G73. `SteklovAudit/H5JointAudit.lean` (imports `SteklovAudit.H5Joint`): G72 is no stronger than G69. def
+      `ofHiL : H5bHiLInputs E Emod → H5bJointInputs E Emod`, all fields copied, `jointVanish` from `H.hiVanish` at
+      `η / 2` (giving `M, L₁`), then `H.lowVanish` at that `M` and `η / 2` (giving `L₂`), threshold `max L₁ L₂`,
+      `linarith` with `η / 2 * L + η / 2 * L = η * L` (`ring`). Theorem names: `ofHiL_nA` (rfl), `ofHiL_τ` (rfl),
+      `ofHiL_target` (`h5b_of_jointInputs (ofHiL H)`).
+- [ ] G74. `SteklovAudit/H5JointStrict.lean`: the joint row is strictly weaker than "high row at some `M` and low
+      row at every `M`", as a statement about row shapes. `hiZero (M L : ℝ) : ℝ := 0` and `loBad (M L : ℝ) : ℝ :=
+      if 0 < M then L else 0` (the low-energy term is `o(L)` only for the split energy `M ≤ 0`). `joint_holds : ∀ η :
+      ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → hiZero M L + loBad M L ≤ η * L` (`M = 0`, `L₀ = 0`, `simp`, `positivity` or
+      `nlinarith`); `lowEvery_fails : ¬ ∀ M η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → loBad M L ≤ η * L` (at `M = 1`,
+      `η = 1 / 2`, take `L = max L₀ 1`, `if_pos`, `linarith`). Theorem names: `joint_holds`, `lowEvery_fails`,
+      `joint_strictly_weaker` (the conjunction). F table text: the low-energy row is needed only at the split
+      energy used for the high row.
 
 ## Foundations (long-term)
 
