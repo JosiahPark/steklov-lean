@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-17 04:21 UTC",
+  "checked_at": "2026-11-17 05:19 UTC",
   "lean_exit_code": 0,
-  "commit": "acf4fb715b9f725eefa408e8ab18c6cbf08cbe91",
-  "last_passing_commit": "acf4fb715b9f725eefa408e8ab18c6cbf08cbe91",
-  "library_declarations_checked": 924,
-  "library_declarations": 924,
+  "commit": "acfd0b39598dcf35561ffd7ab3db50b7a55450aa",
+  "last_passing_commit": "acfd0b39598dcf35561ffd7ab3db50b7a55450aa",
+  "library_declarations_checked": 927,
+  "library_declarations": 927,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 924,
-  "verified": 924,
+  "theorems": 927,
+  "verified": 927,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4168,6 +4168,36 @@
     {
       "file": "H5JointAudit.lean",
       "theorem": "SteklovAudit.H5JointAudit.ofHiL_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5JointStrict.lean",
+      "theorem": "SteklovAudit.H5JointStrict.joint_holds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5JointStrict.lean",
+      "theorem": "SteklovAudit.H5JointStrict.lowEvery_fails",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5JointStrict.lean",
+      "theorem": "SteklovAudit.H5JointStrict.joint_strictly_weaker",
       "axioms": [
         "propext",
         "Classical.choice",
