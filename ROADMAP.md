@@ -1342,7 +1342,7 @@ weaker than G66's tail row; G72–G74 merge `hiVanish` and `lowVanish` into one 
 term to vanish only at the split energy `M` actually chosen, not at every `M`, and check that this is no stronger
 and strictly weaker. None claims a row is proved for the actual operator.
 
-- [ ] G71. `SteklovAudit/H5HiLinearStrict.lean`: the G69 high row is strictly weaker than the G66 tail row, as a
+- [x] G71. `SteklovAudit/H5HiLinearStrict.lean`: the G69 high row is strictly weaker than the G66 tail row, as a
       statement about row shapes (`t M L` for the tail bound τ, `m M L` for the high mass mHi). Take
       `constTail (M L : ℝ) : ℝ := 1` (a defect tail that never decays) and `unitMass (M L : ℝ) : ℝ := 1` (high-energy
       mass `O(1)`, not `O(L²)`). `constTail_hiVanish : ∀ Λ : ℝ, 0 ≤ Λ → ∀ δ : ℝ, 0 < δ → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L →
@@ -1354,6 +1354,8 @@ and strictly weaker. None claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-17 in `SteklovAudit/H5HiLinearStrict.lean` (uncompiled at push,
       commit e8f9d1c): defs `constTail`, `unitMass`; theorems `constTail_hiVanish`, `constTail_not_tailEv`,
       `hiL_strictly_weaker`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-17: STATUS PASS 920/920 at be92558, all 3 `H5HiLinearStrict`
+      theorems verified.
 - [ ] G72. `SteklovAudit/H5Joint.lean` (imports `SteklovAudit.H5HiLinear`): `structure H5bJointInputs (E Emod : ℝ →
       ℝ → ℝ → ℝ)` = the fields of `H5bHiLInputs` (copy names and types from `H5HiLinear.lean`) with `hiVanish` and
       `lowVanish` replaced by one field `jointVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L,
@@ -1361,6 +1363,9 @@ and strictly weaker. None claims a row is proved for the actual operator.
       η * L`. `h5b_of_jointInputs : H5bTarget E Emod`: `key` exactly as in `h5b_of_hiLInputs`; take `M, L₁` from
       `jointVanish` at `η / 2`, `L₂` from `discVanish` at `η / 2`, threshold `max (max 1 L₁) L₂`, finish with
       `linarith`. Docstring: no row is proved; `disc` stays its own row. Theorem names: `h5b_of_jointInputs`.
+      Written by the formalize task 2026-11-17 in `SteklovAudit/H5Joint.lean` (uncompiled at push,
+      commit f4ad4df): structure `H5bJointInputs`; theorem `h5b_of_jointInputs`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G73. `SteklovAudit/H5JointAudit.lean` (imports `SteklovAudit.H5Joint`): G72 is no stronger than G69. def
       `ofHiL : H5bHiLInputs E Emod → H5bJointInputs E Emod`, all fields copied, `jointVanish` from `H.hiVanish` at
       `η / 2` (giving `M, L₁`), then `H.lowVanish` at that `M` and `η / 2` (giving `L₂`), threshold `max L₁ L₂`,
