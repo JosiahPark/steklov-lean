@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-17 00:41 UTC",
+  "checked_at": "2026-11-17 01:21 UTC",
   "lean_exit_code": 0,
-  "commit": "e3a0700be5f9e9090c0105f73eb8ea1b8068896e",
-  "last_passing_commit": "e3a0700be5f9e9090c0105f73eb8ea1b8068896e",
-  "library_declarations_checked": 917,
-  "library_declarations": 917,
+  "commit": "be9255802f9e738da6605657752887c708886848",
+  "last_passing_commit": "be9255802f9e738da6605657752887c708886848",
+  "library_declarations_checked": 920,
+  "library_declarations": 920,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 917,
-  "verified": 917,
+  "theorems": 920,
+  "verified": 920,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3968,6 +3968,36 @@
     {
       "file": "H5HiLinearAudit.lean",
       "theorem": "SteklovAudit.H5HiLinearAudit.ofTailEv_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HiLinearStrict.lean",
+      "theorem": "SteklovAudit.H5HiLinearStrict.constTail_hiVanish",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HiLinearStrict.lean",
+      "theorem": "SteklovAudit.H5HiLinearStrict.constTail_not_tailEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5HiLinearStrict.lean",
+      "theorem": "SteklovAudit.H5HiLinearStrict.hiL_strictly_weaker",
       "axioms": [
         "propext",
         "Classical.choice",
