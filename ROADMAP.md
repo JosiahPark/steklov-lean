@@ -1351,6 +1351,9 @@ and strictly weaker. None claims a row is proved for the actual operator.
       ≤ 1 / 2` (apply at `L = L₀`, `norm_num`). Theorem names: `constTail_hiVanish`, `constTail_not_tailEv`,
       `hiL_strictly_weaker` (the conjunction at `Λ = 1`). F table text: the high-energy row can hold with no tail decay
       at all if the high-energy mass is `o(L²)`.
+      Written by the formalize task 2026-11-17 in `SteklovAudit/H5HiLinearStrict.lean` (uncompiled at push,
+      commit e8f9d1c): defs `constTail`, `unitMass`; theorems `constTail_hiVanish`, `constTail_not_tailEv`,
+      `hiL_strictly_weaker`. Next run: tick if STATUS shows it compiled.
 - [ ] G72. `SteklovAudit/H5Joint.lean` (imports `SteklovAudit.H5HiLinear`): `structure H5bJointInputs (E Emod : ℝ →
       ℝ → ℝ → ℝ)` = the fields of `H5bHiLInputs` (copy names and types from `H5HiLinear.lean`) with `hiVanish` and
       `lowVanish` replaced by one field `jointVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L,
