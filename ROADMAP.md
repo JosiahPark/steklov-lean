@@ -1368,7 +1368,7 @@ and strictly weaker. None claims a row is proved for the actual operator.
       shows it compiled.
       Ticked by the formalize task 2026-11-17: STATUS PASS 921/921 at c474cd4,
       `H5Joint.h5b_of_jointInputs` verified.
-- [ ] G73. `SteklovAudit/H5JointAudit.lean` (imports `SteklovAudit.H5Joint`): G72 is no stronger than G69. def
+- [x] G73. `SteklovAudit/H5JointAudit.lean` (imports `SteklovAudit.H5Joint`): G72 is no stronger than G69. def
       `ofHiL : H5bHiLInputs E Emod → H5bJointInputs E Emod`, all fields copied, `jointVanish` from `H.hiVanish` at
       `η / 2` (giving `M, L₁`), then `H.lowVanish` at that `M` and `η / 2` (giving `L₂`), threshold `max L₁ L₂`,
       `linarith` with `η / 2 * L + η / 2 * L = η * L` (`ring`). Theorem names: `ofHiL_nA` (rfl), `ofHiL_τ` (rfl),
@@ -1376,7 +1376,9 @@ and strictly weaker. None claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-17 in `SteklovAudit/H5JointAudit.lean` (uncompiled at push,
       commit 37418b3): def `ofHiL`; theorems `ofHiL_nA`, `ofHiL_τ`, `ofHiL_target`. Next run: tick if
       STATUS shows it compiled.
-- [ ] G74. `SteklovAudit/H5JointStrict.lean`: the joint row is strictly weaker than "high row at some `M` and low
+      Ticked by the formalize task 2026-11-17: STATUS PASS 927/927 at 08e5bc2, all 3 `H5JointAudit`
+      theorems verified.
+- [x] G74. `SteklovAudit/H5JointStrict.lean`: the joint row is strictly weaker than "high row at some `M` and low
       row at every `M`", as a statement about row shapes. `hiZero (M L : ℝ) : ℝ := 0` and `loBad (M L : ℝ) : ℝ :=
       if 0 < M then L else 0` (the low-energy term is `o(L)` only for the split energy `M ≤ 0`). `joint_holds : ∀ η :
       ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → hiZero M L + loBad M L ≤ η * L` (`M = 0`, `L₀ = 0`, `simp`, `positivity` or
@@ -1384,6 +1386,47 @@ and strictly weaker. None claims a row is proved for the actual operator.
       `η = 1 / 2`, take `L = max L₀ 1`, `if_pos`, `linarith`). Theorem names: `joint_holds`, `lowEvery_fails`,
       `joint_strictly_weaker` (the conjunction). F table text: the low-energy row is needed only at the split
       energy used for the high row.
+      Written by the formalize task 2026-11-17 in `SteklovAudit/H5JointStrict.lean` (commit acfd0b3): theorems
+      `joint_holds`, `lowEvery_fails`, `joint_strictly_weaker`.
+      Ticked by the formalize task 2026-11-17: STATUS PASS 927/927 at 08e5bc2, all 3 `H5JointStrict`
+      theorems verified.
+
+G75–G78 written by the formalize task on 2026-11-17 (after G73 and G74 were ticked). G75 checks whether the joint form
+inherits the F2 caveat (`cutoff`/`discVanish` alone can carry the target when `D` is unconstrained); G76 shows the rows
+other than `cutoff`/`disc` carry no information about `E − Emod`; G77–G78 weaken the joint row by letting the split
+energy depend on `L`, and check that this is no stronger and strictly weaker. None claims a row is proved for the actual
+operator.
+
+- [ ] G75. `SteklovAudit/H5JointIff.lean` (imports `SteklovAudit.H5Joint`): the F2 audit for the joint form.
+      `noncomputable def jointOfTarget (h : H5bTarget E Emod) : H5bJointInputs E Emod` with `nA = nB = 0`,
+      `D := fun _ _ _ => emptyData` (`H5Compare.emptyData`), `disc ε γ L := |E ε γ L - Emod ε γ L|` (`cutoff` by
+      `simp`), every other function `0`, `pde` copied from how `H5Compare.inputsOfTarget` builds it; `discVanish` is
+      `h` itself (unfold `H5bTarget`), `jointVanish` with `M = 0`, `L₀ = 0` (`simp`, then `positivity`/`nlinarith`
+      using `0 ≤ L`). Theorem names: `jointOfTarget` (def), `jointInputs_iff_target : Nonempty (H5bJointInputs E Emod)
+      ↔ H5bTarget E Emod` (← by `⟨jointOfTarget h⟩`, → by `h5b_of_jointInputs`). F table text: with `D` unconstrained the
+      joint form, like F1, is equivalent to the target; the caveat sits in the `cutoff`/`disc` row.
+- [ ] G76. `SteklovAudit/H5JointCutoffNeeded.lean`: the `cutoff` row is the only link to `E`. `sq_target_fails : ¬
+      H5bTarget (fun _ _ L => L ^ 2) (fun _ _ _ => 0)` (unfold `H5bTarget`; apply at `ε = γ = η = 1`, take
+      `L = max L₀ 2`, then `L ^ 2 ≤ L` contradicts `2 ≤ L` via `nlinarith`; `abs_of_nonneg` / `sq_nonneg` for the
+      absolute value); `zero_rows_hold : ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → (0 : ℝ) * Real.sqrt (0 * 0) + 0 *
+      Real.sqrt (0 * 0) ≤ η * L` (`M = 0`, `L₀ = 0`, `simp`, `positivity`). Theorem names: `sq_target_fails`,
+      `zero_rows_hold`, `cutoff_row_needed` (the conjunction). F table text: all rows except `cutoff`/`disc` can hold
+      with zero functions while `E − Emod` grows like `L²`, so they constrain `E` only through `cutoff`.
+- [ ] G77. `SteklovAudit/H5JointSel.lean` (imports `SteklovAudit.H5Joint`): the split energy may depend on `L`.
+      `structure H5bJointSelInputs (E Emod)` = the fields of `H5bJointInputs` (copy names and types from
+      `H5Joint.lean`) with `jointVanish` replaced by `selVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel
+      : ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ (Msel L) L * mHi ε γ (Msel L) L) + lam ε γ (Msel L)
+      L * Real.sqrt (κ2 ε γ (Msel L) L * mLo ε γ (Msel L) L) ≤ η * L`. `h5b_of_jointSelInputs : H5bTarget E Emod`:
+      `key` exactly as in `h5b_of_jointInputs` (it holds for every `M` and `L`), applied at `M = Msel L`; thresholds
+      as in G72. Docstring: no row is proved. Theorem names: `h5b_of_jointSelInputs`.
+- [ ] G78. `SteklovAudit/H5JointSelAudit.lean` (imports `SteklovAudit.H5JointSel`): G77 is no stronger than G72 and
+      strictly weaker as row shapes. def `ofJoint : H5bJointInputs E Emod → H5bJointSelInputs E Emod` (all fields
+      copied, `Msel := fun _ => M`); theorems `ofJoint_τ` (rfl), `ofJoint_target`. Row shapes: `late (M L : ℝ) : ℝ :=
+      if L ≤ M then 0 else L`; `sel_holds : ∀ η : ℝ, 0 < η → ∃ (Msel : ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → late (Msel L) L
+      ≤ η * L` (`Msel = id`, `L₀ = 0`, `if_pos le_rfl`, `positivity`); `const_fails : ¬ ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → late M
+      L ≤ 1 / 2 * L` (take `L = max L₀ (M + 1) ` and also `L ≥ 1`: use `max (max L₀ (M + 1)) 1`, `if_neg`, `linarith`).
+      Theorem names: `ofJoint_τ`, `ofJoint_target`, `sel_holds`, `const_fails`, `sel_strictly_weaker`. F table text:
+      the split energy in (7.29) may be chosen as a function of `L`.
 
 ## Foundations (long-term)
 
