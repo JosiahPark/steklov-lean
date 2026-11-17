@@ -1356,7 +1356,7 @@ and strictly weaker. None claims a row is proved for the actual operator.
       `hiL_strictly_weaker`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-17: STATUS PASS 920/920 at be92558, all 3 `H5HiLinearStrict`
       theorems verified.
-- [ ] G72. `SteklovAudit/H5Joint.lean` (imports `SteklovAudit.H5HiLinear`): `structure H5bJointInputs (E Emod : ℝ →
+- [x] G72. `SteklovAudit/H5Joint.lean` (imports `SteklovAudit.H5HiLinear`): `structure H5bJointInputs (E Emod : ℝ →
       ℝ → ℝ → ℝ)` = the fields of `H5bHiLInputs` (copy names and types from `H5HiLinear.lean`) with `hiVanish` and
       `lowVanish` replaced by one field `jointVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L,
       L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ M L * mHi ε γ M L) + lam ε γ M L * Real.sqrt (κ2 ε γ M L * mLo ε γ M L) ≤
@@ -1366,11 +1366,16 @@ and strictly weaker. None claims a row is proved for the actual operator.
       Written by the formalize task 2026-11-17 in `SteklovAudit/H5Joint.lean` (uncompiled at push,
       commit f4ad4df): structure `H5bJointInputs`; theorem `h5b_of_jointInputs`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-17: STATUS PASS 921/921 at c474cd4,
+      `H5Joint.h5b_of_jointInputs` verified.
 - [ ] G73. `SteklovAudit/H5JointAudit.lean` (imports `SteklovAudit.H5Joint`): G72 is no stronger than G69. def
       `ofHiL : H5bHiLInputs E Emod → H5bJointInputs E Emod`, all fields copied, `jointVanish` from `H.hiVanish` at
       `η / 2` (giving `M, L₁`), then `H.lowVanish` at that `M` and `η / 2` (giving `L₂`), threshold `max L₁ L₂`,
       `linarith` with `η / 2 * L + η / 2 * L = η * L` (`ring`). Theorem names: `ofHiL_nA` (rfl), `ofHiL_τ` (rfl),
       `ofHiL_target` (`h5b_of_jointInputs (ofHiL H)`).
+      Written by the formalize task 2026-11-17 in `SteklovAudit/H5JointAudit.lean` (uncompiled at push,
+      commit 37418b3): def `ofHiL`; theorems `ofHiL_nA`, `ofHiL_τ`, `ofHiL_target`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G74. `SteklovAudit/H5JointStrict.lean`: the joint row is strictly weaker than "high row at some `M` and low
       row at every `M`", as a statement about row shapes. `hiZero (M L : ℝ) : ℝ := 0` and `loBad (M L : ℝ) : ℝ :=
       if 0 < M then L else 0` (the low-energy term is `o(L)` only for the split energy `M ≤ 0`). `joint_holds : ∀ η :
