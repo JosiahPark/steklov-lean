@@ -1407,7 +1407,7 @@ operator.
       joint form, like F1, is equivalent to the target; the caveat sits in the `cutoff`/`disc` row.
       Ticked by the formalize task 2026-11-17: STATUS PASS 929/929 at 6149898, `H5JointIff.jointInputs_iff_target`
       and `H5JointIff.jointInputs_nonempty` verified.
-- [ ] G76. `SteklovAudit/H5JointCutoffNeeded.lean`: the `cutoff` row is the only link to `E`. `sq_target_fails : ¬
+- [x] G76. `SteklovAudit/H5JointCutoffNeeded.lean`: the `cutoff` row is the only link to `E`. `sq_target_fails : ¬
       H5bTarget (fun _ _ L => L ^ 2) (fun _ _ _ => 0)` (unfold `H5bTarget`; apply at `ε = γ = η = 1`, take
       `L = max L₀ 2`, then `L ^ 2 ≤ L` contradicts `2 ≤ L` via `nlinarith`; `abs_of_nonneg` / `sq_nonneg` for the
       absolute value); `zero_rows_hold : ∀ η : ℝ, 0 < η → ∃ M L₀ : ℝ, ∀ L, L₀ ≤ L → (0 : ℝ) * Real.sqrt (0 * 0) + 0 *
@@ -1417,6 +1417,8 @@ operator.
       Written by the formalize task 2026-11-17 in `SteklovAudit/H5JointCutoffNeeded.lean` (uncompiled at push,
       commit 49e8cb1): theorems `sq_target_fails`, `zero_rows_hold`, `cutoff_row_needed`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 932/932 at ffda128, all 3 `H5JointCutoffNeeded`
+      theorems verified.
 - [ ] G77. `SteklovAudit/H5JointSel.lean` (imports `SteklovAudit.H5Joint`): the split energy may depend on `L`.
       `structure H5bJointSelInputs (E Emod)` = the fields of `H5bJointInputs` (copy names and types from
       `H5Joint.lean`) with `jointVanish` replaced by `selVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel
@@ -1424,6 +1426,9 @@ operator.
       L * Real.sqrt (κ2 ε γ (Msel L) L * mLo ε γ (Msel L) L) ≤ η * L`. `h5b_of_jointSelInputs : H5bTarget E Emod`:
       `key` exactly as in `h5b_of_jointInputs` (it holds for every `M` and `L`), applied at `M = Msel L`; thresholds
       as in G72. Docstring: no row is proved. Theorem names: `h5b_of_jointSelInputs`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5JointSel.lean` (uncompiled at push,
+      commit 5af98ca): structure `H5bJointSelInputs`; theorem `h5b_of_jointSelInputs`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G78. `SteklovAudit/H5JointSelAudit.lean` (imports `SteklovAudit.H5JointSel`): G77 is no stronger than G72 and
       strictly weaker as row shapes. def `ofJoint : H5bJointInputs E Emod → H5bJointSelInputs E Emod` (all fields
       copied, `Msel := fun _ => M`); theorems `ofJoint_τ` (rfl), `ofJoint_target`. Row shapes: `late (M L : ℝ) : ℝ :=
