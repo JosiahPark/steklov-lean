@@ -1509,6 +1509,9 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       H5bSelDirectInputs E Emod → H5bSelMinInputs E Emod` (fields copied) and `forgetPde_target`. Theorem names:
       `h5b_of_selMinInputs`, `forgetPde_target`. F table text: in the direct form the rows (2.2) and Lemma 7.1′
       (`PDEInputs.mass`, `.defect`) are not separate inputs; they matter only as a means of proving `directVanish`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelMin.lean` (uncompiled at push,
+      commit 2e8988f): structure `H5bSelMinInputs`; def `forgetPde`; theorems `h5b_of_selMinInputs`,
+      `forgetPde_Λ0`, `forgetPde_target`. Next run: tick if STATUS shows it compiled.
 - [ ] G84. `SteklovAudit/H5SelMinStrict.lean` (imports `SteklovAudit.H5SelMin`): G83 is strictly weaker than G80 on
       the data level. `bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = b = 0`, `J _ _ = (1 + |L|) ^ 2` (so `K = 0`).
       `bigD_selMin : H5bSelMinInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 1`, `D _ _ L := bigD L`,
