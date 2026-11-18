@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-18 16:21 UTC",
+  "checked_at": "2026-11-18 17:24 UTC",
   "lean_exit_code": 0,
-  "commit": "1fa8e1b6c1bd59fd410cfb96d00cafed16e94f2b",
-  "last_passing_commit": "1fa8e1b6c1bd59fd410cfb96d00cafed16e94f2b",
-  "library_declarations_checked": 945,
-  "library_declarations": 945,
+  "commit": "55d25e2d8ea0fc08c3b08ab9874e70de6af91e3e",
+  "last_passing_commit": "55d25e2d8ea0fc08c3b08ab9874e70de6af91e3e",
+  "library_declarations_checked": 948,
+  "library_declarations": 948,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 945,
-  "verified": 945,
+  "theorems": 948,
+  "verified": 948,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5738,6 +5738,36 @@
     {
       "file": "H5SelDirectIff.lean",
       "theorem": "SteklovAudit.H5SelDirectIff.selDirect_nonempty_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SelMin.lean",
+      "theorem": "SteklovAudit.H5SelMin.h5b_of_selMinInputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SelMin.lean",
+      "theorem": "SteklovAudit.H5SelMin.forgetPde_\u039b0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SelMin.lean",
+      "theorem": "SteklovAudit.H5SelMin.forgetPde_target",
       "axioms": [
         "propext",
         "Classical.choice",
