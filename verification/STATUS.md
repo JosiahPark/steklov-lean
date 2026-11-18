@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-18 15:51 UTC at commit `653a147eb087`. Last passing commit: `653a147eb087`.
+Checked 2026-11-18 16:10 UTC at commit `7a28d0269f9d`. Last passing commit: `7a28d0269f9d`.
 
-Library declarations checked: 943 of 943 theorems compile with only Lean's standard axioms.
+Library declarations checked: 945 of 945 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -597,6 +597,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SelDirect.lean | `SteklovAudit.H5SelDirect.h5b_of_selDirectInputs` | verified (standard axioms only) |
 | H5SelDirectAudit.lean | `SteklovAudit.H5SelDirectAudit.ofSel_Λ0` | verified (standard axioms only) |
 | H5SelDirectAudit.lean | `SteklovAudit.H5SelDirectAudit.ofSel_target` | verified (standard axioms only) |
+| H5SelDirectIff.lean | `SteklovAudit.H5SelDirectIff.selDirect_iff_target` | verified (standard axioms only) |
+| H5SelDirectIff.lean | `SteklovAudit.H5SelDirectIff.selDirect_nonempty_zero` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_rowTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_colTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_trueSide` | verified (standard axioms only) |

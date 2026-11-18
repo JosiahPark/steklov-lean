@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-18 15:51 UTC",
+  "checked_at": "2026-11-18 16:10 UTC",
   "lean_exit_code": 0,
-  "commit": "653a147eb0879e2008139209f863d63a92b5d0d7",
-  "last_passing_commit": "653a147eb0879e2008139209f863d63a92b5d0d7",
-  "library_declarations_checked": 943,
-  "library_declarations": 943,
+  "commit": "7a28d0269f9d4d37d83314092746b980fad6ede1",
+  "last_passing_commit": "7a28d0269f9d4d37d83314092746b980fad6ede1",
+  "library_declarations_checked": 945,
+  "library_declarations": 945,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 943,
-  "verified": 943,
+  "theorems": 945,
+  "verified": 945,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5718,6 +5718,26 @@
     {
       "file": "H5SelDirectAudit.lean",
       "theorem": "SteklovAudit.H5SelDirectAudit.ofSel_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SelDirectIff.lean",
+      "theorem": "SteklovAudit.H5SelDirectIff.selDirect_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5SelDirectIff.lean",
+      "theorem": "SteklovAudit.H5SelDirectIff.selDirect_nonempty_zero",
       "axioms": [
         "propext",
         "Classical.choice",
