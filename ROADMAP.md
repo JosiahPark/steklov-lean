@@ -1539,7 +1539,7 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       `split_le_unsplit`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 956/956 at 587302d, all three `H5MaskSplit`
       theorems verified.
-- [ ] G86. `SteklovAudit/H5GlobalLip.lean` (imports `SteklovAudit.H5SelMin`, `SteklovAudit.H5MaskSplit`): the
+- [x] G86. `SteklovAudit/H5GlobalLip.lean` (imports `SteklovAudit.H5SelMin`, `SteklovAudit.H5MaskSplit`): the
       uniform-Lipschitz case of the row "Lipschitz-type bounds Λ, λ". `structure H5bGlobalLipInputs (E Emod)` = `nA`,
       `nB`, `D`, `F`, `disc`, `cutoff`, `discVanish` (as in G83), `Λ : ℝ → ℝ → ℝ`, `hΛ : ∀ ε γ, 0 ≤ Λ ε γ`, `lip : ∀ ε γ L
       x y, |F ε γ L x - F ε γ L y| ≤ Λ ε γ * |x - y|`, `globalVanish : ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L
@@ -1551,6 +1551,50 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLip.lean` (uncompiled at push,
       commit e91c7dc): structure `H5bGlobalLipInputs`; def `toSelMin`; theorems `toSelMin_Λ0`,
       `h5b_of_globalLipInputs`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 958/958 at 33f1b69, both `H5GlobalLip`
+      theorems verified.
+
+Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item was left in A–G).
+
+- [ ] G87. `SteklovAudit/H5GlobalLipAudit.lean` (imports `SteklovAudit.H5GlobalLip`): the F2 audit for G86.
+      `globalLip_nonempty_zero : Nonempty (H5bGlobalLipInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0))` (`nA = nB = 0`,
+      `D` with `a = b = 0`, `J = 0`, `F = 0`, `disc = 0`, `Λ = 0`; every field by `simp`, `L₀ := 0`).
+      `noncomputable def ofTarget (h : H5bTarget E Emod) : H5bGlobalLipInputs E Emod` (`nA = nB = 0`, `F = 0`,
+      `disc ε γ L := |E ε γ L - Emod ε γ L|`, `discVanish := h` after `unfold H5bTarget at h`, `Λ = 0`, `globalVanish`
+      with `L₀ := 0`: `0 * _ ≤ η * L` by `simp` then `positivity`/`nlinarith`). `globalLip_iff_target : Nonempty
+      (H5bGlobalLipInputs E Emod) ↔ H5bTarget E Emod`. Theorem names: `globalLip_nonempty_zero`,
+      `globalLip_iff_target`. F table text: as with F2, G72, G77 and G82, with `D` unconstrained the content of the
+      global-Lipschitz form sits in the `cutoff`/`disc` row; `lip` and `globalVanish` carry content only once `D` is
+      the operator's cutoff data.
+- [ ] G88. `SteklovAudit/H5GlobalLipStrict.lean` (imports `SteklovAudit.H5GlobalLip`): G86 is a special case of
+      G83, not a replacement. `steepF : ℝ → ℝ → ℝ → ℝ → ℝ := fun _ _ L x => L * x`. `def steep_selMin : H5bSelMinInputs
+      (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 0` (all sums over `Fin 0` are empty; `lipHi`/`lipLo` by
+      `fun _ _ _ _ i => i.elim0`), `F := steepF`, `disc = 0`, `Λ0 = lam = 0`, `Msel := fun _ => 0`, `L₀ := 0`.
+      `steepF_not_lip : ∀ ε γ Λ : ℝ, ¬ ∀ L x y : ℝ, |steepF ε γ L x - steepF ε γ L y| ≤ Λ * |x - y|` (take
+      `L = |Λ| + 1`, `x = 1`, `y = 0`; `simp [steepF]` then `nlinarith [abs_nonneg Λ, le_abs_self Λ]` after rewriting
+      `|(|Λ| + 1)| = |Λ| + 1` by `abs_of_pos`). Theorem names: `steep_selMin_F` (rfl), `steepF_not_lip`. F table
+      text: the G83 rows admit a test `F` that is not Lipschitz uniformly in `L`; G86 needs the extra input `lip`.
+- [ ] G89. `SteklovAudit/H5GlobalVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLip`): the rows (2.2) and
+      Lemma 7.1′ do not give `globalVanish`. `pdeD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
+      `J _ _ = 1 + L` (so `K _ _ = 1 + L`). `pdeD_pde : ∀ L, PDEInputs (pdeD L) L 1 1` (both fields: `simp [hs2, pdeD,
+      Data.K]`). `pdeD_prod : Real.sqrt (hs2 (pdeD L).K * hs2 (pdeD L).J) = (1 + L) ^ 2` (`Real.sqrt_eq_iff_mul_self_eq`
+      or rewrite the product as `((1 + L) ^ 2) ^ 2` and use `Real.sqrt_sq (sq_nonneg _)`). `pdeD_not_vanish : ¬ ∃ L₀ : ℝ,
+      ∀ L, L₀ ≤ L → 1 * Real.sqrt (hs2 (pdeD L).K * hs2 (pdeD L).J) ≤ 1 * L` (at `L = max L₀ 0`: `(1 + L) ^ 2 > L`,
+      `nlinarith`). Theorem names: `pdeD_pde`, `pdeD_prod`, `pdeD_not_vanish`. F table text: with `Cm = Ck = 1` in
+      `PDEInputs` the unsplit product can be `(1 + L)²`; `globalVanish` is a separate input, as the docstring of
+      `trace_transfer_naive` says of the O(L²) bound.
+- [ ] G90. `SteklovAudit/H5GlobalLipRows.lean` (imports `SteklovAudit.H5GlobalLip`): `globalVanish` replaced by
+      two rows at the linear scale. `structure H5bGlobalLipRows (E Emod)` = the fields of `H5bGlobalLipInputs` without
+      `globalVanish`, plus `m : ℝ → ℝ → ℝ`, `hm : ∀ ε γ, 0 ≤ m ε γ`, `massLin : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).J ≤ m ε γ *
+      L`, `δ : ℝ → ℝ → ℝ → ℝ`, `defectLin : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).K ≤ δ ε γ L * L`, `δVanish : ∀ ε γ, 0 < ε →
+      0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L → δ ε γ L ≤ η`. Lemma `sqrt_lin_prod (hL : 0 ≤ L) (hk : k ≤ d * L) (hj : j ≤
+      m * L) (hk0 : 0 ≤ k) (hj0 : 0 ≤ j) (hd : d ≤ t ^ 2) (ht : 0 ≤ t) (hm : 0 ≤ m) : Λ * √(k * j) ≤ Λ * (t * √m * L)` for
+      `0 ≤ Λ` (`Real.sqrt_le_sqrt` to `√((t * √m * L) ^ 2)`, `Real.sqrt_sq`, `Real.sq_sqrt hm`, `nlinarith`).
+      `noncomputable def toGlobalLip` (for `η`: apply `δVanish` with `(η / ((Λ ε γ + 1) * (√(m ε γ) + 1))) ^ 2`, take
+      `max 1 L₀`); `h5b_of_globalLipRows`. Docstring: `massLin` is (2.2) at the scale `L` rather than `(1 + L)²` and
+      `defectLin` is an `o(L)` Hilbert–Schmidt defect; whether the paper supplies either at this scale is open (Josiah
+      to say); both are named hypotheses, proved for no operator. Theorem names: `sqrt_lin_prod`,
+      `h5b_of_globalLipRows`.
 
 ## Foundations (long-term)
 
