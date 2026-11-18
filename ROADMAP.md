@@ -1431,7 +1431,7 @@ operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 933/933 at 9693187,
       `H5JointSel.h5b_of_jointSelInputs` verified.
-- [ ] G78. `SteklovAudit/H5JointSelAudit.lean` (imports `SteklovAudit.H5JointSel`): G77 is no stronger than G72 and
+- [x] G78. `SteklovAudit/H5JointSelAudit.lean` (imports `SteklovAudit.H5JointSel`): G77 is no stronger than G72 and
       strictly weaker as row shapes. def `ofJoint : H5bJointInputs E Emod → H5bJointSelInputs E Emod` (all fields
       copied, `Msel := fun _ => M`); theorems `ofJoint_τ` (rfl), `ofJoint_target`. Row shapes: `late (M L : ℝ) : ℝ :=
       if L ≤ M then 0 else L`; `sel_holds : ∀ η : ℝ, 0 < η → ∃ (Msel : ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → late (Msel L) L
@@ -1442,6 +1442,44 @@ operator.
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5JointSelAudit.lean` (uncompiled at push,
       commit 0f789c1): defs `ofJoint`, `late`; theorems `ofJoint_τ`, `ofJoint_target`, `sel_holds`,
       `const_fails`, `sel_strictly_weaker`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 938/938 at dd66421, all 5 `H5JointSelAudit`
+      theorems verified.
+
+G79–G82 written by the formalize task on 2026-11-18 (after G78 was ticked). G79 runs the F2 audit on the selector form
+(G77); G80 states the selector row directly on the masked defect and mass `hs2` quantities at the chosen split energy,
+so the four rows `tail`, `hiMass`, `lowDefect`, `lowMass` (and their bounding functions τ, mHi, κ2, mLo) are no longer
+separate inputs; G81–G82 check that G80 is no stronger than G77 and inherits the F2 caveat. None claims a row is proved
+for the actual operator.
+
+- [ ] G79. `SteklovAudit/H5JointSelIff.lean` (imports `SteklovAudit.H5JointSelAudit` and `SteklovAudit.H5JointIff`):
+      the F2 audit for the selector form. `selInputs_iff_target : Nonempty (H5bJointSelInputs E Emod) ↔ H5bTarget E
+      Emod` (← by `⟨H5JointSelAudit.ofJoint (H5JointIff.jointOfTarget h)⟩`, → by `fun ⟨H⟩ => h5b_of_jointSelInputs
+      H`); `selInputs_nonempty_zero : Nonempty (H5bJointSelInputs (fun _ _ _ => 0) (fun _ _ _ => 0))` (target holds
+      for `E = Emod`: unfold `H5bTarget`, `simp`, `⟨0, fun L hL => by positivity⟩` or `mul_nonneg`). Docstring: with
+      `D` unconstrained the selector form is equivalent to the target; the caveat sits in the `cutoff`/`disc` row.
+      Theorem names: `selInputs_iff_target`, `selInputs_nonempty_zero`.
+- [ ] G80. `SteklovAudit/H5SelDirect.lean` (imports `SteklovAudit.H5JointSel`): `structure H5bSelDirectInputs (E
+      Emod)` = the fields of `H5bJointSelInputs` without `τ`, `tail`, `mHi`, `hiMass`, `κ2`, `lowDefect`, `mLo`,
+      `lowMass`, and with `selVanish` replaced by `directVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel :
+      ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (hs2 (mask (hiE (D ε γ L) (Msel L)) (D ε γ L).K) * hs2 (mask
+      (hiE (D ε γ L) (Msel L)) (D ε γ L).J)) + lam ε γ (Msel L) L * Real.sqrt (hs2 (mask (fun i j => ¬ hiE (D ε γ L)
+      (Msel L) i j) (D ε γ L).K) * hs2 (mask (fun i j => ¬ hiE (D ε γ L) (Msel L) i j) (D ε γ L).J)) ≤ η * L`.
+      `h5b_of_selDirectInputs : H5bTarget E Emod`: as `h5b_of_jointSelInputs`, with `key` from
+      `cumulative_transfer_bound` taking τ, mHi, κ2, mLo to be the four `hs2` values and all four bounds `le_rfl`
+      (no `1 ≤ L` needed; keep the `max 1 _` threshold anyway). Docstring: no row is proved; `directVanish` bounds
+      the defect matrix `K` and the overlap `J`, not `E − Emod`. Theorem names: `h5b_of_selDirectInputs`.
+- [ ] G81. `SteklovAudit/H5SelDirectAudit.lean` (imports `SteklovAudit.H5SelDirect`): G80 is no stronger than G77.
+      `noncomputable def ofSel : H5bJointSelInputs E Emod → H5bSelDirectInputs E Emod` (shared fields copied);
+      `directVanish` from `selVanish` at the same `η` with the same `Msel` and threshold `max 1 L₀` (the `tail`
+      field needs `1 ≤ L`): bound each `hs2` product by the `τ·mHi` / `κ2·mLo` product with `Real.sqrt_le_sqrt
+      (mul_le_mul _ _ (hs2_nonneg _) (le_trans (hs2_nonneg _) _))`, then `mul_le_mul_of_nonneg_left` with `hΛ0` /
+      `hlam`, then `linarith`. Theorem names: `ofSel` (def), `ofSel_Λ0` (rfl), `ofSel_target` (`h5b_of_selDirectInputs
+      (ofSel H)`). F table text: the four bounding functions τ, mHi, κ2, mLo are needed only along the chosen split.
+- [ ] G82. `SteklovAudit/H5SelDirectIff.lean` (imports `SteklovAudit.H5SelDirectAudit` and
+      `SteklovAudit.H5JointSelIff`): the F2 audit for G80. `selDirect_iff_target : Nonempty (H5bSelDirectInputs E Emod)
+      ↔ H5bTarget E Emod` (← via `ofSel` applied to the G79 witness, → by `h5b_of_selDirectInputs`). Theorem names:
+      `selDirect_iff_target`. F table text: as with F1, G72 and G77, the content of the direct form sits in the
+      `cutoff`/`disc` row once `D` is constrained by the operator.
 
 ## Foundations (long-term)
 
