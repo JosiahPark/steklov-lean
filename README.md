@@ -20,13 +20,13 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The numbers below are a snapshot of the 2026-11-16 17:24 UTC map build. [`verification/STATUS.md`](verification/STATUS.md)
+The numbers below are a snapshot of the 2026-11-18 05:22 UTC map build. [`verification/STATUS.md`](verification/STATUS.md)
 and [docs/map/README.md](docs/map/README.md) are regenerated after every build and are the authority.
 
-- **Library:** 906 of 906 theorems compile with only Lean's standard axioms, in 170 modules.
+- **Library:** 943 of 943 theorems compile with only Lean's standard axioms, in 185 modules.
   - 260 prove a step of the preprint outright.
   - 62 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 584 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+  - 621 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -38,8 +38,8 @@ and [docs/map/README.md](docs/map/README.md) are regenerated after every build a
   | §7 Static locality & cumulative traces | 44 | 86 | 8 | 82 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 96 | 10 | 32 | 493 |
-  | **Total** | **170** | **260** | **62** | **584** |
+  | §11 Assembly & sharp law | 111 | 10 | 32 | 530 |
+  | **Total** | **185** | **260** | **62** | **621** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -70,7 +70,7 @@ None is an estimate for the Dirichlet-to-Neumann operator of the tetrahedron.
 ## Layout
 
 - `SteklovAudit.lean`: 44 of the original modules merged into one file, one commented section each.
-- `SteklovAudit/`: the other 126 modules, one file each (`SteklovAudit/<Name>.lean`).
+- `SteklovAudit/`: the other 142 modules, one file each (`SteklovAudit/<Name>.lean`).
 - `axiom_audit.py`: after `lake build`, runs `#print axioms` on every theorem and fails on `sorry` or on
   non-standard axioms. It writes `verification/STATUS.md` and `verification/STATUS.json`.
 - `tools/build_map.py`: draws `docs/map/` from the build. `docs/map/paper_map.json` classifies theorems
