@@ -1458,6 +1458,8 @@ for the actual operator.
       for `E = Emod`: unfold `H5bTarget`, `simp`, `⟨0, fun L hL => by positivity⟩` or `mul_nonneg`). Docstring: with
       `D` unconstrained the selector form is equivalent to the target; the caveat sits in the `cutoff`/`disc` row.
       Theorem names: `selInputs_iff_target`, `selInputs_nonempty_zero`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5JointSelIff.lean` (uncompiled at push):
+      theorems `selInputs_iff_target`, `selInputs_nonempty_zero`. Next run: tick if STATUS shows it compiled.
 - [ ] G80. `SteklovAudit/H5SelDirect.lean` (imports `SteklovAudit.H5JointSel`): `structure H5bSelDirectInputs (E
       Emod)` = the fields of `H5bJointSelInputs` without `τ`, `tail`, `mHi`, `hiMass`, `κ2`, `lowDefect`, `mLo`,
       `lowMass`, and with `selVanish` replaced by `directVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel :
