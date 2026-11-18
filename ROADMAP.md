@@ -1477,7 +1477,7 @@ for the actual operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 941/941 at 3243b9e,
       `H5SelDirect.h5b_of_selDirectInputs` verified.
-- [ ] G81. `SteklovAudit/H5SelDirectAudit.lean` (imports `SteklovAudit.H5SelDirect`): G80 is no stronger than G77.
+- [x] G81. `SteklovAudit/H5SelDirectAudit.lean` (imports `SteklovAudit.H5SelDirect`): G80 is no stronger than G77.
       `noncomputable def ofSel : H5bJointSelInputs E Emod → H5bSelDirectInputs E Emod` (shared fields copied);
       `directVanish` from `selVanish` at the same `η` with the same `Msel` and threshold `max 1 L₀` (the `tail`
       field needs `1 ≤ L`): bound each `hs2` product by the `τ·mHi` / `κ2·mLo` product with `Real.sqrt_le_sqrt
@@ -1487,11 +1487,16 @@ for the actual operator.
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelDirectAudit.lean` (uncompiled at push,
       commit cce374e): def `ofSel`; theorems `ofSel_Λ0`, `ofSel_target`. Next run: tick if STATUS shows it
       compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 943/943 at f81bae4, both `H5SelDirectAudit`
+      theorems verified.
 - [ ] G82. `SteklovAudit/H5SelDirectIff.lean` (imports `SteklovAudit.H5SelDirectAudit` and
       `SteklovAudit.H5JointSelIff`): the F2 audit for G80. `selDirect_iff_target : Nonempty (H5bSelDirectInputs E Emod)
       ↔ H5bTarget E Emod` (← via `ofSel` applied to the G79 witness, → by `h5b_of_selDirectInputs`). Theorem names:
       `selDirect_iff_target`. F table text: as with F1, G72 and G77, the content of the direct form sits in the
       `cutoff`/`disc` row once `D` is constrained by the operator.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelDirectIff.lean` (uncompiled at push,
+      commit 38cad5b): theorems `selDirect_iff_target`, `selDirect_nonempty_zero` (satisfiability for
+      `E = Emod = 0`). Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
