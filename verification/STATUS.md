@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-18 18:37 UTC at commit `587302d7aa53`. Last passing commit: `587302d7aa53`.
+Checked 2026-11-18 19:23 UTC at commit `90fbeb420d2e`. Last passing commit: `90fbeb420d2e`.
 
-Library declarations checked: 956 of 956 theorems compile with only Lean's standard axioms.
+Library declarations checked: 958 of 958 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -417,6 +417,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.ev_Esm_eq` | verified (standard axioms only) |
 | H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.ev_Emodsm_eq` | verified (standard axioms only) |
 | H5EventualTarget.lean | `SteklovAudit.H5EventualTarget.h5b_of_smoothedEv` | verified (standard axioms only) |
+| H5GlobalLip.lean | `SteklovAudit.H5GlobalLip.toSelMin_Λ0` | verified (standard axioms only) |
+| H5GlobalLip.lean | `SteklovAudit.H5GlobalLip.h5b_of_globalLipInputs` | verified (standard axioms only) |
 | H5HiLinear.lean | `SteklovAudit.H5HiLinear.h5b_of_hiLInputs` | verified (standard axioms only) |
 | H5HiLinearAudit.lean | `SteklovAudit.H5HiLinearAudit.hi_term_le` | verified (standard axioms only) |
 | H5HiLinearAudit.lean | `SteklovAudit.H5HiLinearAudit.ofTailEv_nA` | verified (standard axioms only) |

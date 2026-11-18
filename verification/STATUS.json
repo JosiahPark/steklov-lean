@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-18 18:37 UTC",
+  "checked_at": "2026-11-18 19:23 UTC",
   "lean_exit_code": 0,
-  "commit": "587302d7aa53872a4f7f3ea35527a2af6fedf080",
-  "last_passing_commit": "587302d7aa53872a4f7f3ea35527a2af6fedf080",
-  "library_declarations_checked": 956,
-  "library_declarations": 956,
+  "commit": "90fbeb420d2e9d9e7f37928515e09492e6f26426",
+  "last_passing_commit": "90fbeb420d2e9d9e7f37928515e09492e6f26426",
+  "library_declarations_checked": 958,
+  "library_declarations": 958,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 956,
-  "verified": 956,
+  "theorems": 958,
+  "verified": 958,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3918,6 +3918,26 @@
     {
       "file": "H5EventualTarget.lean",
       "theorem": "SteklovAudit.H5EventualTarget.h5b_of_smoothedEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLip.lean",
+      "theorem": "SteklovAudit.H5GlobalLip.toSelMin_\u039b0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLip.lean",
+      "theorem": "SteklovAudit.H5GlobalLip.h5b_of_globalLipInputs",
       "axioms": [
         "propext",
         "Classical.choice",
