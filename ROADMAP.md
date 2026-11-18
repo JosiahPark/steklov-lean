@@ -1502,7 +1502,7 @@ for the actual operator.
 
 Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item was left in A–G).
 
-- [ ] G83. `SteklovAudit/H5SelMin.lean` (imports `SteklovAudit.H5SelDirect`): the PDE rows are not used by the
+- [x] G83. `SteklovAudit/H5SelMin.lean` (imports `SteklovAudit.H5SelDirect`): the PDE rows are not used by the
       direct form. `structure H5bSelMinInputs (E Emod)` = the fields of `H5bSelDirectInputs` (copy names and types
       from `H5SelDirect.lean`) without `Cm`, `Ck`, `hCm`, `pde`. `h5b_of_selMinInputs : H5bTarget E Emod` (the proof
       of `h5b_of_selDirectInputs` verbatim; it never uses those fields). `noncomputable def forgetPde :
@@ -1512,6 +1512,8 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelMin.lean` (uncompiled at push,
       commit 2e8988f): structure `H5bSelMinInputs`; def `forgetPde`; theorems `h5b_of_selMinInputs`,
       `forgetPde_Λ0`, `forgetPde_target`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 948/948 at c3b2271, all three `H5SelMin`
+      theorems verified.
 - [ ] G84. `SteklovAudit/H5SelMinStrict.lean` (imports `SteklovAudit.H5SelMin`): G83 is strictly weaker than G80 on
       the data level. `bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = b = 0`, `J _ _ = (1 + |L|) ^ 2` (so `K = 0`).
       `bigD_selMin : H5bSelMinInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 1`, `D _ _ L := bigD L`,
@@ -1520,6 +1522,9 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       (`hs2 J = (1 + |Cm|) ^ 4 > Cm * (1 + |Cm|) ^ 2`; `nlinarith [abs_nonneg Cm, le_abs_self Cm]`). Theorem names:
       `bigD_selMin`, `bigD_not_pde`. F table text: an instance of the G83 rows whose overlap mass violates (2.2) at
       every constant.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelMinStrict.lean` (uncompiled at push,
+      commit 529d782): defs `bigD`, `bigD_selMin`; theorems `bigD_K`, `bigD_selMin_target`, `hs2_bigD_J`,
+      `bigD_not_pde`, `selMin_without_pde`. Next run: tick if STATUS shows it compiled.
 - [ ] G85. `SteklovAudit/H5MaskSplit.lean` (imports `SteklovAudit.H5Compare`): two inequalities that merging the
       high and low parts needs. `hs2_mask_add_compl (p) [∀ i j, Decidable (p i j)] (M : ι → κ → ℝ) : hs2 (mask p M) +
       hs2 (mask (fun i j => ¬ p i j) M) = hs2 M` (unfold `hs2`, `mask`; `← Finset.sum_add_distrib`, `split_ifs <;>
