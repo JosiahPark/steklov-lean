@@ -1419,7 +1419,7 @@ operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 932/932 at ffda128, all 3 `H5JointCutoffNeeded`
       theorems verified.
-- [ ] G77. `SteklovAudit/H5JointSel.lean` (imports `SteklovAudit.H5Joint`): the split energy may depend on `L`.
+- [x] G77. `SteklovAudit/H5JointSel.lean` (imports `SteklovAudit.H5Joint`): the split energy may depend on `L`.
       `structure H5bJointSelInputs (E Emod)` = the fields of `H5bJointInputs` (copy names and types from
       `H5Joint.lean`) with `jointVanish` replaced by `selVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel
       : ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (τ ε γ (Msel L) L * mHi ε γ (Msel L) L) + lam ε γ (Msel L)
@@ -1429,6 +1429,8 @@ operator.
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5JointSel.lean` (uncompiled at push,
       commit 5af98ca): structure `H5bJointSelInputs`; theorem `h5b_of_jointSelInputs`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 933/933 at 9693187,
+      `H5JointSel.h5b_of_jointSelInputs` verified.
 - [ ] G78. `SteklovAudit/H5JointSelAudit.lean` (imports `SteklovAudit.H5JointSel`): G77 is no stronger than G72 and
       strictly weaker as row shapes. def `ofJoint : H5bJointInputs E Emod → H5bJointSelInputs E Emod` (all fields
       copied, `Msel := fun _ => M`); theorems `ofJoint_τ` (rfl), `ofJoint_target`. Row shapes: `late (M L : ℝ) : ℝ :=
@@ -1437,6 +1439,9 @@ operator.
       L ≤ 1 / 2 * L` (take `L = max L₀ (M + 1) ` and also `L ≥ 1`: use `max (max L₀ (M + 1)) 1`, `if_neg`, `linarith`).
       Theorem names: `ofJoint_τ`, `ofJoint_target`, `sel_holds`, `const_fails`, `sel_strictly_weaker`. F table text:
       the split energy in (7.29) may be chosen as a function of `L`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5JointSelAudit.lean` (uncompiled at push,
+      commit 0f789c1): defs `ofJoint`, `late`; theorems `ofJoint_τ`, `ofJoint_target`, `sel_holds`,
+      `const_fails`, `sel_strictly_weaker`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
