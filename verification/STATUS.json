@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-18 03:06 UTC",
+  "checked_at": "2026-11-18 03:23 UTC",
   "lean_exit_code": 0,
-  "commit": "6c5545e2b36aab4252ced71093a5d768ad25e6c8",
-  "last_passing_commit": "6c5545e2b36aab4252ced71093a5d768ad25e6c8",
-  "library_declarations_checked": 938,
-  "library_declarations": 938,
+  "commit": "6e2a9f57f54434071dcacd0dc27c4c36c66b1883",
+  "last_passing_commit": "6e2a9f57f54434071dcacd0dc27c4c36c66b1883",
+  "library_declarations_checked": 940,
+  "library_declarations": 940,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 938,
-  "verified": 938,
+  "theorems": 940,
+  "verified": 940,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4278,6 +4278,26 @@
     {
       "file": "H5JointSelAudit.lean",
       "theorem": "SteklovAudit.H5JointSelAudit.sel_strictly_weaker",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5JointSelIff.lean",
+      "theorem": "SteklovAudit.H5JointSelIff.selInputs_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5JointSelIff.lean",
+      "theorem": "SteklovAudit.H5JointSelIff.selInputs_nonempty_zero",
       "axioms": [
         "propext",
         "Classical.choice",
