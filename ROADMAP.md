@@ -1556,7 +1556,7 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
 
 Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item was left in A–G).
 
-- [ ] G87. `SteklovAudit/H5GlobalLipAudit.lean` (imports `SteklovAudit.H5GlobalLip`): the F2 audit for G86.
+- [x] G87. `SteklovAudit/H5GlobalLipAudit.lean` (imports `SteklovAudit.H5GlobalLip`): the F2 audit for G86.
       `globalLip_nonempty_zero : Nonempty (H5bGlobalLipInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0))` (`nA = nB = 0`,
       `D` with `a = b = 0`, `J = 0`, `F = 0`, `disc = 0`, `Λ = 0`; every field by `simp`, `L₀ := 0`).
       `noncomputable def ofTarget (h : H5bTarget E Emod) : H5bGlobalLipInputs E Emod` (`nA = nB = 0`, `F = 0`,
@@ -1569,6 +1569,8 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLipAudit.lean` (uncompiled at push,
       commit 893e025): def `ofTarget`; theorems `ofTarget_Λ`, `globalLip_iff_target`, `globalLip_nonempty_zero`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 961/961 at 1daa17c, all three
+      `H5GlobalLipAudit` theorems verified.
 - [ ] G88. `SteklovAudit/H5GlobalLipStrict.lean` (imports `SteklovAudit.H5GlobalLip`): G86 is a special case of
       G83, not a replacement. `steepF : ℝ → ℝ → ℝ → ℝ → ℝ := fun _ _ L x => L * x`. `def steep_selMin : H5bSelMinInputs
       (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 0` (all sums over `Fin 0` are empty; `lipHi`/`lipLo` by
@@ -1577,6 +1579,9 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       `L = |Λ| + 1`, `x = 1`, `y = 0`; `simp [steepF]` then `nlinarith [abs_nonneg Λ, le_abs_self Λ]` after rewriting
       `|(|Λ| + 1)| = |Λ| + 1` by `abs_of_pos`). Theorem names: `steep_selMin_F` (rfl), `steepF_not_lip`. F table
       text: the G83 rows admit a test `F` that is not Lipschitz uniformly in `L`; G86 needs the extra input `lip`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLipStrict.lean` (uncompiled at push):
+      def `steepF`, `steep_selMin`; theorems `steep_selMin_F`, `steepF_not_lip`, `steep_selMin_not_lip`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G89. `SteklovAudit/H5GlobalVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLip`): the rows (2.2) and
       Lemma 7.1′ do not give `globalVanish`. `pdeD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
       `J _ _ = 1 + L` (so `K _ _ = 1 + L`). `pdeD_pde : ∀ L, PDEInputs (pdeD L) L 1 1` (both fields: `simp [hs2, pdeD,
