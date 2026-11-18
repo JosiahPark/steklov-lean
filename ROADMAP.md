@@ -1489,7 +1489,7 @@ for the actual operator.
       compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 943/943 at f81bae4, both `H5SelDirectAudit`
       theorems verified.
-- [ ] G82. `SteklovAudit/H5SelDirectIff.lean` (imports `SteklovAudit.H5SelDirectAudit` and
+- [x] G82. `SteklovAudit/H5SelDirectIff.lean` (imports `SteklovAudit.H5SelDirectAudit` and
       `SteklovAudit.H5JointSelIff`): the F2 audit for G80. `selDirect_iff_target : Nonempty (H5bSelDirectInputs E Emod)
       ↔ H5bTarget E Emod` (← via `ofSel` applied to the G79 witness, → by `h5b_of_selDirectInputs`). Theorem names:
       `selDirect_iff_target`. F table text: as with F1, G72 and G77, the content of the direct form sits in the
@@ -1497,6 +1497,42 @@ for the actual operator.
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelDirectIff.lean` (uncompiled at push,
       commit 38cad5b): theorems `selDirect_iff_target`, `selDirect_nonempty_zero` (satisfiability for
       `E = Emod = 0`). Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 945/945 at 7a28d02, both `H5SelDirectIff`
+      theorems verified.
+
+Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item was left in A–G).
+
+- [ ] G83. `SteklovAudit/H5SelMin.lean` (imports `SteklovAudit.H5SelDirect`): the PDE rows are not used by the
+      direct form. `structure H5bSelMinInputs (E Emod)` = the fields of `H5bSelDirectInputs` (copy names and types
+      from `H5SelDirect.lean`) without `Cm`, `Ck`, `hCm`, `pde`. `h5b_of_selMinInputs : H5bTarget E Emod` (the proof
+      of `h5b_of_selDirectInputs` verbatim; it never uses those fields). `noncomputable def forgetPde :
+      H5bSelDirectInputs E Emod → H5bSelMinInputs E Emod` (fields copied) and `forgetPde_target`. Theorem names:
+      `h5b_of_selMinInputs`, `forgetPde_target`. F table text: in the direct form the rows (2.2) and Lemma 7.1′
+      (`PDEInputs.mass`, `.defect`) are not separate inputs; they matter only as a means of proving `directVanish`.
+- [ ] G84. `SteklovAudit/H5SelMinStrict.lean` (imports `SteklovAudit.H5SelMin`): G83 is strictly weaker than G80 on
+      the data level. `bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = b = 0`, `J _ _ = (1 + |L|) ^ 2` (so `K = 0`).
+      `bigD_selMin : H5bSelMinInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 1`, `D _ _ L := bigD L`,
+      `F = 0`, `disc = 0`, `Λ0 = lam = 0`, `Msel = fun _ => 0`, `L₀ = 0` (`directVanish`: `K = 0`, so every `hs2` of a
+      masked `K` is 0; `simp [hs2, mask, Data.K]`). `bigD_not_pde : ∀ Cm Ck : ℝ, ¬ PDEInputs (bigD |Cm|) |Cm| Cm Ck`
+      (`hs2 J = (1 + |Cm|) ^ 4 > Cm * (1 + |Cm|) ^ 2`; `nlinarith [abs_nonneg Cm, le_abs_self Cm]`). Theorem names:
+      `bigD_selMin`, `bigD_not_pde`. F table text: an instance of the G83 rows whose overlap mass violates (2.2) at
+      every constant.
+- [ ] G85. `SteklovAudit/H5MaskSplit.lean` (imports `SteklovAudit.H5Compare`): two inequalities that merging the
+      high and low parts needs. `hs2_mask_add_compl (p) [∀ i j, Decidable (p i j)] (M : ι → κ → ℝ) : hs2 (mask p M) +
+      hs2 (mask (fun i j => ¬ p i j) M) = hs2 M` (unfold `hs2`, `mask`; `← Finset.sum_add_distrib`, `split_ifs <;>
+      simp`); `sqrt_mul_add_sqrt_mul_le (0 ≤ a₁ a₂ b₁ b₂) : √(a₁ * b₁) + √(a₂ * b₂) ≤ √((a₁ + a₂) * (b₁ + b₂))` (`Real.le_sqrt`,
+      `Real.sq_sqrt`, `Real.sqrt_mul_self`; the cross term by `nlinarith [sq_nonneg (√(a₁ * b₂) - √(a₂ * b₁))]`);
+      `split_le_unsplit (p) (K J) : √(hs2 (mask p K) * hs2 (mask p J)) + √(hs2 (mask (¬p) K) * hs2 (mask (¬p) J)) ≤
+      √(hs2 K * hs2 J)`. Theorem names: `hs2_mask_add_compl`, `sqrt_mul_add_sqrt_mul_le`, `split_le_unsplit`.
+- [ ] G86. `SteklovAudit/H5GlobalLip.lean` (imports `SteklovAudit.H5SelMin`, `SteklovAudit.H5MaskSplit`): the
+      uniform-Lipschitz case of the row "Lipschitz-type bounds Λ, λ". `structure H5bGlobalLipInputs (E Emod)` = `nA`,
+      `nB`, `D`, `F`, `disc`, `cutoff`, `discVanish` (as in G83), `Λ : ℝ → ℝ → ℝ`, `hΛ : ∀ ε γ, 0 ≤ Λ ε γ`, `lip : ∀ ε γ L
+      x y, |F ε γ L x - F ε γ L y| ≤ Λ ε γ * |x - y|`, `globalVanish : ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L
+      → Λ ε γ * √(hs2 (D ε γ L).K * hs2 (D ε γ L).J) ≤ η * L`. `noncomputable def toSelMin` (`Λ0 := Λ`, `lam _ _ _ _ :=
+      Λ`, `lipHi`/`lipLo` from `lip`, `directVanish` with `Msel := fun _ => 0` and the same `L₀`, by `split_le_unsplit`,
+      `mul_add`, `mul_le_mul_of_nonneg_left`); `h5b_of_globalLipInputs`. Docstring: the split energy is not needed when
+      `F ε γ L` is Lipschitz uniformly in `L`; whether the smoothed counting function is, is the open row (Josiah to
+      say); nothing is proved for the operator. Theorem names: `toSelMin_Λ0` (rfl), `h5b_of_globalLipInputs`.
 
 ## Foundations (long-term)
 
