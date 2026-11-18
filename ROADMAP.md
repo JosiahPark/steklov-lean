@@ -1462,7 +1462,7 @@ for the actual operator.
       theorems `selInputs_iff_target`, `selInputs_nonempty_zero`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 940/940 at 6e2a9f5, both `H5JointSelIff` theorems
       verified.
-- [ ] G80. `SteklovAudit/H5SelDirect.lean` (imports `SteklovAudit.H5JointSel`): `structure H5bSelDirectInputs (E
+- [x] G80. `SteklovAudit/H5SelDirect.lean` (imports `SteklovAudit.H5JointSel`): `structure H5bSelDirectInputs (E
       Emod)` = the fields of `H5bJointSelInputs` without `τ`, `tail`, `mHi`, `hiMass`, `κ2`, `lowDefect`, `mLo`,
       `lowMass`, and with `selVanish` replaced by `directVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ (Msel :
       ℝ → ℝ) (L₀ : ℝ), ∀ L, L₀ ≤ L → Λ0 ε γ * Real.sqrt (hs2 (mask (hiE (D ε γ L) (Msel L)) (D ε γ L).K) * hs2 (mask
@@ -1475,6 +1475,8 @@ for the actual operator.
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelDirect.lean` (uncompiled at push,
       commit 4cb2d7a): structure `H5bSelDirectInputs`; theorem `h5b_of_selDirectInputs`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 941/941 at 3243b9e,
+      `H5SelDirect.h5b_of_selDirectInputs` verified.
 - [ ] G81. `SteklovAudit/H5SelDirectAudit.lean` (imports `SteklovAudit.H5SelDirect`): G80 is no stronger than G77.
       `noncomputable def ofSel : H5bJointSelInputs E Emod → H5bSelDirectInputs E Emod` (shared fields copied);
       `directVanish` from `selVanish` at the same `η` with the same `Msel` and threshold `max 1 L₀` (the `tail`
@@ -1482,6 +1484,9 @@ for the actual operator.
       (mul_le_mul _ _ (hs2_nonneg _) (le_trans (hs2_nonneg _) _))`, then `mul_le_mul_of_nonneg_left` with `hΛ0` /
       `hlam`, then `linarith`. Theorem names: `ofSel` (def), `ofSel_Λ0` (rfl), `ofSel_target` (`h5b_of_selDirectInputs
       (ofSel H)`). F table text: the four bounding functions τ, mHi, κ2, mLo are needed only along the chosen split.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelDirectAudit.lean` (uncompiled at push,
+      commit cce374e): def `ofSel`; theorems `ofSel_Λ0`, `ofSel_target`. Next run: tick if STATUS shows it
+      compiled.
 - [ ] G82. `SteklovAudit/H5SelDirectIff.lean` (imports `SteklovAudit.H5SelDirectAudit` and
       `SteklovAudit.H5JointSelIff`): the F2 audit for G80. `selDirect_iff_target : Nonempty (H5bSelDirectInputs E Emod)
       ↔ H5bTarget E Emod` (← via `ofSel` applied to the G79 witness, → by `h5b_of_selDirectInputs`). Theorem names:
