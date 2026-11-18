@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-18 00:23 UTC at commit `9693187db654`. Last passing commit: `9693187db654`.
+Checked 2026-11-18 02:55 UTC at commit `dd66421e7fc9`. Last passing commit: `dd66421e7fc9`.
 
-Library declarations checked: 933 of 933 theorems compile with only Lean's standard axioms.
+Library declarations checked: 938 of 938 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -448,6 +448,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5JointIff.lean | `SteklovAudit.H5JointIff.jointInputs_iff_target` | verified (standard axioms only) |
 | H5JointIff.lean | `SteklovAudit.H5JointIff.jointInputs_nonempty` | verified (standard axioms only) |
 | H5JointSel.lean | `SteklovAudit.H5JointSel.h5b_of_jointSelInputs` | verified (standard axioms only) |
+| H5JointSelAudit.lean | `SteklovAudit.H5JointSelAudit.ofJoint_τ` | verified (standard axioms only) |
+| H5JointSelAudit.lean | `SteklovAudit.H5JointSelAudit.ofJoint_target` | verified (standard axioms only) |
+| H5JointSelAudit.lean | `SteklovAudit.H5JointSelAudit.sel_holds` | verified (standard axioms only) |
+| H5JointSelAudit.lean | `SteklovAudit.H5JointSelAudit.const_fails` | verified (standard axioms only) |
+| H5JointSelAudit.lean | `SteklovAudit.H5JointSelAudit.sel_strictly_weaker` | verified (standard axioms only) |
 | H5JointStrict.lean | `SteklovAudit.H5JointStrict.joint_holds` | verified (standard axioms only) |
 | H5JointStrict.lean | `SteklovAudit.H5JointStrict.lowEvery_fails` | verified (standard axioms only) |
 | H5JointStrict.lean | `SteklovAudit.H5JointStrict.joint_strictly_weaker` | verified (standard axioms only) |
