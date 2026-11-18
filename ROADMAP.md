@@ -1514,7 +1514,7 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       `forgetPde_Λ0`, `forgetPde_target`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 948/948 at c3b2271, all three `H5SelMin`
       theorems verified.
-- [ ] G84. `SteklovAudit/H5SelMinStrict.lean` (imports `SteklovAudit.H5SelMin`): G83 is strictly weaker than G80 on
+- [x] G84. `SteklovAudit/H5SelMinStrict.lean` (imports `SteklovAudit.H5SelMin`): G83 is strictly weaker than G80 on
       the data level. `bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = b = 0`, `J _ _ = (1 + |L|) ^ 2` (so `K = 0`).
       `bigD_selMin : H5bSelMinInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 1`, `D _ _ L := bigD L`,
       `F = 0`, `disc = 0`, `Λ0 = lam = 0`, `Msel = fun _ => 0`, `L₀ = 0` (`directVanish`: `K = 0`, so every `hs2` of a
@@ -1525,6 +1525,8 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5SelMinStrict.lean` (uncompiled at push,
       commit 529d782): defs `bigD`, `bigD_selMin`; theorems `bigD_K`, `bigD_selMin_target`, `hs2_bigD_J`,
       `bigD_not_pde`, `selMin_without_pde`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: run #371 at 529d782 verified 953/953 theorems (PASS; the run
+      was marked failed only at the status-push step).
 - [ ] G85. `SteklovAudit/H5MaskSplit.lean` (imports `SteklovAudit.H5Compare`): two inequalities that merging the
       high and low parts needs. `hs2_mask_add_compl (p) [∀ i j, Decidable (p i j)] (M : ι → κ → ℝ) : hs2 (mask p M) +
       hs2 (mask (fun i j => ¬ p i j) M) = hs2 M` (unfold `hs2`, `mask`; `← Finset.sum_add_distrib`, `split_ifs <;>
@@ -1532,6 +1534,9 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       `Real.sq_sqrt`, `Real.sqrt_mul_self`; the cross term by `nlinarith [sq_nonneg (√(a₁ * b₂) - √(a₂ * b₁))]`);
       `split_le_unsplit (p) (K J) : √(hs2 (mask p K) * hs2 (mask p J)) + √(hs2 (mask (¬p) K) * hs2 (mask (¬p) J)) ≤
       √(hs2 K * hs2 J)`. Theorem names: `hs2_mask_add_compl`, `sqrt_mul_add_sqrt_mul_le`, `split_le_unsplit`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5MaskSplit.lean` (uncompiled at push,
+      commit e305cf1): theorems `hs2_mask_add_compl`, `sqrt_mul_add_sqrt_mul_le` (implicit `a₁ a₂ b₁ b₂`),
+      `split_le_unsplit`. Next run: tick if STATUS shows it compiled.
 - [ ] G86. `SteklovAudit/H5GlobalLip.lean` (imports `SteklovAudit.H5SelMin`, `SteklovAudit.H5MaskSplit`): the
       uniform-Lipschitz case of the row "Lipschitz-type bounds Λ, λ". `structure H5bGlobalLipInputs (E Emod)` = `nA`,
       `nB`, `D`, `F`, `disc`, `cutoff`, `discVanish` (as in G83), `Λ : ℝ → ℝ → ℝ`, `hΛ : ∀ ε γ, 0 ≤ Λ ε γ`, `lip : ∀ ε γ L
