@@ -1566,6 +1566,9 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       `globalLip_iff_target`. F table text: as with F2, G72, G77 and G82, with `D` unconstrained the content of the
       global-Lipschitz form sits in the `cutoff`/`disc` row; `lip` and `globalVanish` carry content only once `D` is
       the operator's cutoff data.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLipAudit.lean` (uncompiled at push,
+      commit 893e025): def `ofTarget`; theorems `ofTarget_Λ`, `globalLip_iff_target`, `globalLip_nonempty_zero`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G88. `SteklovAudit/H5GlobalLipStrict.lean` (imports `SteklovAudit.H5GlobalLip`): G86 is a special case of
       G83, not a replacement. `steepF : ℝ → ℝ → ℝ → ℝ → ℝ := fun _ _ L x => L * x`. `def steep_selMin : H5bSelMinInputs
       (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 0` (all sums over `Fin 0` are empty; `lipHi`/`lipLo` by
