@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-18 17:44 UTC at commit `c3b2271263a8`. Last passing commit: `c3b2271263a8`.
+Checked 2026-11-18 18:30 UTC at commit `31c3491a01ab`. Last passing commit: `31c3491a01ab`.
 
-Library declarations checked: 948 of 948 theorems compile with only Lean's standard axioms.
+Library declarations checked: 956 of 956 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -512,6 +512,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_of_J_zero` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_satisfiable` | verified (standard axioms only) |
 | H5LowMass.lean | `SteklovAudit.H5LowMass.lowMass_not_target` | verified (standard axioms only) |
+| H5MaskSplit.lean | `SteklovAudit.H5MaskSplit.hs2_mask_add_compl` | verified (standard axioms only) |
+| H5MaskSplit.lean | `SteklovAudit.H5MaskSplit.sqrt_mul_add_sqrt_mul_le` | verified (standard axioms only) |
+| H5MaskSplit.lean | `SteklovAudit.H5MaskSplit.split_le_unsplit` | verified (standard axioms only) |
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.z_rowMiss` | verified (standard axioms only) |
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.z_colMiss` | verified (standard axioms only) |
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.massWitness_nonempty` | verified (standard axioms only) |
@@ -602,6 +605,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5SelMin.lean | `SteklovAudit.H5SelMin.h5b_of_selMinInputs` | verified (standard axioms only) |
 | H5SelMin.lean | `SteklovAudit.H5SelMin.forgetPde_Λ0` | verified (standard axioms only) |
 | H5SelMin.lean | `SteklovAudit.H5SelMin.forgetPde_target` | verified (standard axioms only) |
+| H5SelMinStrict.lean | `SteklovAudit.H5SelMinStrict.bigD_K` | verified (standard axioms only) |
+| H5SelMinStrict.lean | `SteklovAudit.H5SelMinStrict.bigD_selMin_target` | verified (standard axioms only) |
+| H5SelMinStrict.lean | `SteklovAudit.H5SelMinStrict.hs2_bigD_J` | verified (standard axioms only) |
+| H5SelMinStrict.lean | `SteklovAudit.H5SelMinStrict.bigD_not_pde` | verified (standard axioms only) |
+| H5SelMinStrict.lean | `SteklovAudit.H5SelMinStrict.selMin_without_pde` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_rowTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.wData_colTrace` | verified (standard axioms only) |
 | H5SideAudit.lean | `SteklovAudit.H5SideAudit.w_trueSide` | verified (standard axioms only) |
