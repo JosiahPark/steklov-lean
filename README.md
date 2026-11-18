@@ -20,13 +20,13 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The numbers below are a snapshot of the 2026-11-18 05:22 UTC map build. [`verification/STATUS.md`](verification/STATUS.md)
+The numbers below are a snapshot of the 2026-11-18 17:24 UTC map build. [`verification/STATUS.md`](verification/STATUS.md)
 and [docs/map/README.md](docs/map/README.md) are regenerated after every build and are the authority.
 
-- **Library:** 943 of 943 theorems compile with only Lean's standard axioms, in 185 modules.
+- **Library:** 948 of 948 theorems compile with only Lean's standard axioms, in 187 modules.
   - 260 prove a step of the preprint outright.
   - 62 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 621 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+  - 626 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -38,8 +38,8 @@ and [docs/map/README.md](docs/map/README.md) are regenerated after every build a
   | §7 Static locality & cumulative traces | 44 | 86 | 8 | 82 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 111 | 10 | 32 | 530 |
-  | **Total** | **185** | **260** | **62** | **621** |
+  | §11 Assembly & sharp law | 113 | 10 | 32 | 535 |
+  | **Total** | **187** | **260** | **62** | **626** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
