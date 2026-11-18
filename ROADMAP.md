@@ -1527,7 +1527,7 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       `bigD_not_pde`, `selMin_without_pde`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: run #371 at 529d782 verified 953/953 theorems (PASS; the run
       was marked failed only at the status-push step).
-- [ ] G85. `SteklovAudit/H5MaskSplit.lean` (imports `SteklovAudit.H5Compare`): two inequalities that merging the
+- [x] G85. `SteklovAudit/H5MaskSplit.lean` (imports `SteklovAudit.H5Compare`): two inequalities that merging the
       high and low parts needs. `hs2_mask_add_compl (p) [∀ i j, Decidable (p i j)] (M : ι → κ → ℝ) : hs2 (mask p M) +
       hs2 (mask (fun i j => ¬ p i j) M) = hs2 M` (unfold `hs2`, `mask`; `← Finset.sum_add_distrib`, `split_ifs <;>
       simp`); `sqrt_mul_add_sqrt_mul_le (0 ≤ a₁ a₂ b₁ b₂) : √(a₁ * b₁) + √(a₂ * b₂) ≤ √((a₁ + a₂) * (b₁ + b₂))` (`Real.le_sqrt`,
@@ -1537,6 +1537,8 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5MaskSplit.lean` (uncompiled at push,
       commit e305cf1): theorems `hs2_mask_add_compl`, `sqrt_mul_add_sqrt_mul_le` (implicit `a₁ a₂ b₁ b₂`),
       `split_le_unsplit`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-18: STATUS PASS 956/956 at 587302d, all three `H5MaskSplit`
+      theorems verified.
 - [ ] G86. `SteklovAudit/H5GlobalLip.lean` (imports `SteklovAudit.H5SelMin`, `SteklovAudit.H5MaskSplit`): the
       uniform-Lipschitz case of the row "Lipschitz-type bounds Λ, λ". `structure H5bGlobalLipInputs (E Emod)` = `nA`,
       `nB`, `D`, `F`, `disc`, `cutoff`, `discVanish` (as in G83), `Λ : ℝ → ℝ → ℝ`, `hΛ : ∀ ε γ, 0 ≤ Λ ε γ`, `lip : ∀ ε γ L
@@ -1546,6 +1548,9 @@ Items G83–G86 written by the formalize task on 2026-11-18 (no unchecked item w
       `mul_add`, `mul_le_mul_of_nonneg_left`); `h5b_of_globalLipInputs`. Docstring: the split energy is not needed when
       `F ε γ L` is Lipschitz uniformly in `L`; whether the smoothed counting function is, is the open row (Josiah to
       say); nothing is proved for the operator. Theorem names: `toSelMin_Λ0` (rfl), `h5b_of_globalLipInputs`.
+      Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLip.lean` (uncompiled at push,
+      commit e91c7dc): structure `H5bGlobalLipInputs`; def `toSelMin`; theorems `toSelMin_Λ0`,
+      `h5b_of_globalLipInputs`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
