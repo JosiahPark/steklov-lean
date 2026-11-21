@@ -1618,7 +1618,7 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
 
 Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item was left in A–G).
 
-- [ ] G91. `SteklovAudit/H5GlobalLipRowsAudit.lean` (imports `SteklovAudit.H5GlobalLipRows`): the F2 audit for G90.
+- [x] G91. `SteklovAudit/H5GlobalLipRowsAudit.lean` (imports `SteklovAudit.H5GlobalLipRows`): the F2 audit for G90.
       `globalLipRows_nonempty_zero : Nonempty (H5bGlobalLipRows (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0))` (`nA = nB = 0`,
       `D` with `a = b = 0`, `J = 0`, `F = 0`, `disc = 0`, `Λ = m = 0`, `δ = 0`; the sums over `Fin 0` vanish by
       `simp [hs2]`; vanishing rows with `L₀ := 0`). `noncomputable def ofTarget (h : H5bTarget E Emod) :
@@ -1628,6 +1628,8 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       `h5b_of_globalLipRows`). Theorem names: `globalLipRows_nonempty_zero`, `ofTarget_m` (rfl),
       `globalLipRows_iff_target`. F table text: as with F2 and G87, with `D` unconstrained the content sits in the
       `cutoff`/`disc` row; `massLin`, `defectLin`, `δVanish` carry content only once `D` is the operator's cutoff data.
+      Written by the formalize task 2026-11-21 (commit cc56216). Ticked by the formalize task 2026-11-21: STATUS PASS
+      982/982 at cc56216, all four `H5GlobalLipRowsAudit` theorems verified.
 - [ ] G92. `SteklovAudit/H5GlobalLipRowsStrict.lean` (imports `SteklovAudit.H5GlobalLipRows`,
       `SteklovAudit.H5GlobalVanishNeeded`, `SteklovAudit.H5TailAudit`): the G90 rows are sufficient, not necessary, for
       the G86 inputs. `pdeD_hs2J : hs2 (pdeD L).J = (1 + L) ^ 2` (`rw [H5TailAudit.hs2_fin_one]`; `rfl`/`ring`).
@@ -1638,6 +1640,9 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       (`0 * _ ≤ η * L` by `simp` and `positivity`/`nlinarith`). Theorem names: `pdeD_hs2J`, `pdeD_not_massLin`,
       `pdeGlobalLip_D` (rfl). F table text: G86 inputs exist (with `Λ = 0`) whose cutoff data violate `massLin`, so
       `massLin` is an extra input of G90, not a consequence of the G86 row.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsStrict.lean` (uncompiled at push,
+      commit f83bbb3): def `pdeGlobalLip`; theorems `pdeD_hs2J`, `pdeD_not_massLin`, `pdeGlobalLip_Λ`,
+      `pdeGlobalLip_D`. Next run: tick if STATUS shows it compiled.
 - [ ] G93. `SteklovAudit/H5DeltaVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`, `SteklovAudit.H5TailAudit`):
       `δVanish` is the row that carries the `o(L)`. `linD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
       `J _ _ = Real.sqrt L` (so `K _ _ = Real.sqrt L`). `linD_massLin : ∀ L, 1 ≤ L → hs2 (linD L).J ≤ 1 * L` and
