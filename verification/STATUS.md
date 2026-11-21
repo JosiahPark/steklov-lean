@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-21 19:50 UTC at commit `55fd2939c924`. Last passing commit: `55fd2939c924`.
+Checked 2026-11-21 20:23 UTC at commit `533996a11c67`. Last passing commit: `533996a11c67`.
 
-Library declarations checked: 1002 of 1002 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1008 of 1008 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -568,6 +568,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.atL_rowMass` | verified (standard axioms only) |
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.atL_rowMiss_fails` | verified (standard axioms only) |
 | H5MassAudit.lean | `SteklovAudit.H5MassAudit.mass_stronger_than_defect` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_hs2J` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_hs2K` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_defectSmall` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_not_massEv` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_prod` | verified (standard axioms only) |
+| H5MassEvNeeded.lean | `SteklovAudit.H5MassEvNeeded.bigD_not_vanish` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.sum_one_eq_card` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.mass_of_bessel_count` | verified (standard axioms only) |
 | H5MassRow.lean | `SteklovAudit.H5MassRow.pde_of_bessel_count` | verified (standard axioms only) |

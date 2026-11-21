@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 19:50 UTC",
+  "checked_at": "2026-11-21 20:23 UTC",
   "lean_exit_code": 0,
-  "commit": "55fd2939c924e2402f1e8d2f41851a8872a22528",
-  "last_passing_commit": "55fd2939c924e2402f1e8d2f41851a8872a22528",
-  "library_declarations_checked": 1002,
-  "library_declarations": 1002,
+  "commit": "533996a11c677e47db73e07d4e1949074888e2ec",
+  "last_passing_commit": "533996a11c677e47db73e07d4e1949074888e2ec",
+  "library_declarations_checked": 1008,
+  "library_declarations": 1008,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1002,
-  "verified": 1002,
+  "theorems": 1008,
+  "verified": 1008,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5428,6 +5428,66 @@
     {
       "file": "H5MassAudit.lean",
       "theorem": "SteklovAudit.H5MassAudit.mass_stronger_than_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_hs2J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_defectSmall",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_not_massEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_prod",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5MassEvNeeded.lean",
+      "theorem": "SteklovAudit.H5MassEvNeeded.bigD_not_vanish",
       "axioms": [
         "propext",
         "Classical.choice",
