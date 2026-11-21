@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-21 11:16 UTC at commit `cc56216e60a5`. Last passing commit: `cc56216e60a5`.
+Checked 2026-11-21 12:24 UTC at commit `9559e559559c`. Last passing commit: `9559e559559c`.
 
-Library declarations checked: 982 of 982 theorems compile with only Lean's standard axioms.
+Library declarations checked: 986 of 986 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -437,6 +437,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5GlobalLipRowsAudit.lean | `SteklovAudit.H5GlobalLipRowsAudit.ofTarget_m` | verified (standard axioms only) |
 | H5GlobalLipRowsAudit.lean | `SteklovAudit.H5GlobalLipRowsAudit.globalLipRows_iff_target` | verified (standard axioms only) |
 | H5GlobalLipRowsAudit.lean | `SteklovAudit.H5GlobalLipRowsAudit.globalLipRows_nonempty_zero` | verified (standard axioms only) |
+| H5GlobalLipRowsStrict.lean | `SteklovAudit.H5GlobalLipRowsStrict.pdeD_hs2J` | verified (standard axioms only) |
+| H5GlobalLipRowsStrict.lean | `SteklovAudit.H5GlobalLipRowsStrict.pdeD_not_massLin` | verified (standard axioms only) |
+| H5GlobalLipRowsStrict.lean | `SteklovAudit.H5GlobalLipRowsStrict.pdeGlobalLip_Λ` | verified (standard axioms only) |
+| H5GlobalLipRowsStrict.lean | `SteklovAudit.H5GlobalLipRowsStrict.pdeGlobalLip_D` | verified (standard axioms only) |
 | H5GlobalLipStrict.lean | `SteklovAudit.H5GlobalLipStrict.steep_selMin_F` | verified (standard axioms only) |
 | H5GlobalLipStrict.lean | `SteklovAudit.H5GlobalLipStrict.steepF_not_lip` | verified (standard axioms only) |
 | H5GlobalLipStrict.lean | `SteklovAudit.H5GlobalLipStrict.steep_selMin_not_lip` | verified (standard axioms only) |

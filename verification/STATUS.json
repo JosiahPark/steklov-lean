@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 11:16 UTC",
+  "checked_at": "2026-11-21 12:24 UTC",
   "lean_exit_code": 0,
-  "commit": "cc56216e60a5e87452b7e3a401c5a3b228ce4397",
-  "last_passing_commit": "cc56216e60a5e87452b7e3a401c5a3b228ce4397",
-  "library_declarations_checked": 982,
-  "library_declarations": 982,
+  "commit": "9559e559559c8d5e2422cd42fe4d3ce4d793cd30",
+  "last_passing_commit": "9559e559559c8d5e2422cd42fe4d3ce4d793cd30",
+  "library_declarations_checked": 986,
+  "library_declarations": 986,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 982,
-  "verified": 982,
+  "theorems": 986,
+  "verified": 986,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4118,6 +4118,46 @@
     {
       "file": "H5GlobalLipRowsAudit.lean",
       "theorem": "SteklovAudit.H5GlobalLipRowsAudit.globalLipRows_nonempty_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsStrict.pdeD_hs2J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsStrict.pdeD_not_massLin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsStrict.pdeGlobalLip_\u039b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsStrict.pdeGlobalLip_D",
       "axioms": [
         "propext",
         "Classical.choice",
