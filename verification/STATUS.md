@@ -1,6 +1,6 @@
 # Lean verification status: FAIL
 
-Checked 2026-11-21 01:08 UTC at commit `9891351db034`. Last passing commit: `7add1843f7b9`.
+Checked 2026-11-21 01:16 UTC at commit `47f99e7ce180`. Last passing commit: `7add1843f7b9`.
 
 Library declarations checked: 0 of 971 theorems compile with only Lean's standard axioms.
 
@@ -1001,8 +1001,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 ## Build errors
 
 ```
-error: SteklovAudit/Foundations/Trace1D.lean:31:48: unsolved goals
-case e'_9
+error: SteklovAudit/Foundations/Trace1D.lean:34:52: unsolved goals
 f f' : ℝ → ℝ
 hf : ∀ (x : ℝ), HasDerivAt f (f' x) x
 hf' : Continuous f'
@@ -1010,7 +1009,7 @@ hfc : Continuous f
 x : ℝ
 a✝ : x ∈ Set.uIcc 0 1
 h1 : HasDerivAt (fun y => y - 1) 1 x
-⊢ f x * x * f' x * 2 - f x * f' x * 2 + f x ^ 2 = f x * x * f' x * 2 - f x * f' x * 2 + (f * f) x
+⊢ (f * f) x + x * f' x * f x * 2 - f' x * f x * 2 = x * f' x * f x * 2 - f' x * f x * 2 + f x ^ 2
 error: SteklovAudit/CumulativeTransferAbstract.lean:36:4: failed to synthesize instance of type class
   Fintype α
 

@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-21 01:08 UTC",
+  "checked_at": "2026-11-21 01:16 UTC",
   "lean_exit_code": 1,
-  "commit": "9891351db034dfc9454be9cc00b4d8763bc131ec",
+  "commit": "47f99e7ce1808751ff71cef0edfa34b24ca4dac4",
   "last_passing_commit": "7add1843f7b945b01298ee0a50b5b145a69cb2e0",
   "library_declarations_checked": 0,
   "library_declarations": 971,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [
-    "error: SteklovAudit/Foundations/Trace1D.lean:31:48: unsolved goals",
+    "error: SteklovAudit/Foundations/Trace1D.lean:34:52: unsolved goals",
     "error: SteklovAudit/CumulativeTransferAbstract.lean:36:4: failed to synthesize instance of type class",
     "error: SteklovAudit/CumulativeTransferAbstract.lean:43:2: No goals to be solved",
     "error: SteklovAudit/CumulativeTransferAbstract.lean:49:9: Function expected at",
