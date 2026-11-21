@@ -1745,7 +1745,7 @@ and run the F2 audit. None proves a row for the Steklov operator.
       compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 1013/1013 at 5fb76b2, all five
       `H5GlobalLipRowsPow` theorems verified.
-- [ ] G99. `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
+- [x] G99. `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5TailAudit`): G98 is strictly weaker than G94 on cutoff data. `noncomputable def powD (L : ℝ) :
       Data (Fin 1) (Fin 1)` with `a = 1 / L ^ 2`, `b = 0`, `J _ _ = L`, so `hs2 J = L ^ 2` and `hs2 K = 1 / L ^ 2` for
       `L ≠ 0`. `powD_massPow : ∀ L, 1 ≤ L → hs2 (powD L).J ≤ 1 * L ^ (2 : ℝ)` (`Real.rpow_two`/`Real.rpow_natCast`);
@@ -1757,6 +1757,8 @@ and run the F2 audit. None proves a row for the Steklov operator.
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (uncompiled at push):
       def `powD`; theorems `powD_hs2J`, `powD_hs2K`, `powD_massPow`, `powD_defectPow`, `powD_not_massEv`. Next run:
       tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 1018/1018 at 1b8fa7e, all five
+      `H5GlobalLipRowsPowStrict` theorems verified.
 - [ ] G100. `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5GlobalLipRowsEvAudit`): the F2 audit for G98. `globalLipRowsPow_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsPow E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsPow`; converse
@@ -1765,6 +1767,9 @@ and run the F2 audit. None proves a row for the Steklov operator.
       fun _ _ => 1` (rfl). Theorem names: `globalLipRowsPow_iff_target`, `globalLipRowsPow_nonempty_zero`,
       `ofTarget_pow_p`. F table text: the G98 rows are satisfiable and, like G90/G94, equivalent to the target only
       through the unconstrained `cutoff` row; the F2 caveat stands.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (uncompiled at push):
+      theorems `globalLipRowsPow_iff_target`, `ofTarget_pow_p`, `globalLipRowsPow_nonempty_zero`. Next run: tick if
+      STATUS shows it compiled.
 
 ## Foundations (long-term)
 
