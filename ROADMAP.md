@@ -1571,7 +1571,7 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-18: STATUS PASS 961/961 at 1daa17c, all three
       `H5GlobalLipAudit` theorems verified.
-- [ ] G88. `SteklovAudit/H5GlobalLipStrict.lean` (imports `SteklovAudit.H5GlobalLip`): G86 is a special case of
+- [x] G88. `SteklovAudit/H5GlobalLipStrict.lean` (imports `SteklovAudit.H5GlobalLip`): G86 is a special case of
       G83, not a replacement. `steepF : ℝ → ℝ → ℝ → ℝ → ℝ := fun _ _ L x => L * x`. `def steep_selMin : H5bSelMinInputs
       (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 0` (all sums over `Fin 0` are empty; `lipHi`/`lipLo` by
       `fun _ _ _ _ i => i.elim0`), `F := steepF`, `disc = 0`, `Λ0 = lam = 0`, `Msel := fun _ => 0`, `L₀ := 0`.
@@ -1582,7 +1582,9 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-18 in `SteklovAudit/H5GlobalLipStrict.lean` (uncompiled at push):
       def `steepF`, `steep_selMin`; theorems `steep_selMin_F`, `steepF_not_lip`, `steep_selMin_not_lip`.
       Next run: tick if STATUS shows it compiled.
-- [ ] G89. `SteklovAudit/H5GlobalVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLip`): the rows (2.2) and
+      Ticked by the interactive session 2026-11-21: STATUS PASS 974/974 at 41473f6, all three
+      `H5GlobalLipStrict` theorems verified.
+- [x] G89. `SteklovAudit/H5GlobalVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLip`): the rows (2.2) and
       Lemma 7.1′ do not give `globalVanish`. `pdeD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
       `J _ _ = 1 + L` (so `K _ _ = 1 + L`). `pdeD_pde : ∀ L, PDEInputs (pdeD L) L 1 1` (both fields: `simp [hs2, pdeD,
       Data.K]`). `pdeD_prod : Real.sqrt (hs2 (pdeD L).K * hs2 (pdeD L).J) = (1 + L) ^ 2` (`Real.sqrt_eq_iff_mul_self_eq`
@@ -1591,6 +1593,11 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       `nlinarith`). Theorem names: `pdeD_pde`, `pdeD_prod`, `pdeD_not_vanish`. F table text: with `Cm = Ck = 1` in
       `PDEInputs` the unsplit product can be `(1 + L)²`; `globalVanish` is a separate input, as the docstring of
       `trace_transfer_naive` says of the O(L²) bound.
+      Written by the interactive session 2026-11-21 in `SteklovAudit/H5GlobalVanishNeeded.lean` (uncompiled at
+      push, commit 41473f6): def `pdeD`; theorems `pdeD_pde`, `pdeD_prod`, `pdeD_not_vanish`. It also imports
+      `SteklovAudit.H5TailAudit`, for `hs2_fin_one`.
+      Ticked by the interactive session 2026-11-21: STATUS PASS 974/974 at 41473f6, all three
+      `H5GlobalVanishNeeded` theorems verified.
 - [ ] G90. `SteklovAudit/H5GlobalLipRows.lean` (imports `SteklovAudit.H5GlobalLip`): `globalVanish` replaced by
       two rows at the linear scale. `structure H5bGlobalLipRows (E Emod)` = the fields of `H5bGlobalLipInputs` without
       `globalVanish`, plus `m : ℝ → ℝ → ℝ`, `hm : ∀ ε γ, 0 ≤ m ε γ`, `massLin : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).J ≤ m ε γ *
