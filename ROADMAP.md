@@ -1645,7 +1645,7 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       `pdeGlobalLip_D`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 986/986 at 9559e55, all four
       `H5GlobalLipRowsStrict` theorems verified.
-- [ ] G93. `SteklovAudit/H5DeltaVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`, `SteklovAudit.H5TailAudit`):
+- [x] G93. `SteklovAudit/H5DeltaVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`, `SteklovAudit.H5TailAudit`):
       `δVanish` is the row that carries the `o(L)`. `linD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
       `J _ _ = Real.sqrt L` (so `K _ _ = Real.sqrt L`). `linD_massLin : ∀ L, 1 ≤ L → hs2 (linD L).J ≤ 1 * L` and
       `linD_defectLin : ∀ L, 1 ≤ L → hs2 (linD L).K ≤ 1 * L` (`hs2_fin_one`, `Real.sq_sqrt` with `0 ≤ L`).
@@ -1657,6 +1657,8 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5DeltaVanishNeeded.lean` (uncompiled at push,
       commit 9035e4a): def `linD`; theorems `linD_hs2J`, `linD_hs2K`, `linD_massLin`, `linD_defectLin`,
       `linD_prod`, `linD_not_vanish`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 992/992 at d0b3753, all six
+      `H5DeltaVanishNeeded` theorems verified.
 - [ ] G94. `SteklovAudit/H5GlobalLipRowsEv.lean` (imports `SteklovAudit.H5GlobalLipRows`): a strictly weaker form of the
       G90 rows. `structure H5bGlobalLipRowsEv (E Emod)` = the fields of `H5bGlobalLipRows` without `massLin`, `δ`,
       `defectLin`, `δVanish`, plus `massEv : ∀ ε γ, ∃ L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (D ε γ L).J ≤ m ε γ * L` (mass row only
@@ -1667,6 +1669,9 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       `t ^ 2`, `L ≥ max 1 (max L₀ L₁)`, then `sqrt_lin_prod` with `d := t ^ 2` and `scale_le`). Theorem names:
       `ofRows_m` (rfl), `h5b_of_globalLipRowsEv`. F table text: the row can be stated as eventual `O(L)` mass plus
       `o(L)` defect, with no rate function `δ`; both remain named hypotheses, proved for no operator.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEv.lean` (uncompiled at push,
+      commit 4faaef4): structure `H5bGlobalLipRowsEv`; defs `ofRows`, `toGlobalLipEv`; theorems `ofRows_m`,
+      `toGlobalLipEv_Λ`, `h5b_of_globalLipRowsEv`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
