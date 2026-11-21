@@ -1610,6 +1610,9 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       `defectLin` is an `o(L)` Hilbert–Schmidt defect; whether the paper supplies either at this scale is open (Josiah
       to say); both are named hypotheses, proved for no operator. Theorem names: `sqrt_lin_prod`,
       `h5b_of_globalLipRows`.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRows.lean` (uncompiled at push,
+      commit 696755b): structure `H5bGlobalLipRows`; defs `toGlobalLip`; theorems `sqrt_lin_prod`, `scale_le`,
+      `toGlobalLip_Λ`, `h5b_of_globalLipRows`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
