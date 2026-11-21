@@ -20,13 +20,13 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The numbers below are a snapshot of the 2026-11-21 01:31 UTC map build. [`verification/STATUS.md`](verification/STATUS.md)
+The numbers below are a snapshot of the 2026-11-21 20:48 UTC map build (commit `621a899`). [`verification/STATUS.md`](verification/STATUS.md)
 and [docs/map/README.md](docs/map/README.md) are regenerated after every build and are the authority.
 
-- **Library:** 971 of 971 theorems compile with only Lean's standard axioms, in 195 modules.
+- **Library:** 1013 of 1013 theorems compile with only Lean's standard axioms, in 205 modules.
   - 260 prove a step of the preprint outright.
   - 62 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 649 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+  - 691 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -38,8 +38,8 @@ and [docs/map/README.md](docs/map/README.md) are regenerated after every build a
   | §7 Static locality & cumulative traces | 44 | 86 | 8 | 82 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 121 | 10 | 32 | 558 |
-  | **Total** | **195** | **260** | **62** | **649** |
+  | §11 Assembly & sharp law | 131 | 10 | 32 | 600 |
+  | **Total** | **205** | **260** | **62** | **691** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -70,7 +70,7 @@ None is an estimate for the Dirichlet-to-Neumann operator of the tetrahedron.
 ## Layout
 
 - `SteklovAudit.lean`: 44 of the original modules merged into one file, one commented section each.
-- `SteklovAudit/`: the other 151 modules, one file each (`SteklovAudit/<Name>.lean`).
+- `SteklovAudit/`: the other 161 modules, one file each (`SteklovAudit/<Name>.lean`).
 - `SteklovAudit/Foundations/`: the long-term foundations track of `ROADMAP.md`, one file per item; so far one
   docstring-only stub (`Trace1D`) with no theorems. `lake build` compiles this folder, but the audit and the map
   scan only the top level of `SteklovAudit/`.
