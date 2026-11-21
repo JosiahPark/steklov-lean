@@ -1739,6 +1739,10 @@ and run the F2 audit. None proves a row for the Steklov operator.
       `Real.sqrt_mul_self`, `Real.sqrt_mul`). Theorem names: `rpow_split`, `ofEv_p` (rfl), `toGlobalLipPow_Λ` (rfl),
       `h5b_of_globalLipRowsPow`. F table text: the mass and defect rows may trade powers of `L` (`O(L^p)` mass with
       `o(L^(2-p))` defect, `0 ≤ p ≤ 2`); `p = 1` is G94. Both remain named hypotheses, proved for no operator.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsPow.lean` (uncompiled at push,
+      commit 806f9b9): structure `H5bGlobalLipRowsPow`; defs `ofEv`, `toGlobalLipPow`; theorems `rpow_split`,
+      `sqrt_pow_prod`, `ofEv_p`, `toGlobalLipPow_Λ`, `h5b_of_globalLipRowsPow`. Next run: tick if STATUS shows it
+      compiled.
 - [ ] G99. `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5TailAudit`): G98 is strictly weaker than G94 on cutoff data. `noncomputable def powD (L : ℝ) :
       Data (Fin 1) (Fin 1)` with `a = 1 / L ^ 2`, `b = 0`, `J _ _ = L`, so `hs2 J = L ^ 2` and `hs2 K = 1 / L ^ 2` for
