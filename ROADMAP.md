@@ -1598,7 +1598,7 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       `SteklovAudit.H5TailAudit`, for `hs2_fin_one`.
       Ticked by the interactive session 2026-11-21: STATUS PASS 974/974 at 41473f6, all three
       `H5GlobalVanishNeeded` theorems verified.
-- [ ] G90. `SteklovAudit/H5GlobalLipRows.lean` (imports `SteklovAudit.H5GlobalLip`): `globalVanish` replaced by
+- [x] G90. `SteklovAudit/H5GlobalLipRows.lean` (imports `SteklovAudit.H5GlobalLip`): `globalVanish` replaced by
       two rows at the linear scale. `structure H5bGlobalLipRows (E Emod)` = the fields of `H5bGlobalLipInputs` without
       `globalVanish`, plus `m : ℝ → ℝ → ℝ`, `hm : ∀ ε γ, 0 ≤ m ε γ`, `massLin : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).J ≤ m ε γ *
       L`, `δ : ℝ → ℝ → ℝ → ℝ`, `defectLin : ∀ ε γ L, 1 ≤ L → hs2 (D ε γ L).K ≤ δ ε γ L * L`, `δVanish : ∀ ε γ, 0 < ε →
@@ -1613,6 +1613,50 @@ Items G87–G90 written by the formalize task on 2026-11-18 (no unchecked item w
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRows.lean` (uncompiled at push,
       commit 696755b): structure `H5bGlobalLipRows`; defs `toGlobalLip`; theorems `sqrt_lin_prod`, `scale_le`,
       `toGlobalLip_Λ`, `h5b_of_globalLipRows`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 978/978 at 0901598, all four
+      `H5GlobalLipRows` theorems verified.
+
+Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item was left in A–G).
+
+- [ ] G91. `SteklovAudit/H5GlobalLipRowsAudit.lean` (imports `SteklovAudit.H5GlobalLipRows`): the F2 audit for G90.
+      `globalLipRows_nonempty_zero : Nonempty (H5bGlobalLipRows (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0))` (`nA = nB = 0`,
+      `D` with `a = b = 0`, `J = 0`, `F = 0`, `disc = 0`, `Λ = m = 0`, `δ = 0`; the sums over `Fin 0` vanish by
+      `simp [hs2]`; vanishing rows with `L₀ := 0`). `noncomputable def ofTarget (h : H5bTarget E Emod) :
+      H5bGlobalLipRows E Emod` (`nA = nB = 0`, `F = 0`, `disc ε γ L := |E ε γ L - Emod ε γ L|`, `discVanish := h` after
+      `unfold H5bTarget at h`, `Λ = m = δ = 0`; `massLin`/`defectLin` by `simp [hs2]`, `δVanish` with `L₀ := 0` and
+      `hη.le`). `globalLipRows_iff_target : Nonempty (H5bGlobalLipRows E Emod) ↔ H5bTarget E Emod` (forward by
+      `h5b_of_globalLipRows`). Theorem names: `globalLipRows_nonempty_zero`, `ofTarget_m` (rfl),
+      `globalLipRows_iff_target`. F table text: as with F2 and G87, with `D` unconstrained the content sits in the
+      `cutoff`/`disc` row; `massLin`, `defectLin`, `δVanish` carry content only once `D` is the operator's cutoff data.
+- [ ] G92. `SteklovAudit/H5GlobalLipRowsStrict.lean` (imports `SteklovAudit.H5GlobalLipRows`,
+      `SteklovAudit.H5GlobalVanishNeeded`, `SteklovAudit.H5TailAudit`): the G90 rows are sufficient, not necessary, for
+      the G86 inputs. `pdeD_hs2J : hs2 (pdeD L).J = (1 + L) ^ 2` (`rw [H5TailAudit.hs2_fin_one]`; `rfl`/`ring`).
+      `pdeD_not_massLin : ¬ ∃ m : ℝ, ∀ L : ℝ, 1 ≤ L → hs2 (pdeD L).J ≤ m * L` (at `L = max 1 (|m| + 1)`: `(1 + L) ^ 2 >
+      L * L ≥ m * L`; `nlinarith [le_abs_self m, abs_nonneg m, le_max_left 1 (|m| + 1), le_max_right 1 (|m| + 1)]`).
+      `noncomputable def pdeGlobalLip : H5bGlobalLipInputs (fun _ _ _ => (0 : ℝ)) (fun _ _ _ => 0)` with `nA = nB = 1`,
+      `D := fun _ _ L => pdeD L`, `F = 0`, `disc = 0`, `Λ = 0`, `lip` by `simp`, `globalVanish` with `L₀ := 0`
+      (`0 * _ ≤ η * L` by `simp` and `positivity`/`nlinarith`). Theorem names: `pdeD_hs2J`, `pdeD_not_massLin`,
+      `pdeGlobalLip_D` (rfl). F table text: G86 inputs exist (with `Λ = 0`) whose cutoff data violate `massLin`, so
+      `massLin` is an extra input of G90, not a consequence of the G86 row.
+- [ ] G93. `SteklovAudit/H5DeltaVanishNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`, `SteklovAudit.H5TailAudit`):
+      `δVanish` is the row that carries the `o(L)`. `linD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1`, `b = 0`,
+      `J _ _ = Real.sqrt L` (so `K _ _ = Real.sqrt L`). `linD_massLin : ∀ L, 1 ≤ L → hs2 (linD L).J ≤ 1 * L` and
+      `linD_defectLin : ∀ L, 1 ≤ L → hs2 (linD L).K ≤ 1 * L` (`hs2_fin_one`, `Real.sq_sqrt` with `0 ≤ L`).
+      `linD_prod : ∀ L, 0 ≤ L → Real.sqrt (hs2 (linD L).K * hs2 (linD L).J) = L` (product is `L ^ 2`; `Real.sqrt_sq`).
+      `linD_not_vanish : ¬ ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → 1 * Real.sqrt (hs2 (linD L).K * hs2 (linD L).J) ≤ (1 / 2) * L` (at
+      `L = max L₀ 1`: `L ≤ L / 2` with `L ≥ 1`, `linarith`). Theorem names: `linD_massLin`, `linD_defectLin`,
+      `linD_prod`, `linD_not_vanish`. F table text: `massLin` and `defectLin` with a constant `δ = 1` give only `O(L)`;
+      without `δVanish` the row `globalVanish` fails.
+- [ ] G94. `SteklovAudit/H5GlobalLipRowsEv.lean` (imports `SteklovAudit.H5GlobalLipRows`): a strictly weaker form of the
+      G90 rows. `structure H5bGlobalLipRowsEv (E Emod)` = the fields of `H5bGlobalLipRows` without `massLin`, `δ`,
+      `defectLin`, `δVanish`, plus `massEv : ∀ ε γ, ∃ L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (D ε γ L).J ≤ m ε γ * L` (mass row only
+      eventually) and `defectSmall : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → hs2 (D ε γ L).K ≤
+      η * L` (no auxiliary `δ`). `def ofRows (H : H5bGlobalLipRows E Emod) : H5bGlobalLipRowsEv E Emod` (`massEv` with
+      `L₁ := 1`; `defectSmall` at `max 1 L₀` from `defectLin`, `δVanish` and `mul_le_mul_of_nonneg_right`).
+      `noncomputable def toGlobalLipEv : H5bGlobalLipInputs E Emod` (as `toGlobalLip`, with `t` as there, `defectSmall` at
+      `t ^ 2`, `L ≥ max 1 (max L₀ L₁)`, then `sqrt_lin_prod` with `d := t ^ 2` and `scale_le`). Theorem names:
+      `ofRows_m` (rfl), `h5b_of_globalLipRowsEv`. F table text: the row can be stated as eventual `O(L)` mass plus
+      `o(L)` defect, with no rate function `δ`; both remain named hypotheses, proved for no operator.
 
 ## Foundations (long-term)
 
