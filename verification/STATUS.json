@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 01:39 UTC",
+  "checked_at": "2026-11-21 02:11 UTC",
   "lean_exit_code": 0,
-  "commit": "81b068290f6576ee43caa53b63aad1e60cfca6e1",
-  "last_passing_commit": "81b068290f6576ee43caa53b63aad1e60cfca6e1",
-  "library_declarations_checked": 971,
-  "library_declarations": 971,
+  "commit": "41473f6b31f3039fb26eb413e306f8b8e8691c18",
+  "last_passing_commit": "41473f6b31f3039fb26eb413e306f8b8e8691c18",
+  "library_declarations_checked": 974,
+  "library_declarations": 974,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 971,
-  "verified": 971,
+  "theorems": 974,
+  "verified": 974,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4068,6 +4068,36 @@
     {
       "file": "H5GlobalLipStrict.lean",
       "theorem": "SteklovAudit.H5GlobalLipStrict.steep_selMin_not_lip",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5GlobalVanishNeeded.pdeD_pde",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5GlobalVanishNeeded.pdeD_prod",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5GlobalVanishNeeded.pdeD_not_vanish",
       "axioms": [
         "propext",
         "Classical.choice",
