@@ -1725,7 +1725,7 @@ Items G98–G100 written by the formalize task on 2026-11-21 (no unchecked A–G
 the G94 mass/defect pair by a strictly weaker trade-off pair (mass `O(L^p)`, defect `o(L^(2-p))`), check strictness,
 and run the F2 audit. None proves a row for the Steklov operator.
 
-- [ ] G98. `SteklovAudit/H5GlobalLipRowsPow.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): a trade-off form of the
+- [x] G98. `SteklovAudit/H5GlobalLipRowsPow.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): a trade-off form of the
       G94 rows. `structure H5bGlobalLipRowsPow (E Emod)` = the fields of `H5bGlobalLipRowsEv` with `massEv`,
       `defectSmall` replaced by `p : ℝ → ℝ → ℝ`, `hp : ∀ ε γ, 0 ≤ p ε γ ∧ p ε γ ≤ 2`, `massPow : ∀ ε γ, ∃ L₁ : ℝ,
       ∀ L, L₁ ≤ L → hs2 (D ε γ L).J ≤ m ε γ * L ^ (p ε γ)` (`Real.rpow`) and `defectPow : ∀ ε γ : ℝ, 0 < ε → 0 < γ →
@@ -1743,6 +1743,8 @@ and run the F2 audit. None proves a row for the Steklov operator.
       commit 806f9b9): structure `H5bGlobalLipRowsPow`; defs `ofEv`, `toGlobalLipPow`; theorems `rpow_split`,
       `sqrt_pow_prod`, `ofEv_p`, `toGlobalLipPow_Λ`, `h5b_of_globalLipRowsPow`. Next run: tick if STATUS shows it
       compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 1013/1013 at 5fb76b2, all five
+      `H5GlobalLipRowsPow` theorems verified.
 - [ ] G99. `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5TailAudit`): G98 is strictly weaker than G94 on cutoff data. `noncomputable def powD (L : ℝ) :
       Data (Fin 1) (Fin 1)` with `a = 1 / L ^ 2`, `b = 0`, `J _ _ = L`, so `hs2 J = L ^ 2` and `hs2 K = 1 / L ^ 2` for
@@ -1752,6 +1754,9 @@ and run the F2 audit. None proves a row for the Steklov operator.
       `powD_not_massEv : ¬ ∃ m L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (powD L).J ≤ m * L` (as `bigD_not_massEv`). Theorem names:
       `powD_hs2J`, `powD_hs2K`, `powD_massPow`, `powD_defectPow`, `powD_not_massEv`. F table text: the G98 rows (with
       `p = 2`) admit cutoff data that no G94 row admits.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (uncompiled at push):
+      def `powD`; theorems `powD_hs2J`, `powD_hs2K`, `powD_massPow`, `powD_defectPow`, `powD_not_massEv`. Next run:
+      tick if STATUS shows it compiled.
 - [ ] G100. `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5GlobalLipRowsEvAudit`): the F2 audit for G98. `globalLipRowsPow_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsPow E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsPow`; converse
