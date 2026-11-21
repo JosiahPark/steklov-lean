@@ -31,8 +31,7 @@ theorem trace_identity {f f' : ℝ → ℝ} (hf : ∀ x, HasDerivAt f (f' x) x)
       (f x ^ 2 - 2 * (1 - x) * f x * f' x) x := by
     intro x _
     have h1 : HasDerivAt (fun y : ℝ => y - 1) 1 x := (hasDerivAt_id x).sub_const 1
-    convert h1.mul ((hf x).mul (hf x)) using 1
-    ring
+    exact (h1.mul ((hf x).mul (hf x))).congr_deriv (by ring)
   have hint : IntervalIntegrable (fun x => f x ^ 2 - 2 * (1 - x) * f x * f' x)
       MeasureTheory.volume 0 1 :=
     (by fun_prop : Continuous fun x => f x ^ 2 - 2 * (1 - x) * f x * f' x).intervalIntegrable 0 1
