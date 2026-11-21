@@ -1688,6 +1688,9 @@ for the Steklov operator.
       `le_abs_self`, `nlinarith`). Theorem names: `evD_hs2K`, `evD_massEv`, `evD_no_massLin`. F table text: the
       eventual mass row of G94 admits cutoff data that no G90 `massLin` row (any `m`) admits; the defect rows hold
       trivially there (`K = 0`).
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEvStrict.lean` (uncompiled at push,
+      commit 6197075): def `evD`; theorems `evD_hs2K`, `evD_massEv`, `evD_J_sq`, `evD_no_massLin`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G96. `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the F2 audit for G94. `globalLipRowsEv_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsEv E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsEv`; converse
