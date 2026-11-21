@@ -1659,7 +1659,7 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       `linD_prod`, `linD_not_vanish`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 992/992 at d0b3753, all six
       `H5DeltaVanishNeeded` theorems verified.
-- [ ] G94. `SteklovAudit/H5GlobalLipRowsEv.lean` (imports `SteklovAudit.H5GlobalLipRows`): a strictly weaker form of the
+- [x] G94. `SteklovAudit/H5GlobalLipRowsEv.lean` (imports `SteklovAudit.H5GlobalLipRows`): a strictly weaker form of the
       G90 rows. `structure H5bGlobalLipRowsEv (E Emod)` = the fields of `H5bGlobalLipRows` without `massLin`, `δ`,
       `defectLin`, `δVanish`, plus `massEv : ∀ ε γ, ∃ L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (D ε γ L).J ≤ m ε γ * L` (mass row only
       eventually) and `defectSmall : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → hs2 (D ε γ L).K ≤
@@ -1672,6 +1672,39 @@ Items G91–G94 written by the formalize task on 2026-11-21 (no unchecked item w
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEv.lean` (uncompiled at push,
       commit 4faaef4): structure `H5bGlobalLipRowsEv`; defs `ofRows`, `toGlobalLipEv`; theorems `ofRows_m`,
       `toGlobalLipEv_Λ`, `h5b_of_globalLipRowsEv`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 995/995 at 6a2263f, all three
+      `H5GlobalLipRowsEv` theorems verified.
+
+Items G95–G97 written by the formalize task on 2026-11-21 (no unchecked A–G item was left after G94). They audit the
+G94 rows (`H5bGlobalLipRowsEv`): strictness against G90, the F2 audit, and necessity of `massEv`. None proves a row
+for the Steklov operator.
+
+- [ ] G95. `SteklovAudit/H5GlobalLipRowsEvStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): the G94 mass row is
+      strictly weaker than the G90 row `massLin` for every constant `m`. `noncomputable def evD (L : ℝ) : Data (Fin 1) (Fin 1)`
+      with `a = 0`, `b = 0`, `J _ _ = if L < 2 then Real.sqrt (1 / (L - 1)) else 0`. `evD_hs2K : ∀ L, hs2 (evD L).K = 0`
+      (`Data.K`, `sub_self`); `evD_massEv : ∀ L, 2 ≤ L → hs2 (evD L).J ≤ 0 * L` (`if_neg`, `hs2` over `Fin 1`);
+      `evD_no_massLin : ¬ ∃ m : ℝ, ∀ L, 1 ≤ L → hs2 (evD L).J ≤ m * L` (at `L = 1 + s`, `s = 1 / (2 * (|m| + 1))`, so
+      `0 < s ≤ 1/2`, `hs2 J = 1 / s = 2 * (|m| + 1)` via `Real.sq_sqrt`, and `m * (1 + s) ≤ |m| * (3/2) < 2 * (|m| + 1)`;
+      `le_abs_self`, `nlinarith`). Theorem names: `evD_hs2K`, `evD_massEv`, `evD_no_massLin`. F table text: the
+      eventual mass row of G94 admits cutoff data that no G90 `massLin` row (any `m`) admits; the defect rows hold
+      trivially there (`K = 0`).
+- [ ] G96. `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`,
+      `SteklovAudit.H5GlobalLipRowsAudit`): the F2 audit for G94. `globalLipRowsEv_iff_target (E Emod) :
+      Nonempty (H5bGlobalLipRowsEv E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsEv`; converse
+      `ofRows (H5GlobalLipRowsAudit.ofTarget h)`), `globalLipRowsEv_nonempty_zero` (witness `E = Emod = 0`, as in
+      `globalLipRows_nonempty_zero`), and `ofTarget_ev_m : (ofRows (H5GlobalLipRowsAudit.ofTarget h)).m = fun _ _ => 0`
+      (rfl). Theorem names: `globalLipRowsEv_iff_target`, `globalLipRowsEv_nonempty_zero`, `ofTarget_ev_m`. F table text:
+      the G94 rows are satisfiable, and (like G90) they are equivalent to the target only through the unconstrained
+      `cutoff` row with empty data; the F2 caveat stands.
+- [ ] G97. `SteklovAudit/H5MassEvNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`): `massEv` cannot be dropped from
+      G94. `noncomputable def bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1 / L`, `b = 0`, `J _ _ = L`, so
+      `hs2 J = L ^ 2` and `hs2 K = 1` for `L ≠ 0` (`field_simp`). `bigD_hs2J : ∀ L, hs2 (bigD L).J = L ^ 2`;
+      `bigD_hs2K : ∀ L, L ≠ 0 → hs2 (bigD L).K = 1`; `bigD_defectSmall : ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+      hs2 (bigD L).K ≤ η * L` (`L₀ = 1 / η + 1`); `bigD_not_massEv : ¬ ∃ m L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (bigD L).J ≤ m * L`
+      (at `L = max L₁ (|m| + 1)`, `L ^ 2 > m * L`); `bigD_not_vanish : ¬ ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
+      1 * Real.sqrt (hs2 (bigD L).K * hs2 (bigD L).J) ≤ (1 / 2) * L` (product `L ^ 2`, `Real.sqrt_sq`, at `L = max L₀ 1`).
+      Theorem names: `bigD_hs2J`, `bigD_hs2K`, `bigD_defectSmall`, `bigD_not_massEv`, `bigD_not_vanish`. F table text:
+      an `o(L)` defect alone does not give `globalVanish` (with `Λ = 1`); the mass row is a necessary separate input.
 
 ## Foundations (long-term)
 
