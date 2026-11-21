@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-21 17:25 UTC at commit `c14235538ae7`. Last passing commit: `c14235538ae7`.
+Checked 2026-11-21 18:21 UTC at commit `e25bccc6a484`. Last passing commit: `e25bccc6a484`.
 
-Library declarations checked: 999 of 999 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1002 of 1002 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -446,6 +446,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5GlobalLipRowsEv.lean | `SteklovAudit.H5GlobalLipRowsEv.ofRows_m` | verified (standard axioms only) |
 | H5GlobalLipRowsEv.lean | `SteklovAudit.H5GlobalLipRowsEv.toGlobalLipEv_Λ` | verified (standard axioms only) |
 | H5GlobalLipRowsEv.lean | `SteklovAudit.H5GlobalLipRowsEv.h5b_of_globalLipRowsEv` | verified (standard axioms only) |
+| H5GlobalLipRowsEvAudit.lean | `SteklovAudit.H5GlobalLipRowsEvAudit.globalLipRowsEv_iff_target` | verified (standard axioms only) |
+| H5GlobalLipRowsEvAudit.lean | `SteklovAudit.H5GlobalLipRowsEvAudit.ofTarget_ev_m` | verified (standard axioms only) |
+| H5GlobalLipRowsEvAudit.lean | `SteklovAudit.H5GlobalLipRowsEvAudit.globalLipRowsEv_nonempty_zero` | verified (standard axioms only) |
 | H5GlobalLipRowsEvStrict.lean | `SteklovAudit.H5GlobalLipRowsEvStrict.evD_hs2K` | verified (standard axioms only) |
 | H5GlobalLipRowsEvStrict.lean | `SteklovAudit.H5GlobalLipRowsEvStrict.evD_massEv` | verified (standard axioms only) |
 | H5GlobalLipRowsEvStrict.lean | `SteklovAudit.H5GlobalLipRowsEvStrict.evD_J_sq` | verified (standard axioms only) |
