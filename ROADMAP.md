@@ -1706,7 +1706,7 @@ for the Steklov operator.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 1002/1002 at 55fd293, all three
       `H5GlobalLipRowsEvAudit` theorems verified.
-- [ ] G97. `SteklovAudit/H5MassEvNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`): `massEv` cannot be dropped from
+- [x] G97. `SteklovAudit/H5MassEvNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`): `massEv` cannot be dropped from
       G94. `noncomputable def bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1 / L`, `b = 0`, `J _ _ = L`, so
       `hs2 J = L ^ 2` and `hs2 K = 1` for `L ≠ 0` (`field_simp`). `bigD_hs2J : ∀ L, hs2 (bigD L).J = L ^ 2`;
       `bigD_hs2K : ∀ L, L ≠ 0 → hs2 (bigD L).K = 1`; `bigD_defectSmall : ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L →
@@ -1718,6 +1718,44 @@ for the Steklov operator.
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5MassEvNeeded.lean` (uncompiled at push,
       commit 097862e): def `bigD`; theorems `bigD_hs2J`, `bigD_hs2K`, `bigD_defectSmall`, `bigD_not_massEv`,
       `bigD_prod`, `bigD_not_vanish`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 1008/1008 at 533996a, all six
+      `H5MassEvNeeded` theorems verified.
+
+Items G98–G100 written by the formalize task on 2026-11-21 (no unchecked A–G item was left after G97). They replace
+the G94 mass/defect pair by a strictly weaker trade-off pair (mass `O(L^p)`, defect `o(L^(2-p))`), check strictness,
+and run the F2 audit. None proves a row for the Steklov operator.
+
+- [ ] G98. `SteklovAudit/H5GlobalLipRowsPow.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): a trade-off form of the
+      G94 rows. `structure H5bGlobalLipRowsPow (E Emod)` = the fields of `H5bGlobalLipRowsEv` with `massEv`,
+      `defectSmall` replaced by `p : ℝ → ℝ → ℝ`, `hp : ∀ ε γ, 0 ≤ p ε γ ∧ p ε γ ≤ 2`, `massPow : ∀ ε γ, ∃ L₁ : ℝ,
+      ∀ L, L₁ ≤ L → hs2 (D ε γ L).J ≤ m ε γ * L ^ (p ε γ)` (`Real.rpow`) and `defectPow : ∀ ε γ : ℝ, 0 < ε → 0 < γ →
+      ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → hs2 (D ε γ L).K ≤ η * L ^ (2 - p ε γ)`. Helper
+      `rpow_split : 0 < L → L ^ p * L ^ (2 - p) = L * L` (`← Real.rpow_add`, `Real.rpow_two` or
+      `Real.rpow_natCast`, `sq`). `def ofEv (H : H5bGlobalLipRowsEv E Emod)` with `p := fun _ _ => 1`
+      (`Real.rpow_one`; `2 - 1 = 1` by `norm_num`). `noncomputable def toGlobalLipPow : H5bGlobalLipInputs E Emod`
+      (as `toGlobalLipEv`: `t` as there, `defectPow` at `t ^ 2`, `L ≥ max 1 (max L₀ L₁)`; then
+      `hs2 K * hs2 J ≤ (t ^ 2 * m) * (L * L)` by `mul_le_mul` and `rpow_split`, and feed `sqrt_lin_prod` with
+      `k := hs2 K * hs2 J / L`, or prove the `Real.sqrt` bound directly via `Real.sqrt_le_sqrt`,
+      `Real.sqrt_mul_self`, `Real.sqrt_mul`). Theorem names: `rpow_split`, `ofEv_p` (rfl), `toGlobalLipPow_Λ` (rfl),
+      `h5b_of_globalLipRowsPow`. F table text: the mass and defect rows may trade powers of `L` (`O(L^p)` mass with
+      `o(L^(2-p))` defect, `0 ≤ p ≤ 2`); `p = 1` is G94. Both remain named hypotheses, proved for no operator.
+- [ ] G99. `SteklovAudit/H5GlobalLipRowsPowStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
+      `SteklovAudit.H5TailAudit`): G98 is strictly weaker than G94 on cutoff data. `noncomputable def powD (L : ℝ) :
+      Data (Fin 1) (Fin 1)` with `a = 1 / L ^ 2`, `b = 0`, `J _ _ = L`, so `hs2 J = L ^ 2` and `hs2 K = 1 / L ^ 2` for
+      `L ≠ 0`. `powD_massPow : ∀ L, 1 ≤ L → hs2 (powD L).J ≤ 1 * L ^ (2 : ℝ)` (`Real.rpow_two`/`Real.rpow_natCast`);
+      `powD_defectPow : ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → hs2 (powD L).K ≤ η * L ^ ((2 : ℝ) - 2)` (`sub_self`,
+      `Real.rpow_zero`; `1 / L ^ 2 ≤ 1 / L ≤ η` for `L ≥ max 1 (1 / η)`, `div_le_div_of_nonneg_left`, `nlinarith`);
+      `powD_not_massEv : ¬ ∃ m L₁ : ℝ, ∀ L, L₁ ≤ L → hs2 (powD L).J ≤ m * L` (as `bigD_not_massEv`). Theorem names:
+      `powD_hs2J`, `powD_hs2K`, `powD_massPow`, `powD_defectPow`, `powD_not_massEv`. F table text: the G98 rows (with
+      `p = 2`) admit cutoff data that no G94 row admits.
+- [ ] G100. `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
+      `SteklovAudit.H5GlobalLipRowsEvAudit`): the F2 audit for G98. `globalLipRowsPow_iff_target (E Emod) :
+      Nonempty (H5bGlobalLipRowsPow E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsPow`; converse
+      `ofEv (ofRows (H5GlobalLipRowsAudit.ofTarget h))`), `globalLipRowsPow_nonempty_zero` (witness `E = Emod = 0`, as
+      in `globalLipRowsEv_nonempty_zero`), `ofTarget_pow_p : (ofEv (ofRows (H5GlobalLipRowsAudit.ofTarget h))).p =
+      fun _ _ => 1` (rfl). Theorem names: `globalLipRowsPow_iff_target`, `globalLipRowsPow_nonempty_zero`,
+      `ofTarget_pow_p`. F table text: the G98 rows are satisfiable and, like G90/G94, equivalent to the target only
+      through the unconstrained `cutoff` row; the F2 caveat stands.
 
 ## Foundations (long-term)
 
