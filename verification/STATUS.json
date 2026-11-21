@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 16:32 UTC",
+  "checked_at": "2026-11-21 17:25 UTC",
   "lean_exit_code": 0,
-  "commit": "f357694f1095246a93d65c2791f5e2f36b02dd5a",
-  "last_passing_commit": "f357694f1095246a93d65c2791f5e2f36b02dd5a",
-  "library_declarations_checked": 995,
-  "library_declarations": 995,
+  "commit": "c14235538ae74ffcf2a566ab55936b86ba9d099c",
+  "last_passing_commit": "c14235538ae74ffcf2a566ab55936b86ba9d099c",
+  "library_declarations_checked": 999,
+  "library_declarations": 999,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 995,
-  "verified": 995,
+  "theorems": 999,
+  "verified": 999,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4208,6 +4208,46 @@
     {
       "file": "H5GlobalLipRowsEv.lean",
       "theorem": "SteklovAudit.H5GlobalLipRowsEv.h5b_of_globalLipRowsEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEvStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEvStrict.evD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEvStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEvStrict.evD_massEv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEvStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEvStrict.evD_J_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEvStrict.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEvStrict.evD_no_massLin",
       "axioms": [
         "propext",
         "Classical.choice",
