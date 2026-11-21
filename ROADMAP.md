@@ -1679,7 +1679,7 @@ Items G95–G97 written by the formalize task on 2026-11-21 (no unchecked A–G 
 G94 rows (`H5bGlobalLipRowsEv`): strictness against G90, the F2 audit, and necessity of `massEv`. None proves a row
 for the Steklov operator.
 
-- [ ] G95. `SteklovAudit/H5GlobalLipRowsEvStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): the G94 mass row is
+- [x] G95. `SteklovAudit/H5GlobalLipRowsEvStrict.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`): the G94 mass row is
       strictly weaker than the G90 row `massLin` for every constant `m`. `noncomputable def evD (L : ℝ) : Data (Fin 1) (Fin 1)`
       with `a = 0`, `b = 0`, `J _ _ = if L < 2 then Real.sqrt (1 / (L - 1)) else 0`. `evD_hs2K : ∀ L, hs2 (evD L).K = 0`
       (`Data.K`, `sub_self`); `evD_massEv : ∀ L, 2 ≤ L → hs2 (evD L).J ≤ 0 * L` (`if_neg`, `hs2` over `Fin 1`);
@@ -1691,6 +1691,8 @@ for the Steklov operator.
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEvStrict.lean` (uncompiled at push,
       commit 6197075): def `evD`; theorems `evD_hs2K`, `evD_massEv`, `evD_J_sq`, `evD_no_massLin`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 999/999 at c142355, all four
+      `H5GlobalLipRowsEvStrict` theorems verified.
 - [ ] G96. `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the F2 audit for G94. `globalLipRowsEv_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsEv E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsEv`; converse
@@ -1699,6 +1701,9 @@ for the Steklov operator.
       (rfl). Theorem names: `globalLipRowsEv_iff_target`, `globalLipRowsEv_nonempty_zero`, `ofTarget_ev_m`. F table text:
       the G94 rows are satisfiable, and (like G90) they are equivalent to the target only through the unconstrained
       `cutoff` row with empty data; the F2 caveat stands.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (uncompiled at push,
+      commit 615e263): theorems `globalLipRowsEv_iff_target`, `ofTarget_ev_m`, `globalLipRowsEv_nonempty_zero`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G97. `SteklovAudit/H5MassEvNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`): `massEv` cannot be dropped from
       G94. `noncomputable def bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1 / L`, `b = 0`, `J _ _ = L`, so
       `hs2 J = L ^ 2` and `hs2 K = 1` for `L ≠ 0` (`field_simp`). `bigD_hs2J : ∀ L, hs2 (bigD L).J = L ^ 2`;
