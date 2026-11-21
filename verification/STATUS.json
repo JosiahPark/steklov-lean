@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 20:23 UTC",
+  "checked_at": "2026-11-21 20:48 UTC",
   "lean_exit_code": 0,
-  "commit": "533996a11c677e47db73e07d4e1949074888e2ec",
-  "last_passing_commit": "533996a11c677e47db73e07d4e1949074888e2ec",
-  "library_declarations_checked": 1008,
-  "library_declarations": 1008,
+  "commit": "621a8993571d86d24dd35881a8830a4be49b6837",
+  "last_passing_commit": "621a8993571d86d24dd35881a8830a4be49b6837",
+  "library_declarations_checked": 1013,
+  "library_declarations": 1013,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1008,
-  "verified": 1008,
+  "theorems": 1013,
+  "verified": 1013,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4278,6 +4278,56 @@
     {
       "file": "H5GlobalLipRowsEvStrict.lean",
       "theorem": "SteklovAudit.H5GlobalLipRowsEvStrict.evD_no_massLin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsPow.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsPow.rpow_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsPow.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsPow.sqrt_pow_prod",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsPow.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsPow.ofEv_p",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsPow.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsPow.toGlobalLipPow_\u039b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsPow.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsPow.h5b_of_globalLipRowsPow",
       "axioms": [
         "propext",
         "Classical.choice",
