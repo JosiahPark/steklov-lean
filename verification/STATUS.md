@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-21 12:24 UTC at commit `9559e559559c`. Last passing commit: `9559e559559c`.
+Checked 2026-11-21 15:05 UTC at commit `d0b37533b58a`. Last passing commit: `d0b37533b58a`.
 
-Library declarations checked: 986 of 986 theorems compile with only Lean's standard axioms.
+Library declarations checked: 992 of 992 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -343,6 +343,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_hs2J` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_hs2K` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_massLin` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_defectLin` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_prod` | verified (standard axioms only) |
+| H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_not_vanish` | verified (standard axioms only) |
 | H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.z_diffCount` | verified (standard axioms only) |
 | H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.self_diff_bound` | verified (standard axioms only) |
 | H5DiffAudit.lean | `SteklovAudit.H5DiffAudit.diffWitness_nonempty` | verified (standard axioms only) |

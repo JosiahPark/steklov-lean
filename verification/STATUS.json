@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 12:24 UTC",
+  "checked_at": "2026-11-21 15:05 UTC",
   "lean_exit_code": 0,
-  "commit": "9559e559559c8d5e2422cd42fe4d3ce4d793cd30",
-  "last_passing_commit": "9559e559559c8d5e2422cd42fe4d3ce4d793cd30",
-  "library_declarations_checked": 986,
-  "library_declarations": 986,
+  "commit": "d0b37533b58a2f4e765e0484e7ca36559c2794c9",
+  "last_passing_commit": "d0b37533b58a2f4e765e0484e7ca36559c2794c9",
+  "library_declarations_checked": 992,
+  "library_declarations": 992,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 986,
-  "verified": 986,
+  "theorems": 992,
+  "verified": 992,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -3178,6 +3178,66 @@
     {
       "file": "H5CutoffSmoothed.lean",
       "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_hs2J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_massLin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_defectLin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_prod",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5DeltaVanishNeeded.lean",
+      "theorem": "SteklovAudit.H5DeltaVanishNeeded.linD_not_vanish",
       "axioms": [
         "propext",
         "Classical.choice",
