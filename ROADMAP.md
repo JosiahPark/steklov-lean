@@ -1759,7 +1759,7 @@ and run the F2 audit. None proves a row for the Steklov operator.
       tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 1018/1018 at 1b8fa7e, all five
       `H5GlobalLipRowsPowStrict` theorems verified.
-- [ ] G100. `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
+- [x] G100. `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsPow`,
       `SteklovAudit.H5GlobalLipRowsEvAudit`): the F2 audit for G98. `globalLipRowsPow_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsPow E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsPow`; converse
       `ofEv (ofRows (H5GlobalLipRowsAudit.ofTarget h))`), `globalLipRowsPow_nonempty_zero` (witness `E = Emod = 0`, as
@@ -1770,6 +1770,51 @@ and run the F2 audit. None proves a row for the Steklov operator.
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsPowAudit.lean` (uncompiled at push):
       theorems `globalLipRowsPow_iff_target`, `ofTarget_pow_p`, `globalLipRowsPow_nonempty_zero`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 1021/1021 at f2c3c1b, all three
+      `H5GlobalLipRowsPowAudit` theorems verified.
+
+Items G101–G104 written by the formalize task on 2026-11-21 (no unchecked A–G item was left after G100). They attack
+the F2 caveat itself: every form since F2 is equivalent to the target only because the cutoff data `D` (and `F`) are
+fields that `ofTarget` may choose empty. G101 makes `nA nB D F` parameters ("pinned" to the operator's cutoff data);
+G102–G104 check that the caveat is exactly the empty choice, that pinned nonempty data makes the rows strictly
+stronger than the target (so the `cutoff` row is no longer the target in disguise), and that pinned rows are
+non-vacuous on nonempty data. None proves a row for the Steklov operator; the operator's cutoff data is not defined.
+
+- [ ] G101. `SteklovAudit/H5PinnedRows.lean` (imports `SteklovAudit.H5GlobalLipRows`): `structure H5bPinnedRows
+      (E Emod : ℝ → ℝ → ℝ → ℝ) (nA nB : ℝ → ℝ → ℝ → ℕ) (D₀ : ∀ ε γ L : ℝ, Data (Fin (nA ε γ L)) (Fin (nB ε γ L)))
+      (F₀ : ℝ → ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bGlobalLipRows` except `nA`, `nB`, `D`, `F`, with every occurrence
+      of `D`/`F` replaced by the parameters `D₀`/`F₀` (fields `disc`, `cutoff`, `discVanish`, `Λ`, `hΛ`, `lip`, `m`,
+      `hm`, `massLin`, `δ`, `defectLin`, `δVanish`). `def toRows (H : H5bPinnedRows E Emod nA nB D₀ F₀) :
+      H5bGlobalLipRows E Emod` (field-by-field copy, `D := D₀`, `F := F₀`). Theorem names: `toRows_D`
+      (`(toRows H).D = D₀`, rfl), `toRows_F` (rfl), `h5b_of_pinnedRows` (`h5b_of_globalLipRows (toRows H)`). F table
+      text: the G90 rows stated for given cutoff data; the data is a parameter, not something the rows may choose.
+- [ ] G102. `SteklovAudit/H5PinnedZeroAudit.lean` (imports `SteklovAudit.H5PinnedRows`,
+      `SteklovAudit.H5GlobalLipRowsAudit`): the caveat is exactly the empty choice. With `zA := fun _ _ _ => 0`,
+      `zD : ∀ ε γ L, Data (Fin 0) (Fin 0) := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 0⟩`, `zF := fun _ _ _ _
+      => 0`: `pinnedZero_iff_target (E Emod) : Nonempty (H5bPinnedRows E Emod zA zA zD zF) ↔ H5bTarget E Emod`
+      (forward `h5b_of_pinnedRows`; converse copies `H5GlobalLipRowsAudit.ofTarget`: `disc := |E - Emod|`, `cutoff`
+      by `simp`, `Λ = m = δ = 0`, `hs2` of zero arrays by `rowsAudit_hs2_zero` or `simp [hs2, Data.K]`). Theorem
+      names: `pinnedZero_iff_target`, `pinnedZero_disc` (the converse's `disc` is `|E - Emod|`, rfl). F table text:
+      pinned to empty data the rows are the target; all content of G90–G100 depends on which data is pinned.
+- [ ] G103. `SteklovAudit/H5PinnedNotTarget.lean` (imports `SteklovAudit.H5PinnedRows`): pinned nonempty data makes the
+      rows strictly stronger than the target. `oA := fun _ _ _ => 1`; `noncomputable def bumpD : ∀ ε γ L : ℝ, Data
+      (Fin 1) (Fin 1) := fun _ _ L => ⟨fun _ => 1, fun _ => 0, fun _ _ => L⟩`; `idF := fun _ _ _ x => x`.
+      `bump_sum : ∀ ε γ L, ∑ i, ∑ j, (idF ε γ L ((bumpD ε γ L).a i) - idF ε γ L ((bumpD ε γ L).b j)) *
+      (bumpD ε γ L).J i j ^ 2 = L ^ 2` (`simp [Fin.sum_univ_one]`, `ring`); `target_zero : H5bTarget (fun _ _ _ => 0)
+      (fun _ _ _ => 0)` (as in `globalLipRows_nonempty_zero`); `not_pinned_bump : ¬ Nonempty (H5bPinnedRows
+      (fun _ _ _ => 0) (fun _ _ _ => 0) oA oA bumpD idF)` (from `cutoff`, `L ^ 2 ≤ disc 1 1 L` via `abs` of `0 - L ^ 2`;
+      `discVanish 1 1` at `η = 1` gives `disc ≤ L` for `L ≥ L₀`; take `L = max L₀ 2`, `nlinarith`). Theorem names:
+      `bump_sum`, `target_zero`, `not_pinned_bump`, `pinned_strictly_stronger` (conjunction of the last two). F table
+      text: once `D` is pinned, the target does not imply the rows; the `cutoff` row is no longer the target in disguise.
+- [ ] G104. `SteklovAudit/H5PinnedNonvacuous.lean` (imports `SteklovAudit.H5PinnedRows`): pinned rows hold on nonempty
+      data with a nonzero defect. `oA := fun _ _ _ => 1`; `noncomputable def decayD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
+      := fun _ _ L => ⟨fun _ => 1 / L, fun _ => 0, fun _ _ => 1⟩` (so `K = 1 / L`, `hs2 K = 1 / L ^ 2`, `hs2 J = 1`),
+      `idF := fun _ _ _ x => x`, `E := fun _ _ L => 1 / L`, `Emod := 0`. `noncomputable def decayRows :
+      H5bPinnedRows E (fun _ _ _ => 0) oA oA decayD idF` with `disc = 0` (`cutoff`: the sum is `1 / L`, `simp`),
+      `Λ = 1`, `m = 1` (`massLin`: `1 ≤ 1 * L`), `δ := fun _ _ L => 1 / L ^ 3` (`defectLin`: `1 / L ^ 2 = 1 / L ^ 3 * L`
+      for `L ≥ 1` by `field_simp`; `δVanish`: `1 / L ^ 3 ≤ 1 / L ≤ η` for `L ≥ max 1 (1 / η)`). Theorem names:
+      `decayD_hs2K` (`= 1 / L ^ 2` for `L ≠ 0`), `decayRows_m` (rfl), `pinned_nonempty_decay`. F table text: the pinned
+      form is satisfiable on nonempty data with nonzero defect; not vacuous.
 
 ## Foundations (long-term)
 
