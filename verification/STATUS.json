@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 15:05 UTC",
+  "checked_at": "2026-11-21 15:23 UTC",
   "lean_exit_code": 0,
-  "commit": "d0b37533b58a2f4e765e0484e7ca36559c2794c9",
-  "last_passing_commit": "d0b37533b58a2f4e765e0484e7ca36559c2794c9",
-  "library_declarations_checked": 992,
-  "library_declarations": 992,
+  "commit": "6a2263f9e1769805a94b8c4c9ed9f117253c0b74",
+  "last_passing_commit": "6a2263f9e1769805a94b8c4c9ed9f117253c0b74",
+  "library_declarations_checked": 995,
+  "library_declarations": 995,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 992,
-  "verified": 992,
+  "theorems": 995,
+  "verified": 995,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -4178,6 +4178,36 @@
     {
       "file": "H5GlobalLipRowsAudit.lean",
       "theorem": "SteklovAudit.H5GlobalLipRowsAudit.globalLipRows_nonempty_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEv.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEv.ofRows_m",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEv.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEv.toGlobalLipEv_\u039b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5GlobalLipRowsEv.lean",
+      "theorem": "SteklovAudit.H5GlobalLipRowsEv.h5b_of_globalLipRowsEv",
       "axioms": [
         "propext",
         "Classical.choice",
