@@ -1693,7 +1693,7 @@ for the Steklov operator.
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-21: STATUS PASS 999/999 at c142355, all four
       `H5GlobalLipRowsEvStrict` theorems verified.
-- [ ] G96. `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`,
+- [x] G96. `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (imports `SteklovAudit.H5GlobalLipRowsEv`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the F2 audit for G94. `globalLipRowsEv_iff_target (E Emod) :
       Nonempty (H5bGlobalLipRowsEv E Emod) ↔ H5bTarget E Emod` (`h5b_of_globalLipRowsEv`; converse
       `ofRows (H5GlobalLipRowsAudit.ofTarget h)`), `globalLipRowsEv_nonempty_zero` (witness `E = Emod = 0`, as in
@@ -1704,6 +1704,8 @@ for the Steklov operator.
       Written by the formalize task 2026-11-21 in `SteklovAudit/H5GlobalLipRowsEvAudit.lean` (uncompiled at push,
       commit 615e263): theorems `globalLipRowsEv_iff_target`, `ofTarget_ev_m`, `globalLipRowsEv_nonempty_zero`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-21: STATUS PASS 1002/1002 at 55fd293, all three
+      `H5GlobalLipRowsEvAudit` theorems verified.
 - [ ] G97. `SteklovAudit/H5MassEvNeeded.lean` (imports `SteklovAudit.H5GlobalLipRows`): `massEv` cannot be dropped from
       G94. `noncomputable def bigD (L : ℝ) : Data (Fin 1) (Fin 1)` with `a = 1 / L`, `b = 0`, `J _ _ = L`, so
       `hs2 J = L ^ 2` and `hs2 K = 1` for `L ≠ 0` (`field_simp`). `bigD_hs2J : ∀ L, hs2 (bigD L).J = L ^ 2`;
@@ -1713,6 +1715,9 @@ for the Steklov operator.
       1 * Real.sqrt (hs2 (bigD L).K * hs2 (bigD L).J) ≤ (1 / 2) * L` (product `L ^ 2`, `Real.sqrt_sq`, at `L = max L₀ 1`).
       Theorem names: `bigD_hs2J`, `bigD_hs2K`, `bigD_defectSmall`, `bigD_not_massEv`, `bigD_not_vanish`. F table text:
       an `o(L)` defect alone does not give `globalVanish` (with `Λ = 1`); the mass row is a necessary separate input.
+      Written by the formalize task 2026-11-21 in `SteklovAudit/H5MassEvNeeded.lean` (uncompiled at push,
+      commit 097862e): def `bigD`; theorems `bigD_hs2J`, `bigD_hs2K`, `bigD_defectSmall`, `bigD_not_massEv`,
+      `bigD_prod`, `bigD_not_vanish`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
