@@ -1793,7 +1793,7 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       shows it compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1024/1024 at 8bb191a, all three `H5PinnedRows` theorems
       verified.
-- [ ] G102. `SteklovAudit/H5PinnedZeroAudit.lean` (imports `SteklovAudit.H5PinnedRows`,
+- [x] G102. `SteklovAudit/H5PinnedZeroAudit.lean` (imports `SteklovAudit.H5PinnedRows`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the caveat is exactly the empty choice. With `zA := fun _ _ _ => 0`,
       `zD : ∀ ε γ L, Data (Fin 0) (Fin 0) := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 0⟩`, `zF := fun _ _ _ _
       => 0`: `pinnedZero_iff_target (E Emod) : Nonempty (H5bPinnedRows E Emod zA zA zD zF) ↔ H5bTarget E Emod`
@@ -1804,6 +1804,8 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedZeroAudit.lean` (uncompiled at push): defs
       `zA`, `zD`, `zF`, `ofTargetZero`; theorems `pinnedZero_disc`, `pinnedZero_iff_target`. Next run: tick if
       STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1026/1026 at 4b2d560, both `H5PinnedZeroAudit`
+      theorems verified.
 - [ ] G103. `SteklovAudit/H5PinnedNotTarget.lean` (imports `SteklovAudit.H5PinnedRows`): pinned nonempty data makes the
       rows strictly stronger than the target. `oA := fun _ _ _ => 1`; `noncomputable def bumpD : ∀ ε γ L : ℝ, Data
       (Fin 1) (Fin 1) := fun _ _ L => ⟨fun _ => 1, fun _ => 0, fun _ _ => L⟩`; `idF := fun _ _ _ x => x`.
@@ -1814,6 +1816,9 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       `discVanish 1 1` at `η = 1` gives `disc ≤ L` for `L ≥ L₀`; take `L = max L₀ 2`, `nlinarith`). Theorem names:
       `bump_sum`, `target_zero`, `not_pinned_bump`, `pinned_strictly_stronger` (conjunction of the last two). F table
       text: once `D` is pinned, the target does not imply the rows; the `cutoff` row is no longer the target in disguise.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedNotTarget.lean` (uncompiled at push): defs
+      `oA` (abbrev), `bumpD`, `idF`; theorems `bump_sum`, `target_zero`, `not_pinned_bump`,
+      `pinned_strictly_stronger`. Next run: tick if STATUS shows it compiled.
 - [ ] G104. `SteklovAudit/H5PinnedNonvacuous.lean` (imports `SteklovAudit.H5PinnedRows`): pinned rows hold on nonempty
       data with a nonzero defect. `oA := fun _ _ _ => 1`; `noncomputable def decayD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
       := fun _ _ L => ⟨fun _ => 1 / L, fun _ => 0, fun _ _ => 1⟩` (so `K = 1 / L`, `hs2 K = 1 / L ^ 2`, `hs2 J = 1`),
