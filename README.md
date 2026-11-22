@@ -20,18 +20,19 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The library count below is from the 2026-11-22 18:18 UTC verification run at commit `58cd2d5` (CI run 45052761642).
-The paper-step split and the section table are older: they come from the 2026-11-22 00:57 UTC map build
-(commit `4b2d560`) and do not yet include the modules added since.
+The counts below are from the 2026-11-22 19:04 UTC verification run and map build at commit `50e566b`, the last
+build in which every file was counted. Since then `main` has gained the G109–G112 and G122–G127 modules; the build
+at `a9f44a7` (19:48 UTC) fails in two of them (`TriangleQuadrature`, `H5CutoffObstruction`), so none of the new
+modules is counted yet.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
-- **Library:** 1123 of 1123 theorems compile with only Lean's standard axioms, in 185 audited files
-  (`SteklovAudit.lean`, 180 files in `SteklovAudit/`, 4 in `SteklovAudit/Foundations/`).
-- **As of the 00:57 UTC map build** (1026 theorems, 209 modules):
-  - 260 prove a step of the preprint outright.
-  - 62 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 704 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+- **Library:** 1148 of 1148 theorems compile with only Lean's standard axioms, in 189 audited files
+  (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
+- **As of the 19:04 UTC map build** (1148 theorems, 231 modules):
+  - 262 prove a step of the preprint outright.
+  - 64 prove a step from the paper's analytic estimates, taken as named hypotheses.
+  - 822 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -40,11 +41,11 @@ after every build and are the authority.
   | §1–3 Dihedral invariant & sector trace | 9 | 83 | 1 | 0 |
   | §4 Heat fibers | 1 | 6 | 4 | 0 |
   | §5 Spectral windows | 8 | 34 | 11 | 0 |
-  | §7 Static locality & cumulative traces | 44 | 86 | 8 | 82 |
+  | §7 Static locality & cumulative traces | 48 | 88 | 10 | 94 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 135 | 10 | 32 | 613 |
-  | **Total** | **209** | **260** | **62** | **704** |
+  | §11 Assembly & sharp law | 153 | 10 | 32 | 719 |
+  | **Total** | **231** | **262** | **64** | **822** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -59,11 +60,23 @@ after every build and are the authority.
 | H2 | §11.2 | Area terms add to √3a²/(4π) | `PartitionTrace` |
 | H3 | §11.2 | Edge length kept by vertex cutoffs is 6a − O(ε) | `EdgeLength` |
 | H4 | §7.8 | Vertex part, (7.49) | `VertexLog` |
-| H5 | §7, §9, §11 | Edge part, (11.3) ← (7.29), (7.38)/(7.45), (9.1) | `EdgeFromModel`, `AbstractTransferB`, `UniformHS71`, `SpectralCounting`, `SharpLawTransfer`, `RpowScale`, `H5Compare` |
+| H5 | §7, §9, §11 | Edge part, (11.3) ← (7.29), (7.38)/(7.45), (9.1) | `EdgeFromModel`, `AbstractTransferB`, `UniformHS71`, `SpectralCounting`, `SharpLawTransfer`, `RpowScale`, `H5Compare`, `H5CutoffInterface`, `H5PinnedSumSmall` |
 | H6 | §7.5, §10 | Face part, Lemma 7.4 with §10.2 | none yet |
 
 Current work targets H5, the edge part: the H5 modules in §11 test which rows of its input table are
 needed and which are independent. See [`ROADMAP.md`](ROADMAP.md), sections F and G.
+
+Updates since the 19:04 UTC build (written, not yet compiled; none proves H5 or any other input):
+
+| Items | Modules | What they add to H5 |
+|---|---|---|
+| G109–G112 | `H5PinnedDataRows`, `H5PinnedCutoffIsTarget`, `H5PinnedPtsLip`, `H5PinnedPtsLipStrict` | Pinned-row interfaces: data rows, cutoff row equivalent to the target, Lipschitz row weakened to pinned points (strictly weaker) |
+| G122 | `H5CutoffTerminal` (+ `H5CutoffTerminalIff`) | The cutoff route needs a third estimate, full-trace smallness `S_L = o(L)`; given the other two it is equivalent to H5's conclusion |
+| G123 | `H5CutoffObstruction` | Block example: that third estimate cannot be dropped |
+| G124, G126 | `AffineWitnessFromOperator`, `AffineFullTrace`, `AffineParsevalDischarge` | Affine witness fields derived from a symmetric operator with an eigenbasis; full centered trace `O(B/a²)` |
+| G125, G127 | `TaylorRemainder`, `TriangleQuadrature` | Second-order Taylor remainder; exact quadratic quadrature on the triangle |
+| — | `CumulativeBudgetSplit` | Fixed-window `o(L)` plus uniform tail `C L / M` gives `o(L)` |
+| G128–G132 (queued) | see `ROADMAP.md` | Split form of full-trace smallness, spectral Duhamel bound, `1/t` cancellation, HS basis independence, separation example |
 
 ## Paper proofs from the hourly runs
 
