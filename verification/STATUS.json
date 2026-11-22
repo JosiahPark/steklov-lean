@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 07:23 UTC",
+  "checked_at": "2026-11-22 16:05 UTC",
   "lean_exit_code": 0,
-  "commit": "1fb21d8fed0976379a5020eb15aa7a83fe4cbc92",
-  "last_passing_commit": "1fb21d8fed0976379a5020eb15aa7a83fe4cbc92",
-  "library_declarations_checked": 1048,
-  "library_declarations": 1048,
+  "commit": "c2bea0f7c5c56951e3f42d06adecb2e466604e23",
+  "last_passing_commit": "c2bea0f7c5c56951e3f42d06adecb2e466604e23",
+  "library_declarations_checked": 1051,
+  "library_declarations": 1051,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1048,
-  "verified": 1048,
+  "theorems": 1051,
+  "verified": 1051,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -6238,6 +6238,36 @@
     {
       "file": "H5PinnedRowsPowStrict.lean",
       "theorem": "SteklovAudit.H5PinnedRowsPowStrict.pinnedPow_strictly_weaker",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedSumSmall.lean",
+      "theorem": "SteklovAudit.H5PinnedSumSmall.pinned_sum_littleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedSumSmall.lean",
+      "theorem": "SteklovAudit.H5PinnedSumSmall.pinned_target_and_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedSumSmall.lean",
+      "theorem": "SteklovAudit.H5PinnedSumSmall.not_pinned_of_sum_large",
       "axioms": [
         "propext",
         "Classical.choice",
