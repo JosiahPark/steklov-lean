@@ -2150,7 +2150,7 @@ re-add these under another namespace; import them. None of this constructs the D
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5CutoffTerminal.lean` (uncompiled at push, commit
       7388fef): def `FullTraceSmall`; theorem `h5_of_cutoff_route`; `H5CutoffInterface` docstring now lists three
       estimates (no statement changes). Next run: tick if STATUS shows it compiled.
-- [ ] G123. `SteklovAudit/H5CutoffObstruction.lean` (imports Mathlib only): the block example showing (iii) cannot be
+- [x] G123. `SteklovAudit/H5CutoffObstruction.lean` (imports Mathlib only): the block example showing (iii) cannot be
       dropped. Probe `j` sits on the 2-dimensional block with eigenvalues `2j, 2j+2`, weights `1/2, 1/2`, and
       `μ_j = 2j + 1`; `F x = cos (π x)`. Prove, for each `j : ℕ`: mass `1/2 + 1/2 = 1`; squared defect
       `(−1)²/2 + 1²/2 = 1`; first moment `(−1)/2 + 1/2 = 0`; centered value
@@ -2161,7 +2161,7 @@ re-add these under another namespace; import them. None of this constructs the D
       Theorem names: `block_mass`, `block_defect`, `block_first_moment`, `block_centered`, `obstruction_sum`
       (`∑ j < n` of the centered values is `2n`), `obstruction_ratio_le`. Docstring: an obstruction to the abstract
       implication, not a counterexample to the tetrahedral theorem.
-- [ ] G124. `SteklovAudit/AffineWitnessFromOperator.lean` (imports `SteklovAudit.AffineEigenbasisWitness`,
+- [x] G124. `SteklovAudit/AffineWitnessFromOperator.lean` (imports `SteklovAudit.AffineEigenbasisWitness`,
       `SteklovAudit.ReviewExtensions`): derive the witness fields instead of assuming them. Hypotheses (named): a real
       inner-product space `H`, domain `D : Submodule ℝ H`, symmetric `A : D →ₗ[ℝ] H`, Hilbert basis `b` of
       eigenvectors in `D` with eigenvalues `lam`, four probes `u : Fin 4 → D` with `∑ ‖u j‖² = 4` and
@@ -2170,14 +2170,14 @@ re-add these under another namespace; import them. None of this constructs the D
       `cutoff_of_operator` (G115 bound from the operator data via `cutoff_of_witness`). F table text: the two Parseval
       fields of the affine witness follow from symmetry, an eigenbasis in the domain, and two geometric norm
       identities; the operator, eigenbasis and norm identities stay hypotheses.
-- [ ] G125. `SteklovAudit/TaylorRemainder.lean` (imports Mathlib only): the calculus bridge the centered bound needs.
+- [x] G125. `SteklovAudit/TaylorRemainder.lean` (imports Mathlib only): the calculus bridge the centered bound needs.
       `taylor_remainder_of_lipschitz_deriv (F F' : ℝ → ℝ) (B : ℝ) (hB : 0 ≤ B) (hd : ∀ x, HasDerivAt F (F' x) x)
       (hL : ∀ x y, |F' x − F' y| ≤ B * |x − y|) (x y : ℝ) : |F x − F y − F' y * (x − y)| ≤ B / 2 * (x − y) ^ 2`.
       Proof route: `g t := F t − F y − F' y * (t − y) − B/2 * (t − y)²` and its mirror, monotonicity from the
       derivative sign (`monotoneOn_of_deriv_nonneg` / `image_le_of_deriv_right_le_deriv_boundary`), or integrate
       `F' t − F' y` with `intervalIntegral.integral_eq_sub_of_hasDerivAt`. Keep it under 120 lines; split `x ≥ y` /
       `x ≤ y` if needed. F table text: `C¹,¹` regularity with constant `B` gives the second-order remainder `B/2`.
-- [ ] G126. `SteklovAudit/AffineFullTrace.lean` (imports `SteklovAudit.AffineWitnessFromOperator`,
+- [x] G126. `SteklovAudit/AffineFullTrace.lean` (imports `SteklovAudit.AffineWitnessFromOperator`,
       `SteklovAudit.TaylorRemainder`): the whole centered trace, not only its tail. Add the residual-orthogonality
       hypothesis `⟪u j, A (u j) − muVec a j • u j⟫ = 0` for each probe; get the first moments from
       `ReviewCandidates.residual_first_moment`, combine with `F' (μ_j)` into `HasSum linear 0`, then
@@ -2185,7 +2185,7 @@ re-add these under another namespace; import them. None of this constructs the D
       Summable value ∧ |∑' p, value p| ≤ 8 * B / a ^ 2`. F table text: on the affine probes the full centered trace is
       `O(B/a²)` given `C¹,¹` regularity and residual orthogonality; for a growing family this route needs
       `B_L E_L = o(L)` and orthogonality for the actual identification (not automatic for tetrahedron–wedge).
-- [ ] G127. `SteklovAudit/TriangleQuadrature.lean` (imports Mathlib only): independent integrals on the reference
+- [x] G127. `SteklovAudit/TriangleQuadrature.lean` (imports Mathlib only): independent integrals on the reference
       triangle `{(s,t) : 0 ≤ s, 0 ≤ t, s + t ≤ 1}`, so that `TetraAffineFlux`'s midpoint sums can later be identified
       with boundary integrals. Prove `∫ 1 = 1/2`, `∫ s = 1/6`, `∫ s² = 1/12`, `∫ s t = 1/24` as iterated
       interval integrals (`intervalIntegral.integral_pow`, `integral_id`, `ring`), and that the edge-midpoint rule
@@ -2194,6 +2194,7 @@ re-add these under another namespace; import them. None of this constructs the D
       `TetraAffineFlux` is exact for quadratics on a triangle (iterated-integral form; the surface measure on the
       tetrahedron's faces is not built here).
 
+Ticked 2026-11-22 (interactive session): CI PASS 1209/1209 at db578cf; all 48 theorems of the eight modules below are `verified (standard axioms only)` (G123 and G127 needed one proof fix each, 8cdfecd; G112's `massLin` was repaired in a9f44a7/db578cf).
 Status of G123–G127 (interactive session, 2026-11-22, commit 6e3a224, uncompiled at push): all five are written —
 `H5CutoffObstruction.lean` (G123), `AffineWitnessFromOperator.lean` (G124: `AffineOperatorData`, `witnessOfOperator`,
 `parseval_of_operator`, `cutoff_of_operator`), `TaylorRemainder.lean` (G125: `taylor_remainder_of_lipschitz_deriv`),
