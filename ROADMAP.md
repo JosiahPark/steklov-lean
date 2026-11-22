@@ -1904,14 +1904,6 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
-Status 2026-11-22 (interactive session): G113–G120 are written and verified. CI run 45052545358 at bbcf097 reports
-PASS, 1121 of 1121 theorems with standard axioms only, including every declaration of `CountableCutoffTail`,
-`AffineCutoffTail`, `H5CutoffInterface`, `H5CutoffAffineInstance`, `TetraAffineFlux` and `CumulativeBudget`, and the four
-Foundations declarations named in G118. G119 landed with different theorem names than specified (`boundary_mass`,
-`green_pair`, `residual_orthogonal`, `residual_energy`, `cutoff_tail_moment`, scaled by 12); same identities. Module
-layout differs from the spec where noted in each file (G113/G114 bundle the certificates in `Cert`). Open: estimates
-(i) and (ii) of G116, Parseval for the probes, and gaps (7.2), (7.29), (7.38)/(7.45), (9.1).
-
 Items G113–G117 added by Josiah's interactive session on 2026-11-22. **Do these before G109–G112.** They take the
 finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
 state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
@@ -1920,17 +1912,7 @@ defines the Steklov operator or its eigenbasis: Parseval and the operator-domain
 Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
 it. G119 (below) creates that file. G118 (first) fixes the audit so that subdirectory modules are checked.
 
-Ticked by the formalize task 2026-11-22: G113–G117, G119 and G120 were implemented by the interactive session and all
-their theorems are `verified (standard axioms only)` in CI run #475 (commit bbcf097, 1121/1121): CountableCutoffTail
-(`summable_mass` … `summable_centered`, `S_sub_Sle`, `tail_term_le`, `cutoff_tail_le`), AffineCutoffTail
-(`affine_two_over_t_sq`, `affine_mu_eq`, `affine_residual_sum`, `residual_pairing_phi`, `affine_cutoff_tail`),
-H5CutoffInterface (`cutoff_error_le`, `full_trace_matches`), H5CutoffAffineInstance (`affine_ratioLittleO`,
-`affine_ratio_O_inv`), CumulativeBudget (`tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`),
-TetraAffineFlux (`face_midpoint_moments`, `boundary_mass`, `green_pair`, `residual_orthogonal`, `residual_energy`,
-`cutoff_tail_moment`; names differ from the G119 text, and the doc's "Verification and provenance" paragraph names no
-theorems, so the doc needs no edit). Next unchecked A–G item: G109.
-
-- [x] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
+- [ ] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
       `(ROOT / "SteklovAudit").glob("*.lean")`, which is not recursive. Subdirectory modules are therefore never scanned
       for escape hatches and never get `#print axioms`. This covers `SteklovAudit/Foundations/Trace1D.lean`: its
       theorems are missing from STATUS.json even though `lakefile.toml` (`globs = ["SteklovAudit", "SteklovAudit.+"]`)
@@ -1959,16 +1941,8 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       problem and fails the audit. `tools/build_map.py`: `rglob`, module ids are dotted paths (`modname`), source links
       map dots to `/`. The audit was not run locally (no Lean here). Next run: from CI STATUS.json quote the four
       Foundations result lines here, tick if all four are verified, else untick the matching F item.
-      Ticked by the formalize task 2026-11-22: CI run #475 (commit bbcf097) PASS, 1121 of 1121 theorems; "Modules
-      audited: 184 files; files declaring theorems but with 0 audited declarations: none". The four result lines:
-      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.pointwise_bound  verified (standard axioms only)`,
-      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.trace_1d  verified (standard axioms only)`,
-      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.cross_abs_le  verified (standard axioms only)`,
-      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.trace_halfLine  verified (standard axioms only)`.
-      All four verified, so F1.1/F1.2 need no untick. (STATUS.md on main was not refreshed by run #475: its "Commit
-      status if changed" step lost a push race; the PASS figures are from that run's summary page.)
 
-- [x] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
+- [ ] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
       The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
       file:
       `tail_littleO_of_cutoff_bound (r : ℝ → ℝ) (C : ℝ) (hC : 0 ≤ C)
@@ -1987,7 +1961,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       F table text: an error bounded by `C·L/M` for every fixed `M`, with `C` uniform in `M`, is `o(L)`. This is the
       abstract step from the fixed-`M` (7.29) bound. The operator estimate giving `|r L| ≤ C L / M` remains open.
 
-- [x] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
+- [ ] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
       summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
       hypotheses: `hM : ∀ s : Finset (ι × κ), ∑ p ∈ s, w p.1 p.2 ≤ M` and
       `hE : ∀ s : Finset (ι × κ), ∑ p ∈ s, (lam p.1 - mu p.2) ^ 2 * w p.1 p.2 ≤ E`.
@@ -2004,7 +1978,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       F table text: a finite-sum certificate (uniform over finite subsets) gives absolute convergence of the centered
       Lipschitz series on a countable eigenbasis.
       Not proved: anything about the DtN operator or its spectrum.
-- [x] G114. `SteklovAudit/CountableCutoffTail.lean`, appended (no new file). Cutoff tail bound
+- [ ] G114. `SteklovAudit/CountableCutoffTail.lean`, appended (no new file). Cutoff tail bound
       `Lip(F)·E/(L − μ*)`. Hypotheses as in G113, plus `muStar : ℝ`, `hmu : ∀ j, mu j ≤ muStar`, `hL : muStar < L`.
       Theorems:
       `S_sub_Sle`: `S F - Sle F L = ∑' p, if L < lam p.1 then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`. Summability
@@ -2018,7 +1992,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       summand is nonnegative), then `tsum_mul_left` and `tsum_moment_le`.
       F table text: for `L > max μ`, the part of the centered Lipschitz trace above `L` is at most `Lip(F)·E/(L − μ*)`.
       This is the countable version of the doc's §3 estimate.
-- [x] G115. `SteklovAudit/AffineCutoffTail.lean` (imports `SteklovAudit.CountableCutoffTail`): the affine
+- [ ] G115. `SteklovAudit/AffineCutoffTail.lean` (imports `SteklovAudit.CountableCutoffTail`): the affine
       specialization `E = 16/a²`.
       Arithmetic, all for `a > 0`: `t := a / (2 * √2)`, `μaff := 1 / (√3 * t)`. Then
       `affine_two_over_t_sq : 2 / t ^ 2 = 16 / a ^ 2`; `affine_mu_eq : μaff = 2 * √6 / (3 * a)`;
@@ -2033,7 +2007,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       terms), `muStar := μaff` (`Fin.forall_fin_succ` / `decide` on the four entries, using `0 ≤ μaff`), then G114.
       F table text: on the four affine probes the cutoff discrepancy is `O(Lip(F)/L)`, given Parseval as a hypothesis.
       Not proved: Parseval, the residual identities as operator statements, and the Steklov eigenbasis itself.
-- [x] G116. `SteklovAudit/H5CutoffInterface.lean` (imports `SteklovAudit.CountableCutoffTail`): what a growing edge
+- [ ] G116. `SteklovAudit/H5CutoffInterface.lean` (imports `SteklovAudit.CountableCutoffTail`): what a growing edge
       family must supply. `structure H5EdgeFamilyCutoff (ι κ : Type*)`:
       - fixed `lam : ι → ℝ`;
       - per cutoff `L : ℝ`: `mu L : κ → ℝ`, `w L : ι → κ → ℝ` (nonnegative), `F L : ℝ → ℝ`, `Lip L ≥ 0`
@@ -2052,7 +2026,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       (ii) the remaining geometric question: how closely the truncated probe trace `Sle_L L` approximates the
       localized tetrahedron–wedge discrepancy `E − E_mod` (needed: to `o(L)`).
       Docstring must say that this proves neither, and does not close (7.29) or H5.
-- [x] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
+- [ ] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
       `SteklovAudit.H5CutoffInterface`): the affine calculation as an exact test case of estimate (i). For a constant
       family (`mu`, `w`, `F` independent of `L`, `E L = 16/a²`, `muStar L = μaff`, `Lip L = Lf`), take the Parseval
       fields of G115 as hypotheses. Prove `affine_ratioLittleO : RatioLittleO X`: the ratio is
@@ -2062,7 +2036,7 @@ theorems, so the doc needs no edit). Next unchecked A–G item: G109.
       `affine_ratioLittleO`, `affine_ratio_O_inv`.
       F table text: the fixed four-probe family satisfies (i) with rate `O(1/L)`. It says nothing about (ii) or the
       edge family.
-- [x] G119. `SteklovAudit/TetraAffineFlux.lean` (imports Mathlib only). This is the companion module that
+- [ ] G119. `SteklovAudit/TetraAffineFlux.lean` (imports Mathlib only). This is the companion module that
       `docs/affine-dtn-cutoff.md` already cites but that does not exist. All statements are dimensionless finite
       arithmetic in `ℝ³ = Fin 3 → ℝ`.
       Vertices `V = {(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)}` (as `Fin 4 → Fin 3 → ℝ`). The face opposite `v` has
@@ -2148,17 +2122,26 @@ finite-dimensional models, not the paper's operator: none of them proves the mai
       Ticked 2026-11-22 by an interactive session: CI run 45044864204 on 826368c built
       `SteklovAudit.Foundations.Trace1D` with no errors (only unused-fallback warnings, removed in b216ed1).
       STATUS does not list it because `axiom_audit.py` scans only top-level `SteklovAudit/*.lean` (see G118).
-- [ ] F1.2 half-line trace with constant 1: |f(0)|² ≤ ∫₀^∞(|f|²+|f'|²) for suitable decaying f — file SteklovAudit/Foundations/TraceHalfLine.lean
+- [x] F1.2 half-line trace with constant 1: |f(0)|² ≤ ∫₀^∞(|f|²+|f'|²) for suitable decaying f — file SteklovAudit/Foundations/TraceHalfLine.lean
       Written by an interactive session 2026-11-22 at b216ed1 (uncompiled at push): theorems `cross_abs_le`,
       `trace_halfLine` (hypotheses: `f` C¹ on ℝ, `f → 0` at ∞, `f²`, `f'²` integrable on (0, ∞)). Next run:
       tick if the CI build log shows `SteklovAudit.Foundations.TraceHalfLine` built without errors.
-- [ ] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
+      Ticked 2026-11-22 by an interactive session: STATUS PASS 1121/1121 at bbcf097 (CI run 45052545358), all of
+      this file's theorems verified (standard axioms only).
+- [x] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
       Written by an interactive session 2026-11-22 at 51d2a38 (uncompiled at push), for real exponent α (α = n gives the
       disk): `hasDerivAt_u_r`, `hasDerivAt_u_rr`, `hasDerivAt_u_θ`, `hasDerivAt_u_θθ` (and `v` versions), `lap_core`,
       `laplacian_polar_u`, `laplacian_polar_v`, `steklov_u`, `steklov_v`. Harmonicity is in polar form
       (u_rr + u_r/r + u_θθ/r² = 0 for r > 0); the Cartesian Laplacian is not derived. Next run: tick if STATUS
       lists these as verified.
-- [ ] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
+      Ticked 2026-11-22 by an interactive session: STATUS PASS 1121/1121 at bbcf097 (CI run 45052545358), all of
+      this file's theorems verified (standard axioms only).
+- [x] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
+      Written by an interactive session 2026-11-22 at bbcf097, in real form u = cos(kx + φ)·e^{−|k|y}:
+      `hasDerivAt_u_x`, `hasDerivAt_u_xx`, `hasDerivAt_u_y`, `hasDerivAt_u_yy`, `laplacian_u`, `dtn_symbol`,
+      `tendsto_u_atTop`. Not proved: uniqueness of the bounded extension, the L² Fourier-multiplier statement.
+      Ticked 2026-11-22 by an interactive session: STATUS PASS 1121/1121 at bbcf097 (CI run 45052545358), all of
+      this file's theorems verified (standard axioms only).
 - [ ] F3.1 K_{iν}(r) = ∫₀^∞ e^{−r cosh t} cos(νt) dt: integrand integrable for r > 0, value real, |K_{iν}(r)| ≤ K_0(r) — file SteklovAudit/Foundations/KIntegral.lean
 - [ ] F3.2 K_{iν}(r) even in ν and continuous in r on (0, ∞) — file SteklovAudit/Foundations/KContinuity.lean
 - [ ] F3.3 K_{iν} satisfies the modified Bessel ODE r²K'' + rK' − (r² − ν²)K = 0 — file SteklovAudit/Foundations/KBesselODE.lean
