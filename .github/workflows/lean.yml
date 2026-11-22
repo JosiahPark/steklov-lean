@@ -21,6 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Commit steps below run `git pull --rebase`, which re-commits and needs an identity; without this the
+      # status and map commits fail with "Committer identity unknown" whenever main moved during the build.
+      - name: Configure git identity
+        run: |
+          git config user.name "lean-verify"
+          git config user.email "lean-verify@users.noreply.github.com"
+
       # Installs the pinned Lean toolchain and downloads the prebuilt Mathlib cache.
       - uses: leanprover/lean-action@v1
         id: setup
