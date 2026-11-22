@@ -1976,7 +1976,7 @@ the pinned rows (G101) into data-only rows and one row involving `E`, show that 
 `cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
 for the Steklov operator; the operator's cutoff data is not defined.
 
-- [ ] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
+- [~] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
       `SteklovAudit.H5PinnedSumSmall`): the rows that mention only the data. `structure H5bPinnedDataRows (nA nB) (D₀)
       (F₀)` = the fields `Λ`, `hΛ`, `lip`, `m`, `hm`, `massLin`, `δ`, `defectLin`, `δVanish` of `H5bPinnedRows` (no
       `E`, `Emod`, `disc`). `def dataOf (H : H5bPinnedRows E Emod nA nB D₀ F₀) : H5bPinnedDataRows nA nB D₀ F₀` (field
@@ -1988,6 +1988,10 @@ for the Steklov operator; the operator's cutoff data is not defined.
       ≤ η * L` (use `pinned_iff_core` from G107; the core's `cutoffVanish` is the second conjunct). Theorem names:
       `dataOf_Λ` (rfl), `sumLittleO_of_dataRows`, `pinned_iff_dataRows_core`. F table text: the pinned rows are data
       rows (mass, defect, Lipschitz) plus one `o(L)` row comparing `E − Emod` with the data's spectral sum.
+      Written by Josiah's interactive session 2026-11-22 in `SteklovAudit/H5PinnedDataRows.lean` (uncompiled at push):
+      structure `H5bPinnedDataRows`; `dataOf`, `dataOf_Λ`; `withSum` (data rows + trivial cutoff row for `E := pinnedSum`,
+      `Emod := 0`, `disc := 0`), so `sumLittleO_of_dataRows` reuses `h5b_of_pinnedRows` instead of redoing Cauchy–Schwarz;
+      `coreOf`, `pinned_iff_dataRows_core`. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
 - [ ] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
       rows, the `cutoff` row is the target. `pinned_iff_target_of_dataRows (R : H5bPinnedDataRows nA nB D₀ F₀) (E
       Emod) : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔ H5bTarget E Emod` (forward `h5b_of_pinnedRows`; converse:
