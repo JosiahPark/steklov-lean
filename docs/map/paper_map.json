@@ -50,7 +50,13 @@
   "ReviewCandidates": 3,
   "ReviewExtensions": 3,
   "AbstractHSDefect": 3,
-  "AbstractHSDefectClosed": 3
+  "AbstractHSDefectClosed": 3,
+  "AffineFullTrace": 3,
+  "AffineParsevalDischarge": 3,
+  "AffineWitnessFromOperator": 3,
+  "CumulativeBudgetSplit": 3,
+  "TaylorRemainder": 3,
+  "TriangleQuadrature": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -945,6 +951,11 @@
    "page": 8,
    "note": "Expands shifted Weyl polynomial: linear coefficient changes by 2Ad (Remark 5.2)."
   },
+  "littleO_of_split": {
+   "kind": "outright",
+   "note": "Generic helper for the order of limits in (7.29): if for every M the remainder is o(L) plus C·L/M with C uniform in M, it is o(L). The uniform tail bound and fixed-M estimate are not proved.",
+   "page": 14
+  },
   "little_o_of_vanishing_tail": {
    "kind": "conditional",
    "page": 14,
@@ -1104,6 +1115,11 @@
    "kind": "outright",
    "page": 4,
    "note": "(3.9): summing parity traces gives tanh(πv)(coth αv − coth πv) = sinh((π−α)v)/(cosh πv sinh αv); hence c_α in the coth form. (That B_α − B_π is trace class with this trace is not formalized.)"
+  },
+  "parseval_discharged": {
+   "kind": "conditional",
+   "note": "Lemma 7.1′ probe mass 4 and squared defect 16/a² (affine Parseval witness) derived from a symmetric operator with a Hilbert eigenbasis plus the named BoundaryIdentification hypothesis; not the tetrahedral DtN map.",
+   "page": 11
   },
   "pi_div_three_lt_tetraAngle": {
    "kind": "outright",
