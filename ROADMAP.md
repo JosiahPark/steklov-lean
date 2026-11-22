@@ -1851,6 +1851,9 @@ Steklov operator; the operator's cutoff data is not defined.
       `2 - 1 = 1` by `norm_num`, `Real.rpow_one`, `mul_le_mul_of_nonneg_right`). Theorem names: `toRowsPow_D` (rfl),
       `ofPinned_p` (rfl), `h5b_of_pinnedRowsPow` (`h5b_of_globalLipRowsPow (toRowsPow H)`). F table text: for pinned
       data the mass and defect rows may trade powers of `L`; `p = 1` is G101.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedRowsPow.lean` (uncompiled at push): structure
+      `H5bPinnedRowsPow`, defs `toRowsPow`, `ofPinned`; theorems `toRowsPow_D`, `ofPinned_p`, `h5b_of_pinnedRowsPow`.
+      Next run: tick if STATUS shows it compiled.
 - [ ] G106. `SteklovAudit/H5PinnedRowsPowStrict.lean` (imports `SteklovAudit.H5PinnedRowsPow`): G105 is strictly weaker
       than G101 on the same pinned data. `oA := fun _ _ _ => 1`; `noncomputable def qD : ∀ ε γ L : ℝ, Data (Fin 1)
       (Fin 1) := fun _ _ L => ⟨fun _ => 1 / L ^ 2, fun _ => 0, fun _ _ => L⟩` (so `hs2 J = L ^ 2`, `K = 1 / L`,
