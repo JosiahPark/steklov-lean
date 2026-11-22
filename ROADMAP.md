@@ -2264,7 +2264,7 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       Done 2026-11-22 by the formalize task (commit 6df61ee; CI PASS 1239/1239 at a299b9a): `zeroCert`/`zeroFamily`
       (zero weights are allowed), `S_zero`, `fullTraceSmall_zero`, `ratio_small`, `not_littleO_idD`, `traceMatches_fails`,
       `fullTraceSmall_not_target`.
-- [ ] G133. `SteklovAudit/CumulativeBudgetQuantifiers.lean` (imports `SteklovAudit.CumulativeBudget`,
+- [x] G133. `SteklovAudit/CumulativeBudgetQuantifiers.lean` (imports `SteklovAudit.CumulativeBudget`,
       `SteklovAudit.CumulativeBudgetSplit`): close the remaining quantifier / order-of-limits forms of the (7.29) budget
       (table row "Abstract cumulative budget refinement"). Theorems: `littleO_of_approx`, `approx_of_littleO`,
       `approx_iff` (`r = o(L)` iff every `δ > 0` has an `o(L)` approximant `m` with `|r − m| ≤ δ L` eventually);
@@ -2276,6 +2276,36 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       level; the uniform tails `C L / M`, `C L / T` and the HS defect `ε(h) → 0` for the actual operator stay open.
       Written by an interactive session 2026-11-22 (commit d4f634b, uncompiled at push; Josiah said "go ahead" on this row).
       Next run: tick if STATUS shows its 8 theorems verified; if it failed, fix it minimally from the compiler messages.
+      Ticked 2026-11-22: all 8 theorems verified in STATUS at a299b9a (1239/1239).
+
+Items G134–G137 written by the formalize task on 2026-11-22 (requested by Josiah in an interactive session). They connect
+G129/G130 to G133 and restate rows (i) and (iii) of the H5 cutoff route as weaker named inputs. None of them constructs
+the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
+
+- [ ] G134. `SteklovAudit/DuhamelWindow.lean` (imports `SteklovAudit.DuhamelSpectral`, `SteklovAudit.FourierOneOverT`):
+      chain G129 into G130 for finite spectral data `J lam mu`. Define `hsDiff t := √(∑ i j, ‖J i j‖² ‖e^{−itλ_i} −
+      e^{−itμ_j}‖²)` and `hsDefect := √(∑ i j, ‖J i j‖² (λ_i − μ_j)²)`. Theorems: `hsDiff_le : hsDiff t ≤ |t| * hsDefect`
+      (`Real.sqrt_le_sqrt` on `duhamel_hs_le`, `Real.sqrt_mul_self` / `Real.sqrt_sq_eq_abs`), `window_hsDiff_le :
+      |∫ t in (-T)..T, t⁻¹ * hsDiff t| ≤ 2 * T * hsDefect` (`fourier_cancel_inv`). F table text: a window of width `T`
+      turns the HS commutator defect into an `O(T · defect)` bound, the `K T L ε(1/L)` term of G133.
+- [ ] G135. `SteklovAudit/WindowDefectFullTrace.lean` (imports `SteklovAudit.H5CutoffTerminal`,
+      `SteklovAudit.CumulativeBudgetQuantifiers`): replace row (iii) by the window-shaped input. Named hypothesis
+      `WindowTraceBound Y C K ε`: `0 ≤ C`, `0 ≤ K`, `ε h → 0` as `h → 0⁺` (in the form G133 uses), and for every
+      `T > 0`, eventually `|S_L| ≤ C L / T + K T L ε (1/L)`. Theorems: `fullTraceSmall_of_window` (via
+      `littleO_of_window_defect`), `h5_of_cutoff_window` (with (i), (ii) and `h5_of_cutoff_route`). F table text: (iii)
+      follows from a uniform window tail `C/T` plus a vanishing HS defect, the shape G129/G130 produce.
+- [ ] G136. `SteklovAudit/H5CutoffRatioSufficient.lean` (imports `SteklovAudit.H5CutoffInterface`): replace row (i)
+      by two named inputs. `GapLinear Y c L₁`: `0 < c` and `c * L ≤ L − μ*(L)` for `L ≥ L₁`; `EnergySmall Y`:
+      `∀ η > 0, eventually Lip L * E_L ≤ η * L²` (with `E_L` the certificate's `E`). Theorem
+      `ratioLittleO_of_gap_energy` (`div_le_iff₀`, `nlinarith`); also `ratio_le_of_gap` (`ratio L ≤ Lip L * E_L /
+      (c L)` for `L ≥ max L₁ 1`). F table text: (i) holds if the comparison values keep a linear gap below the cutoff
+      and `Lip · E = o(L²)`; both stay open for the actual edge family.
+- [ ] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
+      `SteklovAudit.H5CutoffRatioSufficient`, `SteklovAudit.FullTraceSmallSeparate`): assemble and check. Theorem
+      `h5_of_weak_rows`: (ii) + `GapLinear` + `EnergySmall` + `WindowTraceBound` give `|D L| = o(L)`. Non-vacuity:
+      `zeroFamily` (G132) satisfies `GapLinear` (`c = 1/2`, `L₁ = 1`), `EnergySmall` and `WindowTraceBound`
+      (`C = K = 0`, `ε = 0`); theorem `weak_rows_zeroFamily`. F table text: the cutoff route now runs on (ii) plus three
+      weaker named inputs, each satisfiable; (ii) remains the geometric question.
 
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so

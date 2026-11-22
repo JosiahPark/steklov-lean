@@ -20,17 +20,17 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The counts below are from the 2026-11-22 20:14 UTC verification run and map build at commit `2be1a38`, which
-includes the G109–G112 and G122–G127 modules.
+The counts below are from the 2026-11-22 21:43 UTC verification run and map build at commit `a299b9a`, which
+includes all modules through G133.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
-- **Library:** 1209 of 1209 theorems compile with only Lean's standard axioms, in 202 audited files
+- **Library:** 1239 of 1239 theorems compile with only Lean's standard axioms, in 208 audited files
   (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
-- **As of the 20:14 UTC map build** (1209 theorems, 244 modules):
-  - 263 prove a step of the preprint outright.
+- **As of the 21:43 UTC map build** (1239 theorems, 250 modules):
+  - 265 prove a step of the preprint outright.
   - 65 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 881 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+  - 909 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -39,11 +39,11 @@ after every build and are the authority.
   | §1–3 Dihedral invariant & sector trace | 9 | 83 | 1 | 0 |
   | §4 Heat fibers | 1 | 6 | 4 | 0 |
   | §5 Spectral windows | 8 | 34 | 11 | 0 |
-  | §7 Static locality & cumulative traces | 54 | 89 | 11 | 125 |
+  | §7 Static locality & cumulative traces | 55 | 91 | 11 | 126 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 160 | 10 | 32 | 747 |
-  | **Total** | **244** | **263** | **65** | **881** |
+  | §11 Assembly & sharp law | 165 | 10 | 32 | 774 |
+  | **Total** | **250** | **265** | **65** | **909** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -64,7 +64,7 @@ after every build and are the authority.
 Current work targets H5, the edge part: the H5 modules in §11 test which rows of its input table are
 needed and which are independent. See [`ROADMAP.md`](ROADMAP.md), sections F and G.
 
-Recent updates (G109–G127 compiled in the 19:58 UTC build, 1209/1209; G128–G132 queued; none proves H5 or any
+Recent updates (G109–G133 compiled, 1239/1239 at the 21:43 UTC build; G134–G137 queued; none proves H5 or any
 other input):
 
 | Items | Modules | What they add to H5 |
@@ -75,7 +75,13 @@ other input):
 | G124, G126 | `AffineWitnessFromOperator`, `AffineFullTrace`, `AffineParsevalDischarge` | Affine witness fields derived from a symmetric operator with an eigenbasis; full centered trace `O(B/a²)` |
 | G125, G127 | `TaylorRemainder`, `TriangleQuadrature` | Second-order Taylor remainder; exact quadratic quadrature on the triangle |
 | — | `CumulativeBudgetSplit` | Fixed-window `o(L)` plus uniform tail `C L / M` gives `o(L)` |
-| G128–G132 (queued) | see `ROADMAP.md` | Split form of full-trace smallness, spectral Duhamel bound, `1/t` cancellation, HS basis independence, separation example |
+| G128 | `H5CutoffSplitTerminal` | Full-trace smallness restated as a fixed-window part plus a uniform tail `C L / M` (equivalent form) |
+| G129 | `DuhamelSpectral` | HS Duhamel bound in spectral coordinates: propagated difference at most `\|t\|` times the commutator defect |
+| G130 | `FourierOneOverT` | The `1/t` weight of the cumulative Fourier integral cancels the `\|t\|`: window bound `2 T ε` |
+| G131 | `HSBasisIndependence` | The HS sum does not depend on the orthonormal basis (finite dimension) |
+| G132 | `FullTraceSmallSeparate` | Zero-weight family: full-trace smallness holds while `D = L` is not `o(L)`, so trace matching is the only link to `D` |
+| G133 | `CumulativeBudgetQuantifiers` | Order-of-limits forms of the (7.29) budget, incl. the window-defect shape `C L / T + K T L ε(1/L)` |
+| G134–G137 (queued) | see `ROADMAP.md` | Chain G129 into G130 for finite data; window input for full-trace smallness; gap and energy input for the ratio; assemble and check non-vacuity |
 
 ## Paper proofs from the hourly runs
 
