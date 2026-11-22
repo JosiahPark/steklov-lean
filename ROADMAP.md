@@ -1969,6 +1969,17 @@ re-add these under another namespace; import them. None of this constructs the D
       `TetraAffineFlux` is exact for quadratics on a triangle (iterated-integral form; the surface measure on the
       tetrahedron's faces is not built here).
 
+Status of G123–G127 (interactive session, 2026-11-22, commit 6e3a224, uncompiled at push): all five are written —
+`H5CutoffObstruction.lean` (G123), `AffineWitnessFromOperator.lean` (G124: `AffineOperatorData`, `witnessOfOperator`,
+`parseval_of_operator`, `cutoff_of_operator`), `TaylorRemainder.lean` (G125: `taylor_remainder_of_lipschitz_deriv`),
+`AffineFullTrace.lean` (G126: `ResidualOrth`, `weighted_first_moment`, `affine_full_trace_le`), `TriangleQuadrature.lean`
+(G127: `tri_int_one/s/ss/st`, `midpoint_rule_exact_deg2`, `midpoint_eq_integral`). Also added: `H5CutoffTerminalIff.lean`
+(converse of G122: given (i) and (ii), `D = o(L)` ⇔ `FullTraceSmall`), `AffineParsevalDischarge.lean` (mass `4`, defect
+`16/a²` and residual orthogonality derived from the named `BoundaryIdentification` via `TetraAffineFlux` and
+`ResidualLink`), and `CumulativeBudgetSplit.lean` (`littleO_of_split`: fixed-`M` part `o(L)` plus uniform tail
+`C L / M` gives `o(L)`). The formalize task should NOT rewrite these: next run, read STATUS; tick each item whose
+theorems are verified, and if one failed, fix it minimally from the compiler messages (that counts as the run's one thing).
+
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
 the cumulative Fourier integral's `1/t` cancels), then the trace comparison with local mass `O(h⁻¹)`; basis
