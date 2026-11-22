@@ -60,7 +60,9 @@
   "DuhamelSpectral": 3,
   "HSBasisIndependence": 3,
   "CumulativeBudgetQuantifiers": 3,
-  "FourierOneOverT": 3
+  "FourierOneOverT": 3,
+  "DuhamelWindow": 3,
+  "ModelEdgeLawReduction": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -480,6 +482,11 @@
    "page": 19,
    "note": "Exact finite geometric series 1/2^j behind dyadic vertex summation (helper)."
   },
+  "dyadic_sum_le": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Far-exterior dyadic sum Σ_j (2^j R₀)^{−2} ≤ 4/(3R₀²), the constant in the (7.43) bound (ModelEdgeLawReduction)."
+  },
   "dyadic_sum_le_two": {
    "kind": "outright",
    "page": 19,
@@ -750,6 +757,11 @@
    "page": 8,
    "note": "Helper: squared Hilbert–Schmidt norm in spectral coordinates is nonnegative; serves Lemma 5.1 formalization."
   },
+  "hsDiff_le": {
+   "kind": "outright",
+   "page": 14,
+   "note": "HS form of (7.24) in spectral coordinates, square-root version: hsDiff t ≤ |t|·hsDefect (DuhamelWindow; finite-dimensional, defect bound not proved)."
+  },
   "hs_le_of_pointwise": {
    "kind": "outright",
    "page": 11,
@@ -905,6 +917,11 @@
    "page": 2,
    "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
   },
+  "k_integral": {
+   "kind": "outright",
+   "page": 18,
+   "note": "(7.40): ∫₀^∞ (wk/b²)e^{−wk/b} dk = 1/w for w, b > 0 (ModelEdgeLawReduction)."
+  },
   "kernel_ii": {
    "kind": "outright",
    "page": 20,
@@ -999,6 +1016,11 @@
    "kind": "outright",
    "page": 2,
    "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "model_law_of_decomposition": {
+   "kind": "conditional",
+   "page": 18,
+   "note": "Assembly of the fixed-time model law (7.38) with o(L) remainder from the decomposition (7.44), the flat count, the smoothed ramp, G_far = o(L) and o(L) annulus terms, all taken as named hypotheses; fixed γ only. Not (7.45), H5 or Theorem 11.1."
   },
   "movingDefect_fixed_tail_zero": {
    "kind": "outright",
@@ -1764,6 +1786,11 @@
    "kind": "conditional",
    "page": 19,
    "note": "Window count ≤ band mass + O(1) off-band term, assuming unit row mass and Lemma 7.1′ defect bound."
+  },
+  "window_hsDiff_le": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Generic helper for the 1/t window in (7.29): the Duhamel bound fed through the window gives |∫_{−T}^{T} t⁻¹ hsDiff t| ≤ 2T·hsDefect (DuhamelWindow; finite-dimensional). The size of the defect for the actual comparison is not proved."
   },
   "window_offband_gap": {
    "kind": "outright",
