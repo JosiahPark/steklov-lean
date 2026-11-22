@@ -41,19 +41,11 @@ theorem trace_1d (f f' : ℝ → ℝ) (hf : ∀ x, HasDerivAt f (f' x) x) (hf' :
     have h3 := h1.mul ((hf x).mul (hf x))
     have e : (1 : ℝ) * (f x * f x) + (x - 1) * (f' x * f x + f x * f' x)
         = f x * f x + 2 * (x - 1) * f x * f' x := by ring
-    first
-      | exact h3.congr_deriv e
-      | exact e ▸ h3
-      | (convert h3 using 1; exact e.symm)
+    exact h3.congr_deriv e
   have hcont : Continuous fun x => f x * f x + 2 * (x - 1) * f x * f' x := by
-    first
-      | fun_prop
-      | exact (hfc.mul hfc).add
-          (((continuous_const.mul (continuous_id.sub continuous_const)).mul hfc).mul hf')
+    fun_prop
   have hcont2 : Continuous fun x => 2 * (f x ^ 2 + f' x ^ 2) := by
-    first
-      | fun_prop
-      | exact continuous_const.mul ((hfc.pow 2).add (hf'.pow 2))
+    fun_prop
   have hint : IntervalIntegrable (fun x => f x * f x + 2 * (x - 1) * f x * f' x)
       MeasureTheory.volume 0 1 := hcont.intervalIntegrable 0 1
   have hint2 : IntervalIntegrable (fun x => 2 * (f x ^ 2 + f' x ^ 2))
@@ -61,18 +53,14 @@ theorem trace_1d (f f' : ℝ → ℝ) (hf : ∀ x, HasDerivAt f (f' x) x) (hf' :
   have hftc := intervalIntegral.integral_eq_sub_of_hasDerivAt (fun x _ => hg x) hint
   have hval : ∫ x in (0:ℝ)..1, (f x * f x + 2 * (x - 1) * f x * f' x) = f 0 ^ 2 := by
     rw [hftc]
-    first
-      | ring
-      | (show (1 - 1) * (f 1 * f 1) - (0 - 1) * (f 0 * f 0) = f 0 ^ 2; ring)
+    ring
   have hmono : ∫ x in (0:ℝ)..1, (f x * f x + 2 * (x - 1) * f x * f' x)
       ≤ ∫ x in (0:ℝ)..1, 2 * (f x ^ 2 + f' x ^ 2) :=
     intervalIntegral.integral_mono_on (by norm_num) hint hint2
       (fun x hx => pointwise_bound (f x) (f' x) x hx.1 hx.2)
   have hconst : ∫ x in (0:ℝ)..1, 2 * (f x ^ 2 + f' x ^ 2)
-      = 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2) := by
-    first
-      | exact intervalIntegral.integral_const_mul 2 _
-      | rw [intervalIntegral.integral_const_mul]
+      = 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2) :=
+    intervalIntegral.integral_const_mul 2 _
   linarith [hval, hmono, hconst]
 
 end SteklovAudit.Foundations.Trace1D
