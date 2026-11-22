@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 01:26 UTC",
+  "checked_at": "2026-11-22 03:28 UTC",
   "lean_exit_code": 0,
-  "commit": "0a5081983ed4ea72e2f2118935ec3246286f9fff",
-  "last_passing_commit": "0a5081983ed4ea72e2f2118935ec3246286f9fff",
-  "library_declarations_checked": 1030,
-  "library_declarations": 1030,
+  "commit": "b94e67216363ba6d8ec191d6cf040b2854a3d1b1",
+  "last_passing_commit": "b94e67216363ba6d8ec191d6cf040b2854a3d1b1",
+  "library_declarations_checked": 1036,
+  "library_declarations": 1036,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1030,
-  "verified": 1030,
+  "theorems": 1036,
+  "verified": 1036,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5988,6 +5988,66 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.decay_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.decayD_hs2J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.decayD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.decay_defect_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.decayRows_m",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNonvacuous.lean",
+      "theorem": "SteklovAudit.H5PinnedNonvacuous.pinned_nonempty_decay",
       "axioms": [
         "propext",
         "Classical.choice",

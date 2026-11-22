@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 01:26 UTC at commit `0a5081983ed4`. Last passing commit: `0a5081983ed4`.
+Checked 2026-11-22 03:28 UTC at commit `b94e67216363`. Last passing commit: `b94e67216363`.
 
-Library declarations checked: 1030 of 1030 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1036 of 1036 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -624,6 +624,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decay_sum` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decayD_hs2J` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decayD_hs2K` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decay_defect_pos` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decayRows_m` | verified (standard axioms only) |
+| H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.pinned_nonempty_decay` | verified (standard axioms only) |
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.bump_sum` | verified (standard axioms only) |
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.target_zero` | verified (standard axioms only) |
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.not_pinned_bump` | verified (standard axioms only) |
