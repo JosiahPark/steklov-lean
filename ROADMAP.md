@@ -1904,6 +1904,89 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
+Items G113–G117 added by Josiah's interactive session on 2026-11-22. **Do these before G109–G112.** They take the
+finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
+state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
+index; neither has to be finite). Summability is over `ι × κ`. Weights `w i j` stand for `|J i j|²`. Nothing here
+defines the Steklov operator or its eigenbasis: Parseval and the operator-domain identities stay as named hypotheses.
+Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
+it. Fixing that citation is outside these items.
+
+- [ ] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
+      summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
+      hypotheses: `hM : ∀ s : Finset (ι × κ), ∑ p ∈ s, w p.1 p.2 ≤ M` and
+      `hE : ∀ s : Finset (ι × κ), ∑ p ∈ s, (lam p.1 - mu p.2) ^ 2 * w p.1 p.2 ≤ E`.
+      Theorems:
+      `summable_mass`: `Summable (fun p : ι × κ => w p.1 p.2)` and `tsum_mass_le : ∑' p, w p.1 p.2 ≤ M`, via
+      `summable_of_sum_le` and `tsum_le_of_sum_le'` (`0 ≤ M` follows from `hM ∅`).
+      `summable_moment`, `tsum_moment_le`: the same for `(lam - mu)² w`, with bound `E`.
+      `abs_le_half_one_add_sq (d : ℝ) : |d| ≤ (1 + d ^ 2) / 2` (from `sq_nonneg (|d| - 1)` and `sq_abs`).
+      `summable_centered (F : ℝ → ℝ) (Lf : ℝ) (hLf : 0 ≤ Lf) (hF : ∀ x y, |F x - F y| ≤ Lf * |x - y|)`:
+      `Summable (fun p => (F (lam p.1) - F (mu p.2)) * w p.1 p.2)`. Use `Summable.of_norm_bounded` with the bound
+      `Lf * (w + (lam - mu)² w) / 2`: the termwise bound is `|F λ − F μ| w ≤ Lf |d| w`, then the previous lemma.
+      Define `S F := ∑' p, (F (lam p.1) - F (mu p.2)) * w p.1 p.2` and
+      `Sle F L := ∑' p, if lam p.1 ≤ L then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`.
+      F table text: a finite-sum certificate (uniform over finite subsets) gives absolute convergence of the centered
+      Lipschitz series on a countable eigenbasis.
+      Not proved: anything about the DtN operator or its spectrum.
+- [ ] G114. `SteklovAudit/CountableCutoffTail.lean`, appended (no new file). Cutoff tail bound
+      `Lip(F)·E/(L − μ*)`. Hypotheses as in G113, plus `muStar : ℝ`, `hmu : ∀ j, mu j ≤ muStar`, `hL : muStar < L`.
+      Theorems:
+      `S_sub_Sle`: `S F - Sle F L = ∑' p, if L < lam p.1 then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`. Summability
+      of both indicator series comes from `summable_centered` (the `ite` term is bounded by `‖term‖`). Then use
+      `Summable.tsum_sub` and a pointwise `split_ifs` / `not_le`.
+      `tail_term_le`: if `L < lam i`, then `|(F (lam i) - F (mu j)) * w i j| ≤ Lf * ((lam i - mu j) ^ 2 * w i j) / (L - muStar)`.
+      Proof: `d := lam i - mu j ≥ lam i - muStar > L - muStar > 0`, so `|d| = d ≤ d ^ 2 / (L - muStar)`
+      (`le_div_iff₀`, `nlinarith`). Then `hF`, `abs_mul`, `mul_le_mul_of_nonneg_right`.
+      `cutoff_tail_le : |S F - Sle F L| ≤ Lf * E / (L - muStar)`. Proof: `norm_tsum_le_tsum_norm`, then
+      `Summable.tsum_le_tsum` against `Lf / (L - muStar) * ((lam − mu)² w)` (zero off the tail, because the moment
+      summand is nonnegative), then `tsum_mul_left` and `tsum_moment_le`.
+      F table text: for `L > max μ`, the part of the centered Lipschitz trace above `L` is at most `Lip(F)·E/(L − μ*)`.
+      This is the countable version of the doc's §3 estimate.
+- [ ] G115. `SteklovAudit/AffineCutoffTail.lean` (imports `SteklovAudit.CountableCutoffTail`): the affine
+      specialization `E = 16/a²`.
+      Arithmetic, all for `a > 0`: `t := a / (2 * √2)`, `μaff := 1 / (√3 * t)`. Then
+      `affine_two_over_t_sq : 2 / t ^ 2 = 16 / a ^ 2`; `affine_mu_eq : μaff = 2 * √6 / (3 * a)`;
+      `affine_residual_sum : 0 + 3 * (2 / (3 * t ^ 2)) = 16 / a ^ 2`. The last one is the four probe residuals: `Rφ₀ = 0`,
+      and `‖Rφⱼ‖² = 2·3/(9t²)` from the doc's pairing `⟨Ru,Rw⟩ = 2(b·e)/(9t²)` with `b = √3 eⱼ`. Also prove that pairing
+      value as `residual_pairing_phi (j) : 2 * (√3) ^ 2 / (9 * t ^ 2) = 2 / (3 * t ^ 2)`.
+      `structure AffineProbeParseval (lam : ι → ℝ) (J : ι → Fin 4 → ℝ) (a : ℝ) : Prop`. Named hypotheses (Parseval for
+      the four probes, not proved): `mass : HasSum (fun p : ι × Fin 4 => J p.1 p.2 ^ 2) 4` and
+      `defect : HasSum (fun p => (lam p.1 - ![0, μaff, μaff, μaff] p.2) ^ 2 * J p.1 p.2 ^ 2) (16 / a ^ 2)`.
+      `affine_cutoff_tail (P : AffineProbeParseval lam J a) (hF : Lipschitz with Lf ≥ 0) (hL : μaff < L)`:
+      `|S − Sle| ≤ 16 * Lf / (a ^ 2 * (L − μaff))`. Get `hM` and `hE` from `HasSum` with `sum_le_hasSum` (nonnegative
+      terms), `muStar := μaff` (`Fin.forall_fin_succ` / `decide` on the four entries, using `0 ≤ μaff`), then G114.
+      F table text: on the four affine probes the cutoff discrepancy is `O(Lip(F)/L)`, given Parseval as a hypothesis.
+      Not proved: Parseval, the residual identities as operator statements, and the Steklov eigenbasis itself.
+- [ ] G116. `SteklovAudit/H5CutoffInterface.lean` (imports `SteklovAudit.CountableCutoffTail`): what a growing edge
+      family must supply. `structure H5EdgeFamilyCutoff (ι κ : Type*)`:
+      - fixed `lam : ι → ℝ`;
+      - per cutoff `L : ℝ`: `mu L : κ → ℝ`, `w L : ι → κ → ℝ` (nonnegative), `F L : ℝ → ℝ`, `Lip L ≥ 0`
+        (Lipschitz constant of `F L`), `muStar L`, `M L`, `E L`, and a threshold `Lgap : ℝ`;
+      - fields `hmu : ∀ L j, mu L j ≤ muStar L`, `hgap : ∀ L, Lgap ≤ L → muStar L < L`, the finite certificates `hM L`,
+        `hE L` as in G113, and `hF L`.
+      Theorems:
+      `cutoff_error_le (X) (L) (hL : X.Lgap ≤ L)`: `|S_L − Sle_L L| ≤ Lip L * E L / (L − muStar L)`, by G114 at each `L`.
+      `def RatioLittleO X : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Lip L * E L / (L − muStar L) ≤ η * L`.
+      `def TraceMatches X (D : ℝ → ℝ) : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |Sle_L L − D L| ≤ η * L`. Here `D L` stands
+      for the paper's localized `E − E_mod` at cutoff `L`. This is a named hypothesis only.
+      `full_trace_matches (X) (D) (h1 : RatioLittleO X) (h2 : TraceMatches X D)`: `∀ η > 0, ∃ L₀, ∀ L ≥ L₀,
+      |S_L − D L| ≤ η * L` (split `η/2 + η/2`, triangle inequality, `max L₀ X.Lgap`).
+      F table text: H5 through this route needs exactly two estimates, both open:
+      (i) `Lip(F_L)·E_L/(L − μ*(L)) = o(L)`, where `E_L` is the summed squared defect of the edge family;
+      (ii) the probe trace below `L` represents the localized `E − E_mod` to `o(L)`.
+      Docstring must say that this proves neither, and does not close (7.29) or H5.
+- [ ] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
+      `SteklovAudit.H5CutoffInterface`): the affine calculation as an exact test case of estimate (i). For a constant
+      family (`mu`, `w`, `F` independent of `L`, `E L = 16/a²`, `muStar L = μaff`, `Lip L = Lf`), take the Parseval
+      fields of G115 as hypotheses. Prove `affine_ratioLittleO : RatioLittleO X`: the ratio is
+      `16 Lf / (a² (L − μaff))`, which is `≤ η L` for large `L`. Also prove `affine_ratio_O_inv`:
+      `L ≥ 2 μaff + 1 → ratio ≤ 32 Lf / (a² L)`. Take `Lgap := μaff + 1`, and `L₀ := max 1 (2 * μaff + 1)`.
+      Theorem names: `affineFamily` (the structure instance; hypothesis-parametrized),
+      `affine_ratioLittleO`, `affine_ratio_O_inv`.
+      F table text: the fixed four-probe family satisfies (i) with rate `O(1/L)`. It says nothing about (ii) or the
+      edge family.
+
 Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
 the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
 `cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
