@@ -1910,7 +1910,21 @@ state what a growing edge family must supply for H5. Indices are arbitrary types
 index; neither has to be finite). Summability is over `ι × κ`. Weights `w i j` stand for `|J i j|²`. Nothing here
 defines the Steklov operator or its eigenbasis: Parseval and the operator-domain identities stay as named hypotheses.
 Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
-it. Fixing that citation is outside these items.
+it. G119 (below) creates that file. G118 (first) fixes the audit so that subdirectory modules are checked.
+
+- [ ] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
+      `(ROOT / "SteklovAudit").glob("*.lean")`, which is not recursive. Subdirectory modules are therefore never scanned
+      for escape hatches and never get `#print axioms`. This covers `SteklovAudit/Foundations/Trace1D.lean`: its
+      theorems are missing from STATUS.json even though `lakefile.toml` (`globs = ["SteklovAudit", "SteklovAudit.+"]`)
+      builds it.
+      Fix: replace every `glob("*.lean")` on `ROOT / "SteklovAudit"` with `rglob("*.lean")`. Where the probe import is
+      built from `p.stem`, use the dotted path instead:
+      `"SteklovAudit." + ".".join(p.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)`.
+      Use the same relative path (e.g. `Foundations/Trace1D.lean`) for the `file` field in results. Check
+      `tools/build_map.py` for the same non-recursive glob.
+      Acceptance: STATUS.json lists `SteklovAudit.Foundations.Trace1D.pointwise_bound` and `...trace_1d` with
+      standard axioms only, and `theorems` rises by at least 2. If either fails, the F1.1 attempt did not really pass,
+      so report it. Do not tick F1.1 before this item is done.
 
 - [ ] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
       summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
@@ -1986,6 +2000,26 @@ it. Fixing that citation is outside these items.
       `affine_ratioLittleO`, `affine_ratio_O_inv`.
       F table text: the fixed four-probe family satisfies (i) with rate `O(1/L)`. It says nothing about (ii) or the
       edge family.
+- [ ] G119. `SteklovAudit/TetraAffineFlux.lean` (imports Mathlib only). This is the companion module that
+      `docs/affine-dtn-cutoff.md` already cites but that does not exist. All statements are dimensionless finite
+      arithmetic in `ℝ³ = Fin 3 → ℝ`.
+      Vertices `V = {(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)}` (as `Fin 4 → Fin 3 → ℝ`). The face opposite `v` has
+      midpoint nodes at the three edge midpoints of the other vertices. Define
+      `bdry (g) := (1/4) Σ_v (1/3) Σ_{midpoints m of face v} g v m`.
+      For `u = c + b·x` and `w = d + e·x`, prove:
+      `mass_pairing`: `bdry (u·w) = c d + (b·e)/3`;
+      `flux_pairing`: `bdry ((−b·v) · w) = (b·e)/3`;
+      `residual_pairing`: with `r_b(v, x) = −(b·v + b·x)`, `bdry (r_b · r_e) = 2 (b·e)/3`;
+      `residual_orth`: `bdry (r_b · 1) = 0` and `bdry (r_b · xₖ) = 0` for `k = 0, 1, 2`.
+      All four formulas were checked symbolically (sympy) on 2026-11-22. In Lean: unfold over `Fin 4` / `Fin 3` with
+      `Fin.sum_univ_four`, `Fin.sum_univ_three`, `Matrix.cons_val_*`, then `ring`.
+      Also prove the scaled forms, for `t > 0`: `(b·e)/3 · 1/(√3 t)` is `⟨Au, w⟩`, and `2 (b·e)/3 · 1/(3 t²) =
+      2 (b·e)/(9 t²)` is `⟨Ru, Rw⟩`. Finally, `finite_tail` is the finite-`ι` case of G114 (or a direct
+      `Finset` proof if G114 is not done yet).
+      Docstring: the midpoint rule is exact for quadratics on a triangle, and the weak Green identity identifies these
+      sums with boundary integrals. Both are paper arguments, not proved here. The DtN operator is not defined.
+      After this compiles, check that the doc's "Verification and provenance" paragraph matches the theorem names; edit
+      the doc only if it names theorems the file lacks.
 
 Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
 the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
