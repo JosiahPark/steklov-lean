@@ -2282,7 +2282,7 @@ Items G134–G137 written by the formalize task on 2026-11-22 (requested by Josi
 G129/G130 to G133 and restate rows (i) and (iii) of the H5 cutoff route as weaker named inputs. None of them constructs
 the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
 
-- [ ] G134. `SteklovAudit/DuhamelWindow.lean` (imports `SteklovAudit.DuhamelSpectral`, `SteklovAudit.FourierOneOverT`):
+- [x] G134. `SteklovAudit/DuhamelWindow.lean` (imports `SteklovAudit.DuhamelSpectral`, `SteklovAudit.FourierOneOverT`):
       chain G129 into G130 for finite spectral data `J lam mu`. Define `hsDiff t := √(∑ i j, ‖J i j‖² ‖e^{−itλ_i} −
       e^{−itμ_j}‖²)` and `hsDefect := √(∑ i j, ‖J i j‖² (λ_i − μ_j)²)`. Theorems: `hsDiff_le : hsDiff t ≤ |t| * hsDefect`
       (`Real.sqrt_le_sqrt` on `duhamel_hs_le`, `Real.sqrt_mul_self` / `Real.sqrt_sq_eq_abs`), `window_hsDiff_le :
@@ -2293,12 +2293,17 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       Next run: tick if STATUS shows it compiled. Note: the earlier commit 5f07cf2 labelled "G134" added
       `SteklovAudit/ModelEdgeLawReduction.lean` (scalar reductions behind (7.38)/(7.45)); it is not this item. It compiled
       after the fixes 49864a0/59e06b5 (CI run #531: 1249/1249 verified at 59e06b5).
+      Ticked 2026-11-22: all 7 `DuhamelWindow` theorems verified at ec4e551 (1256/1256) after the fix that passes
+      `|hsDiff t| ≤ |t| hsDefect` (via `hsDiff_nonneg`) to `fourier_cancel_inv`.
 - [ ] G135. `SteklovAudit/WindowDefectFullTrace.lean` (imports `SteklovAudit.H5CutoffTerminal`,
       `SteklovAudit.CumulativeBudgetQuantifiers`): replace row (iii) by the window-shaped input. Named hypothesis
       `WindowTraceBound Y C K ε`: `0 ≤ C`, `0 ≤ K`, `ε h → 0` as `h → 0⁺` (in the form G133 uses), and for every
       `T > 0`, eventually `|S_L| ≤ C L / T + K T L ε (1/L)`. Theorems: `fullTraceSmall_of_window` (via
       `littleO_of_window_defect`), `h5_of_cutoff_window` (with (i), (ii) and `h5_of_cutoff_route`). F table text: (iii)
       follows from a uniform window tail `C/T` plus a vanishing HS defect, the shape G129/G130 produce.
+      Written by the formalize task 2026-11-22 (uncompiled at push): structure `WindowTraceBound` (fields `C_nonneg`,
+      `K_nonneg`, `eps_small`, `bound`), `fullTraceSmall_of_window`, `h5_of_cutoff_window`,
+      `windowTraceBound_of_trace_zero` (non-vacuity). Next run: tick if STATUS shows it compiled.
 - [ ] G136. `SteklovAudit/H5CutoffRatioSufficient.lean` (imports `SteklovAudit.H5CutoffInterface`): replace row (i)
       by two named inputs. `GapLinear Y c L₁`: `0 < c` and `c * L ≤ L − μ*(L)` for `L ≥ L₁`; `EnergySmall Y`:
       `∀ η > 0, eventually Lip L * E_L ≤ η * L²` (with `E_L` the certificate's `E`). Theorem
