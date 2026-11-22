@@ -35,7 +35,9 @@ structure Cert (ι : Type*) (κ : Type*) where
   hM : ∀ s : Finset (ι × κ), ∑ p ∈ s, w p.1 p.2 ≤ M
   hE : ∀ s : Finset (ι × κ), ∑ p ∈ s, (lam p.1 - mu p.2) ^ 2 * w p.1 p.2 ≤ E
 
-namespace Cert
+end SteklovAudit.CountableCutoffTail
+
+namespace SteklovAudit.CountableCutoffTail.Cert
 
 variable {ι κ : Type*} (X : Cert ι κ)
 
@@ -86,13 +88,17 @@ theorem tsum_moment_le : ∑' p, X.moment p ≤ X.E := by
     | exact X.summable_moment.tsum_le_of_sum_le (fun s => X.hE s)
     | exact tsum_le_of_sum_le X.summable_moment (fun s => X.hE s)
 
-end Cert
+end SteklovAudit.CountableCutoffTail.Cert
+
+namespace SteklovAudit.CountableCutoffTail
 
 /-- `|d| ≤ (1 + d²) / 2`. -/
 theorem abs_le_half_one_add_sq (d : ℝ) : |d| ≤ (1 + d ^ 2) / 2 := by
   nlinarith [sq_nonneg (|d| - 1), sq_abs d]
 
-namespace Cert
+end SteklovAudit.CountableCutoffTail
+
+namespace SteklovAudit.CountableCutoffTail.Cert
 
 variable {ι κ : Type*} (X : Cert ι κ)
 
@@ -237,6 +243,8 @@ theorem cutoff_tail_le (F : ℝ → ℝ) (Lf : ℝ) (hLf : 0 ≤ Lf)
   rw [X.S_sub_Sle F Lf hLf hF L]
   exact abs_le.mpr ⟨by linarith, by linarith⟩
 
-end Cert
+end SteklovAudit.CountableCutoffTail.Cert
+
+namespace SteklovAudit.CountableCutoffTail
 
 end SteklovAudit.CountableCutoffTail
