@@ -1904,8 +1904,233 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
-Items G122–G127 added on 2026-11-22 from Josiah's review package `SteklovNextProofs` (interactive session). **Do these
-before G109–G112.** The review's point: G109–G112 tidy the pinned-row interfaces but would not establish any DtN data,
+Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
+the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
+`cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
+for the Steklov operator; the operator's cutoff data is not defined.
+
+- [~] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
+      `SteklovAudit.H5PinnedSumSmall`): the rows that mention only the data. `structure H5bPinnedDataRows (nA nB) (D₀)
+      (F₀)` = the fields `Λ`, `hΛ`, `lip`, `m`, `hm`, `massLin`, `δ`, `defectLin`, `δVanish` of `H5bPinnedRows` (no
+      `E`, `Emod`, `disc`). `def dataOf (H : H5bPinnedRows E Emod nA nB D₀ F₀) : H5bPinnedDataRows nA nB D₀ F₀` (field
+      copy). `sumLittleO_of_dataRows (R) : SumLittleO D₀ F₀` (G108's property, now without `E`): `trace_transfer` with
+      `f := F₀ ε γ L`, then `∑ |K| |J| ≤ √(hs2 K · hs2 J)` (the Cauchy–Schwarz step already used in the G86/G83 chain,
+      or `Finset.sum_mul_sq_le_sq_mul_sq` + `Real.le_sqrt`), then `sqrt_lin_prod` and `scale_le` exactly as in
+      `H5GlobalLipRows.toGlobalLip`. `pinned_iff_dataRows_core : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔
+      Nonempty (H5bPinnedDataRows nA nB D₀ F₀) ∧ ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L → coreDisc ..
+      ≤ η * L` (use `pinned_iff_core` from G107; the core's `cutoffVanish` is the second conjunct). Theorem names:
+      `dataOf_Λ` (rfl), `sumLittleO_of_dataRows`, `pinned_iff_dataRows_core`. F table text: the pinned rows are data
+      rows (mass, defect, Lipschitz) plus one `o(L)` row comparing `E − Emod` with the data's spectral sum.
+      Written by Josiah's interactive session 2026-11-22 in `SteklovAudit/H5PinnedDataRows.lean` (uncompiled at push):
+      structure `H5bPinnedDataRows`; `dataOf`, `dataOf_Λ`; `withSum` (data rows + trivial cutoff row for `E := pinnedSum`,
+      `Emod := 0`, `disc := 0`), so `sumLittleO_of_dataRows` reuses `h5b_of_pinnedRows` instead of redoing Cauchy–Schwarz;
+      `coreOf`, `pinned_iff_dataRows_core`. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+- [ ] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
+      rows, the `cutoff` row is the target. `pinned_iff_target_of_dataRows (R : H5bPinnedDataRows nA nB D₀ F₀) (E
+      Emod) : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔ H5bTarget E Emod` (forward `h5b_of_pinnedRows`; converse:
+      `sumLittleO_of_dataRows R` and the target at `η / 2` give `cutoffVanish` by the triangle inequality as in
+      `pinned_sum_littleO` (`abs_le`, `linarith`), then `pinned_iff_dataRows_core`). Theorem names:
+      `cutoffVanish_of_target`, `pinned_iff_target_of_dataRows`. F table text: once the data rows hold, the remaining
+      row carries exactly the content of (7.29); all non-trivial content of the pinned form is in the data rows and
+      in the choice of `D₀` (the paper's cutoff data, which is open).
+- [ ] G111. `SteklovAudit/H5PinnedPtsLip.lean` (imports `SteklovAudit.H5PinnedDataRows`): the Lipschitz row weakened to
+      the pinned spectral points. `structure H5bPinnedPtsRows (nA nB D₀ F₀)` = `H5bPinnedDataRows` with `lip`
+      replaced by `lipPts : ∀ ε γ L : ℝ, 1 ≤ L → ∀ i j, |F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)| ≤
+      Λ ε γ * |(D₀ ε γ L).a i - (D₀ ε γ L).b j|`. `trace_transfer_pts`: the `trace_transfer` bound under `lipPts` at
+      one `L` (`Finset.abs_sum_le_sum_abs` twice, per-entry `abs_mul`, `Data.K`, `mul_le_mul_of_nonneg_right`,
+      `Finset.mul_sum`). `def ofDataRows (R : H5bPinnedDataRows ..) : H5bPinnedPtsRows ..` (`lipPts` from `lip`).
+      `sumLittleO_of_ptsRows (R) : SumLittleO D₀ F₀` (as G109, with `L ≥ max 1 L₀`). `h5b_of_ptsRows (R) (hc :
+      cutoffVanish row for E Emod) : H5bTarget E Emod` (triangle inequality as in G110). Theorem names:
+      `trace_transfer_pts`, `ofDataRows_Λ` (rfl), `sumLittleO_of_ptsRows`, `h5b_of_ptsRows`. F table text: the row
+      "Lipschitz-type bounds Λ" is needed only on the pinned spectral points, for `L ≥ 1`.
+- [ ] G112. `SteklovAudit/H5PinnedPtsLipStrict.lean` (imports `SteklovAudit.H5PinnedPtsLip`): G111 is strictly weaker
+      than G109 on the same data. `oA := fun _ _ _ => 1`; `noncomputable def flatD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
+      := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 1⟩` (so `K = 0`, `hs2 J = 1`); `sqF := fun _ _ _ x => x ^ 2`.
+      `ptsRows_flat : Nonempty (H5bPinnedPtsRows oA oA flatD sqF)` (`Λ = 0`, `m = 1`, `δ = 0`; `lipPts` by `simp`,
+      both points are `0`; `massLin` by `simp [hs2, Fin.sum_univ_one]` and `1 ≤ 1 * L`; `defectLin` with `hs2 K = 0`).
+      `not_dataRows_flat : ¬ Nonempty (H5bPinnedDataRows oA oA flatD sqF)` (`lip` at `x = Λ + 1`, `y = 0`: `(Λ + 1) ^ 2
+      ≤ Λ * (Λ + 1)` contradicts `hΛ`, `nlinarith`). Theorem names: `ptsRows_flat`, `not_dataRows_flat`,
+      `ptsLip_strictly_weaker` (conjunction). F table text: the pointwise Lipschitz row admits data and `F₀` that the
+      global row rejects.
+
+Status 2026-11-22 (interactive session): G113–G120 are written and verified. CI run 45052545358 at bbcf097 reports
+PASS, 1121 of 1121 theorems with standard axioms only, including every declaration of `CountableCutoffTail`,
+`AffineCutoffTail`, `H5CutoffInterface`, `H5CutoffAffineInstance`, `TetraAffineFlux` and `CumulativeBudget`, and the four
+Foundations declarations named in G118. G119 landed with different theorem names than specified (`boundary_mass`,
+`green_pair`, `residual_orthogonal`, `residual_energy`, `cutoff_tail_moment`, scaled by 12); same identities. Module
+layout differs from the spec where noted in each file (G113/G114 bundle the certificates in `Cert`). Open: estimates
+(i) and (ii) of G116, Parseval for the probes, and gaps (7.2), (7.29), (7.38)/(7.45), (9.1).
+
+Items G113–G117 added by Josiah's interactive session on 2026-11-22. They take the
+finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
+state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
+index; neither has to be finite). Summability is over `ι × κ`. Weights `w i j` stand for `|J i j|²`. Nothing here
+defines the Steklov operator or its eigenbasis: Parseval and the operator-domain identities stay as named hypotheses.
+Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
+it. G119 (below) creates that file. G118 (first) fixes the audit so that subdirectory modules are checked.
+
+Ticked by the formalize task 2026-11-22: G113–G117, G119 and G120 were implemented by the interactive session and all
+their theorems are `verified (standard axioms only)` in CI run #475 (commit bbcf097, 1121/1121): CountableCutoffTail
+(`summable_mass` … `summable_centered`, `S_sub_Sle`, `tail_term_le`, `cutoff_tail_le`), AffineCutoffTail
+(`affine_two_over_t_sq`, `affine_mu_eq`, `affine_residual_sum`, `residual_pairing_phi`, `affine_cutoff_tail`),
+H5CutoffInterface (`cutoff_error_le`, `full_trace_matches`), H5CutoffAffineInstance (`affine_ratioLittleO`,
+`affine_ratio_O_inv`), CumulativeBudget (`tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`),
+TetraAffineFlux (`face_midpoint_moments`, `boundary_mass`, `green_pair`, `residual_orthogonal`, `residual_energy`,
+`cutoff_tail_moment`; names differ from the G119 text, and the doc's "Verification and provenance" paragraph names no
+theorems, so the doc needs no edit). Next unchecked A–G item: G109.
+
+- [x] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
+      summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
+      hypotheses: `hM : ∀ s : Finset (ι × κ), ∑ p ∈ s, w p.1 p.2 ≤ M` and
+      `hE : ∀ s : Finset (ι × κ), ∑ p ∈ s, (lam p.1 - mu p.2) ^ 2 * w p.1 p.2 ≤ E`.
+      Theorems:
+      `summable_mass`: `Summable (fun p : ι × κ => w p.1 p.2)` and `tsum_mass_le : ∑' p, w p.1 p.2 ≤ M`, via
+      `summable_of_sum_le` and `tsum_le_of_sum_le'` (`0 ≤ M` follows from `hM ∅`).
+      `summable_moment`, `tsum_moment_le`: the same for `(lam - mu)² w`, with bound `E`.
+      `abs_le_half_one_add_sq (d : ℝ) : |d| ≤ (1 + d ^ 2) / 2` (from `sq_nonneg (|d| - 1)` and `sq_abs`).
+      `summable_centered (F : ℝ → ℝ) (Lf : ℝ) (hLf : 0 ≤ Lf) (hF : ∀ x y, |F x - F y| ≤ Lf * |x - y|)`:
+      `Summable (fun p => (F (lam p.1) - F (mu p.2)) * w p.1 p.2)`. Use `Summable.of_norm_bounded` with the bound
+      `Lf * (w + (lam - mu)² w) / 2`: the termwise bound is `|F λ − F μ| w ≤ Lf |d| w`, then the previous lemma.
+      Define `S F := ∑' p, (F (lam p.1) - F (mu p.2)) * w p.1 p.2` and
+      `Sle F L := ∑' p, if lam p.1 ≤ L then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`.
+      F table text: a finite-sum certificate (uniform over finite subsets) gives absolute convergence of the centered
+      Lipschitz series on a countable eigenbasis.
+      Not proved: anything about the DtN operator or its spectrum.
+- [x] G114. `SteklovAudit/CountableCutoffTail.lean`, appended (no new file). Cutoff tail bound
+      `Lip(F)·E/(L − μ*)`. Hypotheses as in G113, plus `muStar : ℝ`, `hmu : ∀ j, mu j ≤ muStar`, `hL : muStar < L`.
+      Theorems:
+      `S_sub_Sle`: `S F - Sle F L = ∑' p, if L < lam p.1 then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`. Summability
+      of both indicator series comes from `summable_centered` (the `ite` term is bounded by `‖term‖`). Then use
+      `Summable.tsum_sub` and a pointwise `split_ifs` / `not_le`.
+      `tail_term_le`: if `L < lam i`, then `|(F (lam i) - F (mu j)) * w i j| ≤ Lf * ((lam i - mu j) ^ 2 * w i j) / (L - muStar)`.
+      Proof: `d := lam i - mu j ≥ lam i - muStar > L - muStar > 0`, so `|d| = d ≤ d ^ 2 / (L - muStar)`
+      (`le_div_iff₀`, `nlinarith`). Then `hF`, `abs_mul`, `mul_le_mul_of_nonneg_right`.
+      `cutoff_tail_le : |S F - Sle F L| ≤ Lf * E / (L - muStar)`. Proof: `norm_tsum_le_tsum_norm`, then
+      `Summable.tsum_le_tsum` against `Lf / (L - muStar) * ((lam − mu)² w)` (zero off the tail, because the moment
+      summand is nonnegative), then `tsum_mul_left` and `tsum_moment_le`.
+      F table text: for `L > max μ`, the part of the centered Lipschitz trace above `L` is at most `Lip(F)·E/(L − μ*)`.
+      This is the countable version of the doc's §3 estimate.
+- [x] G115. `SteklovAudit/AffineCutoffTail.lean` (imports `SteklovAudit.CountableCutoffTail`): the affine
+      specialization `E = 16/a²`.
+      Arithmetic, all for `a > 0`: `t := a / (2 * √2)`, `μaff := 1 / (√3 * t)`. Then
+      `affine_two_over_t_sq : 2 / t ^ 2 = 16 / a ^ 2`; `affine_mu_eq : μaff = 2 * √6 / (3 * a)`;
+      `affine_residual_sum : 0 + 3 * (2 / (3 * t ^ 2)) = 16 / a ^ 2`. The last one is the four probe residuals: `Rφ₀ = 0`,
+      and `‖Rφⱼ‖² = 2·3/(9t²)` from the doc's pairing `⟨Ru,Rw⟩ = 2(b·e)/(9t²)` with `b = √3 eⱼ`. Also prove that pairing
+      value as `residual_pairing_phi (j) : 2 * (√3) ^ 2 / (9 * t ^ 2) = 2 / (3 * t ^ 2)`.
+      `structure AffineProbeParseval (lam : ι → ℝ) (J : ι → Fin 4 → ℝ) (a : ℝ) : Prop`. Named hypotheses (Parseval for
+      the four probes, not proved): `mass : HasSum (fun p : ι × Fin 4 => J p.1 p.2 ^ 2) 4` and
+      `defect : HasSum (fun p => (lam p.1 - ![0, μaff, μaff, μaff] p.2) ^ 2 * J p.1 p.2 ^ 2) (16 / a ^ 2)`.
+      `affine_cutoff_tail (P : AffineProbeParseval lam J a) (hF : Lipschitz with Lf ≥ 0) (hL : μaff < L)`:
+      `|S − Sle| ≤ 16 * Lf / (a ^ 2 * (L − μaff))`. Get `hM` and `hE` from `HasSum` with `sum_le_hasSum` (nonnegative
+      terms), `muStar := μaff` (`Fin.forall_fin_succ` / `decide` on the four entries, using `0 ≤ μaff`), then G114.
+      F table text: on the four affine probes the cutoff discrepancy is `O(Lip(F)/L)`, given Parseval as a hypothesis.
+      Not proved: Parseval, the residual identities as operator statements, and the Steklov eigenbasis itself.
+- [x] G116. `SteklovAudit/H5CutoffInterface.lean` (imports `SteklovAudit.CountableCutoffTail`): what a growing edge
+      family must supply. `structure H5EdgeFamilyCutoff (ι κ : Type*)`:
+      - fixed `lam : ι → ℝ`;
+      - per cutoff `L : ℝ`: `mu L : κ → ℝ`, `w L : ι → κ → ℝ` (nonnegative), `F L : ℝ → ℝ`, `Lip L ≥ 0`
+        (Lipschitz constant of `F L`), `muStar L`, `M L`, `E L`, and a threshold `Lgap : ℝ`;
+      - fields `hmu : ∀ L j, mu L j ≤ muStar L`, `hgap : ∀ L, Lgap ≤ L → muStar L < L`, the finite certificates `hM L`,
+        `hE L` as in G113, and `hF L`.
+      Theorems:
+      `cutoff_error_le (X) (L) (hL : X.Lgap ≤ L)`: `|S_L − Sle_L L| ≤ Lip L * E L / (L − muStar L)`, by G114 at each `L`.
+      `def RatioLittleO X : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Lip L * E L / (L − muStar L) ≤ η * L`.
+      `def TraceMatches X (D : ℝ → ℝ) : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |Sle_L L − D L| ≤ η * L`. Here `D L` stands
+      for the paper's localized `E − E_mod` at cutoff `L`. This is a named hypothesis only.
+      `full_trace_matches (X) (D) (h1 : RatioLittleO X) (h2 : TraceMatches X D)`: `∀ η > 0, ∃ L₀, ∀ L ≥ L₀,
+      |S_L − D L| ≤ η * L` (split `η/2 + η/2`, triangle inequality, `max L₀ X.Lgap`).
+      F table text: H5 through this route needs exactly two estimates, both open:
+      (i) `Lip(F_L)·E_L/(L − μ*(L)) = o(L)`, where `E_L` is the summed squared defect of the edge family;
+      (ii) the remaining geometric question: how closely the truncated probe trace `Sle_L L` approximates the
+      localized tetrahedron–wedge discrepancy `E − E_mod` (needed: to `o(L)`).
+      Docstring must say that this proves neither, and does not close (7.29) or H5.
+- [x] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
+      `SteklovAudit.H5CutoffInterface`): the affine calculation as an exact test case of estimate (i). For a constant
+      family (`mu`, `w`, `F` independent of `L`, `E L = 16/a²`, `muStar L = μaff`, `Lip L = Lf`), take the Parseval
+      fields of G115 as hypotheses. Prove `affine_ratioLittleO : RatioLittleO X`: the ratio is
+      `16 Lf / (a² (L − μaff))`, which is `≤ η L` for large `L`. Also prove `affine_ratio_O_inv`:
+      `L ≥ 2 μaff + 1 → ratio ≤ 32 Lf / (a² L)`. Take `Lgap := μaff + 1`, and `L₀ := max 1 (2 * μaff + 1)`.
+      Theorem names: `affineFamily` (the structure instance; hypothesis-parametrized),
+      `affine_ratioLittleO`, `affine_ratio_O_inv`.
+      F table text: the fixed four-probe family satisfies (i) with rate `O(1/L)`. It says nothing about (ii) or the
+      edge family.
+- [x] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
+      `(ROOT / "SteklovAudit").glob("*.lean")`, which is not recursive. Subdirectory modules are therefore never scanned
+      for escape hatches and never get `#print axioms`. This covers `SteklovAudit/Foundations/Trace1D.lean`: its
+      theorems are missing from STATUS.json even though `lakefile.toml` (`globs = ["SteklovAudit", "SteklovAudit.+"]`)
+      builds it.
+      Fix: replace every `glob("*.lean")` on `ROOT / "SteklovAudit"` with `rglob("*.lean")`. Where the probe import is
+      built from `p.stem`, use the dotted path instead:
+      `"SteklovAudit." + ".".join(p.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)`.
+      Use the same relative path (e.g. `Foundations/Trace1D.lean`) for the `file` field in results. Check
+      `tools/build_map.py` for the same non-recursive glob.
+      Acceptance: a green total is not enough. STATUS.json `results` must list each of these four declarations by name,
+      each with status `verified (standard axioms only)`:
+      `SteklovAudit.Foundations.Trace1D.pointwise_bound`, `SteklovAudit.Foundations.Trace1D.trace_1d`,
+      `SteklovAudit.Foundations.TraceHalfLine.cross_abs_le` and `SteklovAudit.Foundations.TraceHalfLine.trace_halfLine`.
+      `theorems` must rise by exactly the number of new declarations found (at least 4).
+      Also add a `modules_audited` list to STATUS.json (one entry per `.lean` file, with its count of audited
+      declarations). Report as a problem any file whose source declares a `theorem`/`lemma` but which has 0 audited
+      entries, so a module the audit skips can no longer pass silently.
+      Before writing the commit, run `python3 axiom_audit.py`, or check the CI STATUS after the push, and quote the four
+      result lines in the ROADMAP note.
+      F1.1 (ticked at e2b3d1d) and F1.2 were judged from the build log alone. If any of the four is missing or
+      non-standard here, untick the matching F item and say why.
+      Written by the formalize task 2026-11-22 (uncompiled at push): `axiom_audit.py` now uses `rglob("*.lean")` in all
+      four places (new helpers `lean_files`, `rel_name`, `module_name`); probe imports use the dotted module path; the
+      `file` field and hatch/tautology messages use the path under `SteklovAudit/`; STATUS.json gains `modules_audited`
+      (`file`, `declared`, `audited`) and `modules_skipped`; a file declaring theorems with 0 audited entries is a
+      problem and fails the audit. `tools/build_map.py`: `rglob`, module ids are dotted paths (`modname`), source links
+      map dots to `/`. The audit was not run locally (no Lean here). Next run: from CI STATUS.json quote the four
+      Foundations result lines here, tick if all four are verified, else untick the matching F item.
+      Ticked by the formalize task 2026-11-22: CI run #475 (commit bbcf097) PASS, 1121 of 1121 theorems; "Modules
+      audited: 184 files; files declaring theorems but with 0 audited declarations: none". The four result lines:
+      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.pointwise_bound  verified (standard axioms only)`,
+      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.trace_1d  verified (standard axioms only)`,
+      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.cross_abs_le  verified (standard axioms only)`,
+      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.trace_halfLine  verified (standard axioms only)`.
+      All four verified, so F1.1/F1.2 need no untick. (STATUS.md on main was not refreshed by run #475: its "Commit
+      status if changed" step lost a push race; the PASS figures are from that run's summary page.)
+- [x] G119. `SteklovAudit/TetraAffineFlux.lean` (imports Mathlib only). This is the companion module that
+      `docs/affine-dtn-cutoff.md` already cites but that does not exist. All statements are dimensionless finite
+      arithmetic in `ℝ³ = Fin 3 → ℝ`.
+      Vertices `V = {(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)}` (as `Fin 4 → Fin 3 → ℝ`). The face opposite `v` has
+      midpoint nodes at the three edge midpoints of the other vertices. Define
+      `bdry (g) := (1/4) Σ_v (1/3) Σ_{midpoints m of face v} g v m`.
+      For `u = c + b·x` and `w = d + e·x`, prove:
+      `mass_pairing`: `bdry (u·w) = c d + (b·e)/3`;
+      `flux_pairing`: `bdry ((−b·v) · w) = (b·e)/3`;
+      `residual_pairing`: with `r_b(v, x) = −(b·v + b·x)`, `bdry (r_b · r_e) = 2 (b·e)/3`;
+      `residual_orth`: `bdry (r_b · 1) = 0` and `bdry (r_b · xₖ) = 0` for `k = 0, 1, 2`.
+      All four formulas were checked symbolically (sympy) on 2026-11-22. In Lean: unfold over `Fin 4` / `Fin 3` with
+      `Fin.sum_univ_four`, `Fin.sum_univ_three`, `Matrix.cons_val_*`, then `ring`.
+      Also prove the scaled forms, for `t > 0`: `(b·e)/3 · 1/(√3 t)` is `⟨Au, w⟩`, and `2 (b·e)/3 · 1/(3 t²) =
+      2 (b·e)/(9 t²)` is `⟨Ru, Rw⟩`. Finally, `finite_tail` is the finite-`ι` case of G114 (or a direct
+      `Finset` proof if G114 is not done yet).
+      Docstring: the midpoint rule is exact for quadratics on a triangle, and the weak Green identity identifies these
+      sums with boundary integrals. Both are paper arguments, not proved here. The DtN operator is not defined.
+      After this compiles, check that the doc's "Verification and provenance" paragraph matches the theorem names; edit
+      the doc only if it names theorems the file lacks.
+- [x] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
+      The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
+      file:
+      `tail_littleO_of_cutoff_bound (r : ℝ → ℝ) (C : ℝ) (hC : 0 ≤ C)
+        (h : ∀ M : ℝ, 0 < M → ∀ᶠ L in Filter.atTop, |r L| ≤ C * L / M) : r =o[Filter.atTop] id`.
+      This is the required order of limits: `M` is fixed first, `L → ∞`, and `C` does not depend on `M`. Proof: use
+      `Asymptotics.IsLittleO.of_bound`. Given `η > 0`, take `M := (C + 1) / η > 0`. Then eventually (also `0 ≤ L`)
+      `C * L / M = C / (C + 1) * η * L ≤ η * L`, using `div_le_one` and `mul_le_mul_of_nonneg_right`, and `‖id L‖ = L`.
+      `tail_eta_form`: the same hypothesis gives `∀ η > 0, ∀ᶠ L in atTop, |r L| ≤ η * L` (a direct corollary).
+      `order_of_limits_matters`: with `r := id` and a constant that may depend on `M` (`C_M := M`),
+      `∀ M > 0, ∀ᶠ L in atTop, |r L| ≤ M * L / M` holds, but `¬ (id =o[atTop] (id : ℝ → ℝ))`. Use
+      `Asymptotics.isLittleO_iff` at `c := 1/2` with `L = max L₀ 1`. This shows the `M`-uniform constant is essential.
+      Make the docstrings literal: `tail_over_M_is_o` states what it proves and points to `tail_littleO_of_cutoff_bound`.
+      `uniform_defect_is_O` is an associativity identity and `time_factor_preserves_o` is `|S ε| ≤ S |ε|`; neither
+      docstring may claim more than that. Keep all three old names, since other files may import them.
+      Theorem names: `tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`.
+      F table text: an error bounded by `C·L/M` for every fixed `M`, with `C` uniform in `M`, is `o(L)`. This is the
+      abstract step from the fixed-`M` (7.29) bound. The operator estimate giving `|r L| ≤ C L / M` remains open.
+
+Items G122–G127 added on 2026-11-22 from Josiah's review package `SteklovNextProofs` (interactive session). The review's point: G109–G112 tidy the pinned-row interfaces but would not establish any DtN data,
 while these items replace assumed spectral sums by derivations and expose a missing condition in the H5 cutoff route.
 Already landed from the package: `ReviewCandidates.lean` (7 lemmas; projection proof fixed with `abel` in 61c90d7),
 `ReviewExtensions.lean` (6 lemmas: `spectral_sums_of_operator`, `summable_energy_tail`, `square_sum_strong_tail`,
@@ -1984,234 +2209,6 @@ Later directions from the same review (too large for one run; listed so they are
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
 the cumulative Fourier integral's `1/t` cancels), then the trace comparison with local mass `O(h⁻¹)`; basis
 independence of the HS norm; affine harmonic functions in the DtN domain with the stated normal derivatives.
-
-Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
-the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
-`cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
-for the Steklov operator; the operator's cutoff data is not defined.
-
-- [~] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
-      `SteklovAudit.H5PinnedSumSmall`): the rows that mention only the data. `structure H5bPinnedDataRows (nA nB) (D₀)
-      (F₀)` = the fields `Λ`, `hΛ`, `lip`, `m`, `hm`, `massLin`, `δ`, `defectLin`, `δVanish` of `H5bPinnedRows` (no
-      `E`, `Emod`, `disc`). `def dataOf (H : H5bPinnedRows E Emod nA nB D₀ F₀) : H5bPinnedDataRows nA nB D₀ F₀` (field
-      copy). `sumLittleO_of_dataRows (R) : SumLittleO D₀ F₀` (G108's property, now without `E`): `trace_transfer` with
-      `f := F₀ ε γ L`, then `∑ |K| |J| ≤ √(hs2 K · hs2 J)` (the Cauchy–Schwarz step already used in the G86/G83 chain,
-      or `Finset.sum_mul_sq_le_sq_mul_sq` + `Real.le_sqrt`), then `sqrt_lin_prod` and `scale_le` exactly as in
-      `H5GlobalLipRows.toGlobalLip`. `pinned_iff_dataRows_core : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔
-      Nonempty (H5bPinnedDataRows nA nB D₀ F₀) ∧ ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L → coreDisc ..
-      ≤ η * L` (use `pinned_iff_core` from G107; the core's `cutoffVanish` is the second conjunct). Theorem names:
-      `dataOf_Λ` (rfl), `sumLittleO_of_dataRows`, `pinned_iff_dataRows_core`. F table text: the pinned rows are data
-      rows (mass, defect, Lipschitz) plus one `o(L)` row comparing `E − Emod` with the data's spectral sum.
-      Written by Josiah's interactive session 2026-11-22 in `SteklovAudit/H5PinnedDataRows.lean` (uncompiled at push):
-      structure `H5bPinnedDataRows`; `dataOf`, `dataOf_Λ`; `withSum` (data rows + trivial cutoff row for `E := pinnedSum`,
-      `Emod := 0`, `disc := 0`), so `sumLittleO_of_dataRows` reuses `h5b_of_pinnedRows` instead of redoing Cauchy–Schwarz;
-      `coreOf`, `pinned_iff_dataRows_core`. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
-- [ ] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
-      rows, the `cutoff` row is the target. `pinned_iff_target_of_dataRows (R : H5bPinnedDataRows nA nB D₀ F₀) (E
-      Emod) : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔ H5bTarget E Emod` (forward `h5b_of_pinnedRows`; converse:
-      `sumLittleO_of_dataRows R` and the target at `η / 2` give `cutoffVanish` by the triangle inequality as in
-      `pinned_sum_littleO` (`abs_le`, `linarith`), then `pinned_iff_dataRows_core`). Theorem names:
-      `cutoffVanish_of_target`, `pinned_iff_target_of_dataRows`. F table text: once the data rows hold, the remaining
-      row carries exactly the content of (7.29); all non-trivial content of the pinned form is in the data rows and
-      in the choice of `D₀` (the paper's cutoff data, which is open).
-- [ ] G111. `SteklovAudit/H5PinnedPtsLip.lean` (imports `SteklovAudit.H5PinnedDataRows`): the Lipschitz row weakened to
-      the pinned spectral points. `structure H5bPinnedPtsRows (nA nB D₀ F₀)` = `H5bPinnedDataRows` with `lip`
-      replaced by `lipPts : ∀ ε γ L : ℝ, 1 ≤ L → ∀ i j, |F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)| ≤
-      Λ ε γ * |(D₀ ε γ L).a i - (D₀ ε γ L).b j|`. `trace_transfer_pts`: the `trace_transfer` bound under `lipPts` at
-      one `L` (`Finset.abs_sum_le_sum_abs` twice, per-entry `abs_mul`, `Data.K`, `mul_le_mul_of_nonneg_right`,
-      `Finset.mul_sum`). `def ofDataRows (R : H5bPinnedDataRows ..) : H5bPinnedPtsRows ..` (`lipPts` from `lip`).
-      `sumLittleO_of_ptsRows (R) : SumLittleO D₀ F₀` (as G109, with `L ≥ max 1 L₀`). `h5b_of_ptsRows (R) (hc :
-      cutoffVanish row for E Emod) : H5bTarget E Emod` (triangle inequality as in G110). Theorem names:
-      `trace_transfer_pts`, `ofDataRows_Λ` (rfl), `sumLittleO_of_ptsRows`, `h5b_of_ptsRows`. F table text: the row
-      "Lipschitz-type bounds Λ" is needed only on the pinned spectral points, for `L ≥ 1`.
-- [ ] G112. `SteklovAudit/H5PinnedPtsLipStrict.lean` (imports `SteklovAudit.H5PinnedPtsLip`): G111 is strictly weaker
-      than G109 on the same data. `oA := fun _ _ _ => 1`; `noncomputable def flatD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
-      := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 1⟩` (so `K = 0`, `hs2 J = 1`); `sqF := fun _ _ _ x => x ^ 2`.
-      `ptsRows_flat : Nonempty (H5bPinnedPtsRows oA oA flatD sqF)` (`Λ = 0`, `m = 1`, `δ = 0`; `lipPts` by `simp`,
-      both points are `0`; `massLin` by `simp [hs2, Fin.sum_univ_one]` and `1 ≤ 1 * L`; `defectLin` with `hs2 K = 0`).
-      `not_dataRows_flat : ¬ Nonempty (H5bPinnedDataRows oA oA flatD sqF)` (`lip` at `x = Λ + 1`, `y = 0`: `(Λ + 1) ^ 2
-      ≤ Λ * (Λ + 1)` contradicts `hΛ`, `nlinarith`). Theorem names: `ptsRows_flat`, `not_dataRows_flat`,
-      `ptsLip_strictly_weaker` (conjunction). F table text: the pointwise Lipschitz row admits data and `F₀` that the
-      global row rejects.
-
-Status 2026-11-22 (interactive session): G113–G120 are written and verified. CI run 45052545358 at bbcf097 reports
-PASS, 1121 of 1121 theorems with standard axioms only, including every declaration of `CountableCutoffTail`,
-`AffineCutoffTail`, `H5CutoffInterface`, `H5CutoffAffineInstance`, `TetraAffineFlux` and `CumulativeBudget`, and the four
-Foundations declarations named in G118. G119 landed with different theorem names than specified (`boundary_mass`,
-`green_pair`, `residual_orthogonal`, `residual_energy`, `cutoff_tail_moment`, scaled by 12); same identities. Module
-layout differs from the spec where noted in each file (G113/G114 bundle the certificates in `Cert`). Open: estimates
-(i) and (ii) of G116, Parseval for the probes, and gaps (7.2), (7.29), (7.38)/(7.45), (9.1).
-
-Items G113–G117 added by Josiah's interactive session on 2026-11-22. They take the
-finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
-state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
-index; neither has to be finite). Summability is over `ι × κ`. Weights `w i j` stand for `|J i j|²`. Nothing here
-defines the Steklov operator or its eigenbasis: Parseval and the operator-domain identities stay as named hypotheses.
-Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
-it. G119 (below) creates that file. G118 (first) fixes the audit so that subdirectory modules are checked.
-
-Ticked by the formalize task 2026-11-22: G113–G117, G119 and G120 were implemented by the interactive session and all
-their theorems are `verified (standard axioms only)` in CI run #475 (commit bbcf097, 1121/1121): CountableCutoffTail
-(`summable_mass` … `summable_centered`, `S_sub_Sle`, `tail_term_le`, `cutoff_tail_le`), AffineCutoffTail
-(`affine_two_over_t_sq`, `affine_mu_eq`, `affine_residual_sum`, `residual_pairing_phi`, `affine_cutoff_tail`),
-H5CutoffInterface (`cutoff_error_le`, `full_trace_matches`), H5CutoffAffineInstance (`affine_ratioLittleO`,
-`affine_ratio_O_inv`), CumulativeBudget (`tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`),
-TetraAffineFlux (`face_midpoint_moments`, `boundary_mass`, `green_pair`, `residual_orthogonal`, `residual_energy`,
-`cutoff_tail_moment`; names differ from the G119 text, and the doc's "Verification and provenance" paragraph names no
-theorems, so the doc needs no edit). Next unchecked A–G item: G109.
-
-- [x] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
-      `(ROOT / "SteklovAudit").glob("*.lean")`, which is not recursive. Subdirectory modules are therefore never scanned
-      for escape hatches and never get `#print axioms`. This covers `SteklovAudit/Foundations/Trace1D.lean`: its
-      theorems are missing from STATUS.json even though `lakefile.toml` (`globs = ["SteklovAudit", "SteklovAudit.+"]`)
-      builds it.
-      Fix: replace every `glob("*.lean")` on `ROOT / "SteklovAudit"` with `rglob("*.lean")`. Where the probe import is
-      built from `p.stem`, use the dotted path instead:
-      `"SteklovAudit." + ".".join(p.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)`.
-      Use the same relative path (e.g. `Foundations/Trace1D.lean`) for the `file` field in results. Check
-      `tools/build_map.py` for the same non-recursive glob.
-      Acceptance: a green total is not enough. STATUS.json `results` must list each of these four declarations by name,
-      each with status `verified (standard axioms only)`:
-      `SteklovAudit.Foundations.Trace1D.pointwise_bound`, `SteklovAudit.Foundations.Trace1D.trace_1d`,
-      `SteklovAudit.Foundations.TraceHalfLine.cross_abs_le` and `SteklovAudit.Foundations.TraceHalfLine.trace_halfLine`.
-      `theorems` must rise by exactly the number of new declarations found (at least 4).
-      Also add a `modules_audited` list to STATUS.json (one entry per `.lean` file, with its count of audited
-      declarations). Report as a problem any file whose source declares a `theorem`/`lemma` but which has 0 audited
-      entries, so a module the audit skips can no longer pass silently.
-      Before writing the commit, run `python3 axiom_audit.py`, or check the CI STATUS after the push, and quote the four
-      result lines in the ROADMAP note.
-      F1.1 (ticked at e2b3d1d) and F1.2 were judged from the build log alone. If any of the four is missing or
-      non-standard here, untick the matching F item and say why.
-      Written by the formalize task 2026-11-22 (uncompiled at push): `axiom_audit.py` now uses `rglob("*.lean")` in all
-      four places (new helpers `lean_files`, `rel_name`, `module_name`); probe imports use the dotted module path; the
-      `file` field and hatch/tautology messages use the path under `SteklovAudit/`; STATUS.json gains `modules_audited`
-      (`file`, `declared`, `audited`) and `modules_skipped`; a file declaring theorems with 0 audited entries is a
-      problem and fails the audit. `tools/build_map.py`: `rglob`, module ids are dotted paths (`modname`), source links
-      map dots to `/`. The audit was not run locally (no Lean here). Next run: from CI STATUS.json quote the four
-      Foundations result lines here, tick if all four are verified, else untick the matching F item.
-      Ticked by the formalize task 2026-11-22: CI run #475 (commit bbcf097) PASS, 1121 of 1121 theorems; "Modules
-      audited: 184 files; files declaring theorems but with 0 audited declarations: none". The four result lines:
-      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.pointwise_bound  verified (standard axioms only)`,
-      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.trace_1d  verified (standard axioms only)`,
-      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.cross_abs_le  verified (standard axioms only)`,
-      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.trace_halfLine  verified (standard axioms only)`.
-      All four verified, so F1.1/F1.2 need no untick. (STATUS.md on main was not refreshed by run #475: its "Commit
-      status if changed" step lost a push race; the PASS figures are from that run's summary page.)
-
-- [x] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
-      The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
-      file:
-      `tail_littleO_of_cutoff_bound (r : ℝ → ℝ) (C : ℝ) (hC : 0 ≤ C)
-        (h : ∀ M : ℝ, 0 < M → ∀ᶠ L in Filter.atTop, |r L| ≤ C * L / M) : r =o[Filter.atTop] id`.
-      This is the required order of limits: `M` is fixed first, `L → ∞`, and `C` does not depend on `M`. Proof: use
-      `Asymptotics.IsLittleO.of_bound`. Given `η > 0`, take `M := (C + 1) / η > 0`. Then eventually (also `0 ≤ L`)
-      `C * L / M = C / (C + 1) * η * L ≤ η * L`, using `div_le_one` and `mul_le_mul_of_nonneg_right`, and `‖id L‖ = L`.
-      `tail_eta_form`: the same hypothesis gives `∀ η > 0, ∀ᶠ L in atTop, |r L| ≤ η * L` (a direct corollary).
-      `order_of_limits_matters`: with `r := id` and a constant that may depend on `M` (`C_M := M`),
-      `∀ M > 0, ∀ᶠ L in atTop, |r L| ≤ M * L / M` holds, but `¬ (id =o[atTop] (id : ℝ → ℝ))`. Use
-      `Asymptotics.isLittleO_iff` at `c := 1/2` with `L = max L₀ 1`. This shows the `M`-uniform constant is essential.
-      Make the docstrings literal: `tail_over_M_is_o` states what it proves and points to `tail_littleO_of_cutoff_bound`.
-      `uniform_defect_is_O` is an associativity identity and `time_factor_preserves_o` is `|S ε| ≤ S |ε|`; neither
-      docstring may claim more than that. Keep all three old names, since other files may import them.
-      Theorem names: `tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`.
-      F table text: an error bounded by `C·L/M` for every fixed `M`, with `C` uniform in `M`, is `o(L)`. This is the
-      abstract step from the fixed-`M` (7.29) bound. The operator estimate giving `|r L| ≤ C L / M` remains open.
-
-- [x] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
-      summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
-      hypotheses: `hM : ∀ s : Finset (ι × κ), ∑ p ∈ s, w p.1 p.2 ≤ M` and
-      `hE : ∀ s : Finset (ι × κ), ∑ p ∈ s, (lam p.1 - mu p.2) ^ 2 * w p.1 p.2 ≤ E`.
-      Theorems:
-      `summable_mass`: `Summable (fun p : ι × κ => w p.1 p.2)` and `tsum_mass_le : ∑' p, w p.1 p.2 ≤ M`, via
-      `summable_of_sum_le` and `tsum_le_of_sum_le'` (`0 ≤ M` follows from `hM ∅`).
-      `summable_moment`, `tsum_moment_le`: the same for `(lam - mu)² w`, with bound `E`.
-      `abs_le_half_one_add_sq (d : ℝ) : |d| ≤ (1 + d ^ 2) / 2` (from `sq_nonneg (|d| - 1)` and `sq_abs`).
-      `summable_centered (F : ℝ → ℝ) (Lf : ℝ) (hLf : 0 ≤ Lf) (hF : ∀ x y, |F x - F y| ≤ Lf * |x - y|)`:
-      `Summable (fun p => (F (lam p.1) - F (mu p.2)) * w p.1 p.2)`. Use `Summable.of_norm_bounded` with the bound
-      `Lf * (w + (lam - mu)² w) / 2`: the termwise bound is `|F λ − F μ| w ≤ Lf |d| w`, then the previous lemma.
-      Define `S F := ∑' p, (F (lam p.1) - F (mu p.2)) * w p.1 p.2` and
-      `Sle F L := ∑' p, if lam p.1 ≤ L then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`.
-      F table text: a finite-sum certificate (uniform over finite subsets) gives absolute convergence of the centered
-      Lipschitz series on a countable eigenbasis.
-      Not proved: anything about the DtN operator or its spectrum.
-- [x] G114. `SteklovAudit/CountableCutoffTail.lean`, appended (no new file). Cutoff tail bound
-      `Lip(F)·E/(L − μ*)`. Hypotheses as in G113, plus `muStar : ℝ`, `hmu : ∀ j, mu j ≤ muStar`, `hL : muStar < L`.
-      Theorems:
-      `S_sub_Sle`: `S F - Sle F L = ∑' p, if L < lam p.1 then (F (lam p.1) - F (mu p.2)) * w p.1 p.2 else 0`. Summability
-      of both indicator series comes from `summable_centered` (the `ite` term is bounded by `‖term‖`). Then use
-      `Summable.tsum_sub` and a pointwise `split_ifs` / `not_le`.
-      `tail_term_le`: if `L < lam i`, then `|(F (lam i) - F (mu j)) * w i j| ≤ Lf * ((lam i - mu j) ^ 2 * w i j) / (L - muStar)`.
-      Proof: `d := lam i - mu j ≥ lam i - muStar > L - muStar > 0`, so `|d| = d ≤ d ^ 2 / (L - muStar)`
-      (`le_div_iff₀`, `nlinarith`). Then `hF`, `abs_mul`, `mul_le_mul_of_nonneg_right`.
-      `cutoff_tail_le : |S F - Sle F L| ≤ Lf * E / (L - muStar)`. Proof: `norm_tsum_le_tsum_norm`, then
-      `Summable.tsum_le_tsum` against `Lf / (L - muStar) * ((lam − mu)² w)` (zero off the tail, because the moment
-      summand is nonnegative), then `tsum_mul_left` and `tsum_moment_le`.
-      F table text: for `L > max μ`, the part of the centered Lipschitz trace above `L` is at most `Lip(F)·E/(L − μ*)`.
-      This is the countable version of the doc's §3 estimate.
-- [x] G115. `SteklovAudit/AffineCutoffTail.lean` (imports `SteklovAudit.CountableCutoffTail`): the affine
-      specialization `E = 16/a²`.
-      Arithmetic, all for `a > 0`: `t := a / (2 * √2)`, `μaff := 1 / (√3 * t)`. Then
-      `affine_two_over_t_sq : 2 / t ^ 2 = 16 / a ^ 2`; `affine_mu_eq : μaff = 2 * √6 / (3 * a)`;
-      `affine_residual_sum : 0 + 3 * (2 / (3 * t ^ 2)) = 16 / a ^ 2`. The last one is the four probe residuals: `Rφ₀ = 0`,
-      and `‖Rφⱼ‖² = 2·3/(9t²)` from the doc's pairing `⟨Ru,Rw⟩ = 2(b·e)/(9t²)` with `b = √3 eⱼ`. Also prove that pairing
-      value as `residual_pairing_phi (j) : 2 * (√3) ^ 2 / (9 * t ^ 2) = 2 / (3 * t ^ 2)`.
-      `structure AffineProbeParseval (lam : ι → ℝ) (J : ι → Fin 4 → ℝ) (a : ℝ) : Prop`. Named hypotheses (Parseval for
-      the four probes, not proved): `mass : HasSum (fun p : ι × Fin 4 => J p.1 p.2 ^ 2) 4` and
-      `defect : HasSum (fun p => (lam p.1 - ![0, μaff, μaff, μaff] p.2) ^ 2 * J p.1 p.2 ^ 2) (16 / a ^ 2)`.
-      `affine_cutoff_tail (P : AffineProbeParseval lam J a) (hF : Lipschitz with Lf ≥ 0) (hL : μaff < L)`:
-      `|S − Sle| ≤ 16 * Lf / (a ^ 2 * (L − μaff))`. Get `hM` and `hE` from `HasSum` with `sum_le_hasSum` (nonnegative
-      terms), `muStar := μaff` (`Fin.forall_fin_succ` / `decide` on the four entries, using `0 ≤ μaff`), then G114.
-      F table text: on the four affine probes the cutoff discrepancy is `O(Lip(F)/L)`, given Parseval as a hypothesis.
-      Not proved: Parseval, the residual identities as operator statements, and the Steklov eigenbasis itself.
-- [x] G116. `SteklovAudit/H5CutoffInterface.lean` (imports `SteklovAudit.CountableCutoffTail`): what a growing edge
-      family must supply. `structure H5EdgeFamilyCutoff (ι κ : Type*)`:
-      - fixed `lam : ι → ℝ`;
-      - per cutoff `L : ℝ`: `mu L : κ → ℝ`, `w L : ι → κ → ℝ` (nonnegative), `F L : ℝ → ℝ`, `Lip L ≥ 0`
-        (Lipschitz constant of `F L`), `muStar L`, `M L`, `E L`, and a threshold `Lgap : ℝ`;
-      - fields `hmu : ∀ L j, mu L j ≤ muStar L`, `hgap : ∀ L, Lgap ≤ L → muStar L < L`, the finite certificates `hM L`,
-        `hE L` as in G113, and `hF L`.
-      Theorems:
-      `cutoff_error_le (X) (L) (hL : X.Lgap ≤ L)`: `|S_L − Sle_L L| ≤ Lip L * E L / (L − muStar L)`, by G114 at each `L`.
-      `def RatioLittleO X : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Lip L * E L / (L − muStar L) ≤ η * L`.
-      `def TraceMatches X (D : ℝ → ℝ) : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |Sle_L L − D L| ≤ η * L`. Here `D L` stands
-      for the paper's localized `E − E_mod` at cutoff `L`. This is a named hypothesis only.
-      `full_trace_matches (X) (D) (h1 : RatioLittleO X) (h2 : TraceMatches X D)`: `∀ η > 0, ∃ L₀, ∀ L ≥ L₀,
-      |S_L − D L| ≤ η * L` (split `η/2 + η/2`, triangle inequality, `max L₀ X.Lgap`).
-      F table text: H5 through this route needs exactly two estimates, both open:
-      (i) `Lip(F_L)·E_L/(L − μ*(L)) = o(L)`, where `E_L` is the summed squared defect of the edge family;
-      (ii) the remaining geometric question: how closely the truncated probe trace `Sle_L L` approximates the
-      localized tetrahedron–wedge discrepancy `E − E_mod` (needed: to `o(L)`).
-      Docstring must say that this proves neither, and does not close (7.29) or H5.
-- [x] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
-      `SteklovAudit.H5CutoffInterface`): the affine calculation as an exact test case of estimate (i). For a constant
-      family (`mu`, `w`, `F` independent of `L`, `E L = 16/a²`, `muStar L = μaff`, `Lip L = Lf`), take the Parseval
-      fields of G115 as hypotheses. Prove `affine_ratioLittleO : RatioLittleO X`: the ratio is
-      `16 Lf / (a² (L − μaff))`, which is `≤ η L` for large `L`. Also prove `affine_ratio_O_inv`:
-      `L ≥ 2 μaff + 1 → ratio ≤ 32 Lf / (a² L)`. Take `Lgap := μaff + 1`, and `L₀ := max 1 (2 * μaff + 1)`.
-      Theorem names: `affineFamily` (the structure instance; hypothesis-parametrized),
-      `affine_ratioLittleO`, `affine_ratio_O_inv`.
-      F table text: the fixed four-probe family satisfies (i) with rate `O(1/L)`. It says nothing about (ii) or the
-      edge family.
-- [x] G119. `SteklovAudit/TetraAffineFlux.lean` (imports Mathlib only). This is the companion module that
-      `docs/affine-dtn-cutoff.md` already cites but that does not exist. All statements are dimensionless finite
-      arithmetic in `ℝ³ = Fin 3 → ℝ`.
-      Vertices `V = {(1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)}` (as `Fin 4 → Fin 3 → ℝ`). The face opposite `v` has
-      midpoint nodes at the three edge midpoints of the other vertices. Define
-      `bdry (g) := (1/4) Σ_v (1/3) Σ_{midpoints m of face v} g v m`.
-      For `u = c + b·x` and `w = d + e·x`, prove:
-      `mass_pairing`: `bdry (u·w) = c d + (b·e)/3`;
-      `flux_pairing`: `bdry ((−b·v) · w) = (b·e)/3`;
-      `residual_pairing`: with `r_b(v, x) = −(b·v + b·x)`, `bdry (r_b · r_e) = 2 (b·e)/3`;
-      `residual_orth`: `bdry (r_b · 1) = 0` and `bdry (r_b · xₖ) = 0` for `k = 0, 1, 2`.
-      All four formulas were checked symbolically (sympy) on 2026-11-22. In Lean: unfold over `Fin 4` / `Fin 3` with
-      `Fin.sum_univ_four`, `Fin.sum_univ_three`, `Matrix.cons_val_*`, then `ring`.
-      Also prove the scaled forms, for `t > 0`: `(b·e)/3 · 1/(√3 t)` is `⟨Au, w⟩`, and `2 (b·e)/3 · 1/(3 t²) =
-      2 (b·e)/(9 t²)` is `⟨Ru, Rw⟩`. Finally, `finite_tail` is the finite-`ι` case of G114 (or a direct
-      `Finset` proof if G114 is not done yet).
-      Docstring: the midpoint rule is exact for quadratics on a triangle, and the weak Green identity identifies these
-      sums with boundary integrals. Both are paper arguments, not proved here. The DtN operator is not defined.
-      After this compiles, check that the doc's "Verification and provenance" paragraph matches the theorem names; edit
-      the doc only if it names theorems the file lacks.
 
 ## Foundations (long-term)
 
