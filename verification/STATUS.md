@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 04:16 UTC at commit `4c08306d00e4`. Last passing commit: `4c08306d00e4`.
+Checked 2026-11-22 05:23 UTC at commit `906247101199`. Last passing commit: `906247101199`.
 
-Library declarations checked: 1036 of 1036 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1039 of 1039 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -637,6 +637,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_D` | verified (standard axioms only) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_F` | verified (standard axioms only) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.h5b_of_pinnedRows` | verified (standard axioms only) |
+| H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.toRowsPow_D` | verified (standard axioms only) |
+| H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.ofPinned_p` | verified (standard axioms only) |
+| H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.h5b_of_pinnedRowsPow` | verified (standard axioms only) |
 | H5PinnedZeroAudit.lean | `SteklovAudit.H5PinnedZeroAudit.pinnedZero_disc` | verified (standard axioms only) |
 | H5PinnedZeroAudit.lean | `SteklovAudit.H5PinnedZeroAudit.pinnedZero_iff_target` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_a` | verified (standard axioms only) |

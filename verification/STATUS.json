@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 04:16 UTC",
+  "checked_at": "2026-11-22 05:23 UTC",
   "lean_exit_code": 0,
-  "commit": "4c08306d00e4fdd6d680320a58773044994f6044",
-  "last_passing_commit": "4c08306d00e4fdd6d680320a58773044994f6044",
-  "library_declarations_checked": 1036,
-  "library_declarations": 1036,
+  "commit": "9062471011999bcd2514374a0c4e912c8ee99ce9",
+  "last_passing_commit": "9062471011999bcd2514374a0c4e912c8ee99ce9",
+  "library_declarations_checked": 1039,
+  "library_declarations": 1039,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1036,
-  "verified": 1036,
+  "theorems": 1039,
+  "verified": 1039,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -6118,6 +6118,36 @@
     {
       "file": "H5PinnedRows.lean",
       "theorem": "SteklovAudit.H5PinnedRows.h5b_of_pinnedRows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPow.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPow.toRowsPow_D",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPow.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPow.ofPinned_p",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPow.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPow.h5b_of_pinnedRowsPow",
       "axioms": [
         "propext",
         "Classical.choice",
