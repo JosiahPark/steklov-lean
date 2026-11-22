@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 16:18 UTC at commit `d2918c253696`. Last passing commit: `d2918c253696`.
+Checked 2026-11-22 16:35 UTC at commit `8a6d0b0ab749`. Last passing commit: `8a6d0b0ab749`.
 
-Library declarations checked: 1051 of 1051 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1055 of 1055 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -155,6 +155,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | Section7WeightedPolynomialTrace.lean | `SteklovAudit.cubic_intertwining` | verified (standard axioms only) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_mass_budget` | verified (standard axioms only) |
 | Section7WindowCountBudget.lean | `SteklovAudit.finite_window_count_from_gap` | verified (standard axioms only) |
+| AbstractHSDefect.lean | `SteklovAudit.AbstractHSDefect.localized_hs_defect_bound` | verified (standard axioms only) |
 | AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.hs2_nonneg` | verified (standard axioms only) |
 | AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_entry` | verified (standard axioms only) |
 | AbstractTransfer.lean | `SteklovAudit.AbstractTransfer.transfer_hs` | verified (standard axioms only) |
@@ -188,6 +189,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.defect_over_shift` | verified (standard axioms only) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.asymptotic_transfer` | verified (standard axioms only) |
 | Cumulative729Support.lean | `SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L` | verified (standard axioms only) |
+| CumulativeBudget.lean | `SteklovAudit.CumulativeBudget.uniform_defect_is_O` | verified (standard axioms only) |
+| CumulativeBudget.lean | `SteklovAudit.CumulativeBudget.tail_over_M_is_o` | verified (standard axioms only) |
+| CumulativeBudget.lean | `SteklovAudit.CumulativeBudget.time_factor_preserves_o` | verified (standard axioms only) |
 | CumulativeTransferAbstract.lean | `SteklovAudit.CumulativeTransferAbstract.time_factor_cancellation` | verified (standard axioms only) |
 | CumulativeTransferAbstract.lean | `SteklovAudit.CumulativeTransferAbstract.duhamel_time_controlled` | verified (standard axioms only) |
 | CumulativeTransferAbstract.lean | `SteklovAudit.CumulativeTransferAbstract.vanishing_tail_gives_oL` | verified (standard axioms only) |

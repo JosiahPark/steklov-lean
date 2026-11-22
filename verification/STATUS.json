@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 16:18 UTC",
+  "checked_at": "2026-11-22 16:35 UTC",
   "lean_exit_code": 0,
-  "commit": "d2918c25369651d8ac34430efb149c9e05e528e0",
-  "last_passing_commit": "d2918c25369651d8ac34430efb149c9e05e528e0",
-  "library_declarations_checked": 1051,
-  "library_declarations": 1051,
+  "commit": "8a6d0b0ab749cb61f905ea5d4a24a37e3b9b0c3b",
+  "last_passing_commit": "8a6d0b0ab749cb61f905ea5d4a24a37e3b9b0c3b",
+  "library_declarations_checked": 1055,
+  "library_declarations": 1055,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1051,
-  "verified": 1051,
+  "theorems": 1055,
+  "verified": 1055,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -1306,6 +1306,16 @@
       "status": "verified (standard axioms only)"
     },
     {
+      "file": "AbstractHSDefect.lean",
+      "theorem": "SteklovAudit.AbstractHSDefect.localized_hs_defect_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
       "file": "AbstractTransfer.lean",
       "theorem": "SteklovAudit.AbstractTransfer.hs2_nonneg",
       "axioms": [
@@ -1628,6 +1638,36 @@
     {
       "file": "Cumulative729Support.lean",
       "theorem": "SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "CumulativeBudget.lean",
+      "theorem": "SteklovAudit.CumulativeBudget.uniform_defect_is_O",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "CumulativeBudget.lean",
+      "theorem": "SteklovAudit.CumulativeBudget.tail_over_M_is_o",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "CumulativeBudget.lean",
+      "theorem": "SteklovAudit.CumulativeBudget.time_factor_preserves_o",
       "axioms": [
         "propext",
         "Classical.choice",
