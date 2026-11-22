@@ -2220,7 +2220,7 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       `|S_L − P M L| ≤ C L / M` (`C` independent of `M`, `L`). Theorems: `fullTraceSmall_of_split` (via
       `littleO_of_split`), `h5_of_cutoff_split` (feed it to `h5_of_cutoff_route`). F table text: (iii) reduces to a
       fixed-window estimate plus a uniform high-energy tail `C/M`, the same shape as the τ(M) row.
-- [ ] G129. `SteklovAudit/DuhamelSpectral.lean` (imports Mathlib only): the HS Duhamel bound in spectral coordinates,
+- [x] G129. `SteklovAudit/DuhamelSpectral.lean` (imports Mathlib only): the HS Duhamel bound in spectral coordinates,
       keeping the `|t|` factor. For reals `a b t`: `duhamel_entry_le : ‖Complex.exp (-(t * a) * I) −
       Complex.exp (-(t * b) * I)‖ ≤ |t| * |a − b|` (via `‖e^{iθ} − 1‖ ≤ |θ|`). For finite `J : Fin m → Fin n → ℂ`,
       `lam`, `mu`: `duhamel_hs_le : ∑ i j, ‖J i j‖² * ‖e^{−itλ_i} − e^{−itμ_j}‖² ≤ t² * ∑ i j, ‖J i j‖² * (λ_i − μ_j)²`.
@@ -2229,6 +2229,9 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       Written by the formalize task 2026-11-22 in `SteklovAudit/DuhamelSpectral.lean` (uncompiled at push, commit
       928d6a6): `exp_sub_one_le`, `duhamel_entry_le` (phases stated with real arguments `((-(t * a) : ℝ) : ℂ) * I`),
       `duhamel_hs_le`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-22: CI run 514 (on the G129 roadmap-note commit) Build and Axiom audit steps succeeded with the file present;
+      the dependency map lists `DuhamelSpectral` with 3 theorems. Its "Commit status if changed" step lost a push race,
+      so STATUS.md still shows the 20:22 UTC run; the next status write will list the three theorems.
 - [ ] G130. `SteklovAudit/FourierOneOverT.lean` (imports Mathlib only): the `1/t` cancellation in the cumulative
       Fourier integral. Hypotheses: `g w : ℝ → ℝ`, `|g t| ≤ |t| * ε`, `|w t| * |t| ≤ C` for all `t`, `0 ≤ T`,
       `IntervalIntegrable (fun t => w t * g t) volume (-T) T`. Theorem `fourier_cancel_le :
