@@ -4,6 +4,7 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NoncommRing
 import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Abel
 
 /-!
 # Review candidates: Parseval for probes and the Frobenius contraction of a projection
@@ -87,7 +88,7 @@ theorem projection_frobenius_contracts (P M : Matrix n n ℝ)
     rw [Matrix.transpose_sub, Matrix.transpose_mul, hsym]
     noncomm_ring [hidem]
     rw [← Matrix.mul_assoc P P, hidem]
-    noncomm_ring
+    abel
   have hpos : 0 ≤ ∑ i, ∑ j, (M - P * M) i j ^ 2 :=
     Finset.sum_nonneg fun i _ => Finset.sum_nonneg fun j _ => sq_nonneg _
   rw [← trace_gram, hcomp, Matrix.trace_sub] at hpos
