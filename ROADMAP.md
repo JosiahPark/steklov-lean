@@ -1841,7 +1841,7 @@ the pinned form (G101) further: the G98 trade-off rows for pinned data and their
 carry no content once data is pinned, and a data-only consequence of the pinned rows. None proves a row for the
 Steklov operator; the operator's cutoff data is not defined.
 
-- [ ] G105. `SteklovAudit/H5PinnedRowsPow.lean` (imports `SteklovAudit.H5PinnedRows`, `SteklovAudit.H5GlobalLipRowsPow`):
+- [x] G105. `SteklovAudit/H5PinnedRowsPow.lean` (imports `SteklovAudit.H5PinnedRows`, `SteklovAudit.H5GlobalLipRowsPow`):
       the G98 trade-off rows for pinned data. `structure H5bPinnedRowsPow (E Emod) (nA nB) (D₀) (F₀)` = the fields of
       `H5bGlobalLipRowsPow` except `nA`, `nB`, `D`, `F`, with `D`/`F` replaced by the parameters `D₀`/`F₀` (fields
       `disc`, `cutoff`, `discVanish`, `Λ`, `hΛ`, `lip`, `m`, `hm`, `p`, `hp`, `massPow`, `defectPow`). `def toRowsPow
@@ -1854,6 +1854,8 @@ Steklov operator; the operator's cutoff data is not defined.
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedRowsPow.lean` (uncompiled at push): structure
       `H5bPinnedRowsPow`, defs `toRowsPow`, `ofPinned`; theorems `toRowsPow_D`, `ofPinned_p`, `h5b_of_pinnedRowsPow`.
       Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1039/1039 at 9062471, all three `H5PinnedRowsPow`
+      theorems verified.
 - [ ] G106. `SteklovAudit/H5PinnedRowsPowStrict.lean` (imports `SteklovAudit.H5PinnedRowsPow`): G105 is strictly weaker
       than G101 on the same pinned data. `oA := fun _ _ _ => 1`; `noncomputable def qD : ∀ ε γ L : ℝ, Data (Fin 1)
       (Fin 1) := fun _ _ L => ⟨fun _ => 1 / L ^ 2, fun _ => 0, fun _ _ => L⟩` (so `hs2 J = L ^ 2`, `K = 1 / L`,
@@ -1865,6 +1867,10 @@ Steklov operator; the operator's cutoff data is not defined.
       (H5bPinnedRows eQ (fun _ _ _ => 0) oA oA qD idF)` (`massLin` at `L = |m| + 2` gives `L ^ 2 ≤ m * L`, `nlinarith`).
       Theorem names: `qD_hs2J`, `qD_hs2K`, `pinnedPow_nonempty_q`, `not_pinnedRows_q`, `pinnedPow_strictly_weaker`
       (conjunction). F table text: with the data pinned, the trade-off rows admit data the linear rows reject.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedRowsPowStrict.lean` (uncompiled at push):
+      defs `oA` (abbrev), `qD`, `idF`, `eQ`, `qRowsPow`; theorems `q_sum`, `qD_hs2J`, `qD_hs2K`,
+      `pinnedPow_nonempty_q`, `not_pinnedRows_q`, `pinnedPow_strictly_weaker`. Next run: tick if STATUS shows it
+      compiled.
 - [ ] G107. `SteklovAudit/H5PinnedCutoffVanish.lean` (imports `SteklovAudit.H5PinnedRows`): the `disc` field carries no
       content once the data is pinned. `structure H5bPinnedCore (E Emod nA nB D₀ F₀)` = `H5bPinnedRows` with `disc`,
       `cutoff`, `discVanish` replaced by one row `cutoffVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ,
