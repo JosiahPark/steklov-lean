@@ -97,7 +97,7 @@ namespace Cert
 variable {ι κ : Type*} (X : Cert ι κ)
 
 /-- The summable majorant `Lf · (w + (lam − mu)² w) / 2`. -/
-def bound (Lf : ℝ) (p : ι × κ) : ℝ := Lf * ((X.mass p + X.moment p) / 2)
+noncomputable def bound (Lf : ℝ) (p : ι × κ) : ℝ := Lf * ((X.mass p + X.moment p) / 2)
 
 theorem bound_nonneg (Lf : ℝ) (hLf : 0 ≤ Lf) (p : ι × κ) : 0 ≤ X.bound Lf p :=
   mul_nonneg hLf (div_nonneg (add_nonneg (X.mass_nonneg p) (X.moment_nonneg p)) (by norm_num))
