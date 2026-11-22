@@ -1780,7 +1780,7 @@ G102–G104 check that the caveat is exactly the empty choice, that pinned nonem
 stronger than the target (so the `cutoff` row is no longer the target in disguise), and that pinned rows are
 non-vacuous on nonempty data. None proves a row for the Steklov operator; the operator's cutoff data is not defined.
 
-- [ ] G101. `SteklovAudit/H5PinnedRows.lean` (imports `SteklovAudit.H5GlobalLipRows`): `structure H5bPinnedRows
+- [x] G101. `SteklovAudit/H5PinnedRows.lean` (imports `SteklovAudit.H5GlobalLipRows`): `structure H5bPinnedRows
       (E Emod : ℝ → ℝ → ℝ → ℝ) (nA nB : ℝ → ℝ → ℝ → ℕ) (D₀ : ∀ ε γ L : ℝ, Data (Fin (nA ε γ L)) (Fin (nB ε γ L)))
       (F₀ : ℝ → ℝ → ℝ → ℝ → ℝ)` = the fields of `H5bGlobalLipRows` except `nA`, `nB`, `D`, `F`, with every occurrence
       of `D`/`F` replaced by the parameters `D₀`/`F₀` (fields `disc`, `cutoff`, `discVanish`, `Λ`, `hΛ`, `lip`, `m`,
@@ -1791,6 +1791,8 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedRows.lean` (uncompiled at push): structure
       `H5bPinnedRows`; def `toRows`; theorems `toRows_D`, `toRows_F`, `h5b_of_pinnedRows`. Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1024/1024 at 8bb191a, all three `H5PinnedRows` theorems
+      verified.
 - [ ] G102. `SteklovAudit/H5PinnedZeroAudit.lean` (imports `SteklovAudit.H5PinnedRows`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the caveat is exactly the empty choice. With `zA := fun _ _ _ => 0`,
       `zD : ∀ ε γ L, Data (Fin 0) (Fin 0) := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 0⟩`, `zF := fun _ _ _ _
@@ -1799,6 +1801,9 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       by `simp`, `Λ = m = δ = 0`, `hs2` of zero arrays by `rowsAudit_hs2_zero` or `simp [hs2, Data.K]`). Theorem
       names: `pinnedZero_iff_target`, `pinnedZero_disc` (the converse's `disc` is `|E - Emod|`, rfl). F table text:
       pinned to empty data the rows are the target; all content of G90–G100 depends on which data is pinned.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedZeroAudit.lean` (uncompiled at push): defs
+      `zA`, `zD`, `zF`, `ofTargetZero`; theorems `pinnedZero_disc`, `pinnedZero_iff_target`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G103. `SteklovAudit/H5PinnedNotTarget.lean` (imports `SteklovAudit.H5PinnedRows`): pinned nonempty data makes the
       rows strictly stronger than the target. `oA := fun _ _ _ => 1`; `noncomputable def bumpD : ∀ ε γ L : ℝ, Data
       (Fin 1) (Fin 1) := fun _ _ L => ⟨fun _ => 1, fun _ => 0, fun _ _ => L⟩`; `idF := fun _ _ _ x => x`.
