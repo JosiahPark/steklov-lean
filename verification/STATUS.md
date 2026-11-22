@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 19:04 UTC at commit `50e566b827ab`. Last passing commit: `50e566b827ab`.
+Checked 2026-11-22 19:15 UTC at commit `b470deca9f41`. Last passing commit: `b470deca9f41`.
 
-Library declarations checked: 1148 of 1148 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1151 of 1151 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 189 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 190 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -697,6 +697,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.ofCore_disc` | verified (standard axioms only) |
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.pinned_iff_core` | verified (standard axioms only) |
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.h5b_of_pinnedCore` | verified (standard axioms only) |
+| H5PinnedDataRows.lean | `SteklovAudit.H5PinnedDataRows.dataOf_Λ` | verified (standard axioms only) |
+| H5PinnedDataRows.lean | `SteklovAudit.H5PinnedDataRows.sumLittleO_of_dataRows` | verified (standard axioms only) |
+| H5PinnedDataRows.lean | `SteklovAudit.H5PinnedDataRows.pinned_iff_dataRows_core` | verified (standard axioms only) |
 | H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decay_sum` | verified (standard axioms only) |
 | H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decayD_hs2J` | verified (standard axioms only) |
 | H5PinnedNonvacuous.lean | `SteklovAudit.H5PinnedNonvacuous.decayD_hs2K` | verified (standard axioms only) |

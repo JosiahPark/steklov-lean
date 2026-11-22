@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 19:04 UTC",
+  "checked_at": "2026-11-22 19:15 UTC",
   "lean_exit_code": 0,
-  "commit": "50e566b827ab0c1f8f305c7e953d1519915d6be9",
-  "last_passing_commit": "50e566b827ab0c1f8f305c7e953d1519915d6be9",
-  "library_declarations_checked": 1148,
-  "library_declarations": 1148,
+  "commit": "b470deca9f416c9f416dc1e0f3526d7f69a4b03f",
+  "last_passing_commit": "b470deca9f416c9f416dc1e0f3526d7f69a4b03f",
+  "library_declarations_checked": 1151,
+  "library_declarations": 1151,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1148,
-  "verified": 1148,
+  "theorems": 1151,
+  "verified": 1151,
   "problems": [],
   "modules_audited": [
     {
@@ -524,6 +524,11 @@
     },
     {
       "file": "H5PinnedCutoffVanish.lean",
+      "declared": 3,
+      "audited": 3
+    },
+    {
+      "file": "H5PinnedDataRows.lean",
       "declared": 3,
       "audited": 3
     },
@@ -7646,6 +7651,36 @@
     {
       "file": "H5PinnedCutoffVanish.lean",
       "theorem": "SteklovAudit.H5PinnedCutoffVanish.h5b_of_pinnedCore",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedDataRows.lean",
+      "theorem": "SteklovAudit.H5PinnedDataRows.dataOf_\u039b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedDataRows.lean",
+      "theorem": "SteklovAudit.H5PinnedDataRows.sumLittleO_of_dataRows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedDataRows.lean",
+      "theorem": "SteklovAudit.H5PinnedDataRows.pinned_iff_dataRows_core",
       "axioms": [
         "propext",
         "Classical.choice",
