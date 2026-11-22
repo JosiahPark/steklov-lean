@@ -202,10 +202,11 @@ theorem window_needs_vanishing :
   rw [abs_of_nonneg hL]
   have hdiv : 0 ≤ L / T := div_nonneg hL hT.le
   have hTL : 0 ≤ T * L := mul_nonneg hT.le hL
-  rcases le_or_lt 1 T with hT1 | hT1
+  by_cases hT1 : 1 ≤ T
   · have h1 : L ≤ T * L := by nlinarith [mul_le_mul_of_nonneg_right hT1 hL]
     linarith
-  · have h1 : L ≤ L / T := by
+  · push_neg at hT1
+    have h1 : L ≤ L / T := by
       first
         | (rw [le_div_iff₀ hT]; nlinarith [mul_le_mul_of_nonneg_left hT1.le hL])
         | (rw [le_div_iff hT]; nlinarith [mul_le_mul_of_nonneg_left hT1.le hL])
