@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 06:23 UTC",
+  "checked_at": "2026-11-22 07:23 UTC",
   "lean_exit_code": 0,
-  "commit": "e601e9c61cbd197bf699c638bde46af37bd1be06",
-  "last_passing_commit": "e601e9c61cbd197bf699c638bde46af37bd1be06",
-  "library_declarations_checked": 1045,
-  "library_declarations": 1045,
+  "commit": "1fb21d8fed0976379a5020eb15aa7a83fe4cbc92",
+  "last_passing_commit": "1fb21d8fed0976379a5020eb15aa7a83fe4cbc92",
+  "library_declarations_checked": 1048,
+  "library_declarations": 1048,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1045,
-  "verified": 1045,
+  "theorems": 1048,
+  "verified": 1048,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5988,6 +5988,36 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedCutoffVanish.lean",
+      "theorem": "SteklovAudit.H5PinnedCutoffVanish.ofCore_disc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedCutoffVanish.lean",
+      "theorem": "SteklovAudit.H5PinnedCutoffVanish.pinned_iff_core",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedCutoffVanish.lean",
+      "theorem": "SteklovAudit.H5PinnedCutoffVanish.h5b_of_pinnedCore",
       "axioms": [
         "propext",
         "Classical.choice",
