@@ -2214,12 +2214,14 @@ Items G128–G132 written by the formalize task on 2026-11-22 (requested by Josi
 G122–G127. They split the "later directions" below into one-run steps and attack the open row (iii) of G122. None of
 them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
 
-- [ ] G128. `SteklovAudit/H5CutoffSplitTerminal.lean` (imports `SteklovAudit.H5CutoffTerminal`,
+- [x] G128. `SteklovAudit/H5CutoffSplitTerminal.lean` (imports `SteklovAudit.H5CutoffTerminal`,
       `SteklovAudit.CumulativeBudgetSplit`): replace row (iii) `FullTraceSmall` by the split input. Named hypothesis
       `FullTraceSplit Y`: for each `M` a fixed-`M` part `P M L` with `P M L = o(L)` and a tail
       `|S_L − P M L| ≤ C L / M` (`C` independent of `M`, `L`). Theorems: `fullTraceSmall_of_split` (via
       `littleO_of_split`), `h5_of_cutoff_split` (feed it to `h5_of_cutoff_route`). F table text: (iii) reduces to a
       fixed-window estimate plus a uniform high-energy tail `C/M`, the same shape as the τ(M) row.
+      Ticked 2026-11-22 by the formalize task: STATUS (CI PASS at 53fc56e) lists `fullTraceSmall_of_split`,
+      `h5_of_cutoff_split`, `fullTraceSplit_of_small`, `fullTraceSplit_iff` as verified (standard axioms only).
 - [x] G129. `SteklovAudit/DuhamelSpectral.lean` (imports Mathlib only): the HS Duhamel bound in spectral coordinates,
       keeping the `|t|` factor. For reals `a b t`: `duhamel_entry_le : ‖Complex.exp (-(t * a) * I) −
       Complex.exp (-(t * b) * I)‖ ≤ |t| * |a − b|` (via `‖e^{iθ} − 1‖ ≤ |θ|`). For finite `J : Fin m → Fin n → ℂ`,
@@ -2247,6 +2249,10 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       (expand in an orthonormal basis `d` of `F` and use Parseval, `OrthonormalBasis.sum_sq_norm_inner`, on both
       sides; the common value is `∑ i k, ⟪d k, T (b i)⟫²`). Theorem `hs_sum_eq_double` records that common value.
       F table text: the HS defect row does not depend on the eigenbasis chosen for the model or the true operator.
+      Written by the formalize task 2026-11-22 (commit e837800, uncompiled at push): `parseval_sq` (via
+      `OrthonormalBasis.sum_inner_mul_inner`, fallback through `repr`), `hs_sum_eq_double`, `hs_sum_eq_adjoint`
+      (common value `∑ k, ‖T† (d k)‖²`, via `LinearMap.adjoint_inner_right`), `hs_sum_basis_indep` (through
+      `stdOrthonormalBasis ℝ F`), `hs_sum_id` (non-vacuity: `T = id` gives `card ι`). Next run: tick if STATUS shows it compiled.
 - [ ] G132. `SteklovAudit/FullTraceSmallSeparate.lean` (imports `SteklovAudit.H5CutoffTerminal`): (iii) is not the
       target in disguise. Build an `H5EdgeFamilyCutoff` with `S_L = 0` for all `L` (zero weights, if
       `CountableCutoffTail.Cert` allows them; check its fields first) and `D L := L`. Theorems: `fullTraceSmall_zero`
