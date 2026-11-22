@@ -1856,7 +1856,7 @@ Steklov operator; the operator's cutoff data is not defined.
       Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1039/1039 at 9062471, all three `H5PinnedRowsPow`
       theorems verified.
-- [ ] G106. `SteklovAudit/H5PinnedRowsPowStrict.lean` (imports `SteklovAudit.H5PinnedRowsPow`): G105 is strictly weaker
+- [x] G106. `SteklovAudit/H5PinnedRowsPowStrict.lean` (imports `SteklovAudit.H5PinnedRowsPow`): G105 is strictly weaker
       than G101 on the same pinned data. `oA := fun _ _ _ => 1`; `noncomputable def qD : ∀ ε γ L : ℝ, Data (Fin 1)
       (Fin 1) := fun _ _ L => ⟨fun _ => 1 / L ^ 2, fun _ => 0, fun _ _ => L⟩` (so `hs2 J = L ^ 2`, `K = 1 / L`,
       `hs2 K = 1 / L ^ 2` for `L ≠ 0`); `idF := fun _ _ _ x => x`; `eQ := fun _ _ L => 1 / L ^ 2 * L ^ 2` (the sum
@@ -1871,6 +1871,8 @@ Steklov operator; the operator's cutoff data is not defined.
       defs `oA` (abbrev), `qD`, `idF`, `eQ`, `qRowsPow`; theorems `q_sum`, `qD_hs2J`, `qD_hs2K`,
       `pinnedPow_nonempty_q`, `not_pinnedRows_q`, `pinnedPow_strictly_weaker`. Next run: tick if STATUS shows it
       compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1045/1045 at e601e9c, all six
+      `H5PinnedRowsPowStrict` theorems verified.
 - [ ] G107. `SteklovAudit/H5PinnedCutoffVanish.lean` (imports `SteklovAudit.H5PinnedRows`): the `disc` field carries no
       content once the data is pinned. `structure H5bPinnedCore (E Emod nA nB D₀ F₀)` = `H5bPinnedRows` with `disc`,
       `cutoff`, `discVanish` replaced by one row `cutoffVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ,
@@ -1880,6 +1882,9 @@ Steklov operator; the operator's cutoff data is not defined.
       from `le_trans (H.cutoff ..) (hL ..)`). Theorem names: `ofCore_disc` (rfl), `pinned_iff_core` (`Nonempty
       (H5bPinnedRows ..) ↔ Nonempty (H5bPinnedCore ..)`), `h5b_of_pinnedCore`. F table text: for pinned data the
       `cutoff` row is one `o(L)` statement comparing `E − Emod` with the explicit spectral sum of `D₀`.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedCutoffVanish.lean` (uncompiled at push): def
+      `coreDisc` (the absolute value, used in `cutoffVanish`), structure `H5bPinnedCore`, defs `ofCore`, `toCore`;
+      theorems `ofCore_disc`, `pinned_iff_core`, `h5b_of_pinnedCore`. Next run: tick if STATUS shows it compiled.
 - [ ] G108. `SteklovAudit/H5PinnedSumSmall.lean` (imports `SteklovAudit.H5PinnedRows`): the pinned rows constrain the
       data independently of `E`. `def pinnedSum (D₀ F₀) (ε γ L : ℝ) : ℝ := ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) -
       F₀ ε γ L ((D₀ ε γ L).b j)) * (D₀ ε γ L).J i j ^ 2`. `pinned_sum_littleO (H : H5bPinnedRows E Emod nA nB D₀ F₀) :
