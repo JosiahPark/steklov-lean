@@ -1821,7 +1821,7 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       `pinned_strictly_stronger`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1030/1030 at 0a50819, all four `H5PinnedNotTarget`
       theorems verified.
-- [ ] G104. `SteklovAudit/H5PinnedNonvacuous.lean` (imports `SteklovAudit.H5PinnedRows`): pinned rows hold on nonempty
+- [x] G104. `SteklovAudit/H5PinnedNonvacuous.lean` (imports `SteklovAudit.H5PinnedRows`): pinned rows hold on nonempty
       data with a nonzero defect. `oA := fun _ _ _ => 1`; `noncomputable def decayD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
       := fun _ _ L => ⟨fun _ => 1 / L, fun _ => 0, fun _ _ => 1⟩` (so `K = 1 / L`, `hs2 K = 1 / L ^ 2`, `hs2 J = 1`),
       `idF := fun _ _ _ x => x`, `E := fun _ _ L => 1 / L`, `Emod := 0`. `noncomputable def decayRows :
@@ -1833,6 +1833,54 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedNonvacuous.lean` (uncompiled at push): defs
       `oA` (abbrev), `decayD`, `idF`, `eD`, `decayRows`; theorems `decay_sum`, `decayD_hs2J`, `decayD_hs2K`,
       `decay_defect_pos`, `decayRows_m`, `pinned_nonempty_decay`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1036/1036 at b94e672, all six
+      `H5PinnedNonvacuous` theorems verified.
+
+Items G105–G108 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G104). They carry
+the pinned form (G101) further: the G98 trade-off rows for pinned data and their strictness, the `disc` field shown to
+carry no content once data is pinned, and a data-only consequence of the pinned rows. None proves a row for the
+Steklov operator; the operator's cutoff data is not defined.
+
+- [ ] G105. `SteklovAudit/H5PinnedRowsPow.lean` (imports `SteklovAudit.H5PinnedRows`, `SteklovAudit.H5GlobalLipRowsPow`):
+      the G98 trade-off rows for pinned data. `structure H5bPinnedRowsPow (E Emod) (nA nB) (D₀) (F₀)` = the fields of
+      `H5bGlobalLipRowsPow` except `nA`, `nB`, `D`, `F`, with `D`/`F` replaced by the parameters `D₀`/`F₀` (fields
+      `disc`, `cutoff`, `discVanish`, `Λ`, `hΛ`, `lip`, `m`, `hm`, `p`, `hp`, `massPow`, `defectPow`). `def toRowsPow
+      (H) : H5bGlobalLipRowsPow E Emod` (field copy, `D := D₀`, `F := F₀`). `def ofPinned (H : H5bPinnedRows E Emod nA
+      nB D₀ F₀) : H5bPinnedRowsPow E Emod nA nB D₀ F₀` with `p := fun _ _ => 1` (`hp` by `norm_num`; `massPow` at
+      `L₁ = 1` from `massLin`, `Real.rpow_one`; `defectPow` from `defectLin` and `δVanish ... η` at `L ≥ max 1 L₀`,
+      `2 - 1 = 1` by `norm_num`, `Real.rpow_one`, `mul_le_mul_of_nonneg_right`). Theorem names: `toRowsPow_D` (rfl),
+      `ofPinned_p` (rfl), `h5b_of_pinnedRowsPow` (`h5b_of_globalLipRowsPow (toRowsPow H)`). F table text: for pinned
+      data the mass and defect rows may trade powers of `L`; `p = 1` is G101.
+- [ ] G106. `SteklovAudit/H5PinnedRowsPowStrict.lean` (imports `SteklovAudit.H5PinnedRowsPow`): G105 is strictly weaker
+      than G101 on the same pinned data. `oA := fun _ _ _ => 1`; `noncomputable def qD : ∀ ε γ L : ℝ, Data (Fin 1)
+      (Fin 1) := fun _ _ L => ⟨fun _ => 1 / L ^ 2, fun _ => 0, fun _ _ => L⟩` (so `hs2 J = L ^ 2`, `K = 1 / L`,
+      `hs2 K = 1 / L ^ 2` for `L ≠ 0`); `idF := fun _ _ _ x => x`; `eQ := fun _ _ L => 1 / L ^ 2 * L ^ 2` (the sum
+      exactly, so `disc = 0` and `cutoff` by `simp [Fin.sum_univ_one]`). `qD_hs2J : hs2 (qD ε γ L).J = L ^ 2`;
+      `qD_hs2K : L ≠ 0 → hs2 (qD ε γ L).K = 1 / L ^ 2`; `pinnedPow_nonempty_q : Nonempty (H5bPinnedRowsPow eQ (fun _ _
+      _ => 0) oA oA qD idF)` (`Λ = 1`, `m = 1`, `p = 2`; `massPow` via `Real.rpow_two`/`Real.rpow_natCast`; `defectPow`
+      with `2 - 2 = 0`, `Real.rpow_zero`, `1 / L ^ 2 ≤ η` for `L ≥ max 1 (1 / η)`); `not_pinnedRows_q : ¬ Nonempty
+      (H5bPinnedRows eQ (fun _ _ _ => 0) oA oA qD idF)` (`massLin` at `L = |m| + 2` gives `L ^ 2 ≤ m * L`, `nlinarith`).
+      Theorem names: `qD_hs2J`, `qD_hs2K`, `pinnedPow_nonempty_q`, `not_pinnedRows_q`, `pinnedPow_strictly_weaker`
+      (conjunction). F table text: with the data pinned, the trade-off rows admit data the linear rows reject.
+- [ ] G107. `SteklovAudit/H5PinnedCutoffVanish.lean` (imports `SteklovAudit.H5PinnedRows`): the `disc` field carries no
+      content once the data is pinned. `structure H5bPinnedCore (E Emod nA nB D₀ F₀)` = `H5bPinnedRows` with `disc`,
+      `cutoff`, `discVanish` replaced by one row `cutoffVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ,
+      ∀ L, L₀ ≤ L → |(E ε γ L - Emod ε γ L) - ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)) *
+      (D₀ ε γ L).J i j ^ 2| ≤ η * L`. `def ofCore (H) : H5bPinnedRows ...` with `disc` := that absolute value
+      (`cutoff` by `le_refl`, `discVanish := H.cutoffVanish`); `def toCore (H : H5bPinnedRows ...)` (`cutoffVanish`
+      from `le_trans (H.cutoff ..) (hL ..)`). Theorem names: `ofCore_disc` (rfl), `pinned_iff_core` (`Nonempty
+      (H5bPinnedRows ..) ↔ Nonempty (H5bPinnedCore ..)`), `h5b_of_pinnedCore`. F table text: for pinned data the
+      `cutoff` row is one `o(L)` statement comparing `E − Emod` with the explicit spectral sum of `D₀`.
+- [ ] G108. `SteklovAudit/H5PinnedSumSmall.lean` (imports `SteklovAudit.H5PinnedRows`): the pinned rows constrain the
+      data independently of `E`. `def pinnedSum (D₀ F₀) (ε γ L : ℝ) : ℝ := ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) -
+      F₀ ε γ L ((D₀ ε γ L).b j)) * (D₀ ε γ L).J i j ^ 2`. `pinned_sum_littleO (H : H5bPinnedRows E Emod nA nB D₀ F₀) :
+      ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → |pinnedSum D₀ F₀ ε γ L| ≤ η * L` (from
+      `h5b_of_pinnedRows H` and `H.cutoff`, `H.discVanish` at `η / 2`; `|s| ≤ |x| + |x - s|` by `abs_sub_abs_le_abs_sub`
+      or `abs_sub_comm` + `abs_add`, `L ≥ max L₀ L₁`, `linarith`); `not_pinned_of_sum_large`: if `¬` that `o(L)`
+      property holds for `D₀ F₀` at some `ε γ > 0`, then `∀ E Emod, ¬ Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀)`.
+      Theorem names: `pinned_sum_littleO`, `pinned_target_and_sum` (conjunction with `h5b_of_pinnedRows`),
+      `not_pinned_of_sum_large`. F table text: pinned rows require the data's own spectral sum to be `o(L)`; data
+      failing this (e.g. G103's `bumpD`) admits no rows for any `E`.
 
 ## Foundations (long-term)
 
