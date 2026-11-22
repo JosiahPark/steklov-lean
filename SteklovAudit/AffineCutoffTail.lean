@@ -113,7 +113,7 @@ theorem affine_cutoff_tail (P : AffineProbeParseval lam J a) (ha : 0 < a) (F : â
   have h := (certOf P).cutoff_tail_le F Lf hLf hF (muAff a) L (fun j => muVec_le a ha j) hL
   have e : Lf * (certOf P).E / (L - muAff a) = 16 * Lf / (a ^ 2 * (L - muAff a)) := by
     show Lf * (16 / a ^ 2) / (L - muAff a) = 16 * Lf / (a ^ 2 * (L - muAff a))
-    ring
+    rw [mul_div_assoc', div_div, mul_comm Lf 16]
   rw [e] at h
   exact h
 
