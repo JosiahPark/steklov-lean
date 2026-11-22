@@ -20,10 +20,15 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The numbers below are a snapshot of the 2026-11-22 00:57 UTC map build (commit `4b2d560`). [`verification/STATUS.md`](verification/STATUS.md)
-and [docs/map/README.md](docs/map/README.md) are regenerated after every build and are the authority.
+The library count below is from the 2026-11-22 18:18 UTC verification run at commit `58cd2d5` (CI run 45052761642).
+The paper-step split and the section table are older: they come from the 2026-11-22 00:57 UTC map build
+(commit `4b2d560`) and do not yet include the modules added since.
+[`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
+after every build and are the authority.
 
-- **Library:** 1026 of 1026 theorems compile with only Lean's standard axioms, in 209 modules.
+- **Library:** 1123 of 1123 theorems compile with only Lean's standard axioms, in 185 audited files
+  (`SteklovAudit.lean`, 180 files in `SteklovAudit/`, 4 in `SteklovAudit/Foundations/`).
+- **As of the 00:57 UTC map build** (1026 theorems, 209 modules):
   - 260 prove a step of the preprint outright.
   - 62 prove a step from the paper's analytic estimates, taken as named hypotheses.
   - 704 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
@@ -70,10 +75,10 @@ None is an estimate for the Dirichlet-to-Neumann operator of the tetrahedron.
 ## Layout
 
 - `SteklovAudit.lean`: 44 of the original modules merged into one file, one commented section each.
-- `SteklovAudit/`: the other 161 modules, one file each (`SteklovAudit/<Name>.lean`).
-- `SteklovAudit/Foundations/`: the long-term foundations track of `ROADMAP.md`, one file per item; so far one
-  docstring-only stub (`Trace1D`) with no theorems. `lake build` compiles this folder, but the audit and the map
-  scan only the top level of `SteklovAudit/`.
+- `SteklovAudit/`: the other modules, one file each (`SteklovAudit/<Name>.lean`); 180 files at `58cd2d5`.
+- `SteklovAudit/Foundations/`: the long-term foundations track of `ROADMAP.md`, one file per item
+  (`Trace1D`, `TraceHalfLine`, `DiskSteklov`, `HalfPlaneDtN` at `58cd2d5`). The audit and the map scan this
+  folder too (recursive since G118).
 - `axiom_audit.py`: after `lake build`, runs `#print axioms` on every theorem and fails on `sorry` or on
   non-standard axioms. It writes `verification/STATUS.md` and `verification/STATUS.json`.
 - `tools/build_map.py`: draws `docs/map/` from the build. `docs/map/paper_map.json` classifies theorems
