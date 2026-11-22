@@ -20,17 +20,17 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The counts below are from the 2026-11-22 19:58 UTC verification run and map build at commit `db578cf`, which
+The counts below are from the 2026-11-22 20:14 UTC verification run and map build at commit `2be1a38`, which
 includes the G109–G112 and G122–G127 modules.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
 - **Library:** 1209 of 1209 theorems compile with only Lean's standard axioms, in 202 audited files
   (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
-- **As of the 19:58 UTC map build** (1209 theorems, 244 modules):
-  - 262 prove a step of the preprint outright.
-  - 64 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 883 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+- **As of the 20:14 UTC map build** (1209 theorems, 244 modules):
+  - 263 prove a step of the preprint outright.
+  - 65 prove a step from the paper's analytic estimates, taken as named hypotheses.
+  - 881 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -39,11 +39,11 @@ after every build and are the authority.
   | §1–3 Dihedral invariant & sector trace | 9 | 83 | 1 | 0 |
   | §4 Heat fibers | 1 | 6 | 4 | 0 |
   | §5 Spectral windows | 8 | 34 | 11 | 0 |
-  | §7 Static locality & cumulative traces | 48 | 88 | 10 | 94 |
+  | §7 Static locality & cumulative traces | 54 | 89 | 11 | 125 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 166 | 10 | 32 | 780 |
-  | **Total** | **244** | **262** | **64** | **883** |
+  | §11 Assembly & sharp law | 160 | 10 | 32 | 747 |
+  | **Total** | **244** | **263** | **65** | **881** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
