@@ -59,7 +59,8 @@
   "TriangleQuadrature": 3,
   "DuhamelSpectral": 3,
   "HSBasisIndependence": 3,
-  "CumulativeBudgetQuantifiers": 3
+  "CumulativeBudgetQuantifiers": 3,
+  "FourierOneOverT": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -653,6 +654,11 @@
    "kind": "conditional",
    "page": 5,
    "note": "(3.13) from the spectral-shift formula (3.10), taken as a named hypothesis for each momentum k."
+  },
+  "fourier_cancel_le": {
+   "kind": "outright",
+   "note": "Generic helper for the 1/t cancellation in the cumulative Fourier integral behind (7.29): |g(t)| ≤ |t|ε and |w(t)||t| ≤ C give |∫_{−T}^{T} w g| ≤ 2TCε (FourierOneOverT). The defect bound for the actual comparison is not proved.",
+   "page": 14
   },
   "frobenius_mul_diag_le": {
    "kind": "outright",
