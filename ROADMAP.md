@@ -2205,6 +2205,42 @@ Status of G123–G127 (interactive session, 2026-11-22, commit 6e3a224, uncompil
 `C L / M` gives `o(L)`). The formalize task should NOT rewrite these: next run, read STATUS; tick each item whose
 theorems are verified, and if one failed, fix it minimally from the compiler messages (that counts as the run's one thing).
 
+Items G128–G132 written by the formalize task on 2026-11-22 (requested by Josiah in an interactive session), after
+G122–G127. They split the "later directions" below into one-run steps and attack the open row (iii) of G122. None of
+them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
+
+- [ ] G128. `SteklovAudit/H5CutoffSplitTerminal.lean` (imports `SteklovAudit.H5CutoffTerminal`,
+      `SteklovAudit.CumulativeBudgetSplit`): replace row (iii) `FullTraceSmall` by the split input. Named hypothesis
+      `FullTraceSplit Y`: for each `M` a fixed-`M` part `P M L` with `P M L = o(L)` and a tail
+      `|S_L − P M L| ≤ C L / M` (`C` independent of `M`, `L`). Theorems: `fullTraceSmall_of_split` (via
+      `littleO_of_split`), `h5_of_cutoff_split` (feed it to `h5_of_cutoff_route`). F table text: (iii) reduces to a
+      fixed-window estimate plus a uniform high-energy tail `C/M`, the same shape as the τ(M) row.
+- [ ] G129. `SteklovAudit/DuhamelSpectral.lean` (imports Mathlib only): the HS Duhamel bound in spectral coordinates,
+      keeping the `|t|` factor. For reals `a b t`: `duhamel_entry_le : ‖Complex.exp (-(t * a) * I) −
+      Complex.exp (-(t * b) * I)‖ ≤ |t| * |a − b|` (via `‖e^{iθ} − 1‖ ≤ |θ|`). For finite `J : Fin m → Fin n → ℂ`,
+      `lam`, `mu`: `duhamel_hs_le : ∑ i j, ‖J i j‖² * ‖e^{−itλ_i} − e^{−itμ_j}‖² ≤ t² * ∑ i j, ‖J i j‖² * (λ_i − μ_j)²`.
+      F table text: the commutator defect (the HS defect row) controls the propagated difference linearly in `|t|`;
+      no operator domain issues arise in finite spectral coordinates.
+- [ ] G130. `SteklovAudit/FourierOneOverT.lean` (imports Mathlib only): the `1/t` cancellation in the cumulative
+      Fourier integral. Hypotheses: `g w : ℝ → ℝ`, `|g t| ≤ |t| * ε`, `|w t| * |t| ≤ C` for all `t`, `0 ≤ T`,
+      `IntervalIntegrable (fun t => w t * g t) volume (-T) T`. Theorem `fourier_cancel_le :
+      |∫ t in (-T)..T, w t * g t| ≤ 2 * T * C * ε` (`intervalIntegral.abs_integral_le_integral_abs`,
+      `intervalIntegral.integral_mono_on`, constant integral). F table text: with G129, a Fourier window of width
+      `T` turns an `O(|t| ε)` propagated defect into an `O(T ε)` count error.
+- [ ] G131. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): basis independence of the HS sum in finite
+      dimension. For `T : E →ₗ[ℝ] F` (finite-dimensional inner product spaces) and orthonormal bases `b c` of `E`
+      (`OrthonormalBasis ι ℝ E`, `OrthonormalBasis κ ℝ E`): `hs_sum_basis_indep : ∑ i, ‖T (b i)‖² = ∑ j, ‖T (c j)‖²`
+      (expand in an orthonormal basis `d` of `F` and use Parseval, `OrthonormalBasis.sum_sq_norm_inner`, on both
+      sides; the common value is `∑ i k, ⟪d k, T (b i)⟫²`). Theorem `hs_sum_eq_double` records that common value.
+      F table text: the HS defect row does not depend on the eigenbasis chosen for the model or the true operator.
+- [ ] G132. `SteklovAudit/FullTraceSmallSeparate.lean` (imports `SteklovAudit.H5CutoffTerminal`): (iii) is not the
+      target in disguise. Build an `H5EdgeFamilyCutoff` with `S_L = 0` for all `L` (zero weights, if
+      `CountableCutoffTail.Cert` allows them; check its fields first) and `D L := L`. Theorems: `fullTraceSmall_zero`
+      (`FullTraceSmall` holds), `not_littleO_D` (`D` is not `o(L)`), `traceMatches_fails` (so (ii) is what
+      links (iii) to `D`). If `Cert` cannot carry zero weights, use the smallest admissible certificate and say so
+      in the docstring. F table text: (iii) is a statement about the probe family alone and carries no information
+      about `E − E_mod` without (ii).
+
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
 the cumulative Fourier integral's `1/t` cancels), then the trace comparison with local mass `O(h⁻¹)`; basis
