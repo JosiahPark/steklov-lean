@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 20:22 UTC",
+  "checked_at": "2026-11-22 20:47 UTC",
   "lean_exit_code": 0,
-  "commit": "cd522726160a56d477e22dd0be06026d550557e8",
-  "last_passing_commit": "cd522726160a56d477e22dd0be06026d550557e8",
-  "library_declarations_checked": 1213,
-  "library_declarations": 1213,
+  "commit": "53fc56e9974808862d0581cda6352357f79c8cf2",
+  "last_passing_commit": "53fc56e9974808862d0581cda6352357f79c8cf2",
+  "library_declarations_checked": 1216,
+  "library_declarations": 1216,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1213,
-  "verified": 1213,
+  "theorems": 1216,
+  "verified": 1216,
   "problems": [],
   "modules_audited": [
     {
@@ -131,6 +131,11 @@
       "file": "DihedralThird.lean",
       "declared": 11,
       "audited": 11
+    },
+    {
+      "file": "DuhamelSpectral.lean",
+      "declared": 3,
+      "audited": 3
     },
     {
       "file": "EdgeFromModel.lean",
@@ -3646,6 +3651,36 @@
     {
       "file": "DihedralThird.lean",
       "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelSpectral.lean",
+      "theorem": "SteklovAudit.DuhamelSpectral.exp_sub_one_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelSpectral.lean",
+      "theorem": "SteklovAudit.DuhamelSpectral.duhamel_entry_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelSpectral.lean",
+      "theorem": "SteklovAudit.DuhamelSpectral.duhamel_hs_le",
       "axioms": [
         "propext",
         "Classical.choice",

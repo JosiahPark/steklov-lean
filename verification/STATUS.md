@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 20:22 UTC at commit `cd522726160a`. Last passing commit: `cd522726160a`.
+Checked 2026-11-22 20:47 UTC at commit `53fc56e99748`. Last passing commit: `53fc56e99748`.
 
-Library declarations checked: 1213 of 1213 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1216 of 1216 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 203 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 204 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -290,6 +290,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | DihedralThird.lean | `SteklovAudit.DihedralThird.upper_num` | verified (standard axioms only) |
 | DihedralThird.lean | `SteklovAudit.DihedralThird.lower_num` | verified (standard axioms only) |
 | DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal` | verified (standard axioms only) |
+| DuhamelSpectral.lean | `SteklovAudit.DuhamelSpectral.exp_sub_one_le` | verified (standard axioms only) |
+| DuhamelSpectral.lean | `SteklovAudit.DuhamelSpectral.duhamel_entry_le` | verified (standard axioms only) |
+| DuhamelSpectral.lean | `SteklovAudit.DuhamelSpectral.duhamel_hs_le` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.edge_of_model_compare` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.theorem_11_1_of_C4` | verified (standard axioms only) |
 | EdgeFromModel.lean | `SteklovAudit.EdgeFromModel.formula_11_4_of_C4` | verified (standard axioms only) |
