@@ -1922,9 +1922,37 @@ it. G119 (below) creates that file. G118 (first) fixes the audit so that subdire
       `"SteklovAudit." + ".".join(p.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)`.
       Use the same relative path (e.g. `Foundations/Trace1D.lean`) for the `file` field in results. Check
       `tools/build_map.py` for the same non-recursive glob.
-      Acceptance: STATUS.json lists `SteklovAudit.Foundations.Trace1D.pointwise_bound` and `...trace_1d` with
-      standard axioms only, and `theorems` rises by at least 2. If either fails, the F1.1 attempt did not really pass,
-      so report it. Do not tick F1.1 before this item is done.
+      Acceptance: a green total is not enough. STATUS.json `results` must list each of these four declarations by name,
+      each with status `verified (standard axioms only)`:
+      `SteklovAudit.Foundations.Trace1D.pointwise_bound`, `SteklovAudit.Foundations.Trace1D.trace_1d`,
+      `SteklovAudit.Foundations.TraceHalfLine.cross_abs_le` and `SteklovAudit.Foundations.TraceHalfLine.trace_halfLine`.
+      `theorems` must rise by exactly the number of new declarations found (at least 4).
+      Also add a `modules_audited` list to STATUS.json (one entry per `.lean` file, with its count of audited
+      declarations). Report as a problem any file whose source declares a `theorem`/`lemma` but which has 0 audited
+      entries, so a module the audit skips can no longer pass silently.
+      Before writing the commit, run `python3 axiom_audit.py`, or check the CI STATUS after the push, and quote the four
+      result lines in the ROADMAP note.
+      F1.1 (ticked at e2b3d1d) and F1.2 were judged from the build log alone. If any of the four is missing or
+      non-standard here, untick the matching F item and say why.
+
+- [ ] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
+      The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
+      file:
+      `tail_littleO_of_cutoff_bound (r : ℝ → ℝ) (C : ℝ) (hC : 0 ≤ C)
+        (h : ∀ M : ℝ, 0 < M → ∀ᶠ L in Filter.atTop, |r L| ≤ C * L / M) : r =o[Filter.atTop] id`.
+      This is the required order of limits: `M` is fixed first, `L → ∞`, and `C` does not depend on `M`. Proof: use
+      `Asymptotics.IsLittleO.of_bound`. Given `η > 0`, take `M := (C + 1) / η > 0`. Then eventually (also `0 ≤ L`)
+      `C * L / M = C / (C + 1) * η * L ≤ η * L`, using `div_le_one` and `mul_le_mul_of_nonneg_right`, and `‖id L‖ = L`.
+      `tail_eta_form`: the same hypothesis gives `∀ η > 0, ∀ᶠ L in atTop, |r L| ≤ η * L` (a direct corollary).
+      `order_of_limits_matters`: with `r := id` and a constant that may depend on `M` (`C_M := M`),
+      `∀ M > 0, ∀ᶠ L in atTop, |r L| ≤ M * L / M` holds, but `¬ (id =o[atTop] (id : ℝ → ℝ))`. Use
+      `Asymptotics.isLittleO_iff` at `c := 1/2` with `L = max L₀ 1`. This shows the `M`-uniform constant is essential.
+      Make the docstrings literal: `tail_over_M_is_o` states what it proves and points to `tail_littleO_of_cutoff_bound`.
+      `uniform_defect_is_O` is an associativity identity and `time_factor_preserves_o` is `|S ε| ≤ S |ε|`; neither
+      docstring may claim more than that. Keep all three old names, since other files may import them.
+      Theorem names: `tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`.
+      F table text: an error bounded by `C·L/M` for every fixed `M`, with `C` uniform in `M`, is `o(L)`. This is the
+      abstract step from the fixed-`M` (7.29) bound. The operator estimate giving `|r L| ≤ C L / M` remains open.
 
 - [ ] G113. `SteklovAudit/CountableCutoffTail.lean` (imports Mathlib only): from finite certificates to absolute
       summability. Data: `lam : ι → ℝ`, `mu : κ → ℝ`, `w : ι → κ → ℝ`, `hw : ∀ i j, 0 ≤ w i j`. Finite-certificate
@@ -1988,7 +2016,8 @@ it. G119 (below) creates that file. G118 (first) fixes the audit so that subdire
       |S_L − D L| ≤ η * L` (split `η/2 + η/2`, triangle inequality, `max L₀ X.Lgap`).
       F table text: H5 through this route needs exactly two estimates, both open:
       (i) `Lip(F_L)·E_L/(L − μ*(L)) = o(L)`, where `E_L` is the summed squared defect of the edge family;
-      (ii) the probe trace below `L` represents the localized `E − E_mod` to `o(L)`.
+      (ii) the remaining geometric question: how closely the truncated probe trace `Sle_L L` approximates the
+      localized tetrahedron–wedge discrepancy `E − E_mod` (needed: to `o(L)`).
       Docstring must say that this proves neither, and does not close (7.29) or H5.
 - [ ] G117. `SteklovAudit/H5CutoffAffineInstance.lean` (imports `SteklovAudit.AffineCutoffTail`,
       `SteklovAudit.H5CutoffInterface`): the affine calculation as an exact test case of estimate (i). For a constant
