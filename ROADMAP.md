@@ -1962,6 +1962,10 @@ finite-dimensional models, not the paper's operator: none of them proves the mai
       Attempted twice 2026-11-21 (9891351, 47f99e7); both failed at the FTC derivative step (`ring` on an
       unreduced `(fun y => y - 1) x` from `HasDerivAt.mul`). Reverted to a docstring-only stub (f28800a), which
       records the diagnosis and the suggested fix `congr_deriv (by beta_reduce; ring)`.
+      Third attempt written by an interactive session 2026-11-22 at c395f25 (uncompiled at push): full proof in
+      `SteklovAudit/Foundations/Trace1D.lean`, theorems `pointwise_bound`, `trace_1d`. The derivative now uses
+      `hasDerivAt_id'` (no `id x` atom) and `congr_deriv` with a separately proved equation. Next run: tick if
+      STATUS shows both theorems verified; if it failed, fix from the compiler messages or split F1.1.
 - [ ] F1.2 half-line trace with constant 1: |f(0)|² ≤ ∫₀^∞(|f|²+|f'|²) for suitable decaying f — file SteklovAudit/Foundations/TraceHalfLine.lean
 - [ ] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
 - [ ] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
