@@ -1873,7 +1873,7 @@ Steklov operator; the operator's cutoff data is not defined.
       compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1045/1045 at e601e9c, all six
       `H5PinnedRowsPowStrict` theorems verified.
-- [ ] G107. `SteklovAudit/H5PinnedCutoffVanish.lean` (imports `SteklovAudit.H5PinnedRows`): the `disc` field carries no
+- [x] G107. `SteklovAudit/H5PinnedCutoffVanish.lean` (imports `SteklovAudit.H5PinnedRows`): the `disc` field carries no
       content once the data is pinned. `structure H5bPinnedCore (E Emod nA nB D₀ F₀)` = `H5bPinnedRows` with `disc`,
       `cutoff`, `discVanish` replaced by one row `cutoffVanish : ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ,
       ∀ L, L₀ ≤ L → |(E ε γ L - Emod ε γ L) - ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)) *
@@ -1885,6 +1885,8 @@ Steklov operator; the operator's cutoff data is not defined.
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedCutoffVanish.lean` (uncompiled at push): def
       `coreDisc` (the absolute value, used in `cutoffVanish`), structure `H5bPinnedCore`, defs `ofCore`, `toCore`;
       theorems `ofCore_disc`, `pinned_iff_core`, `h5b_of_pinnedCore`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1048/1048 at 1fb21d8, all three
+      `H5PinnedCutoffVanish` theorems verified.
 - [ ] G108. `SteklovAudit/H5PinnedSumSmall.lean` (imports `SteklovAudit.H5PinnedRows`): the pinned rows constrain the
       data independently of `E`. `def pinnedSum (D₀ F₀) (ε γ L : ℝ) : ℝ := ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) -
       F₀ ε γ L ((D₀ ε γ L).b j)) * (D₀ ε γ L).J i j ^ 2`. `pinned_sum_littleO (H : H5bPinnedRows E Emod nA nB D₀ F₀) :
@@ -1895,6 +1897,10 @@ Steklov operator; the operator's cutoff data is not defined.
       Theorem names: `pinned_sum_littleO`, `pinned_target_and_sum` (conjunction with `h5b_of_pinnedRows`),
       `not_pinned_of_sum_large`. F table text: pinned rows require the data's own spectral sum to be `o(L)`; data
       failing this (e.g. G103's `bumpD`) admits no rows for any `E`.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedSumSmall.lean` (uncompiled at push): defs
+      `pinnedSum`, `SumLittleO` (the `o(L)` property, stated for all `ε γ > 0`); theorems `pinned_sum_littleO`,
+      `pinned_target_and_sum`, `not_pinned_of_sum_large` (hypothesis `¬ SumLittleO D₀ F₀`). Next run: tick if STATUS
+      shows it compiled.
 
 ## Foundations (long-term)
 
