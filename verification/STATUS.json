@@ -1,20 +1,17 @@
 {
-  "checked_at": "2026-11-22 19:30 UTC",
+  "checked_at": "2026-11-22 19:48 UTC",
   "lean_exit_code": 1,
-  "commit": "d753c9ce9643560d529b82a035cc5a85f35a8f1e",
+  "commit": "a9f44a7eac889112f1c9a51c7cdfb1cbcbc8e726",
   "last_passing_commit": "b470deca9f416c9f416dc1e0f3526d7f69a4b03f",
   "library_declarations_checked": 0,
-  "library_declarations": 1200,
+  "library_declarations": 1209,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [
-    "error: SteklovAudit/TriangleQuadrature.lean:57:4: `simp` made no progress",
-    "error: SteklovAudit/TriangleQuadrature.lean:54:83: unsolved goals",
-    "error: SteklovAudit/H5CutoffObstruction.lean:83:27: failed to synthesize instance of type class",
-    "error: SteklovAudit/H5CutoffObstruction.lean:86:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "error: SteklovAudit/H5PinnedPtsLipStrict.lean:41:16: unsolved goals",
     "error: build failed"
   ],
-  "theorems": 1200,
+  "theorems": 1209,
   "verified": 0,
   "problems": [
     "SteklovAudit.tetra_face_count",
@@ -721,6 +718,8 @@
     "SteklovAudit.H5Parseval.zero_vanish",
     "SteklovAudit.H5Parseval.h5b_of_norm",
     "SteklovAudit.H5Parseval.norm_card_eq",
+    "SteklovAudit.H5PinnedCutoffIsTarget.cutoffVanish_of_target",
+    "SteklovAudit.H5PinnedCutoffIsTarget.pinned_iff_target_of_dataRows",
     "SteklovAudit.H5PinnedCutoffVanish.ofCore_disc",
     "SteklovAudit.H5PinnedCutoffVanish.pinned_iff_core",
     "SteklovAudit.H5PinnedCutoffVanish.h5b_of_pinnedCore",
@@ -737,6 +736,13 @@
     "SteklovAudit.H5PinnedNotTarget.target_zero",
     "SteklovAudit.H5PinnedNotTarget.not_pinned_bump",
     "SteklovAudit.H5PinnedNotTarget.pinned_strictly_stronger",
+    "SteklovAudit.H5PinnedPtsLip.trace_transfer_pts",
+    "SteklovAudit.H5PinnedPtsLip.ofDataRows_\u039b",
+    "SteklovAudit.H5PinnedPtsLip.sumLittleO_of_ptsRows",
+    "SteklovAudit.H5PinnedPtsLip.h5b_of_ptsRows",
+    "SteklovAudit.H5PinnedPtsLipStrict.ptsRows_flat",
+    "SteklovAudit.H5PinnedPtsLipStrict.not_dataRows_flat",
+    "SteklovAudit.H5PinnedPtsLipStrict.ptsLip_strictly_weaker",
     "SteklovAudit.H5PinnedRows.toRows_D",
     "SteklovAudit.H5PinnedRows.toRows_F",
     "SteklovAudit.H5PinnedRows.h5b_of_pinnedRows",
@@ -1326,10 +1332,13 @@
     "module with theorems but 0 audited declarations: H5PaperAudit.lean",
     "module with theorems but 0 audited declarations: H5PaperRows.lean",
     "module with theorems but 0 audited declarations: H5Parseval.lean",
+    "module with theorems but 0 audited declarations: H5PinnedCutoffIsTarget.lean",
     "module with theorems but 0 audited declarations: H5PinnedCutoffVanish.lean",
     "module with theorems but 0 audited declarations: H5PinnedDataRows.lean",
     "module with theorems but 0 audited declarations: H5PinnedNonvacuous.lean",
     "module with theorems but 0 audited declarations: H5PinnedNotTarget.lean",
+    "module with theorems but 0 audited declarations: H5PinnedPtsLip.lean",
+    "module with theorems but 0 audited declarations: H5PinnedPtsLipStrict.lean",
     "module with theorems but 0 audited declarations: H5PinnedRows.lean",
     "module with theorems but 0 audited declarations: H5PinnedRowsPow.lean",
     "module with theorems but 0 audited declarations: H5PinnedRowsPowStrict.lean",
@@ -1963,6 +1972,11 @@
       "audited": 0
     },
     {
+      "file": "H5PinnedCutoffIsTarget.lean",
+      "declared": 2,
+      "audited": 0
+    },
+    {
       "file": "H5PinnedCutoffVanish.lean",
       "declared": 3,
       "audited": 0
@@ -1980,6 +1994,16 @@
     {
       "file": "H5PinnedNotTarget.lean",
       "declared": 4,
+      "audited": 0
+    },
+    {
+      "file": "H5PinnedPtsLip.lean",
+      "declared": 4,
+      "audited": 0
+    },
+    {
+      "file": "H5PinnedPtsLipStrict.lean",
+      "declared": 3,
       "audited": 0
     },
     {
@@ -2523,10 +2547,13 @@
     "H5PaperAudit.lean",
     "H5PaperRows.lean",
     "H5Parseval.lean",
+    "H5PinnedCutoffIsTarget.lean",
     "H5PinnedCutoffVanish.lean",
     "H5PinnedDataRows.lean",
     "H5PinnedNonvacuous.lean",
     "H5PinnedNotTarget.lean",
+    "H5PinnedPtsLip.lean",
+    "H5PinnedPtsLipStrict.lean",
     "H5PinnedRows.lean",
     "H5PinnedRowsPow.lean",
     "H5PinnedRowsPowStrict.lean",
@@ -6851,6 +6878,18 @@
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
+      "file": "H5PinnedCutoffIsTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedCutoffIsTarget.cutoffVanish_of_target",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedCutoffIsTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedCutoffIsTarget.pinned_iff_target_of_dataRows",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
       "file": "H5PinnedCutoffVanish.lean",
       "theorem": "SteklovAudit.H5PinnedCutoffVanish.ofCore_disc",
       "axioms": null,
@@ -6943,6 +6982,48 @@
     {
       "file": "H5PinnedNotTarget.lean",
       "theorem": "SteklovAudit.H5PinnedNotTarget.pinned_strictly_stronger",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLip.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLip.trace_transfer_pts",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLip.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLip.ofDataRows_\u039b",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLip.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLip.sumLittleO_of_ptsRows",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLip.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLip.h5b_of_ptsRows",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLipStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLipStrict.ptsRows_flat",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLipStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLipStrict.not_dataRows_flat",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5PinnedPtsLipStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedPtsLipStrict.ptsLip_strictly_weaker",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },

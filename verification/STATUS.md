@@ -1,8 +1,8 @@
 # Lean verification status: FAIL
 
-Checked 2026-11-22 19:30 UTC at commit `d753c9ce9643`. Last passing commit: `b470deca9f41`.
+Checked 2026-11-22 19:48 UTC at commit `a9f44a7eac88`. Last passing commit: `b470deca9f41`.
 
-Library declarations checked: 0 of 1200 theorems compile with only Lean's standard axioms.
+Library declarations checked: 0 of 1209 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 199 files; files declaring theorems but with 0 audited declarations: 198 FOUND
+Modules audited: 202 files; files declaring theorems but with 0 audited declarations: 201 FOUND
   - SteklovAudit.lean
   - AbstractHSDefect.lean
   - AbstractHSDefectClosed.lean
@@ -129,10 +129,13 @@ Modules audited: 199 files; files declaring theorems but with 0 audited declarat
   - H5PaperAudit.lean
   - H5PaperRows.lean
   - H5Parseval.lean
+  - H5PinnedCutoffIsTarget.lean
   - H5PinnedCutoffVanish.lean
   - H5PinnedDataRows.lean
   - H5PinnedNonvacuous.lean
   - H5PinnedNotTarget.lean
+  - H5PinnedPtsLip.lean
+  - H5PinnedPtsLipStrict.lean
   - H5PinnedRows.lean
   - H5PinnedRowsPow.lean
   - H5PinnedRowsPowStrict.lean
@@ -929,6 +932,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | NOT CHECKED (name not found by Lean) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | NOT CHECKED (name not found by Lean) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | NOT CHECKED (name not found by Lean) |
+| H5PinnedCutoffIsTarget.lean | `SteklovAudit.H5PinnedCutoffIsTarget.cutoffVanish_of_target` | NOT CHECKED (name not found by Lean) |
+| H5PinnedCutoffIsTarget.lean | `SteklovAudit.H5PinnedCutoffIsTarget.pinned_iff_target_of_dataRows` | NOT CHECKED (name not found by Lean) |
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.ofCore_disc` | NOT CHECKED (name not found by Lean) |
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.pinned_iff_core` | NOT CHECKED (name not found by Lean) |
 | H5PinnedCutoffVanish.lean | `SteklovAudit.H5PinnedCutoffVanish.h5b_of_pinnedCore` | NOT CHECKED (name not found by Lean) |
@@ -945,6 +950,13 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.target_zero` | NOT CHECKED (name not found by Lean) |
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.not_pinned_bump` | NOT CHECKED (name not found by Lean) |
 | H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.pinned_strictly_stronger` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLip.lean | `SteklovAudit.H5PinnedPtsLip.trace_transfer_pts` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLip.lean | `SteklovAudit.H5PinnedPtsLip.ofDataRows_Λ` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLip.lean | `SteklovAudit.H5PinnedPtsLip.sumLittleO_of_ptsRows` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLip.lean | `SteklovAudit.H5PinnedPtsLip.h5b_of_ptsRows` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLipStrict.lean | `SteklovAudit.H5PinnedPtsLipStrict.ptsRows_flat` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLipStrict.lean | `SteklovAudit.H5PinnedPtsLipStrict.not_dataRows_flat` | NOT CHECKED (name not found by Lean) |
+| H5PinnedPtsLipStrict.lean | `SteklovAudit.H5PinnedPtsLipStrict.ptsLip_strictly_weaker` | NOT CHECKED (name not found by Lean) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_D` | NOT CHECKED (name not found by Lean) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_F` | NOT CHECKED (name not found by Lean) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.h5b_of_pinnedRows` | NOT CHECKED (name not found by Lean) |
@@ -1429,28 +1441,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 ## Build errors
 
 ```
-error: SteklovAudit/TriangleQuadrature.lean:57:4: `simp` made no progress
-error: SteklovAudit/TriangleQuadrature.lean:54:83: unsolved goals
-hin : ∀ (s : ℝ), ∫ (t : ℝ) in 0..1 - s, s * t = 1 / 2 * s ^ 3 - s ^ 2 + 1 / 2 * s
-⊢ -(5 / 24) + ∫ (x : ℝ) in 0..1, 1 / 2 * x = 1 / 24
-error: SteklovAudit/H5CutoffObstruction.lean:83:27: failed to synthesize instance of type class
-  HAdd ℝ ℝ ℕ
-
-Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
-error: SteklovAudit/H5CutoffObstruction.lean:86:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ∑ x ∈ Finset.range n, ((lo x - mu x) ^ 2 * (1 / 2) + (hi x - mu x) ^ 2 * (1 / 2))
-in the target expression
-  ∑ j ∈ Finset.range n, ((lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2)) = n
-
-n : ℕ
-h : ∀ j ∈ Finset.range n, (lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2) = 1
-⊢ ∑ j ∈ Finset.range n, ((lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2)) = n
+error: SteklovAudit/H5PinnedPtsLipStrict.lean:41:16: unsolved goals
+ε γ L : ℝ
+hL : 1 ≤ L
+⊢ ↑Finset.univ.card * ↑Finset.univ.card ≤ L
 error: build failed
 ```
 
 ## Lean output
 
 ```
-/home/runner/work/steklov-lean/steklov-lean/AxiomAudit.lean:1:0: error: object file '/home/runner/work/steklov-lean/steklov-lean/.lake/build/lib/lean/SteklovAudit/H5CutoffObstruction.olean' of module SteklovAudit.H5CutoffObstruction does not exist
+/home/runner/work/steklov-lean/steklov-lean/AxiomAudit.lean:1:0: error: object file '/home/runner/work/steklov-lean/steklov-lean/.lake/build/lib/lean/SteklovAudit/H5PinnedPtsLipStrict.olean' of module SteklovAudit.H5PinnedPtsLipStrict does not exist
 
 ```
