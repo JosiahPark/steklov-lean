@@ -46,7 +46,11 @@
   "Section11DiscreteHeatObstruction": 4,
   "Section11LaplaceObstruction": 4,
   "WindowMassSmoothing": 4,
-  "Geometry": 5
+  "Geometry": 5,
+  "ReviewCandidates": 3,
+  "ReviewExtensions": 3,
+  "AbstractHSDefect": 3,
+  "AbstractHSDefectClosed": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -725,6 +729,11 @@
    "kind": "outright",
    "page": 11,
    "note": "Unsquared pointwise HS criterion ‖T‖_HS ≤ ‖w‖₂."
+  },
+  "hs_right_tail_of_adjoint_strong": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "(7.29) fixed-HS tail ‖F T_h‖_HS → 0 in coordinates, taking F Hilbert–Schmidt and strong convergence of the adjoints T_h* as hypotheses. Not instantiated for the wedge or the tetrahedron."
   },
   "hyperbolic_subtraction": {
    "kind": "outright",
@@ -1406,6 +1415,11 @@
    "page": 8,
    "note": "Squared Sylvester identity used for the HS spectral-gap bound in the off-band step."
   },
+  "spectral_sums_of_operator": {
+   "kind": "conditional",
+   "page": 11,
+   "note": "Probe mass and squared-defect sums of Lemma 7.1′ derived from a symmetric operator with a Hilbert eigenbasis in its domain; the operator, basis and norm identities are hypotheses, not the tetrahedral DtN map."
+  },
   "spectral_window_polynomial_decomposition": {
    "kind": "outright",
    "page": 25,
@@ -1415,6 +1429,11 @@
    "kind": "outright",
    "page": 26,
    "note": "Energy splitting of the trace comparison into two parts with separate Lipschitz-type constants."
+  },
+  "square_sum_strong_tail": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Dominated-convergence step behind the fixed Hilbert–Schmidt tail in (7.29): uniformly bounded, strongly vanishing operators kill a square-summable family (no rate)."
   },
   "squared_gap_lower_bound": {
    "kind": "outright",
@@ -1430,6 +1449,11 @@
    "kind": "outright",
    "page": 7,
    "note": "(5.2): 0 ≤ a_{L₂}(γ) − a_{L₁}(γ) ≤ 2Cγ(L₂² − L₁²) from 0 ≤ F ≤ C."
+  },
+  "summable_energy_tail": {
+   "kind": "outright",
+   "page": 14,
+   "note": "A fixed summable coefficient family has vanishing tail above energy R; countable companion of finite_hs_tail_vanishes."
   },
   "symmetric_band_width": {
    "kind": "outright",
