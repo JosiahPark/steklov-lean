@@ -10,14 +10,17 @@ constant `Lip L`, and a largest comparison value `μ*(L) < L` (for `L ≥ Lgap`)
 
   `|S_L − S≤L_L| ≤ Lip(F_L) · E_L / (L − μ*(L))`             (`cutoff_error_le`).
 
-H5 through this route needs exactly two estimates, both OPEN and both only named here:
+H5 through this route needs three estimates, all OPEN and only named (the third in
+`H5CutoffTerminal.lean`, G122):
 (i)  `RatioLittleO`: `Lip(F_L) · E_L / (L − μ*(L)) = o(L)`;
 (ii) `TraceMatches`: the truncated probe trace `S≤L_L` approximates the localized tetrahedron–wedge
-     discrepancy `E − E_mod` (the function `D`) to `o(L)` — the remaining geometric question.
+     discrepancy `E − E_mod` (the function `D`) to `o(L)` — the remaining geometric question;
+(iii) `FullTraceSmall`: the full probe trace satisfies `S_L = o(L)`. Without (iii), (i) and (ii) give
+     only `S_L − D L = o(L)`, not `D L = o(L)` (G123, `H5CutoffObstruction.lean`).
 `full_trace_matches` shows that (i) and (ii) together give `|S_L − D L| = o(L)`.
 
 What this file does NOT prove: (i), (ii), the existence of such an edge family, (7.29), H5, or
-Theorem 1.3 / 11.1. It only makes the two remaining estimates explicit.
+Theorem 1.3 / 11.1. It only makes the remaining estimates explicit.
 -/
 
 namespace SteklovAudit.H5CutoffInterface
