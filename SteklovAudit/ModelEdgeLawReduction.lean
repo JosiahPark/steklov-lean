@@ -188,16 +188,13 @@ theorem model_law_of_decomposition {ι : Type*} (s : Finset ι) (Nw Nf P G : ℝ
         ∑ i ∈ s, A i L := by
     funext L
     linear_combination hdiff L
-  have hfun : (∑ i ∈ s, A i) = fun L => ∑ i ∈ s, A i L := by
-    funext L
-    simp [Finset.sum_apply]
-  have hsum : (fun L => ∑ i ∈ s, A i L) =o[atTop] (fun L : ℝ => L) := by
+  have hS : (fun L => ∑ i ∈ s, A i L) =o[atTop] (fun L : ℝ => L) := by
+    refine (IsLittleO.sum hA).congr_left (fun L => ?_)
     first
-      | (rw [← hfun]; exact IsLittleO.sum hA)
-      | exact hfun ▸ IsLittleO.sum hA
-      | simpa [Finset.sum_apply] using IsLittleO.sum hA
+      | exact Finset.sum_apply L s A
+      | simp [Finset.sum_apply]
   rw [e]
-  exact ((hflat.add (hP.const_mul_left (c * Q))).sub hG).sub hsum
+  exact ((hflat.add (hP.const_mul_left (c * Q))).sub hG).sub hS
 
 /-- Non-vacuity of `model_law_of_decomposition`: exact flat count, exact ramp, no far term and no
 annuli satisfy every hypothesis. -/
