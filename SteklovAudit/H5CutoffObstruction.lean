@@ -80,7 +80,7 @@ theorem obstruction_sum (n : ℕ) : ∑ j ∈ Finset.range n, centered j = 2 * n
 
 /-- The summed squared defect of the first `n` probes is `n`. -/
 theorem obstruction_defect_sum (n : ℕ) :
-    ∑ j ∈ Finset.range n, ((lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2)) = n := by
+    ∑ j ∈ Finset.range n, ((lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2)) = (n : ℝ) := by
   have h : ∀ j ∈ Finset.range n,
       (lo j - mu j) ^ 2 * (1 / 2) + (hi j - mu j) ^ 2 * (1 / 2) = 1 := fun j _ => block_defect j
   rw [Finset.sum_congr rfl h, Finset.sum_const, Finset.card_range, nsmul_eq_mul, mul_one]

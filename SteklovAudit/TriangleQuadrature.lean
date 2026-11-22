@@ -52,9 +52,11 @@ theorem tri_int_ss : ∫ s in (0 : ℝ)..1, ∫ _t in (0 : ℝ)..(1 - s), s ^ 2 
     | (simp only [integral_pow]; norm_num)
 
 theorem tri_int_st : ∫ s in (0 : ℝ)..1, ∫ t in (0 : ℝ)..(1 - s), s * t = 1 / 24 := by
-  have hin : ∀ s : ℝ, ∫ t in (0 : ℝ)..(1 - s), s * t = 1 / 2 * s ^ 3 - s ^ 2 + 1 / 2 * s := by
+  have hin : ∀ s : ℝ,
+      ∫ t in (0 : ℝ)..(1 - s), s * t = 1 / 2 * s ^ 3 - s ^ 2 + 1 / 2 * s ^ 1 := by
     intro s
-    simp only [intervalIntegral.integral_const_mul, integral_id]
+    rw [show (∫ t in (0 : ℝ)..(1 - s), s * t) = s * ∫ t in (0 : ℝ)..(1 - s), t from
+      intervalIntegral.integral_const_mul s (fun t => t), integral_id]
     ring
   simp only [hin]
   rw [intervalIntegral.integral_add, intervalIntegral.integral_sub]
