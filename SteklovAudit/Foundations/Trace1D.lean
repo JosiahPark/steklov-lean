@@ -1,29 +1,78 @@
 import Mathlib
 
 /-!
-# F1.1 One-dimensional trace inequality (stub)
+# F1.1 One-dimensional trace inequality
 
-Target (roadmap item F1.1): for real `f` with `HasDerivAt f (f' x) x` at every `x` and `f'` continuous,
-`f 0 ^ 2 ≤ 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2)`.
+Roadmap item F1.1 (Foundations). For a real function `f` on `ℝ` that is differentiable everywhere
+with continuous derivative `f'`,
 
-This file is a docstring-only stub: it proves nothing. Two attempts on 2026-11-21 (commits 9891351, 47f99e7)
-did not compile, both at the same step, and were reverted here so that this file adds no build error.
+  `f 0 ^ 2 ≤ 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2)`.
 
-Planned proof (correct on paper):
-1. FTC for `g y = (y - 1) * (f y * f y)` on [0, 1] gives
-   `f 0 ^ 2 = ∫₀¹ (f x ^ 2 - 2 (1 - x) f x f' x)`
-   (`intervalIntegral.integral_eq_sub_of_hasDerivAt`, then `ring`).
-2. Pointwise, for x ∈ [0, 1]: `a ^ 2 - 2 (1 - x) a b ≤ 2 (a ^ 2 + b ^ 2)`
-   (`nlinarith [sq_nonneg ((1 - x) * a + b), sq_nonneg b, 0 ≤ x (2 - x) a ^ 2]`).
-3. `intervalIntegral.integral_mono_on` and `intervalIntegral.integral_const_mul`.
+Proof: the fundamental theorem of calculus for `g y = (y - 1) * (f y * f y)` on `[0, 1]` gives
+`f 0 ^ 2 = ∫₀¹ (f² + 2 (x - 1) f f')`, and pointwise on `[0, 1]`,
+`a² + 2 (x - 1) a b ≤ 2 (a² + b²)` because `(x - 1)² ≤ 1`.
 
-CI error in both attempts: the derivative of `g` was built as
-`((hasDerivAt_id x).sub_const 1).mul ((hf x).mul (hf x))` (typed as `HasDerivAt (fun y => y - 1) 1 x`).
-`HasDerivAt.mul` states the derivative as `c' * d x + c x * d'` with `c x` an unreduced application
-`(fun y => y - 1) x`, so `ring` (after `convert ... using 1`, and inside `congr_deriv (by ring)`)
-left the goal unsolved. Suggested fix: `congr_deriv (by beta_reduce; ring)`, or state the
-derivative with `show` before `ring`. Steps 2 and 3 and the rest of the file reported no errors.
+Hypotheses are stated on all of `ℝ` (a `C¹` function on `ℝ`), not on `[0, 1]` only.
 
-NOT proved: anything. In particular nothing about Sobolev spaces, trace operators, the paper's
-Dirichlet-to-Neumann operator, `[H1]`–`[H6]` or the main theorem.
+What this file does NOT prove: nothing about Sobolev spaces `H¹`, trace operators, Lipschitz
+domains, or any multi-dimensional trace theorem; nothing about the paper's Dirichlet-to-Neumann
+operator, `[H1]`–`[H6]`, or Theorem 1.3 / 11.1. It is a one-dimensional toy model of a trace bound.
 -/
+
+namespace SteklovAudit.Foundations.Trace1D
+
+/-- Pointwise inequality used under the integral. -/
+theorem pointwise_bound (a b x : ℝ) (hx0 : 0 ≤ x) (hx1 : x ≤ 1) :
+    a * a + 2 * (x - 1) * a * b ≤ 2 * (a ^ 2 + b ^ 2) := by
+  have h1 : 0 ≤ (a - (x - 1) * b) ^ 2 := sq_nonneg _
+  have h2 : 0 ≤ x * (2 - x) * b ^ 2 :=
+    mul_nonneg (mul_nonneg hx0 (by linarith)) (sq_nonneg b)
+  nlinarith [h1, h2, sq_nonneg a, sq_nonneg b]
+
+/-- **F1.1.** One-dimensional trace inequality on `[0, 1]` with constant 2. -/
+theorem trace_1d (f f' : ℝ → ℝ) (hf : ∀ x, HasDerivAt f (f' x) x) (hf' : Continuous f') :
+    f 0 ^ 2 ≤ 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2) := by
+  have hfc : Continuous f := continuous_iff_continuousAt.2 fun x => (hf x).continuousAt
+  -- derivative of g y = (y - 1) * (f y * f y)
+  have hg : ∀ x, HasDerivAt (fun y => (y - 1) * (f y * f y))
+      (f x * f x + 2 * (x - 1) * f x * f' x) x := by
+    intro x
+    have h1 : HasDerivAt (fun y : ℝ => y - 1) 1 x := (hasDerivAt_id' x).sub_const 1
+    have h3 := h1.mul ((hf x).mul (hf x))
+    have e : (1 : ℝ) * (f x * f x) + (x - 1) * (f' x * f x + f x * f' x)
+        = f x * f x + 2 * (x - 1) * f x * f' x := by ring
+    first
+      | exact h3.congr_deriv e
+      | exact e ▸ h3
+      | (convert h3 using 1; exact e.symm)
+  have hcont : Continuous fun x => f x * f x + 2 * (x - 1) * f x * f' x := by
+    first
+      | fun_prop
+      | exact (hfc.mul hfc).add
+          (((continuous_const.mul (continuous_id.sub continuous_const)).mul hfc).mul hf')
+  have hcont2 : Continuous fun x => 2 * (f x ^ 2 + f' x ^ 2) := by
+    first
+      | fun_prop
+      | exact continuous_const.mul ((hfc.pow 2).add (hf'.pow 2))
+  have hint : IntervalIntegrable (fun x => f x * f x + 2 * (x - 1) * f x * f' x)
+      MeasureTheory.volume 0 1 := hcont.intervalIntegrable 0 1
+  have hint2 : IntervalIntegrable (fun x => 2 * (f x ^ 2 + f' x ^ 2))
+      MeasureTheory.volume 0 1 := hcont2.intervalIntegrable 0 1
+  have hftc := intervalIntegral.integral_eq_sub_of_hasDerivAt (fun x _ => hg x) hint
+  have hval : ∫ x in (0:ℝ)..1, (f x * f x + 2 * (x - 1) * f x * f' x) = f 0 ^ 2 := by
+    rw [hftc]
+    first
+      | ring
+      | (show (1 - 1) * (f 1 * f 1) - (0 - 1) * (f 0 * f 0) = f 0 ^ 2; ring)
+  have hmono : ∫ x in (0:ℝ)..1, (f x * f x + 2 * (x - 1) * f x * f' x)
+      ≤ ∫ x in (0:ℝ)..1, 2 * (f x ^ 2 + f' x ^ 2) :=
+    intervalIntegral.integral_mono_on (by norm_num) hint hint2
+      (fun x hx => pointwise_bound (f x) (f' x) x hx.1 hx.2)
+  have hconst : ∫ x in (0:ℝ)..1, 2 * (f x ^ 2 + f' x ^ 2)
+      = 2 * ∫ x in (0:ℝ)..1, (f x ^ 2 + f' x ^ 2) := by
+    first
+      | exact intervalIntegral.integral_const_mul 2 _
+      | rw [intervalIntegral.integral_const_mul]
+  linarith [hval, hmono, hconst]
+
+end SteklovAudit.Foundations.Trace1D
