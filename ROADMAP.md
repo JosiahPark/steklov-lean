@@ -1904,12 +1904,15 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
+Status 2026-11-22: G109–G112 verified (CI at db578cf: PASS 1209/1209; all 12 declarations of `H5PinnedDataRows`,
+`H5PinnedCutoffIsTarget`, `H5PinnedPtsLip`, `H5PinnedPtsLipStrict` with standard axioms only).
+
 Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
 the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
 `cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
 for the Steklov operator; the operator's cutoff data is not defined.
 
-- [~] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
+- [x] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
       `SteklovAudit.H5PinnedSumSmall`): the rows that mention only the data. `structure H5bPinnedDataRows (nA nB) (D₀)
       (F₀)` = the fields `Λ`, `hΛ`, `lip`, `m`, `hm`, `massLin`, `δ`, `defectLin`, `δVanish` of `H5bPinnedRows` (no
       `E`, `Emod`, `disc`). `def dataOf (H : H5bPinnedRows E Emod nA nB D₀ F₀) : H5bPinnedDataRows nA nB D₀ F₀` (field
@@ -1925,7 +1928,7 @@ for the Steklov operator; the operator's cutoff data is not defined.
       structure `H5bPinnedDataRows`; `dataOf`, `dataOf_Λ`; `withSum` (data rows + trivial cutoff row for `E := pinnedSum`,
       `Emod := 0`, `disc := 0`), so `sumLittleO_of_dataRows` reuses `h5b_of_pinnedRows` instead of redoing Cauchy–Schwarz;
       `coreOf`, `pinned_iff_dataRows_core`. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
-- [ ] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
+- [x] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
       rows, the `cutoff` row is the target. `pinned_iff_target_of_dataRows (R : H5bPinnedDataRows nA nB D₀ F₀) (E
       Emod) : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔ H5bTarget E Emod` (forward `h5b_of_pinnedRows`; converse:
       `sumLittleO_of_dataRows R` and the target at `η / 2` give `cutoffVanish` by the triangle inequality as in
@@ -1933,7 +1936,7 @@ for the Steklov operator; the operator's cutoff data is not defined.
       `cutoffVanish_of_target`, `pinned_iff_target_of_dataRows`. F table text: once the data rows hold, the remaining
       row carries exactly the content of (7.29); all non-trivial content of the pinned form is in the data rows and
       in the choice of `D₀` (the paper's cutoff data, which is open).
-- [ ] G111. `SteklovAudit/H5PinnedPtsLip.lean` (imports `SteklovAudit.H5PinnedDataRows`): the Lipschitz row weakened to
+- [x] G111. `SteklovAudit/H5PinnedPtsLip.lean` (imports `SteklovAudit.H5PinnedDataRows`): the Lipschitz row weakened to
       the pinned spectral points. `structure H5bPinnedPtsRows (nA nB D₀ F₀)` = `H5bPinnedDataRows` with `lip`
       replaced by `lipPts : ∀ ε γ L : ℝ, 1 ≤ L → ∀ i j, |F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)| ≤
       Λ ε γ * |(D₀ ε γ L).a i - (D₀ ε γ L).b j|`. `trace_transfer_pts`: the `trace_transfer` bound under `lipPts` at
@@ -1943,7 +1946,7 @@ for the Steklov operator; the operator's cutoff data is not defined.
       cutoffVanish row for E Emod) : H5bTarget E Emod` (triangle inequality as in G110). Theorem names:
       `trace_transfer_pts`, `ofDataRows_Λ` (rfl), `sumLittleO_of_ptsRows`, `h5b_of_ptsRows`. F table text: the row
       "Lipschitz-type bounds Λ" is needed only on the pinned spectral points, for `L ≥ 1`.
-- [ ] G112. `SteklovAudit/H5PinnedPtsLipStrict.lean` (imports `SteklovAudit.H5PinnedPtsLip`): G111 is strictly weaker
+- [x] G112. `SteklovAudit/H5PinnedPtsLipStrict.lean` (imports `SteklovAudit.H5PinnedPtsLip`): G111 is strictly weaker
       than G109 on the same data. `oA := fun _ _ _ => 1`; `noncomputable def flatD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
       := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 1⟩` (so `K = 0`, `hs2 J = 1`); `sqF := fun _ _ _ x => x ^ 2`.
       `ptsRows_flat : Nonempty (H5bPinnedPtsRows oA oA flatD sqF)` (`Λ = 0`, `m = 1`, `δ = 0`; `lipPts` by `simp`,
