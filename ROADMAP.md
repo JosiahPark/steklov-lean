@@ -2075,7 +2075,7 @@ F1.1–F5.3 are not the section F items F1–F3). Each item is a new file `Stekl
 Mathlib, whose docstring states exactly what is proved and what is not. These are toy, one-dimensional or
 finite-dimensional models, not the paper's operator: none of them proves the main theorem or any of `[H1]`–`[H6]`.
 
-- [ ] F1.1 1D trace inequality: |f(0)|² ≤ 2∫₀¹(|f|²+|f'|²) for f ∈ C¹[0,1] — file SteklovAudit/Foundations/Trace1D.lean
+- [x] F1.1 1D trace inequality: |f(0)|² ≤ 2∫₀¹(|f|²+|f'|²) for f ∈ C¹[0,1] — file SteklovAudit/Foundations/Trace1D.lean
       Attempted twice 2026-11-21 (9891351, 47f99e7); both failed at the FTC derivative step (`ring` on an
       unreduced `(fun y => y - 1) x` from `HasDerivAt.mul`). Reverted to a docstring-only stub (f28800a), which
       records the diagnosis and the suggested fix `congr_deriv (by beta_reduce; ring)`.
@@ -2083,7 +2083,13 @@ finite-dimensional models, not the paper's operator: none of them proves the mai
       `SteklovAudit/Foundations/Trace1D.lean`, theorems `pointwise_bound`, `trace_1d`. The derivative now uses
       `hasDerivAt_id'` (no `id x` atom) and `congr_deriv` with a separately proved equation. Next run: tick if
       STATUS shows both theorems verified; if it failed, fix from the compiler messages or split F1.1.
+      Ticked 2026-11-22 by an interactive session: CI run 45044864204 on 826368c built
+      `SteklovAudit.Foundations.Trace1D` with no errors (only unused-fallback warnings, removed in b216ed1).
+      STATUS does not list it because `axiom_audit.py` scans only top-level `SteklovAudit/*.lean` (see G118).
 - [ ] F1.2 half-line trace with constant 1: |f(0)|² ≤ ∫₀^∞(|f|²+|f'|²) for suitable decaying f — file SteklovAudit/Foundations/TraceHalfLine.lean
+      Written by an interactive session 2026-11-22 at b216ed1 (uncompiled at push): theorems `cross_abs_le`,
+      `trace_halfLine` (hypotheses: `f` C¹ on ℝ, `f → 0` at ∞, `f²`, `f'²` integrable on (0, ∞)). Next run:
+      tick if the CI build log shows `SteklovAudit.Foundations.TraceHalfLine` built without errors.
 - [ ] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
 - [ ] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
 - [ ] F3.1 K_{iν}(r) = ∫₀^∞ e^{−r cosh t} cos(νt) dt: integrand integrable for r > 0, value real, |K_{iν}(r)| ≤ K_0(r) — file SteklovAudit/Foundations/KIntegral.lean
