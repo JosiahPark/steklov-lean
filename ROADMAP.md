@@ -1788,6 +1788,9 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       H5bGlobalLipRows E Emod` (field-by-field copy, `D := D₀`, `F := F₀`). Theorem names: `toRows_D`
       (`(toRows H).D = D₀`, rfl), `toRows_F` (rfl), `h5b_of_pinnedRows` (`h5b_of_globalLipRows (toRows H)`). F table
       text: the G90 rows stated for given cutoff data; the data is a parameter, not something the rows may choose.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedRows.lean` (uncompiled at push): structure
+      `H5bPinnedRows`; def `toRows`; theorems `toRows_D`, `toRows_F`, `h5b_of_pinnedRows`. Next run: tick if STATUS
+      shows it compiled.
 - [ ] G102. `SteklovAudit/H5PinnedZeroAudit.lean` (imports `SteklovAudit.H5PinnedRows`,
       `SteklovAudit.H5GlobalLipRowsAudit`): the caveat is exactly the empty choice. With `zA := fun _ _ _ => 0`,
       `zD : ∀ ε γ L, Data (Fin 0) (Fin 0) := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 0⟩`, `zF := fun _ _ _ _
