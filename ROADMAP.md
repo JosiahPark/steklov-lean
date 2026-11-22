@@ -2288,6 +2288,11 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       (`Real.sqrt_le_sqrt` on `duhamel_hs_le`, `Real.sqrt_mul_self` / `Real.sqrt_sq_eq_abs`), `window_hsDiff_le :
       |∫ t in (-T)..T, t⁻¹ * hsDiff t| ≤ 2 * T * hsDefect` (`fourier_cancel_inv`). F table text: a window of width `T`
       turns the HS commutator defect into an `O(T · defect)` bound, the `K T L ε(1/L)` term of G133.
+      Written by the formalize task 2026-11-22 (uncompiled at push): `hsDiff`, `hsDefect`, `hsDiff_nonneg`,
+      `hsDefect_nonneg`, `hsDiff_le`, `window_hsDiff_le`, `hsDiff_zero`, `hsDiff_eq_zero_of_defect`, `hsDefect_example`.
+      Next run: tick if STATUS shows it compiled. Note: the earlier commit 5f07cf2 labelled "G134" added
+      `SteklovAudit/ModelEdgeLawReduction.lean` (scalar reductions behind (7.38)/(7.45)); it is not this item. It compiled
+      after the fixes 49864a0/59e06b5 (CI run #531: 1249/1249 verified at 59e06b5).
 - [ ] G135. `SteklovAudit/WindowDefectFullTrace.lean` (imports `SteklovAudit.H5CutoffTerminal`,
       `SteklovAudit.CumulativeBudgetQuantifiers`): replace row (iii) by the window-shaped input. Named hypothesis
       `WindowTraceBound Y C K ε`: `0 ≤ C`, `0 ≤ K`, `ε h → 0` as `h → 0⁺` (in the form G133 uses), and for every
