@@ -1922,6 +1922,9 @@ re-add these under another namespace; import them. None of this constructs the D
       being `S_L = o(L)` (docstring-only edit; no statement changes). Theorem names: `h5_of_cutoff_route`.
       F table text: the cutoff route needs (i) ratio `o(L)`, (ii) truncated-trace matching, and (iii) full-trace
       smallness `S_L = o(L)`; (iii) is open and cannot be dropped (G123).
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5CutoffTerminal.lean` (uncompiled at push, commit
+      7388fef): def `FullTraceSmall`; theorem `h5_of_cutoff_route`; `H5CutoffInterface` docstring now lists three
+      estimates (no statement changes). Next run: tick if STATUS shows it compiled.
 - [ ] G123. `SteklovAudit/H5CutoffObstruction.lean` (imports Mathlib only): the block example showing (iii) cannot be
       dropped. Probe `j` sits on the 2-dimensional block with eigenvalues `2j, 2j+2`, weights `1/2, 1/2`, and
       `μ_j = 2j + 1`; `F x = cos (π x)`. Prove, for each `j : ℕ`: mass `1/2 + 1/2 = 1`; squared defect
