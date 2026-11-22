@@ -1806,7 +1806,7 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       STATUS shows it compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1026/1026 at 4b2d560, both `H5PinnedZeroAudit`
       theorems verified.
-- [ ] G103. `SteklovAudit/H5PinnedNotTarget.lean` (imports `SteklovAudit.H5PinnedRows`): pinned nonempty data makes the
+- [x] G103. `SteklovAudit/H5PinnedNotTarget.lean` (imports `SteklovAudit.H5PinnedRows`): pinned nonempty data makes the
       rows strictly stronger than the target. `oA := fun _ _ _ => 1`; `noncomputable def bumpD : ∀ ε γ L : ℝ, Data
       (Fin 1) (Fin 1) := fun _ _ L => ⟨fun _ => 1, fun _ => 0, fun _ _ => L⟩`; `idF := fun _ _ _ x => x`.
       `bump_sum : ∀ ε γ L, ∑ i, ∑ j, (idF ε γ L ((bumpD ε γ L).a i) - idF ε γ L ((bumpD ε γ L).b j)) *
@@ -1819,6 +1819,8 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedNotTarget.lean` (uncompiled at push): defs
       `oA` (abbrev), `bumpD`, `idF`; theorems `bump_sum`, `target_zero`, `not_pinned_bump`,
       `pinned_strictly_stronger`. Next run: tick if STATUS shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1030/1030 at 0a50819, all four `H5PinnedNotTarget`
+      theorems verified.
 - [ ] G104. `SteklovAudit/H5PinnedNonvacuous.lean` (imports `SteklovAudit.H5PinnedRows`): pinned rows hold on nonempty
       data with a nonzero defect. `oA := fun _ _ _ => 1`; `noncomputable def decayD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
       := fun _ _ L => ⟨fun _ => 1 / L, fun _ => 0, fun _ _ => 1⟩` (so `K = 1 / L`, `hs2 K = 1 / L ^ 2`, `hs2 J = 1`),
@@ -1828,6 +1830,9 @@ non-vacuous on nonempty data. None proves a row for the Steklov operator; the op
       for `L ≥ 1` by `field_simp`; `δVanish`: `1 / L ^ 3 ≤ 1 / L ≤ η` for `L ≥ max 1 (1 / η)`). Theorem names:
       `decayD_hs2K` (`= 1 / L ^ 2` for `L ≠ 0`), `decayRows_m` (rfl), `pinned_nonempty_decay`. F table text: the pinned
       form is satisfiable on nonempty data with nonzero defect; not vacuous.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/H5PinnedNonvacuous.lean` (uncompiled at push): defs
+      `oA` (abbrev), `decayD`, `idF`, `eD`, `decayRows`; theorems `decay_sum`, `decayD_hs2J`, `decayD_hs2K`,
+      `decay_defect_pos`, `decayRows_m`, `pinned_nonempty_decay`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
