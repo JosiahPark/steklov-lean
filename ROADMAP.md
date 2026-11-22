@@ -2260,6 +2260,18 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       links (iii) to `D`). If `Cert` cannot carry zero weights, use the smallest admissible certificate and say so
       in the docstring. F table text: (iii) is a statement about the probe family alone and carries no information
       about `E − E_mod` without (ii).
+- [ ] G133. `SteklovAudit/CumulativeBudgetQuantifiers.lean` (imports `SteklovAudit.CumulativeBudget`,
+      `SteklovAudit.CumulativeBudgetSplit`): close the remaining quantifier / order-of-limits forms of the (7.29) budget
+      (table row "Abstract cumulative budget refinement"). Theorems: `littleO_of_approx`, `approx_of_littleO`,
+      `approx_iff` (`r = o(L)` iff every `δ > 0` has an `o(L)` approximant `m` with `|r − m| ≤ δ L` eventually);
+      `littleO_of_split_rate` (tail `c(M) L` with `c(M) → 0` suffices; `C/M` uniform is a special case);
+      `littleO_of_split_nat` (integer cutoffs `M ≥ 1` suffice); `littleO_of_window_defect`,
+      `littleO_of_window_defect'` (for every window `T > 0`, `|r L| ≤ C L / T + K T L ε(1/L)` with `C, K ≥ 0` uniform
+      and `ε(h) → 0` gives `o(L)`: the shape after G129/G130); `window_needs_vanishing` (`ε ≡ 1`, `r = id`: the
+      vanishing of `ε` cannot be dropped). F table text: every order-of-limits step of (7.29) is closed at the scalar
+      level; the uniform tails `C L / M`, `C L / T` and the HS defect `ε(h) → 0` for the actual operator stay open.
+      Written by an interactive session 2026-11-22 (commit d4f634b, uncompiled at push; Josiah said "go ahead" on this row).
+      Next run: tick if STATUS shows its 8 theorems verified; if it failed, fix it minimally from the compiler messages.
 
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
