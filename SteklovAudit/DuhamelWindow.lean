@@ -62,7 +62,9 @@ theorem hsDiff_le (t : ℝ) : hsDiff J lam mu t ≤ |t| * hsDefect J lam mu := b
 /-- **G134.** G129 through the `1/t` window of G130: `|∫_{−T}^{T} t⁻¹ hsDiff t| ≤ 2 T · hsDefect`. -/
 theorem window_hsDiff_le (T : ℝ) (hT : 0 ≤ T) :
     |∫ t in (-T)..T, t⁻¹ * hsDiff J lam mu t| ≤ 2 * T * hsDefect J lam mu :=
-  fourier_cancel_inv (hsDiff J lam mu) (hsDefect J lam mu) T hT (hsDiff_le J lam mu)
+  fourier_cancel_inv (hsDiff J lam mu) (hsDefect J lam mu) T hT (fun t => by
+    rw [abs_of_nonneg (hsDiff_nonneg J lam mu t)]
+    exact hsDiff_le J lam mu t)
 
 /-- Non-junk check: the propagated difference vanishes at `t = 0`. -/
 theorem hsDiff_zero : hsDiff J lam mu 0 = 0 := by
