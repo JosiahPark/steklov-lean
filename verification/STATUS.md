@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 00:57 UTC at commit `4b2d5602c34f`. Last passing commit: `4b2d5602c34f`.
+Checked 2026-11-22 01:26 UTC at commit `0a5081983ed4`. Last passing commit: `0a5081983ed4`.
 
-Library declarations checked: 1026 of 1026 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1030 of 1030 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -624,6 +624,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
+| H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.bump_sum` | verified (standard axioms only) |
+| H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.target_zero` | verified (standard axioms only) |
+| H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.not_pinned_bump` | verified (standard axioms only) |
+| H5PinnedNotTarget.lean | `SteklovAudit.H5PinnedNotTarget.pinned_strictly_stronger` | verified (standard axioms only) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_D` | verified (standard axioms only) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_F` | verified (standard axioms only) |
 | H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.h5b_of_pinnedRows` | verified (standard axioms only) |

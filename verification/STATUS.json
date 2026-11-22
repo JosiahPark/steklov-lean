@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 00:57 UTC",
+  "checked_at": "2026-11-22 01:26 UTC",
   "lean_exit_code": 0,
-  "commit": "4b2d5602c34f9a8ce2ad0f5bbcedbef38579d4bb",
-  "last_passing_commit": "4b2d5602c34f9a8ce2ad0f5bbcedbef38579d4bb",
-  "library_declarations_checked": 1026,
-  "library_declarations": 1026,
+  "commit": "0a5081983ed4ea72e2f2118935ec3246286f9fff",
+  "last_passing_commit": "0a5081983ed4ea72e2f2118935ec3246286f9fff",
+  "library_declarations_checked": 1030,
+  "library_declarations": 1030,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1026,
-  "verified": 1026,
+  "theorems": 1030,
+  "verified": 1030,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5988,6 +5988,46 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNotTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedNotTarget.bump_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNotTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedNotTarget.target_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNotTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedNotTarget.not_pinned_bump",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedNotTarget.lean",
+      "theorem": "SteklovAudit.H5PinnedNotTarget.pinned_strictly_stronger",
       "axioms": [
         "propext",
         "Classical.choice",
