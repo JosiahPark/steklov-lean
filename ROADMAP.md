@@ -2226,6 +2226,9 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       `lam`, `mu`: `duhamel_hs_le : ∑ i j, ‖J i j‖² * ‖e^{−itλ_i} − e^{−itμ_j}‖² ≤ t² * ∑ i j, ‖J i j‖² * (λ_i − μ_j)²`.
       F table text: the commutator defect (the HS defect row) controls the propagated difference linearly in `|t|`;
       no operator domain issues arise in finite spectral coordinates.
+      Written by the formalize task 2026-11-22 in `SteklovAudit/DuhamelSpectral.lean` (uncompiled at push, commit
+      928d6a6): `exp_sub_one_le`, `duhamel_entry_le` (phases stated with real arguments `((-(t * a) : ℝ) : ℂ) * I`),
+      `duhamel_hs_le`. Next run: tick if STATUS shows it compiled.
 - [ ] G130. `SteklovAudit/FourierOneOverT.lean` (imports Mathlib only): the `1/t` cancellation in the cumulative
       Fourier integral. Hypotheses: `g w : ℝ → ℝ`, `|g t| ≤ |t| * ε`, `|w t| * |t| ≤ C` for all `t`, `0 ≤ T`,
       `IntervalIntegrable (fun t => w t * g t) volume (-T) T`. Theorem `fourier_cancel_le :
