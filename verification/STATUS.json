@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 05:23 UTC",
+  "checked_at": "2026-11-22 06:23 UTC",
   "lean_exit_code": 0,
-  "commit": "9062471011999bcd2514374a0c4e912c8ee99ce9",
-  "last_passing_commit": "9062471011999bcd2514374a0c4e912c8ee99ce9",
-  "library_declarations_checked": 1039,
-  "library_declarations": 1039,
+  "commit": "e601e9c61cbd197bf699c638bde46af37bd1be06",
+  "last_passing_commit": "e601e9c61cbd197bf699c638bde46af37bd1be06",
+  "library_declarations_checked": 1045,
+  "library_declarations": 1045,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1039,
-  "verified": 1039,
+  "theorems": 1045,
+  "verified": 1045,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -6148,6 +6148,66 @@
     {
       "file": "H5PinnedRowsPow.lean",
       "theorem": "SteklovAudit.H5PinnedRowsPow.h5b_of_pinnedRowsPow",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.q_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.qD_hs2J",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.qD_hs2K",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.pinnedPow_nonempty_q",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.not_pinnedRows_q",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRowsPowStrict.lean",
+      "theorem": "SteklovAudit.H5PinnedRowsPowStrict.pinnedPow_strictly_weaker",
       "axioms": [
         "propext",
         "Classical.choice",

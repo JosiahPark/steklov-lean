@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 05:23 UTC at commit `906247101199`. Last passing commit: `906247101199`.
+Checked 2026-11-22 06:23 UTC at commit `e601e9c61cbd`. Last passing commit: `e601e9c61cbd`.
 
-Library declarations checked: 1039 of 1039 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1045 of 1045 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -640,6 +640,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.toRowsPow_D` | verified (standard axioms only) |
 | H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.ofPinned_p` | verified (standard axioms only) |
 | H5PinnedRowsPow.lean | `SteklovAudit.H5PinnedRowsPow.h5b_of_pinnedRowsPow` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.q_sum` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.qD_hs2J` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.qD_hs2K` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.pinnedPow_nonempty_q` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.not_pinnedRows_q` | verified (standard axioms only) |
+| H5PinnedRowsPowStrict.lean | `SteklovAudit.H5PinnedRowsPowStrict.pinnedPow_strictly_weaker` | verified (standard axioms only) |
 | H5PinnedZeroAudit.lean | `SteklovAudit.H5PinnedZeroAudit.pinnedZero_disc` | verified (standard axioms only) |
 | H5PinnedZeroAudit.lean | `SteklovAudit.H5PinnedZeroAudit.pinnedZero_iff_target` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_a` | verified (standard axioms only) |
