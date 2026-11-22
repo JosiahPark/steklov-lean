@@ -2232,12 +2232,15 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       Ticked 2026-11-22: CI run 514 (on the G129 roadmap-note commit) Build and Axiom audit steps succeeded with the file present;
       the dependency map lists `DuhamelSpectral` with 3 theorems. Its "Commit status if changed" step lost a push race,
       so STATUS.md still shows the 20:22 UTC run; the next status write will list the three theorems.
-- [ ] G130. `SteklovAudit/FourierOneOverT.lean` (imports Mathlib only): the `1/t` cancellation in the cumulative
+- [x] G130. `SteklovAudit/FourierOneOverT.lean` (imports Mathlib only): the `1/t` cancellation in the cumulative
       Fourier integral. Hypotheses: `g w : ℝ → ℝ`, `|g t| ≤ |t| * ε`, `|w t| * |t| ≤ C` for all `t`, `0 ≤ T`,
       `IntervalIntegrable (fun t => w t * g t) volume (-T) T`. Theorem `fourier_cancel_le :
       |∫ t in (-T)..T, w t * g t| ≤ 2 * T * C * ε` (`intervalIntegral.abs_integral_le_integral_abs`,
       `intervalIntegral.integral_mono_on`, constant integral). F table text: with G129, a Fourier window of width
       `T` turns an `O(|t| ε)` propagated defect into an `O(T ε)` count error.
+      Done 2026-11-22 by the formalize task (commit e08737d; CI PASS 1220/1220): `fourier_cancel_le` (no integrability
+      hypothesis needed, via `intervalIntegral.norm_integral_le_of_norm_le_const`), `fourier_cancel_inv` (weight
+      `t⁻¹`), `inv_weight_ok`, `eps_nonneg_of_bound`.
 - [ ] G131. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): basis independence of the HS sum in finite
       dimension. For `T : E →ₗ[ℝ] F` (finite-dimensional inner product spaces) and orthonormal bases `b c` of `E`
       (`OrthonormalBasis ι ℝ E`, `OrthonormalBasis κ ℝ E`): `hs_sum_basis_indep : ∑ i, ‖T (b i)‖² = ∑ j, ‖T (c j)‖²`
