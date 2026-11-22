@@ -2,7 +2,7 @@
 """Axiom audit for the SteklovAudit Lean library.
 
 Run after `lake build` succeeds. It lists every `theorem`/`lemma` in
-SteklovAudit.lean, asks Lean (`#print axioms`) which axioms each one uses,
+SteklovAudit.lean and in every file under SteklovAudit/ (recursively), asks Lean (`#print axioms`) which axioms each one uses,
 and fails if any theorem depends on `sorryAx` or on an axiom outside Lean's
 three standard ones. It writes verification/STATUS.md and STATUS.json.
 
@@ -28,13 +28,33 @@ decl_re = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(theor
 ns_re = re.compile(r"^\s*namespace\s+(\S+)", re.M)
 
 
+def rel_name(f):
+    """Path shown in results: `SteklovAudit.lean`, or the path under SteklovAudit/ (e.g. `Foundations/Trace1D.lean`)."""
+    if f.parent == ROOT:
+        return f.name
+    return f.relative_to(ROOT / "SteklovAudit").as_posix()
+
+
+def module_name(f):
+    """Dotted Lean module name of a file under SteklovAudit/, e.g. `SteklovAudit.Foundations.Trace1D`."""
+    return "SteklovAudit." + ".".join(f.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)
+
+
+ORIGIN = {}  # full declaration name -> rel_name of the file it was found in
+
+
+def lean_files():
+    """SteklovAudit.lean and every .lean file under SteklovAudit/, recursively."""
+    return [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").rglob("*.lean"))
+
+
 def collect():
     decls = []
-    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").rglob("*.lean"))
     for f in files:
         if not f.exists():
             continue
-        section = f.name
+        section = rel_name(f)
         ns = ""
         for line in f.read_text().splitlines():
             m = re.match(r"^-- (SteklovAudit\.\w+)$", line)
@@ -50,6 +70,7 @@ def collect():
                 name = d.group(2)
                 full = f"{ns}.{name}" if ns and not name.startswith(ns + ".") else name
                 decls.append((section, full))
+                ORIGIN[full] = rel_name(f)
     return decls
 
 
@@ -85,14 +106,14 @@ def strip_comments(text):
 def escape_hatches():
     """Banned tokens outside comments: sorry/admit, heartbeat hacks, new axioms, native code."""
     hits = []
-    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").rglob("*.lean"))
     for f in files:
         if not f.exists():
             continue
         for i, line in enumerate(strip_comments(f.read_text()).splitlines(), 1):
             for pat in BANNED:
                 if re.search(pat, line):
-                    hits.append(f"{f.name}: `{line.strip()[:90]}`")
+                    hits.append(f"{rel_name(f)}: `{line.strip()[:90]}`")
     return hits
 
 
@@ -107,7 +128,7 @@ def hypothesis_ledger():
 def tautologies():
     """Theorems whose proof is just one of their own hypotheses (`:= h`, `by exact h`, `by assumption`)."""
     hits = []
-    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").rglob("*.lean"))
     for f in files:
         if not f.exists():
             continue
@@ -129,7 +150,7 @@ def tautologies():
             binders = [b for grp in re.findall(r"[({\[]([^(){}\[\]:]+):", sig) for b in grp.split()]
             m = re.match(r"^(?:by\s+(?:exact\s+)?)?([^\s()]+)$", proof)
             if re.match(r"^by\s+assumption$", proof) or (m and m.group(1) in binders):
-                hits.append(f"{f.name}: `{d.group(2)} := {proof[:60]}`")
+                hits.append(f"{rel_name(f)}: `{d.group(2)} := {proof[:60]}`")
     return hits
 
 
@@ -159,7 +180,7 @@ def main():
     prev_pass = previous_last_pass()
     decls = collect()
     probe = ROOT / "AxiomAudit.lean"
-    extra = [f"import SteklovAudit.{p.stem}" for p in sorted((ROOT / "SteklovAudit").glob("*.lean"))]
+    extra = [f"import {module_name(p)}" for p in sorted((ROOT / "SteklovAudit").rglob("*.lean"))]
     probe.write_text("\n".join(["import SteklovAudit"] + extra) + "\n\n" + "\n".join(f"#print axioms {n}" for _, n in decls) + "\n")
     proc = subprocess.run(["lake", "env", "lean", str(probe)], cwd=ROOT, capture_output=True, text=True)
     out = proc.stdout + proc.stderr
@@ -186,10 +207,20 @@ def main():
             status = "verified (standard axioms only)"
         rows.append({"file": fname, "theorem": name, "axioms": axioms, "status": status})
 
+    modules, skipped = [], []
+    for f in lean_files():
+        if not f.exists():
+            continue
+        declared = sum(1 for line in strip_comments(f.read_text()).splitlines() if decl_re.match(line))
+        audited = sum(1 for _, n in decls if ORIGIN.get(n) == rel_name(f) and results.get(n) is not None)
+        modules.append({"file": rel_name(f), "declared": declared, "audited": audited})
+        if declared > 0 and audited == 0:
+            skipped.append(rel_name(f))
+
     hatches = escape_hatches()
     taut = tautologies()
     ledger = hypothesis_ledger()
-    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches and not taut
+    ok = proc.returncode == 0 and not bad and bool(decls) and not hatches and not taut and not skipped
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     last_pass = sha if ok else prev_pass
     n_checked = len(decls) - len(bad)
@@ -206,7 +237,9 @@ def main():
         "build_errors": [l for l in (ROOT / "build.log").read_text(errors="replace").splitlines() if "error" in l.lower()][:80] if (ROOT / "build.log").exists() else [],
         "theorems": len(decls),
         "verified": len(decls) - len(bad),
-        "problems": bad,
+        "problems": bad + [f"module with theorems but 0 audited declarations: {m}" for m in skipped],
+        "modules_audited": modules,
+        "modules_skipped": skipped,
         "all_verified": ok,
         "escape_hatches": hatches,
         "tautologies": taut,
@@ -235,6 +268,12 @@ def main():
         "",
     ]
     lines += [f"- {t}: {d}" for t, d in ledger]
+    lines += [
+        "",
+        f"Modules audited: {len(modules)} files; files declaring theorems but with 0 audited declarations: "
+        + ("none" if not skipped else f"{len(skipped)} FOUND"),
+    ]
+    lines += [f"  - {m}" for m in skipped]
     lines += [
         "",
         "Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): "

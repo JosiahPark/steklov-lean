@@ -1934,6 +1934,13 @@ it. G119 (below) creates that file. G118 (first) fixes the audit so that subdire
       result lines in the ROADMAP note.
       F1.1 (ticked at e2b3d1d) and F1.2 were judged from the build log alone. If any of the four is missing or
       non-standard here, untick the matching F item and say why.
+      Written by the formalize task 2026-11-22 (uncompiled at push): `axiom_audit.py` now uses `rglob("*.lean")` in all
+      four places (new helpers `lean_files`, `rel_name`, `module_name`); probe imports use the dotted module path; the
+      `file` field and hatch/tautology messages use the path under `SteklovAudit/`; STATUS.json gains `modules_audited`
+      (`file`, `declared`, `audited`) and `modules_skipped`; a file declaring theorems with 0 audited entries is a
+      problem and fails the audit. `tools/build_map.py`: `rglob`, module ids are dotted paths (`modname`), source links
+      map dots to `/`. The audit was not run locally (no Lean here). Next run: from CI STATUS.json quote the four
+      Foundations result lines here, tick if all four are verified, else untick the matching F item.
 
 - [ ] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
       The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
