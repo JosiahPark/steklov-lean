@@ -2141,7 +2141,7 @@ Already landed from the package: `ReviewCandidates.lean` (7 lemmas; projection p
 `AbstractHSDefectClosed.lean` (5280adb: `ProjFrobeniusContraction` discharged from symmetry and idempotence). Do not
 re-add these under another namespace; import them. None of this constructs the DtN operator or proves any of H1–H6.
 
-- [ ] G122. `SteklovAudit/H5CutoffTerminal.lean` (imports `SteklovAudit.H5CutoffInterface`): the terminal condition the
+- [x] G122. `SteklovAudit/H5CutoffTerminal.lean` (imports `SteklovAudit.H5CutoffInterface`): the terminal condition the
       cutoff route is missing. `full_trace_matches` gives `S_L − D L = o(L)`; to get `D L = o(L)` one also needs
       `S_L = o(L)`. Define `FullTraceSmall Y : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |(Y.X L).S (Y.F L)| ≤ η * L` and prove
       `h5_of_cutoff_route (Y) (D) (h1 : Y.RatioLittleO) (h2 : Y.TraceMatches D) (h3 : FullTraceSmall Y) :
@@ -2153,6 +2153,7 @@ re-add these under another namespace; import them. None of this constructs the D
       Written by the formalize task 2026-11-22 in `SteklovAudit/H5CutoffTerminal.lean` (uncompiled at push, commit
       7388fef): def `FullTraceSmall`; theorem `h5_of_cutoff_route`; `H5CutoffInterface` docstring now lists three
       estimates (no statement changes). Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-22: STATUS PASS 1209/1209 at db578cf, `h5_of_cutoff_route` verified.
 - [x] G123. `SteklovAudit/H5CutoffObstruction.lean` (imports Mathlib only): the block example showing (iii) cannot be
       dropped. Probe `j` sits on the 2-dimensional block with eigenvalues `2j, 2j+2`, weights `1/2, 1/2`, and
       `μ_j = 2j + 1`; `F x = cos (π x)`. Prove, for each `j : ℕ`: mass `1/2 + 1/2 = 1`; squared defect

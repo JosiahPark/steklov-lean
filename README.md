@@ -20,19 +20,17 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The counts below are from the 2026-11-22 19:04 UTC verification run and map build at commit `50e566b`, the last
-build in which every file was counted. Since then `main` has gained the G109–G112 and G122–G127 modules; the build
-at `a9f44a7` (19:48 UTC) fails in two of them (`TriangleQuadrature`, `H5CutoffObstruction`), so none of the new
-modules is counted yet.
+The counts below are from the 2026-11-22 19:58 UTC verification run and map build at commit `db578cf`, which
+includes the G109–G112 and G122–G127 modules.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
-- **Library:** 1148 of 1148 theorems compile with only Lean's standard axioms, in 189 audited files
+- **Library:** 1209 of 1209 theorems compile with only Lean's standard axioms, in 202 audited files
   (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
-- **As of the 19:04 UTC map build** (1148 theorems, 231 modules):
+- **As of the 19:58 UTC map build** (1209 theorems, 244 modules):
   - 262 prove a step of the preprint outright.
   - 64 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 822 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+  - 883 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -44,8 +42,8 @@ after every build and are the authority.
   | §7 Static locality & cumulative traces | 48 | 88 | 10 | 94 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
-  | §11 Assembly & sharp law | 153 | 10 | 32 | 719 |
-  | **Total** | **231** | **262** | **64** | **822** |
+  | §11 Assembly & sharp law | 166 | 10 | 32 | 780 |
+  | **Total** | **244** | **262** | **64** | **883** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -60,13 +58,14 @@ after every build and are the authority.
 | H2 | §11.2 | Area terms add to √3a²/(4π) | `PartitionTrace` |
 | H3 | §11.2 | Edge length kept by vertex cutoffs is 6a − O(ε) | `EdgeLength` |
 | H4 | §7.8 | Vertex part, (7.49) | `VertexLog` |
-| H5 | §7, §9, §11 | Edge part, (11.3) ← (7.29), (7.38)/(7.45), (9.1) | `EdgeFromModel`, `AbstractTransferB`, `UniformHS71`, `SpectralCounting`, `SharpLawTransfer`, `RpowScale`, `H5Compare`, `H5CutoffInterface`, `H5PinnedSumSmall` |
+| H5 | §7, §9, §11 | Edge part, (11.3) ← (7.29), (7.38)/(7.45), (9.1) | `EdgeFromModel`, `AbstractTransferB`, `UniformHS71`, `SpectralCounting`, `SharpLawTransfer`, `RpowScale`, `H5Compare`, `H5CutoffInterface`, `H5CutoffTerminal`, `H5PinnedSumSmall`, `H5PinnedDataRows` |
 | H6 | §7.5, §10 | Face part, Lemma 7.4 with §10.2 | none yet |
 
 Current work targets H5, the edge part: the H5 modules in §11 test which rows of its input table are
 needed and which are independent. See [`ROADMAP.md`](ROADMAP.md), sections F and G.
 
-Updates since the 19:04 UTC build (written, not yet compiled; none proves H5 or any other input):
+Recent updates (G109–G127 compiled in the 19:58 UTC build, 1209/1209; G128–G132 queued; none proves H5 or any
+other input):
 
 | Items | Modules | What they add to H5 |
 |---|---|---|
