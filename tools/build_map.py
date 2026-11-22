@@ -136,13 +136,13 @@ def render_svg(data):
            ".bg{fill:#f6f7f4}.band{fill:#e9ebe5}.lbl{font-size:12px;font-weight:600;letter-spacing:.07em;fill:#5d6675}"
            ".box{fill:#fff;stroke:#d0d4cc}.main{stroke:#2b4a7a;stroke-width:2}.nm{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;fill:#1d2430}"
            ".ct{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;fill:#5d6675}.edge{fill:none;stroke:#7b8698;opacity:.45}"
-           ".hot{fill:none;stroke:#2b4a7a;stroke-width:2}.hedge{fill:none;stroke:#c0392f;stroke-dasharray:4 3;opacity:.6}"
-           ".hbox{fill:#f6dcd8;stroke:#c0392f;stroke-dasharray:4 3}.htx{font-size:11.5px;fill:#1d2430}.sm{font-size:11px;fill:#5d6675}"
+           ".hot{fill:none;stroke:#2b4a7a;stroke-width:2}.hedge{fill:none;stroke:#c48413;stroke-dasharray:4 3;stroke-width:1.2;opacity:.6}.hedge.op{stroke:#8b93a1}"
+           ".hbox{fill:#f7e6c2;stroke:#c48413;stroke-width:1.5}.hbox.op{fill:#e3e6ea;stroke:#8b93a1;stroke-dasharray:4 3}.htx{font-size:11.5px;fill:#1d2430}.sm{font-size:11px;fill:#5d6675}"
            ".thm{fill:#d7eedf;stroke:#2e8a57;stroke-width:2}.tt{font-size:14px;font-weight:600;fill:#1d2430}"
            ".g{fill:#2e8a57}.a{fill:#c48413}.s{fill:#8b93a1}"
            "@media (prefers-color-scheme: dark){.bg{fill:#14181f}.band{fill:#1a1f27}.lbl,.ct,.sm{fill:#9aa3b2}"
            ".box{fill:#1b2029;stroke:#2e3542}.nm,.htx,.tt{fill:#e4e7ec}.main{stroke:#8fb0e6}.hot{stroke:#8fb0e6}"
-           ".hbox{fill:#3e2220;stroke:#ef6b5f}.hedge{stroke:#ef6b5f}.thm{fill:#1e3a2b;stroke:#5cc08a}"
+           ".hbox{fill:#3d3018;stroke:#e6a93c}.hedge{stroke:#e6a93c}.hbox.op{fill:#262c36;stroke:#8e97a6}.hedge.op{stroke:#8e97a6}.thm{fill:#1e3a2b;stroke:#5cc08a}"
            ".g{fill:#5cc08a}.a{fill:#e6a93c}.s{fill:#8e97a6}}"
            "</style>",
            f'<rect class="bg" x="0" y="0" width="{W}" height="{H}"/>']
@@ -151,7 +151,7 @@ def render_svg(data):
         tot["support" if v[1] == "pending" else v[1]] += 1
     out.append(f'<text x="24" y="26" class="tt">Steklov Lean map · build {esc(data["build"])} · {data["ver"]}/{data["total"]} theorems pass</text>')
     out.append(f'<text x="24" y="44" class="sm">{tot["paper"]} paper steps proved outright (green) · {tot["cond"]} proved from named hypotheses (amber) · '
-               f'{tot["support"]} supporting lemmas (grey) · dashed red: unproved inputs of Theorem 11.1</text>')
+               f'{tot["support"]} supporting lemmas (grey) · inputs of Theorem 11.1, none proved: amber if partly reduced in Lean, grey dashed if not</text>')
     for i, b in enumerate(L["bands"]):
         if i % 2 == 0:
             out.append(f'<rect class="band" x="8" y="{b["y"]}" width="{L["spineX"] - 24}" height="{b["h"]}" rx="6"/>')
@@ -169,12 +169,13 @@ def render_svg(data):
             out.append(f'<path class="edge" stroke-width="{min(1 + math.log2(n), 3):.1f}" d="{curve(B["x"] + NW / 2, B["y"] + NH / 2, A["x"] + NW / 2, A["y"] + NH / 2)}"/>')
     for i, (hid, txt, sec, sup) in enumerate(data["hyp"]):
         hy = b3["y"] + 6 + i * 62
+        hc = "" if sup else " op"
         for s in sup:
             m = mods.get(s)
             if m:
-                out.append(f'<path class="hedge" d="{curve(m["x"] + NW, m["y"] + NH / 2, sx, hy + 25)}"/>')
-        out.append(f'<path class="hedge" opacity=".25" d="{curve(sx + 105, hy + 50, thm["x"] + 107, thm["y"])}"/>')
-        out.append(f'<rect class="hbox" x="{sx}" y="{hy}" width="210" height="50" rx="6"/>')
+                out.append(f'<path class="hedge{hc}" d="{curve(m["x"] + NW, m["y"] + NH / 2, sx, hy + 25)}"/>')
+        out.append(f'<path class="hedge{hc}" opacity=".25" d="{curve(sx + 105, hy + 50, thm["x"] + 107, thm["y"])}"/>')
+        out.append(f'<rect class="hbox{hc}" x="{sx}" y="{hy}" width="210" height="50" rx="6"/>')
         out.append(f'<text class="htx" x="{sx + 10}" y="{hy + 18}"><tspan font-weight="600">{hid}</tspan> · {esc(sec)}</text>')
         out.append(f'<text class="sm" x="{sx + 10}" y="{hy + 36}">{esc(txt if len(txt) <= 34 else txt[:33] + "…")}</text>')
     mc = mods.get("MainConditional")
@@ -224,7 +225,7 @@ def render_readme(data):
              "![Dependency map of the verified Lean modules](map.svg)", "",
              "Each box is a Lean module, placed in the section of the paper it formalizes. Its bar splits its theorems into "
              "green (paper step, outright), amber (paper step, from named hypotheses) and grey (supporting). Lines join modules "
-             "that use each other. The dashed red boxes are H1–H6; dashed lines point to the modules that partly reduce each.", ""]
+             "that use each other. The boxes on the right are H1–H6, amber where Lean work partly reduces them and grey dashed where none does yet; dashed lines point to the modules that partly reduce each.", ""]
     for ai, name in enumerate(data["areas"]):
         ms = [m for m in mods if m["a"] == ai]
         if not ms:
