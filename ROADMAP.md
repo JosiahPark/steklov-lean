@@ -1904,6 +1904,14 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
+Status 2026-11-22 (interactive session): G113–G120 are written and verified. CI run 45052545358 at bbcf097 reports
+PASS, 1121 of 1121 theorems with standard axioms only, including every declaration of `CountableCutoffTail`,
+`AffineCutoffTail`, `H5CutoffInterface`, `H5CutoffAffineInstance`, `TetraAffineFlux` and `CumulativeBudget`, and the four
+Foundations declarations named in G118. G119 landed with different theorem names than specified (`boundary_mass`,
+`green_pair`, `residual_orthogonal`, `residual_energy`, `cutoff_tail_moment`, scaled by 12); same identities. Module
+layout differs from the spec where noted in each file (G113/G114 bundle the certificates in `Cert`). Open: estimates
+(i) and (ii) of G116, Parseval for the probes, and gaps (7.2), (7.29), (7.38)/(7.45), (9.1).
+
 Items G113–G117 added by Josiah's interactive session on 2026-11-22. **Do these before G109–G112.** They take the
 finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
 state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
