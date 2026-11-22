@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-21 22:17 UTC",
+  "checked_at": "2026-11-22 00:42 UTC",
   "lean_exit_code": 0,
-  "commit": "6a54767294feff0b555e8e636757dc15b4401eb6",
-  "last_passing_commit": "6a54767294feff0b555e8e636757dc15b4401eb6",
-  "library_declarations_checked": 1021,
-  "library_declarations": 1021,
+  "commit": "8bb191a72df234bb63842e5aa86cdf8affb34a68",
+  "last_passing_commit": "8bb191a72df234bb63842e5aa86cdf8affb34a68",
+  "library_declarations_checked": 1024,
+  "library_declarations": 1024,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1021,
-  "verified": 1021,
+  "theorems": 1024,
+  "verified": 1024,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -5988,6 +5988,36 @@
     {
       "file": "H5Parseval.lean",
       "theorem": "SteklovAudit.H5Parseval.norm_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRows.lean",
+      "theorem": "SteklovAudit.H5PinnedRows.toRows_D",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRows.lean",
+      "theorem": "SteklovAudit.H5PinnedRows.toRows_F",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedRows.lean",
+      "theorem": "SteklovAudit.H5PinnedRows.h5b_of_pinnedRows",
       "axioms": [
         "propext",
         "Classical.choice",

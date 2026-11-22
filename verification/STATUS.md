@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-21 22:17 UTC at commit `6a54767294fe`. Last passing commit: `6a54767294fe`.
+Checked 2026-11-22 00:42 UTC at commit `8bb191a72df2`. Last passing commit: `8bb191a72df2`.
 
-Library declarations checked: 1021 of 1021 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1024 of 1024 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -624,6 +624,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5Parseval.lean | `SteklovAudit.H5Parseval.zero_vanish` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.h5b_of_norm` | verified (standard axioms only) |
 | H5Parseval.lean | `SteklovAudit.H5Parseval.norm_card_eq` | verified (standard axioms only) |
+| H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_D` | verified (standard axioms only) |
+| H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.toRows_F` | verified (standard axioms only) |
+| H5PinnedRows.lean | `SteklovAudit.H5PinnedRows.h5b_of_pinnedRows` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_a` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_b` | verified (standard axioms only) |
 | H5Reindex.lean | `SteklovAudit.H5Reindex.reindex_J` | verified (standard axioms only) |
