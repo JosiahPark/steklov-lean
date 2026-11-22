@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 00:42 UTC",
+  "checked_at": "2026-11-22 00:57 UTC",
   "lean_exit_code": 0,
-  "commit": "8bb191a72df234bb63842e5aa86cdf8affb34a68",
-  "last_passing_commit": "8bb191a72df234bb63842e5aa86cdf8affb34a68",
-  "library_declarations_checked": 1024,
-  "library_declarations": 1024,
+  "commit": "4b2d5602c34f9a8ce2ad0f5bbcedbef38579d4bb",
+  "last_passing_commit": "4b2d5602c34f9a8ce2ad0f5bbcedbef38579d4bb",
+  "library_declarations_checked": 1026,
+  "library_declarations": 1026,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1024,
-  "verified": 1024,
+  "theorems": 1026,
+  "verified": 1026,
   "problems": [],
   "all_verified": true,
   "escape_hatches": [],
@@ -6018,6 +6018,26 @@
     {
       "file": "H5PinnedRows.lean",
       "theorem": "SteklovAudit.H5PinnedRows.h5b_of_pinnedRows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedZeroAudit.lean",
+      "theorem": "SteklovAudit.H5PinnedZeroAudit.pinnedZero_disc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5PinnedZeroAudit.lean",
+      "theorem": "SteklovAudit.H5PinnedZeroAudit.pinnedZero_iff_target",
       "axioms": [
         "propext",
         "Classical.choice",
