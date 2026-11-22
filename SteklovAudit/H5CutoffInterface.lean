@@ -36,7 +36,11 @@ structure H5EdgeFamilyCutoff (ι : Type*) (κ : Type*) where
   hmu : ∀ L j, (X L).mu j ≤ muStar L
   hgap : ∀ L, Lgap ≤ L → muStar L < L
 
-namespace H5EdgeFamilyCutoff
+end SteklovAudit.H5CutoffInterface
+
+namespace SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff
+
+open SteklovAudit.CountableCutoffTail
 
 variable {ι κ : Type*} (Y : H5EdgeFamilyCutoff ι κ)
 
@@ -79,6 +83,4 @@ theorem full_trace_matches (D : ℝ → ℝ) (h1 : Y.RatioLittleO) (h2 : Y.Trace
       | exact abs_add_le _ _
   linarith
 
-end H5EdgeFamilyCutoff
-
-end SteklovAudit.H5CutoffInterface
+end SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff
