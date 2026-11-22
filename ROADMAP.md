@@ -2127,6 +2127,11 @@ finite-dimensional models, not the paper's operator: none of them proves the mai
       `trace_halfLine` (hypotheses: `f` C¹ on ℝ, `f → 0` at ∞, `f²`, `f'²` integrable on (0, ∞)). Next run:
       tick if the CI build log shows `SteklovAudit.Foundations.TraceHalfLine` built without errors.
 - [ ] F2.1 disk Steklov eigenfunctions: r^n cos(nθ), r^n sin(nθ) are harmonic, with normal derivative n·value on the unit circle — file SteklovAudit/Foundations/DiskSteklov.lean
+      Written by an interactive session 2026-11-22 at 51d2a38 (uncompiled at push), for real exponent α (α = n gives the
+      disk): `hasDerivAt_u_r`, `hasDerivAt_u_rr`, `hasDerivAt_u_θ`, `hasDerivAt_u_θθ` (and `v` versions), `lap_core`,
+      `laplacian_polar_u`, `laplacian_polar_v`, `steklov_u`, `steklov_v`. Harmonicity is in polar form
+      (u_rr + u_r/r + u_θθ/r² = 0 for r > 0); the Cartesian Laplacian is not derived. Next run: tick if STATUS
+      lists these as verified.
 - [ ] F2.2 half-plane DtN symbol: e^{ikx−|k|y} is harmonic and −∂_y equals |k|·value at y = 0 — file SteklovAudit/Foundations/HalfPlaneDtN.lean
 - [ ] F3.1 K_{iν}(r) = ∫₀^∞ e^{−r cosh t} cos(νt) dt: integrand integrable for r > 0, value real, |K_{iν}(r)| ≤ K_0(r) — file SteklovAudit/Foundations/KIntegral.lean
 - [ ] F3.2 K_{iν}(r) even in ν and continuous in r on (0, ∞) — file SteklovAudit/Foundations/KContinuity.lean
