@@ -41,12 +41,13 @@ theorem ptsRows_flat : Nonempty (H5bPinnedPtsRows oA oA flatD sqF) :=
      massLin := by
        intro ε γ L hL
        first
-         | (simp [hs2, flatD, oA, Finset.card_univ, Fintype.card_fin]; done)
-         | (simp [hs2, flatD, oA, Finset.card_univ, Fintype.card_fin]; linarith)
-         | (simp [hs2, flatD, oA, Finset.card_univ, Fintype.card_fin]; norm_num; linarith)
-         | (simp [hs2, flatD, oA, Finset.card_univ, Fintype.card_fin, hL])
-         | (simp only [hs2, flatD, oA, Finset.sum_const, Finset.card_univ, Fintype.card_fin,
-             nsmul_eq_mul]; norm_num; linarith)
+         | (simp [hs2, flatD]; simp [oA, hL])
+         | (simp [hs2, flatD]; simp [oA]; linarith)
+         | (simp [hs2, flatD]; norm_num [oA]; linarith)
+         | (simp only [hs2, flatD, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul];
+            simp [oA, hL])
+         | (simp only [hs2, flatD, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul];
+            norm_num [oA]; linarith)
      δ := fun _ _ _ => 0
      defectLin := by
        intro ε γ L _
