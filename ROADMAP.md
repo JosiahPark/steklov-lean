@@ -1904,6 +1904,73 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
+Items G122–G127 added on 2026-11-22 from Josiah's review package `SteklovNextProofs` (interactive session). **Do these
+before G109–G112.** The review's point: G109–G112 tidy the pinned-row interfaces but would not establish any DtN data,
+while these items replace assumed spectral sums by derivations and expose a missing condition in the H5 cutoff route.
+Already landed from the package: `ReviewCandidates.lean` (7 lemmas; projection proof fixed with `abel` in 61c90d7),
+`ReviewExtensions.lean` (6 lemmas: `spectral_sums_of_operator`, `summable_energy_tail`, `square_sum_strong_tail`,
+`hs_right_tail_of_adjoint_strong`, `centered_second_order_bound`, `countable_centered_remainder_bound`), and
+`AbstractHSDefectClosed.lean` (5280adb: `ProjFrobeniusContraction` discharged from symmetry and idempotence). Do not
+re-add these under another namespace; import them. None of this constructs the DtN operator or proves any of H1–H6.
+
+- [ ] G122. `SteklovAudit/H5CutoffTerminal.lean` (imports `SteklovAudit.H5CutoffInterface`): the terminal condition the
+      cutoff route is missing. `full_trace_matches` gives `S_L − D L = o(L)`; to get `D L = o(L)` one also needs
+      `S_L = o(L)`. Define `FullTraceSmall Y : Prop := ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |(Y.X L).S (Y.F L)| ≤ η * L` and prove
+      `h5_of_cutoff_route (Y) (D) (h1 : Y.RatioLittleO) (h2 : Y.TraceMatches D) (h3 : FullTraceSmall Y) :
+      ∀ η > 0, ∃ L₀, ∀ L ≥ L₀, |D L| ≤ η * L` (`full_trace_matches` at `η/2`, `h3` at `η/2`, `abs_sub_abs_le_abs_sub`,
+      `max`). Also correct the `H5CutoffInterface` module docstring: replace "exactly two estimates" by three, the third
+      being `S_L = o(L)` (docstring-only edit; no statement changes). Theorem names: `h5_of_cutoff_route`.
+      F table text: the cutoff route needs (i) ratio `o(L)`, (ii) truncated-trace matching, and (iii) full-trace
+      smallness `S_L = o(L)`; (iii) is open and cannot be dropped (G123).
+- [ ] G123. `SteklovAudit/H5CutoffObstruction.lean` (imports Mathlib only): the block example showing (iii) cannot be
+      dropped. Probe `j` sits on the 2-dimensional block with eigenvalues `2j, 2j+2`, weights `1/2, 1/2`, and
+      `μ_j = 2j + 1`; `F x = cos (π x)`. Prove, for each `j : ℕ`: mass `1/2 + 1/2 = 1`; squared defect
+      `(−1)²/2 + 1²/2 = 1`; first moment `(−1)/2 + 1/2 = 0`; centered value
+      `(cos (π·2j) − cos (π(2j+1)))/2 + (cos (π(2j+2)) − cos (π(2j+1)))/2 = 2` (use `Real.cos_nat_mul_pi` or
+      `Real.cos_add_pi`, `Real.cos_nat_mul_two_pi`). Summing `n` probes: `S = 2n`, `E = n`, and with `L = 4n`,
+      `μ* = 2n − 1`, the ratio `π · n / (4n − (2n − 1)) = π n / (2n + 1) ≤ π / 2`, so `ratio ≤ η L` eventually. With
+      `D(4n) := 2n` truncated matching is exact (all eigenvalues `≤ 2n < 4n`), yet `D(4n) / (4n) = 1/2`.
+      Theorem names: `block_mass`, `block_defect`, `block_first_moment`, `block_centered`, `obstruction_sum`
+      (`∑ j < n` of the centered values is `2n`), `obstruction_ratio_le`. Docstring: an obstruction to the abstract
+      implication, not a counterexample to the tetrahedral theorem.
+- [ ] G124. `SteklovAudit/AffineWitnessFromOperator.lean` (imports `SteklovAudit.AffineEigenbasisWitness`,
+      `SteklovAudit.ReviewExtensions`): derive the witness fields instead of assuming them. Hypotheses (named): a real
+      inner-product space `H`, domain `D : Submodule ℝ H`, symmetric `A : D →ₗ[ℝ] H`, Hilbert basis `b` of
+      eigenvectors in `D` with eigenvalues `lam`, four probes `u : Fin 4 → D` with `∑ ‖u j‖² = 4` and
+      `∑ ‖A (u j) − muVec a j • u j‖² = 16 / a²`. Define `witnessOfOperator : AffineEigenbasisWitness ι a` with
+      `J i j := ⟪b i, u j⟫`, fields from `spectral_sums_of_operator`. Theorems: `witnessOfOperator_lam` (rfl),
+      `cutoff_of_operator` (G115 bound from the operator data via `cutoff_of_witness`). F table text: the two Parseval
+      fields of the affine witness follow from symmetry, an eigenbasis in the domain, and two geometric norm
+      identities; the operator, eigenbasis and norm identities stay hypotheses.
+- [ ] G125. `SteklovAudit/TaylorRemainder.lean` (imports Mathlib only): the calculus bridge the centered bound needs.
+      `taylor_remainder_of_lipschitz_deriv (F F' : ℝ → ℝ) (B : ℝ) (hB : 0 ≤ B) (hd : ∀ x, HasDerivAt F (F' x) x)
+      (hL : ∀ x y, |F' x − F' y| ≤ B * |x − y|) (x y : ℝ) : |F x − F y − F' y * (x − y)| ≤ B / 2 * (x − y) ^ 2`.
+      Proof route: `g t := F t − F y − F' y * (t − y) − B/2 * (t − y)²` and its mirror, monotonicity from the
+      derivative sign (`monotoneOn_of_deriv_nonneg` / `image_le_of_deriv_right_le_deriv_boundary`), or integrate
+      `F' t − F' y` with `intervalIntegral.integral_eq_sub_of_hasDerivAt`. Keep it under 120 lines; split `x ≥ y` /
+      `x ≤ y` if needed. F table text: `C¹,¹` regularity with constant `B` gives the second-order remainder `B/2`.
+- [ ] G126. `SteklovAudit/AffineFullTrace.lean` (imports `SteklovAudit.AffineWitnessFromOperator`,
+      `SteklovAudit.TaylorRemainder`): the whole centered trace, not only its tail. Add the residual-orthogonality
+      hypothesis `⟪u j, A (u j) − muVec a j • u j⟫ = 0` for each probe; get the first moments from
+      `ReviewCandidates.residual_first_moment`, combine with `F' (μ_j)` into `HasSum linear 0`, then
+      `countable_centered_remainder_bound` with `C = B/2`, `E = 16/a²`. Theorem: `affine_full_trace_le :
+      Summable value ∧ |∑' p, value p| ≤ 8 * B / a ^ 2`. F table text: on the affine probes the full centered trace is
+      `O(B/a²)` given `C¹,¹` regularity and residual orthogonality; for a growing family this route needs
+      `B_L E_L = o(L)` and orthogonality for the actual identification (not automatic for tetrahedron–wedge).
+- [ ] G127. `SteklovAudit/TriangleQuadrature.lean` (imports Mathlib only): independent integrals on the reference
+      triangle `{(s,t) : 0 ≤ s, 0 ≤ t, s + t ≤ 1}`, so that `TetraAffineFlux`'s midpoint sums can later be identified
+      with boundary integrals. Prove `∫ 1 = 1/2`, `∫ s = 1/6`, `∫ s² = 1/12`, `∫ s t = 1/24` as iterated
+      interval integrals (`intervalIntegral.integral_pow`, `integral_id`, `ring`), and that the edge-midpoint rule
+      `(1/6)(f(½,0) + f(0,½) + f(½,½))` gives the same four values (`norm_num`). Theorem names: `tri_int_one`,
+      `tri_int_s`, `tri_int_ss`, `tri_int_st`, `midpoint_rule_exact_deg2`. F table text: the midpoint rule used in
+      `TetraAffineFlux` is exact for quadratics on a triangle (iterated-integral form; the surface measure on the
+      tetrahedron's faces is not built here).
+
+Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
+identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
+the cumulative Fourier integral's `1/t` cancels), then the trace comparison with local mass `O(h⁻¹)`; basis
+independence of the HS norm; affine harmonic functions in the DtN domain with the stated normal derivatives.
+
 Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
 the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
 `cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
@@ -2171,7 +2238,7 @@ finite-dimensional models, not the paper's operator: none of them proves the mai
 - [ ] F3.1 K_{iν}(r) = ∫₀^∞ e^{−r cosh t} cos(νt) dt: integrand integrable for r > 0, value real, |K_{iν}(r)| ≤ K_0(r) — file SteklovAudit/Foundations/KIntegral.lean
 - [ ] F3.2 K_{iν}(r) even in ν and continuous in r on (0, ∞) — file SteklovAudit/Foundations/KContinuity.lean
 - [ ] F3.3 K_{iν} satisfies the modified Bessel ODE r²K'' + rK' − (r² − ν²)K = 0 — file SteklovAudit/Foundations/KBesselODE.lean
-- [ ] F4.1 finite-dimensional spectral shift: for symmetric matrices, ξ(λ) = N_B(λ) − N_A(λ) and Tr(f(B) − f(A)) = ∫ f' ξ for C¹ f — file SteklovAudit/Foundations/SpectralShiftFin.lean
+- [ ] F4.1 finite-dimensional spectral shift: for symmetric matrices, ξ(λ) = N_B(λ) − N_A(λ) and Tr(f(B) − f(A)) = −∫ f' ξ for C¹ f (sign corrected 2026-11-22: for A = 0, B = 1, f(x) = x the trace difference is 1 and ∫ f' ξ = −1; equivalently use ξ = N_A − N_B without the minus) — file SteklovAudit/Foundations/SpectralShiftFin.lean
 - [ ] F5.1 virial theorem for matrices: ⟨v, [H, A] v⟩ = 0 for an eigenvector v of a symmetric H — file SteklovAudit/Foundations/VirialMatrix.lean
 - [ ] F5.2 finite-dimensional Mourre-type bound: if 1_I(H) i[H, A] 1_I(H) ≥ c·1_I(H), c > 0, then no eigenvalue of H lies in I — file SteklovAudit/Foundations/MourreFin.lean
 - [ ] F5.3 d'Alembert's formula for the 1D wave equation and finite speed of propagation — file SteklovAudit/Foundations/DAlembert.lean
