@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 20:14 UTC at commit `2be1a38df223`. Last passing commit: `2be1a38df223`.
+Checked 2026-11-22 20:22 UTC at commit `cd522726160a`. Last passing commit: `cd522726160a`.
 
-Library declarations checked: 1209 of 1209 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1213 of 1213 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 202 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 203 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -447,6 +447,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.target_of_cutoffRowδ` | verified (standard axioms only) |
 | H5CutoffSmoothed.lean | `SteklovAudit.H5CutoffSmoothed.cutoffRowδ_iff_target` | verified (standard axioms only) |
+| H5CutoffSplitTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_split` | verified (standard axioms only) |
+| H5CutoffSplitTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_split` | verified (standard axioms only) |
+| H5CutoffSplitTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSplit_of_small` | verified (standard axioms only) |
+| H5CutoffSplitTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSplit_iff` | verified (standard axioms only) |
 | H5CutoffTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_route` | verified (standard axioms only) |
 | H5CutoffTerminalIff.lean | `SteklovAudit.H5CutoffTerminalIff.fullTraceSmall_of_h5` | verified (standard axioms only) |
 | H5CutoffTerminalIff.lean | `SteklovAudit.H5CutoffTerminalIff.h5_iff_fullTraceSmall` | verified (standard axioms only) |

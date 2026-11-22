@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 20:14 UTC",
+  "checked_at": "2026-11-22 20:22 UTC",
   "lean_exit_code": 0,
-  "commit": "2be1a38df223549279389d417c8fccbd604fbd50",
-  "last_passing_commit": "2be1a38df223549279389d417c8fccbd604fbd50",
-  "library_declarations_checked": 1209,
-  "library_declarations": 1209,
+  "commit": "cd522726160a56d477e22dd0be06026d550557e8",
+  "last_passing_commit": "cd522726160a56d477e22dd0be06026d550557e8",
+  "library_declarations_checked": 1213,
+  "library_declarations": 1213,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1209,
-  "verified": 1209,
+  "theorems": 1213,
+  "verified": 1213,
   "problems": [],
   "modules_audited": [
     {
@@ -271,6 +271,11 @@
       "file": "H5CutoffSmoothed.lean",
       "declared": 2,
       "audited": 2
+    },
+    {
+      "file": "H5CutoffSplitTerminal.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "H5CutoffTerminal.lean",
@@ -5211,6 +5216,46 @@
     {
       "file": "H5CutoffSmoothed.lean",
       "theorem": "SteklovAudit.H5CutoffSmoothed.cutoffRow\u03b4_iff_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSplitTerminal.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSplitTerminal.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_split",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSplitTerminal.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSplit_of_small",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffSplitTerminal.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSplit_iff",
       "axioms": [
         "propext",
         "Classical.choice",
