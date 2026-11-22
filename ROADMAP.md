@@ -1904,14 +1904,6 @@ Steklov operator; the operator's cutoff data is not defined.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
       theorems verified.
 
-Status 2026-11-22 (interactive session): G113–G120 are written and verified. CI run 45052545358 at bbcf097 reports
-PASS, 1121 of 1121 theorems with standard axioms only, including every declaration of `CountableCutoffTail`,
-`AffineCutoffTail`, `H5CutoffInterface`, `H5CutoffAffineInstance`, `TetraAffineFlux` and `CumulativeBudget`, and the four
-Foundations declarations named in G118. G119 landed with different theorem names than specified (`boundary_mass`,
-`green_pair`, `residual_orthogonal`, `residual_energy`, `cutoff_tail_moment`, scaled by 12); same identities. Module
-layout differs from the spec where noted in each file (G113/G114 bundle the certificates in `Cert`). Open: estimates
-(i) and (ii) of G116, Parseval for the probes, and gaps (7.2), (7.29), (7.38)/(7.45), (9.1).
-
 Items G113–G117 added by Josiah's interactive session on 2026-11-22. **Do these before G109–G112.** They take the
 finite-sum certificate of `docs/affine-dtn-cutoff.md` §3 (the centered cutoff estimate) to a countable eigenbasis, then
 state what a growing edge family must supply for H5. Indices are arbitrary types (`ι` = eigenbasis index, `κ` = probe
@@ -1919,6 +1911,16 @@ index; neither has to be finite). Summability is over `ι × κ`. Weights `w i j
 defines the Steklov operator or its eigenbasis: Parseval and the operator-domain identities stay as named hypotheses.
 Note: the doc cites `SteklovAudit/TetraAffineFlux.lean`, but that file is not in the repository. G115 must not import
 it. G119 (below) creates that file. G118 (first) fixes the audit so that subdirectory modules are checked.
+
+Ticked by the formalize task 2026-11-22: G113–G117, G119 and G120 were implemented by the interactive session and all
+their theorems are `verified (standard axioms only)` in CI run #475 (commit bbcf097, 1121/1121): CountableCutoffTail
+(`summable_mass` … `summable_centered`, `S_sub_Sle`, `tail_term_le`, `cutoff_tail_le`), AffineCutoffTail
+(`affine_two_over_t_sq`, `affine_mu_eq`, `affine_residual_sum`, `residual_pairing_phi`, `affine_cutoff_tail`),
+H5CutoffInterface (`cutoff_error_le`, `full_trace_matches`), H5CutoffAffineInstance (`affine_ratioLittleO`,
+`affine_ratio_O_inv`), CumulativeBudget (`tail_littleO_of_cutoff_bound`, `tail_eta_form`, `order_of_limits_matters`),
+TetraAffineFlux (`face_midpoint_moments`, `boundary_mass`, `green_pair`, `residual_orthogonal`, `residual_energy`,
+`cutoff_tail_moment`; names differ from the G119 text, and the doc's "Verification and provenance" paragraph names no
+theorems, so the doc needs no edit). Next unchecked A–G item: G109.
 
 - [x] G118. Audit fix, done before G113. `axiom_audit.py` collects modules with
       `(ROOT / "SteklovAudit").glob("*.lean")`, which is not recursive. Subdirectory modules are therefore never scanned
@@ -1949,6 +1951,14 @@ it. G119 (below) creates that file. G118 (first) fixes the audit so that subdire
       problem and fails the audit. `tools/build_map.py`: `rglob`, module ids are dotted paths (`modname`), source links
       map dots to `/`. The audit was not run locally (no Lean here). Next run: from CI STATUS.json quote the four
       Foundations result lines here, tick if all four are verified, else untick the matching F item.
+      Ticked by the formalize task 2026-11-22: CI run #475 (commit bbcf097) PASS, 1121 of 1121 theorems; "Modules
+      audited: 184 files; files declaring theorems but with 0 audited declarations: none". The four result lines:
+      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.pointwise_bound  verified (standard axioms only)`,
+      `Foundations/Trace1D.lean  SteklovAudit.Foundations.Trace1D.trace_1d  verified (standard axioms only)`,
+      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.cross_abs_le  verified (standard axioms only)`,
+      `Foundations/TraceHalfLine.lean  SteklovAudit.Foundations.TraceHalfLine.trace_halfLine  verified (standard axioms only)`.
+      All four verified, so F1.1/F1.2 need no untick. (STATUS.md on main was not refreshed by run #475: its "Commit
+      status if changed" step lost a push race; the PASS figures are from that run's summary page.)
 
 - [x] G120. Strengthen `SteklovAudit/CumulativeBudget.lean` before anything cites it for (7.29); do this right after G118.
       The current `tail_over_M_is_o` proves only `(C / L) * L → C`, which is not an `o(L)` statement. Add, in the same
