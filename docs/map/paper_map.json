@@ -56,7 +56,8 @@
   "AffineWitnessFromOperator": 3,
   "CumulativeBudgetSplit": 3,
   "TaylorRemainder": 3,
-  "TriangleQuadrature": 3
+  "TriangleQuadrature": 3,
+  "DuhamelSpectral": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -426,6 +427,11 @@
    "page": 14,
    "note": "Entrywise (7.24) in spectral coordinates: coefficient of e^{itA}J−Je^{itB} bounded by |t||K_ij|."
   },
+  "duhamel_entry_le": {
+   "kind": "outright",
+   "note": "Entrywise (7.24) phase bound in spectral coordinates: |e^{-it·a}−e^{-it·b}| ≤ |t||a−b| (DuhamelSpectral; finite-dimensional).",
+   "page": 14
+  },
   "duhamel_entry_sq": {
    "kind": "outright",
    "page": 14,
@@ -435,6 +441,11 @@
    "kind": "outright",
    "page": 14,
    "note": "HS form of Duhamel with time factor: ‖e^{itA}J−Je^{itB}‖_HS² ≤ t²‖K‖_HS² in spectral coordinates."
+  },
+  "duhamel_hs_le": {
+   "kind": "outright",
+   "note": "HS form of (7.24) in spectral coordinates with time factor: Σ|J_ij|²|e^{-itλ_i}−e^{-itμ_j}|² ≤ t²Σ|J_ij|²(λ_i−μ_j)² (DuhamelSpectral; finite-dimensional, defect bound not proved).",
+   "page": 14
   },
   "duhamel_hs_of_inputs": {
    "kind": "conditional",
