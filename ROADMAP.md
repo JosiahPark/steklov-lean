@@ -2243,7 +2243,7 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       Done 2026-11-22 by the formalize task (commit e08737d; CI PASS 1220/1220): `fourier_cancel_le` (no integrability
       hypothesis needed, via `intervalIntegral.norm_integral_le_of_norm_le_const`), `fourier_cancel_inv` (weight
       `t⁻¹`), `inv_weight_ok`, `eps_nonneg_of_bound`.
-- [ ] G131. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): basis independence of the HS sum in finite
+- [x] G131. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): basis independence of the HS sum in finite
       dimension. For `T : E →ₗ[ℝ] F` (finite-dimensional inner product spaces) and orthonormal bases `b c` of `E`
       (`OrthonormalBasis ι ℝ E`, `OrthonormalBasis κ ℝ E`): `hs_sum_basis_indep : ∑ i, ‖T (b i)‖² = ∑ j, ‖T (c j)‖²`
       (expand in an orthonormal basis `d` of `F` and use Parseval, `OrthonormalBasis.sum_sq_norm_inner`, on both
@@ -2253,13 +2253,17 @@ them constructs the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1
       `OrthonormalBasis.sum_inner_mul_inner`, fallback through `repr`), `hs_sum_eq_double`, `hs_sum_eq_adjoint`
       (common value `∑ k, ‖T† (d k)‖²`, via `LinearMap.adjoint_inner_right`), `hs_sum_basis_indep` (through
       `stdOrthonormalBasis ℝ F`), `hs_sum_id` (non-vacuity: `T = id` gives `card ι`). Next run: tick if STATUS shows it compiled.
-- [ ] G132. `SteklovAudit/FullTraceSmallSeparate.lean` (imports `SteklovAudit.H5CutoffTerminal`): (iii) is not the
+      Ticked 2026-11-22: all `HSBasisIndependence` theorems verified in STATUS at a299b9a (1239/1239).
+- [x] G132. `SteklovAudit/FullTraceSmallSeparate.lean` (imports `SteklovAudit.H5CutoffTerminal`): (iii) is not the
       target in disguise. Build an `H5EdgeFamilyCutoff` with `S_L = 0` for all `L` (zero weights, if
       `CountableCutoffTail.Cert` allows them; check its fields first) and `D L := L`. Theorems: `fullTraceSmall_zero`
       (`FullTraceSmall` holds), `not_littleO_D` (`D` is not `o(L)`), `traceMatches_fails` (so (ii) is what
       links (iii) to `D`). If `Cert` cannot carry zero weights, use the smallest admissible certificate and say so
       in the docstring. F table text: (iii) is a statement about the probe family alone and carries no information
       about `E − E_mod` without (ii).
+      Done 2026-11-22 by the formalize task (commit 6df61ee; CI PASS 1239/1239 at a299b9a): `zeroCert`/`zeroFamily`
+      (zero weights are allowed), `S_zero`, `fullTraceSmall_zero`, `ratio_small`, `not_littleO_idD`, `traceMatches_fails`,
+      `fullTraceSmall_not_target`.
 - [ ] G133. `SteklovAudit/CumulativeBudgetQuantifiers.lean` (imports `SteklovAudit.CumulativeBudget`,
       `SteklovAudit.CumulativeBudgetSplit`): close the remaining quantifier / order-of-limits forms of the (7.29) budget
       (table row "Abstract cumulative budget refinement"). Theorems: `littleO_of_approx`, `approx_of_littleO`,
