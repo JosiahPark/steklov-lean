@@ -29,13 +29,20 @@ decl_re = re.compile(
     r"(theorem|lemma|def|structure|abbrev)\s+([^\s(:{\[]+)")
 
 
+def modname(f):
+    """Module id: `SteklovAudit` for the root file, else the dotted path under SteklovAudit/ (e.g. `Foundations.Trace1D`)."""
+    if f.parent == ROOT:
+        return f.stem
+    return ".".join(f.relative_to(ROOT / "SteklovAudit").with_suffix("").parts)
+
+
 def declarations():
-    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").glob("*.lean"))
+    files = [ROOT / "SteklovAudit.lean"] + sorted((ROOT / "SteklovAudit").rglob("*.lean"))
     out = {}
     for f in files:
         if not f.exists():
             continue
-        ns, cur, buf, module = "", None, [], f.stem
+        ns, cur, buf, module = "", None, [], modname(f)
         for line in f.read_text().splitlines():
             m = re.match(r"^-- (SteklovAudit\.\w+)$", line)
             if m:
@@ -66,14 +73,14 @@ def visibility():
         sections = [m.group(1).split(".")[1] for m in re.finditer(r"^-- (SteklovAudit\.\w+)$", root.read_text(), re.M)]
         sections = sections or ["SteklovAudit"]
     imports = {}
-    for f in sorted((ROOT / "SteklovAudit").glob("*.lean")):
+    for f in sorted((ROOT / "SteklovAudit").rglob("*.lean")):
         imp = set()
         for m in re.finditer(r"^import\s+(\S+)", f.read_text(), re.M):
             if m.group(1) == "SteklovAudit":
                 imp |= set(sections)
             elif m.group(1).startswith("SteklovAudit."):
                 imp.add(m.group(1).split(".", 1)[1])
-        imports[f.stem] = imp
+        imports[modname(f)] = imp
     vis = {s: set(sections[: i + 1]) for i, s in enumerate(sections)}
     def close(mod, seen):
         for x in imports.get(mod, ()):
@@ -233,7 +240,8 @@ def render_readme(data):
         lines += [f"## {name}", "", "| Module | Outright | Conditional | Supporting |", "|---|---:|---:|---:|"]
         for m in ms:
             g, a, s = counts(m)
-            src = "../../SteklovAudit.lean" if not (ROOT / "SteklovAudit" / f"{m['id']}.lean").exists() else f"../../SteklovAudit/{m['id']}.lean"
+            mpath = m['id'].replace(".", "/")
+            src = "../../SteklovAudit.lean" if not (ROOT / "SteklovAudit" / f"{mpath}.lean").exists() else f"../../SteklovAudit/{mpath}.lean"
             lines.append(f"| [`{m['id']}`]({src}) | {g} | {a} | {s} |")
         lines.append("")
     lines += ["## Inputs of Theorem 11.1 still to prove", "", "| Input | Paper | Statement | Lean work that reduces it |", "|---|---|---|---|"]
