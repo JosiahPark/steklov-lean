@@ -1,8 +1,8 @@
 # Lean verification status: FAIL
 
-Checked 2026-11-22 17:38 UTC at commit `6c4c8017a005`. Last passing commit: `826368c1075b`.
+Checked 2026-11-22 18:40 UTC at commit `1130bc7de5b5`. Last passing commit: `826368c1075b`.
 
-Library declarations checked: 0 of 1087 theorems compile with only Lean's standard axioms.
+Library declarations checked: 0 of 1140 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,13 +19,15 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 179 files; files declaring theorems but with 0 audited declarations: 178 FOUND
+Modules audited: 187 files; files declaring theorems but with 0 audited declarations: 186 FOUND
   - SteklovAudit.lean
   - AbstractHSDefect.lean
   - AbstractTransfer.lean
   - AbstractTransferB.lean
   - AbstractTransferB2.lean
   - AbstractTransferB6.lean
+  - AffineCutoffTail.lean
+  - AffineEigenbasisWitness.lean
   - AsymptoticTransfer.lean
   - CountableCutoffTail.lean
   - Cumulative729Support.lean
@@ -45,6 +47,8 @@ Modules audited: 179 files; files declaring theorems but with 0 audited declarat
   - FixedWidthCounterexample.lean
   - FixedWidthSmoothing.lean
   - FloorCounterexample.lean
+  - Foundations/DiskSteklov.lean
+  - Foundations/HalfPlaneDtN.lean
   - Foundations/Trace1D.lean
   - Foundations/TraceHalfLine.lean
   - GridLaw.lean
@@ -58,6 +62,8 @@ Modules audited: 179 files; files declaring theorems but with 0 audited declarat
   - H5Completeness.lean
   - H5CountAudit.lean
   - H5CountRows.lean
+  - H5CutoffAffineInstance.lean
+  - H5CutoffInterface.lean
   - H5CutoffSides.lean
   - H5CutoffSmoothed.lean
   - H5DeltaVanishNeeded.lean
@@ -162,6 +168,8 @@ Modules audited: 179 files; files declaring theorems but with 0 audited declarat
   - PowerShiftTransfer.lean
   - PropagatorTrace.lean
   - RealToIntegerLaw.lean
+  - ResidualLink.lean
+  - ReviewCandidates.lean
   - RieszCounterexample.lean
   - RieszMeans.lean
   - RightAngleCalibration.lean
@@ -363,30 +371,41 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_entry_mul` | NOT CHECKED (name not found by Lean) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.offband_window_mass` | NOT CHECKED (name not found by Lean) |
 | AbstractTransferB6.lean | `SteklovAudit.AbstractTransfer.window_count_band` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.tPar_pos` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.muAff_pos` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.tPar_sq` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.affine_two_over_t_sq` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.affine_mu_eq` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.residual_pairing_phi` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.affine_residual_sum` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.muVec_le` | NOT CHECKED (name not found by Lean) |
+| AffineCutoffTail.lean | `SteklovAudit.AffineCutoffTail.affine_cutoff_tail` | NOT CHECKED (name not found by Lean) |
+| AffineEigenbasisWitness.lean | `SteklovAudit.AffineEigenbasisWitness.parseval_of_witness` | NOT CHECKED (name not found by Lean) |
+| AffineEigenbasisWitness.lean | `SteklovAudit.AffineEigenbasisWitness.cutoff_of_witness` | NOT CHECKED (name not found by Lean) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds` | NOT CHECKED (name not found by Lean) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_little_o` | NOT CHECKED (name not found by Lean) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.rpow_neg_small` | NOT CHECKED (name not found by Lean) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.defect_over_shift` | NOT CHECKED (name not found by Lean) |
 | AsymptoticTransfer.lean | `SteklovAudit.AsymptoticTransfer.asymptotic_transfer` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.mass_nonneg` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.moment_nonneg` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.M_nonneg` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.E_nonneg` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_mass` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.tsum_mass_le` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_moment` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.tsum_moment_le` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `abs_le_half_one_add_sq` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.bound_nonneg` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_bound` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.centered_abs_le` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_of_abs_le` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_centered` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_le_part` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.summable_gt_part` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.S_sub_Sle` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.tail_term_le` | NOT CHECKED (name not found by Lean) |
-| CountableCutoffTail.lean | `Cert.cutoff_tail_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.mass_nonneg` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.moment_nonneg` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.M_nonneg` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.E_nonneg` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_mass` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.tsum_mass_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_moment` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.tsum_moment_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.abs_le_half_one_add_sq` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.bound_nonneg` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_bound` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.centered_abs_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_of_abs_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_centered` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_le_part` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.summable_gt_part` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.S_sub_Sle` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.tail_term_le` | NOT CHECKED (name not found by Lean) |
+| CountableCutoffTail.lean | `SteklovAudit.CountableCutoffTail.Cert.cutoff_tail_le` | NOT CHECKED (name not found by Lean) |
 | Cumulative729Support.lean | `SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L` | NOT CHECKED (name not found by Lean) |
 | CumulativeBudget.lean | `SteklovAudit.CumulativeBudget.uniform_defect_is_O` | NOT CHECKED (name not found by Lean) |
 | CumulativeBudget.lean | `SteklovAudit.CumulativeBudget.tail_eta_form` | NOT CHECKED (name not found by Lean) |
@@ -474,6 +493,26 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.not_sharp` | NOT CHECKED (name not found by Lean) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.hasDerivAt_F` | NOT CHECKED (name not found by Lean) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.deriv_F_pos` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.lap_core` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_r` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_rr` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_θ` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_θθ` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.laplacian_polar_u` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_r` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_rr` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_θ` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_θθ` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.laplacian_polar_v` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.steklov_u` | NOT CHECKED (name not found by Lean) |
+| Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.steklov_v` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_x` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_xx` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_y` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_yy` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.laplacian_u` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.dtn_symbol` | NOT CHECKED (name not found by Lean) |
+| Foundations/HalfPlaneDtN.lean | `SteklovAudit.Foundations.HalfPlaneDtN.tendsto_u_atTop` | NOT CHECKED (name not found by Lean) |
 | Foundations/Trace1D.lean | `SteklovAudit.Foundations.Trace1D.pointwise_bound` | NOT CHECKED (name not found by Lean) |
 | Foundations/Trace1D.lean | `SteklovAudit.Foundations.Trace1D.trace_1d` | NOT CHECKED (name not found by Lean) |
 | Foundations/TraceHalfLine.lean | `SteklovAudit.Foundations.TraceHalfLine.cross_abs_le` | NOT CHECKED (name not found by Lean) |
@@ -548,6 +587,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d1` | NOT CHECKED (name not found by Lean) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.toSides_d2` | NOT CHECKED (name not found by Lean) |
 | H5CountRows.lean | `SteklovAudit.H5CountRows.h5b_of_counts` | NOT CHECKED (name not found by Lean) |
+| H5CutoffAffineInstance.lean | `SteklovAudit.H5CutoffAffineInstance.affine_ratio_eq` | NOT CHECKED (name not found by Lean) |
+| H5CutoffAffineInstance.lean | `SteklovAudit.H5CutoffAffineInstance.affine_ratio_O_inv` | NOT CHECKED (name not found by Lean) |
+| H5CutoffAffineInstance.lean | `SteklovAudit.H5CutoffAffineInstance.affine_ratioLittleO` | NOT CHECKED (name not found by Lean) |
+| H5CutoffInterface.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.cutoff_error_le` | NOT CHECKED (name not found by Lean) |
+| H5CutoffInterface.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.full_trace_matches` | NOT CHECKED (name not found by Lean) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.double_sum_split` | NOT CHECKED (name not found by Lean) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.cutoff_of_sides` | NOT CHECKED (name not found by Lean) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | NOT CHECKED (name not found by Lean) |
@@ -1087,6 +1131,23 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.twoTerm_eq_real` | NOT CHECKED (name not found by Lean) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_real_law` | NOT CHECKED (name not found by Lean) |
 | RealToIntegerLaw.lean | `SteklovAudit.RealToIntegerLaw.integer_law_of_inputs` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.slopes_phi0` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.slopes_phi1` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.slopes_phi2` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.slopes_phi3` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.residual_energy_phi0` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.residual_energy_phi1` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.residual_energy_phi2` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.residual_energy_phi3` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.normalized_energy` | NOT CHECKED (name not found by Lean) |
+| ResidualLink.lean | `SteklovAudit.ResidualLink.residual_defect_constant` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.basis_hasSum_sq` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.residual_coordinate` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.residual_hasSum_sq` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.residual_first_moment` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.finite_probe_hasSum` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.trace_gram` | NOT CHECKED (name not found by Lean) |
+| ReviewCandidates.lean | `SteklovAudit.ReviewCandidates.projection_frobenius_contracts` | NOT CHECKED (name not found by Lean) |
 | RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.hasDerivAt_phiS` | NOT CHECKED (name not found by Lean) |
 | RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.abs_phiS_le` | NOT CHECKED (name not found by Lean) |
 | RieszCounterexample.lean | `SteklovAudit.RieszCounterexample.osc_riesz_bound` | NOT CHECKED (name not found by Lean) |
@@ -1296,13 +1357,22 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 ## Build errors
 
 ```
-error: SteklovAudit/CountableCutoffTail.lean:100:4: failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+error: SteklovAudit/ReviewCandidates.lean:90:4: `noncomm_ring` simp lemmas don't apply; try `abel` instead
+n : Type u_1
+inst✝¹ : Fintype n
+inst✝ : DecidableEq n
+P M : Matrix n n ℝ
+hsym : P.transpose = P
+hidem : P * P = P
+hgram : (P * M).transpose * (P * M) = M.transpose * P * M
+⊢ M.transpose * M + (-2 • (M.transpose * (P * M)) + M.transpose * (P * M)) =
+    M.transpose * M + -1 • (M.transpose * (P * M))
 error: build failed
 ```
 
 ## Lean output
 
 ```
-/home/runner/work/steklov-lean/steklov-lean/AxiomAudit.lean:1:0: error: object file '/home/runner/work/steklov-lean/steklov-lean/.lake/build/lib/lean/SteklovAudit/CountableCutoffTail.olean' of module SteklovAudit.CountableCutoffTail does not exist
+/home/runner/work/steklov-lean/steklov-lean/AxiomAudit.lean:1:0: error: object file '/home/runner/work/steklov-lean/steklov-lean/.lake/build/lib/lean/SteklovAudit/ReviewCandidates.olean' of module SteklovAudit.ReviewCandidates does not exist
 
 ```

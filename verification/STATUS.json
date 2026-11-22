@@ -1,17 +1,17 @@
 {
-  "checked_at": "2026-11-22 17:38 UTC",
+  "checked_at": "2026-11-22 18:40 UTC",
   "lean_exit_code": 1,
-  "commit": "6c4c8017a00571c71b1d11019447b53e5ee15f5c",
+  "commit": "1130bc7de5b58b42f7a17ed8a50f6f82b4386f56",
   "last_passing_commit": "826368c1075b60a3a48618433eb1c4ef64685d22",
   "library_declarations_checked": 0,
-  "library_declarations": 1087,
+  "library_declarations": 1140,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [
-    "error: SteklovAudit/CountableCutoffTail.lean:100:4: failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'",
+    "error: SteklovAudit/ReviewCandidates.lean:90:4: `noncomm_ring` simp lemmas don't apply; try `abel` instead",
     "error: build failed"
   ],
-  "theorems": 1087,
+  "theorems": 1140,
   "verified": 0,
   "problems": [
     "SteklovAudit.tetra_face_count",
@@ -172,30 +172,41 @@
     "SteklovAudit.AbstractTransfer.offband_entry_mul",
     "SteklovAudit.AbstractTransfer.offband_window_mass",
     "SteklovAudit.AbstractTransfer.window_count_band",
+    "SteklovAudit.AffineCutoffTail.tPar_pos",
+    "SteklovAudit.AffineCutoffTail.muAff_pos",
+    "SteklovAudit.AffineCutoffTail.tPar_sq",
+    "SteklovAudit.AffineCutoffTail.affine_two_over_t_sq",
+    "SteklovAudit.AffineCutoffTail.affine_mu_eq",
+    "SteklovAudit.AffineCutoffTail.residual_pairing_phi",
+    "SteklovAudit.AffineCutoffTail.affine_residual_sum",
+    "SteklovAudit.AffineCutoffTail.muVec_le",
+    "SteklovAudit.AffineCutoffTail.affine_cutoff_tail",
+    "SteklovAudit.AffineEigenbasisWitness.parseval_of_witness",
+    "SteklovAudit.AffineEigenbasisWitness.cutoff_of_witness",
     "SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds",
     "SteklovAudit.AsymptoticTransfer.rpow_little_o",
     "SteklovAudit.AsymptoticTransfer.rpow_neg_small",
     "SteklovAudit.AsymptoticTransfer.defect_over_shift",
     "SteklovAudit.AsymptoticTransfer.asymptotic_transfer",
-    "Cert.mass_nonneg",
-    "Cert.moment_nonneg",
-    "Cert.M_nonneg",
-    "Cert.E_nonneg",
-    "Cert.summable_mass",
-    "Cert.tsum_mass_le",
-    "Cert.summable_moment",
-    "Cert.tsum_moment_le",
-    "abs_le_half_one_add_sq",
-    "Cert.bound_nonneg",
-    "Cert.summable_bound",
-    "Cert.centered_abs_le",
-    "Cert.summable_of_abs_le",
-    "Cert.summable_centered",
-    "Cert.summable_le_part",
-    "Cert.summable_gt_part",
-    "Cert.S_sub_Sle",
-    "Cert.tail_term_le",
-    "Cert.cutoff_tail_le",
+    "SteklovAudit.CountableCutoffTail.Cert.mass_nonneg",
+    "SteklovAudit.CountableCutoffTail.Cert.moment_nonneg",
+    "SteklovAudit.CountableCutoffTail.Cert.M_nonneg",
+    "SteklovAudit.CountableCutoffTail.Cert.E_nonneg",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_mass",
+    "SteklovAudit.CountableCutoffTail.Cert.tsum_mass_le",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_moment",
+    "SteklovAudit.CountableCutoffTail.Cert.tsum_moment_le",
+    "SteklovAudit.CountableCutoffTail.abs_le_half_one_add_sq",
+    "SteklovAudit.CountableCutoffTail.Cert.bound_nonneg",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_bound",
+    "SteklovAudit.CountableCutoffTail.Cert.centered_abs_le",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_of_abs_le",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_centered",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_le_part",
+    "SteklovAudit.CountableCutoffTail.Cert.summable_gt_part",
+    "SteklovAudit.CountableCutoffTail.Cert.S_sub_Sle",
+    "SteklovAudit.CountableCutoffTail.Cert.tail_term_le",
+    "SteklovAudit.CountableCutoffTail.Cert.cutoff_tail_le",
     "SteklovAudit.Cumulative729Support.log_plus_vanishing_is_o_L",
     "SteklovAudit.CumulativeBudget.uniform_defect_is_O",
     "SteklovAudit.CumulativeBudget.tail_eta_form",
@@ -283,6 +294,26 @@
     "SteklovAudit.FloorCounterexample.not_sharp",
     "SteklovAudit.FloorCounterexample.hasDerivAt_F",
     "SteklovAudit.FloorCounterexample.deriv_F_pos",
+    "SteklovAudit.Foundations.DiskSteklov.lap_core",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_r",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_rr",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_\u03b8",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_\u03b8\u03b8",
+    "SteklovAudit.Foundations.DiskSteklov.laplacian_polar_u",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_r",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_rr",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_\u03b8",
+    "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_\u03b8\u03b8",
+    "SteklovAudit.Foundations.DiskSteklov.laplacian_polar_v",
+    "SteklovAudit.Foundations.DiskSteklov.steklov_u",
+    "SteklovAudit.Foundations.DiskSteklov.steklov_v",
+    "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_x",
+    "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_xx",
+    "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_y",
+    "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_yy",
+    "SteklovAudit.Foundations.HalfPlaneDtN.laplacian_u",
+    "SteklovAudit.Foundations.HalfPlaneDtN.dtn_symbol",
+    "SteklovAudit.Foundations.HalfPlaneDtN.tendsto_u_atTop",
     "SteklovAudit.Foundations.Trace1D.pointwise_bound",
     "SteklovAudit.Foundations.Trace1D.trace_1d",
     "SteklovAudit.Foundations.TraceHalfLine.cross_abs_le",
@@ -357,6 +388,11 @@
     "SteklovAudit.H5CountRows.toSides_d1",
     "SteklovAudit.H5CountRows.toSides_d2",
     "SteklovAudit.H5CountRows.h5b_of_counts",
+    "SteklovAudit.H5CutoffAffineInstance.affine_ratio_eq",
+    "SteklovAudit.H5CutoffAffineInstance.affine_ratio_O_inv",
+    "SteklovAudit.H5CutoffAffineInstance.affine_ratioLittleO",
+    "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.cutoff_error_le",
+    "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.full_trace_matches",
     "SteklovAudit.H5CutoffSides.double_sum_split",
     "SteklovAudit.H5CutoffSides.cutoff_of_sides",
     "SteklovAudit.H5CutoffSides.discVanish_of_sides",
@@ -896,6 +932,23 @@
     "SteklovAudit.RealToIntegerLaw.twoTerm_eq_real",
     "SteklovAudit.RealToIntegerLaw.integer_law_of_real_law",
     "SteklovAudit.RealToIntegerLaw.integer_law_of_inputs",
+    "SteklovAudit.ResidualLink.slopes_phi0",
+    "SteklovAudit.ResidualLink.slopes_phi1",
+    "SteklovAudit.ResidualLink.slopes_phi2",
+    "SteklovAudit.ResidualLink.slopes_phi3",
+    "SteklovAudit.ResidualLink.residual_energy_phi0",
+    "SteklovAudit.ResidualLink.residual_energy_phi1",
+    "SteklovAudit.ResidualLink.residual_energy_phi2",
+    "SteklovAudit.ResidualLink.residual_energy_phi3",
+    "SteklovAudit.ResidualLink.normalized_energy",
+    "SteklovAudit.ResidualLink.residual_defect_constant",
+    "SteklovAudit.ReviewCandidates.basis_hasSum_sq",
+    "SteklovAudit.ReviewCandidates.residual_coordinate",
+    "SteklovAudit.ReviewCandidates.residual_hasSum_sq",
+    "SteklovAudit.ReviewCandidates.residual_first_moment",
+    "SteklovAudit.ReviewCandidates.finite_probe_hasSum",
+    "SteklovAudit.ReviewCandidates.trace_gram",
+    "SteklovAudit.ReviewCandidates.projection_frobenius_contracts",
     "SteklovAudit.RieszCounterexample.hasDerivAt_phiS",
     "SteklovAudit.RieszCounterexample.abs_phiS_le",
     "SteklovAudit.RieszCounterexample.osc_riesz_bound",
@@ -1107,6 +1160,8 @@
     "module with theorems but 0 audited declarations: AbstractTransferB.lean",
     "module with theorems but 0 audited declarations: AbstractTransferB2.lean",
     "module with theorems but 0 audited declarations: AbstractTransferB6.lean",
+    "module with theorems but 0 audited declarations: AffineCutoffTail.lean",
+    "module with theorems but 0 audited declarations: AffineEigenbasisWitness.lean",
     "module with theorems but 0 audited declarations: AsymptoticTransfer.lean",
     "module with theorems but 0 audited declarations: CountableCutoffTail.lean",
     "module with theorems but 0 audited declarations: Cumulative729Support.lean",
@@ -1126,6 +1181,8 @@
     "module with theorems but 0 audited declarations: FixedWidthCounterexample.lean",
     "module with theorems but 0 audited declarations: FixedWidthSmoothing.lean",
     "module with theorems but 0 audited declarations: FloorCounterexample.lean",
+    "module with theorems but 0 audited declarations: Foundations/DiskSteklov.lean",
+    "module with theorems but 0 audited declarations: Foundations/HalfPlaneDtN.lean",
     "module with theorems but 0 audited declarations: Foundations/Trace1D.lean",
     "module with theorems but 0 audited declarations: Foundations/TraceHalfLine.lean",
     "module with theorems but 0 audited declarations: GridLaw.lean",
@@ -1139,6 +1196,8 @@
     "module with theorems but 0 audited declarations: H5Completeness.lean",
     "module with theorems but 0 audited declarations: H5CountAudit.lean",
     "module with theorems but 0 audited declarations: H5CountRows.lean",
+    "module with theorems but 0 audited declarations: H5CutoffAffineInstance.lean",
+    "module with theorems but 0 audited declarations: H5CutoffInterface.lean",
     "module with theorems but 0 audited declarations: H5CutoffSides.lean",
     "module with theorems but 0 audited declarations: H5CutoffSmoothed.lean",
     "module with theorems but 0 audited declarations: H5DeltaVanishNeeded.lean",
@@ -1243,6 +1302,8 @@
     "module with theorems but 0 audited declarations: PowerShiftTransfer.lean",
     "module with theorems but 0 audited declarations: PropagatorTrace.lean",
     "module with theorems but 0 audited declarations: RealToIntegerLaw.lean",
+    "module with theorems but 0 audited declarations: ResidualLink.lean",
+    "module with theorems but 0 audited declarations: ReviewCandidates.lean",
     "module with theorems but 0 audited declarations: RieszCounterexample.lean",
     "module with theorems but 0 audited declarations: RieszMeans.lean",
     "module with theorems but 0 audited declarations: RightAngleCalibration.lean",
@@ -1309,6 +1370,16 @@
     {
       "file": "AbstractTransferB6.lean",
       "declared": 3,
+      "audited": 0
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "declared": 9,
+      "audited": 0
+    },
+    {
+      "file": "AffineEigenbasisWitness.lean",
+      "declared": 2,
       "audited": 0
     },
     {
@@ -1407,6 +1478,16 @@
       "audited": 0
     },
     {
+      "file": "Foundations/DiskSteklov.lean",
+      "declared": 13,
+      "audited": 0
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "declared": 7,
+      "audited": 0
+    },
+    {
       "file": "Foundations/Trace1D.lean",
       "declared": 2,
       "audited": 0
@@ -1469,6 +1550,16 @@
     {
       "file": "H5CountRows.lean",
       "declared": 3,
+      "audited": 0
+    },
+    {
+      "file": "H5CutoffAffineInstance.lean",
+      "declared": 3,
+      "audited": 0
+    },
+    {
+      "file": "H5CutoffInterface.lean",
+      "declared": 2,
       "audited": 0
     },
     {
@@ -1997,6 +2088,16 @@
       "audited": 0
     },
     {
+      "file": "ResidualLink.lean",
+      "declared": 10,
+      "audited": 0
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "declared": 7,
+      "audited": 0
+    },
+    {
       "file": "RieszCounterexample.lean",
       "declared": 11,
       "audited": 0
@@ -2184,6 +2285,8 @@
     "AbstractTransferB.lean",
     "AbstractTransferB2.lean",
     "AbstractTransferB6.lean",
+    "AffineCutoffTail.lean",
+    "AffineEigenbasisWitness.lean",
     "AsymptoticTransfer.lean",
     "CountableCutoffTail.lean",
     "Cumulative729Support.lean",
@@ -2203,6 +2306,8 @@
     "FixedWidthCounterexample.lean",
     "FixedWidthSmoothing.lean",
     "FloorCounterexample.lean",
+    "Foundations/DiskSteklov.lean",
+    "Foundations/HalfPlaneDtN.lean",
     "Foundations/Trace1D.lean",
     "Foundations/TraceHalfLine.lean",
     "GridLaw.lean",
@@ -2216,6 +2321,8 @@
     "H5Completeness.lean",
     "H5CountAudit.lean",
     "H5CountRows.lean",
+    "H5CutoffAffineInstance.lean",
+    "H5CutoffInterface.lean",
     "H5CutoffSides.lean",
     "H5CutoffSmoothed.lean",
     "H5DeltaVanishNeeded.lean",
@@ -2320,6 +2427,8 @@
     "PowerShiftTransfer.lean",
     "PropagatorTrace.lean",
     "RealToIntegerLaw.lean",
+    "ResidualLink.lean",
+    "ReviewCandidates.lean",
     "RieszCounterexample.lean",
     "RieszMeans.lean",
     "RightAngleCalibration.lean",
@@ -3319,6 +3428,72 @@
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.tPar_pos",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.muAff_pos",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.tPar_sq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.affine_two_over_t_sq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.affine_mu_eq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.residual_pairing_phi",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.affine_residual_sum",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.muVec_le",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineCutoffTail.lean",
+      "theorem": "SteklovAudit.AffineCutoffTail.affine_cutoff_tail",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineEigenbasisWitness.lean",
+      "theorem": "SteklovAudit.AffineEigenbasisWitness.parseval_of_witness",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "AffineEigenbasisWitness.lean",
+      "theorem": "SteklovAudit.AffineEigenbasisWitness.cutoff_of_witness",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
       "file": "AsymptoticTransfer.lean",
       "theorem": "SteklovAudit.AsymptoticTransfer.law_of_shifted_bounds",
       "axioms": null,
@@ -3350,115 +3525,115 @@
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.mass_nonneg",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.mass_nonneg",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.moment_nonneg",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.moment_nonneg",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.M_nonneg",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.M_nonneg",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.E_nonneg",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.E_nonneg",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_mass",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_mass",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.tsum_mass_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.tsum_mass_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_moment",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_moment",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.tsum_moment_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.tsum_moment_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "abs_le_half_one_add_sq",
+      "theorem": "SteklovAudit.CountableCutoffTail.abs_le_half_one_add_sq",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.bound_nonneg",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.bound_nonneg",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_bound",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_bound",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.centered_abs_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.centered_abs_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_of_abs_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_of_abs_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_centered",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_centered",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_le_part",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_le_part",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.summable_gt_part",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.summable_gt_part",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.S_sub_Sle",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.S_sub_Sle",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.tail_term_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.tail_term_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
       "file": "CountableCutoffTail.lean",
-      "theorem": "Cert.cutoff_tail_le",
+      "theorem": "SteklovAudit.CountableCutoffTail.Cert.cutoff_tail_le",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
@@ -3985,6 +4160,126 @@
       "status": "NOT CHECKED (name not found by Lean)"
     },
     {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.lap_core",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_r",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_rr",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_\u03b8",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_\u03b8\u03b8",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.laplacian_polar_u",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_r",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_rr",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_\u03b8",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.hasDerivAt_v_\u03b8\u03b8",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.laplacian_polar_v",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.steklov_u",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/DiskSteklov.lean",
+      "theorem": "SteklovAudit.Foundations.DiskSteklov.steklov_v",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_x",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_xx",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_y",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.hasDerivAt_u_yy",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.laplacian_u",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.dtn_symbol",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "Foundations/HalfPlaneDtN.lean",
+      "theorem": "SteklovAudit.Foundations.HalfPlaneDtN.tendsto_u_atTop",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
       "file": "Foundations/Trace1D.lean",
       "theorem": "SteklovAudit.Foundations.Trace1D.pointwise_bound",
       "axioms": null,
@@ -4425,6 +4720,36 @@
     {
       "file": "H5CountRows.lean",
       "theorem": "SteklovAudit.H5CountRows.h5b_of_counts",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5CutoffAffineInstance.lean",
+      "theorem": "SteklovAudit.H5CutoffAffineInstance.affine_ratio_eq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5CutoffAffineInstance.lean",
+      "theorem": "SteklovAudit.H5CutoffAffineInstance.affine_ratio_O_inv",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5CutoffAffineInstance.lean",
+      "theorem": "SteklovAudit.H5CutoffAffineInstance.affine_ratioLittleO",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5CutoffInterface.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.cutoff_error_le",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "H5CutoffInterface.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.full_trace_matches",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
@@ -7659,6 +7984,108 @@
     {
       "file": "RealToIntegerLaw.lean",
       "theorem": "SteklovAudit.RealToIntegerLaw.integer_law_of_inputs",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.slopes_phi0",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.slopes_phi1",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.slopes_phi2",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.slopes_phi3",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.residual_energy_phi0",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.residual_energy_phi1",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.residual_energy_phi2",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.residual_energy_phi3",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.normalized_energy",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ResidualLink.lean",
+      "theorem": "SteklovAudit.ResidualLink.residual_defect_constant",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.basis_hasSum_sq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.residual_coordinate",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.residual_hasSum_sq",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.residual_first_moment",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.finite_probe_hasSum",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.trace_gram",
+      "axioms": null,
+      "status": "NOT CHECKED (name not found by Lean)"
+    },
+    {
+      "file": "ReviewCandidates.lean",
+      "theorem": "SteklovAudit.ReviewCandidates.projection_frobenius_contracts",
       "axioms": null,
       "status": "NOT CHECKED (name not found by Lean)"
     },
