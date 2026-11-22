@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-22 20:47 UTC",
+  "checked_at": "2026-11-22 21:10 UTC",
   "lean_exit_code": 0,
-  "commit": "53fc56e9974808862d0581cda6352357f79c8cf2",
-  "last_passing_commit": "53fc56e9974808862d0581cda6352357f79c8cf2",
-  "library_declarations_checked": 1216,
-  "library_declarations": 1216,
+  "commit": "e08737d5cffce72fb3ea0d936c3ee829a66bbcb4",
+  "last_passing_commit": "e08737d5cffce72fb3ea0d936c3ee829a66bbcb4",
+  "library_declarations_checked": 1220,
+  "library_declarations": 1220,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1216,
-  "verified": 1216,
+  "theorems": 1220,
+  "verified": 1220,
   "problems": [],
   "modules_audited": [
     {
@@ -196,6 +196,11 @@
       "file": "Foundations/TraceHalfLine.lean",
       "declared": 2,
       "audited": 2
+    },
+    {
+      "file": "FourierOneOverT.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "GridLaw.lean",
@@ -4321,6 +4326,46 @@
     {
       "file": "Foundations/TraceHalfLine.lean",
       "theorem": "SteklovAudit.Foundations.TraceHalfLine.trace_halfLine",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FourierOneOverT.lean",
+      "theorem": "SteklovAudit.FourierOneOverT.eps_nonneg_of_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FourierOneOverT.lean",
+      "theorem": "SteklovAudit.FourierOneOverT.fourier_cancel_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FourierOneOverT.lean",
+      "theorem": "SteklovAudit.FourierOneOverT.inv_weight_ok",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "FourierOneOverT.lean",
+      "theorem": "SteklovAudit.FourierOneOverT.fourier_cancel_inv",
       "axioms": [
         "propext",
         "Classical.choice",

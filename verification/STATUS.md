@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-22 20:47 UTC at commit `53fc56e99748`. Last passing commit: `53fc56e99748`.
+Checked 2026-11-22 21:10 UTC at commit `e08737d5cffc`. Last passing commit: `e08737d5cffc`.
 
-Library declarations checked: 1216 of 1216 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1220 of 1220 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 204 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 205 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -357,6 +357,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | Foundations/Trace1D.lean | `SteklovAudit.Foundations.Trace1D.trace_1d` | verified (standard axioms only) |
 | Foundations/TraceHalfLine.lean | `SteklovAudit.Foundations.TraceHalfLine.cross_abs_le` | verified (standard axioms only) |
 | Foundations/TraceHalfLine.lean | `SteklovAudit.Foundations.TraceHalfLine.trace_halfLine` | verified (standard axioms only) |
+| FourierOneOverT.lean | `SteklovAudit.FourierOneOverT.eps_nonneg_of_bound` | verified (standard axioms only) |
+| FourierOneOverT.lean | `SteklovAudit.FourierOneOverT.fourier_cancel_le` | verified (standard axioms only) |
+| FourierOneOverT.lean | `SteklovAudit.FourierOneOverT.inv_weight_ok` | verified (standard axioms only) |
+| FourierOneOverT.lean | `SteklovAudit.FourierOneOverT.fourier_cancel_inv` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.stepN_monotone` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.stepN_nat` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.stepN_half` | verified (standard axioms only) |
