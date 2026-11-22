@@ -1887,7 +1887,7 @@ Steklov operator; the operator's cutoff data is not defined.
       theorems `ofCore_disc`, `pinned_iff_core`, `h5b_of_pinnedCore`. Next run: tick if STATUS shows it compiled.
       Ticked by the formalize task 2026-11-22: STATUS PASS 1048/1048 at 1fb21d8, all three
       `H5PinnedCutoffVanish` theorems verified.
-- [ ] G108. `SteklovAudit/H5PinnedSumSmall.lean` (imports `SteklovAudit.H5PinnedRows`): the pinned rows constrain the
+- [x] G108. `SteklovAudit/H5PinnedSumSmall.lean` (imports `SteklovAudit.H5PinnedRows`): the pinned rows constrain the
       data independently of `E`. `def pinnedSum (D₀ F₀) (ε γ L : ℝ) : ℝ := ∑ i, ∑ j, (F₀ ε γ L ((D₀ ε γ L).a i) -
       F₀ ε γ L ((D₀ ε γ L).b j)) * (D₀ ε γ L).J i j ^ 2`. `pinned_sum_littleO (H : H5bPinnedRows E Emod nA nB D₀ F₀) :
       ∀ ε γ : ℝ, 0 < ε → 0 < γ → ∀ η : ℝ, 0 < η → ∃ L₀ : ℝ, ∀ L, L₀ ≤ L → |pinnedSum D₀ F₀ ε γ L| ≤ η * L` (from
@@ -1901,6 +1901,53 @@ Steklov operator; the operator's cutoff data is not defined.
       `pinnedSum`, `SumLittleO` (the `o(L)` property, stated for all `ε γ > 0`); theorems `pinned_sum_littleO`,
       `pinned_target_and_sum`, `not_pinned_of_sum_large` (hypothesis `¬ SumLittleO D₀ F₀`). Next run: tick if STATUS
       shows it compiled.
+      Ticked by the formalize task 2026-11-22: STATUS PASS 1051/1051 at c2bea0f, all three `H5PinnedSumSmall`
+      theorems verified.
+
+Items G109–G112 written by the formalize task on 2026-11-22 (no unchecked A–G item was left after G108). They split
+the pinned rows (G101) into data-only rows and one row involving `E`, show that relative to the data rows the
+`cutoff` row is exactly the target, and weaken the Lipschitz row to the pinned spectral points. None proves a row
+for the Steklov operator; the operator's cutoff data is not defined.
+
+- [ ] G109. `SteklovAudit/H5PinnedDataRows.lean` (imports `SteklovAudit.H5PinnedCutoffVanish`,
+      `SteklovAudit.H5PinnedSumSmall`): the rows that mention only the data. `structure H5bPinnedDataRows (nA nB) (D₀)
+      (F₀)` = the fields `Λ`, `hΛ`, `lip`, `m`, `hm`, `massLin`, `δ`, `defectLin`, `δVanish` of `H5bPinnedRows` (no
+      `E`, `Emod`, `disc`). `def dataOf (H : H5bPinnedRows E Emod nA nB D₀ F₀) : H5bPinnedDataRows nA nB D₀ F₀` (field
+      copy). `sumLittleO_of_dataRows (R) : SumLittleO D₀ F₀` (G108's property, now without `E`): `trace_transfer` with
+      `f := F₀ ε γ L`, then `∑ |K| |J| ≤ √(hs2 K · hs2 J)` (the Cauchy–Schwarz step already used in the G86/G83 chain,
+      or `Finset.sum_mul_sq_le_sq_mul_sq` + `Real.le_sqrt`), then `sqrt_lin_prod` and `scale_le` exactly as in
+      `H5GlobalLipRows.toGlobalLip`. `pinned_iff_dataRows_core : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔
+      Nonempty (H5bPinnedDataRows nA nB D₀ F₀) ∧ ∀ ε γ, 0 < ε → 0 < γ → ∀ η, 0 < η → ∃ L₀, ∀ L, L₀ ≤ L → coreDisc ..
+      ≤ η * L` (use `pinned_iff_core` from G107; the core's `cutoffVanish` is the second conjunct). Theorem names:
+      `dataOf_Λ` (rfl), `sumLittleO_of_dataRows`, `pinned_iff_dataRows_core`. F table text: the pinned rows are data
+      rows (mass, defect, Lipschitz) plus one `o(L)` row comparing `E − Emod` with the data's spectral sum.
+- [ ] G110. `SteklovAudit/H5PinnedCutoffIsTarget.lean` (imports `SteklovAudit.H5PinnedDataRows`): relative to the data
+      rows, the `cutoff` row is the target. `pinned_iff_target_of_dataRows (R : H5bPinnedDataRows nA nB D₀ F₀) (E
+      Emod) : Nonempty (H5bPinnedRows E Emod nA nB D₀ F₀) ↔ H5bTarget E Emod` (forward `h5b_of_pinnedRows`; converse:
+      `sumLittleO_of_dataRows R` and the target at `η / 2` give `cutoffVanish` by the triangle inequality as in
+      `pinned_sum_littleO` (`abs_le`, `linarith`), then `pinned_iff_dataRows_core`). Theorem names:
+      `cutoffVanish_of_target`, `pinned_iff_target_of_dataRows`. F table text: once the data rows hold, the remaining
+      row carries exactly the content of (7.29); all non-trivial content of the pinned form is in the data rows and
+      in the choice of `D₀` (the paper's cutoff data, which is open).
+- [ ] G111. `SteklovAudit/H5PinnedPtsLip.lean` (imports `SteklovAudit.H5PinnedDataRows`): the Lipschitz row weakened to
+      the pinned spectral points. `structure H5bPinnedPtsRows (nA nB D₀ F₀)` = `H5bPinnedDataRows` with `lip`
+      replaced by `lipPts : ∀ ε γ L : ℝ, 1 ≤ L → ∀ i j, |F₀ ε γ L ((D₀ ε γ L).a i) - F₀ ε γ L ((D₀ ε γ L).b j)| ≤
+      Λ ε γ * |(D₀ ε γ L).a i - (D₀ ε γ L).b j|`. `trace_transfer_pts`: the `trace_transfer` bound under `lipPts` at
+      one `L` (`Finset.abs_sum_le_sum_abs` twice, per-entry `abs_mul`, `Data.K`, `mul_le_mul_of_nonneg_right`,
+      `Finset.mul_sum`). `def ofDataRows (R : H5bPinnedDataRows ..) : H5bPinnedPtsRows ..` (`lipPts` from `lip`).
+      `sumLittleO_of_ptsRows (R) : SumLittleO D₀ F₀` (as G109, with `L ≥ max 1 L₀`). `h5b_of_ptsRows (R) (hc :
+      cutoffVanish row for E Emod) : H5bTarget E Emod` (triangle inequality as in G110). Theorem names:
+      `trace_transfer_pts`, `ofDataRows_Λ` (rfl), `sumLittleO_of_ptsRows`, `h5b_of_ptsRows`. F table text: the row
+      "Lipschitz-type bounds Λ" is needed only on the pinned spectral points, for `L ≥ 1`.
+- [ ] G112. `SteklovAudit/H5PinnedPtsLipStrict.lean` (imports `SteklovAudit.H5PinnedPtsLip`): G111 is strictly weaker
+      than G109 on the same data. `oA := fun _ _ _ => 1`; `noncomputable def flatD : ∀ ε γ L : ℝ, Data (Fin 1) (Fin 1)
+      := fun _ _ _ => ⟨fun _ => 0, fun _ => 0, fun _ _ => 1⟩` (so `K = 0`, `hs2 J = 1`); `sqF := fun _ _ _ x => x ^ 2`.
+      `ptsRows_flat : Nonempty (H5bPinnedPtsRows oA oA flatD sqF)` (`Λ = 0`, `m = 1`, `δ = 0`; `lipPts` by `simp`,
+      both points are `0`; `massLin` by `simp [hs2, Fin.sum_univ_one]` and `1 ≤ 1 * L`; `defectLin` with `hs2 K = 0`).
+      `not_dataRows_flat : ¬ Nonempty (H5bPinnedDataRows oA oA flatD sqF)` (`lip` at `x = Λ + 1`, `y = 0`: `(Λ + 1) ^ 2
+      ≤ Λ * (Λ + 1)` contradicts `hΛ`, `nlinarith`). Theorem names: `ptsRows_flat`, `not_dataRows_flat`,
+      `ptsLip_strictly_weaker` (conjunction). F table text: the pointwise Lipschitz row admits data and `F₀` that the
+      global row rejects.
 
 ## Foundations (long-term)
 
