@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 21:48 UTC",
+  "checked_at": "2026-11-23 22:19 UTC",
   "lean_exit_code": 0,
-  "commit": "5107d3cdd591482f8195e16daa20783f61f5958c",
-  "last_passing_commit": "5107d3cdd591482f8195e16daa20783f61f5958c",
-  "library_declarations_checked": 1350,
-  "library_declarations": 1350,
+  "commit": "52889bee8ca4da5bf9b9b6e576f51241f3bb92ec",
+  "last_passing_commit": "52889bee8ca4da5bf9b9b6e576f51241f3bb92ec",
+  "library_declarations_checked": 1353,
+  "library_declarations": 1353,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1350,
-  "verified": 1350,
+  "theorems": 1353,
+  "verified": 1353,
   "problems": [],
   "modules_audited": [
     {
@@ -876,6 +876,11 @@
       "file": "ModelEdgeLawReduction.lean",
       "declared": 10,
       "audited": 10
+    },
+    {
+      "file": "ModelEdgeLawSixEdges.lean",
+      "declared": 3,
+      "audited": 3
     },
     {
       "file": "MultiChartTrace.lean",
@@ -11809,6 +11814,36 @@
     {
       "file": "ModelEdgeLawReduction.lean",
       "theorem": "SteklovAudit.ModelEdgeLawReduction.model_law_nonvacuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawSixEdges.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawSixEdges.finset_sum_littleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawSixEdges.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawSixEdges.six_edge_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawSixEdges.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawSixEdges.six_equal_edges",
       "axioms": [
         "propext",
         "Classical.choice",

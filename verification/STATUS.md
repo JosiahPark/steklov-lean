@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 21:48 UTC at commit `5107d3cdd591`. Last passing commit: `5107d3cdd591`.
+Checked 2026-11-23 22:19 UTC at commit `52889bee8ca4`. Last passing commit: `52889bee8ca4`.
 
-Library declarations checked: 1350 of 1350 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1353 of 1353 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 224 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 225 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1096,6 +1096,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.littleO_of_bounded` | verified (standard axioms only) |
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.model_law_of_decomposition` | verified (standard axioms only) |
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.model_law_nonvacuous` | verified (standard axioms only) |
+| ModelEdgeLawSixEdges.lean | `SteklovAudit.ModelEdgeLawSixEdges.finset_sum_littleO` | verified (standard axioms only) |
+| ModelEdgeLawSixEdges.lean | `SteklovAudit.ModelEdgeLawSixEdges.six_edge_law` | verified (standard axioms only) |
+| ModelEdgeLawSixEdges.lean | `SteklovAudit.ModelEdgeLawSixEdges.six_equal_edges` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.trA_eq` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.multichart_trace` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.ex_row` | verified (standard axioms only) |
