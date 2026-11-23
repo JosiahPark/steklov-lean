@@ -2306,7 +2306,7 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       `windowTraceBound_of_trace_zero` (non-vacuity). Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23: all 3 theorems verified at a44d808 (CI run #537, 1259/1259; the run is marked failed only
       after verification, in the status push).
-- [ ] G136. `SteklovAudit/H5CutoffRatioSufficient.lean` (imports `SteklovAudit.H5CutoffInterface`): replace row (i)
+- [x] G136. `SteklovAudit/H5CutoffRatioSufficient.lean` (imports `SteklovAudit.H5CutoffInterface`): replace row (i)
       by two named inputs. `GapLinear Y c L₁`: `0 < c` and `c * L ≤ L − μ*(L)` for `L ≥ L₁`; `EnergySmall Y`:
       `∀ η > 0, eventually Lip L * E_L ≤ η * L²` (with `E_L` the certificate's `E`). Theorem
       `ratioLittleO_of_gap_energy` (`div_le_iff₀`, `nlinarith`); also `ratio_le_of_gap` (`ratio L ≤ Lip L * E_L /
@@ -2315,12 +2315,17 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       Written by the formalize task 2026-11-23 (uncompiled at push): `GapLinear`, `EnergySmall`, `ratio_le_of_gap`
       (with the extra hypothesis `0 ≤ Lip L · E_L`, needed for monotonicity in the denominator),
       `ratioLittleO_of_gap_energy`. Next run: tick if STATUS shows it compiled.
-- [ ] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
+      Ticked 2026-11-23: all theorems of `H5CutoffRatioSufficient` verified at d9fc37b (CI PASS, 1261/1261).
+- [~] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
       `SteklovAudit.H5CutoffRatioSufficient`, `SteklovAudit.FullTraceSmallSeparate`): assemble and check. Theorem
       `h5_of_weak_rows`: (ii) + `GapLinear` + `EnergySmall` + `WindowTraceBound` give `|D L| = o(L)`. Non-vacuity:
       `zeroFamily` (G132) satisfies `GapLinear` (`c = 1/2`, `L₁ = 1`), `EnergySmall` and `WindowTraceBound`
       (`C = K = 0`, `ε = 0`); theorem `weak_rows_zeroFamily`. F table text: the cutoff route now runs on (ii) plus three
       weaker named inputs, each satisfiable; (ii) remains the geometric question.
+      Written by Josiah's interactive session 2026-11-23 at c629c72 (uncompiled at push): `h5_of_weak_rows`,
+      `gapLinear_zeroFamily`, `energySmall_zeroFamily`, `windowTraceBound_zeroFamily`, `weak_rows_zeroFamily`, and
+      `weak_rows_need_traceMatches` ((ii) cannot be dropped: the zero family meets the three weaker inputs but not
+      `TraceMatches idD`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
 
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
