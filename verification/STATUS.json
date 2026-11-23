@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 22:33 UTC",
+  "checked_at": "2026-11-23 22:45 UTC",
   "lean_exit_code": 0,
-  "commit": "c12ad9edaf3e9ce13d9d30d3e43e897ad625f9f5",
-  "last_passing_commit": "c12ad9edaf3e9ce13d9d30d3e43e897ad625f9f5",
-  "library_declarations_checked": 1353,
-  "library_declarations": 1353,
+  "commit": "224b40a80348d9a014c1eeaf9968279edcbec6d9",
+  "last_passing_commit": "224b40a80348d9a014c1eeaf9968279edcbec6d9",
+  "library_declarations_checked": 1357,
+  "library_declarations": 1357,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1353,
-  "verified": 1353,
+  "theorems": 1357,
+  "verified": 1357,
   "problems": [],
   "modules_audited": [
     {
@@ -816,6 +816,11 @@
       "file": "H5WindowWitness.lean",
       "declared": 9,
       "audited": 9
+    },
+    {
+      "file": "H5bQuantifierOrder.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "HSBasisIndependence.lean",
@@ -11074,6 +11079,46 @@
     {
       "file": "H5WindowWitness.lean",
       "theorem": "SteklovAudit.H5WindowWitness.arctan_shift_nonconst",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5bQuantifierOrder.lean",
+      "theorem": "SteklovAudit.H5bQuantifierOrder.model_target",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5bQuantifierOrder.lean",
+      "theorem": "SteklovAudit.H5bQuantifierOrder.model_not_uniform",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5bQuantifierOrder.lean",
+      "theorem": "SteklovAudit.H5bQuantifierOrder.model_small_gamma_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5bQuantifierOrder.lean",
+      "theorem": "SteklovAudit.H5bQuantifierOrder.model_limit_not_littleO",
       "axioms": [
         "propext",
         "Classical.choice",

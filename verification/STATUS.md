@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 22:33 UTC at commit `c12ad9edaf3e`. Last passing commit: `c12ad9edaf3e`.
+Checked 2026-11-23 22:45 UTC at commit `224b40a80348`. Last passing commit: `224b40a80348`.
 
-Library declarations checked: 1353 of 1353 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1357 of 1357 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 225 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 226 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1022,6 +1022,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_lipGroup` | verified (standard axioms only) |
 | H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_profile_nonjunk` | verified (standard axioms only) |
 | H5WindowWitness.lean | `SteklovAudit.H5WindowWitness.arctan_shift_nonconst` | verified (standard axioms only) |
+| H5bQuantifierOrder.lean | `SteklovAudit.H5bQuantifierOrder.model_target` | verified (standard axioms only) |
+| H5bQuantifierOrder.lean | `SteklovAudit.H5bQuantifierOrder.model_not_uniform` | verified (standard axioms only) |
+| H5bQuantifierOrder.lean | `SteklovAudit.H5bQuantifierOrder.model_small_gamma_eq` | verified (standard axioms only) |
+| H5bQuantifierOrder.lean | `SteklovAudit.H5bQuantifierOrder.model_limit_not_littleO` | verified (standard axioms only) |
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.re_star_mul_self` | verified (standard axioms only) |
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.hsSq_nonneg` | verified (standard axioms only) |
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.hsSq_zero` | verified (standard axioms only) |
