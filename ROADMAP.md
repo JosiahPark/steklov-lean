@@ -2488,7 +2488,7 @@ law reductions for (7.38)/(7.45), scalar form, no continuum operator). Everythin
 analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6 or
 Theorem 1.3 / 11.1 for the actual operator.
 
-- [ ] G146. `SteklovAudit/WindowLocalMassBounded.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): with
+- [x] G146. `SteklovAudit/WindowLocalMassBounded.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): with
       `O(h⁻¹)` local mass, the window route needs only a BOUNDED HS defect (row 3, a strictly weaker input than the
       vanishing `ε` of G133's `littleO_of_window_defect`). Theorems: `sqrt_local_mass_eq` (for `0 < L`, `0 ≤ Mloc`:
       `√(Mloc * L) = L * √(Mloc * (1 / L))`), `littleO_of_window_bounded_defect` (`C K ε₀ Mloc ≥ 0`; if for every
@@ -2503,6 +2503,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       `eps_of_bounded_small` (direct `δ`-argument with `h₀ = (δ / (ε₀ + 1)) ^ 2 / (Mloc + 1)`),
       `littleO_of_window_bounded_defect` (via `littleO_of_window_defect` with `ε h = ε₀ √(Mloc h)`), and
       `local_mass_rate_needed`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1333/1333 at 9436cd9 lists all 4 theorems of
+      `WindowLocalMassBounded` as verified (standard axioms only).
 - [ ] G147. `SteklovAudit/GrowthInputsWitness.lean` (imports `SteklovAudit.TraceLocalMassGrowth`): definition check
       for G145 (row 3): the hypotheses of `trace_littleO_of_growth` hold for a family with NONZERO defect and nonzero
       trace, so the theorem is not vacuous. Model on `ι = κ = Fin 1`: `a = fun _ => 1 / L`, `b = fun _ => 0`,
@@ -2512,6 +2514,15 @@ Theorem 1.3 / 11.1 for the actual operator.
       `L > 0`), `growth_inputs_nonvacuous` (all hypotheses of `trace_littleO_of_growth` hold with `Mloc = 1`). If the
       piecewise definitions make this exceed about 120 lines, prove the four computations only and record the
       assembly as G147b. F table text: the growth inputs are consistent with a nonzero defect.
+      Written by the formalize task 2026-11-23 at 6494ddf (uncompiled at push). FINDING: the hypotheses of
+      `trace_littleO_of_growth` are degenerate: `hJ : ∀ L, hs2 (D L).J ≤ Mloc * L` at `L = -1` forces `Mloc = 0`,
+      hence `J = 0` at every scale and a zero trace comparison (`growth_hJ_forces_Mloc_zero`,
+      `growth_hJ_forces_J_zero`, `growth_trace_zero`), so the model above cannot satisfy it. Repair as a NEW theorem
+      (G145 untouched): `trace_littleO_of_growth_pos` with `hK`, `hJ` asked only for `0 < L`. Witness on
+      `Fin 1 × Fin 1` (`wD`, `wε = 1/√L`): `hs2_fin1`, `witness_K_hs2`, `witness_J_hs2`, `witness_eps_sq`,
+      `witness_eps_nonneg`, `witness_rate`, `witness_trace_eq_one`, `growth_inputs_nonvacuous` (nonzero defect,
+      trace `= 1`), `witness_littleO`. About 150 Lean lines (over the 120 guide, kept in one file for the finding).
+      Next run: tick if STATUS shows it compiled.
 - [ ] G148. `SteklovAudit/ModelEdgeLawGammaFamily.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): the
       `γ`-order of limits behind (11.3)/(7.38) (row 4). Theorems: `edge_law_of_gamma_family` (`N main : ℝ → ℝ`,
       `0 ≤ C`; if for every `γ > 0` there is `r` with `r = o(L)` in `η`-form and eventually
