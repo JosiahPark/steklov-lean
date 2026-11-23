@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 04:09 UTC",
+  "checked_at": "2026-11-23 04:21 UTC",
   "lean_exit_code": 0,
-  "commit": "560741a7cbda3975af1b4802d8e6fa412f6089d8",
-  "last_passing_commit": "560741a7cbda3975af1b4802d8e6fa412f6089d8",
-  "library_declarations_checked": 1294,
-  "library_declarations": 1294,
+  "commit": "2ae625a9f6e63c2bfe3fd37aabda7009b3a78ff8",
+  "last_passing_commit": "2ae625a9f6e63c2bfe3fd37aabda7009b3a78ff8",
+  "library_declarations_checked": 1298,
+  "library_declarations": 1298,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1294,
-  "verified": 1294,
+  "theorems": 1298,
+  "verified": 1298,
   "problems": [],
   "modules_audited": [
     {
@@ -1051,6 +1051,11 @@
       "file": "TetraAffineFlux.lean",
       "declared": 6,
       "audited": 6
+    },
+    {
+      "file": "TraceLocalMass.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "TraceNormBudget.lean",
@@ -13301,6 +13306,46 @@
     {
       "file": "TetraAffineFlux.lean",
       "theorem": "SteklovAudit.TetraAffineFlux.cutoff_tail_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMass.lean",
+      "theorem": "SteklovAudit.TraceLocalMass.trace_cs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMass.lean",
+      "theorem": "SteklovAudit.TraceLocalMass.trace_local_mass_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMass.lean",
+      "theorem": "SteklovAudit.TraceLocalMass.littleO_of_bounded_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMass.lean",
+      "theorem": "SteklovAudit.TraceLocalMass.hs2_zero_array",
       "axioms": [
         "propext",
         "Classical.choice",

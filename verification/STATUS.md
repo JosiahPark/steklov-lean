@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 04:09 UTC at commit `560741a7cbda`. Last passing commit: `560741a7cbda`.
+Checked 2026-11-23 04:21 UTC at commit `2ae625a9f6e6`. Last passing commit: `2ae625a9f6e6`.
 
-Library declarations checked: 1294 of 1294 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1298 of 1298 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 216 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 217 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1249,6 +1249,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_orthogonal` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_energy` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.cutoff_tail_moment` | verified (standard axioms only) |
+| TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.trace_cs` | verified (standard axioms only) |
+| TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.trace_local_mass_le` | verified (standard axioms only) |
+| TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.littleO_of_bounded_defect` | verified (standard axioms only) |
+| TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.hs2_zero_array` | verified (standard axioms only) |
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_trace_le_sum_abs_diag` | verified (standard axioms only) |
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.trace_diagonal_mul` | verified (standard axioms only) |
 | TraceNormBudget.lean | `SteklovAudit.TraceNormBudget.abs_signDiag_le` | verified (standard axioms only) |
