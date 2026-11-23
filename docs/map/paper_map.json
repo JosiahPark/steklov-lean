@@ -58,7 +58,9 @@
   "TaylorRemainder": 3,
   "TriangleQuadrature": 3,
   "DuhamelSpectral": 3,
+  "DuhamelOperatorFin": 3,
   "HSBasisIndependence": 3,
+  "HSBasisIndependenceReal": 3,
   "CumulativeBudgetQuantifiers": 3,
   "FourierOneOverT": 3,
   "DuhamelWindow": 3,
@@ -451,6 +453,11 @@
    "kind": "outright",
    "note": "HS form of (7.24) in spectral coordinates with time factor: Σ|J_ij|²|e^{-itλ_i}−e^{-itμ_j}|² ≤ t²Σ|J_ij|²(λ_i−μ_j)² (DuhamelSpectral; finite-dimensional, defect bound not proved).",
    "page": 14
+  },
+  "duhamel_hs_matrix": {
+   "kind": "outright",
+   "page": 14,
+   "note": "HS form of (7.24) for the matrices themselves, not only in spectral coordinates: hsSq(e^{−itA}J−Je^{−itB}) ≤ t²·hsSq(AJ−JB) for A, B given with unitary diagonalizations (DuhamelOperatorFin; finite-dimensional, defect bound not proved)."
   },
   "duhamel_hs_of_inputs": {
    "kind": "conditional",
