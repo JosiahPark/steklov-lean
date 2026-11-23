@@ -2316,7 +2316,7 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       (with the extra hypothesis `0 ≤ Lip L · E_L`, needed for monotonicity in the denominator),
       `ratioLittleO_of_gap_energy`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23: all theorems of `H5CutoffRatioSufficient` verified at d9fc37b (CI PASS, 1261/1261).
-- [~] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
+- [x] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
       `SteklovAudit.H5CutoffRatioSufficient`, `SteklovAudit.FullTraceSmallSeparate`): assemble and check. Theorem
       `h5_of_weak_rows`: (ii) + `GapLinear` + `EnergySmall` + `WindowTraceBound` give `|D L| = o(L)`. Non-vacuity:
       `zeroFamily` (G132) satisfies `GapLinear` (`c = 1/2`, `L₁ = 1`), `EnergySmall` and `WindowTraceBound`
@@ -2326,11 +2326,73 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       `gapLinear_zeroFamily`, `energySmall_zeroFamily`, `windowTraceBound_zeroFamily`, `weak_rows_zeroFamily`, and
       `weak_rows_need_traceMatches` ((ii) cannot be dropped: the zero family meets the three weaker inputs but not
       `TraceMatches idD`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+      Ticked 2026-11-23: all 6 theorems verified at 9cc1a86 (CI PASS, 1267/1267).
 
 Later directions from the same review (too large for one run; listed so they are not lost): the HS-valued Duhamel
 identity with domain hypotheses and the bound `‖(e^{−itA}J − Je^{−itB})Z_h‖_HS ≤ |t| ε(h)` (keep the `|t|` factor so
 the cumulative Fourier integral's `1/t` cancels), then the trace comparison with local mass `O(h⁻¹)`; basis
-independence of the HS norm; affine harmonic functions in the DtN domain with the stated normal derivatives.
+independence of the HS norm; affine harmonic functions in the DtN domain with the stated normal derivatives. These are now G138–G142
+below.
+
+Items G138–G142 added by Josiah's interactive session on 2026-11-23. They split the "later directions" above into
+one-run steps. Everything stays finite-dimensional: the operators are matrices given with their diagonalizations,
+and the Steklov / DtN operator, its domain and its eigenbasis remain named hypotheses. Each file states in its
+docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11.1.
+
+- [ ] G138. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): the HS norm does not depend on the
+      orthonormal basis. For `M : Matrix (Fin m) (Fin n) ℂ` put `hsSq M := ∑ i, ∑ j, ‖M i j‖ ^ 2`. Theorems:
+      `hsSq_eq_trace` (`hsSq M = (Matrix.trace (Mᴴ * M)).re`; `Matrix.trace`, `Matrix.mul_apply`,
+      `Complex.mul_conj`, `Complex.normSq_eq_norm_sq`), `hsSq_unitary_left` (`U ∈ Matrix.unitaryGroup (Fin m) ℂ →
+      hsSq (U * M) = hsSq M`: `Mᴴ Uᴴ U M = Mᴴ M`), `hsSq_unitary_right` (`V ∈ unitaryGroup (Fin n) ℂ → hsSq (M * V)
+      = hsSq M`: `Matrix.trace_mul_comm` to move `V Vᴴ` together), `hsSq_conj_unitary` (both sides), and
+      `hsSq_nonneg`. F table text: the spectral-coordinate HS norms used in G129/G134 equal the HS norm of the
+      operator in any orthonormal basis.
+- [ ] G139. `SteklovAudit/DuhamelOperatorFin.lean` (imports `SteklovAudit.DuhamelSpectral`,
+      `SteklovAudit.HSBasisIndependence`): the HS Duhamel bound for matrices given with diagonalizations, the
+      finite-dimensional stand-in for "domain hypotheses". `structure Diag (n)`: `U ∈ unitaryGroup (Fin n) ℂ`, real
+      eigenvalues `ev : Fin n → ℝ`. `def Diag.op D := U * diagonal (fun i => (ev i : ℂ)) * Uᴴ` and `def Diag.prop D
+      t := U * diagonal (fun i => exp ((-(t * ev i) : ℝ) * I)) * Uᴴ` (the propagator `e^{−itA}`; no matrix
+      exponential needed). For `DA : Diag m`, `DB : Diag n`, `J : Matrix (Fin m) (Fin n) ℂ` put `Jhat := DA.Uᴴ * J *
+      DB.U`. Theorems: `defect_coords` (`DA.Uᴴ * (DA.op * J − J * DB.op) * DB.U = fun i j => (ev_A i − ev_B j) *
+      Jhat i j`), `prop_coords` (same for `DA.prop t * J − J * DB.prop t` with the phase differences), and
+      `duhamel_hs_matrix : hsSq (DA.prop t * J − J * DB.prop t) ≤ t ^ 2 * hsSq (DA.op * J − J * DB.op)` (G138 to
+      pass to coordinates, then `duhamel_hs_le` on `Jhat`; `Matrix.ext`, `Matrix.mul_apply`, `Matrix.diagonal_mul`,
+      `Matrix.mul_diagonal`, `unitary.star_mul_self`). Use `Fin m`, `Fin n` throughout so `duhamel_hs_le` applies
+      unchanged. F table text: the HS Duhamel bound with the `|t|` factor holds for the operators, not only in
+      spectral coordinates, whenever both sides are given with orthonormal eigenbases.
+- [ ] G140. `SteklovAudit/DuhamelLocalized.lean` (imports `SteklovAudit.DuhamelOperatorFin`): the localized
+      form `‖(e^{−itA}J − Je^{−itB}) Z_h‖_HS ≤ |t| ε(h)`. `Z` is a function of `B`: `Zof DB z := DB.U * diagonal z *
+      DB.Uᴴ` with `z : Fin n → ℂ`. Theorems: `prop_comm_Z` (`DB.prop t * Zof DB z = Zof DB z * DB.prop t`, diagonal
+      matrices commute), `op_comm_Z`, `localized_eq` (`(DA.prop t * J − J * DB.prop t) * Z = DA.prop t * (J * Z) − (J
+      * Z) * DB.prop t`), `duhamel_localized_sq` (`hsSq ((DA.prop t * J − J * DB.prop t) * Z) ≤ t ^ 2 * hsSq ((DA.op *
+      J − J * DB.op) * Z)`, G139 with `J * Z`), and with the named hypothesis `DefectSmall (Zh : ℝ → Matrix ..) (ε :
+      ℝ → ℝ) : ∀ h, 0 < h → hsSq ((DA.op * J − J * DB.op) * Zh h) ≤ ε h ^ 2` the square-root form
+      `duhamel_localized_le` (`√(hsSq ..) ≤ |t| * |ε h|`, as in G134). Non-vacuity: `J = 0` (or `A = B`, `J = 1`)
+      satisfies `DefectSmall` with `ε = 0`. F table text: once the localized defect `‖(AJ − JB) Z_h‖_HS ≤ ε(h)` is
+      known, the localized propagated difference is `≤ |t| ε(h)`; the defect bound itself is the open HS row.
+- [ ] G141. `SteklovAudit/TraceLocalMass.lean` (imports `SteklovAudit.AbstractTransfer`): the trace comparison with
+      local mass `O(h⁻¹)`. For `D : AbstractTransfer.Data ι κ` (finite), Lipschitz `f` with constant `Lf ≥ 0`:
+      `trace_cs : |∑ i, ∑ j, (f (D.a i) − f (D.b j)) * D.J i j ^ 2| ≤ Lf * √(hs2 D.K) * √(hs2 D.J)` (from
+      `trace_transfer`, then Cauchy–Schwarz `Finset.inner_mul_le_norm_mul_norm` or `Finset.sum_mul_sq_le_sq_mul_sq`,
+      as in G109). Named inputs at scale `h > 0`: `hs2 D.K ≤ ε ^ 2` (defect) and `hs2 D.J ≤ Mloc / h` (local mass).
+      `trace_local_mass_le : .. ≤ Lf * |ε| * √(Mloc / h)`. Scalar corollary `littleO_of_bounded_defect`: if along a
+      family `Lf L ≤ Λ`, `|ε L| ≤ ε₀` and `h = 1/L`, the bound `Λ ε₀ √(Mloc L)` is `o(L)` (`√L ≤ η L` for large `L`).
+      Docstring must say plainly that `Lf` of the paper's cumulative multipliers may grow with `L`, so this corollary
+      is the bounded-Lipschitz case only. F table text: with a bounded defect and `O(h⁻¹)` local mass, the
+      Lipschitz trace comparison is `O(√L)`, hence `o(L)`, for multipliers with bounded Lipschitz constant.
+- [ ] G142. `SteklovAudit/Foundations/AffineHarmonic3D.lean` (imports Mathlib; Foundations, so the audit's
+      subdirectory rule from G118 applies): affine functions on `ℝ³` and their normal derivatives on the reference
+      tetrahedron of `TetraAffineFlux` (vertices `(1,1,1)`, `(1,−1,−1)`, `(−1,1,−1)`, `(−1,−1,1)`; face opposite `v`
+      has outward normal `−v / √3`). Work with `x y z : ℝ` as in `HalfPlaneDtN`. `u c p q r x y z := c + p x + q y
+      + r z`. Theorems: `hasDerivAt_u_x`, `_y`, `_z` (first partials `p`, `q`, `r`), `second_partials_zero` (each
+      second partial is `0`, so `Δu = 0`), `normal_derivative` (`HasDerivAt (fun s => u .. (x + s n₁) (y + s n₂) (z +
+      s n₃)) (p n₁ + q n₂ + r n₃) 0`), and `face_flux_values` (the four normal derivatives with `n = −v / √3`, e.g.
+      `−(p + q + r) / √3` on the face opposite `(1,1,1)`), plus `face_flux_sum_zero` (the four values sum to `0`, the
+      discrete divergence theorem for affine `u`). What it does NOT prove: that `u|∂T` lies in the DtN domain
+      (`H^{1/2}` traces, weak normal derivative), that the DtN map sends the trace to these values, the Green
+      identity, or Parseval for the probes. F table text: affine harmonic functions have constant normal derivative
+      on each face, with the values that `docs/affine-dtn-cutoff.md` uses; membership in the DtN domain stays a
+      paper step.
 
 ## Foundations (long-term)
 
