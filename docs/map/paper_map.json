@@ -66,7 +66,8 @@
   "FourierOneOverT": 3,
   "DuhamelWindow": 3,
   "ModelEdgeLawReduction": 3,
-  "TraceLocalMass": 3
+  "TraceLocalMass": 3,
+  "Foundations.AffineHarmonic3D": 3
  },
  "prefix_areas": {
   "Section5": 2,
