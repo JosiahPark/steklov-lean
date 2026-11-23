@@ -70,7 +70,8 @@
   "Foundations.AffineHarmonic3D": 3,
   "AffineSpectralPassageFin": 3,
   "AffineIdentificationNonvacuous": 3,
-  "TraceLocalMassGrowth": 3
+  "TraceLocalMassGrowth": 3,
+  "WindowLocalMassBounded": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1013,6 +1014,11 @@
   "littleO_of_split": {
    "kind": "outright",
    "note": "Generic helper for the order of limits in (7.29): if for every M the remainder is o(L) plus C·L/M with C uniform in M, it is o(L). The uniform tail bound and fixed-M estimate are not proved.",
+   "page": 14
+  },
+  "littleO_of_window_bounded_defect": {
+   "kind": "outright",
+   "note": "Generic helper for the order of limits in (7.29): with local spectral mass ≤ Mloc·L, a window bound C·L/T + K·T·ε₀·√(Mloc·L) with a merely BOUNDED defect ε₀ already gives o(L) (WindowLocalMassBounded, via littleO_of_window_defect). The window bound, the local mass bound and the defect bound are not proved.",
    "page": 14
   },
   "littleO_of_window_defect": {
