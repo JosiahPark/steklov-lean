@@ -2573,6 +2573,11 @@ Theorem 1.3 / 11.1 for the actual operator.
       `|E 1 γ L| ≤ C γ L` for all `γ > 0` and large `L`, so G148's hypothesis is a genuinely extra input). Docstring:
       the paper's order "L → ∞ then γ → 0" is forced; this file proves nothing about the actual `E`, `Emod`. F table
       text: H5b as stated is per-`γ`; the `γ`-uniform cutoff error is a separate input.
+      Written by the formalize task 2026-11-23 at 224b40a (uncompiled at push): `qE`, `model_target`,
+      `model_not_uniform`, `model_small_gamma_eq`, `model_limit_not_littleO`. The draft `model_gamma_bound_fails` was
+      dropped as FALSE for this model (`qE 1 γ L = 1 / γ ≤ C γ L` for large `L`); it is replaced by the two limit
+      theorems (the `γ → 0` limit at fixed `L` is `max L 0`, which is not `o(L)`). Next run: tick if STATUS shows it
+      compiled.
 - [ ] G151. `SteklovAudit/TetraEdgeLawOverlap.lean` (imports `SteklovAudit.ModelEdgeLawSixEdges`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): the tetrahedron edge law from six edge laws plus a collar-overlap error
       that shrinks with the collar parameter (row 4, (7.45)). Theorems: `tetra_edge_law_of_overlap` (`N face : ℝ → ℝ`,
