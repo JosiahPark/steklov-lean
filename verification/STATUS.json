@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 00:23 UTC",
+  "checked_at": "2026-11-23 00:40 UTC",
   "lean_exit_code": 0,
-  "commit": "d9fc37bc84a621cda47a6208596ef435e19f6588",
-  "last_passing_commit": "d9fc37bc84a621cda47a6208596ef435e19f6588",
-  "library_declarations_checked": 1261,
-  "library_declarations": 1261,
+  "commit": "9cc1a86773c4e68626e7c8784254a63900dbfccf",
+  "last_passing_commit": "9cc1a86773c4e68626e7c8784254a63900dbfccf",
+  "library_declarations_checked": 1267,
+  "library_declarations": 1267,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1261,
-  "verified": 1261,
+  "theorems": 1267,
+  "verified": 1267,
   "problems": [],
   "modules_audited": [
     {
@@ -316,6 +316,11 @@
       "file": "H5CutoffTerminalIff.lean",
       "declared": 2,
       "audited": 2
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "declared": 6,
+      "audited": 6
     },
     {
       "file": "H5DeltaVanishNeeded.lean",
@@ -5631,6 +5636,66 @@
     {
       "file": "H5CutoffTerminalIff.lean",
       "theorem": "SteklovAudit.H5CutoffTerminalIff.h5_iff_fullTraceSmall",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.h5_of_weak_rows",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.gapLinear_zeroFamily",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.energySmall_zeroFamily",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.windowTraceBound_zeroFamily",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.weak_rows_zeroFamily",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffWeakRows.lean",
+      "theorem": "SteklovAudit.H5CutoffWeakRows.weak_rows_need_traceMatches",
       "axioms": [
         "propext",
         "Classical.choice",

@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 00:23 UTC at commit `d9fc37bc84a6`. Last passing commit: `d9fc37bc84a6`.
+Checked 2026-11-23 00:40 UTC at commit `9cc1a86773c4`. Last passing commit: `9cc1a86773c4`.
 
-Library declarations checked: 1261 of 1261 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1267 of 1267 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 212 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 213 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -484,6 +484,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffTerminal.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_route` | verified (standard axioms only) |
 | H5CutoffTerminalIff.lean | `SteklovAudit.H5CutoffTerminalIff.fullTraceSmall_of_h5` | verified (standard axioms only) |
 | H5CutoffTerminalIff.lean | `SteklovAudit.H5CutoffTerminalIff.h5_iff_fullTraceSmall` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.h5_of_weak_rows` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.gapLinear_zeroFamily` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.energySmall_zeroFamily` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.windowTraceBound_zeroFamily` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.weak_rows_zeroFamily` | verified (standard axioms only) |
+| H5CutoffWeakRows.lean | `SteklovAudit.H5CutoffWeakRows.weak_rows_need_traceMatches` | verified (standard axioms only) |
 | H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_hs2J` | verified (standard axioms only) |
 | H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_hs2K` | verified (standard axioms only) |
 | H5DeltaVanishNeeded.lean | `SteklovAudit.H5DeltaVanishNeeded.linD_massLin` | verified (standard axioms only) |
