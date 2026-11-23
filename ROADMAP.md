@@ -2426,7 +2426,7 @@ G145 serves row 3 (abstract cumulative budget refinement) as a one-run reduction
 Everything is finite-dimensional or scalar. None of them constructs the DtN operator or proves H1–H6, (7.29) or
 Theorem 1.3 / 11.1.
 
-- [ ] G143. `SteklovAudit/AffineSpectralPassageFin.lean` (imports `SteklovAudit.AffineParsevalDischarge`): the
+- [x] G143. `SteklovAudit/AffineSpectralPassageFin.lean` (imports `SteklovAudit.AffineParsevalDischarge`): the
       finite-dimensional spectral-theorem passage for `AffineOperatorPre` (row 2). For a finite-dimensional real
       inner-product space `E` with `hn : Module.finrank ℝ E = n`, `T : E →ₗ[ℝ] E` with `hT : T.IsSymmetric` and probes
       `u : Fin 4 → E`, define `preOfSymmetric hT hn u : AffineOperatorPre E (Fin n)` with `D := ⊤`,
@@ -2442,6 +2442,8 @@ Theorem 1.3 / 11.1.
       Written by the formalize task 2026-11-23 at dc4f8be (uncompiled at push): `preOfSymmetric`,
       `preOfSymmetric_lam`, `preOfSymmetric_A_apply`, `preOfSymmetric_u`, `preOfSymmetric_b`, `full_trace_fin`,
       `full_trace_fin_sum` (Finset-sum form via `tsum_fintype`). Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1314/1314 at dc4f8be lists all 6 theorems of
+      `AffineSpectralPassageFin` as verified (standard axioms only).
 - [ ] G144. `SteklovAudit/AffineIdentificationNonvacuous.lean` (imports `SteklovAudit.AffineSpectralPassageFin`):
       `BoundaryIdentification` is satisfiable, so the G126/G143 bounds are not vacuous (row 2, definition check). Target
       values: mass `1` per probe (`mass_phi0`–`mass_phi3` divided by `12`), residual energy `r_j ^ 2` with
@@ -2453,6 +2455,13 @@ Theorem 1.3 / 11.1.
       (preOfSymmetric hT hn u) a`. If this exceeds about 120 lines, prove only `block_residual` and `T_symm` here and
       record the assembly as G144b. F table text: the identification hypothesis is consistent; it carries the geometry
       but is not contradictory.
+      Written by the formalize task 2026-11-23 at d37ed87 (uncompiled at push), with a smaller model than the one
+      above: `E` any inner-product space with orthonormal `e : Fin 3 → E`, `blockT e μ r` with matrix
+      `[[0,0,0],[0,μ,r],[0,r,0]]`, probes `e 0, e 1, e 1, e 1`, `μ = muAff a`, `r = rRes a = √(24/12/(√3 tPar a)²)`.
+      Theorems: `blockT_apply`, `blockT_symm`, `rRes_sq`, `fin4_cases`, `e_inner_self`, `blockT_e0`,
+      `block_residual`, `block_residual_norm`, `block_residual_inner`, `identification_of_block` (all `a`, no
+      `0 < a` needed), `exists_identification` (on `EuclideanSpace ℝ (Fin 3)`). Finding: `BoundaryIdentification`
+      has no cross-probe condition, so probes 1–3 may coincide. Next run: tick if STATUS shows it compiled.
 - [ ] G145. `SteklovAudit/TraceLocalMassGrowth.lean` (imports `SteklovAudit.TraceLocalMass`): relax G141's
       bounded-Lipschitz corollary to growing constants (row 3, toward row 5). Theorems: `littleO_of_growing_lipschitz`
       (for `Λ ε : ℝ → ℝ` with `0 ≤ Λ L`, `0 ≤ ε L`, `0 ≤ Mloc`: if `∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Λ L * ε L ≤ η * √L` then
