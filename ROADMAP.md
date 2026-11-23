@@ -2295,7 +2295,7 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       after the fixes 49864a0/59e06b5 (CI run #531: 1249/1249 verified at 59e06b5).
       Ticked 2026-11-22: all 7 `DuhamelWindow` theorems verified at ec4e551 (1256/1256) after the fix that passes
       `|hsDiff t| ≤ |t| hsDefect` (via `hsDiff_nonneg`) to `fourier_cancel_inv`.
-- [ ] G135. `SteklovAudit/WindowDefectFullTrace.lean` (imports `SteklovAudit.H5CutoffTerminal`,
+- [x] G135. `SteklovAudit/WindowDefectFullTrace.lean` (imports `SteklovAudit.H5CutoffTerminal`,
       `SteklovAudit.CumulativeBudgetQuantifiers`): replace row (iii) by the window-shaped input. Named hypothesis
       `WindowTraceBound Y C K ε`: `0 ≤ C`, `0 ≤ K`, `ε h → 0` as `h → 0⁺` (in the form G133 uses), and for every
       `T > 0`, eventually `|S_L| ≤ C L / T + K T L ε (1/L)`. Theorems: `fullTraceSmall_of_window` (via
@@ -2304,12 +2304,17 @@ the DtN operator or proves H1–H6, (7.29) or Theorem 1.3 / 11.1.
       Written by the formalize task 2026-11-22 (uncompiled at push): structure `WindowTraceBound` (fields `C_nonneg`,
       `K_nonneg`, `eps_small`, `bound`), `fullTraceSmall_of_window`, `h5_of_cutoff_window`,
       `windowTraceBound_of_trace_zero` (non-vacuity). Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23: all 3 theorems verified at a44d808 (CI run #537, 1259/1259; the run is marked failed only
+      after verification, in the status push).
 - [ ] G136. `SteklovAudit/H5CutoffRatioSufficient.lean` (imports `SteklovAudit.H5CutoffInterface`): replace row (i)
       by two named inputs. `GapLinear Y c L₁`: `0 < c` and `c * L ≤ L − μ*(L)` for `L ≥ L₁`; `EnergySmall Y`:
       `∀ η > 0, eventually Lip L * E_L ≤ η * L²` (with `E_L` the certificate's `E`). Theorem
       `ratioLittleO_of_gap_energy` (`div_le_iff₀`, `nlinarith`); also `ratio_le_of_gap` (`ratio L ≤ Lip L * E_L /
       (c L)` for `L ≥ max L₁ 1`). F table text: (i) holds if the comparison values keep a linear gap below the cutoff
       and `Lip · E = o(L²)`; both stay open for the actual edge family.
+      Written by the formalize task 2026-11-23 (uncompiled at push): `GapLinear`, `EnergySmall`, `ratio_le_of_gap`
+      (with the extra hypothesis `0 ≤ Lip L · E_L`, needed for monotonicity in the denominator),
+      `ratioLittleO_of_gap_energy`. Next run: tick if STATUS shows it compiled.
 - [ ] G137. `SteklovAudit/H5CutoffWeakRows.lean` (imports `SteklovAudit.WindowDefectFullTrace`,
       `SteklovAudit.H5CutoffRatioSufficient`, `SteklovAudit.FullTraceSmallSeparate`): assemble and check. Theorem
       `h5_of_weak_rows`: (ii) + `GapLinear` + `EnergySmall` + `WindowTraceBound` give `|D L| = o(L)`. Non-vacuity:
