@@ -59,6 +59,7 @@
   "TriangleQuadrature": 3,
   "DuhamelSpectral": 3,
   "DuhamelOperatorFin": 3,
+  "DuhamelLocalized": 3,
   "HSBasisIndependence": 3,
   "HSBasisIndependenceReal": 3,
   "CumulativeBudgetQuantifiers": 3,
@@ -453,6 +454,16 @@
    "kind": "outright",
    "note": "HS form of (7.24) in spectral coordinates with time factor: Σ|J_ij|²|e^{-itλ_i}−e^{-itμ_j}|² ≤ t²Σ|J_ij|²(λ_i−μ_j)² (DuhamelSpectral; finite-dimensional, defect bound not proved).",
    "page": 14
+  },
+  "duhamel_localized_sq": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Localized HS form of (7.24): for Z = z(B) a function of B, hsSq((e^{−itA}J−Je^{−itB})Z) ≤ t²·hsSq((AJ−JB)Z) (DuhamelLocalized; finite-dimensional, localized defect bound not proved)."
+  },
+  "duhamel_localized_le": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "‖(e^{−itA}J−Je^{−itB})Z_h‖_HS ≤ |t|·|ε(h)|, taking the localized defect bound ‖(AJ−JB)Z_h‖_HS ≤ ε(h) (DefectSmall, the Lemma 7.1′ HS row) as a named hypothesis (DuhamelLocalized; finite-dimensional)."
   },
   "duhamel_hs_matrix": {
    "kind": "outright",
