@@ -2353,7 +2353,7 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23: all 9 theorems of `HSBasisIndependence` verified (CI PASS at e5f24d5, 1271/1271; #548 at
       24a73a2 also passed).
-- [ ] G139. `SteklovAudit/DuhamelOperatorFin.lean` (imports `SteklovAudit.DuhamelSpectral`,
+- [x] G139. `SteklovAudit/DuhamelOperatorFin.lean` (imports `SteklovAudit.DuhamelSpectral`,
       `SteklovAudit.HSBasisIndependence`): the HS Duhamel bound for matrices given with diagonalizations, the
       finite-dimensional stand-in for "domain hypotheses". `structure Diag (n)`: `U ∈ unitaryGroup (Fin n) ℂ`, real
       eigenvalues `ev : Fin n → ℝ`. `def Diag.op D := U * diagonal (fun i => (ev i : ℂ)) * Uᴴ` and `def Diag.prop D
@@ -2370,6 +2370,8 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `Diag.prop`, `conj_comm_coords`, `defect_coords`, `prop_coords`, `hsSq_ct_left`, `hsSq_coords`, `hsSq_of_mul`,
       `norm_ofReal_sub_sq`, `duhamel_hs_matrix`, `duhamel_hs_matrix_zero` (non-vacuity). Next run: tick if STATUS
       shows it compiled.
+      Ticked 2026-11-23: all 9 theorems verified at 2b43bc9 (CI PASS, 1285/1285), after a repair of the ill-typed
+      `duhamel_hs_matrix_zero` statement (second `0` annotated).
 - [ ] G140. `SteklovAudit/DuhamelLocalized.lean` (imports `SteklovAudit.DuhamelOperatorFin`): the localized
       form `‖(e^{−itA}J − Je^{−itB}) Z_h‖_HS ≤ |t| ε(h)`. `Z` is a function of `B`: `Zof DB z := DB.U * diagonal z *
       DB.Uᴴ` with `z : Fin n → ℂ`. Theorems: `prop_comm_Z` (`DB.prop t * Zof DB z = Zof DB z * DB.prop t`, diagonal
@@ -2380,6 +2382,10 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `duhamel_localized_le` (`√(hsSq ..) ≤ |t| * |ε h|`, as in G134). Non-vacuity: `J = 0` (or `A = B`, `J = 1`)
       satisfies `DefectSmall` with `ε = 0`. F table text: once the localized defect `‖(AJ − JB) Z_h‖_HS ≤ ε(h)` is
       known, the localized propagated difference is `≤ |t| ε(h)`; the defect bound itself is the open HS row.
+      Written by the formalize task 2026-11-23 (uncompiled at push): `Zof`, `conj_diag_mul`, `diagonal_mul_comm`,
+      `conj_diag_comm`, `prop_comm_Z`, `op_comm_Z`, `localized_eq` (general `P J Q Z` with `Q Z = Z Q`),
+      `duhamel_localized_sq`, `DefectSmall` (with `Z_h = Zof DB (zh h)`), `duhamel_localized_le`, `defectSmall_zero`
+      (non-vacuity, `J = 0`, `ε = 0`). Next run: tick if STATUS shows it compiled.
 - [ ] G141. `SteklovAudit/TraceLocalMass.lean` (imports `SteklovAudit.AbstractTransfer`): the trace comparison with
       local mass `O(h⁻¹)`. For `D : AbstractTransfer.Data ι κ` (finite), Lipschitz `f` with constant `Lf ≥ 0`:
       `trace_cs : |∑ i, ∑ j, (f (D.a i) − f (D.b j)) * D.J i j ^ 2| ≤ Lf * √(hs2 D.K) * √(hs2 D.J)` (from
