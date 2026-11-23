@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 18:58 UTC at commit `f0f46859ae6d`. Last passing commit: `f0f46859ae6d`.
+Checked 2026-11-23 19:18 UTC at commit `9436cd9b4286`. Last passing commit: `9436cd9b4286`.
 
-Library declarations checked: 1329 of 1329 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1333 of 1333 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 221 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 222 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1356,3 +1356,7 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_window` | verified (standard axioms only) |
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_window` | verified (standard axioms only) |
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.windowTraceBound_of_trace_zero` | verified (standard axioms only) |
+| WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.sqrt_local_mass_eq` | verified (standard axioms only) |
+| WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.eps_of_bounded_small` | verified (standard axioms only) |
+| WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.littleO_of_window_bounded_defect` | verified (standard axioms only) |
+| WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.local_mass_rate_needed` | verified (standard axioms only) |
