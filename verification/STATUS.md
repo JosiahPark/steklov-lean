@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 22:45 UTC at commit `224b40a80348`. Last passing commit: `224b40a80348`.
+Checked 2026-11-23 23:20 UTC at commit `7329a82fd70a`. Last passing commit: `7329a82fd70a`.
 
-Library declarations checked: 1357 of 1357 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1359 of 1359 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 226 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 227 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1300,6 +1300,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_orthogonal` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_energy` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.cutoff_tail_moment` | verified (standard axioms only) |
+| TetraEdgeLawOverlap.lean | `SteklovAudit.TetraEdgeLawOverlap.tetra_edge_law_of_overlap` | verified (standard axioms only) |
+| TetraEdgeLawOverlap.lean | `SteklovAudit.TetraEdgeLawOverlap.overlap_must_shrink` | verified (standard axioms only) |
 | TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.trace_cs` | verified (standard axioms only) |
 | TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.trace_local_mass_le` | verified (standard axioms only) |
 | TraceLocalMass.lean | `SteklovAudit.TraceLocalMass.littleO_of_bounded_defect` | verified (standard axioms only) |

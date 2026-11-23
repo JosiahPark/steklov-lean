@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 22:45 UTC",
+  "checked_at": "2026-11-23 23:20 UTC",
   "lean_exit_code": 0,
-  "commit": "224b40a80348d9a014c1eeaf9968279edcbec6d9",
-  "last_passing_commit": "224b40a80348d9a014c1eeaf9968279edcbec6d9",
-  "library_declarations_checked": 1357,
-  "library_declarations": 1357,
+  "commit": "7329a82fd70abd81abb832974f2a73e32f1881aa",
+  "last_passing_commit": "7329a82fd70abd81abb832974f2a73e32f1881aa",
+  "library_declarations_checked": 1359,
+  "library_declarations": 1359,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1357,
-  "verified": 1357,
+  "theorems": 1359,
+  "verified": 1359,
   "problems": [],
   "modules_audited": [
     {
@@ -1086,6 +1086,11 @@
       "file": "TetraAffineFlux.lean",
       "declared": 6,
       "audited": 6
+    },
+    {
+      "file": "TetraEdgeLawOverlap.lean",
+      "declared": 2,
+      "audited": 2
     },
     {
       "file": "TraceLocalMass.lean",
@@ -13859,6 +13864,26 @@
     {
       "file": "TetraAffineFlux.lean",
       "theorem": "SteklovAudit.TetraAffineFlux.cutoff_tail_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraEdgeLawOverlap.lean",
+      "theorem": "SteklovAudit.TetraEdgeLawOverlap.tetra_edge_law_of_overlap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraEdgeLawOverlap.lean",
+      "theorem": "SteklovAudit.TetraEdgeLawOverlap.overlap_must_shrink",
       "axioms": [
         "propext",
         "Classical.choice",
