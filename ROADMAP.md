@@ -2499,6 +2499,10 @@ Theorem 1.3 / 11.1 for the actual operator.
       `r L = L`, `C = K = ε₀ = 1` satisfies it for every `T > 0` but is not `o(L)`; reuse
       `CumulativeBudgetQuantifiers.window_needs_vanishing`). F table text: given local mass `O(L)` (row "Localized
       spectral mass") and a window Lipschitz constant `O(T)`, the defect row needs boundedness, not decay.
+      Written by the formalize task 2026-11-23 at 9436cd9 (uncompiled at push): `sqrt_local_mass_eq`,
+      `eps_of_bounded_small` (direct `δ`-argument with `h₀ = (δ / (ε₀ + 1)) ^ 2 / (Mloc + 1)`),
+      `littleO_of_window_bounded_defect` (via `littleO_of_window_defect` with `ε h = ε₀ √(Mloc h)`), and
+      `local_mass_rate_needed`. Next run: tick if STATUS shows it compiled.
 - [ ] G147. `SteklovAudit/GrowthInputsWitness.lean` (imports `SteklovAudit.TraceLocalMassGrowth`): definition check
       for G145 (row 3): the hypotheses of `trace_littleO_of_growth` hold for a family with NONZERO defect and nonzero
       trace, so the theorem is not vacuous. Model on `ι = κ = Fin 1`: `a = fun _ => 1 / L`, `b = fun _ => 0`,
