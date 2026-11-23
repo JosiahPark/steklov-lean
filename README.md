@@ -25,7 +25,8 @@ includes all modules through G138.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
-- **Library:** 1271 of 1271 theorems compile with only Lean's standard axioms, in 213 audited files
+- **Library:** 1276 of 1276 theorems compile with only Lean's standard axioms at `f3e06b9` (02:59 UTC run summary;
+  `verification/STATUS.md` lags one commit behind), in 214 audited files
   (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
 - **As of the 02:17 UTC map build** (1271 theorems, 255 modules):
   - 271 prove a step of the preprint outright.
@@ -78,7 +79,7 @@ other input):
 | G128 | `H5CutoffSplitTerminal` | Full-trace smallness restated as a fixed-window part plus a uniform tail `C L / M` (equivalent form) |
 | G129 | `DuhamelSpectral` | HS Duhamel bound in spectral coordinates: propagated difference at most `\|t\|` times the commutator defect |
 | G130 | `FourierOneOverT` | The `1/t` weight of the cumulative Fourier integral cancels the `\|t\|`: window bound `2 T ε` |
-| G131, G138 | `HSBasisIndependence` | The HS norm does not depend on the orthonormal basis (finite dimension): `hsSq M = Re tr(MᴴM)`, unchanged by unitaries on either side. G138 rewrote the file and dropped G131's five theorems (`parseval_sq`, `hs_sum_eq_double`, `hs_sum_eq_adjoint`, `hs_sum_basis_indep`, `hs_sum_id`) |
+| G131, G138 | `HSBasisIndependence` | The HS norm does not depend on the orthonormal basis (finite dimension): `hsSq M = Re tr(MᴴM)`, unchanged by unitaries on either side. G138 rewrote the file and dropped G131's five theorems (`parseval_sq`, `hs_sum_eq_double`, `hs_sum_eq_adjoint`, `hs_sum_basis_indep`, `hs_sum_id`); they are restored unchanged in `HSBasisIndependenceReal` (`f3e06b9`) |
 | G132 | `FullTraceSmallSeparate` | Zero-weight family: full-trace smallness holds while `D = L` is not `o(L)`, so trace matching is the only link to `D` |
 | G133 | `CumulativeBudgetQuantifiers` | Order-of-limits forms of the (7.29) budget, incl. the window-defect shape `C L / T + K T L ε(1/L)` |
 | G134 | `DuhamelWindow` | Chains G129 into G130 for finite spectral data: `hsDiff t ≤ \|t\| · hsDefect`, window bound `2 T · hsDefect` |
