@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 02:51 UTC",
+  "checked_at": "2026-11-23 03:12 UTC",
   "lean_exit_code": 0,
-  "commit": "e5f24d58deee04dbce135f732cca0ab28e9e88ba",
-  "last_passing_commit": "e5f24d58deee04dbce135f732cca0ab28e9e88ba",
-  "library_declarations_checked": 1271,
-  "library_declarations": 1271,
+  "commit": "24a73a2c03812f5a4edf0142a79addb8c98231fe",
+  "last_passing_commit": "24a73a2c03812f5a4edf0142a79addb8c98231fe",
+  "library_declarations_checked": 1276,
+  "library_declarations": 1276,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1271,
-  "verified": 1271,
+  "theorems": 1276,
+  "verified": 1276,
   "problems": [],
   "modules_audited": [
     {
@@ -791,6 +791,11 @@
       "file": "HSBasisIndependence.lean",
       "declared": 9,
       "audited": 9
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "declared": 5,
+      "audited": 5
     },
     {
       "file": "HSNoTrace.lean",
@@ -10526,6 +10531,56 @@
     {
       "file": "HSBasisIndependence.lean",
       "theorem": "SteklovAudit.HSBasisIndependence.hsSq_conj_unitary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "theorem": "SteklovAudit.HSBasisIndependence.parseval_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "theorem": "SteklovAudit.HSBasisIndependence.hs_sum_eq_double",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "theorem": "SteklovAudit.HSBasisIndependence.hs_sum_eq_adjoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "theorem": "SteklovAudit.HSBasisIndependence.hs_sum_basis_indep",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "HSBasisIndependenceReal.lean",
+      "theorem": "SteklovAudit.HSBasisIndependence.hs_sum_id",
       "axioms": [
         "propext",
         "Classical.choice",

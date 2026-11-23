@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 02:51 UTC at commit `e5f24d58deee`. Last passing commit: `e5f24d58deee`.
+Checked 2026-11-23 03:12 UTC at commit `24a73a2c0381`. Last passing commit: `24a73a2c0381`.
 
-Library declarations checked: 1271 of 1271 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1276 of 1276 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 213 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 214 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -973,6 +973,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.hsSq_unitary_left` | verified (standard axioms only) |
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.hsSq_unitary_right` | verified (standard axioms only) |
 | HSBasisIndependence.lean | `SteklovAudit.HSBasisIndependence.hsSq_conj_unitary` | verified (standard axioms only) |
+| HSBasisIndependenceReal.lean | `SteklovAudit.HSBasisIndependence.parseval_sq` | verified (standard axioms only) |
+| HSBasisIndependenceReal.lean | `SteklovAudit.HSBasisIndependence.hs_sum_eq_double` | verified (standard axioms only) |
+| HSBasisIndependenceReal.lean | `SteklovAudit.HSBasisIndependence.hs_sum_eq_adjoint` | verified (standard axioms only) |
+| HSBasisIndependenceReal.lean | `SteklovAudit.HSBasisIndependence.hs_sum_basis_indep` | verified (standard axioms only) |
+| HSBasisIndependenceReal.lean | `SteklovAudit.HSBasisIndependence.hs_sum_id` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_diag` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.scalarDiag_off` | verified (standard axioms only) |
 | HSNoTrace.lean | `SteklovAudit.HSNoTrace.hs2_scalarDiag` | verified (standard axioms only) |
