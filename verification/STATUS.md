@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 03:53 UTC at commit `7cdb1e232fa6`. Last passing commit: `7cdb1e232fa6`.
+Checked 2026-11-23 04:09 UTC at commit `560741a7cbda`. Last passing commit: `560741a7cbda`.
 
-Library declarations checked: 1285 of 1285 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1294 of 1294 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 215 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 216 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -298,6 +298,15 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | DihedralThird.lean | `SteklovAudit.DihedralThird.upper_num` | verified (standard axioms only) |
 | DihedralThird.lean | `SteklovAudit.DihedralThird.lower_num` | verified (standard axioms only) |
 | DihedralThird.lean | `SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.conj_diag_mul` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.diagonal_mul_comm` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.conj_diag_comm` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.prop_comm_Z` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.op_comm_Z` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.localized_eq` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.duhamel_localized_sq` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.duhamel_localized_le` | verified (standard axioms only) |
+| DuhamelLocalized.lean | `SteklovAudit.DuhamelLocalized.defectSmall_zero` | verified (standard axioms only) |
 | DuhamelOperatorFin.lean | `SteklovAudit.DuhamelOperatorFin.conj_comm_coords` | verified (standard axioms only) |
 | DuhamelOperatorFin.lean | `SteklovAudit.DuhamelOperatorFin.defect_coords` | verified (standard axioms only) |
 | DuhamelOperatorFin.lean | `SteklovAudit.DuhamelOperatorFin.prop_coords` | verified (standard axioms only) |

@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 03:53 UTC",
+  "checked_at": "2026-11-23 04:09 UTC",
   "lean_exit_code": 0,
-  "commit": "7cdb1e232fa66259a7e806302b993846e5b1037b",
-  "last_passing_commit": "7cdb1e232fa66259a7e806302b993846e5b1037b",
-  "library_declarations_checked": 1285,
-  "library_declarations": 1285,
+  "commit": "560741a7cbda3975af1b4802d8e6fa412f6089d8",
+  "last_passing_commit": "560741a7cbda3975af1b4802d8e6fa412f6089d8",
+  "library_declarations_checked": 1294,
+  "library_declarations": 1294,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1285,
-  "verified": 1285,
+  "theorems": 1294,
+  "verified": 1294,
   "problems": [],
   "modules_audited": [
     {
@@ -136,6 +136,11 @@
       "file": "DihedralThird.lean",
       "declared": 11,
       "audited": 11
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "declared": 9,
+      "audited": 9
     },
     {
       "file": "DuhamelOperatorFin.lean",
@@ -3786,6 +3791,96 @@
     {
       "file": "DihedralThird.lean",
       "theorem": "SteklovAudit.DihedralThird.dihedralCoeff_tetra_decimal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.conj_diag_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.diagonal_mul_comm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.conj_diag_comm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.prop_comm_Z",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.op_comm_Z",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.localized_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.duhamel_localized_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.duhamel_localized_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "DuhamelLocalized.lean",
+      "theorem": "SteklovAudit.DuhamelLocalized.defectSmall_zero",
       "axioms": [
         "propext",
         "Classical.choice",
