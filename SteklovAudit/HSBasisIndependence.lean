@@ -22,7 +22,7 @@ open Matrix
 variable {m n : Type*} [Fintype m] [Fintype n]
 
 /-- Squared Hilbert–Schmidt norm of a complex matrix in the given coordinates. -/
-def hsSq (M : Matrix m n ℂ) : ℝ := ∑ i, ∑ j, ‖M i j‖ ^ 2
+noncomputable def hsSq (M : Matrix m n ℂ) : ℝ := ∑ i, ∑ j, ‖M i j‖ ^ 2
 
 theorem re_star_mul_self (z : ℂ) : (star z * z).re = ‖z‖ ^ 2 := by
   have h : ‖z‖ ^ 2 = z.re * z.re + z.im * z.im := by
