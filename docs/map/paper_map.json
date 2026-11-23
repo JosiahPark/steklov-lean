@@ -65,7 +65,8 @@
   "CumulativeBudgetQuantifiers": 3,
   "FourierOneOverT": 3,
   "DuhamelWindow": 3,
-  "ModelEdgeLawReduction": 3
+  "ModelEdgeLawReduction": 3,
+  "TraceLocalMass": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -455,16 +456,6 @@
    "note": "HS form of (7.24) in spectral coordinates with time factor: Σ|J_ij|²|e^{-itλ_i}−e^{-itμ_j}|² ≤ t²Σ|J_ij|²(λ_i−μ_j)² (DuhamelSpectral; finite-dimensional, defect bound not proved).",
    "page": 14
   },
-  "duhamel_localized_sq": {
-   "kind": "outright",
-   "page": 14,
-   "note": "Localized HS form of (7.24): for Z = z(B) a function of B, hsSq((e^{−itA}J−Je^{−itB})Z) ≤ t²·hsSq((AJ−JB)Z) (DuhamelLocalized; finite-dimensional, localized defect bound not proved)."
-  },
-  "duhamel_localized_le": {
-   "kind": "conditional",
-   "page": 14,
-   "note": "‖(e^{−itA}J−Je^{−itB})Z_h‖_HS ≤ |t|·|ε(h)|, taking the localized defect bound ‖(AJ−JB)Z_h‖_HS ≤ ε(h) (DefectSmall, the Lemma 7.1′ HS row) as a named hypothesis (DuhamelLocalized; finite-dimensional)."
-  },
   "duhamel_hs_matrix": {
    "kind": "outright",
    "page": 14,
@@ -474,6 +465,16 @@
    "kind": "conditional",
    "page": 14,
    "note": "Duhamel HS bound t²Ck²(1+L)², taking the Lemma 7.1′ / (7.2) defect bound as hypothesis."
+  },
+  "duhamel_localized_le": {
+   "kind": "conditional",
+   "page": 14,
+   "note": "‖(e^{−itA}J−Je^{−itB})Z_h‖_HS ≤ |t|·|ε(h)|, taking the localized defect bound ‖(AJ−JB)Z_h‖_HS ≤ ε(h) (DefectSmall, the Lemma 7.1′ HS row) as a named hypothesis (DuhamelLocalized; finite-dimensional)."
+  },
+  "duhamel_localized_sq": {
+   "kind": "outright",
+   "page": 14,
+   "note": "Localized HS form of (7.24): for Z = z(B) a function of B, hsSq((e^{−itA}J−Je^{−itB})Z) ≤ t²·hsSq((AJ−JB)Z) (DuhamelLocalized; finite-dimensional, localized defect bound not proved)."
   },
   "duhamel_sin_hs": {
    "kind": "outright",
@@ -1645,10 +1646,20 @@
    "page": 19,
    "note": "Additivity of counts and areas plus assumed regional bounds gives total error."
   },
+  "trace_cs": {
+   "kind": "outright",
+   "note": "Localized trace comparison with Cauchy–Schwarz: |Σ(f(a)−f(b))J²| ≤ Lip(f)·‖K‖_HS·‖J‖_HS in finite spectral coordinates (TraceLocalMass).",
+   "page": 11
+  },
   "trace_diagonal_conj": {
    "kind": "outright",
    "page": 11,
    "note": "Helper: Tr(ηPη) = Σ η_i²P_ii; serves the localized spectral-mass step."
+  },
+  "trace_local_mass_le": {
+   "kind": "conditional",
+   "note": "Trace comparison ≤ Lip(f)·|ε|·√(Mloc/h), taking the defect bound ‖K‖²_HS ≤ ε² and the local mass bound ‖J‖²_HS ≤ Mloc/h as named hypotheses (TraceLocalMass; finite-dimensional; does not give (7.29) for the paper's multipliers).",
+   "page": 11
   },
   "trace_proj_cutoff_le": {
    "kind": "outright",
