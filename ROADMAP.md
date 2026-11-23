@@ -2564,7 +2564,7 @@ check). Rows 1 and 2 have no open one-run items (G122–G127 and G143/G144 are t
 analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6 or
 Theorem 1.3 / 11.1 for the actual operator.
 
-- [ ] G150. `SteklovAudit/H5bQuantifierOrder.lean` (imports `SteklovAudit.H5Compare`): `H5bTarget` is NOT uniform in
+- [x] G150. `SteklovAudit/H5bQuantifierOrder.lean` (imports `SteklovAudit.H5Compare`): `H5bTarget` is NOT uniform in
       `γ`, so the `γ → 0` limit must go through an explicit `C γ L` cutoff bound (G148), not through `H5bTarget` alone
       (row 3). Model: `E ε γ L := min L (1 / γ)` (or `min (max L 0) (1 / γ)`), `Emod := 0`. Theorems:
       `model_target` (`H5bTarget E 0`: for `L ≥ 1 / (γ η)` and `L ≥ 0`, `|min L (1/γ)| ≤ 1/γ ≤ η L`; unfold `H5bTarget`
@@ -2578,6 +2578,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       dropped as FALSE for this model (`qE 1 γ L = 1 / γ ≤ C γ L` for large `L`); it is replaced by the two limit
       theorems (the `γ → 0` limit at fixed `L` is `max L 0`, which is not `o(L)`). Next run: tick if STATUS shows it
       compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1357/1357 at 224b40a lists all 4 theorems of
+      `H5bQuantifierOrder` as verified (standard axioms only).
 - [ ] G151. `SteklovAudit/TetraEdgeLawOverlap.lean` (imports `SteklovAudit.ModelEdgeLawSixEdges`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): the tetrahedron edge law from six edge laws plus a collar-overlap error
       that shrinks with the collar parameter (row 4, (7.45)). Theorems: `tetra_edge_law_of_overlap` (`N face : ℝ → ℝ`,
@@ -2589,6 +2591,10 @@ Theorem 1.3 / 11.1 for the actual operator.
       `A = c = 0`, `face = 0`, but the conclusion fails). Docstring: the overlap bound near vertices (H3/H4 geometry)
       and the face term H6 are NOT proved. F table text: six edge laws plus an `O(ε L)` vertex-collar overlap give the
       tetrahedron edge law.
+      Written by the formalize task 2026-11-23 at 7329a82 (new file; did not exist before):
+      `tetra_edge_law_of_overlap` (via `edge_law_of_gamma_family` applied to `N − face` with `r := ∑ Ne − main`
+      from `six_edge_law`) and `overlap_must_shrink`. STATUS PASS 1359/1359 at 7329a82 already lists both as
+      verified; next run: tick.
 - [ ] G152. `SteklovAudit/ModelEdgeLawGammaFree.lean` (imports `SteklovAudit.ModelEdgeLawReduction`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): remove `γ` from the (7.38) assembly (row 4). Read the exact statement of
       `ModelEdgeLawReduction.model_law_of_decomposition` first. Theorem `model_law_gamma_free`: if for every `γ > 0`
