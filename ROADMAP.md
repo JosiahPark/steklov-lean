@@ -2505,7 +2505,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       `local_mass_rate_needed`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23 by the formalize task: STATUS PASS 1333/1333 at 9436cd9 lists all 4 theorems of
       `WindowLocalMassBounded` as verified (standard axioms only).
-- [ ] G147. `SteklovAudit/GrowthInputsWitness.lean` (imports `SteklovAudit.TraceLocalMassGrowth`): definition check
+- [x] G147. `SteklovAudit/GrowthInputsWitness.lean` (imports `SteklovAudit.TraceLocalMassGrowth`): definition check
       for G145 (row 3): the hypotheses of `trace_littleO_of_growth` hold for a family with NONZERO defect and nonzero
       trace, so the theorem is not vacuous. Model on `ι = κ = Fin 1`: `a = fun _ => 1 / L`, `b = fun _ => 0`,
       `J = fun _ _ => √L`, `f L = id`, `Lf = 1`, `ε L = 1 / √L` (for `L > 0`; set `ε L = 0`, `J = 0` for `L ≤ 0` or
@@ -2523,6 +2523,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       `witness_eps_nonneg`, `witness_rate`, `witness_trace_eq_one`, `growth_inputs_nonvacuous` (nonzero defect,
       trace `= 1`), `witness_littleO`. About 150 Lean lines (over the 120 guide, kept in one file for the finding).
       Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1346/1346 at 69d22ed lists all 13 theorems of
+      `GrowthInputsWitness` as verified (standard axioms only).
 - [ ] G148. `SteklovAudit/ModelEdgeLawGammaFamily.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): the
       `γ`-order of limits behind (11.3)/(7.38) (row 4). Theorems: `edge_law_of_gamma_family` (`N main : ℝ → ℝ`,
       `0 ≤ C`; if for every `γ > 0` there is `r` with `r = o(L)` in `η`-form and eventually
@@ -2533,6 +2535,10 @@ Theorem 1.3 / 11.1 for the actual operator.
       Docstring: the paper's `main` term depends on `γ` through `θ_γ`; this file treats a `γ`-independent main term
       only and says so. F table text: an `O(γ L)` cutoff error plus `o_γ(L)` gives `o(L)` once `γ` is sent to 0 after
       `L → ∞`.
+      Written by the formalize task 2026-11-23 (uncompiled at push), via `littleO_of_approx` directly (take
+      `γ = δ / (C + 1)`): `edge_law_of_gamma_family`, `edge_law_of_gamma_family'` (`IsLittleO` form),
+      `edge_law_of_gamma_main` (a `γ`-dependent main term `mγ` with `|mγ − main| ≤ C' γ L`, the `θ_γ` case), and
+      `gamma_term_must_shrink`. Next run: tick if STATUS shows it compiled.
 - [ ] G149. `SteklovAudit/ModelEdgeLawSixEdges.lean` (imports Mathlib only): the passage from the per-edge law to
       the tetrahedron count in (7.45) (row 4), scalar form. Theorems: `finset_sum_littleO` (a `Finset` sum of
       `η`-form `o(L)` functions is `o(L)`; induction on the finset with `Finset.sum_insert`, splitting `η` as
