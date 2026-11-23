@@ -2541,7 +2541,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       `gamma_term_must_shrink`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23 by the formalize task: STATUS PASS 1350/1350 at 5107d3c lists all 4 theorems of
       `ModelEdgeLawGammaFamily` as verified (standard axioms only).
-- [ ] G149. `SteklovAudit/ModelEdgeLawSixEdges.lean` (imports Mathlib only): the passage from the per-edge law to
+- [x] G149. `SteklovAudit/ModelEdgeLawSixEdges.lean` (imports Mathlib only): the passage from the per-edge law to
       the tetrahedron count in (7.45) (row 4), scalar form. Theorems: `finset_sum_littleO` (a `Finset` sum of
       `η`-form `o(L)` functions is `o(L)`; induction on the finset with `Finset.sum_insert`, splitting `η` as
       `η / (s.card + 1)` or by `Filter.eventually_all_finset`), `six_edge_law` (for `e : Fin 6`, if each
@@ -2553,6 +2553,55 @@ Theorem 1.3 / 11.1 for the actual operator.
       Written by the formalize task 2026-11-23 at 52889be (uncompiled at push): `finset_sum_littleO` (via
       `η / (s.card + 1)` and `Filter.eventually_all_finset`, no finset induction), `six_edge_law`,
       `six_equal_edges`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1353/1353 at 52889be lists all 3 theorems of
+      `ModelEdgeLawSixEdges` as verified (standard axioms only).
+
+Items G150–G153 written by the formalize task on 2026-11-23 (no unchecked A–G item was left after G149; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G150 serves row 3
+(abstract cumulative budget: the quantifier order of (7.29)); G151–G153 serve row 4 (model edge law reductions: the
+tetrahedron assembly of (7.45) with the collar overlap and the `γ`-cutoff as named hypotheses, and a non-vacuity
+check). Rows 1 and 2 have no open one-run items (G122–G127 and G143/G144 are ticked). Everything is scalar, every
+analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6 or
+Theorem 1.3 / 11.1 for the actual operator.
+
+- [ ] G150. `SteklovAudit/H5bQuantifierOrder.lean` (imports `SteklovAudit.H5Compare`): `H5bTarget` is NOT uniform in
+      `γ`, so the `γ → 0` limit must go through an explicit `C γ L` cutoff bound (G148), not through `H5bTarget` alone
+      (row 3). Model: `E ε γ L := min L (1 / γ)` (or `min (max L 0) (1 / γ)`), `Emod := 0`. Theorems:
+      `model_target` (`H5bTarget E 0`: for `L ≥ 1 / (γ η)` and `L ≥ 0`, `|min L (1/γ)| ≤ 1/γ ≤ η L`; unfold `H5bTarget`
+      first and match its exact quantifier shape), `model_not_uniform` (`¬ ∃ L₀, ∀ γ > 0, ∀ L ≥ L₀, |E 1 γ L| ≤ L / 2`:
+      take `L := max L₀ 1 + 1`, `γ := 1 / L`, so `E = L > L / 2`), and `model_gamma_bound_fails` (no `C` with
+      `|E 1 γ L| ≤ C γ L` for all `γ > 0` and large `L`, so G148's hypothesis is a genuinely extra input). Docstring:
+      the paper's order "L → ∞ then γ → 0" is forced; this file proves nothing about the actual `E`, `Emod`. F table
+      text: H5b as stated is per-`γ`; the `γ`-uniform cutoff error is a separate input.
+- [ ] G151. `SteklovAudit/TetraEdgeLawOverlap.lean` (imports `SteklovAudit.ModelEdgeLawSixEdges`,
+      `SteklovAudit.ModelEdgeLawGammaFamily`): the tetrahedron edge law from six edge laws plus a collar-overlap error
+      that shrinks with the collar parameter (row 4, (7.45)). Theorems: `tetra_edge_law_of_overlap` (`N face : ℝ → ℝ`,
+      `A c : Fin 6 → ℝ`, `0 ≤ C`; if for every `ε > 0` there are `Ne : Fin 6 → ℝ → ℝ` satisfying the six per-edge laws of
+      `six_edge_law` with these `A c` and eventually `|N L - face L - ∑ e, Ne e L| ≤ C * ε * L`, then
+      `N L - face L - ((∑ e, A e) * L ^ 2 + (∑ e, c e) * L)` is `o(L)` in `η`-form; proof: `six_edge_law` gives
+      `r := ∑ Ne − main` as `o(L)`, then `ModelEdgeLawGammaFamily.edge_law_of_gamma_family` with `γ := ε`), and
+      `overlap_must_shrink` (an `ε`-independent overlap `1 · L` fits the hypothesis shape with `N L = L`, `Ne = 0`,
+      `A = c = 0`, `face = 0`, but the conclusion fails). Docstring: the overlap bound near vertices (H3/H4 geometry)
+      and the face term H6 are NOT proved. F table text: six edge laws plus an `O(ε L)` vertex-collar overlap give the
+      tetrahedron edge law.
+- [ ] G152. `SteklovAudit/ModelEdgeLawGammaFree.lean` (imports `SteklovAudit.ModelEdgeLawReduction`,
+      `SteklovAudit.ModelEdgeLawGammaFamily`): remove `γ` from the (7.38) assembly (row 4). Read the exact statement of
+      `ModelEdgeLawReduction.model_law_of_decomposition` first. Theorem `model_law_gamma_free`: if for every `γ > 0`
+      the hypotheses of `model_law_of_decomposition` hold with main term `mγ` (the `θ_γ` integral, a parameter) and
+      eventually `|mγ L - main L| ≤ C' * γ * L` with `C' ≥ 0` uniform in `γ`, then the wedge count minus `main` is
+      `o(L)`; proof: `model_law_of_decomposition` per `γ`, then `edge_law_of_gamma_main` with `C := 0` (convert its
+      conclusion to the `η`-form if it is stated otherwise). Plus `model_law_gamma_free_nonvacuous` (constant-in-`γ`
+      instance reusing `model_law_nonvacuous`). If the conversion makes this exceed about 120 lines, prove only the
+      `η`-form conversion lemma here and record the assembly as G152b. F table text: the `θ_γ` main term may depend on
+      `γ`; an `O(γ L)` dependence is enough.
+- [ ] G153. `SteklovAudit/TetraEdgeLawNonvacuous.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): definition check
+      for G151: its hypotheses hold with NONZERO per-edge remainders and a NONZERO overlap, so the theorem is not vacuous
+      (row 4). Model: `Ne e L := A * L ^ 2 + c * L + √(max L 0)`, `face := 0`,
+      `N L := ∑ e, Ne e L + √(max L 0)`; the overlap `√(max L 0)` is at most `1 * ε * L` eventually for each `ε > 0`
+      (`C = 1`). Theorems: `sqrt_littleO` (`√(max L 0)` is `o(L)`
+      in `η`-form: `L ≥ 1 / η ^ 2`), `witness_edge_laws`, `witness_overlap`, `witness_nonvacuous` (all hypotheses of
+      `tetra_edge_law_of_overlap` hold with `N − ∑ Ne ≠ 0` for `L > 0`). F table text: the overlap reduction is
+      consistent with nonzero remainders.
 
 ## Foundations (long-term)
 
