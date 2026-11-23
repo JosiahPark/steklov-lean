@@ -73,7 +73,10 @@
   "TraceLocalMassGrowth": 3,
   "WindowLocalMassBounded": 3,
   "GrowthInputsWitness": 3,
-  "ModelEdgeLawGammaFamily": 3
+  "ModelEdgeLawGammaFamily": 3,
+  "ModelEdgeLawSixEdges": 3,
+  "H5bQuantifierOrder": 3,
+  "TetraEdgeLawOverlap": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1602,6 +1605,11 @@
    "kind": "outright",
    "page": 25,
    "note": "Combinatorial count C(4,2)=6 edges of the tetrahedron."
+  },
+  "tetra_edge_law_of_overlap": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Generic helper for the assembly step in (7.45): if for every collar parameter ε the six localized edge counts obey per-edge laws A_e L² + c_e L + o(L) and the vertex-collar overlap is ≤ C·ε·L with C uniform in ε, then N − face = (ΣA_e)L² + (Σc_e)L + o(L) (TetraEdgeLawOverlap, via six_edge_law and edge_law_of_gamma_family). The overlap bound (H3/H4 geometry), the per-edge laws, H6 and Theorem 11.1 are not proved."
   },
   "tetra_face_count": {
    "kind": "outright",
