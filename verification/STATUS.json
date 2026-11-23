@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 00:02 UTC",
+  "checked_at": "2026-11-23 00:23 UTC",
   "lean_exit_code": 0,
-  "commit": "50e3abb793f1b46985e837e46bb2f4f3c3b89905",
-  "last_passing_commit": "50e3abb793f1b46985e837e46bb2f4f3c3b89905",
-  "library_declarations_checked": 1256,
-  "library_declarations": 1256,
+  "commit": "d9fc37bc84a621cda47a6208596ef435e19f6588",
+  "last_passing_commit": "d9fc37bc84a621cda47a6208596ef435e19f6588",
+  "library_declarations_checked": 1261,
+  "library_declarations": 1261,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1256,
-  "verified": 1256,
+  "theorems": 1261,
+  "verified": 1261,
   "problems": [],
   "modules_audited": [
     {
@@ -286,6 +286,11 @@
       "file": "H5CutoffObstruction.lean",
       "declared": 13,
       "audited": 13
+    },
+    {
+      "file": "H5CutoffRatioSufficient.lean",
+      "declared": 2,
+      "audited": 2
     },
     {
       "file": "H5CutoffSides.lean",
@@ -1061,6 +1066,11 @@
       "file": "WindowBounds.lean",
       "declared": 7,
       "audited": 7
+    },
+    {
+      "file": "WindowDefectFullTrace.lean",
+      "declared": 3,
+      "audited": 3
     }
   ],
   "modules_skipped": [],
@@ -5481,6 +5491,26 @@
     {
       "file": "H5CutoffObstruction.lean",
       "theorem": "SteklovAudit.H5CutoffObstruction.obstruction_D_ratio",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffRatioSufficient.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.ratio_le_of_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "H5CutoffRatioSufficient.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.ratioLittleO_of_gap_energy",
       "axioms": [
         "propext",
         "Classical.choice",
@@ -13611,6 +13641,36 @@
     {
       "file": "WindowBounds.lean",
       "theorem": "SteklovAudit.WindowBounds.off_band_absorb",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowDefectFullTrace.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_window",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowDefectFullTrace.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_window",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowDefectFullTrace.lean",
+      "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.windowTraceBound_of_trace_zero",
       "axioms": [
         "propext",
         "Classical.choice",

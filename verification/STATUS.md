@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 00:02 UTC at commit `50e3abb793f1`. Last passing commit: `50e3abb793f1`.
+Checked 2026-11-23 00:23 UTC at commit `d9fc37bc84a6`. Last passing commit: `d9fc37bc84a6`.
 
-Library declarations checked: 1256 of 1256 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1261 of 1261 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 210 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 212 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -470,6 +470,8 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | H5CutoffObstruction.lean | `SteklovAudit.H5CutoffObstruction.obstruction_ratio_le` | verified (standard axioms only) |
 | H5CutoffObstruction.lean | `SteklovAudit.H5CutoffObstruction.obstruction_ratio_small` | verified (standard axioms only) |
 | H5CutoffObstruction.lean | `SteklovAudit.H5CutoffObstruction.obstruction_D_ratio` | verified (standard axioms only) |
+| H5CutoffRatioSufficient.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.ratio_le_of_gap` | verified (standard axioms only) |
+| H5CutoffRatioSufficient.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.ratioLittleO_of_gap_energy` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.double_sum_split` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.cutoff_of_sides` | verified (standard axioms only) |
 | H5CutoffSides.lean | `SteklovAudit.H5CutoffSides.discVanish_of_sides` | verified (standard axioms only) |
@@ -1283,3 +1285,6 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | WindowBounds.lean | `SteklovAudit.WindowBounds.band_resolvent_integral` | verified (standard axioms only) |
 | WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_gap` | verified (standard axioms only) |
 | WindowBounds.lean | `SteklovAudit.WindowBounds.off_band_absorb` | verified (standard axioms only) |
+| WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_window` | verified (standard axioms only) |
+| WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_window` | verified (standard axioms only) |
+| WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.windowTraceBound_of_trace_zero` | verified (standard axioms only) |
