@@ -2439,6 +2439,9 @@ Theorem 1.3 / 11.1.
       Hilbert-basis hypothesis for it; it shows that hypothesis is the only spectral input once the space is finite.
       F table text: in finite dimension the eigenbasis fields of `AffineOperatorPre` come from Mathlib's spectral
       theorem; only `BoundaryIdentification` remains.
+      Written by the formalize task 2026-11-23 at dc4f8be (uncompiled at push): `preOfSymmetric`,
+      `preOfSymmetric_lam`, `preOfSymmetric_A_apply`, `preOfSymmetric_u`, `preOfSymmetric_b`, `full_trace_fin`,
+      `full_trace_fin_sum` (Finset-sum form via `tsum_fintype`). Next run: tick if STATUS shows it compiled.
 - [ ] G144. `SteklovAudit/AffineIdentificationNonvacuous.lean` (imports `SteklovAudit.AffineSpectralPassageFin`):
       `BoundaryIdentification` is satisfiable, so the G126/G143 bounds are not vacuous (row 2, definition check). Target
       values: mass `1` per probe (`mass_phi0`–`mass_phi3` divided by `12`), residual energy `r_j ^ 2` with
