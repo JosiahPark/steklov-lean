@@ -2372,7 +2372,7 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       shows it compiled.
       Ticked 2026-11-23: all 9 theorems verified at 2b43bc9 (CI PASS, 1285/1285), after a repair of the ill-typed
       `duhamel_hs_matrix_zero` statement (second `0` annotated).
-- [ ] G140. `SteklovAudit/DuhamelLocalized.lean` (imports `SteklovAudit.DuhamelOperatorFin`): the localized
+- [x] G140. `SteklovAudit/DuhamelLocalized.lean` (imports `SteklovAudit.DuhamelOperatorFin`): the localized
       form `‖(e^{−itA}J − Je^{−itB}) Z_h‖_HS ≤ |t| ε(h)`. `Z` is a function of `B`: `Zof DB z := DB.U * diagonal z *
       DB.Uᴴ` with `z : Fin n → ℂ`. Theorems: `prop_comm_Z` (`DB.prop t * Zof DB z = Zof DB z * DB.prop t`, diagonal
       matrices commute), `op_comm_Z`, `localized_eq` (`(DA.prop t * J − J * DB.prop t) * Z = DA.prop t * (J * Z) − (J
@@ -2386,7 +2386,8 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `conj_diag_comm`, `prop_comm_Z`, `op_comm_Z`, `localized_eq` (general `P J Q Z` with `Q Z = Z Q`),
       `duhamel_localized_sq`, `DefectSmall` (with `Z_h = Zof DB (zh h)`), `duhamel_localized_le`, `defectSmall_zero`
       (non-vacuity, `J = 0`, `ε = 0`). Next run: tick if STATUS shows it compiled.
-- [ ] G141. `SteklovAudit/TraceLocalMass.lean` (imports `SteklovAudit.AbstractTransfer`): the trace comparison with
+      Ticked 2026-11-23: all 9 theorems of `DuhamelLocalized` verified (CI PASS at 8cf3cb6, 1298/1298).
+- [x] G141. `SteklovAudit/TraceLocalMass.lean` (imports `SteklovAudit.AbstractTransfer`): the trace comparison with
       local mass `O(h⁻¹)`. For `D : AbstractTransfer.Data ι κ` (finite), Lipschitz `f` with constant `Lf ≥ 0`:
       `trace_cs : |∑ i, ∑ j, (f (D.a i) − f (D.b j)) * D.J i j ^ 2| ≤ Lf * √(hs2 D.K) * √(hs2 D.J)` (from
       `trace_transfer`, then Cauchy–Schwarz `Finset.inner_mul_le_norm_mul_norm` or `Finset.sum_mul_sq_le_sq_mul_sq`,
@@ -2396,6 +2397,8 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       Docstring must say plainly that `Lf` of the paper's cumulative multipliers may grow with `L`, so this corollary
       is the bounded-Lipschitz case only. F table text: with a bounded defect and `O(h⁻¹)` local mass, the
       Lipschitz trace comparison is `O(√L)`, hence `o(L)`, for multipliers with bounded Lipschitz constant.
+      Written by the formalize task 2026-11-23 at 2ae625a (roadmap note was missing). Ticked 2026-11-23: `trace_cs`,
+      `trace_local_mass_le`, `littleO_of_bounded_defect`, `hs2_zero_array` verified (CI PASS at 8cf3cb6, 1298/1298).
 - [ ] G142. `SteklovAudit/Foundations/AffineHarmonic3D.lean` (imports Mathlib; Foundations, so the audit's
       subdirectory rule from G118 applies): affine functions on `ℝ³` and their normal derivatives on the reference
       tetrahedron of `TetraAffineFlux` (vertices `(1,1,1)`, `(1,−1,−1)`, `(−1,1,−1)`, `(−1,−1,1)`; face opposite `v`
@@ -2409,6 +2412,10 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       identity, or Parseval for the probes. F table text: affine harmonic functions have constant normal derivative
       on each face, with the values that `docs/affine-dtn-cutoff.md` uses; membership in the DtN domain stays a
       paper step.
+      Written by the formalize task 2026-11-23 at d8d89a5 (uncompiled at push): `u`, `hasDerivAt_u_x`, `_y`, `_z`,
+      `second_partials_zero`, `laplacian_zero`, `normal_derivative_at`, `normal_derivative`, `flux`,
+      `face_normal_derivative`, `face_flux_values`, `face_flux_sum_zero`. Next run: tick if the build compiled it
+      (STATUS may not list Foundations files, see G118); if it failed, fix it first.
 
 ## Foundations (long-term)
 
