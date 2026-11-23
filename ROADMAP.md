@@ -2347,6 +2347,10 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       = hsSq M`: `Matrix.trace_mul_comm` to move `V Vᴴ` together), `hsSq_conj_unitary` (both sides), and
       `hsSq_nonneg`. F table text: the spectral-coordinate HS norms used in G129/G134 equal the HS norm of the
       operator in any orthonormal basis.
+      Written by the formalize task 2026-11-23 (uncompiled at push): `hsSq`, `re_star_mul_self`, `hsSq_nonneg`,
+      `hsSq_zero`, `hsSq_eq_trace`, `unitary_ct_mul_self`, `unitary_mul_ct_self`, `hsSq_unitary_left`,
+      `hsSq_unitary_right`, `hsSq_conj_unitary` (types are general `Fintype`s, so `Fin m`, `Fin n` apply).
+      Next run: tick if STATUS shows it compiled.
 - [ ] G139. `SteklovAudit/DuhamelOperatorFin.lean` (imports `SteklovAudit.DuhamelSpectral`,
       `SteklovAudit.HSBasisIndependence`): the HS Duhamel bound for matrices given with diagonalizations, the
       finite-dimensional stand-in for "domain hypotheses". `structure Diag (n)`: `U ∈ unitaryGroup (Fin n) ℂ`, real
