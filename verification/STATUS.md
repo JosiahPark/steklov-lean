@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 13:47 UTC at commit `2117ca153e15`. Last passing commit: `2117ca153e15`.
+Checked 2026-11-23 14:18 UTC at commit `dc4f8be49813`. Last passing commit: `dc4f8be49813`.
 
-Library declarations checked: 1308 of 1308 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1314 of 1314 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 218 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 219 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -210,6 +210,12 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.residualOrth_of_identification` | verified (standard axioms only) |
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.parseval_discharged` | verified (standard axioms only) |
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.full_trace_discharged` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_lam` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_A_apply` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_u` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_b` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.full_trace_fin` | verified (standard axioms only) |
+| AffineSpectralPassageFin.lean | `SteklovAudit.AffineSpectralPassageFin.full_trace_fin_sum` | verified (standard axioms only) |
 | AffineWitnessFromOperator.lean | `SteklovAudit.AffineWitnessFromOperator.sums_of_data` | verified (standard axioms only) |
 | AffineWitnessFromOperator.lean | `SteklovAudit.AffineWitnessFromOperator.witnessOfOperator_lam` | verified (standard axioms only) |
 | AffineWitnessFromOperator.lean | `SteklovAudit.AffineWitnessFromOperator.witnessOfOperator_J` | verified (standard axioms only) |

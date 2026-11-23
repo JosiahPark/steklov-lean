@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 13:47 UTC",
+  "checked_at": "2026-11-23 14:18 UTC",
   "lean_exit_code": 0,
-  "commit": "2117ca153e15872ae93d5167541e8bf5b56e2c7d",
-  "last_passing_commit": "2117ca153e15872ae93d5167541e8bf5b56e2c7d",
-  "library_declarations_checked": 1308,
-  "library_declarations": 1308,
+  "commit": "dc4f8be4981315ce6d3f1b03c1b1cef836b344c0",
+  "last_passing_commit": "dc4f8be4981315ce6d3f1b03c1b1cef836b344c0",
+  "library_declarations_checked": 1314,
+  "library_declarations": 1314,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1308,
-  "verified": 1308,
+  "theorems": 1314,
+  "verified": 1314,
   "problems": [],
   "modules_audited": [
     {
@@ -66,6 +66,11 @@
       "file": "AffineParsevalDischarge.lean",
       "declared": 9,
       "audited": 9
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "declared": 6,
+      "audited": 6
     },
     {
       "file": "AffineWitnessFromOperator.lean",
@@ -2921,6 +2926,66 @@
     {
       "file": "AffineParsevalDischarge.lean",
       "theorem": "SteklovAudit.AffineParsevalDischarge.full_trace_discharged",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_lam",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_A_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_u",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.preOfSymmetric_b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.full_trace_fin",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineSpectralPassageFin.lean",
+      "theorem": "SteklovAudit.AffineSpectralPassageFin.full_trace_fin_sum",
       "axioms": [
         "propext",
         "Classical.choice",
