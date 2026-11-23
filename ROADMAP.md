@@ -2525,7 +2525,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23 by the formalize task: STATUS PASS 1346/1346 at 69d22ed lists all 13 theorems of
       `GrowthInputsWitness` as verified (standard axioms only).
-- [ ] G148. `SteklovAudit/ModelEdgeLawGammaFamily.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): the
+- [x] G148. `SteklovAudit/ModelEdgeLawGammaFamily.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): the
       `γ`-order of limits behind (11.3)/(7.38) (row 4). Theorems: `edge_law_of_gamma_family` (`N main : ℝ → ℝ`,
       `0 ≤ C`; if for every `γ > 0` there is `r` with `r = o(L)` in `η`-form and eventually
       `|N L - main L - r L| ≤ C * γ * L`, then `N - main = o(L)` in `η`-form; via `littleO_of_split_rate` with
@@ -2539,6 +2539,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       `γ = δ / (C + 1)`): `edge_law_of_gamma_family`, `edge_law_of_gamma_family'` (`IsLittleO` form),
       `edge_law_of_gamma_main` (a `γ`-dependent main term `mγ` with `|mγ − main| ≤ C' γ L`, the `θ_γ` case), and
       `gamma_term_must_shrink`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1350/1350 at 5107d3c lists all 4 theorems of
+      `ModelEdgeLawGammaFamily` as verified (standard axioms only).
 - [ ] G149. `SteklovAudit/ModelEdgeLawSixEdges.lean` (imports Mathlib only): the passage from the per-edge law to
       the tetrahedron count in (7.45) (row 4), scalar form. Theorems: `finset_sum_littleO` (a `Finset` sum of
       `η`-form `o(L)` functions is `o(L)`; induction on the finset with `Finset.sum_insert`, splitting `η` as
@@ -2548,6 +2550,9 @@ Theorem 1.3 / 11.1 for the actual operator.
       `6 * A` and `6 * c`; `Finset.sum_const`, `Finset.card_fin`). Docstring: the overlap of edge collars near
       vertices, the vertex term H4 and the face term H6 are NOT handled here. F table text: summing six edge laws is
       exact at the level of `o(L)` remainders; the collar overlaps are the geometric input.
+      Written by the formalize task 2026-11-23 at 52889be (uncompiled at push): `finset_sum_littleO` (via
+      `η / (s.card + 1)` and `Filter.eventually_all_finset`, no finset induction), `six_edge_law`,
+      `six_equal_edges`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
