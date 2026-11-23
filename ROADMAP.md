@@ -2399,7 +2399,7 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       Lipschitz trace comparison is `O(√L)`, hence `o(L)`, for multipliers with bounded Lipschitz constant.
       Written by the formalize task 2026-11-23 at 2ae625a (roadmap note was missing). Ticked 2026-11-23: `trace_cs`,
       `trace_local_mass_le`, `littleO_of_bounded_defect`, `hs2_zero_array` verified (CI PASS at 8cf3cb6, 1298/1298).
-- [ ] G142. `SteklovAudit/Foundations/AffineHarmonic3D.lean` (imports Mathlib; Foundations, so the audit's
+- [x] G142. `SteklovAudit/Foundations/AffineHarmonic3D.lean` (imports Mathlib; Foundations, so the audit's
       subdirectory rule from G118 applies): affine functions on `ℝ³` and their normal derivatives on the reference
       tetrahedron of `TetraAffineFlux` (vertices `(1,1,1)`, `(1,−1,−1)`, `(−1,1,−1)`, `(−1,−1,1)`; face opposite `v`
       has outward normal `−v / √3`). Work with `x y z : ℝ` as in `HalfPlaneDtN`. `u c p q r x y z := c + p x + q y
@@ -2416,6 +2416,50 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `second_partials_zero`, `laplacian_zero`, `normal_derivative_at`, `normal_derivative`, `flux`,
       `face_normal_derivative`, `face_flux_values`, `face_flux_sum_zero`. Next run: tick if the build compiled it
       (STATUS may not list Foundations files, see G118); if it failed, fix it first.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1308/1308 at d8d89a5 lists all 10 theorems of
+      `Foundations/AffineHarmonic3D` as verified (standard axioms only).
+
+Items G143–G145 written by the formalize task on 2026-11-23 (no unchecked A–G item was left after G142; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G143 and G144 serve
+row 2 (affine Parseval discharge: the spectral-theorem passage and a non-vacuity check of `BoundaryIdentification`);
+G145 serves row 3 (abstract cumulative budget refinement) as a one-run reduction toward row 5 (localized HS defect).
+Everything is finite-dimensional or scalar. None of them constructs the DtN operator or proves H1–H6, (7.29) or
+Theorem 1.3 / 11.1.
+
+- [ ] G143. `SteklovAudit/AffineSpectralPassageFin.lean` (imports `SteklovAudit.AffineParsevalDischarge`): the
+      finite-dimensional spectral-theorem passage for `AffineOperatorPre` (row 2). For a finite-dimensional real
+      inner-product space `E` with `hn : Module.finrank ℝ E = n`, `T : E →ₗ[ℝ] E` with `hT : T.IsSymmetric` and probes
+      `u : Fin 4 → E`, define `preOfSymmetric hT hn u : AffineOperatorPre E (Fin n)` with `D := ⊤`,
+      `A := T ∘ₗ (⊤ : Submodule ℝ E).subtype`, `b := (hT.eigenvectorBasis hn).toHilbertBasis`, `mem` from
+      `Submodule.mem_top`, `lam := hT.eigenvalues hn`, `eig` from `hT.apply_eigenvectorBasis` and
+      `OrthonormalBasis.coe_toHilbertBasis`, `symm` from `hT`, `u j := ⟨u j, Submodule.mem_top⟩`. Theorems:
+      `preOfSymmetric_lam` (rfl), `preOfSymmetric_A_apply` (`A ⟨x, _⟩ = T x`), `full_trace_fin` (given
+      `BoundaryIdentification (preOfSymmetric hT hn u) a`, `0 < a` and `C¹,¹` data `F F' B`, the `8 * B / a ^ 2` bound
+      via `full_trace_discharged`). Docstring: the DtN operator is infinite-dimensional, so this does NOT discharge the
+      Hilbert-basis hypothesis for it; it shows that hypothesis is the only spectral input once the space is finite.
+      F table text: in finite dimension the eigenbasis fields of `AffineOperatorPre` come from Mathlib's spectral
+      theorem; only `BoundaryIdentification` remains.
+- [ ] G144. `SteklovAudit/AffineIdentificationNonvacuous.lean` (imports `SteklovAudit.AffineSpectralPassageFin`):
+      `BoundaryIdentification` is satisfiable, so the G126/G143 bounds are not vacuous (row 2, definition check). Target
+      values: mass `1` per probe (`mass_phi0`–`mass_phi3` divided by `12`), residual energy `r_j ^ 2` with
+      `r_0 = 0` and `r_j ^ 2 = 24 / 12 / (√3 * tPar a) ^ 2` for `j = 1, 2, 3` (`residual_energy_phi0`–`phi3`), mixed
+      pairing `0` (`residual_orthogonal`). Model: `E := EuclideanSpace ℝ (Fin 4 × Fin 2)`, `T` block-diagonal with
+      blocks `!![muVec a j, r j; r j, 0]` (as `Matrix.toEuclideanLin` of a symmetric matrix), `u j := single (j, 0) 1`,
+      so `T u_j − μ_j u_j = r_j • single (j, 1) 1` is orthogonal to `u_j` with norm `|r_j|`. Theorems: `block_residual`,
+      `T_symm`, `identification_of_block`, `exists_identification (ha : 0 < a) : ∃ T hT u, BoundaryIdentification
+      (preOfSymmetric hT hn u) a`. If this exceeds about 120 lines, prove only `block_residual` and `T_symm` here and
+      record the assembly as G144b. F table text: the identification hypothesis is consistent; it carries the geometry
+      but is not contradictory.
+- [ ] G145. `SteklovAudit/TraceLocalMassGrowth.lean` (imports `SteklovAudit.TraceLocalMass`): relax G141's
+      bounded-Lipschitz corollary to growing constants (row 3, toward row 5). Theorems: `littleO_of_growing_lipschitz`
+      (for `Λ ε : ℝ → ℝ` with `0 ≤ Λ L`, `0 ≤ ε L`, `0 ≤ Mloc`: if `∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Λ L * ε L ≤ η * √L` then
+      `∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Λ L * ε L * √(Mloc * L) ≤ η * L`; `Real.sqrt_mul`, `Real.mul_self_sqrt`, take
+      `η / (√Mloc + 1)`), `growing_needs_rate` (`Λ L = √L`, `ε = 1`, `Mloc = 1`: the bound equals `L` for `L ≥ 0`, so
+      `Λ ε = O(√L)` alone does not give `o(L)`), and `trace_littleO_of_growth` (a family `D L : Data ι κ` with
+      `Lf L`-Lipschitz `f L`, defect `hs2 (D L).K ≤ ε L ^ 2` and local mass `hs2 (D L).J ≤ Mloc * L` (that is `h = 1/L`)
+      has trace comparison `o(L)` when `Lf L * ε L = o(√L)`, via `trace_local_mass_le`). F table text: the
+      Lipschitz trace comparison is `o(L)` whenever `Lip · defect = o(√L)`; the defect rate for the actual operator
+      stays open.
 
 ## Foundations (long-term)
 
