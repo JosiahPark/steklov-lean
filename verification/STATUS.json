@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 15:48 UTC",
+  "checked_at": "2026-11-23 16:19 UTC",
   "lean_exit_code": 0,
-  "commit": "b14f2100d8968a92b1c3ffeb281991a742de1c4e",
-  "last_passing_commit": "b14f2100d8968a92b1c3ffeb281991a742de1c4e",
-  "library_declarations_checked": 1325,
-  "library_declarations": 1325,
+  "commit": "df1053b8e3f33c1ce5cde1eeed79d077813efff8",
+  "last_passing_commit": "df1053b8e3f33c1ce5cde1eeed79d077813efff8",
+  "library_declarations_checked": 1329,
+  "library_declarations": 1329,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1325,
-  "verified": 1325,
+  "theorems": 1329,
+  "verified": 1329,
   "problems": [],
   "modules_audited": [
     {
@@ -1069,6 +1069,11 @@
     },
     {
       "file": "TraceLocalMass.lean",
+      "declared": 4,
+      "audited": 4
+    },
+    {
+      "file": "TraceLocalMassGrowth.lean",
       "declared": 4,
       "audited": 4
     },
@@ -13629,6 +13634,46 @@
     {
       "file": "TraceLocalMass.lean",
       "theorem": "SteklovAudit.TraceLocalMass.hs2_zero_array",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMassGrowth.lean",
+      "theorem": "SteklovAudit.TraceLocalMassGrowth.littleO_of_growing_lipschitz",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMassGrowth.lean",
+      "theorem": "SteklovAudit.TraceLocalMassGrowth.growing_needs_rate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMassGrowth.lean",
+      "theorem": "SteklovAudit.TraceLocalMassGrowth.growing_needs_rate_not_littleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TraceLocalMassGrowth.lean",
+      "theorem": "SteklovAudit.TraceLocalMassGrowth.trace_littleO_of_growth",
       "axioms": [
         "propext",
         "Classical.choice",
