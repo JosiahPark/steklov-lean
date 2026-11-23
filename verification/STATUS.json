@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 12:46 UTC",
+  "checked_at": "2026-11-23 13:00 UTC",
   "lean_exit_code": 0,
-  "commit": "8cf3cb6f59d87ae3b84277b6ba3e9a1085109756",
-  "last_passing_commit": "8cf3cb6f59d87ae3b84277b6ba3e9a1085109756",
-  "library_declarations_checked": 1298,
-  "library_declarations": 1298,
+  "commit": "d8d89a5caa70e8c57bd44ba7da1a9884966f1501",
+  "last_passing_commit": "d8d89a5caa70e8c57bd44ba7da1a9884966f1501",
+  "library_declarations_checked": 1308,
+  "library_declarations": 1308,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1298,
-  "verified": 1298,
+  "theorems": 1308,
+  "verified": 1308,
   "problems": [],
   "modules_audited": [
     {
@@ -196,6 +196,11 @@
       "file": "FloorCounterexample.lean",
       "declared": 5,
       "audited": 5
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "declared": 10,
+      "audited": 10
     },
     {
       "file": "Foundations/DiskSteklov.lean",
@@ -4476,6 +4481,106 @@
     {
       "file": "FloorCounterexample.lean",
       "theorem": "SteklovAudit.FloorCounterexample.deriv_F_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_x",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_y",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_z",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.second_partials_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.laplacian_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.normal_derivative_at",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.normal_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.face_normal_derivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.face_flux_values",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "Foundations/AffineHarmonic3D.lean",
+      "theorem": "SteklovAudit.Foundations.AffineHarmonic3D.face_flux_sum_zero",
       "axioms": [
         "propext",
         "Classical.choice",

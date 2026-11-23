@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 12:46 UTC at commit `8cf3cb6f59d8`. Last passing commit: `8cf3cb6f59d8`.
+Checked 2026-11-23 13:00 UTC at commit `d8d89a5caa70`. Last passing commit: `d8d89a5caa70`.
 
-Library declarations checked: 1298 of 1298 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1308 of 1308 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 217 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 218 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -366,6 +366,16 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.not_sharp` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.hasDerivAt_F` | verified (standard axioms only) |
 | FloorCounterexample.lean | `SteklovAudit.FloorCounterexample.deriv_F_pos` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_x` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_y` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.hasDerivAt_u_z` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.second_partials_zero` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.laplacian_zero` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.normal_derivative_at` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.normal_derivative` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.face_normal_derivative` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.face_flux_values` | verified (standard axioms only) |
+| Foundations/AffineHarmonic3D.lean | `SteklovAudit.Foundations.AffineHarmonic3D.face_flux_sum_zero` | verified (standard axioms only) |
 | Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.lap_core` | verified (standard axioms only) |
 | Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_r` | verified (standard axioms only) |
 | Foundations/DiskSteklov.lean | `SteklovAudit.Foundations.DiskSteklov.hasDerivAt_u_rr` | verified (standard axioms only) |
