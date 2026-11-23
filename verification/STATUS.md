@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 14:18 UTC at commit `dc4f8be49813`. Last passing commit: `dc4f8be49813`.
+Checked 2026-11-23 15:22 UTC at commit `d37ed87a8e44`. Last passing commit: `d37ed87a8e44`.
 
-Library declarations checked: 1314 of 1314 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1325 of 1325 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 219 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 220 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -201,6 +201,17 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | AffineFullTrace.lean | `SteklovAudit.AffineFullTrace.first_moment` | verified (standard axioms only) |
 | AffineFullTrace.lean | `SteklovAudit.AffineFullTrace.weighted_first_moment` | verified (standard axioms only) |
 | AffineFullTrace.lean | `SteklovAudit.AffineFullTrace.affine_full_trace_le` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.blockT_apply` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.blockT_symm` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.rRes_sq` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.fin4_cases` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.e_inner_self` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.blockT_e0` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.block_residual` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.block_residual_norm` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.block_residual_inner` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.identification_of_block` | verified (standard axioms only) |
+| AffineIdentificationNonvacuous.lean | `SteklovAudit.AffineIdentificationNonvacuous.exists_identification` | verified (standard axioms only) |
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.mass_phi0` | verified (standard axioms only) |
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.mass_phi1` | verified (standard axioms only) |
 | AffineParsevalDischarge.lean | `SteklovAudit.AffineParsevalDischarge.mass_phi2` | verified (standard axioms only) |

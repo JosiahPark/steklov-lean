@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 14:18 UTC",
+  "checked_at": "2026-11-23 15:22 UTC",
   "lean_exit_code": 0,
-  "commit": "dc4f8be4981315ce6d3f1b03c1b1cef836b344c0",
-  "last_passing_commit": "dc4f8be4981315ce6d3f1b03c1b1cef836b344c0",
-  "library_declarations_checked": 1314,
-  "library_declarations": 1314,
+  "commit": "d37ed87a8e44ce9ee39ce271a4ced51068284e0d",
+  "last_passing_commit": "d37ed87a8e44ce9ee39ce271a4ced51068284e0d",
+  "library_declarations_checked": 1325,
+  "library_declarations": 1325,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1314,
-  "verified": 1314,
+  "theorems": 1325,
+  "verified": 1325,
   "problems": [],
   "modules_audited": [
     {
@@ -61,6 +61,11 @@
       "file": "AffineFullTrace.lean",
       "declared": 3,
       "audited": 3
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "declared": 11,
+      "audited": 11
     },
     {
       "file": "AffineParsevalDischarge.lean",
@@ -2836,6 +2841,114 @@
     {
       "file": "AffineFullTrace.lean",
       "theorem": "SteklovAudit.AffineFullTrace.affine_full_trace_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.blockT_apply",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.blockT_symm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.rRes_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.fin4_cases",
+      "axioms": [
+        "propext"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.e_inner_self",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.blockT_e0",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.block_residual",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.block_residual_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.block_residual_inner",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.identification_of_block",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "AffineIdentificationNonvacuous.lean",
+      "theorem": "SteklovAudit.AffineIdentificationNonvacuous.exists_identification",
       "axioms": [
         "propext",
         "Classical.choice",
