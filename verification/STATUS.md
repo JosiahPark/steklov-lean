@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-23 20:21 UTC at commit `e268dad4ad8a`. Last passing commit: `e268dad4ad8a`.
+Checked 2026-11-23 20:48 UTC at commit `69d22ed70cb5`. Last passing commit: `69d22ed70cb5`.
 
-Library declarations checked: 1333 of 1333 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1346 of 1346 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 222 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 223 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -433,6 +433,19 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | GridLaw.lean | `SteklovAudit.GridLaw.step_integer_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.step_not_real_law` | verified (standard axioms only) |
 | GridLaw.lean | `SteklovAudit.GridLaw.real_law_of_fine_grids` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.growth_hJ_forces_Mloc_zero` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.growth_hJ_forces_J_zero` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.growth_trace_zero` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.trace_littleO_of_growth_pos` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.hs2_fin1` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_K_hs2` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_J_hs2` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_eps_sq` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_eps_nonneg` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_rate` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_trace_eq_one` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.growth_inputs_nonvacuous` | verified (standard axioms only) |
+| GrowthInputsWitness.lean | `SteklovAudit.GrowthInputsWitness.witness_littleO` | verified (standard axioms only) |
 | H5ColCount.lean | `SteklovAudit.H5ColCount.colMass_eq_of_rowNorm` | verified (standard axioms only) |
 | H5ColCount.lean | `SteklovAudit.H5ColCount.rowMass_eq_of_colNorm` | verified (standard axioms only) |
 | H5ColCount.lean | `SteklovAudit.H5ColCount.rowNorm_colMiss` | verified (standard axioms only) |

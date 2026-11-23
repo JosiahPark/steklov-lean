@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 20:21 UTC",
+  "checked_at": "2026-11-23 20:48 UTC",
   "lean_exit_code": 0,
-  "commit": "e268dad4ad8a65144a9ee4dfe9b7dc73aba7890d",
-  "last_passing_commit": "e268dad4ad8a65144a9ee4dfe9b7dc73aba7890d",
-  "library_declarations_checked": 1333,
-  "library_declarations": 1333,
+  "commit": "69d22ed70cb57f0618675951cf81d368b6fca7b6",
+  "last_passing_commit": "69d22ed70cb57f0618675951cf81d368b6fca7b6",
+  "library_declarations_checked": 1346,
+  "library_declarations": 1346,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1333,
-  "verified": 1333,
+  "theorems": 1346,
+  "verified": 1346,
   "problems": [],
   "modules_audited": [
     {
@@ -246,6 +246,11 @@
       "file": "GridLaw.lean",
       "declared": 6,
       "audited": 6
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "declared": 13,
+      "audited": 13
     },
     {
       "file": "H5ColCount.lean",
@@ -5169,6 +5174,136 @@
     {
       "file": "GridLaw.lean",
       "theorem": "SteklovAudit.GridLaw.real_law_of_fine_grids",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.growth_hJ_forces_Mloc_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.growth_hJ_forces_J_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.growth_trace_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.trace_littleO_of_growth_pos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.hs2_fin1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_K_hs2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_J_hs2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_eps_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_eps_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_rate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_trace_eq_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.growth_inputs_nonvacuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "GrowthInputsWitness.lean",
+      "theorem": "SteklovAudit.GrowthInputsWitness.witness_littleO",
       "axioms": [
         "propext",
         "Classical.choice",
