@@ -71,7 +71,8 @@
   "AffineSpectralPassageFin": 3,
   "AffineIdentificationNonvacuous": 3,
   "TraceLocalMassGrowth": 3,
-  "WindowLocalMassBounded": 3
+  "WindowLocalMassBounded": 3,
+  "GrowthInputsWitness": 3
  },
  "prefix_areas": {
   "Section5": 2,
