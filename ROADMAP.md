@@ -2464,7 +2464,7 @@ Theorem 1.3 / 11.1.
       has no cross-probe condition, so probes 1–3 may coincide. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-23 by the formalize task: STATUS PASS 1325/1325 at b14f210 lists all 11 theorems of
       `AffineIdentificationNonvacuous` as verified (standard axioms only).
-- [ ] G145. `SteklovAudit/TraceLocalMassGrowth.lean` (imports `SteklovAudit.TraceLocalMass`): relax G141's
+- [x] G145. `SteklovAudit/TraceLocalMassGrowth.lean` (imports `SteklovAudit.TraceLocalMass`): relax G141's
       bounded-Lipschitz corollary to growing constants (row 3, toward row 5). Theorems: `littleO_of_growing_lipschitz`
       (for `Λ ε : ℝ → ℝ` with `0 ≤ Λ L`, `0 ≤ ε L`, `0 ≤ Mloc`: if `∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Λ L * ε L ≤ η * √L` then
       `∀ η > 0, ∃ L₀, ∀ L ≥ L₀, Λ L * ε L * √(Mloc * L) ≤ η * L`; `Real.sqrt_mul`, `Real.mul_self_sqrt`, take
@@ -2478,6 +2478,55 @@ Theorem 1.3 / 11.1.
       `growing_needs_rate`, `growing_needs_rate_not_littleO` (the `√L` example is not `o(L)`),
       `trace_littleO_of_growth` (local mass stated as `hs2 (D L).J ≤ Mloc * L`, converted to `Mloc / (1 / L)`).
       Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23 by the formalize task: STATUS PASS 1329/1329 at 334e498 lists all 4 theorems of
+      `TraceLocalMassGrowth` as verified (standard axioms only).
+
+Items G146–G149 written by the formalize task on 2026-11-23 (no unchecked A–G item was left after G145; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G146 and G147 serve
+row 3 (abstract cumulative budget refinement; one-run reductions toward row 5); G148 and G149 serve row 4 (model edge
+law reductions for (7.38)/(7.45), scalar form, no continuum operator). Everything is scalar or finite-dimensional, every
+analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6 or
+Theorem 1.3 / 11.1 for the actual operator.
+
+- [ ] G146. `SteklovAudit/WindowLocalMassBounded.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): with
+      `O(h⁻¹)` local mass, the window route needs only a BOUNDED HS defect (row 3, a strictly weaker input than the
+      vanishing `ε` of G133's `littleO_of_window_defect`). Theorems: `sqrt_local_mass_eq` (for `0 < L`, `0 ≤ Mloc`:
+      `√(Mloc * L) = L * √(Mloc * (1 / L))`), `littleO_of_window_bounded_defect` (`C K ε₀ Mloc ≥ 0`; if for every
+      `T > 0`, eventually `|r L| ≤ C * L / T + K * T * ε₀ * √(Mloc * L)`, then `∀ η > 0, ∀ᶠ L in atTop, |r L| ≤ η * L`;
+      proof: `littleO_of_window_defect` with `ε h := ε₀ * √(Mloc * h)`, which tends to `0` as `h ↓ 0` via
+      `Real.sqrt_le_sqrt` and `Real.sqrt_lt'`/`Real.sqrt_lt_sqrt`, or a direct `δ`-argument with `h₀ := (δ / (ε₀ + 1)) ^ 2 / (Mloc + 1)`),
+      and `local_mass_rate_needed` (with local mass `O(L²)` the same bound becomes `C L / T + K T ε₀ L`; the example
+      `r L = L`, `C = K = ε₀ = 1` satisfies it for every `T > 0` but is not `o(L)`; reuse
+      `CumulativeBudgetQuantifiers.window_needs_vanishing`). F table text: given local mass `O(L)` (row "Localized
+      spectral mass") and a window Lipschitz constant `O(T)`, the defect row needs boundedness, not decay.
+- [ ] G147. `SteklovAudit/GrowthInputsWitness.lean` (imports `SteklovAudit.TraceLocalMassGrowth`): definition check
+      for G145 (row 3): the hypotheses of `trace_littleO_of_growth` hold for a family with NONZERO defect and nonzero
+      trace, so the theorem is not vacuous. Model on `ι = κ = Fin 1`: `a = fun _ => 1 / L`, `b = fun _ => 0`,
+      `J = fun _ _ => √L`, `f L = id`, `Lf = 1`, `ε L = 1 / √L` (for `L > 0`; set `ε L = 0`, `J = 0` for `L ≤ 0` or
+      use `max L 0`). Theorems: `witness_K_hs2` (`hs2 K = 1 / L` for `L > 0`), `witness_J_hs2` (`hs2 J = L`),
+      `witness_rate` (`1 * ε L ≤ η * √L` eventually), `witness_trace_eq_one` (the trace comparison equals `1` for
+      `L > 0`), `growth_inputs_nonvacuous` (all hypotheses of `trace_littleO_of_growth` hold with `Mloc = 1`). If the
+      piecewise definitions make this exceed about 120 lines, prove the four computations only and record the
+      assembly as G147b. F table text: the growth inputs are consistent with a nonzero defect.
+- [ ] G148. `SteklovAudit/ModelEdgeLawGammaFamily.lean` (imports `SteklovAudit.CumulativeBudgetQuantifiers`): the
+      `γ`-order of limits behind (11.3)/(7.38) (row 4). Theorems: `edge_law_of_gamma_family` (`N main : ℝ → ℝ`,
+      `0 ≤ C`; if for every `γ > 0` there is `r` with `r = o(L)` in `η`-form and eventually
+      `|N L - main L - r L| ≤ C * γ * L`, then `N - main = o(L)` in `η`-form; via `littleO_of_split_rate` with
+      `c M := C / M` and `γ := 1 / M`, `Tendsto (fun M => C / M) atTop (nhds 0)` from
+      `tendsto_const_nhds.div_atTop tendsto_id`), and `gamma_term_must_shrink` (the example `N L = L`, `main = 0`,
+      `C`-term replaced by a `γ`-independent `L` satisfies the hypothesis shape but `N - main` is not `o(L)`).
+      Docstring: the paper's `main` term depends on `γ` through `θ_γ`; this file treats a `γ`-independent main term
+      only and says so. F table text: an `O(γ L)` cutoff error plus `o_γ(L)` gives `o(L)` once `γ` is sent to 0 after
+      `L → ∞`.
+- [ ] G149. `SteklovAudit/ModelEdgeLawSixEdges.lean` (imports Mathlib only): the passage from the per-edge law to
+      the tetrahedron count in (7.45) (row 4), scalar form. Theorems: `finset_sum_littleO` (a `Finset` sum of
+      `η`-form `o(L)` functions is `o(L)`; induction on the finset with `Finset.sum_insert`, splitting `η` as
+      `η / (s.card + 1)` or by `Filter.eventually_all_finset`), `six_edge_law` (for `e : Fin 6`, if each
+      `N e L - (A e * L ^ 2 + c e * L)` is `o(L)`, then `∑ e, N e L - ((∑ e, A e) * L ^ 2 + (∑ e, c e) * L)` is `o(L)`;
+      `Finset.sum_sub_distrib`, `Finset.sum_mul`), and `six_equal_edges` (equal edges: the coefficients become
+      `6 * A` and `6 * c`; `Finset.sum_const`, `Finset.card_fin`). Docstring: the overlap of edge collars near
+      vertices, the vertex term H4 and the face term H6 are NOT handled here. F table text: summing six edge laws is
+      exact at the level of `o(L)` remainders; the collar overlaps are the geometric input.
 
 ## Foundations (long-term)
 
