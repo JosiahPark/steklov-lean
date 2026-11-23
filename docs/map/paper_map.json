@@ -67,7 +67,8 @@
   "DuhamelWindow": 3,
   "ModelEdgeLawReduction": 3,
   "TraceLocalMass": 3,
-  "Foundations.AffineHarmonic3D": 3
+  "Foundations.AffineHarmonic3D": 3,
+  "AffineSpectralPassageFin": 3
  },
  "prefix_areas": {
   "Section5": 2,
