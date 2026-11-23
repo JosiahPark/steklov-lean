@@ -129,7 +129,8 @@ theorem duhamel_hs_matrix (DA : Diag m) (DB : Diag n) (J : Matrix (Fin m) (Fin n
 
 /-- Non-vacuity: with `J = 0` both sides vanish. -/
 theorem duhamel_hs_matrix_zero (DA : Diag m) (DB : Diag n) (t : ℝ) :
-    hsSq (DA.prop t * (0 : Matrix (Fin m) (Fin n) ℂ) - 0 * DB.prop t) = 0 := by
-  simp [hsSq]
+    hsSq (DA.prop t * (0 : Matrix (Fin m) (Fin n) ℂ) - (0 : Matrix (Fin m) (Fin n) ℂ) * DB.prop t) = 0 := by
+  rw [Matrix.mul_zero, Matrix.zero_mul, sub_self]
+  exact hsSq_zero
 
 end SteklovAudit.DuhamelOperatorFin
