@@ -2339,7 +2339,7 @@ one-run steps. Everything stays finite-dimensional: the operators are matrices g
 and the Steklov / DtN operator, its domain and its eigenbasis remain named hypotheses. Each file states in its
 docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11.1.
 
-- [ ] G138. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): the HS norm does not depend on the
+- [x] G138. `SteklovAudit/HSBasisIndependence.lean` (imports Mathlib only): the HS norm does not depend on the
       orthonormal basis. For `M : Matrix (Fin m) (Fin n) ℂ` put `hsSq M := ∑ i, ∑ j, ‖M i j‖ ^ 2`. Theorems:
       `hsSq_eq_trace` (`hsSq M = (Matrix.trace (Mᴴ * M)).re`; `Matrix.trace`, `Matrix.mul_apply`,
       `Complex.mul_conj`, `Complex.normSq_eq_norm_sq`), `hsSq_unitary_left` (`U ∈ Matrix.unitaryGroup (Fin m) ℂ →
@@ -2351,6 +2351,8 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `hsSq_zero`, `hsSq_eq_trace`, `unitary_ct_mul_self`, `unitary_mul_ct_self`, `hsSq_unitary_left`,
       `hsSq_unitary_right`, `hsSq_conj_unitary` (types are general `Fintype`s, so `Fin m`, `Fin n` apply).
       Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-23: all 9 theorems of `HSBasisIndependence` verified (CI PASS at e5f24d5, 1271/1271; #548 at
+      24a73a2 also passed).
 - [ ] G139. `SteklovAudit/DuhamelOperatorFin.lean` (imports `SteklovAudit.DuhamelSpectral`,
       `SteklovAudit.HSBasisIndependence`): the HS Duhamel bound for matrices given with diagonalizations, the
       finite-dimensional stand-in for "domain hypotheses". `structure Diag (n)`: `U ∈ unitaryGroup (Fin n) ℂ`, real
@@ -2364,6 +2366,10 @@ docstring what it does NOT prove, and none claims (7.29), H5 or Theorem 1.3 / 11
       `Matrix.mul_diagonal`, `unitary.star_mul_self`). Use `Fin m`, `Fin n` throughout so `duhamel_hs_le` applies
       unchanged. F table text: the HS Duhamel bound with the `|t|` factor holds for the operators, not only in
       spectral coordinates, whenever both sides are given with orthonormal eigenbases.
+      Written by the formalize task 2026-11-23 (uncompiled at push): `Diag` (fields `U`, `hU`, `ev`), `Diag.op`,
+      `Diag.prop`, `conj_comm_coords`, `defect_coords`, `prop_coords`, `hsSq_ct_left`, `hsSq_coords`, `hsSq_of_mul`,
+      `norm_ofReal_sub_sq`, `duhamel_hs_matrix`, `duhamel_hs_matrix_zero` (non-vacuity). Next run: tick if STATUS
+      shows it compiled.
 - [ ] G140. `SteklovAudit/DuhamelLocalized.lean` (imports `SteklovAudit.DuhamelOperatorFin`): the localized
       form `‖(e^{−itA}J − Je^{−itB}) Z_h‖_HS ≤ |t| ε(h)`. `Z` is a function of `B`: `Zof DB z := DB.U * diagonal z *
       DB.Uᴴ` with `z : Fin n → ℂ`. Theorems: `prop_comm_Z` (`DB.prop t * Zof DB z = Zof DB z * DB.prop t`, diagonal
