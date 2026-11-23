@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-23 20:48 UTC",
+  "checked_at": "2026-11-23 21:20 UTC",
   "lean_exit_code": 0,
-  "commit": "69d22ed70cb57f0618675951cf81d368b6fca7b6",
-  "last_passing_commit": "69d22ed70cb57f0618675951cf81d368b6fca7b6",
-  "library_declarations_checked": 1346,
-  "library_declarations": 1346,
+  "commit": "4ebca159d534a399d7a5dd09e23b83f75ec7e10a",
+  "last_passing_commit": "4ebca159d534a399d7a5dd09e23b83f75ec7e10a",
+  "library_declarations_checked": 1350,
+  "library_declarations": 1350,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1346,
-  "verified": 1346,
+  "theorems": 1350,
+  "verified": 1350,
   "problems": [],
   "modules_audited": [
     {
@@ -866,6 +866,11 @@
       "file": "MainConditional.lean",
       "declared": 7,
       "audited": 7
+    },
+    {
+      "file": "ModelEdgeLawGammaFamily.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "ModelEdgeLawReduction.lean",
@@ -11664,6 +11669,46 @@
     {
       "file": "MainConditional.lean",
       "theorem": "SteklovAudit.MainConditional.conclusion_nontrivial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFamily.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFamily.edge_law_of_gamma_family",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFamily.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFamily.edge_law_of_gamma_family'",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFamily.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFamily.edge_law_of_gamma_main",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFamily.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFamily.gamma_term_must_shrink",
       "axioms": [
         "propext",
         "Classical.choice",
