@@ -2580,7 +2580,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       compiled.
       Ticked 2026-11-23 by the formalize task: STATUS PASS 1357/1357 at 224b40a lists all 4 theorems of
       `H5bQuantifierOrder` as verified (standard axioms only).
-- [ ] G151. `SteklovAudit/TetraEdgeLawOverlap.lean` (imports `SteklovAudit.ModelEdgeLawSixEdges`,
+- [x] G151. `SteklovAudit/TetraEdgeLawOverlap.lean` (imports `SteklovAudit.ModelEdgeLawSixEdges`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): the tetrahedron edge law from six edge laws plus a collar-overlap error
       that shrinks with the collar parameter (row 4, (7.45)). Theorems: `tetra_edge_law_of_overlap` (`N face : ℝ → ℝ`,
       `A c : Fin 6 → ℝ`, `0 ≤ C`; if for every `ε > 0` there are `Ne : Fin 6 → ℝ → ℝ` satisfying the six per-edge laws of
@@ -2595,6 +2595,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       `tetra_edge_law_of_overlap` (via `edge_law_of_gamma_family` applied to `N − face` with `r := ∑ Ne − main`
       from `six_edge_law`) and `overlap_must_shrink`. STATUS PASS 1359/1359 at 7329a82 already lists both as
       verified; next run: tick.
+      Ticked 2026-11-24 by the formalize task: STATUS PASS 1359/1359 at 9630a3f lists both theorems of
+      `TetraEdgeLawOverlap` as verified (standard axioms only).
 - [ ] G152. `SteklovAudit/ModelEdgeLawGammaFree.lean` (imports `SteklovAudit.ModelEdgeLawReduction`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): remove `γ` from the (7.38) assembly (row 4). Read the exact statement of
       `ModelEdgeLawReduction.model_law_of_decomposition` first. Theorem `model_law_gamma_free`: if for every `γ > 0`
@@ -2605,6 +2607,14 @@ Theorem 1.3 / 11.1 for the actual operator.
       instance reusing `model_law_nonvacuous`). If the conversion makes this exceed about 120 lines, prove only the
       `η`-form conversion lemma here and record the assembly as G152b. F table text: the `θ_γ` main term may depend on
       `γ`; an `O(γ L)` dependence is enough.
+      Written by the formalize task 2026-11-24 at 0ed5a09 (new file; did not exist before, uncompiled at push):
+      `eta_of_isLittleO` (Landau `o(L)` to `η`-form), def `GammaDecomp` (the per-`γ` hypotheses of
+      `model_law_of_decomposition` plus `|mγ − main| ≤ C' γ L`), `model_law_gamma_free` (via
+      `edge_law_of_gamma_main` with `C := 0`, `r := N_wedge − mγ`), `model_law_gamma_free_nonvacuous`,
+      `model_law_gamma_free_example`. Finding recorded in the docstring (not proved): with a single
+      `γ`-independent `N_wedge`, the per-`γ` laws force the main terms for different `γ` to agree up to `o(L)`; the
+      paper's weighted count depends on `γ`, so the passage to the unweighted count is a separate input. Next run:
+      tick if STATUS shows it compiled.
 - [ ] G153. `SteklovAudit/TetraEdgeLawNonvacuous.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): definition check
       for G151: its hypotheses hold with NONZERO per-edge remainders and a NONZERO overlap, so the theorem is not vacuous
       (row 4). Model: `Ne e L := A * L ^ 2 + c * L + √(max L 0)`, `face := 0`,
