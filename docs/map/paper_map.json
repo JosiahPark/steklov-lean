@@ -76,7 +76,8 @@
   "ModelEdgeLawGammaFamily": 3,
   "ModelEdgeLawSixEdges": 3,
   "H5bQuantifierOrder": 3,
-  "TetraEdgeLawOverlap": 3
+  "TetraEdgeLawOverlap": 3,
+  "ModelEdgeLawGammaFree": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1055,6 +1056,11 @@
    "kind": "outright",
    "page": 2,
    "note": "Certified bracket 1/(2π) ≤ c_{α₀} ≤ 2√3/(3π), i.e. 0.158 < c_{α₀} < 0.368 (c_{π/3} = 2√3/(3π) in closed form; c antitone). The decimals 0.26941… are NOT certified."
+  },
+  "model_law_gamma_free": {
+   "kind": "conditional",
+   "note": "γ-free assembly of the fixed-time model law (7.38): if for every cutoff γ > 0 the hypotheses of model_law_of_decomposition hold and the main term is within C'·γ·L of a fixed limit main term (C' uniform in γ), all as named hypotheses, then N_wedge − main = o(L) (ModelEdgeLawGammaFree, via edge_law_of_gamma_family). The θ_γ main-term bound, the passage from γ-weighted to unweighted counts, (7.45), H5 and Theorem 11.1 are not proved.",
+   "page": 18
   },
   "model_law_of_decomposition": {
    "kind": "conditional",
