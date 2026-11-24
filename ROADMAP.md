@@ -2597,7 +2597,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       verified; next run: tick.
       Ticked 2026-11-24 by the formalize task: STATUS PASS 1359/1359 at 9630a3f lists both theorems of
       `TetraEdgeLawOverlap` as verified (standard axioms only).
-- [ ] G152. `SteklovAudit/ModelEdgeLawGammaFree.lean` (imports `SteklovAudit.ModelEdgeLawReduction`,
+- [x] G152. `SteklovAudit/ModelEdgeLawGammaFree.lean` (imports `SteklovAudit.ModelEdgeLawReduction`,
       `SteklovAudit.ModelEdgeLawGammaFamily`): remove `γ` from the (7.38) assembly (row 4). Read the exact statement of
       `ModelEdgeLawReduction.model_law_of_decomposition` first. Theorem `model_law_gamma_free`: if for every `γ > 0`
       the hypotheses of `model_law_of_decomposition` hold with main term `mγ` (the `θ_γ` integral, a parameter) and
@@ -2615,6 +2615,8 @@ Theorem 1.3 / 11.1 for the actual operator.
       `γ`-independent `N_wedge`, the per-`γ` laws force the main terms for different `γ` to agree up to `o(L)`; the
       paper's weighted count depends on `γ`, so the passage to the unweighted count is a separate input. Next run:
       tick if STATUS shows it compiled.
+      Ticked 2026-11-24 by the formalize task: STATUS PASS 1363/1363 at 7c54327 lists all 4 theorems of
+      `ModelEdgeLawGammaFree` as verified (standard axioms only).
 - [ ] G153. `SteklovAudit/TetraEdgeLawNonvacuous.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): definition check
       for G151: its hypotheses hold with NONZERO per-edge remainders and a NONZERO overlap, so the theorem is not vacuous
       (row 4). Model: `Ne e L := A * L ^ 2 + c * L + √(max L 0)`, `face := 0`,
@@ -2623,6 +2625,10 @@ Theorem 1.3 / 11.1 for the actual operator.
       in `η`-form: `L ≥ 1 / η ^ 2`), `witness_edge_laws`, `witness_overlap`, `witness_nonvacuous` (all hypotheses of
       `tetra_edge_law_of_overlap` hold with `N − ∑ Ne ≠ 0` for `L > 0`). F table text: the overlap reduction is
       consistent with nonzero remainders.
+      Written by the formalize task 2026-11-24 (new file; did not exist before, uncompiled at push): `sqrt_littleO`,
+      defs `wsq`, `wNe`, `wN` (renamed from `Ne`/`N` to avoid clashing with core `Ne`), `wsq_pos`,
+      `witness_edge_laws`, `witness_overlap`, `witness_nonvacuous`, `witness_conclusion` (G151 applied to the
+      witness). Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
