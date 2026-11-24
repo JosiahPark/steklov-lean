@@ -78,7 +78,8 @@
   "H5bQuantifierOrder": 3,
   "TetraEdgeLawOverlap": 3,
   "ModelEdgeLawGammaFree": 3,
-  "TetraEdgeLawNonvacuous": 3
+  "TetraEdgeLawNonvacuous": 3,
+  "WeightedToUnweighted": 3
  },
  "prefix_areas": {
   "Section5": 2,
