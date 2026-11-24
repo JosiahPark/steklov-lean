@@ -42,7 +42,9 @@ theorem sqrt_littleO : ∀ η : ℝ, 0 < η → ∀ᶠ L in atTop, |Real.sqrt (m
     have hm := mul_le_mul_of_nonneg_left hL hη2.le
     linarith
   have h2 : (η * Real.sqrt L) ^ 2 = η ^ 2 * L := by
-    rw [← hss]; ring
+    first
+      | rw [mul_pow, pow_two (Real.sqrt L), hss]
+      | nlinarith [hss]
   have hηs0 : 0 ≤ η * Real.sqrt L := mul_nonneg hη.le hs0
   have hηs : 1 ≤ η * Real.sqrt L := by nlinarith [h2, h1, hηs0]
   calc Real.sqrt L = 1 * Real.sqrt L := by ring
