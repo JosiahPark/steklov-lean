@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-24 10:28 UTC",
+  "checked_at": "2026-11-24 18:08 UTC",
   "lean_exit_code": 0,
-  "commit": "9630a3f6a21b4ea2ad34fdae3e15d1fd80ddb0d0",
-  "last_passing_commit": "9630a3f6a21b4ea2ad34fdae3e15d1fd80ddb0d0",
-  "library_declarations_checked": 1359,
-  "library_declarations": 1359,
+  "commit": "0ed5a0979aaa95772fd3637d07f9126522888b7d",
+  "last_passing_commit": "0ed5a0979aaa95772fd3637d07f9126522888b7d",
+  "library_declarations_checked": 1363,
+  "library_declarations": 1363,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1359,
-  "verified": 1359,
+  "theorems": 1363,
+  "verified": 1363,
   "problems": [],
   "modules_audited": [
     {
@@ -874,6 +874,11 @@
     },
     {
       "file": "ModelEdgeLawGammaFamily.lean",
+      "declared": 4,
+      "audited": 4
+    },
+    {
+      "file": "ModelEdgeLawGammaFree.lean",
       "declared": 4,
       "audited": 4
     },
@@ -11764,6 +11769,46 @@
     {
       "file": "ModelEdgeLawGammaFamily.lean",
       "theorem": "SteklovAudit.ModelEdgeLawGammaFamily.gamma_term_must_shrink",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFree.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFree.eta_of_isLittleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFree.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFree.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free_nonvacuous",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "ModelEdgeLawGammaFree.lean",
+      "theorem": "SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free_example",
       "axioms": [
         "propext",
         "Classical.choice",

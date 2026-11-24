@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-24 10:28 UTC at commit `9630a3f6a21b`. Last passing commit: `9630a3f6a21b`.
+Checked 2026-11-24 18:08 UTC at commit `0ed5a0979aaa`. Last passing commit: `0ed5a0979aaa`.
 
-Library declarations checked: 1359 of 1359 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1363 of 1363 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 227 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 228 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1090,6 +1090,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | ModelEdgeLawGammaFamily.lean | `SteklovAudit.ModelEdgeLawGammaFamily.edge_law_of_gamma_family'` | verified (standard axioms only) |
 | ModelEdgeLawGammaFamily.lean | `SteklovAudit.ModelEdgeLawGammaFamily.edge_law_of_gamma_main` | verified (standard axioms only) |
 | ModelEdgeLawGammaFamily.lean | `SteklovAudit.ModelEdgeLawGammaFamily.gamma_term_must_shrink` | verified (standard axioms only) |
+| ModelEdgeLawGammaFree.lean | `SteklovAudit.ModelEdgeLawGammaFree.eta_of_isLittleO` | verified (standard axioms only) |
+| ModelEdgeLawGammaFree.lean | `SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free` | verified (standard axioms only) |
+| ModelEdgeLawGammaFree.lean | `SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free_nonvacuous` | verified (standard axioms only) |
+| ModelEdgeLawGammaFree.lean | `SteklovAudit.ModelEdgeLawGammaFree.model_law_gamma_free_example` | verified (standard axioms only) |
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.k_integral` | verified (standard axioms only) |
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.pertrace_scalar` | verified (standard axioms only) |
 | ModelEdgeLawReduction.lean | `SteklovAudit.ModelEdgeLawReduction.smoothed_ramp` | verified (standard axioms only) |
