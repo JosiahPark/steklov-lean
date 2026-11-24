@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-24 22:52 UTC at commit `d82e930066af`. Last passing commit: `d82e930066af`.
+Checked 2026-11-24 23:17 UTC at commit `6aa15f34c6bb`. Last passing commit: `6aa15f34c6bb`.
 
-Library declarations checked: 1369 of 1369 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1372 of 1372 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 229 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 230 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1382,6 +1382,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | WedgeChannel.lean | `SteklovAudit.WedgeChannel.anti_upper` | verified (standard axioms only) |
 | WedgeChannel.lean | `SteklovAudit.WedgeChannel.channel_lower` | verified (standard axioms only) |
 | WedgeChannel.lean | `SteklovAudit.WedgeChannel.antisym_physical` | verified (standard axioms only) |
+| WeightedToUnweighted.lean | `SteklovAudit.WeightedToUnweighted.main_terms_agree` | verified (standard axioms only) |
+| WeightedToUnweighted.lean | `SteklovAudit.WeightedToUnweighted.unweighted_of_weighted` | verified (standard axioms only) |
+| WeightedToUnweighted.lean | `SteklovAudit.WeightedToUnweighted.weighted_gap_must_shrink` | verified (standard axioms only) |
 | WindowBounds.lean | `SteklovAudit.WindowBounds.int_bounds` | verified (standard axioms only) |
 | WindowBounds.lean | `SteklovAudit.WindowBounds.Hc_increment` | verified (standard axioms only) |
 | WindowBounds.lean | `SteklovAudit.WindowBounds.strip_trace_increment` | verified (standard axioms only) |

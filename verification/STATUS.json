@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-24 22:52 UTC",
+  "checked_at": "2026-11-24 23:17 UTC",
   "lean_exit_code": 0,
-  "commit": "d82e930066af6fab2700e7d5b2e7a87987395df2",
-  "last_passing_commit": "d82e930066af6fab2700e7d5b2e7a87987395df2",
-  "library_declarations_checked": 1369,
-  "library_declarations": 1369,
+  "commit": "6aa15f34c6bb838338e9f5dd589267dcb985cc1e",
+  "last_passing_commit": "6aa15f34c6bb838338e9f5dd589267dcb985cc1e",
+  "library_declarations_checked": 1372,
+  "library_declarations": 1372,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1369,
-  "verified": 1369,
+  "theorems": 1372,
+  "verified": 1372,
   "problems": [],
   "modules_audited": [
     {
@@ -1141,6 +1141,11 @@
       "file": "WedgeChannel.lean",
       "declared": 15,
       "audited": 15
+    },
+    {
+      "file": "WeightedToUnweighted.lean",
+      "declared": 3,
+      "audited": 3
     },
     {
       "file": "WindowBounds.lean",
@@ -14694,6 +14699,36 @@
     {
       "file": "WedgeChannel.lean",
       "theorem": "SteklovAudit.WedgeChannel.antisym_physical",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweighted.lean",
+      "theorem": "SteklovAudit.WeightedToUnweighted.main_terms_agree",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweighted.lean",
+      "theorem": "SteklovAudit.WeightedToUnweighted.unweighted_of_weighted",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweighted.lean",
+      "theorem": "SteklovAudit.WeightedToUnweighted.weighted_gap_must_shrink",
       "axioms": [
         "propext",
         "Classical.choice",
