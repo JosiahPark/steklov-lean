@@ -2629,6 +2629,9 @@ Theorem 1.3 / 11.1 for the actual operator.
       defs `wsq`, `wNe`, `wN` (renamed from `Ne`/`N` to avoid clashing with core `Ne`), `wsq_pos`,
       `witness_edge_laws`, `witness_overlap`, `witness_nonvacuous`, `witness_conclusion` (G151 applied to the
       witness). Next run: tick if STATUS shows it compiled.
+      Repaired 2026-11-24 by the formalize task: build at cd8da9c failed in `sqrt_littleO` (`rw [← hss]` also rewrote
+      `L` inside `√L`); proof of `h2` changed to `rw [mul_pow, pow_two (Real.sqrt L), hss]`, statements unchanged.
+      Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
