@@ -2654,6 +2654,9 @@ or Theorem 1.3 / 11.1 for the actual operator.
       hypothesis shape with `C`-term replaced by `L` but `N - main` is not `o(L)`; reuse the G148 counterexample
       pattern). Docstring: the bound `|N − Nγ| ≤ C γ L` for the paper's weighted count is NOT proved. F table text: the
       unweighted edge law follows from the weighted one plus an `O(γ L)` weighting error.
+      Written by the formalize task 2026-11-24 (new file; did not exist before, uncompiled at push):
+      `main_terms_agree`, `unweighted_of_weighted` (via `edge_law_of_gamma_main` with `r := Nγ − mγ`),
+      `weighted_gap_must_shrink`. Next run: tick if STATUS shows it compiled.
 - [ ] G155. `SteklovAudit/TetraAssemblyFace.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): add the face term to
       the G151 assembly (row 4, (7.45) with the H6 shape as a named hypothesis). Theorem `tetra_law_of_face_and_edges`
       (`N face : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`; if `face L - (Af * L ^ 2 + Bf * L)` is `o(L)` in `η`-form (named
