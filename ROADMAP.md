@@ -2617,7 +2617,7 @@ Theorem 1.3 / 11.1 for the actual operator.
       tick if STATUS shows it compiled.
       Ticked 2026-11-24 by the formalize task: STATUS PASS 1363/1363 at 7c54327 lists all 4 theorems of
       `ModelEdgeLawGammaFree` as verified (standard axioms only).
-- [ ] G153. `SteklovAudit/TetraEdgeLawNonvacuous.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): definition check
+- [x] G153. `SteklovAudit/TetraEdgeLawNonvacuous.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): definition check
       for G151: its hypotheses hold with NONZERO per-edge remainders and a NONZERO overlap, so the theorem is not vacuous
       (row 4). Model: `Ne e L := A * L ^ 2 + c * L + √(max L 0)`, `face := 0`,
       `N L := ∑ e, Ne e L + √(max L 0)`; the overlap `√(max L 0)` is at most `1 * ε * L` eventually for each `ε > 0`
@@ -2632,6 +2632,52 @@ Theorem 1.3 / 11.1 for the actual operator.
       Repaired 2026-11-24 by the formalize task: build at cd8da9c failed in `sqrt_littleO` (`rw [← hss]` also rewrote
       `L` inside `√L`); proof of `h2` changed to `rw [mul_pow, pow_two (Real.sqrt L), hss]`, statements unchanged.
       Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-24 by the formalize task: STATUS PASS 1369/1369 at cd6afcd lists all 6 theorems of
+      `TetraEdgeLawNonvacuous` as verified (standard axioms only).
+
+Items G154–G157 written by the formalize task on 2026-11-24 (no unchecked A–G item was left after G153; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G154–G156 serve row 4
+(model edge law reductions: the weighted-to-unweighted passage recorded as a finding in G152, and the face term added
+to the G151 assembly, each with the analytic input as a named hypothesis, plus a non-vacuity check); G157 serves row 3
+(definition check of G146's bounded-defect window route). Rows 1 and 2 have no open one-run items. Everything is
+scalar, every analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6
+or Theorem 1.3 / 11.1 for the actual operator.
+
+- [ ] G154. `SteklovAudit/WeightedToUnweighted.lean` (imports `SteklovAudit.ModelEdgeLawGammaFamily`): the G152
+      finding as a named input (row 4, (7.38)). Theorems: `main_terms_agree` (if `N - m₁` and `N - m₂` are both
+      `o(L)` in `η`-form, then `m₁ - m₂` is `o(L)`; split `η / 2`, `filter_upwards`, `abs_sub_le`-style triangle
+      inequality), and `unweighted_of_weighted` (`N main : ℝ → ℝ`, `0 ≤ C`, `0 ≤ C'`; if for every `γ > 0` there are
+      `Nγ mγ` with `Nγ - mγ` `o(L)` in `η`-form, eventually `|N L - Nγ L| ≤ C * γ * L` (the named weighted-to-unweighted
+      input) and eventually `|mγ L - main L| ≤ C' * γ * L`, then `N - main` is `o(L)`; proof:
+      `ModelEdgeLawGammaFamily.edge_law_of_gamma_main` with `r := Nγ - mγ`, since `N - mγ - r = N - Nγ`), and
+      `weighted_gap_must_shrink` (`N L = L`, `Nγ = mγ = main = 0`: a `γ`-independent gap `|N - Nγ| ≤ 1 · L` fits the
+      hypothesis shape with `C`-term replaced by `L` but `N - main` is not `o(L)`; reuse the G148 counterexample
+      pattern). Docstring: the bound `|N − Nγ| ≤ C γ L` for the paper's weighted count is NOT proved. F table text: the
+      unweighted edge law follows from the weighted one plus an `O(γ L)` weighting error.
+- [ ] G155. `SteklovAudit/TetraAssemblyFace.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): add the face term to
+      the G151 assembly (row 4, (7.45) with the H6 shape as a named hypothesis). Theorem `tetra_law_of_face_and_edges`
+      (`N face : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`; if `face L - (Af * L ^ 2 + Bf * L)` is `o(L)` in `η`-form (named
+      face input) and `N L - face L - ((∑ e, A e) * L ^ 2 + (∑ e, c e) * L)` is `o(L)` (the conclusion shape of
+      `tetra_edge_law_of_overlap`), then `N L - ((Af + ∑ e, A e) * L ^ 2 + (Bf + ∑ e, c e) * L)` is `o(L)`; split
+      `η / 2`), `tetra_law_of_overlap_and_face` (the same conclusion directly from the hypotheses of
+      `tetra_edge_law_of_overlap` plus the face input; read that theorem's exact statement first), and
+      `tetra_law_equal_edges` (equal edges: coefficients `Af + 6 * A`, `Bf + 6 * c`; `Finset.sum_const`,
+      `Finset.card_fin`, `simp`). Docstring: the face law (Lemma 7.4 / §10.2, H6), the vertex term H4 and the overlap
+      bound are NOT proved. F table text: face plus six edges plus an `O(ε L)` overlap gives the tetrahedron two-term law.
+- [ ] G156. `SteklovAudit/WeightedToUnweightedNonvacuous.lean` (imports `SteklovAudit.WeightedToUnweighted`):
+      definition check for G154 (row 4): its hypotheses hold with a NONZERO `γ`-dependent gap. Model: `N L = L ^ 2`,
+      `Nγ L = L ^ 2 + γ * L`, `mγ = Nγ`, `main L = L ^ 2`, `C = C' = 1`. Theorems: `witness_gap` (`|N L - Nγ L| = γ * L`
+      for `L ≥ 0`, `γ > 0`), `witness_gap_ne` (nonzero for `L > 0`), `witness_hyps` (all hypotheses of
+      `unweighted_of_weighted` hold), `witness_conclusion` (G154 applied). F table text: the weighted-to-unweighted input
+      is consistent with a nonzero weighting error.
+- [ ] G157. `SteklovAudit/WindowBoundedNonvacuous.lean` (imports `SteklovAudit.WindowLocalMassBounded`): definition
+      check for G146 (row 3): the hypothesis of `littleO_of_window_bounded_defect` holds for a NONZERO remainder with
+      `ε₀ > 0`. Model: `r L := √(max L 0)`, `C = K = ε₀ = Mloc = 1`. Theorems: `window_witness_bound` (for every
+      `T > 0`, eventually `|r L| ≤ 1 * L / T + 1 * T * 1 * √(1 * L)`: for `T ≥ 1` use `√L ≤ T √L`; for `T < 1` use
+      `√L ≤ L ≤ L / T` when `L ≥ 1`; `Real.sqrt_le_self`-style or `Real.sqrt_le_sqrt` + `Real.sqrt_mul_self`),
+      `window_witness_ne` (`r L ≠ 0` for `L > 0`), and `window_bounded_nonvacuous` (the conclusion of
+      `littleO_of_window_bounded_defect` for this `r`). F table text: the bounded-defect window route is consistent with
+      a nonzero remainder.
 
 ## Foundations (long-term)
 
