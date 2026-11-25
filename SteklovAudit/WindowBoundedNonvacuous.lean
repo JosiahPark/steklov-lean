@@ -41,7 +41,7 @@ theorem window_witness_bound : ∀ T : ℝ, 0 < T → ∀ᶠ L in atTop,
   have hsL : Real.sqrt L ≤ L := by
     nlinarith [mul_nonneg hs0 (sub_nonneg.2 hs1)]
   have key : Real.sqrt L ≤ L / T + T * Real.sqrt L := by
-    rcases le_or_lt 1 T with h | h
+    rcases le_total 1 T with h | h
     · have h1 : 0 ≤ L / T := div_nonneg (by linarith) hT.le
       nlinarith [mul_nonneg (sub_nonneg.2 h) hs0]
     · have h1 : L ≤ L / T := by
