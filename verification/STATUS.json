@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-25 09:10 UTC",
+  "checked_at": "2026-11-25 17:19 UTC",
   "lean_exit_code": 0,
-  "commit": "05aea1d4b7a014d815d115ff60410a03f0b4b0ec",
-  "last_passing_commit": "05aea1d4b7a014d815d115ff60410a03f0b4b0ec",
-  "library_declarations_checked": 1385,
-  "library_declarations": 1385,
+  "commit": "db16bac8d371c5e8d88621d4927d70a9df96057a",
+  "last_passing_commit": "db16bac8d371c5e8d88621d4927d70a9df96057a",
+  "library_declarations_checked": 1390,
+  "library_declarations": 1390,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1385,
-  "verified": 1385,
+  "theorems": 1390,
+  "verified": 1390,
   "problems": [],
   "modules_audited": [
     {
@@ -1176,6 +1176,11 @@
       "file": "WindowLittleOMass.lean",
       "declared": 3,
       "audited": 3
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "declared": 5,
+      "audited": 5
     },
     {
       "file": "WindowLocalMassBounded.lean",
@@ -14979,6 +14984,56 @@
     {
       "file": "WindowLittleOMass.lean",
       "theorem": "SteklovAudit.WindowLittleOMass.window_bounded_defect_of_littleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "theorem": "SteklovAudit.WindowLittleOMassWitness.wm_nonneg",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "theorem": "SteklovAudit.WindowLittleOMassWitness.wm_littleO_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "theorem": "SteklovAudit.WindowLittleOMassWitness.wm_not_linear",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "theorem": "SteklovAudit.WindowLittleOMassWitness.witness_window_hyp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMassWitness.lean",
+      "theorem": "SteklovAudit.WindowLittleOMassWitness.witness_littleO",
       "axioms": [
         "propext",
         "Classical.choice",

@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-25 09:10 UTC at commit `05aea1d4b7a0`. Last passing commit: `05aea1d4b7a0`.
+Checked 2026-11-25 17:19 UTC at commit `db16bac8d371`. Last passing commit: `db16bac8d371`.
 
-Library declarations checked: 1385 of 1385 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1390 of 1390 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 234 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 235 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1408,6 +1408,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.littleO_of_window_littleO_mass` | verified (standard axioms only) |
 | WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.linear_mass_littleO_sq` | verified (standard axioms only) |
 | WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.window_bounded_defect_of_littleO` | verified (standard axioms only) |
+| WindowLittleOMassWitness.lean | `SteklovAudit.WindowLittleOMassWitness.wm_nonneg` | verified (standard axioms only) |
+| WindowLittleOMassWitness.lean | `SteklovAudit.WindowLittleOMassWitness.wm_littleO_sq` | verified (standard axioms only) |
+| WindowLittleOMassWitness.lean | `SteklovAudit.WindowLittleOMassWitness.wm_not_linear` | verified (standard axioms only) |
+| WindowLittleOMassWitness.lean | `SteklovAudit.WindowLittleOMassWitness.witness_window_hyp` | verified (standard axioms only) |
+| WindowLittleOMassWitness.lean | `SteklovAudit.WindowLittleOMassWitness.witness_littleO` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.sqrt_local_mass_eq` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.eps_of_bounded_small` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.littleO_of_window_bounded_defect` | verified (standard axioms only) |
