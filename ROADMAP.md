@@ -2740,7 +2740,7 @@ for the actual operator.
       (G158 applied to the model). Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1390/1390 at a78cb51 lists all 5 theorems of
       `WindowLittleOMassWitness` as verified (standard axioms only).
-- [ ] G160. `SteklovAudit/TetraAssemblyVertex.lean` (imports `SteklovAudit.TetraAssemblyFace`; new file, checked absent
+- [x] G160. `SteklovAudit/TetraAssemblyVertex.lean` (imports `SteklovAudit.TetraAssemblyFace`; new file, checked absent
       on main 2026-11-25): add the vertex term to the G155 assembly (row 4, (7.45) with the H4 / (7.49) shape as a named
       hypothesis). Theorems: `tetra_law_of_vertex_face_edges` (`N face vert : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`;
       named vertex input `hvert : ∀ η > 0, ∀ᶠ L in atTop, |vert L| ≤ η * L`; if `N - vert` satisfies the conclusion of
@@ -2753,6 +2753,8 @@ for the actual operator.
       Written by the formalize task 2026-11-25 at 1b6c3cc (new file; did not exist before, uncompiled at push):
       `tetra_law_of_vertex_face_edges` (takes `N vert` only; the unused `face` argument was dropped),
       `tetra_law_of_overlap_face_vertex`, `vertex_must_be_littleO`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1393/1393 at 1b6c3cc lists all 3 theorems of
+      `TetraAssemblyVertex` as verified (standard axioms only).
 - [ ] G161. `SteklovAudit/TetraAssemblyFaceNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyFace`,
       `SteklovAudit.TetraEdgeLawNonvacuous`; new file, checked absent on main 2026-11-25): definition check for G155
       (row 4): the hypotheses of `tetra_law_of_overlap_and_face` hold with a NONZERO face remainder, nonzero per-edge
@@ -2763,6 +2765,11 @@ for the actual operator.
       hypotheses of `tetra_law_of_overlap_and_face`; `Fin.sum_univ_six` or `simp` for the edge sum), and
       `face_witness_conclusion` (G155 applied). Name defs `fwFace`, `fwN` to avoid clashes. F table text: the
       face-plus-edges assembly is consistent with nonzero remainders.
+      Written by the formalize task 2026-11-25 at 160ed4e (new file; did not exist before, uncompiled at push):
+      defs `fwFace`, `fwNe`, `fwN` (per-edge counts are the pure remainder `√(max L 0)`; total is
+      `fwFace + ∑ fwNe + √(max L 0)`, i.e. `6 * √` written as a `Fin 6` sum); `face_witness_law`,
+      `face_witness_remainder_ne`, `face_witness_edge_laws`, `face_witness_overlap`, `face_witness_hyps`,
+      `face_witness_nonzero`, `face_witness_conclusion`. Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
