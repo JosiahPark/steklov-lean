@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-25 00:54 UTC",
+  "checked_at": "2026-11-25 01:18 UTC",
   "lean_exit_code": 0,
-  "commit": "e88446fede8a71174ac4f62f1c88b21c2b6ec86e",
-  "last_passing_commit": "e88446fede8a71174ac4f62f1c88b21c2b6ec86e",
-  "library_declarations_checked": 1375,
-  "library_declarations": 1375,
+  "commit": "d6e178de1732675f07f2f43607af4425396096f0",
+  "last_passing_commit": "d6e178de1732675f07f2f43607af4425396096f0",
+  "library_declarations_checked": 1379,
+  "library_declarations": 1379,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1375,
-  "verified": 1375,
+  "theorems": 1379,
+  "verified": 1379,
   "problems": [],
   "modules_audited": [
     {
@@ -1151,6 +1151,11 @@
       "file": "WeightedToUnweighted.lean",
       "declared": 3,
       "audited": 3
+    },
+    {
+      "file": "WeightedToUnweightedNonvacuous.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "WindowBounds.lean",
@@ -14764,6 +14769,46 @@
     {
       "file": "WeightedToUnweighted.lean",
       "theorem": "SteklovAudit.WeightedToUnweighted.weighted_gap_must_shrink",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweightedNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedToUnweightedNonvacuous.witness_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweightedNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedToUnweightedNonvacuous.witness_gap_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweightedNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedToUnweightedNonvacuous.witness_hyps",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedToUnweightedNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedToUnweightedNonvacuous.witness_conclusion",
       "axioms": [
         "propext",
         "Classical.choice",
