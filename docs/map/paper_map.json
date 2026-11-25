@@ -79,7 +79,8 @@
   "TetraEdgeLawOverlap": 3,
   "ModelEdgeLawGammaFree": 3,
   "TetraEdgeLawNonvacuous": 3,
-  "WeightedToUnweighted": 3
+  "WeightedToUnweighted": 3,
+  "TetraAssemblyFace": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1628,6 +1629,11 @@
    "kind": "outright",
    "page": 1,
    "note": "cos(α0)=1/3 implies sin^2(α0/2)=1/3, the half-angle value in (1.2)."
+  },
+  "tetra_law_of_overlap_and_face": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Generic helper for the last assembly step in (7.45): the hypotheses of tetra_edge_law_of_overlap plus a named two-term face input face = Af L² + Bf L + o(L) give N = (Af + ΣA_e)L² + (Bf + Σc_e)L + o(L) (TetraAssemblyFace). The face law (Lemma 7.4 / §10.2, H6), the overlap bound (H3/H4 geometry), the per-edge laws and Theorem 11.1 are not proved."
   },
   "tetra_surface_area": {
    "kind": "outright",
