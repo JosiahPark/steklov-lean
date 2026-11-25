@@ -2721,6 +2721,9 @@ for the actual operator.
       `littleO_of_window_littleO_mass` with `m L := Mloc * L`, showing the new input is implied by the old). Docstring:
       the local mass bound for the actual operator, the window bound and Lemma 7.1′ are NOT proved. F table text: on the
       window route the local mass row may be weakened from `O(L)` to `o(L²)`.
+      Written by the formalize task 2026-11-25 at e15b4d2 (new file; did not exist before, uncompiled at push):
+      `littleO_of_window_littleO_mass`, `linear_mass_littleO_sq`, `window_bounded_defect_of_littleO`. Next run: tick
+      if STATUS shows it compiled.
 - [ ] G159. `SteklovAudit/WindowLittleOMassWitness.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
       absent on main 2026-11-25): the weakening in G158 is strict and its hypotheses are not vacuous (row 3). Model:
       `wm L := max L 0 * √(max L 0)` (mass `L^{3/2}`), `r L := √(max L 0)`, `C = K = ε₀ = 1`. Theorems: `wm_nonneg`,
