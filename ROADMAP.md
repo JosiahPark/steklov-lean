@@ -2659,7 +2659,7 @@ or Theorem 1.3 / 11.1 for the actual operator.
       `weighted_gap_must_shrink`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1372/1372 at 165c063 lists all 3 theorems of
       `WeightedToUnweighted` as verified (standard axioms only).
-- [ ] G155. `SteklovAudit/TetraAssemblyFace.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): add the face term to
+- [x] G155. `SteklovAudit/TetraAssemblyFace.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): add the face term to
       the G151 assembly (row 4, (7.45) with the H6 shape as a named hypothesis). Theorem `tetra_law_of_face_and_edges`
       (`N face : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`; if `face L - (Af * L ^ 2 + Bf * L)` is `o(L)` in `η`-form (named
       face input) and `N L - face L - ((∑ e, A e) * L ^ 2 + (∑ e, c e) * L)` is `o(L)` (the conclusion shape of
@@ -2672,12 +2672,17 @@ or Theorem 1.3 / 11.1 for the actual operator.
       Written by the formalize task 2026-11-25 at 13f68ba (new file; did not exist before, uncompiled at push):
       `tetra_law_of_face_and_edges`, `tetra_law_of_overlap_and_face` (G151 composed with the face input),
       `tetra_law_equal_edges`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1375/1375 at e88446f lists all 3 theorems of
+      `TetraAssemblyFace` as verified (standard axioms only).
 - [ ] G156. `SteklovAudit/WeightedToUnweightedNonvacuous.lean` (imports `SteklovAudit.WeightedToUnweighted`):
       definition check for G154 (row 4): its hypotheses hold with a NONZERO `γ`-dependent gap. Model: `N L = L ^ 2`,
       `Nγ L = L ^ 2 + γ * L`, `mγ = Nγ`, `main L = L ^ 2`, `C = C' = 1`. Theorems: `witness_gap` (`|N L - Nγ L| = γ * L`
       for `L ≥ 0`, `γ > 0`), `witness_gap_ne` (nonzero for `L > 0`), `witness_hyps` (all hypotheses of
       `unweighted_of_weighted` hold), `witness_conclusion` (G154 applied). F table text: the weighted-to-unweighted input
       is consistent with a nonzero weighting error.
+      Written by the formalize task 2026-11-25 at d6e178d (new file; did not exist before, uncompiled at push):
+      defs `Nu`, `Nw`; `witness_gap`, `witness_gap_ne`, `witness_hyps`, `witness_conclusion`. Next run: tick if
+      STATUS shows it compiled.
 - [ ] G157. `SteklovAudit/WindowBoundedNonvacuous.lean` (imports `SteklovAudit.WindowLocalMassBounded`): definition
       check for G146 (row 3): the hypothesis of `littleO_of_window_bounded_defect` holds for a NONZERO remainder with
       `ε₀ > 0`. Model: `r L := √(max L 0)`, `C = K = ε₀ = Mloc = 1`. Theorems: `window_witness_bound` (for every
