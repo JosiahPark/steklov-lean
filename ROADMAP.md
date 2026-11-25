@@ -2726,7 +2726,7 @@ for the actual operator.
       if STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1385/1385 at 05aea1d lists all 3 theorems of
       `WindowLittleOMass` as verified (standard axioms only).
-- [ ] G159. `SteklovAudit/WindowLittleOMassWitness.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
+- [x] G159. `SteklovAudit/WindowLittleOMassWitness.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
       absent on main 2026-11-25): the weakening in G158 is strict and its hypotheses are not vacuous (row 3). Model:
       `wm L := max L 0 * √(max L 0)` (mass `L^{3/2}`), `r L := √(max L 0)`, `C = K = ε₀ = 1`. Theorems: `wm_nonneg`,
       `wm_littleO_sq` (`∀ δ > 0, ∀ᶠ L in atTop, wm L ≤ δ * L ^ 2`: for `L ≥ 1 / δ ^ 2`, `√L ≤ δ * L` since
@@ -2738,6 +2738,8 @@ for the actual operator.
       Written by the formalize task 2026-11-25 at db16bac (new file; did not exist before, uncompiled at push):
       defs `wm`, `wr`; `wm_nonneg`, `wm_littleO_sq`, `wm_not_linear`, `witness_window_hyp`, `witness_littleO`
       (G158 applied to the model). Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1390/1390 at a78cb51 lists all 5 theorems of
+      `WindowLittleOMassWitness` as verified (standard axioms only).
 - [ ] G160. `SteklovAudit/TetraAssemblyVertex.lean` (imports `SteklovAudit.TetraAssemblyFace`; new file, checked absent
       on main 2026-11-25): add the vertex term to the G155 assembly (row 4, (7.45) with the H4 / (7.49) shape as a named
       hypothesis). Theorems: `tetra_law_of_vertex_face_edges` (`N face vert : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`;
@@ -2748,6 +2750,9 @@ for the actual operator.
       hypothesis for `N - vert = 0` holds, but `N` does not satisfy the law, so the `o(L)` vertex input cannot be
       dropped). Docstring: (7.49), H4, the face law H6 and the overlap bound are NOT proved. F table text: face, six
       edges, an `O(ε L)` overlap and an `o(L)` vertex term give the tetrahedron two-term law.
+      Written by the formalize task 2026-11-25 at 1b6c3cc (new file; did not exist before, uncompiled at push):
+      `tetra_law_of_vertex_face_edges` (takes `N vert` only; the unused `face` argument was dropped),
+      `tetra_law_of_overlap_face_vertex`, `vertex_must_be_littleO`. Next run: tick if STATUS shows it compiled.
 - [ ] G161. `SteklovAudit/TetraAssemblyFaceNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyFace`,
       `SteklovAudit.TetraEdgeLawNonvacuous`; new file, checked absent on main 2026-11-25): definition check for G155
       (row 4): the hypotheses of `tetra_law_of_overlap_and_face` hold with a NONZERO face remainder, nonzero per-edge
