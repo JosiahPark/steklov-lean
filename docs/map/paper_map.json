@@ -84,7 +84,8 @@
   "WeightedToUnweightedNonvacuous": 3,
   "WindowBoundedNonvacuous": 3,
   "WindowLittleOMass": 3,
-  "WindowLittleOMassWitness": 3
+  "WindowLittleOMassWitness": 3,
+  "TetraAssemblyVertex": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1643,6 +1644,11 @@
    "kind": "outright",
    "page": 18,
    "note": "Generic helper for the last assembly step in (7.45): the hypotheses of tetra_edge_law_of_overlap plus a named two-term face input face = Af L² + Bf L + o(L) give N = (Af + ΣA_e)L² + (Bf + Σc_e)L + o(L) (TetraAssemblyFace). The face law (Lemma 7.4 / §10.2, H6), the overlap bound (H3/H4 geometry), the per-edge laws and Theorem 11.1 are not proved."
+  },
+  "tetra_law_of_overlap_face_vertex": {
+   "kind": "outright",
+   "page": 18,
+   "note": "Generic helper for the vertex step in (7.45): the hypotheses of tetra_law_of_overlap_and_face applied to N − vert, plus a named o(L) vertex input with the H4 / (7.49) shape, give N = (Af + ΣA_e)L² + (Bf + Σc_e)L + o(L) (TetraAssemblyVertex). (7.49), H4, the face law (H6), the overlap bound, the per-edge laws and Theorem 11.1 are not proved."
   },
   "tetra_surface_area": {
    "kind": "outright",
