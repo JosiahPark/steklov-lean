@@ -81,7 +81,8 @@
   "TetraEdgeLawNonvacuous": 3,
   "WeightedToUnweighted": 3,
   "TetraAssemblyFace": 3,
-  "WeightedToUnweightedNonvacuous": 3
+  "WeightedToUnweightedNonvacuous": 3,
+  "WindowBoundedNonvacuous": 3
  },
  "prefix_areas": {
   "Section5": 2,
