@@ -83,7 +83,8 @@
   "TetraAssemblyFace": 3,
   "WeightedToUnweightedNonvacuous": 3,
   "WindowBoundedNonvacuous": 3,
-  "WindowLittleOMass": 3
+  "WindowLittleOMass": 3,
+  "WindowLittleOMassWitness": 3
  },
  "prefix_areas": {
   "Section5": 2,
