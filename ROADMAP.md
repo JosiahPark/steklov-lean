@@ -2643,7 +2643,7 @@ to the G151 assembly, each with the analytic input as a named hypothesis, plus a
 scalar, every analytic input is a named hypothesis, and none of them proves Lemma 7.1′, (7.29), (7.38)/(7.45), H1–H6
 or Theorem 1.3 / 11.1 for the actual operator.
 
-- [ ] G154. `SteklovAudit/WeightedToUnweighted.lean` (imports `SteklovAudit.ModelEdgeLawGammaFamily`): the G152
+- [x] G154. `SteklovAudit/WeightedToUnweighted.lean` (imports `SteklovAudit.ModelEdgeLawGammaFamily`): the G152
       finding as a named input (row 4, (7.38)). Theorems: `main_terms_agree` (if `N - m₁` and `N - m₂` are both
       `o(L)` in `η`-form, then `m₁ - m₂` is `o(L)`; split `η / 2`, `filter_upwards`, `abs_sub_le`-style triangle
       inequality), and `unweighted_of_weighted` (`N main : ℝ → ℝ`, `0 ≤ C`, `0 ≤ C'`; if for every `γ > 0` there are
@@ -2657,6 +2657,8 @@ or Theorem 1.3 / 11.1 for the actual operator.
       Written by the formalize task 2026-11-24 (new file; did not exist before, uncompiled at push):
       `main_terms_agree`, `unweighted_of_weighted` (via `edge_law_of_gamma_main` with `r := Nγ − mγ`),
       `weighted_gap_must_shrink`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1372/1372 at 165c063 lists all 3 theorems of
+      `WeightedToUnweighted` as verified (standard axioms only).
 - [ ] G155. `SteklovAudit/TetraAssemblyFace.lean` (imports `SteklovAudit.TetraEdgeLawOverlap`): add the face term to
       the G151 assembly (row 4, (7.45) with the H6 shape as a named hypothesis). Theorem `tetra_law_of_face_and_edges`
       (`N face : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`; if `face L - (Af * L ^ 2 + Bf * L)` is `o(L)` in `η`-form (named
@@ -2667,6 +2669,9 @@ or Theorem 1.3 / 11.1 for the actual operator.
       `tetra_law_equal_edges` (equal edges: coefficients `Af + 6 * A`, `Bf + 6 * c`; `Finset.sum_const`,
       `Finset.card_fin`, `simp`). Docstring: the face law (Lemma 7.4 / §10.2, H6), the vertex term H4 and the overlap
       bound are NOT proved. F table text: face plus six edges plus an `O(ε L)` overlap gives the tetrahedron two-term law.
+      Written by the formalize task 2026-11-25 at 13f68ba (new file; did not exist before, uncompiled at push):
+      `tetra_law_of_face_and_edges`, `tetra_law_of_overlap_and_face` (G151 composed with the face input),
+      `tetra_law_equal_edges`. Next run: tick if STATUS shows it compiled.
 - [ ] G156. `SteklovAudit/WeightedToUnweightedNonvacuous.lean` (imports `SteklovAudit.WeightedToUnweighted`):
       definition check for G154 (row 4): its hypotheses hold with a NONZERO `γ`-dependent gap. Model: `N L = L ^ 2`,
       `Nγ L = L ^ 2 + γ * L`, `mγ = Nγ`, `main L = L ^ 2`, `C = C' = 1`. Theorems: `witness_gap` (`|N L - Nγ L| = γ * L`
