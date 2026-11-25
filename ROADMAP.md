@@ -2708,7 +2708,7 @@ non-vacuity check of G155). Rows 1 and 2 have no open one-run items. Everything 
 named hypothesis, and none of them proves Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.1
 for the actual operator.
 
-- [ ] G158. `SteklovAudit/WindowLittleOMass.lean` (imports `SteklovAudit.WindowLocalMassBounded`; new file, checked
+- [x] G158. `SteklovAudit/WindowLittleOMass.lean` (imports `SteklovAudit.WindowLocalMassBounded`; new file, checked
       absent on main 2026-11-25): the bounded-defect window route of G146 needs only local mass `o(L²)`, not `O(L)`
       (row 3; replaces the row "Localized spectral mass" by a strictly weaker input on this route). Theorems:
       `littleO_of_window_littleO_mass` (`r m : ℝ → ℝ`, `0 ≤ C`, `0 ≤ K`, `0 ≤ ε₀`; `hm0 : ∀ᶠ L in atTop, 0 ≤ m L`;
@@ -2724,6 +2724,8 @@ for the actual operator.
       Written by the formalize task 2026-11-25 at e15b4d2 (new file; did not exist before, uncompiled at push):
       `littleO_of_window_littleO_mass`, `linear_mass_littleO_sq`, `window_bounded_defect_of_littleO`. Next run: tick
       if STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1385/1385 at 05aea1d lists all 3 theorems of
+      `WindowLittleOMass` as verified (standard axioms only).
 - [ ] G159. `SteklovAudit/WindowLittleOMassWitness.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
       absent on main 2026-11-25): the weakening in G158 is strict and its hypotheses are not vacuous (row 3). Model:
       `wm L := max L 0 * √(max L 0)` (mass `L^{3/2}`), `r L := √(max L 0)`, `C = K = ε₀ = 1`. Theorems: `wm_nonneg`,
@@ -2733,6 +2735,9 @@ for the actual operator.
       `L ≥ max 1 (1 / T ^ 2)`, or drop the defect term since it is nonnegative). If the last theorem pushes the file over
       about 120 lines, keep the first three and record it as G159b. F table text: local mass `L^{3/2}` is allowed on the
       window route but is not `O(L)`.
+      Written by the formalize task 2026-11-25 at db16bac (new file; did not exist before, uncompiled at push):
+      defs `wm`, `wr`; `wm_nonneg`, `wm_littleO_sq`, `wm_not_linear`, `witness_window_hyp`, `witness_littleO`
+      (G158 applied to the model). Next run: tick if STATUS shows it compiled.
 - [ ] G160. `SteklovAudit/TetraAssemblyVertex.lean` (imports `SteklovAudit.TetraAssemblyFace`; new file, checked absent
       on main 2026-11-25): add the vertex term to the G155 assembly (row 4, (7.45) with the H4 / (7.49) shape as a named
       hypothesis). Theorems: `tetra_law_of_vertex_face_edges` (`N face vert : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`;
