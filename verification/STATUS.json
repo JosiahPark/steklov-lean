@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-25 19:42 UTC",
+  "checked_at": "2026-11-25 22:03 UTC",
   "lean_exit_code": 0,
-  "commit": "b99b2828f361b095dc79eb427f922d61234feed5",
-  "last_passing_commit": "b99b2828f361b095dc79eb427f922d61234feed5",
-  "library_declarations_checked": 1393,
-  "library_declarations": 1393,
+  "commit": "6a7ce9ff04fccd4c15399489f27a8fb659e7ea5f",
+  "last_passing_commit": "6a7ce9ff04fccd4c15399489f27a8fb659e7ea5f",
+  "library_declarations_checked": 1400,
+  "library_declarations": 1400,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1393,
-  "verified": 1393,
+  "theorems": 1400,
+  "verified": 1400,
   "problems": [],
   "modules_audited": [
     {
@@ -1096,6 +1096,11 @@
       "file": "TetraAssemblyFace.lean",
       "declared": 3,
       "audited": 3
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "declared": 7,
+      "audited": 7
     },
     {
       "file": "TetraAssemblyVertex.lean",
@@ -13979,6 +13984,76 @@
     {
       "file": "TetraAssemblyFace.lean",
       "theorem": "SteklovAudit.TetraAssemblyFace.tetra_law_equal_edges",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_remainder_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_edge_laws",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_overlap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_hyps",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_nonzero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFaceNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFaceNonvacuous.face_witness_conclusion",
       "axioms": [
         "propext",
         "Classical.choice",
