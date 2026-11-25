@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-25 04:19 UTC",
+  "checked_at": "2026-11-25 05:19 UTC",
   "lean_exit_code": 0,
-  "commit": "caa41bb06abaa04e48ba989078fb0fe5482f040b",
-  "last_passing_commit": "caa41bb06abaa04e48ba989078fb0fe5482f040b",
-  "library_declarations_checked": 1382,
-  "library_declarations": 1382,
+  "commit": "e15b4d21a4642d11ba747fb9566c40b4ea1338ba",
+  "last_passing_commit": "e15b4d21a4642d11ba747fb9566c40b4ea1338ba",
+  "library_declarations_checked": 1385,
+  "library_declarations": 1385,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1382,
-  "verified": 1382,
+  "theorems": 1385,
+  "verified": 1385,
   "problems": [],
   "modules_audited": [
     {
@@ -1169,6 +1169,11 @@
     },
     {
       "file": "WindowDefectFullTrace.lean",
+      "declared": 3,
+      "audited": 3
+    },
+    {
+      "file": "WindowLittleOMass.lean",
       "declared": 3,
       "audited": 3
     },
@@ -14944,6 +14949,36 @@
     {
       "file": "WindowDefectFullTrace.lean",
       "theorem": "SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.windowTraceBound_of_trace_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMass.lean",
+      "theorem": "SteklovAudit.WindowLittleOMass.littleO_of_window_littleO_mass",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMass.lean",
+      "theorem": "SteklovAudit.WindowLittleOMass.linear_mass_littleO_sq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WindowLittleOMass.lean",
+      "theorem": "SteklovAudit.WindowLittleOMass.window_bounded_defect_of_littleO",
       "axioms": [
         "propext",
         "Classical.choice",

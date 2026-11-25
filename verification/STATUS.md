@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-25 04:19 UTC at commit `caa41bb06aba`. Last passing commit: `caa41bb06aba`.
+Checked 2026-11-25 05:19 UTC at commit `e15b4d21a464`. Last passing commit: `e15b4d21a464`.
 
-Library declarations checked: 1382 of 1382 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1385 of 1385 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 233 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 234 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1405,6 +1405,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.fullTraceSmall_of_window` | verified (standard axioms only) |
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.h5_of_cutoff_window` | verified (standard axioms only) |
 | WindowDefectFullTrace.lean | `SteklovAudit.H5CutoffInterface.H5EdgeFamilyCutoff.windowTraceBound_of_trace_zero` | verified (standard axioms only) |
+| WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.littleO_of_window_littleO_mass` | verified (standard axioms only) |
+| WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.linear_mass_littleO_sq` | verified (standard axioms only) |
+| WindowLittleOMass.lean | `SteklovAudit.WindowLittleOMass.window_bounded_defect_of_littleO` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.sqrt_local_mass_eq` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.eps_of_bounded_small` | verified (standard axioms only) |
 | WindowLocalMassBounded.lean | `SteklovAudit.WindowLocalMassBounded.littleO_of_window_bounded_defect` | verified (standard axioms only) |
