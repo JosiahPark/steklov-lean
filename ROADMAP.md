@@ -2674,7 +2674,7 @@ or Theorem 1.3 / 11.1 for the actual operator.
       `tetra_law_equal_edges`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1375/1375 at e88446f lists all 3 theorems of
       `TetraAssemblyFace` as verified (standard axioms only).
-- [ ] G156. `SteklovAudit/WeightedToUnweightedNonvacuous.lean` (imports `SteklovAudit.WeightedToUnweighted`):
+- [x] G156. `SteklovAudit/WeightedToUnweightedNonvacuous.lean` (imports `SteklovAudit.WeightedToUnweighted`):
       definition check for G154 (row 4): its hypotheses hold with a NONZERO `γ`-dependent gap. Model: `N L = L ^ 2`,
       `Nγ L = L ^ 2 + γ * L`, `mγ = Nγ`, `main L = L ^ 2`, `C = C' = 1`. Theorems: `witness_gap` (`|N L - Nγ L| = γ * L`
       for `L ≥ 0`, `γ > 0`), `witness_gap_ne` (nonzero for `L > 0`), `witness_hyps` (all hypotheses of
@@ -2683,6 +2683,8 @@ or Theorem 1.3 / 11.1 for the actual operator.
       Written by the formalize task 2026-11-25 at d6e178d (new file; did not exist before, uncompiled at push):
       defs `Nu`, `Nw`; `witness_gap`, `witness_gap_ne`, `witness_hyps`, `witness_conclusion`. Next run: tick if
       STATUS shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1379/1379 at 946a68e lists all 4 theorems of
+      `WeightedToUnweightedNonvacuous` as verified (standard axioms only).
 - [ ] G157. `SteklovAudit/WindowBoundedNonvacuous.lean` (imports `SteklovAudit.WindowLocalMassBounded`): definition
       check for G146 (row 3): the hypothesis of `littleO_of_window_bounded_defect` holds for a NONZERO remainder with
       `ε₀ > 0`. Model: `r L := √(max L 0)`, `C = K = ε₀ = Mloc = 1`. Theorems: `window_witness_bound` (for every
@@ -2691,6 +2693,9 @@ or Theorem 1.3 / 11.1 for the actual operator.
       `window_witness_ne` (`r L ≠ 0` for `L > 0`), and `window_bounded_nonvacuous` (the conclusion of
       `littleO_of_window_bounded_defect` for this `r`). F table text: the bounded-defect window route is consistent with
       a nonzero remainder.
+      Written by the formalize task 2026-11-25 at b7ac3fd (new file; did not exist before, uncompiled at push):
+      def `wr`; `window_witness_bound`, `window_witness_ne`, `window_bounded_nonvacuous`. Next run: tick if STATUS
+      shows it compiled.
 
 ## Foundations (long-term)
 
