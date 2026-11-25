@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-24 23:48 UTC",
+  "checked_at": "2026-11-25 00:36 UTC",
   "lean_exit_code": 0,
-  "commit": "165c063ce1df1198dfb5fceebb04239d0234ca22",
-  "last_passing_commit": "165c063ce1df1198dfb5fceebb04239d0234ca22",
-  "library_declarations_checked": 1372,
-  "library_declarations": 1372,
+  "commit": "13f68ba0a6c429b6dd87d7bfae601d5daa39bc9a",
+  "last_passing_commit": "13f68ba0a6c429b6dd87d7bfae601d5daa39bc9a",
+  "library_declarations_checked": 1375,
+  "library_declarations": 1375,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1372,
-  "verified": 1372,
+  "theorems": 1375,
+  "verified": 1375,
   "problems": [],
   "modules_audited": [
     {
@@ -1091,6 +1091,11 @@
       "file": "TetraAffineFlux.lean",
       "declared": 6,
       "audited": 6
+    },
+    {
+      "file": "TetraAssemblyFace.lean",
+      "declared": 3,
+      "audited": 3
     },
     {
       "file": "TetraEdgeLawNonvacuous.lean",
@@ -13919,6 +13924,36 @@
     {
       "file": "TetraAffineFlux.lean",
       "theorem": "SteklovAudit.TetraAffineFlux.cutoff_tail_moment",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFace.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFace.tetra_law_of_face_and_edges",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFace.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFace.tetra_law_of_overlap_and_face",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyFace.lean",
+      "theorem": "SteklovAudit.TetraAssemblyFace.tetra_law_equal_edges",
       "axioms": [
         "propext",
         "Classical.choice",

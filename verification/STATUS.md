@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-24 23:48 UTC at commit `165c063ce1df`. Last passing commit: `165c063ce1df`.
+Checked 2026-11-25 00:36 UTC at commit `13f68ba0a6c4`. Last passing commit: `13f68ba0a6c4`.
 
-Library declarations checked: 1372 of 1372 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1375 of 1375 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 230 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 231 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1304,6 +1304,9 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_orthogonal` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.residual_energy` | verified (standard axioms only) |
 | TetraAffineFlux.lean | `SteklovAudit.TetraAffineFlux.cutoff_tail_moment` | verified (standard axioms only) |
+| TetraAssemblyFace.lean | `SteklovAudit.TetraAssemblyFace.tetra_law_of_face_and_edges` | verified (standard axioms only) |
+| TetraAssemblyFace.lean | `SteklovAudit.TetraAssemblyFace.tetra_law_of_overlap_and_face` | verified (standard axioms only) |
+| TetraAssemblyFace.lean | `SteklovAudit.TetraAssemblyFace.tetra_law_equal_edges` | verified (standard axioms only) |
 | TetraEdgeLawNonvacuous.lean | `SteklovAudit.TetraEdgeLawNonvacuous.sqrt_littleO` | verified (standard axioms only) |
 | TetraEdgeLawNonvacuous.lean | `SteklovAudit.TetraEdgeLawNonvacuous.wsq_pos` | verified (standard axioms only) |
 | TetraEdgeLawNonvacuous.lean | `SteklovAudit.TetraEdgeLawNonvacuous.witness_edge_laws` | verified (standard axioms only) |
