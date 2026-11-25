@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-25 17:41 UTC",
+  "checked_at": "2026-11-25 18:23 UTC",
   "lean_exit_code": 0,
-  "commit": "a78cb514985605b77f5644c43d8d6510d682ef6d",
-  "last_passing_commit": "a78cb514985605b77f5644c43d8d6510d682ef6d",
-  "library_declarations_checked": 1390,
-  "library_declarations": 1390,
+  "commit": "1b6c3cc4ea7ae8cf96935fe88fb16225a1af463f",
+  "last_passing_commit": "1b6c3cc4ea7ae8cf96935fe88fb16225a1af463f",
+  "library_declarations_checked": 1393,
+  "library_declarations": 1393,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1390,
-  "verified": 1390,
+  "theorems": 1393,
+  "verified": 1393,
   "problems": [],
   "modules_audited": [
     {
@@ -1094,6 +1094,11 @@
     },
     {
       "file": "TetraAssemblyFace.lean",
+      "declared": 3,
+      "audited": 3
+    },
+    {
+      "file": "TetraAssemblyVertex.lean",
       "declared": 3,
       "audited": 3
     },
@@ -13974,6 +13979,36 @@
     {
       "file": "TetraAssemblyFace.lean",
       "theorem": "SteklovAudit.TetraAssemblyFace.tetra_law_equal_edges",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertex.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertex.tetra_law_of_vertex_face_edges",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertex.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertex.tetra_law_of_overlap_face_vertex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertex.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertex.vertex_must_be_littleO",
       "axioms": [
         "propext",
         "Classical.choice",
