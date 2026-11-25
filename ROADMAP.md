@@ -2685,7 +2685,7 @@ or Theorem 1.3 / 11.1 for the actual operator.
       STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1379/1379 at 946a68e lists all 4 theorems of
       `WeightedToUnweightedNonvacuous` as verified (standard axioms only).
-- [ ] G157. `SteklovAudit/WindowBoundedNonvacuous.lean` (imports `SteklovAudit.WindowLocalMassBounded`): definition
+- [x] G157. `SteklovAudit/WindowBoundedNonvacuous.lean` (imports `SteklovAudit.WindowLocalMassBounded`): definition
       check for G146 (row 3): the hypothesis of `littleO_of_window_bounded_defect` holds for a NONZERO remainder with
       `ε₀ > 0`. Model: `r L := √(max L 0)`, `C = K = ε₀ = Mloc = 1`. Theorems: `window_witness_bound` (for every
       `T > 0`, eventually `|r L| ≤ 1 * L / T + 1 * T * 1 * √(1 * L)`: for `T ≥ 1` use `√L ≤ T √L`; for `T < 1` use
@@ -2696,6 +2696,60 @@ or Theorem 1.3 / 11.1 for the actual operator.
       Written by the formalize task 2026-11-25 at b7ac3fd (new file; did not exist before, uncompiled at push):
       def `wr`; `window_witness_bound`, `window_witness_ne`, `window_bounded_nonvacuous`. Next run: tick if STATUS
       shows it compiled.
+      Ticked 2026-11-25 by the formalize task: STATUS PASS 1382/1382 at dbce531 lists all 3 theorems of
+      `WindowBoundedNonvacuous` as verified (standard axioms only).
+
+Items G158–G161 written by the formalize task on 2026-11-25 (no unchecked A–G item was left after G157; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G158 and G159 serve
+row 3 (abstract cumulative budget: the window route with the F-table row "Localized spectral mass" replaced by the
+strictly weaker input "local mass `o(L²)`", and a check that the weakening is strict and non-vacuous); G160 and G161
+serve row 4 (model edge law reductions: the vertex term added to the G155 assembly as a named H4-shaped input, and a
+non-vacuity check of G155). Rows 1 and 2 have no open one-run items. Everything is scalar, every analytic input is a
+named hypothesis, and none of them proves Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.1
+for the actual operator.
+
+- [ ] G158. `SteklovAudit/WindowLittleOMass.lean` (imports `SteklovAudit.WindowLocalMassBounded`; new file, checked
+      absent on main 2026-11-25): the bounded-defect window route of G146 needs only local mass `o(L²)`, not `O(L)`
+      (row 3; replaces the row "Localized spectral mass" by a strictly weaker input on this route). Theorems:
+      `littleO_of_window_littleO_mass` (`r m : ℝ → ℝ`, `0 ≤ C`, `0 ≤ K`, `0 ≤ ε₀`; `hm0 : ∀ᶠ L in atTop, 0 ≤ m L`;
+      `hm : ∀ δ > 0, ∀ᶠ L in atTop, m L ≤ δ * L ^ 2`; `hr : ∀ T > 0, ∀ᶠ L in atTop, |r L| ≤ C * L / T + K * T * ε₀ * √(m L)`;
+      conclusion `∀ η > 0, ∀ᶠ L in atTop, |r L| ≤ η * L`; direct proof: `T := 2 * (C + 1) / η`, so `C * L / T ≤ η * L / 2`
+      for `L ≥ 0`; `q := η / (2 * (K * T * ε₀ + 1))`, `δ := q ^ 2`, then `√(m L) ≤ √(q ^ 2 * L ^ 2) = q * L` via
+      `Real.sqrt_le_sqrt`, `Real.sqrt_mul_self`/`Real.sqrt_sq` on `(q * L) ^ 2`; finish with `nlinarith`),
+      `linear_mass_littleO_sq` (`0 ≤ Mloc`: `∀ δ > 0, ∀ᶠ L in atTop, Mloc * L ≤ δ * L ^ 2`, for `L ≥ Mloc / δ` and
+      `L ≥ 0`), and `window_bounded_defect_of_littleO` (G146's conclusion re-derived from
+      `littleO_of_window_littleO_mass` with `m L := Mloc * L`, showing the new input is implied by the old). Docstring:
+      the local mass bound for the actual operator, the window bound and Lemma 7.1′ are NOT proved. F table text: on the
+      window route the local mass row may be weakened from `O(L)` to `o(L²)`.
+- [ ] G159. `SteklovAudit/WindowLittleOMassWitness.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
+      absent on main 2026-11-25): the weakening in G158 is strict and its hypotheses are not vacuous (row 3). Model:
+      `wm L := max L 0 * √(max L 0)` (mass `L^{3/2}`), `r L := √(max L 0)`, `C = K = ε₀ = 1`. Theorems: `wm_nonneg`,
+      `wm_littleO_sq` (`∀ δ > 0, ∀ᶠ L in atTop, wm L ≤ δ * L ^ 2`: for `L ≥ 1 / δ ^ 2`, `√L ≤ δ * L` since
+      `√L * √L = L`), `wm_not_linear` (`¬ ∃ M, ∀ᶠ L in atTop, wm L ≤ M * L`: at `L ≥ (|M| + 1) ^ 2`, `√L ≥ |M| + 1`), and
+      `witness_window_hyp` (`hr` of `littleO_of_window_littleO_mass` holds for this `r`, `wm`: `√L ≤ L / T` for
+      `L ≥ max 1 (1 / T ^ 2)`, or drop the defect term since it is nonnegative). If the last theorem pushes the file over
+      about 120 lines, keep the first three and record it as G159b. F table text: local mass `L^{3/2}` is allowed on the
+      window route but is not `O(L)`.
+- [ ] G160. `SteklovAudit/TetraAssemblyVertex.lean` (imports `SteklovAudit.TetraAssemblyFace`; new file, checked absent
+      on main 2026-11-25): add the vertex term to the G155 assembly (row 4, (7.45) with the H4 / (7.49) shape as a named
+      hypothesis). Theorems: `tetra_law_of_vertex_face_edges` (`N face vert : ℝ → ℝ`, `Af Bf : ℝ`, `A c : Fin 6 → ℝ`;
+      named vertex input `hvert : ∀ η > 0, ∀ᶠ L in atTop, |vert L| ≤ η * L`; if `N - vert` satisfies the conclusion of
+      `tetra_law_of_face_and_edges` then so does `N`; split `η / 2` as in G155), `tetra_law_of_overlap_face_vertex`
+      (apply `TetraAssemblyFace.tetra_law_of_overlap_and_face` to `fun L => N L - vert L`; read its exact statement
+      first), and `vertex_must_be_littleO` (`N = vert = fun L => L`, `face = 0`, all coefficients `0`: the edge-part
+      hypothesis for `N - vert = 0` holds, but `N` does not satisfy the law, so the `o(L)` vertex input cannot be
+      dropped). Docstring: (7.49), H4, the face law H6 and the overlap bound are NOT proved. F table text: face, six
+      edges, an `O(ε L)` overlap and an `o(L)` vertex term give the tetrahedron two-term law.
+- [ ] G161. `SteklovAudit/TetraAssemblyFaceNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyFace`,
+      `SteklovAudit.TetraEdgeLawNonvacuous`; new file, checked absent on main 2026-11-25): definition check for G155
+      (row 4): the hypotheses of `tetra_law_of_overlap_and_face` hold with a NONZERO face remainder, nonzero per-edge
+      remainders and a nonzero overlap. Model: `fwFace L := L ^ 2 + L + √(max L 0)`, `Af = Bf = 1`, `A = c = 0`,
+      `Ne e L := √(max L 0)` (for every `ε`), `fwN L := fwFace L + 6 * √(max L 0) + √(max L 0)`, `C = 1`. Reuse
+      `TetraEdgeLawNonvacuous.sqrt_littleO` (read its exact statement first). Theorems: `face_witness_law` (the face
+      input), `face_witness_remainder_ne` (`fwFace L - (L ^ 2 + L) ≠ 0` for `L > 0`), `face_witness_hyps` (all
+      hypotheses of `tetra_law_of_overlap_and_face`; `Fin.sum_univ_six` or `simp` for the edge sum), and
+      `face_witness_conclusion` (G155 applied). Name defs `fwFace`, `fwN` to avoid clashes. F table text: the
+      face-plus-edges assembly is consistent with nonzero remainders.
 
 ## Foundations (long-term)
 
