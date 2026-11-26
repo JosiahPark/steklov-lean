@@ -64,8 +64,8 @@ theorem transverse_width (β : ℝ → ℝ) (hβ : Continuous β) (h : IsProfile
 theorem transverse_width_of_le (β : ℝ → ℝ) (hβ : Continuous β) (h : IsProfile β) {γ R : ℝ}
     (hγ : 0 < γ) (hR : 2 * γ ≤ R) : ∫ r in (0 : ℝ)..R, transCut β γ r ^ 2 = 3 * γ / 2 := by
   have hc := transCut_continuous β hβ γ
-  have h1 := intervalIntegral.integral_add_adjacent_intervals (hc.intervalIntegrable 0 (2 * γ))
-    (hc.intervalIntegrable (2 * γ) R)
+  have h1 := intervalIntegral.integral_add_adjacent_intervals (hc.intervalIntegrable 0 (2 * γ) : IntervalIntegrable _ MeasureTheory.volume 0 (2 * γ))
+    (hc.intervalIntegrable (2 * γ) R : IntervalIntegrable _ MeasureTheory.volume (2 * γ) R)
   have h2 : ∫ r in (2 * γ)..R, transCut β γ r ^ 2 = 0 := by
     have e : ∫ r in (2 * γ)..R, transCut β γ r ^ 2 = ∫ r in (2 * γ)..R, (0 : ℝ) := by
       apply intervalIntegral.integral_congr
