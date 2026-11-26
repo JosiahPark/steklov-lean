@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-26 14:28 UTC at commit `bde8bda8d03b`. Last passing commit: `bde8bda8d03b`.
+Checked 2026-11-26 15:22 UTC at commit `d5f86c0b1c17`. Last passing commit: `d5f86c0b1c17`.
 
-Library declarations checked: 1450 of 1450 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1454 of 1454 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 246 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 247 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1153,6 +1153,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.area_additive` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.theorem_11_1_of_C5` | verified (standard axioms only) |
+| PartitionTraceSplitting.lean | `SteklovAudit.PartitionTraceSplitting.sum_weights_integral` | verified (standard axioms only) |
+| PartitionTraceSplitting.lean | `SteklovAudit.PartitionTraceSplitting.count_eq_sum_localized` | verified (standard axioms only) |
+| PartitionTraceSplitting.lean | `SteklovAudit.PartitionTraceSplitting.splitting_of_partition` | verified (standard axioms only) |
+| PartitionTraceSplitting.lean | `SteklovAudit.PartitionTraceSplitting.splitting_fun` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_pos'` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.rpow_neg_le_one` | verified (standard axioms only) |
 | PowerShiftTransfer.lean | `SteklovAudit.PowerShiftTransfer.eventually_rpow_neg_le` | verified (standard axioms only) |

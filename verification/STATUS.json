@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 14:28 UTC",
+  "checked_at": "2026-11-26 15:22 UTC",
   "lean_exit_code": 0,
-  "commit": "bde8bda8d03b422f48ed6d15ec399aaa91380577",
-  "last_passing_commit": "bde8bda8d03b422f48ed6d15ec399aaa91380577",
-  "library_declarations_checked": 1450,
-  "library_declarations": 1450,
+  "commit": "d5f86c0b1c17e98f160a1f8e6a4b05f51709660b",
+  "last_passing_commit": "d5f86c0b1c17e98f160a1f8e6a4b05f51709660b",
+  "library_declarations_checked": 1454,
+  "library_declarations": 1454,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1450,
-  "verified": 1450,
+  "theorems": 1454,
+  "verified": 1454,
   "problems": [],
   "modules_audited": [
     {
@@ -926,6 +926,11 @@
       "file": "PartitionTrace.lean",
       "declared": 5,
       "audited": 5
+    },
+    {
+      "file": "PartitionTraceSplitting.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "Placeholder.lean",
@@ -12489,6 +12494,46 @@
     {
       "file": "PartitionTrace.lean",
       "theorem": "SteklovAudit.PartitionTrace.theorem_11_1_of_C5",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTraceSplitting.lean",
+      "theorem": "SteklovAudit.PartitionTraceSplitting.sum_weights_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTraceSplitting.lean",
+      "theorem": "SteklovAudit.PartitionTraceSplitting.count_eq_sum_localized",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTraceSplitting.lean",
+      "theorem": "SteklovAudit.PartitionTraceSplitting.splitting_of_partition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionTraceSplitting.lean",
+      "theorem": "SteklovAudit.PartitionTraceSplitting.splitting_fun",
       "axioms": [
         "propext",
         "Classical.choice",
