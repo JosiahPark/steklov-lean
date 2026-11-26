@@ -1,5 +1,5 @@
 {
- "_readme": "Data for tools/build_map.py. 'theorems': short theorem name -> kind (outright = paper step proved outright, conditional = paper step proved from named hypotheses), preprint page, and what it checks. Unlisted theorems show as supporting lemmas. 'module_areas': module -> band index in 'areas'; modules not listed use the SectionN prefix of their name, else the last band. 'hypotheses': the ledger inputs of Theorem 11.1 and the modules that partly reduce each.",
+ "_readme": "Data for tools/build_map.py. 'theorems': short theorem name -> kind (outright = paper step proved outright, conditional = paper step proved from named hypotheses), preprint page, and what it checks. Unlisted theorems show as supporting lemmas. 'module_areas': module -> band index in 'areas'; modules not listed use the SectionN prefix of their name, else the last band. 'hypotheses': the ledger inputs of Theorem 11.1 and the modules that partly reduce each. Fixed relative band rule (Josiah, 2026-11-26): the cumulative comparison (7.29) uses Z_h = ψ(hB)χ, on which the localized mass is Θ(L²); theorems whose only role is an o(L²)-mass, O(L)-mass, fixed-width-window or shrinking-collar route to (2.2)/(7.29) stay grey.",
  "areas": [
   "§1–3 Dihedral invariant & sector trace",
   "§4 Heat fibers",
@@ -494,12 +494,12 @@
   "duhamel_localized_le": {
    "kind": "conditional",
    "page": 14,
-   "note": "‖(e^{−itA}J−Je^{−itB})Z_h‖_HS ≤ |t|·|ε(h)|, taking the localized defect bound ‖(AJ−JB)Z_h‖_HS ≤ ε(h) (DefectSmall, the Lemma 7.1′ HS row) as a named hypothesis (DuhamelLocalized; finite-dimensional)."
+   "note": "‖(e^{−itA}J−Je^{−itB})Z_h‖_HS ≤ |t|·|ε(h)|, taking the localized defect bound ‖(AJ−JB)Z_h‖_HS ≤ ε(h) (DefectSmall, the Lemma 7.1′ HS row) as a named hypothesis (DuhamelLocalized; finite-dimensional). For the paper's Z_h = ψ(hB)χ, which need not commute with B, the needed input is the propagated defect ‖K U_B(s) Z_h‖_HS, uniformly o(h) in s (or its log-weighted time integral), not the static ‖K Z_h‖_HS."
   },
   "duhamel_localized_sq": {
    "kind": "outright",
    "page": 14,
-   "note": "Localized HS form of (7.24): for Z = z(B) a function of B, hsSq((e^{−itA}J−Je^{−itB})Z) ≤ t²·hsSq((AJ−JB)Z) (DuhamelLocalized; finite-dimensional, localized defect bound not proved)."
+   "note": "Localized HS form of (7.24): for Z = z(B) a function of B, hsSq((e^{−itA}J−Je^{−itB})Z) ≤ t²·hsSq((AJ−JB)Z) (DuhamelLocalized; finite-dimensional, localized defect bound not proved). It needs Z to be a function of B. For the paper's Z_h = ψ(hB)χ, which need not commute with B, the needed input is the propagated defect ‖K U_B(s) Z_h‖_HS, uniformly o(h) in s (or its log-weighted time integral), not the static ‖K Z_h‖_HS."
   },
   "duhamel_sin_hs": {
    "kind": "outright",
@@ -535,6 +535,11 @@
    "kind": "outright",
    "page": 19,
    "note": "Finite dyadic sum bounded by 2, so annular sums are uniformly bounded (helper)."
+  },
+  "edge_area_integral": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Edge area term for ledger input H2: six edges, two faces each, ∫∫(q_ε θ_γ)²/(4π) = 18γ(a − 3ε)/(4π) for the explicit product cutoff in edge coordinates (PartitionEdgeArea, K8; via transverse_width ∫₀^{2γ} θ_γ² = 3γ/2 and K7b's edge_kept_length). That these coordinates parametrize the actual faces isometrically, the partition identity, area additivity (H2 itself), H4–H6 and Theorem 11.1 are not proved."
   },
   "edge_heat_limit": {
    "kind": "conditional",
@@ -1056,14 +1061,9 @@
    "note": "Generic helper for the order of limits in (7.29): if for every M the remainder is o(L) plus C·L/M with C uniform in M, it is o(L). The uniform tail bound and fixed-M estimate are not proved.",
    "page": 14
   },
-  "littleO_of_window_bounded_defect": {
-   "kind": "outright",
-   "note": "Generic helper for the order of limits in (7.29): with local spectral mass ≤ Mloc·L, a window bound C·L/T + K·T·ε₀·√(Mloc·L) with a merely BOUNDED defect ε₀ already gives o(L) (WindowLocalMassBounded, via littleO_of_window_defect). The window bound, the local mass bound and the defect bound are not proved.",
-   "page": 14
-  },
   "littleO_of_window_defect": {
    "kind": "outright",
-   "note": "Generic helper for the order of limits in (7.29) after the Duhamel/Fourier steps: if for every window T the error is ≤ C·L/T + K·T·L·ε(1/L) with C, K uniform and ε(h)→0, it is o(L). The window and defect bounds themselves are not proved.",
+   "note": "Generic helper for the order of limits in (7.29) after the Duhamel/Fourier steps: if for every window T the error is ≤ C·L/T + K·T·L·ε(1/L) with C, K uniform and ε(h)→0, it is o(L). The window and defect bounds themselves are not proved. This is the route that matches the paper's fixed relative band: the quadratic mass (2.2) gives an HS partner O(L), and the propagated defect ε(h) → 0 supplies the smallness.",
    "page": 14
   },
   "little_o_of_vanishing_tail": {
@@ -1725,11 +1725,6 @@
    "kind": "outright",
    "page": 11,
    "note": "Helper: Tr(ηPη) = Σ η_i²P_ii; serves the localized spectral-mass step."
-  },
-  "trace_local_mass_le": {
-   "kind": "conditional",
-   "note": "Trace comparison ≤ Lip(f)·|ε|·√(Mloc/h), taking the defect bound ‖K‖²_HS ≤ ε² and the local mass bound ‖J‖²_HS ≤ Mloc/h as named hypotheses (TraceLocalMass; finite-dimensional; does not give (7.29) for the paper's multipliers).",
-   "page": 11
   },
   "trace_proj_cutoff_le": {
    "kind": "outright",
