@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 09:22 UTC",
+  "checked_at": "2026-11-26 09:30 UTC",
   "lean_exit_code": 0,
-  "commit": "18603007f9a5d39bb700038edaac56fce128dbb3",
-  "last_passing_commit": "18603007f9a5d39bb700038edaac56fce128dbb3",
-  "library_declarations_checked": 1438,
-  "library_declarations": 1438,
+  "commit": "df2ee5ca51190fb02a5eeaafa93a07e6b7a0a293",
+  "last_passing_commit": "df2ee5ca51190fb02a5eeaafa93a07e6b7a0a293",
+  "library_declarations_checked": 1443,
+  "library_declarations": 1443,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1438,
-  "verified": 1438,
+  "theorems": 1443,
+  "verified": 1443,
   "problems": [],
   "modules_audited": [
     {
@@ -906,6 +906,11 @@
       "file": "PartitionKeptLength.lean",
       "declared": 11,
       "audited": 11
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "declared": 5,
+      "audited": 5
     },
     {
       "file": "PartitionProfile.lean",
@@ -12229,6 +12234,56 @@
     {
       "file": "PartitionKeptLength.lean",
       "theorem": "SteklovAudit.PartitionKeptLength.right_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "theorem": "SteklovAudit.PartitionKeptLengthTotal.edge_kept_length",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "theorem": "SteklovAudit.PartitionKeptLengthTotal.six_edges_kept_length",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "theorem": "SteklovAudit.PartitionKeptLengthTotal.kept_length",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "theorem": "SteklovAudit.PartitionKeptLengthTotal.ledger_length",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionKeptLengthTotal.lean",
+      "theorem": "SteklovAudit.PartitionKeptLengthTotal.ledger_length_integral",
       "axioms": [
         "propext",
         "Classical.choice",

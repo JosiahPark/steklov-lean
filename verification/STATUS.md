@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-26 09:22 UTC at commit `18603007f9a5`. Last passing commit: `18603007f9a5`.
+Checked 2026-11-26 09:30 UTC at commit `df2ee5ca5119`. Last passing commit: `df2ee5ca5119`.
 
-Library declarations checked: 1438 of 1438 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1443 of 1443 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 244 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 245 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1128,6 +1128,11 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.left_integral` | verified (standard axioms only) |
 | PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.mid_integral` | verified (standard axioms only) |
 | PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.right_integral` | verified (standard axioms only) |
+| PartitionKeptLengthTotal.lean | `SteklovAudit.PartitionKeptLengthTotal.edge_kept_length` | verified (standard axioms only) |
+| PartitionKeptLengthTotal.lean | `SteklovAudit.PartitionKeptLengthTotal.six_edges_kept_length` | verified (standard axioms only) |
+| PartitionKeptLengthTotal.lean | `SteklovAudit.PartitionKeptLengthTotal.kept_length` | verified (standard axioms only) |
+| PartitionKeptLengthTotal.lean | `SteklovAudit.PartitionKeptLengthTotal.ledger_length` | verified (standard axioms only) |
+| PartitionKeptLengthTotal.lean | `SteklovAudit.PartitionKeptLengthTotal.ledger_length_integral` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.cos_sq_add_sin_sq_profile` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.cos_sq_reflect` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.integral_cos_sq` | verified (standard axioms only) |
