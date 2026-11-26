@@ -89,7 +89,9 @@
   "TetraAssemblyFaceNonvacuous": 3,
   "WeightedModelLaw": 3,
   "WeightedModelLawNonvacuous": 3,
-  "TetraAssemblyVertexNonvacuous": 3
+  "TetraAssemblyVertexNonvacuous": 3,
+  "WindowMassSharp": 3,
+  "LocalMassShrinkingCollar": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -888,6 +890,11 @@
    "kind": "outright",
    "page": 2,
    "note": "sech(πv) is integrable on (0,∞)."
+  },
+  "integral_cos_sq": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Generic helper for the kept edge length in (11.5) / ledger input H3: for any continuous transition profile β (0 below 1, π/2 above 2, reflection-symmetric), ∫₀² cos²β = 3/2, which gives kept length a − 3ε per edge (PartitionProfile, K6). The pointwise partition identity on ∂T_a and H1–H3 for the actual operator are not proved."
   },
   "integral_inv_one_add_exp": {
    "kind": "outright",
