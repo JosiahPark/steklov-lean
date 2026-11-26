@@ -20,18 +20,17 @@ its theorems, what each checks and where it sits in the paper.
 
 ## What is and is not verified
 
-The counts below are from the 2026-11-23 02:17 UTC verification run and map build at commit `63a90dc`, which
-includes all modules through G138.
+The counts below are from the 2026-11-26 04:24 UTC verification run and map build at commit `d7dbcd7`, which
+includes all modules through G164.
 [`verification/STATUS.md`](verification/STATUS.md) and [docs/map/README.md](docs/map/README.md) are regenerated
 after every build and are the authority.
 
-- **Library:** 1276 of 1276 theorems compile with only Lean's standard axioms at `f3e06b9` (02:59 UTC run summary;
-  `verification/STATUS.md` lags one commit behind), in 214 audited files
+- **Library:** 1410 of 1410 theorems compile with only Lean's standard axioms at `d7dbcd7`, in 240 audited files
   (`SteklovAudit.lean`, `SteklovAudit/` and `SteklovAudit/Foundations/`).
-- **As of the 02:17 UTC map build** (1271 theorems, 255 modules):
-  - 271 prove a step of the preprint outright.
-  - 66 prove a step from the paper's analytic estimates, taken as named hypotheses.
-  - 934 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
+- **As of the 04:24 UTC map build** (1410 theorems, 282 modules):
+  - 280 prove a step of the preprint outright.
+  - 70 prove a step from the paper's analytic estimates, taken as named hypotheses.
+  - 1060 are supporting lemmas. Several modules are deliberate obstructions: counterexamples showing what a
     uniform estimate cannot follow from.
 - **By paper section** (modules; outright / conditional / supporting theorems):
 
@@ -40,11 +39,11 @@ after every build and are the authority.
   | §1–3 Dihedral invariant & sector trace | 9 | 83 | 1 | 0 |
   | §4 Heat fibers | 1 | 6 | 4 | 0 |
   | §5 Spectral windows | 8 | 34 | 11 | 0 |
-  | §7 Static locality & cumulative traces | 60 | 97 | 12 | 157 |
+  | §7 Static locality & cumulative traces | 87 | 106 | 16 | 283 |
   | §8 Riesz means & Tauberian limits | 5 | 31 | 5 | 0 |
   | §9–10 Propagation & geometry | 7 | 10 | 1 | 9 |
   | §11 Assembly & sharp law | 165 | 10 | 32 | 768 |
-  | **Total** | **255** | **271** | **66** | **934** |
+  | **Total** | **282** | **280** | **70** | **1060** |
 
 - **Not checked: the main theorem.** Theorem 11.1 is proved in Lean only from six named hypotheses H1–H6
   (`SteklovAudit/MainConditional.lean`). None of them is proved for the tetrahedron's
@@ -65,8 +64,8 @@ after every build and are the authority.
 Current work targets H5, the edge part: the H5 modules in §11 test which rows of its input table are
 needed and which are independent. See [`ROADMAP.md`](ROADMAP.md), sections F and G.
 
-Recent updates (G109–G138 compiled, 1271/1271 at the 02:17 UTC build; G139–G142 queued; none proves H5 or any
-other input):
+Recent updates (the table covers G109–G142; every item through G164 has compiled, 1410/1410 at the 2026-11-26
+04:24 UTC build; none proves H5 or any other input):
 
 | Items | Modules | What they add to H5 |
 |---|---|---|
@@ -86,7 +85,7 @@ other input):
 | G135 | `WindowDefectFullTrace` | Full-trace smallness from the named window-shaped bound `C L / T + K T L ε(1/L)` |
 | G136 | `H5CutoffRatioSufficient` | The cutoff ratio row from a named linear gap and named small energy `Lip · E = o(L²)` |
 | G137 | `H5CutoffWeakRows` | Cutoff route on trace matching plus the three weaker inputs; zero family shows they are jointly satisfiable and that trace matching cannot be dropped |
-| G139–G142 (queued) | see `ROADMAP.md` | HS Duhamel bound for diagonalized matrices; localized form `≤ \|t\| ε(h)`; trace comparison with local mass; affine harmonic functions in 3D (Foundations) |
+| G139–G142 | see `ROADMAP.md` | HS Duhamel bound for diagonalized matrices; localized form `≤ \|t\| ε(h)`; trace comparison with local mass; affine harmonic functions in 3D (Foundations) |
 
 ## Paper proofs from the hourly runs
 
