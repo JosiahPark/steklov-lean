@@ -37,7 +37,7 @@ theorem sq_mass_window_hyp : ∀ T : ℝ, 0 < T → ∀ᶠ L in atTop,
   have huT : L / T * T = L := div_mul_cancel₀ L (ne_of_gt hT)
   have e : 1 * L / T + 1 * T * 1 * L = L / T + T * L := by ring
   rw [e]
-  rcases le_or_lt 1 T with h1 | h1
+  rcases le_or_gt 1 T with h1 | h1
   · nlinarith [mul_nonneg (sub_nonneg.2 h1) hL]
   · nlinarith [mul_nonneg hu0 (sub_nonneg.2 h1.le), mul_nonneg hT.le hL]
 
@@ -47,7 +47,7 @@ theorem sq_mass_nonneg : ∀ᶠ L in atTop, (0 : ℝ) ≤ L ^ 2 := by
   positivity
 
 /-- **G165.** The model mass `L²` is `O(L²)` (constant `1`). -/
-theorem sq_mass_bounded : ∀ᶠ L in atTop, L ^ 2 ≤ 1 * L ^ 2 := by
+theorem sq_mass_bounded : ∀ᶠ (L : ℝ) in atTop, L ^ 2 ≤ 1 * L ^ 2 := by
   filter_upwards [eventually_ge_atTop (0 : ℝ)] with L _
   linarith
 
