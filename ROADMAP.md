@@ -2932,19 +2932,26 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       integrating the pointwise identity, `∑ j, ∫ w j ∂μ = μ X` for a finite measure; then the area coefficients satisfy
       `AV + AE + AF = μ(∂T)/(4π)`, and `μ(∂T) = √3 a²` from four equilateral triangles (planar triangle of side `a` has
       area `√3 a²/4`; reuse `TriangleQuadrature` if it fits), giving the H2 field `= areaCoeff a`. Split K10a/K10b if needed.
-- [ ] K10a. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`,
+- [x] K10a. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`,
       `SteklovAudit.MainConditional`; new file, checked absent on main 2026-11-26) (H2, integration step): for a finite
       measure and weights with `∑ j, w j x = 1`, `sum_integral_weights` (`∑ j, ∫ w j ∂μ = (μ univ).toReal`), def
       `groupArea` (`(∑ ∫ w)/(4π)`), `area_coeffs_add` (`AV + AE + AF = μ(X)/(4π)`), `area_field_of_surface` (with the
       named hypothesis `hsurf : (μ univ).toReal = √3 a²`, the sum is `MainConditional.areaCoeff a`).
       Written by the formalize task 2026-11-26 at 7301775 (new file; did not exist before, uncompiled at push):
       `integral_one_eq`, `sum_integral_weights`, `groupArea`, `area_coeffs_add`, `area_field_of_surface` (namespace
-      `SteklovAudit.PartitionAreaAdditivity`). Next run: tick if STATUS shows it compiled.
+      `SteklovAudit.PartitionAreaAdditivity`). Compiled at 7301775 (STATUS PASS at 141cba4, 1458 of 1458); ticked 2026-11-26.
 - [ ] K10b. `SteklovAudit/PartitionSurfaceArea.lean` (imports `SteklovAudit.PartitionAreaAdditivity`; new file) (H2,
       geometry step): discharge `hsurf` for the actual boundary: the planar equilateral triangle of side `a` has
       Lebesgue area `√3 a²/4` (e.g. as `{(x, y) | 0 ≤ y, √3|x| ≤ √3 a/2 − y}` via `MeasureTheory.volume_regionBetween_eq_integral`
       or reuse `TriangleQuadrature`), so four faces give `√3 a²`; theorems `triangle_area`, `surface_area_four_faces`,
       `area_field_of_faces` (K10a's `area_field_of_surface` with `hsurf` replaced by the four-face decomposition).
+      Written by the formalize task 2026-11-26 at 0fff5ce (new file, checked absent on main; uncompiled at push): defs
+      `triLo`, `triHi`, `eqTriangle` (region between two lines, corners `(0,0)`, `(0,a)`, `(√3a/2, a/2)`),
+      `triangle_equilateral`, `continuous_triLo`, `continuous_triHi`, `triLo_le_triHi`, `triangle_width_integral`,
+      `triangle_area` (`(volume.prod volume) (eqTriangle a) = ofReal (√3 a²/4)`), `triangle_area_toReal`,
+      `surface_area_four_faces`, `area_field_of_faces` (named hypothesis `hfaces : μ(∂T) = 4 · area(eqTriangle a)`,
+      since Lean has no surface measure on `∂T`; namespace `SteklovAudit.PartitionSurfaceArea`). Next run: tick if
+      STATUS shows it compiled.
 - [ ] K11. `SteklovAudit/PartitionPointwise.lean` (imports `SteklovAudit.PartitionProfile`; new file) (pointwise
       identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
       supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
