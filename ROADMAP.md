@@ -2843,19 +2843,19 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       `sq_mass_conclusion_fails`, `bounded_mass_insufficient` (all six hypotheses of G158 except `o(L²)`, with
       `O(L²)` mass, and the conclusion fails). Next run: tick if STATUS shows it compiled.
 
-## H. Actual-operator priorities (Josiah's review, 2026-11-26)
+## K. Actual-operator priorities (Josiah's review, 2026-11-26)
 
 Written by the formalize task on 2026-11-26 at Josiah's request: stop expanding the scalar assembly library and
 work toward the actual spectral data. Milestone: 1 of 6 actual-operator inputs verified, not more supporting
-theorems. Josiah's priorities, in order: (P1) localized mass `o(L²)` for the actual spectral data; (P2) the localized
+theorems. Item ids are K1, K2, ... so that they cannot be confused with the ledger inputs H1–H6 (section H above). Josiah's priorities, in order: (P1) localized mass `o(L²)` for the actual spectral data; (P2) the localized
 HS inequality for unbounded operators; (P3) the tetrahedron–wedge identification and trace matching; (P4) the bounded
 static HS defect; (P5) Bessel and wedge spectral foundations. Honest scope: Lean has no Dirichlet-to-Neumann operator,
 so no item below proves a ledger input H1–H6 for the actual operator. Each item either (i) proves a statement about
 general spectral data or the actual tetrahedron geometry with no scalar stand-in, or (ii) reduces a P-row to a strictly
 weaker named analytic input. P5 is covered by the foundations items F3.1–F3.3 (separate task); no duplicates here. P4
-gets items once H4–H5 fix the local identification it depends on.
+gets items once K4–K5 fix the local identification it depends on.
 
-- [ ] H1. `SteklovAudit/LocalMassShrinkingCollar.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
+- [ ] K1. `SteklovAudit/LocalMassShrinkingCollar.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
       absent on main 2026-11-26) (P1, the review's proposed route): a leading-order local Weyl law on collars of each
       FIXED width, monotonicity of the localized mass in the collar and shrinking collars `w L → 0⁺` give the G158 input
       `m L = o(L²)`, avoiding the sharp `O(L)` estimate. Theorems: `mass_littleO_of_local_weyl` (`M v L` mass in the
@@ -2863,19 +2863,19 @@ gets items once H4–H5 fix the local identification it depends on.
       `hw`), `window_littleO_of_local_weyl` (chained into `littleO_of_window_littleO_mass`), `uniform_density_needed`
       (`M v L = L²` meets monotonicity and a per-width bound with constant `1/v` but is not `o(L²)`: the density must
       be uniform in the width). Docstring: the local Weyl law for the actual eigenfunctions is a named hypothesis.
-      Written by the formalize task 2026-11-26 at 6ca9ad0 (new file; did not exist before, uncompiled at push):
+      Written by the formalize task 2026-11-26 at 6ca9ad0 (new file; its docstrings call the item H1, its id before the rename to K1; did not exist before, uncompiled at push):
       `mass_littleO_of_local_weyl`, `window_littleO_of_local_weyl`, `uniform_density_needed`. Next run: tick if STATUS
       shows it compiled.
-- [ ] H2. `SteklovAudit/SpectralCollarMass.lean` (imports `SteklovAudit.LocalMassShrinkingCollar`; new file, checked
+- [ ] K2. `SteklovAudit/SpectralCollarMass.lean` (imports `SteklovAudit.LocalMassShrinkingCollar`; new file, checked
       absent on main 2026-11-26) (P1): the localized mass of actual spectral data, with no scalar stand-in. Data: a
       measure space `(X, μ)`, a finite index set `s : Finset ι`, eigenvalues `lam : ι → ℝ`, eigenfunctions
       `φ : ι → X → ℝ`. Def `collarMass μ s lam φ (S : Set X) (L : ℝ) := ∑ k ∈ s.filter (fun k => lam k ≤ L),
       ∫ x in S, φ k x ^ 2 ∂μ`. Theorems: `collarMass_nonneg` (`integral_nonneg`), `collarMass_mono_set` (`S ⊆ S'`
       and `IntegrableOn (φ k ^ 2) S'` give `≤`; `setIntegral_mono_set` with `ae_of_all` and
       `HasSubset.Subset.eventuallyLE`), `collarMass_mono_L` (`Finset.sum_le_sum_of_subset_of_nonneg`),
-      `collarMass_family_mono` (nested collars `C : ℝ → Set X`, `v₁ ≤ v₂ → C v₁ ⊆ C v₂`, give H1's `hmono` for
-      `M v L := collarMass … (C v) L`). This discharges H1's monotonicity for any spectral data.
-- [ ] H3. `SteklovAudit/UnboundedLocalizedHS.lean` (new file, checked absent on main 2026-11-26) (P2): the localized
+      `collarMass_family_mono` (nested collars `C : ℝ → Set X`, `v₁ ≤ v₂ → C v₁ ⊆ C v₂`, give K1's `hmono` for
+      `M v L := collarMass … (C v) L`). This discharges K1's monotonicity for any spectral data.
+- [ ] K3. `SteklovAudit/UnboundedLocalizedHS.lean` (new file, checked absent on main 2026-11-26) (P2): the localized
       HS inequality without boundedness of the operator. Data: a real inner product space `E`, an orthonormal family
       `e : ι → E` (`Orthonormal ℝ e`), eigenvalues `lam : ι → ℝ` (unbounded allowed), `f : ℝ → ℝ` with
       `Summable (fun k => f (lam k) ^ 2)`, a bounded localizer `χ : E →L[ℝ] E`. Theorems: `localized_hs_summable`
@@ -2883,7 +2883,7 @@ gets items once H4–H5 fix the local identification it depends on.
       ‖χ‖ ^ 2 * ∑' k, f (lam k) ^ 2`), `localized_hs_le_weighted` (if `‖χ (e k)‖ ≤ a k` then the sum is
       `≤ ∑' k, f (lam k) ^ 2 * a k ^ 2`, assuming that series is summable). Only `f(λ) ∈ ℓ²` is used: this is the
       unbounded-operator form of the HS step of Lemma 7.1′ for `f(A) = ∑ f(λ_k) ⟨·, e_k⟩ e_k`.
-- [ ] H4. `SteklovAudit/TetraWedgeLocal.lean` (imports `SteklovAudit.MainConditional`; new file, checked absent on main
+- [ ] K4. `SteklovAudit/TetraWedgeLocal.lean` (imports `SteklovAudit.MainConditional`; new file, checked absent on main
       2026-11-26) (P3, identification half): the actual regular tetrahedron `T = {x : ℝ × ℝ × ℝ | ⟪v_i, x⟫ ≥ −1, i = 1..4}`
       with `v₁ = (1,1,1)`, `v₂ = (1,−1,−1)`, `v₃ = (−1,1,−1)`, `v₄ = (−1,−1,1)` (its vertices are the `v_i`; face `i` is
       opposite `v_i`; write the four inequalities out in coordinates) coincides near an edge with the wedge cut out by
@@ -2892,7 +2892,7 @@ gets items once H4–H5 fix the local identification it depends on.
       inequalities hold, because `⟪v₃, m⟫ = ⟪v₄, m⟫ = 1` leaves slack `2 > 3/2`; `abs_le` and `linarith`), `face_normal_cos` (`⟪v₁, v₂⟫ / (‖v₁‖ ‖v₂‖) = −1/3`, so the interior dihedral angle is
       `Real.arccos (1/3) = MainConditional.tetraAngle`), `tetra_edge_length` (`‖v₃ − v₄‖² = 8`, edge length `2√2`; side `a`
       is a rescaling). Docstring: trace matching between the tetrahedron and wedge operators is NOT proved.
-- [ ] H5. `SteklovAudit/TetraCutoffEdgeLength.lean` (imports `SteklovAudit.TetraWedgeLocal`; new file, checked absent on
+- [ ] K5. `SteklovAudit/TetraCutoffEdgeLength.lean` (imports `SteklovAudit.TetraWedgeLocal`; new file, checked absent on
       main 2026-11-26) (P3; the geometric content of ledger row H3): for side `a > 0` and vertex-cutoff radius
       `0 < ε ≤ a / 2`, the part of each edge outside the two vertex balls has Lebesgue measure `a − 2ε`
       (`volume (Set.Icc ε (a − ε)) = ENNReal.ofReal (a − 2ε)` via `Real.volume_Icc`), so the kept length is
