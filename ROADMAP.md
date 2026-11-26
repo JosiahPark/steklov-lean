@@ -2908,7 +2908,7 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       Written by the formalize task 2026-11-26 at a76127f (new file, checked absent on main; uncompiled at push):
       `edge_kept_length`, `six_edges_kept_length`, `kept_length`, `ledger_length`, `ledger_length_integral`
       (namespace `SteklovAudit.PartitionKeptLengthTotal`). Compiled at df2ee5c (STATUS PASS, 1443 of 1443); ticked 2026-11-26.
-- [ ] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
+- [x] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
       width `∫₀^∞ cos(β(r/γ))² dr = 3γ/2` (zero beyond `2γ`), so `3γ` over the two incident faces; the product cutoff
       `χ_e(z, r) = q_ε(z) θ_γ(r)` on `[0, a] × [0, 2γ]` has `∫∫ χ_e² = (a − 3ε) · 3γ/2` (iterated interval integrals or
       `MeasureTheory.integral_prod_mul`). Theorems `transverse_width`, `edge_strip_mass`, `edge_area_coeff`
@@ -2917,13 +2917,16 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       `SteklovAudit.PartitionKeptLengthTotal` instead, for `edge_kept_length`; uncompiled at push): def `transCut`,
       `transCut_zero_of_le`, `transCut_continuous`, `transverse_width` (`∫₀^{2γ} = 3γ/2`), `transverse_width_of_le`,
       `edge_strip_mass` (iterated interval integrals), `edge_area_coeff`, `edge_area_integral` (namespace
-      `SteklovAudit.PartitionEdgeArea`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+      `SteklovAudit.PartitionEdgeArea`). Build repaired at 194c654; compiled at bde8bda (STATUS PASS, 1450 of 1450); ticked 2026-11-26.
 - [ ] K9. `SteklovAudit/PartitionTraceSplitting.lean` (new file) (H1): trace linearity for ANY normalized spectral data.
       Data: a measure space `(X, μ)`, `s : Finset ι`, eigenvalues `lam`, eigenfunctions `φ k` with `∫ φ k ^ 2 ∂μ = 1`,
       a finite weight family `w : J → X → ℝ` with `∑ j, w j x = 1` for every `x` and each `w j * φ k ^ 2` integrable.
       Theorems `count_eq_sum_localized` (`#{k ∈ s | lam k ≤ L} = ∑ j, ∑ k ∈ s.filter (lam · ≤ L), ∫ w j * φ k ^ 2`), and
       `splitting_of_partition` (grouping `J` into vertex, edge and face indices gives the `splitting` field shape
       `N L = V L + E L + F L`). Holds for the actual Dirichlet-to-Neumann eigenbasis once Lean has one; no named input.
+      Written by the formalize task 2026-11-26 at d5f86c0 (new file, checked absent on main; uncompiled at push): def
+      `localMass`, `sum_weights_integral`, `count_eq_sum_localized`, `splitting_of_partition` (weights `wV`, `wE`, `wF`),
+      `splitting_fun` (namespace `SteklovAudit.PartitionTraceSplitting`). Next run: tick if STATUS shows it compiled.
 - [ ] K10. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`; new file) (H2):
       integrating the pointwise identity, `∑ j, ∫ w j ∂μ = μ X` for a finite measure; then the area coefficients satisfy
       `AV + AE + AF = μ(∂T)/(4π)`, and `μ(∂T) = √3 a²` from four equilateral triangles (planar triangle of side `a` has
