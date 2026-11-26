@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-26 15:47 UTC at commit `575bd9b37a37`. Last passing commit: `575bd9b37a37`.
+Checked 2026-11-26 16:18 UTC at commit `7301775f181e`. Last passing commit: `7301775f181e`.
 
-Library declarations checked: 1454 of 1454 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1458 of 1458 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 247 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 248 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1117,6 +1117,10 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_hs2` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_trace` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_norm` | verified (standard axioms only) |
+| PartitionAreaAdditivity.lean | `SteklovAudit.PartitionAreaAdditivity.integral_one_eq` | verified (standard axioms only) |
+| PartitionAreaAdditivity.lean | `SteklovAudit.PartitionAreaAdditivity.sum_integral_weights` | verified (standard axioms only) |
+| PartitionAreaAdditivity.lean | `SteklovAudit.PartitionAreaAdditivity.area_coeffs_add` | verified (standard axioms only) |
+| PartitionAreaAdditivity.lean | `SteklovAudit.PartitionAreaAdditivity.area_field_of_surface` | verified (standard axioms only) |
 | PartitionEdgeArea.lean | `SteklovAudit.PartitionEdgeArea.transCut_zero_of_le` | verified (standard axioms only) |
 | PartitionEdgeArea.lean | `SteklovAudit.PartitionEdgeArea.transCut_continuous` | verified (standard axioms only) |
 | PartitionEdgeArea.lean | `SteklovAudit.PartitionEdgeArea.transverse_width` | verified (standard axioms only) |

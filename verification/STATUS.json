@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 15:47 UTC",
+  "checked_at": "2026-11-26 16:18 UTC",
   "lean_exit_code": 0,
-  "commit": "575bd9b37a3714990d75e3c80164ebd263fa5b79",
-  "last_passing_commit": "575bd9b37a3714990d75e3c80164ebd263fa5b79",
-  "library_declarations_checked": 1454,
-  "library_declarations": 1454,
+  "commit": "7301775f181eb2826c0e2f48a18730aa06043a6e",
+  "last_passing_commit": "7301775f181eb2826c0e2f48a18730aa06043a6e",
+  "library_declarations_checked": 1458,
+  "library_declarations": 1458,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1454,
-  "verified": 1454,
+  "theorems": 1458,
+  "verified": 1458,
   "problems": [],
   "modules_audited": [
     {
@@ -901,6 +901,11 @@
       "file": "MultiChartTrace.lean",
       "declared": 7,
       "audited": 7
+    },
+    {
+      "file": "PartitionAreaAdditivity.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "PartitionEdgeArea.lean",
@@ -12134,6 +12139,46 @@
     {
       "file": "MultiChartTrace.lean",
       "theorem": "SteklovAudit.MultiChartTrace.sharp_example_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionAreaAdditivity.lean",
+      "theorem": "SteklovAudit.PartitionAreaAdditivity.integral_one_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionAreaAdditivity.lean",
+      "theorem": "SteklovAudit.PartitionAreaAdditivity.sum_integral_weights",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionAreaAdditivity.lean",
+      "theorem": "SteklovAudit.PartitionAreaAdditivity.area_coeffs_add",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionAreaAdditivity.lean",
+      "theorem": "SteklovAudit.PartitionAreaAdditivity.area_field_of_surface",
       "axioms": [
         "propext",
         "Classical.choice",
