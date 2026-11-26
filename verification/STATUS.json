@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 16:47 UTC",
+  "checked_at": "2026-11-26 17:20 UTC",
   "lean_exit_code": 0,
-  "commit": "141cba487226aba59a8eeed9419a60bdf5537bd0",
-  "last_passing_commit": "141cba487226aba59a8eeed9419a60bdf5537bd0",
-  "library_declarations_checked": 1458,
-  "library_declarations": 1458,
+  "commit": "0fff5ce97c5af3190c9545778dd43779ebdad512",
+  "last_passing_commit": "0fff5ce97c5af3190c9545778dd43779ebdad512",
+  "library_declarations_checked": 1467,
+  "library_declarations": 1467,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1458,
-  "verified": 1458,
+  "theorems": 1467,
+  "verified": 1467,
   "problems": [],
   "modules_audited": [
     {
@@ -926,6 +926,11 @@
       "file": "PartitionProfile.lean",
       "declared": 8,
       "audited": 8
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "declared": 9,
+      "audited": 9
     },
     {
       "file": "PartitionTrace.lean",
@@ -12489,6 +12494,96 @@
     {
       "file": "PartitionProfile.lean",
       "theorem": "SteklovAudit.PartitionProfile.smoothProfile_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.triangle_equilateral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.continuous_triLo",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.continuous_triHi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.triLo_le_triHi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.triangle_width_integral",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.triangle_area",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.triangle_area_toReal",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.surface_area_four_faces",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "PartitionSurfaceArea.lean",
+      "theorem": "SteklovAudit.PartitionSurfaceArea.area_field_of_faces",
       "axioms": [
         "propext",
         "Classical.choice",

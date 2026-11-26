@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-26 16:47 UTC at commit `141cba487226`. Last passing commit: `141cba487226`.
+Checked 2026-11-26 17:20 UTC at commit `0fff5ce97c5a`. Last passing commit: `0fff5ce97c5a`.
 
-Library declarations checked: 1458 of 1458 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1467 of 1467 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 248 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 249 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1152,6 +1152,15 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.smoothProfile_isProfile` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.smoothProfile_contDiff` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.smoothProfile_integral` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.triangle_equilateral` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.continuous_triLo` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.continuous_triHi` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.triLo_le_triHi` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.triangle_width_integral` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.triangle_area` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.triangle_area_toReal` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.surface_area_four_faces` | verified (standard axioms only) |
+| PartitionSurfaceArea.lean | `SteklovAudit.PartitionSurfaceArea.area_field_of_faces` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.diag_conj_entry` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_squared_partition` | verified (standard axioms only) |
 | PartitionTrace.lean | `SteklovAudit.PartitionTrace.trace_split3` | verified (standard axioms only) |
