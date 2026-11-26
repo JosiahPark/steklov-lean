@@ -2893,18 +2893,21 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       (`intervalIntegral.integral_comp_mul_left`) and reflect `z ↦ a − z`. Theorems `edge_kept_length` (per edge),
       `kept_length` (`6 (a − 3ε) = 6a − 18ε`), `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
       Split into K7a (one end) and K7b (assembly) if too long.
-- [ ] K7a. `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file, checked absent on
+- [x] K7a. `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file, checked absent on
       main 2026-11-26) (H3, pieces): def `edgeCut β ε a z = sin(β(z/ε)) sin(β((a − z)/ε))`; theorems
       `sin_profile_of_two_le`, `two_le_div`, `edgeCut_mid`, `edgeCut_sq_left`, `edgeCut_sq_right`, `edgeCut_continuous`,
       `end_integral` (`∫₀^{2ε} sin(β(z/ε))² = ε/2`), `end_integral_right`, `left_integral` (`ε/2`), `mid_integral`
       (`a − 4ε`), `right_integral` (`ε/2`), for `0 < ε`, `4ε ≤ a`, continuous profile.
       Written by the formalize task 2026-11-26 at aa16f9f (new file; did not exist before, uncompiled at push): all the
-      theorems above. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+      theorems above. Compiled at ba0ea3e (STATUS PASS at 0f263f0); ticked 2026-11-26.
 - [ ] K7b. `SteklovAudit/PartitionKeptLengthTotal.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H3,
       assembly): `edge_kept_length` (`∫₀ᵃ edgeCut β ε a z ^ 2 = a − 3ε`, by
       `intervalIntegral.integral_add_adjacent_intervals` at `2ε` and `a − 2ε` with `edgeCut_continuous` for
       integrability and K7a's `left_integral`, `mid_integral`, `right_integral`), `kept_length` (`6 (a − 3ε) = 6a − 18ε`),
       `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
+      Written by the formalize task 2026-11-26 at a76127f (new file, checked absent on main; uncompiled at push):
+      `edge_kept_length`, `six_edges_kept_length`, `kept_length`, `ledger_length`, `ledger_length_integral`
+      (namespace `SteklovAudit.PartitionKeptLengthTotal`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
 - [ ] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
       width `∫₀^∞ cos(β(r/γ))² dr = 3γ/2` (zero beyond `2γ`), so `3γ` over the two incident faces; the product cutoff
       `χ_e(z, r) = q_ε(z) θ_γ(r)` on `[0, a] × [0, 2γ]` has `∫∫ χ_e² = (a − 3ε) · 3γ/2` (iterated interval integrals or
