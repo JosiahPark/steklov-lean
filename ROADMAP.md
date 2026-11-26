@@ -2794,6 +2794,9 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       and `unweighted_of_weighted` first. Docstring: the weighting error `|N − Nγ| ≤ C γ L`, the hypotheses of (7.44)
       for the actual wedge operator and (7.38) are NOT proved. F table text: per-`γ` decompositions of the weighted
       counts plus an `O(γ L)` weighting error give the unweighted edge law.
+      Written by the formalize task 2026-11-26 at 9940d20 (new file; did not exist before, uncompiled at push):
+      `weighted_law_of_decomp`, `unweighted_model_law` (both take `ι : Type*` explicitly). Next run: tick if STATUS
+      shows it compiled.
 - [ ] G163. `SteklovAudit/WeightedModelLawNonvacuous.lean` (imports `SteklovAudit.WeightedModelLaw`; new file, checked
       absent on main 2026-11-26): definition check for G162 (row 4): its hypotheses hold with a NONZERO `γ`-dependent
       weighting gap. Model (`ι = Unit`, fix `I : ℝ`): `main L = N L = L ^ 2 / (4 * Real.pi) * I`,
