@@ -2900,19 +2900,24 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       (`a − 4ε`), `right_integral` (`ε/2`), for `0 < ε`, `4ε ≤ a`, continuous profile.
       Written by the formalize task 2026-11-26 at aa16f9f (new file; did not exist before, uncompiled at push): all the
       theorems above. Compiled at ba0ea3e (STATUS PASS at 0f263f0); ticked 2026-11-26.
-- [ ] K7b. `SteklovAudit/PartitionKeptLengthTotal.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H3,
+- [x] K7b. `SteklovAudit/PartitionKeptLengthTotal.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H3,
       assembly): `edge_kept_length` (`∫₀ᵃ edgeCut β ε a z ^ 2 = a − 3ε`, by
       `intervalIntegral.integral_add_adjacent_intervals` at `2ε` and `a − 2ε` with `edgeCut_continuous` for
       integrability and K7a's `left_integral`, `mid_integral`, `right_integral`), `kept_length` (`6 (a − 3ε) = 6a − 18ε`),
       `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
       Written by the formalize task 2026-11-26 at a76127f (new file, checked absent on main; uncompiled at push):
       `edge_kept_length`, `six_edges_kept_length`, `kept_length`, `ledger_length`, `ledger_length_integral`
-      (namespace `SteklovAudit.PartitionKeptLengthTotal`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+      (namespace `SteklovAudit.PartitionKeptLengthTotal`). Compiled at df2ee5c (STATUS PASS, 1443 of 1443); ticked 2026-11-26.
 - [ ] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
       width `∫₀^∞ cos(β(r/γ))² dr = 3γ/2` (zero beyond `2γ`), so `3γ` over the two incident faces; the product cutoff
       `χ_e(z, r) = q_ε(z) θ_γ(r)` on `[0, a] × [0, 2γ]` has `∫∫ χ_e² = (a − 3ε) · 3γ/2` (iterated interval integrals or
       `MeasureTheory.integral_prod_mul`). Theorems `transverse_width`, `edge_strip_mass`, `edge_area_coeff`
       (`A_edge = 6 · 2 · (a − 3ε)(3γ/2)/(4π) = 18γ(a − 3ε)/(4π)`).
+      Written by the formalize task 2026-11-26 at 1aef977 (new file, checked absent on main; imports
+      `SteklovAudit.PartitionKeptLengthTotal` instead, for `edge_kept_length`; uncompiled at push): def `transCut`,
+      `transCut_zero_of_le`, `transCut_continuous`, `transverse_width` (`∫₀^{2γ} = 3γ/2`), `transverse_width_of_le`,
+      `edge_strip_mass` (iterated interval integrals), `edge_area_coeff`, `edge_area_integral` (namespace
+      `SteklovAudit.PartitionEdgeArea`). Next run: tick if STATUS shows it compiled; if it failed, fix it first.
 - [ ] K9. `SteklovAudit/PartitionTraceSplitting.lean` (new file) (H1): trace linearity for ANY normalized spectral data.
       Data: a measure space `(X, μ)`, `s : Finset ι`, eigenvalues `lam`, eigenfunctions `φ k` with `∫ φ k ^ 2 ∂μ = 1`,
       a finite weight family `w : J → X → ℝ` with `∑ j, w j x = 1` for every `x` and each `w j * φ k ^ 2` integrable.
