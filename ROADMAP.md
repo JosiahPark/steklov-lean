@@ -2781,7 +2781,7 @@ G165 serves row 3 (definition check: the `o(L²)` local-mass input of G158 canno
 have no open one-run items. Everything is scalar, every analytic input is a named hypothesis, and none of them proves
 Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.1 for the actual operator.
 
-- [ ] G162. `SteklovAudit/WeightedModelLaw.lean` (imports `SteklovAudit.ModelEdgeLawGammaFree`,
+- [x] G162. `SteklovAudit/WeightedModelLaw.lean` (imports `SteklovAudit.ModelEdgeLawGammaFree`,
       `SteklovAudit.WeightedToUnweighted`; new file, checked absent on main 2026-11-26): the unweighted wedge law from
       per-`γ` decompositions (7.44) of the `γ`-weighted counts (row 4, (7.38); closes the G152 finding). Theorems:
       `weighted_law_of_decomp` (`ι`, `Nγ main : ℝ → ℝ`, `C' γ : ℝ`; from `GammaDecomp ι Nγ main C' γ` obtain `s Nf P G A c Q I`
@@ -2797,6 +2797,8 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       Written by the formalize task 2026-11-26 at 9940d20 (new file; did not exist before, uncompiled at push):
       `weighted_law_of_decomp`, `unweighted_model_law` (both take `ι : Type*` explicitly). Next run: tick if STATUS
       shows it compiled.
+      Ticked 2026-11-26 by the formalize task: STATUS PASS 1402/1402 at 9940d20 lists both theorems of
+      `WeightedModelLaw` as verified (standard axioms only).
 - [ ] G163. `SteklovAudit/WeightedModelLawNonvacuous.lean` (imports `SteklovAudit.WeightedModelLaw`; new file, checked
       absent on main 2026-11-26): definition check for G162 (row 4): its hypotheses hold with a NONZERO `γ`-dependent
       weighting gap. Model (`ι = Unit`, fix `I : ℝ`): `main L = N L = L ^ 2 / (4 * Real.pi) * I`,
@@ -2806,6 +2808,9 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       conjunct for `L ≥ 0`), `witness_gap` (`|N L - Nγ L| = γ * L` for `L ≥ 0`, `γ > 0`), `witness_gap_ne` (nonzero for
       `L > 0`), `witness_conclusion` (G162 applied). Name defs `wmMain`, `wmNγ` to avoid clashes. F table text: the
       weighted-decomposition route is consistent with a nonzero weighting error.
+      Written by the formalize task 2026-11-26 at dacd4a9 (new file; did not exist before, uncompiled at push):
+      defs `wmMain`, `wmNγ`; `witness_decomp`, `witness_gap`, `witness_gap_ne`, `witness_conclusion`. Next run: tick
+      if STATUS shows it compiled.
 - [ ] G164. `SteklovAudit/TetraAssemblyVertexNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyVertex`,
       `SteklovAudit.TetraAssemblyFaceNonvacuous`; new file, checked absent on main 2026-11-26): definition check for G160
       (row 4): the hypotheses of `tetra_law_of_overlap_face_vertex` hold with a NONZERO vertex term on top of G161's
