@@ -2924,11 +2924,18 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
       supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
       face; hence `∑_v ζ_v² + ∑_e χ_e² + ∑_f χ_f² = 1`. Finite-sum algebra with the support conditions as hypotheses.
+- [ ] K11b. `SteklovAudit/PartitionAdaptedRadius.lean` (imports `SteklovAudit.PartitionProfile`; new file) (the radius of (7.48)):
+      the edge cutoff is exactly `q_ε(z) θ_γ(r)` only if the vertex radius equals the longitudinal coordinate `z` on the
+      edge strips; the Euclidean distance `√(z² + r²)` does not. Theorems: structure `AdaptedRadius` (on a face, in
+      edge coordinates `(z, r)`: `R = z` on the strip `|r| ≤ 2γ`, `0 ≤ z ≤ 2ε`, and `c |x − v| ≤ R` elsewhere, `c > 0`);
+      `adaptedRadius_exists` (an explicit one on a face, e.g. blend `z` and `|x − v|` with the profile of K6), and
+      `euclid_radius_defect` (`0 ≤ √(z² + r²) − z ≤ r² / (2z)`, hence `≤ 2γ²/ε` on the strip for `z ≥ ε`: with the
+      Euclidean radius the identities of K7/K8 hold only up to `O(γ²/ε)`). Added 2026-11-26 at Josiah's request.
 - [ ] K12. `SteklovAudit/PartitionSupports.lean` (imports `SteklovAudit.PartitionPointwise`, `SteklovAudit.TetraWedgeLocal`
       if K4 is done; new file): the support conditions of K11 for the actual regular tetrahedron: vertex balls of
       radius `2ε` are disjoint when `4ε < a`, and for `γ/ε` small two edge strips of width `2γ` meet only inside a vertex
-      region where `Q_ε = 0`. Uses the Euclidean distance to vertices as the radius; record in the docstring where this
-      differs from the adapted radius `R_v` of (7.48).
+      region where `Q_ε = 0`. Uses the adapted radius of K11b (not the Euclidean distance) so that the edge cutoff is
+      exactly `q_ε θ_γ` on the strips.
 - [ ] K13. `SteklovAudit/PartitionLedger.lean` (imports K7–K12; new file): `Thm111Inputs.ofPartition`, a constructor
       whose `splitting`, `area` and `length` fields are filled by K9, K10 and K7 for this partition, taking only the
       H4–H6 inputs as arguments. Report the ledger as 3 named hypotheses for this partition. Do not change
