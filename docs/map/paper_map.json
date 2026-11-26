@@ -1796,6 +1796,11 @@
    "page": 24,
    "note": "t v = c implies v collinear with c, no division by t."
   },
+  "triangle_area": {
+   "kind": "outright",
+   "page": 25,
+   "note": "One-face area formula behind the total boundary area in (11.4): the planar equilateral triangle of side a (region between two lines) has Lebesgue measure √3a²/4 (PartitionSurfaceArea, K10b; four faces give √3a² via surface_area_four_faces). That the faces of ∂T_a carry this measure (a surface measure on ∂T_a, hypothesis hfaces), the partition identity (K11), H2 for the actual operator, H4–H6 and Theorem 11.1 are not proved."
+  },
   "truncated_exp_exact_intertwiner": {
    "kind": "outright",
    "page": 14,
