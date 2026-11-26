@@ -2827,7 +2827,7 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       `vertex_witness_conclusion`.
       Ticked 2026-11-26 by the formalize task: STATUS PASS 1410/1410 at d7dbcd7 lists all 4 theorems of
       `TetraAssemblyVertexNonvacuous` as verified (standard axioms only).
-- [ ] G165. `SteklovAudit/WindowMassSharp.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked absent on
+- [x] G165. `SteklovAudit/WindowMassSharp.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked absent on
       main 2026-11-26): the `o(L²)` local-mass input of G158 cannot be weakened to `O(L²)` (row 3; definition check on
       the row "Localized spectral mass"). Model: `m L := L ^ 2`, `r L := L`, `C = K = ε₀ = 1`. Theorems:
       `sq_mass_window_hyp` (`∀ T > 0, ∀ᶠ L in atTop, |L| ≤ 1 * L / T + 1 * T * 1 * √(L ^ 2)`: for `L ≥ 0` use
@@ -2855,7 +2855,7 @@ general spectral data or the actual tetrahedron geometry with no scalar stand-in
 weaker named analytic input. P5 is covered by the foundations items F3.1–F3.3 (separate task); no duplicates here. P4
 gets items once K4–K5 fix the local identification it depends on.
 
-- [ ] K1. `SteklovAudit/LocalMassShrinkingCollar.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
+- [x] K1. `SteklovAudit/LocalMassShrinkingCollar.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked
       absent on main 2026-11-26) (P1, the review's proposed route): a leading-order local Weyl law on collars of each
       FIXED width, monotonicity of the localized mass in the collar and shrinking collars `w L → 0⁺` give the G158 input
       `m L = o(L²)`, avoiding the sharp `O(L)` estimate. Theorems: `mass_littleO_of_local_weyl` (`M v L` mass in the
@@ -2880,19 +2880,31 @@ faces; face cutoff `Q_ε` times the sine complements of its three edge cutoffs. 
 Goal of the subsection: a constructor of `Thm111Inputs` whose H1–H3 fields are PROVED for this partition, leaving
 H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4–H6 or Theorem 1.3 / 11.1.
 
-- [ ] K6. `SteklovAudit/PartitionProfile.lean` (new file, checked absent on main 2026-11-26): the profile. Def `IsProfile`;
+- [x] K6. `SteklovAudit/PartitionProfile.lean` (new file, checked absent on main 2026-11-26): the profile. Def `IsProfile`;
       theorems `cos_sq_add_sin_sq_profile`, `cos_sq_reflect`, `integral_cos_sq` (`∫₀² cos(β t)² = 3/2` for continuous
       profiles), `integral_sin_sq` (`= 1/2`), `smoothTransition_add_reflect`, def `smoothProfile`
       (`π/2 · Real.smoothTransition (t − 1)`), `smoothProfile_isProfile`, `smoothProfile_contDiff`,
       `smoothProfile_integral`.
       Written by the formalize task 2026-11-26 at 9302996 (new file; did not exist before, uncompiled at push): all
       the theorems above. Next run: tick if STATUS shows it compiled.
-- [ ] K7. `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file) (H3): for
+- [-] K7. (split 2026-11-26 into K7a and K7b below; tick those, not this line) `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file) (H3): for
       `0 < ε`, `4ε ≤ a` and a continuous profile, `∫₀ᵃ q_ε(z)² dz = a − 3ε` where `q_ε z = sin(β(z/ε)) sin(β((a − z)/ε))`:
       split at `2ε` and `a − 2ε` (`q_ε = 1` in the middle; one factor is `1` near each end), substitute `z = ε t`
       (`intervalIntegral.integral_comp_mul_left`) and reflect `z ↦ a − z`. Theorems `edge_kept_length` (per edge),
       `kept_length` (`6 (a − 3ε) = 6a − 18ε`), `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
       Split into K7a (one end) and K7b (assembly) if too long.
+- [ ] K7a. `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file, checked absent on
+      main 2026-11-26) (H3, pieces): def `edgeCut β ε a z = sin(β(z/ε)) sin(β((a − z)/ε))`; theorems
+      `sin_profile_of_two_le`, `two_le_div`, `edgeCut_mid`, `edgeCut_sq_left`, `edgeCut_sq_right`, `edgeCut_continuous`,
+      `end_integral` (`∫₀^{2ε} sin(β(z/ε))² = ε/2`), `end_integral_right`, `left_integral` (`ε/2`), `mid_integral`
+      (`a − 4ε`), `right_integral` (`ε/2`), for `0 < ε`, `4ε ≤ a`, continuous profile.
+      Written by the formalize task 2026-11-26 at aa16f9f (new file; did not exist before, uncompiled at push): all the
+      theorems above. Next run: tick if STATUS shows it compiled; if it failed, fix it first.
+- [ ] K7b. `SteklovAudit/PartitionKeptLengthTotal.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H3,
+      assembly): `edge_kept_length` (`∫₀ᵃ edgeCut β ε a z ^ 2 = a − 3ε`, by
+      `intervalIntegral.integral_add_adjacent_intervals` at `2ε` and `a − 2ε` with `edgeCut_continuous` for
+      integrability and K7a's `left_integral`, `mid_integral`, `right_integral`), `kept_length` (`6 (a − 3ε) = 6a − 18ε`),
+      `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
 - [ ] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
       width `∫₀^∞ cos(β(r/γ))² dr = 3γ/2` (zero beyond `2γ`), so `3γ` over the two incident faces; the product cutoff
       `χ_e(z, r) = q_ε(z) θ_γ(r)` on `[0, a] × [0, 2γ]` has `∫∫ χ_e² = (a − 3ε) · 3γ/2` (iterated interval integrals or
