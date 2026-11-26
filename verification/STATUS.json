@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 01:45 UTC",
+  "checked_at": "2026-11-26 02:19 UTC",
   "lean_exit_code": 0,
-  "commit": "8e7fad9738282499561b6cbf914a9d20d66cd7fe",
-  "last_passing_commit": "8e7fad9738282499561b6cbf914a9d20d66cd7fe",
-  "library_declarations_checked": 1400,
-  "library_declarations": 1400,
+  "commit": "9940d20d80402c50917fd0093cbaf310ed929aa6",
+  "last_passing_commit": "9940d20d80402c50917fd0093cbaf310ed929aa6",
+  "library_declarations_checked": 1402,
+  "library_declarations": 1402,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1400,
-  "verified": 1400,
+  "theorems": 1402,
+  "verified": 1402,
   "problems": [],
   "modules_audited": [
     {
@@ -1156,6 +1156,11 @@
       "file": "WedgeChannel.lean",
       "declared": 15,
       "audited": 15
+    },
+    {
+      "file": "WeightedModelLaw.lean",
+      "declared": 2,
+      "audited": 2
     },
     {
       "file": "WeightedToUnweighted.lean",
@@ -14864,6 +14869,26 @@
     {
       "file": "WedgeChannel.lean",
       "theorem": "SteklovAudit.WedgeChannel.antisym_physical",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLaw.lean",
+      "theorem": "SteklovAudit.WeightedModelLaw.weighted_law_of_decomp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLaw.lean",
+      "theorem": "SteklovAudit.WeightedModelLaw.unweighted_model_law",
       "axioms": [
         "propext",
         "Classical.choice",
