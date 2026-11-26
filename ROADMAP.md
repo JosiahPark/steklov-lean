@@ -2918,7 +2918,7 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       `transCut_zero_of_le`, `transCut_continuous`, `transverse_width` (`∫₀^{2γ} = 3γ/2`), `transverse_width_of_le`,
       `edge_strip_mass` (iterated interval integrals), `edge_area_coeff`, `edge_area_integral` (namespace
       `SteklovAudit.PartitionEdgeArea`). Build repaired at 194c654; compiled at bde8bda (STATUS PASS, 1450 of 1450); ticked 2026-11-26.
-- [ ] K9. `SteklovAudit/PartitionTraceSplitting.lean` (new file) (H1): trace linearity for ANY normalized spectral data.
+- [x] K9. `SteklovAudit/PartitionTraceSplitting.lean` (new file) (H1): trace linearity for ANY normalized spectral data.
       Data: a measure space `(X, μ)`, `s : Finset ι`, eigenvalues `lam`, eigenfunctions `φ k` with `∫ φ k ^ 2 ∂μ = 1`,
       a finite weight family `w : J → X → ℝ` with `∑ j, w j x = 1` for every `x` and each `w j * φ k ^ 2` integrable.
       Theorems `count_eq_sum_localized` (`#{k ∈ s | lam k ≤ L} = ∑ j, ∑ k ∈ s.filter (lam · ≤ L), ∫ w j * φ k ^ 2`), and
@@ -2926,11 +2926,25 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       `N L = V L + E L + F L`). Holds for the actual Dirichlet-to-Neumann eigenbasis once Lean has one; no named input.
       Written by the formalize task 2026-11-26 at d5f86c0 (new file, checked absent on main; uncompiled at push): def
       `localMass`, `sum_weights_integral`, `count_eq_sum_localized`, `splitting_of_partition` (weights `wV`, `wE`, `wF`),
-      `splitting_fun` (namespace `SteklovAudit.PartitionTraceSplitting`). Next run: tick if STATUS shows it compiled.
-- [ ] K10. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`; new file) (H2):
+      `splitting_fun` (namespace `SteklovAudit.PartitionTraceSplitting`). Compiled at d5f86c0 (STATUS PASS at 575bd9b,
+      1454 of 1454); ticked 2026-11-26.
+- [-] K10. (split 2026-11-26 into K10a and K10b below; tick those, not this line) `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`; new file) (H2):
       integrating the pointwise identity, `∑ j, ∫ w j ∂μ = μ X` for a finite measure; then the area coefficients satisfy
       `AV + AE + AF = μ(∂T)/(4π)`, and `μ(∂T) = √3 a²` from four equilateral triangles (planar triangle of side `a` has
       area `√3 a²/4`; reuse `TriangleQuadrature` if it fits), giving the H2 field `= areaCoeff a`. Split K10a/K10b if needed.
+- [ ] K10a. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`,
+      `SteklovAudit.MainConditional`; new file, checked absent on main 2026-11-26) (H2, integration step): for a finite
+      measure and weights with `∑ j, w j x = 1`, `sum_integral_weights` (`∑ j, ∫ w j ∂μ = (μ univ).toReal`), def
+      `groupArea` (`(∑ ∫ w)/(4π)`), `area_coeffs_add` (`AV + AE + AF = μ(X)/(4π)`), `area_field_of_surface` (with the
+      named hypothesis `hsurf : (μ univ).toReal = √3 a²`, the sum is `MainConditional.areaCoeff a`).
+      Written by the formalize task 2026-11-26 at 7301775 (new file; did not exist before, uncompiled at push):
+      `integral_one_eq`, `sum_integral_weights`, `groupArea`, `area_coeffs_add`, `area_field_of_surface` (namespace
+      `SteklovAudit.PartitionAreaAdditivity`). Next run: tick if STATUS shows it compiled.
+- [ ] K10b. `SteklovAudit/PartitionSurfaceArea.lean` (imports `SteklovAudit.PartitionAreaAdditivity`; new file) (H2,
+      geometry step): discharge `hsurf` for the actual boundary: the planar equilateral triangle of side `a` has
+      Lebesgue area `√3 a²/4` (e.g. as `{(x, y) | 0 ≤ y, √3|x| ≤ √3 a/2 − y}` via `MeasureTheory.volume_regionBetween_eq_integral`
+      or reuse `TriangleQuadrature`), so four faces give `√3 a²`; theorems `triangle_area`, `surface_area_four_faces`,
+      `area_field_of_faces` (K10a's `area_field_of_surface` with `hsurf` replaced by the four-face decomposition).
 - [ ] K11. `SteklovAudit/PartitionPointwise.lean` (imports `SteklovAudit.PartitionProfile`; new file) (pointwise
       identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
       supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
