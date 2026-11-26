@@ -86,7 +86,9 @@
   "WindowLittleOMass": 3,
   "WindowLittleOMassWitness": 3,
   "TetraAssemblyVertex": 3,
-  "TetraAssemblyFaceNonvacuous": 3
+  "TetraAssemblyFaceNonvacuous": 3,
+  "WeightedModelLaw": 3,
+  "WeightedModelLawNonvacuous": 3
  },
  "prefix_areas": {
   "Section5": 2,
@@ -1835,6 +1837,11 @@
    "kind": "outright",
    "page": 25,
    "note": "Splits C(V(L+d)+1) into C(VL+1)+CVd for Schwartz-weighted summation."
+  },
+  "unweighted_model_law": {
+   "kind": "conditional",
+   "page": 18,
+   "note": "γ-free assembly of the fixed-time model law (7.38) for the unweighted count: if for every cutoff γ > 0 some γ-weighted count has a decomposition (7.44) (GammaDecomp, all inputs named hypotheses) and the weighting error |N − N_γ| ≤ C·γ·L holds (named input), with C, C' uniform in γ, then N_wedge − main = o(L) (WeightedModelLaw, via model_law_of_decomposition and unweighted_of_weighted). The weighting error for the paper's weighted count, the hypotheses of (7.44) for the actual wedge operator, the θ_γ main-term bound, (7.45), H5 and Theorem 11.1 are not proved."
   },
   "upper_num": {
    "kind": "outright",
