@@ -85,7 +85,8 @@
   "WindowBoundedNonvacuous": 3,
   "WindowLittleOMass": 3,
   "WindowLittleOMassWitness": 3,
-  "TetraAssemblyVertex": 3
+  "TetraAssemblyVertex": 3,
+  "TetraAssemblyFaceNonvacuous": 3
  },
  "prefix_areas": {
   "Section5": 2,
