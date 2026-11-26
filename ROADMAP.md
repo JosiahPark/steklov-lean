@@ -2866,6 +2866,64 @@ gets items once K4–K5 fix the local identification it depends on.
       Written by the formalize task 2026-11-26 at 6ca9ad0 (new file; its docstrings call the item H1, its id before the rename to K1; did not exist before, uncompiled at push):
       `mass_littleO_of_local_weyl`, `window_littleO_of_local_weyl`, `uniform_density_needed`. Next run: tick if STATUS
       shows it compiled.
+### K-a. Ledger inputs H1–H3 from an explicit tetrahedral partition (Josiah's construction, 2026-11-26)
+
+Added by the formalize task on 2026-11-26 at Josiah's request; these items come BEFORE K2–K5. H1 (trace splitting),
+H2 (area additivity) and H3 (edge length) of `MainConditional.lean` depend only on the partition and on orthonormality,
+not on propagation, so they can be proved for the actual tetrahedral geometry. Josiah's partition: a smooth profile `β`
+(`0` for `t ≤ 1`, `π/2` for `t ≥ 2`, `β t + β (3 − t) = π/2`), `c = cos β`, `s = sin β`; vertex weights
+`ζ_v = c(R_v/ε)` with the adapted radius `R_v` of (7.48); `Q_ε = ∏_v s(R_v/ε)`; along an edge `0 ≤ z ≤ a`,
+`q_ε(z) = s(z/ε) s((a − z)/ε)`; transverse cutoff `θ_γ(r) = c(|r|/γ)`; edge cutoff `χ_e = q_ε θ_γ` on the two incident
+faces; face cutoff `Q_ε` times the sine complements of its three edge cutoffs. Claimed (checked numerically on
+2026-11-26 for `a = 1`, `ε = 0.05`, `γ = 0.004`): `∫₀² c² = 3/2`, kept length `ℓ_kept(ε) = 6a − 18ε`, edge area
+`A_edge(ε, γ) = 18γ(a − 3ε)/(4π)`, and the pointwise identity `∑_v ζ_v² + ∑_e χ_e² + ∑_f χ_f² = 1` for `ε` and `γ/ε` small.
+Goal of the subsection: a constructor of `Thm111Inputs` whose H1–H3 fields are PROVED for this partition, leaving
+H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4–H6 or Theorem 1.3 / 11.1.
+
+- [ ] K6. `SteklovAudit/PartitionProfile.lean` (new file, checked absent on main 2026-11-26): the profile. Def `IsProfile`;
+      theorems `cos_sq_add_sin_sq_profile`, `cos_sq_reflect`, `integral_cos_sq` (`∫₀² cos(β t)² = 3/2` for continuous
+      profiles), `integral_sin_sq` (`= 1/2`), `smoothTransition_add_reflect`, def `smoothProfile`
+      (`π/2 · Real.smoothTransition (t − 1)`), `smoothProfile_isProfile`, `smoothProfile_contDiff`,
+      `smoothProfile_integral`.
+      Written by the formalize task 2026-11-26 at 9302996 (new file; did not exist before, uncompiled at push): all
+      the theorems above. Next run: tick if STATUS shows it compiled.
+- [ ] K7. `SteklovAudit/PartitionKeptLength.lean` (imports `SteklovAudit.PartitionProfile`; new file) (H3): for
+      `0 < ε`, `4ε ≤ a` and a continuous profile, `∫₀ᵃ q_ε(z)² dz = a − 3ε` where `q_ε z = sin(β(z/ε)) sin(β((a − z)/ε))`:
+      split at `2ε` and `a − 2ε` (`q_ε = 1` in the middle; one factor is `1` near each end), substitute `z = ε t`
+      (`intervalIntegral.integral_comp_mul_left`) and reflect `z ↦ a − z`. Theorems `edge_kept_length` (per edge),
+      `kept_length` (`6 (a − 3ε) = 6a − 18ε`), `ledger_length` (`|(6a − 18ε) − 6a| ≤ 18 ε`, the H3 field with `CL = 18`).
+      Split into K7a (one end) and K7b (assembly) if too long.
+- [ ] K8. `SteklovAudit/PartitionEdgeArea.lean` (imports `SteklovAudit.PartitionKeptLength`; new file) (H2): transverse
+      width `∫₀^∞ cos(β(r/γ))² dr = 3γ/2` (zero beyond `2γ`), so `3γ` over the two incident faces; the product cutoff
+      `χ_e(z, r) = q_ε(z) θ_γ(r)` on `[0, a] × [0, 2γ]` has `∫∫ χ_e² = (a − 3ε) · 3γ/2` (iterated interval integrals or
+      `MeasureTheory.integral_prod_mul`). Theorems `transverse_width`, `edge_strip_mass`, `edge_area_coeff`
+      (`A_edge = 6 · 2 · (a − 3ε)(3γ/2)/(4π) = 18γ(a − 3ε)/(4π)`).
+- [ ] K9. `SteklovAudit/PartitionTraceSplitting.lean` (new file) (H1): trace linearity for ANY normalized spectral data.
+      Data: a measure space `(X, μ)`, `s : Finset ι`, eigenvalues `lam`, eigenfunctions `φ k` with `∫ φ k ^ 2 ∂μ = 1`,
+      a finite weight family `w : J → X → ℝ` with `∑ j, w j x = 1` for every `x` and each `w j * φ k ^ 2` integrable.
+      Theorems `count_eq_sum_localized` (`#{k ∈ s | lam k ≤ L} = ∑ j, ∑ k ∈ s.filter (lam · ≤ L), ∫ w j * φ k ^ 2`), and
+      `splitting_of_partition` (grouping `J` into vertex, edge and face indices gives the `splitting` field shape
+      `N L = V L + E L + F L`). Holds for the actual Dirichlet-to-Neumann eigenbasis once Lean has one; no named input.
+- [ ] K10. `SteklovAudit/PartitionAreaAdditivity.lean` (imports `SteklovAudit.PartitionTraceSplitting`; new file) (H2):
+      integrating the pointwise identity, `∑ j, ∫ w j ∂μ = μ X` for a finite measure; then the area coefficients satisfy
+      `AV + AE + AF = μ(∂T)/(4π)`, and `μ(∂T) = √3 a²` from four equilateral triangles (planar triangle of side `a` has
+      area `√3 a²/4`; reuse `TriangleQuadrature` if it fits), giving the H2 field `= areaCoeff a`. Split K10a/K10b if needed.
+- [ ] K11. `SteklovAudit/PartitionPointwise.lean` (imports `SteklovAudit.PartitionProfile`; new file) (pointwise
+      identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
+      supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
+      face; hence `∑_v ζ_v² + ∑_e χ_e² + ∑_f χ_f² = 1`. Finite-sum algebra with the support conditions as hypotheses.
+- [ ] K12. `SteklovAudit/PartitionSupports.lean` (imports `SteklovAudit.PartitionPointwise`, `SteklovAudit.TetraWedgeLocal`
+      if K4 is done; new file): the support conditions of K11 for the actual regular tetrahedron: vertex balls of
+      radius `2ε` are disjoint when `4ε < a`, and for `γ/ε` small two edge strips of width `2γ` meet only inside a vertex
+      region where `Q_ε = 0`. Uses the Euclidean distance to vertices as the radius; record in the docstring where this
+      differs from the adapted radius `R_v` of (7.48).
+- [ ] K13. `SteklovAudit/PartitionLedger.lean` (imports K7–K12; new file): `Thm111Inputs.ofPartition`, a constructor
+      whose `splitting`, `area` and `length` fields are filled by K9, K10 and K7 for this partition, taking only the
+      H4–H6 inputs as arguments. Report the ledger as 3 named hypotheses for this partition. Do not change
+      `MainConditional.lean` or the audit script.
+
+### K-b. Further priority items
+
 - [ ] K2. `SteklovAudit/SpectralCollarMass.lean` (imports `SteklovAudit.LocalMassShrinkingCollar`; new file, checked
       absent on main 2026-11-26) (P1): the localized mass of actual spectral data, with no scalar stand-in. Data: a
       measure space `(X, μ)`, a finite index set `s : Finset ι`, eigenvalues `lam : ι → ℝ`, eigenfunctions
@@ -2892,7 +2950,7 @@ gets items once K4–K5 fix the local identification it depends on.
       inequalities hold, because `⟪v₃, m⟫ = ⟪v₄, m⟫ = 1` leaves slack `2 > 3/2`; `abs_le` and `linarith`), `face_normal_cos` (`⟪v₁, v₂⟫ / (‖v₁‖ ‖v₂‖) = −1/3`, so the interior dihedral angle is
       `Real.arccos (1/3) = MainConditional.tetraAngle`), `tetra_edge_length` (`‖v₃ − v₄‖² = 8`, edge length `2√2`; side `a`
       is a rescaling). Docstring: trace matching between the tetrahedron and wedge operators is NOT proved.
-- [ ] K5. `SteklovAudit/TetraCutoffEdgeLength.lean` (imports `SteklovAudit.TetraWedgeLocal`; new file, checked absent on
+- [-] K5. (superseded 2026-11-26 by K7: Josiah's smooth partition keeps `6a − 18ε`, not the sharp-cutoff `6(a − 2ε)`; do not implement) `SteklovAudit/TetraCutoffEdgeLength.lean` (imports `SteklovAudit.TetraWedgeLocal`; new file, checked absent on
       main 2026-11-26) (P3; the geometric content of ledger row H3): for side `a > 0` and vertex-cutoff radius
       `0 < ε ≤ a / 2`, the part of each edge outside the two vertex balls has Lebesgue measure `a − 2ε`
       (`volume (Set.Icc ε (a − ε)) = ENNReal.ofReal (a − 2ε)` via `Real.volume_Icc`), so the kept length is
