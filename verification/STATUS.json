@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 03:02 UTC",
+  "checked_at": "2026-11-26 04:24 UTC",
   "lean_exit_code": 0,
-  "commit": "04a7dff5761bde60fc8a34b44f65f6b350284952",
-  "last_passing_commit": "04a7dff5761bde60fc8a34b44f65f6b350284952",
-  "library_declarations_checked": 1406,
-  "library_declarations": 1406,
+  "commit": "d7dbcd7bdd67522c6839e41c301871ceb68e52cf",
+  "last_passing_commit": "d7dbcd7bdd67522c6839e41c301871ceb68e52cf",
+  "library_declarations_checked": 1410,
+  "library_declarations": 1410,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1406,
-  "verified": 1406,
+  "theorems": 1410,
+  "verified": 1410,
   "problems": [],
   "modules_audited": [
     {
@@ -1106,6 +1106,11 @@
       "file": "TetraAssemblyVertex.lean",
       "declared": 3,
       "audited": 3
+    },
+    {
+      "file": "TetraAssemblyVertexNonvacuous.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "TetraEdgeLawNonvacuous.lean",
@@ -14094,6 +14099,46 @@
     {
       "file": "TetraAssemblyVertex.lean",
       "theorem": "SteklovAudit.TetraAssemblyVertex.vertex_must_be_littleO",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertexNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertexNonvacuous.vertex_witness_vert",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertexNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertexNonvacuous.vertex_witness_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertexNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertexNonvacuous.vertex_witness_overlap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "TetraAssemblyVertexNonvacuous.lean",
+      "theorem": "SteklovAudit.TetraAssemblyVertexNonvacuous.vertex_witness_conclusion",
       "axioms": [
         "propext",
         "Classical.choice",
