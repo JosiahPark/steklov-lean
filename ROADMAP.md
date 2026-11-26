@@ -2755,7 +2755,7 @@ for the actual operator.
       `tetra_law_of_overlap_face_vertex`, `vertex_must_be_littleO`. Next run: tick if STATUS shows it compiled.
       Ticked 2026-11-25 by the formalize task: STATUS PASS 1393/1393 at 1b6c3cc lists all 3 theorems of
       `TetraAssemblyVertex` as verified (standard axioms only).
-- [ ] G161. `SteklovAudit/TetraAssemblyFaceNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyFace`,
+- [x] G161. `SteklovAudit/TetraAssemblyFaceNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyFace`,
       `SteklovAudit.TetraEdgeLawNonvacuous`; new file, checked absent on main 2026-11-25): definition check for G155
       (row 4): the hypotheses of `tetra_law_of_overlap_and_face` hold with a NONZERO face remainder, nonzero per-edge
       remainders and a nonzero overlap. Model: `fwFace L := L ^ 2 + L + √(max L 0)`, `Af = Bf = 1`, `A = c = 0`,
@@ -2770,6 +2770,59 @@ for the actual operator.
       `fwFace + ∑ fwNe + √(max L 0)`, i.e. `6 * √` written as a `Fin 6` sum); `face_witness_law`,
       `face_witness_remainder_ne`, `face_witness_edge_laws`, `face_witness_overlap`, `face_witness_hyps`,
       `face_witness_nonzero`, `face_witness_conclusion`. Next run: tick if STATUS shows it compiled.
+      Ticked 2026-11-26 by the formalize task: STATUS PASS 1400/1400 at 6a7ce9f lists all 7 theorems of
+      `TetraAssemblyFaceNonvacuous` as verified (standard axioms only).
+
+Items G162–G165 written by the formalize task on 2026-11-26 (no unchecked A–G item was left after G161; the F3.1–F5.3
+items below belong to the separate foundations task). Rows served, from Josiah's priority table: G162–G164 serve row 4
+(model edge law reductions: the G152 finding closed by feeding per-`γ` decompositions of the WEIGHTED counts into
+G154, a non-vacuity check of that with a nonzero weighting gap, and a non-vacuity check of the G160 vertex assembly);
+G165 serves row 3 (definition check: the `o(L²)` local-mass input of G158 cannot be weakened to `O(L²)`). Rows 1 and 2
+have no open one-run items. Everything is scalar, every analytic input is a named hypothesis, and none of them proves
+Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.1 for the actual operator.
+
+- [ ] G162. `SteklovAudit/WeightedModelLaw.lean` (imports `SteklovAudit.ModelEdgeLawGammaFree`,
+      `SteklovAudit.WeightedToUnweighted`; new file, checked absent on main 2026-11-26): the unweighted wedge law from
+      per-`γ` decompositions (7.44) of the `γ`-weighted counts (row 4, (7.38); closes the G152 finding). Theorems:
+      `weighted_law_of_decomp` (`ι`, `Nγ main : ℝ → ℝ`, `C' γ : ℝ`; from `GammaDecomp ι Nγ main C' γ` obtain `s Nf P G A c Q I`
+      and conclude `∃ mγ : ℝ → ℝ, (∀ η > 0, ∀ᶠ L in atTop, |Nγ L - mγ L| ≤ η * L) ∧ ∀ᶠ L in atTop, |mγ L - main L| ≤ C' * γ * L`
+      with `mγ L := L ^ 2 / (4 * Real.pi) * I + c * Q * L`; proof: `ModelEdgeLawReduction.model_law_of_decomposition`
+      then `ModelEdgeLawGammaFree.eta_of_isLittleO`), and `unweighted_model_law` (`N main : ℝ → ℝ`, `0 ≤ C`, `0 ≤ C'`;
+      `h : ∀ γ > 0, ∃ Nγ : ℝ → ℝ, GammaDecomp ι Nγ main C' γ ∧ ∀ᶠ L in atTop, |N L - Nγ L| ≤ C * γ * L`; conclusion
+      `∀ η > 0, ∀ᶠ L in atTop, |N L - main L| ≤ η * L`; proof: `WeightedToUnweighted.unweighted_of_weighted` with the
+      `mγ` from `weighted_law_of_decomp`). Read the exact statements of `GammaDecomp`, `model_law_of_decomposition`
+      and `unweighted_of_weighted` first. Docstring: the weighting error `|N − Nγ| ≤ C γ L`, the hypotheses of (7.44)
+      for the actual wedge operator and (7.38) are NOT proved. F table text: per-`γ` decompositions of the weighted
+      counts plus an `O(γ L)` weighting error give the unweighted edge law.
+- [ ] G163. `SteklovAudit/WeightedModelLawNonvacuous.lean` (imports `SteklovAudit.WeightedModelLaw`; new file, checked
+      absent on main 2026-11-26): definition check for G162 (row 4): its hypotheses hold with a NONZERO `γ`-dependent
+      weighting gap. Model (`ι = Unit`, fix `I : ℝ`): `main L = N L = L ^ 2 / (4 * Real.pi) * I`,
+      `Nγ L = L ^ 2 / (4 * Real.pi) * I + γ * L`; `GammaDecomp` data `s = ∅`, `Nf L = L ^ 2 / (4 * Real.pi) * I`, `P L = L`,
+      `G = 0`, `A = 0`, `c = γ`, `Q = 1`, `C' = 1` (so `mγ − main = γ L`); `C = 1`. Theorems: `witness_decomp`
+      (`∀ γ > 0, GammaDecomp Unit (Nγ γ) main 1 γ`; the `o` facts are `isLittleO_zero`-style after `simp`/`sub_self`, the last
+      conjunct for `L ≥ 0`), `witness_gap` (`|N L - Nγ L| = γ * L` for `L ≥ 0`, `γ > 0`), `witness_gap_ne` (nonzero for
+      `L > 0`), `witness_conclusion` (G162 applied). Name defs `wmMain`, `wmNγ` to avoid clashes. F table text: the
+      weighted-decomposition route is consistent with a nonzero weighting error.
+- [ ] G164. `SteklovAudit/TetraAssemblyVertexNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyVertex`,
+      `SteklovAudit.TetraAssemblyFaceNonvacuous`; new file, checked absent on main 2026-11-26): definition check for G160
+      (row 4): the hypotheses of `tetra_law_of_overlap_face_vertex` hold with a NONZERO vertex term on top of G161's
+      nonzero face, edge and overlap remainders. Model: `vert := TetraEdgeLawNonvacuous.wsq`, `fvN L := fwN L + wsq L`,
+      `face := fwFace`, `Af = Bf = 1`, `A = c = 0`, `C = 1`, `Ne := fwNe`. Theorems: `vertex_witness_vert` (the
+      `o(L)` vertex input, from `sqrt_littleO`), `vertex_witness_ne` (`vert L ≠ 0` for `L > 0`, from `wsq_pos`),
+      `vertex_witness_overlap` (`|fvN L - wsq L - fwFace L - ∑ e, fwNe e L| ≤ 1 * ε * L` eventually: rewrite
+      `fvN L - wsq L = fwN L` by `unfold fvN; ring` and use `face_witness_overlap`), `vertex_witness_conclusion` (G160
+      applied). F table text: the vertex-face-edges assembly is consistent with a nonzero vertex term.
+- [ ] G165. `SteklovAudit/WindowMassSharp.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked absent on
+      main 2026-11-26): the `o(L²)` local-mass input of G158 cannot be weakened to `O(L²)` (row 3; definition check on
+      the row "Localized spectral mass"). Model: `m L := L ^ 2`, `r L := L`, `C = K = ε₀ = 1`. Theorems:
+      `sq_mass_window_hyp` (`∀ T > 0, ∀ᶠ L in atTop, |L| ≤ 1 * L / T + 1 * T * 1 * √(L ^ 2)`: for `L ≥ 0` use
+      `Real.sqrt_sq`, `abs_of_nonneg`, and `L / T + T * L - L = L * (T - 1) ^ 2 / T + L ≥ 0`-style bound, e.g.
+      `1 ≤ 1 / T + T` from `(T - 1) ^ 2 ≥ 0` via `le_div_iff₀` or `nlinarith`), `sq_mass_bounded`
+      (`∀ᶠ L in atTop, L ^ 2 ≤ 1 * L ^ 2`), `sq_mass_not_littleO_sq` (`¬ ∀ δ > 0, ∀ᶠ L in atTop, L ^ 2 ≤ δ * L ^ 2`: take
+      `δ = 1 / 2` and `L > 0`), `sq_mass_conclusion_fails` (`¬ ∀ η > 0, ∀ᶠ L in atTop, |L| ≤ η * L`: `η = 1 / 2`). Docstring:
+      with mass `O(L²)` the window hypothesis can hold while the remainder is not `o(L)`, so G158's `o(L²)` is sharp on
+      this route; nothing about the actual operator is proved. F table text: on the window route the local mass row
+      cannot be weakened past `o(L²)`.
 
 ## Foundations (long-term)
 
