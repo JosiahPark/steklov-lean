@@ -311,6 +311,11 @@
    "page": 4,
    "note": "Signs: m_{α,+} − m_{π,+} > 0 and m_{α,−} − m_{π,−} < 0 for 0 < α < π."
   },
+  "count_eq_sum_localized": {
+   "kind": "outright",
+   "page": 19,
+   "note": "Generic helper for ledger input H1 (splitting): for any normalized real spectral data (∫φ_k² = 1) and a finite weight family with Σ_j w_j = 1 (e.g. w_j = χ_j²), the eigenvalue count #{λ_k ≤ L} equals Σ_j Σ_{λ_k ≤ L} ∫ w_j φ_k² (PartitionTraceSplitting, K9; grouped as N = V + E + F in splitting_of_partition). Pure measure theory: no Dirichlet-to-Neumann eigenbasis exists in Lean, so H1 for the actual operator, the tetrahedral partition identity (K11), H2–H6 and Theorem 11.1 are not proved."
+  },
   "cs_double": {
    "kind": "outright",
    "page": 14,
