@@ -53,7 +53,7 @@ theorem edgeCut_mid (β : ℝ → ℝ) (h : IsProfile β) {ε a z : ℝ} (hε : 
 theorem edgeCut_sq_left (β : ℝ → ℝ) (h : IsProfile β) {ε a z : ℝ} (hε : 0 < ε)
     (ha : 4 * ε ≤ a) (hz : z ≤ 2 * ε) : edgeCut β ε a z ^ 2 = sin (β (z / ε)) ^ 2 := by
   unfold edgeCut
-  rw [sin_profile_of_two_le β h (two_le_div hε (by linarith)), mul_one]
+  rw [sin_profile_of_two_le β h (two_le_div (u := a - z) hε (by linarith)), mul_one]
 
 /-- **K7a.** Near `z = a` only the right factor is active. -/
 theorem edgeCut_sq_right (β : ℝ → ℝ) (h : IsProfile β) {ε a z : ℝ} (hε : 0 < ε)
