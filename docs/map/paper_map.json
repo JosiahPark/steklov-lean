@@ -216,6 +216,11 @@
    "page": 19,
    "note": "Area coefficients of the three squared-partition pieces add to √3a²/(4π)."
   },
+  "area_field_of_surface": {
+   "kind": "outright",
+   "note": "Generic helper for ledger input H2 (area): for a finite measure μ and a finite weight family with Σ_j w_j = 1 pointwise (e.g. the squared cutoffs ζ_v², χ_e², χ_f²), the vertex, edge and face area coefficients (Σ∫w)/(4π) add to μ(X)/(4π), and to areaCoeff a = √3a²/(4π) when μ(X) = √3a² (PartitionAreaAdditivity, K10a; same weights as K9). The tetrahedral partition identity (K11) and the surface measure √3a² of ∂T_a (K10b) are hypotheses; H2 for the actual operator, H4–H6 and Theorem 11.1 are not proved.",
+   "page": 19
+  },
   "band_resolvent_integral": {
    "kind": "outright",
    "page": 8,
