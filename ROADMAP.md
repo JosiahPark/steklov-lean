@@ -2799,7 +2799,7 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       shows it compiled.
       Ticked 2026-11-26 by the formalize task: STATUS PASS 1402/1402 at 9940d20 lists both theorems of
       `WeightedModelLaw` as verified (standard axioms only).
-- [ ] G163. `SteklovAudit/WeightedModelLawNonvacuous.lean` (imports `SteklovAudit.WeightedModelLaw`; new file, checked
+- [x] G163. `SteklovAudit/WeightedModelLawNonvacuous.lean` (imports `SteklovAudit.WeightedModelLaw`; new file, checked
       absent on main 2026-11-26): definition check for G162 (row 4): its hypotheses hold with a NONZERO `γ`-dependent
       weighting gap. Model (`ι = Unit`, fix `I : ℝ`): `main L = N L = L ^ 2 / (4 * Real.pi) * I`,
       `Nγ L = L ^ 2 / (4 * Real.pi) * I + γ * L`; `GammaDecomp` data `s = ∅`, `Nf L = L ^ 2 / (4 * Real.pi) * I`, `P L = L`,
@@ -2811,7 +2811,9 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       Written by the formalize task 2026-11-26 at dacd4a9 (new file; did not exist before, uncompiled at push):
       defs `wmMain`, `wmNγ`; `witness_decomp`, `witness_gap`, `witness_gap_ne`, `witness_conclusion`. Next run: tick
       if STATUS shows it compiled.
-- [ ] G164. `SteklovAudit/TetraAssemblyVertexNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyVertex`,
+      Ticked 2026-11-26 by the formalize task: STATUS PASS 1406/1406 at 04a7dff lists all 4 theorems of
+      `WeightedModelLawNonvacuous` as verified (standard axioms only).
+- [x] G164. `SteklovAudit/TetraAssemblyVertexNonvacuous.lean` (imports `SteklovAudit.TetraAssemblyVertex`,
       `SteklovAudit.TetraAssemblyFaceNonvacuous`; new file, checked absent on main 2026-11-26): definition check for G160
       (row 4): the hypotheses of `tetra_law_of_overlap_face_vertex` hold with a NONZERO vertex term on top of G161's
       nonzero face, edge and overlap remainders. Model: `vert := TetraEdgeLawNonvacuous.wsq`, `fvN L := fwN L + wsq L`,
@@ -2820,6 +2822,11 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       `vertex_witness_overlap` (`|fvN L - wsq L - fwFace L - ∑ e, fwNe e L| ≤ 1 * ε * L` eventually: rewrite
       `fvN L - wsq L = fwN L` by `unfold fvN; ring` and use `face_witness_overlap`), `vertex_witness_conclusion` (G160
       applied). F table text: the vertex-face-edges assembly is consistent with a nonzero vertex term.
+      Written by the formalize task 2026-11-26 at 8a5486c (new file; did not exist before; the roadmap note was
+      added one run later): `vertex_witness_vert`, `vertex_witness_ne`, `vertex_witness_overlap`,
+      `vertex_witness_conclusion`.
+      Ticked 2026-11-26 by the formalize task: STATUS PASS 1410/1410 at d7dbcd7 lists all 4 theorems of
+      `TetraAssemblyVertexNonvacuous` as verified (standard axioms only).
 - [ ] G165. `SteklovAudit/WindowMassSharp.lean` (imports `SteklovAudit.WindowLittleOMass`; new file, checked absent on
       main 2026-11-26): the `o(L²)` local-mass input of G158 cannot be weakened to `O(L²)` (row 3; definition check on
       the row "Localized spectral mass"). Model: `m L := L ^ 2`, `r L := L`, `C = K = ε₀ = 1`. Theorems:
@@ -2831,6 +2838,10 @@ Lemma 7.1′, (2.2), (7.29), (7.38)/(7.45), (7.49), H1–H6 or Theorem 1.3 / 11.
       with mass `O(L²)` the window hypothesis can hold while the remainder is not `o(L)`, so G158's `o(L²)` is sharp on
       this route; nothing about the actual operator is proved. F table text: on the window route the local mass row
       cannot be weakened past `o(L²)`.
+      Written by the formalize task 2026-11-26 at c42df29 (new file; did not exist before, uncompiled at push):
+      `sq_mass_window_hyp`, `sq_mass_nonneg`, `sq_mass_bounded`, `sq_mass_not_littleO_sq`,
+      `sq_mass_conclusion_fails`, `bounded_mass_insufficient` (all six hypotheses of G158 except `o(L²)`, with
+      `O(L²)` mass, and the conclusion fails). Next run: tick if STATUS shows it compiled.
 
 ## Foundations (long-term)
 
