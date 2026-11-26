@@ -1,8 +1,8 @@
 # Lean verification status: PASS
 
-Checked 2026-11-26 05:18 UTC at commit `f48dab49eb0f`. Last passing commit: `f48dab49eb0f`.
+Checked 2026-11-26 08:56 UTC at commit `ba0ea3e8dedd`. Last passing commit: `ba0ea3e8dedd`.
 
-Library declarations checked: 1427 of 1427 theorems compile with only Lean's standard axioms.
+Library declarations checked: 1438 of 1438 theorems compile with only Lean's standard axioms.
 
 Ledger inputs proved for the actual operator: 0 of 6. The other inputs are named hypotheses; the two counts are separate.
 
@@ -19,7 +19,7 @@ Named hypotheses behind the conditional main theorem (`MainConditional.lean`): 6
 - H5 edge: (11.3), fed by (7.29), (7.38)/(7.45), (9.1).
 - H6 face: Lemma 7.4 with Section 10.2.
 
-Modules audited: 243 files; files declaring theorems but with 0 audited declarations: none
+Modules audited: 244 files; files declaring theorems but with 0 audited declarations: none
 
 Escape hatches (sorry, admit, axiom, maxHeartbeats, native_decide, unsafe, opaque): none
 
@@ -1117,6 +1117,17 @@ Tautologies (proof is one of the theorem's own hypotheses): none
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_hs2` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_trace` | verified (standard axioms only) |
 | MultiChartTrace.lean | `SteklovAudit.MultiChartTrace.sharp_example_norm` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.sin_profile_of_two_le` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.two_le_div` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.edgeCut_mid` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.edgeCut_sq_left` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.edgeCut_sq_right` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.edgeCut_continuous` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.end_integral` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.end_integral_right` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.left_integral` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.mid_integral` | verified (standard axioms only) |
+| PartitionKeptLength.lean | `SteklovAudit.PartitionKeptLength.right_integral` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.cos_sq_add_sin_sq_profile` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.cos_sq_reflect` | verified (standard axioms only) |
 | PartitionProfile.lean | `SteklovAudit.PartitionProfile.integral_cos_sq` | verified (standard axioms only) |
