@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-11-26 02:19 UTC",
+  "checked_at": "2026-11-26 02:43 UTC",
   "lean_exit_code": 0,
-  "commit": "9940d20d80402c50917fd0093cbaf310ed929aa6",
-  "last_passing_commit": "9940d20d80402c50917fd0093cbaf310ed929aa6",
-  "library_declarations_checked": 1402,
-  "library_declarations": 1402,
+  "commit": "dacd4a94eefbfff9e3e2c99d0505291d5118a2a0",
+  "last_passing_commit": "dacd4a94eefbfff9e3e2c99d0505291d5118a2a0",
+  "library_declarations_checked": 1406,
+  "library_declarations": 1406,
   "ledger_inputs_proved_for_operator": 0,
   "ledger_inputs": 6,
   "build_errors": [],
-  "theorems": 1402,
-  "verified": 1402,
+  "theorems": 1406,
+  "verified": 1406,
   "problems": [],
   "modules_audited": [
     {
@@ -1161,6 +1161,11 @@
       "file": "WeightedModelLaw.lean",
       "declared": 2,
       "audited": 2
+    },
+    {
+      "file": "WeightedModelLawNonvacuous.lean",
+      "declared": 4,
+      "audited": 4
     },
     {
       "file": "WeightedToUnweighted.lean",
@@ -14889,6 +14894,46 @@
     {
       "file": "WeightedModelLaw.lean",
       "theorem": "SteklovAudit.WeightedModelLaw.unweighted_model_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLawNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedModelLawNonvacuous.witness_decomp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLawNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedModelLawNonvacuous.witness_gap",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLawNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedModelLawNonvacuous.witness_gap_ne",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "status": "verified (standard axioms only)"
+    },
+    {
+      "file": "WeightedModelLawNonvacuous.lean",
+      "theorem": "SteklovAudit.WeightedModelLawNonvacuous.witness_conclusion",
       "axioms": [
         "propext",
         "Classical.choice",
