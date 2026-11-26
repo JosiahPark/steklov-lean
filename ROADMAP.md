@@ -2868,6 +2868,9 @@ gets items once K4–K5 fix the local identification it depends on.
       shows it compiled.
 ### K-a. Ledger inputs H1–H3 from an explicit tetrahedral partition (Josiah's construction, 2026-11-26)
 
+Order set by Josiah 2026-11-26 17:20 UTC: K10b, K11b, K12, K13, then K14 (Lemma 2.1, the quadratic spectral mass
+bound (2.2)). K11 is kept directly before K12 because K12 imports `SteklovAudit.PartitionPointwise`.
+
 Added by the formalize task on 2026-11-26 at Josiah's request; these items come BEFORE K2–K5. H1 (trace splitting),
 H2 (area additivity) and H3 (edge length) of `MainConditional.lean` depend only on the partition and on orthonormality,
 not on propagation, so they can be proved for the actual tetrahedral geometry. Josiah's partition: a smooth profile `β`
@@ -2952,10 +2955,6 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       `surface_area_four_faces`, `area_field_of_faces` (named hypothesis `hfaces : μ(∂T) = 4 · area(eqTriangle a)`,
       since Lean has no surface measure on `∂T`; namespace `SteklovAudit.PartitionSurfaceArea`). Next run: tick if
       STATUS shows it compiled.
-- [ ] K11. `SteklovAudit/PartitionPointwise.lean` (imports `SteklovAudit.PartitionProfile`; new file) (pointwise
-      identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
-      supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
-      face; hence `∑_v ζ_v² + ∑_e χ_e² + ∑_f χ_f² = 1`. Finite-sum algebra with the support conditions as hypotheses.
 - [ ] K11b. `SteklovAudit/PartitionAdaptedRadius.lean` (imports `SteklovAudit.PartitionProfile`; new file) (the radius of (7.48)):
       the edge cutoff is exactly `q_ε(z) θ_γ(r)` only if the vertex radius equals the longitudinal coordinate `z` on the
       edge strips; the Euclidean distance `√(z² + r²)` does not. Theorems: structure `AdaptedRadius` (on a face, in
@@ -2963,6 +2962,10 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       `adaptedRadius_exists` (an explicit one on a face, e.g. blend `z` and `|x − v|` with the profile of K6), and
       `euclid_radius_defect` (`0 ≤ √(z² + r²) − z ≤ r² / (2z)`, hence `≤ 2γ²/ε` on the strip for `z ≥ ε`: with the
       Euclidean radius the identities of K7/K8 hold only up to `O(γ²/ε)`). Added 2026-11-26 at Josiah's request.
+- [ ] K11. `SteklovAudit/PartitionPointwise.lean` (imports `SteklovAudit.PartitionProfile`; new file) (pointwise
+      identity, algebraic core): from `c_i² + s_i² = 1` and "at most one vertex weight active" (disjoint vertex
+      supports), `∑_v ζ_v² + Q² = 1`; from "at most one edge strip active where `Q ≠ 0`", `Q² = ∑_e χ_e² + χ_f²` on a
+      face; hence `∑_v ζ_v² + ∑_e χ_e² + ∑_f χ_f² = 1`. Finite-sum algebra with the support conditions as hypotheses.
 - [ ] K12. `SteklovAudit/PartitionSupports.lean` (imports `SteklovAudit.PartitionPointwise`, `SteklovAudit.TetraWedgeLocal`
       if K4 is done; new file): the support conditions of K11 for the actual regular tetrahedron: vertex balls of
       radius `2ε` are disjoint when `4ε < a`, and for `γ/ε` small two edge strips of width `2γ` meet only inside a vertex
@@ -2972,6 +2975,40 @@ H4–H6 as the only named hypotheses (ledger 6 → 3). Nothing here touches H4�
       whose `splitting`, `area` and `length` fields are filled by K9, K10 and K7 for this partition, taking only the
       H4–H6 inputs as arguments. Report the ledger as 3 named hypotheses for this partition. Do not change
       `MainConditional.lean` or the audit script.
+- [-] K14. Lemma 2.1 (local cumulative spectral mass), the paper's (2.2): `Tr(1_F 1_[0,L](Λ_a) 1_F) ≤ C(1+L)²|F|` for
+      every measurable boundary set `F` (split 2026-11-26 into K14a–K14c; tick those, not this line). This is the
+      quadratic mass route that matches the fixed relative band `Z_h = ψ(hB)χ` of (7.29), on which the localized mass is
+      genuinely `Θ(L²)` (Josiah, 2026-11-26); it is NOT an `o(L²)`, `O(L)`, fixed-width-window or shrinking-collar
+      route. Paper proof (§2): the trace Sobolev and boundary Poincaré inequalities give the Nash inequality
+      `‖f‖₂³ ≤ C‖f‖₁(𝔞[f] + ‖f‖₂²)`; the form is Markovian; the Nash differential inequality gives
+      `‖e^{-t(Λ+1)}‖_{1→2} ≤ C t⁻¹`, duality and composition give `‖·‖_{1→∞} ≤ C t⁻²`, so the heat diagonal is
+      `≤ C t⁻²` for `0 < t ≤ 1`; then `1_[0,L](Λ) ≤ e·e^{-Λ/L}` for `L ≥ 1` and integration over `F`. The trace
+      Sobolev inequality on the Lipschitz boundary and the Markov property of the form stay named hypotheses
+      (see "Not attempted here"); no item below proves (2.2) for the actual operator, which Lean does not have.
+- [ ] K14a. `SteklovAudit/SpectralMassHeat.lean` (new file; check absent on main) (Lemma 2.1, last step: heat
+      diagonal to quadratic mass, for ANY spectral data). Data: a measure space `(X, μ)`, `s : Finset ι`, eigenvalues
+      `lam : ι → ℝ` with `0 ≤ lam k`, real eigenfunctions `φ : ι → X → ℝ`. Theorems: `one_le_exp_heat` (`0 ≤ λ ≤ L`,
+      `0 < L` give `1 ≤ exp 1 * exp (-λ / L)`); `spectral_diag_le_heat` (pointwise
+      `∑ k ∈ s.filter (lam · ≤ L), φ k x ^ 2 ≤ exp 1 * ∑ k ∈ s, exp (-lam k / L) * φ k x ^ 2`); structure
+      `HeatDiagonalBound s lam φ C` (named hypothesis: `∀ t, 0 < t → t ≤ 1 → ∀ x, ∑ k ∈ s, exp (-t * lam k) * φ k x ^ 2
+      ≤ C / t ^ 2`, the output of the Nash argument; for the semigroup of `Λ + 1` this costs a factor `e`, say so in
+      the docstring); `mass_le_of_heat` (for `L ≥ 1`, measurable `F` with `μ F < ⊤` and integrability:
+      `∑ k ∈ s.filter (lam · ≤ L), ∫ x in F, φ k x ^ 2 ∂μ ≤ exp 1 * C * L ^ 2 * (μ F).toReal`, with `t = 1/L`); and
+      `spectral_mass_quadratic` (for all `L ≥ 0`: `≤ exp 1 * C * (1 + L) ^ 2 * (μ F).toReal`, using `L = 1` and
+      monotonicity of the filter for `L < 1`). The bound is uniform in `s`, so it applies to every finite truncation
+      of an eigenbasis. Docstring: the heat-diagonal bound is a named hypothesis; (2.2) for the actual operator is not
+      proved.
+- [ ] K14b. `SteklovAudit/NashHeatDecay.lean` (new file; check absent on main) (Lemma 2.1, Nash step, finite spectral
+      data): for `f = ∑ c_k φ_k` with `u(t) = ∑ e^{-2tλ_k} c_k²`, the Nash inequality for the evolved functions as a
+      named hypothesis (`u ^ (3/2) ≤ C · ‖e^{-tΛ}f‖₁ · (-u'/2 + u)`, with `‖e^{-tΛ}f‖₁ ≤ ‖f‖₁` from the Markov property,
+      also named) gives `u(t) ≤ C' t⁻² ‖f‖₁²` for `0 < t ≤ 1` (the Nash differential inequality: compare
+      `d/dt u^{-1/2}` and integrate). Prove the scalar ODE comparison first (a real function `u > 0`, differentiable,
+      with `u ^ (3/2) ≤ A · (-u' + 2u)` on `(0, 1]` satisfies `u t ≤ C(A) / t ^ 2`); split K14b1/K14b2 if needed.
+- [ ] K14c. `SteklovAudit/HeatDiagonalDuality.lean` (new file; check absent on main) (Lemma 2.1, duality step): from
+      an `L¹ → L²` bound `‖e^{-tΛ}f‖₂ ≤ B(t)‖f‖₁` (named, the output of K14b) derive the `HeatDiagonalBound` of K14a
+      with `C = B(t/2)² · t²`, via `∑ e^{-2tλ_k} φ_k(x)² = ‖∑ e^{-tλ_k} φ_k(x) φ_k‖₂²` (orthonormality) and the
+      `L² → L^∞` dual bound. If the pointwise (a.e. `x`) step needs approximate identities that do not fit one run,
+      prove the integrated form over measurable `F` (which is all K14a uses) and say so.
 
 ### K-b. Further priority items
 
