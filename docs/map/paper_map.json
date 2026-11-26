@@ -551,6 +551,11 @@
    "page": 2,
    "note": "Consistency checks on (1.3): the coefficients of a sharp law are unique (so c in (11.4) is determined), the a² and a factors scale correctly, and the real law implies the integer-level law; applied to the conditional Theorem 11.1."
   },
+  "edge_kept_length": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Generic helper for the kept edge length in (11.5) / ledger input H3: for the explicit edge cutoff q_ε(z) = sin β(z/ε) · sin β((a − z)/ε) with a continuous transition profile β, 0 < ε and 4ε ≤ a, ∫₀ᵃ q_ε² = a − 3ε (PartitionKeptLengthTotal, K7b, from the three pieces of PartitionKeptLength, K7a). That this is the paper's edge cutoff for the adapted radius of (7.48), and H1–H3 for the actual operator, are not proved."
+  },
   "edge_law_of_gamma_family": {
    "kind": "outright",
    "note": "Generic helper for the γ → 0 order of limits behind (7.38)/(11.3): if for every cutoff γ the count is main term + o_γ(L) + C·γ·L with C uniform in γ, then N − main = o(L) (ModelEdgeLawGammaFamily). The per-γ bound, the uniformity of C and the θ_γ main term are not proved.",
@@ -1030,6 +1035,11 @@
    "kind": "conditional",
    "page": 2,
    "note": "(1.9) for every r > 0 from the sharp law (1.3) (proved for any monotone N); with the Theorem 11.1 ledger this gives (1.9) with the paper's constants, so it is conditional on H1–H6."
+  },
+  "ledger_length_integral": {
+   "kind": "outright",
+   "page": 25,
+   "note": "Six edges: |6∫₀ᵃ q_ε² − 6a| ≤ 18ε for the explicit partition's edge cutoff, the H3-type length bound with CL = 18 (PartitionKeptLengthTotal, K7b). It is a one-variable integral; the H3 field of Thm111Inputs for the actual partition, H4–H6 and Theorem 11.1 are not proved."
   },
   "length_bound": {
    "kind": "outright",
