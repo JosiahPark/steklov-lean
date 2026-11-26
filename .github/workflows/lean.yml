@@ -78,8 +78,10 @@ jobs:
           git add verification/STATUS.md verification/STATUS.json
           git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update Lean verification status"
           # main may have moved on during the build (e.g. a follow-up ROADMAP commit); rebase before pushing.
+          # A status commit from another run conflicts only in the generated verification files; -X theirs keeps
+          # this run's result (the replayed commit), so the rebase no longer aborts on those conflicts.
           for i in 1 2 3; do
-            if git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
+            if git pull --rebase -X theirs -q origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep 5
           done
@@ -101,5 +103,10 @@ jobs:
           if git diff --cached --quiet && git ls-files --error-unmatch docs/map/map.svg >/dev/null 2>&1; then echo "Map unchanged"; exit 0; fi
           git add docs/map/index.html docs/map/map.svg docs/map/README.md
           git -c user.name="lean-verify" -c user.email="lean-verify@users.noreply.github.com" commit -m "Update dependency map"
-          git pull --rebase -q origin "${GITHUB_REF_NAME}" || true
-          git push
+          # Same rebase strategy as the status step: generated map files take this run's version.
+          for i in 1 2 3; do
+            if git pull --rebase -X theirs -q origin "${GITHUB_REF_NAME}" && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "Could not push the map commit after 3 attempts"; exit 1
