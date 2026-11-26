@@ -1049,11 +1049,6 @@
    "note": "Generic helper for the order of limits in (7.29) after the Duhamel/Fourier steps: if for every window T the error is ≤ C·L/T + K·T·L·ε(1/L) with C, K uniform and ε(h)→0, it is o(L). The window and defect bounds themselves are not proved.",
    "page": 14
   },
-  "littleO_of_window_littleO_mass": {
-   "kind": "outright",
-   "note": "Generic helper for the order of limits in (7.29): the window bound C·L/T + K·T·ε₀·√(m L) with a merely BOUNDED defect ε₀ gives o(L) whenever the local spectral mass m L is o(L²), weaker than O(L) (WindowLittleOMass; strengthens littleO_of_window_bounded_defect). The window bound, the local mass bound and the defect bound are not proved.",
-   "page": 14
-  },
   "little_o_of_vanishing_tail": {
    "kind": "conditional",
    "page": 14,
